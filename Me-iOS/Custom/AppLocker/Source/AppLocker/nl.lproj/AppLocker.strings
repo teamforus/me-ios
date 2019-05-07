@@ -1,0 +1,36 @@
+
+/* Class = "UILabel"; text = "Message"; ObjectID = "BiA-iv-5oK"; */
+"BiA-iv-5oK.text" = "Message";
+
+/* Class = "UIButton"; normalTitle = "Annuleer"; ObjectID = "CIU-9Q-OSg"; */
+"CIU-9Q-OSg.normalTitle" = "Annuleer";
+
+/* Class = "UIButton"; normalTitle = "2"; ObjectID = "HJZ-BT-9eb"; */
+"HJZ-BT-9eb.normalTitle" = "2";
+
+/* Class = "UIButton"; normalTitle = "4"; ObjectID = "UJn-a6-MYe"; */
+"UJn-a6-MYe.normalTitle" = "4";
+
+/* Class = "UIButton"; normalTitle = "8"; ObjectID = "abq-s3-wbI"; */
+"abq-s3-wbI.normalTitle" = "8";
+
+/* Class = "UIButton"; normalTitle = "9"; ObjectID = "cKD-qE-N40"; */
+"cKD-qE-N40.normalTitle" = "9";
+
+/* Class = "UIButton"; normalTitle = "3"; ObjectID = "cog-Nd-UYd"; */
+"cog-Nd-UYd.normalTitle" = "3";
+
+/* Class = "UIButton"; normalTitle = "0"; ObjectID = "hQB-bP-FZg"; */
+"hQB-bP-FZg.normalTitle" = "0";
+
+/* Class = "UIButton"; normalTitle = "7"; ObjectID = "rAE-1L-zxN"; */
+"rAE-1L-zxN.normalTitle" = "7";
+
+/* Class = "UIButton"; normalTitle = "5"; ObjectID = "sva-ss-Jmv"; */
+"sva-ss-Jmv.normalTitle" = "5";
+
+/* Class = "UIButton"; normalTitle = "6"; ObjectID = "uve-ti-7ya"; */
+"uve-ti-7ya.normalTitle" = "6";
+
+/* Class = "UIButton"; normalTitle = "1"; ObjectID = "uxb-3y-6MP"; */
+"uxb-3y-6MP.normalTitle" = "1";
