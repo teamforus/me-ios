@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="G4S-af-koS">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -24,15 +24,15 @@
         </array>
     </customFonts>
     <scenes>
-        <!--Login WithQR View Controller-->
+        <!--LoginQR And Code View Controller-->
         <scene sceneID="dlD-nP-XH4">
             <objects>
-                <viewController storyboardIdentifier="content" id="NWT-t2-S5B" customClass="MALoginWithQRViewController" customModule="Me" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="content" id="NWT-t2-S5B" customClass="MLoginQRAndCodeViewController" customModule="Me_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hZD-bN-bgB">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Wa-ps-2Db" customClass="ShadowButton" customModule="Me" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Wa-ps-2Db" customClass="ShadowButton" customModule="Me_iOS" customModuleProvider="target">
                                 <rect key="frame" x="30" y="704" width="354" height="50"/>
                                 <color key="backgroundColor" red="0.20392156859999999" green="0.38823529410000002" blue="0.97254901959999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -59,8 +59,11 @@
                                         <real key="value" value="10"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="GHd-i6-BeE" kind="show" id="E0u-Jr-yqb"/>
+                                </connections>
                             </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hqF-eK-v55" customClass="CustomCornerUIView" customModule="Me" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hqF-eK-v55" customClass="CustomCornerUIView" customModule="Me_iOS" customModuleProvider="target">
                                 <rect key="frame" x="15" y="428" width="384" height="210"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="28g-vc-hfe">
@@ -203,7 +206,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DCA-Vc-6V9" customClass="ShadowButton" customModule="Me" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DCA-Vc-6V9" customClass="ShadowButton" customModule="Me_iOS" customModuleProvider="target">
                                 <rect key="frame" x="30" y="776" width="354" height="50"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -231,7 +234,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="loginWithQr:" destination="NWT-t2-S5B" eventType="touchUpInside" id="g5E-qa-kC3"/>
+                                    <action selector="loginWithQr:" destination="NWT-t2-S5B" eventType="touchUpInside" id="vll-Gg-GVB"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sTJ-Z5-xCF">
@@ -245,7 +248,7 @@
                                         <rect key="frame" x="0.0" y="12" width="58" height="55"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <connections>
-                                            <action selector="back:" destination="NWT-t2-S5B" eventType="touchUpInside" id="uMc-DE-y4Z"/>
+                                            <action selector="back:" destination="NWT-t2-S5B" eventType="touchUpInside" id="W7V-Ru-6YZ"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Registreren" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0T4-Jt-651">
@@ -287,27 +290,23 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="xuz-BQ-vOx"/>
                     </view>
-                    <connections>
-                        <outlet property="constraintBottom" destination="NU3-yD-nzq" id="rkg-3M-ato"/>
-                        <outlet property="digit1UILabel" destination="xJJ-bK-R5q" id="qih-qG-4Iz"/>
-                        <outlet property="digit2UILabel" destination="1gh-ow-xq4" id="3mI-La-3jz"/>
-                        <outlet property="digit3UILabel" destination="N7F-BT-Dk2" id="ncd-Qa-62x"/>
-                        <outlet property="digit4UILabel" destination="U0E-vI-izl" id="4ZS-F0-KPI"/>
-                        <outlet property="digit5UILabel" destination="epb-BT-EwO" id="crm-Lh-YVD"/>
-                        <outlet property="digit6UILabel" destination="aAj-UV-Hc6" id="qpo-lI-2Tc"/>
-                        <outlet property="loginWithEmailButton" destination="DCA-Vc-6V9" id="klt-D0-tfh"/>
-                        <outlet property="loginWithQRButton" destination="DCA-Vc-6V9" id="bfE-da-k9A"/>
-                        <outlet property="qrBodyView" destination="hqF-eK-v55" id="HG5-ma-lUp"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oY3-w6-mZp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-762.39999999999998" y="210.94452773613196"/>
+            <point key="canvasLocation" x="-696" y="210"/>
         </scene>
-        <!--BaseQR Profile View Controller-->
+        <!--EmailLogin-->
+        <scene sceneID="A4t-VK-Qsh">
+            <objects>
+                <viewControllerPlaceholder storyboardName="EmailLogin" id="GHd-i6-BeE" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="E4L-rc-R3q" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-13" y="210"/>
+        </scene>
+        <!--Common Pull Up View Controller-->
         <scene sceneID="McN-X9-etq">
             <objects>
-                <viewController storyboardIdentifier="general" id="G4S-af-koS" customClass="MABaseQRProfileViewController" customModule="Me" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="common" id="G4S-af-koS" customClass="CommonPullUpViewController" customModule="Me_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Csb-xy-HvK">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -319,10 +318,10 @@
             </objects>
             <point key="canvasLocation" x="-1457" y="210"/>
         </scene>
-        <!--Botom Qr Profile View Controller-->
+        <!--Common Bottom View Controller-->
         <scene sceneID="81O-gL-IrW">
             <objects>
-                <viewController storyboardIdentifier="bottom" id="rEZ-Yf-mLJ" customClass="MABotomQrProfileViewController" customModule="Me" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="bottom" id="rEZ-Yf-mLJ" customClass="CommonBottomViewController" customModule="Me_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="gGk-pI-52t"/>
                         <viewControllerLayoutGuide type="bottom" id="Tqm-yd-apq"/>
@@ -353,9 +352,6 @@
                                                 <rect key="frame" x="311" y="20" width="24" height="24"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" image="closeIcon"/>
-                                                <connections>
-                                                    <action selector="close:" destination="rEZ-Yf-mLJ" eventType="touchUpInside" id="K9p-Pm-pZW"/>
-                                                </connections>
                                             </button>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="qrImage2" translatesAutoresizingMaskIntoConstraints="NO" id="Jdx-ib-bof">
                                                 <rect key="frame" x="30" y="20" width="20" height="20"/>
@@ -405,14 +401,13 @@
                     <size key="freeformSize" width="355" height="527"/>
                     <connections>
                         <outlet property="handleView" destination="bIq-qw-2py" id="JkQ-68-fKT"/>
-                        <outlet property="qrCodeImageView" destination="5Fa-cR-cpn" id="Tgm-A1-SM4"/>
                         <outlet property="rootView" destination="jEV-Dh-ddW" id="PSQ-gc-1fU"/>
                         <outlet property="topView" destination="8ab-Ln-vy0" id="KEX-CO-SJ4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EmO-8Y-cBM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-763" y="808"/>
+            <point key="canvasLocation" x="-741" y="808"/>
         </scene>
     </scenes>
     <resources>

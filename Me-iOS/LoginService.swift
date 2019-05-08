@@ -11,6 +11,6 @@ import Foundation
 
 protocol LoginProtocol {
     
-    func login(complete: @escaping (_ loginUser: LoginUser)->() )
+//    func login(complete: @escaping (_ loginUser: LoginUser)->() )
     
 }

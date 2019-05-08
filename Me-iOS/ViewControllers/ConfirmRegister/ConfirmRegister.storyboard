@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dxs-ZW-TfE">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="GoogleSans-Bold.ttf">
+            <string>GoogleSans-Bold</string>
+        </array>
+        <array key="GoogleSans-Medium.ttf">
+            <string>GoogleSans-Medium</string>
+        </array>
+        <array key="GoogleSans-Regular.ttf">
+            <string>GoogleSans-Regular</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Register View Controller-->
+        <scene sceneID="IUl-3W-KsF">
+            <objects>
+                <viewController id="dxs-ZW-TfE" customClass="MRegisterViewController" customModule="Me_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dHY-B8-WK8">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="264-fq-LFS" customClass="ShadowButton" customModule="Me" customModuleProvider="target">
+                                <rect key="frame" x="31" y="784.5" width="354" height="54.5"/>
+                                <color key="backgroundColor" red="0.20392156859999999" green="0.38431372549999998" blue="0.96470588239999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="54.5" id="dLL-OV-kzB"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="GoogleSans-Bold" family="Google Sans" pointSize="14"/>
+                                <state key="normal" title="OPEN MAIL APP">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                        <size key="value" width="0.0" height="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="selectedShadowColor">
+                                        <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="9"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                        <real key="value" value="0.20000000000000001"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="back" translatesAutoresizingMaskIntoConstraints="NO" id="RaU-r4-wZx">
+                                <rect key="frame" x="14" y="24" width="24" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b98-O9-xVd">
+                                <rect key="frame" x="17" y="64" width="380" height="97"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="97" id="G0a-iS-Dg9"/>
+                                </constraints>
+                                <string key="text">Verify 
+your account</string>
+                                <fontDescription key="fontDescription" name="GoogleSans-Medium" family="Google Sans" pointSize="36"/>
+                                <color key="textColor" red="0.18039215689999999" green="0.1960784314" blue="0.25490196079999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S2Z-gD-Q7l">
+                                <rect key="frame" x="0.0" y="8" width="55" height="51"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="back:" destination="dxs-ZW-TfE" eventType="touchUpInside" id="HGL-oD-Qi1"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="illustration" translatesAutoresizingMaskIntoConstraints="NO" id="s8v-lc-G6T">
+                                <rect key="frame" x="0.0" y="183" width="414" height="519"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fKw-aI-bFp">
+                                <rect key="frame" x="30" y="682.5" width="361" height="61.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="61.5" id="93N-j7-vcu"/>
+                                </constraints>
+                                <string key="text">Welcome to Me, *Name Surname ! 
+Before we get started, please confirm your email address.</string>
+                                <fontDescription key="fontDescription" name="GoogleSans-Regular" family="Google Sans" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="b98-O9-xVd" firstAttribute="top" secondItem="ugv-Vf-bIU" secondAttribute="top" constant="20" id="3SO-Th-Rjg"/>
+                            <constraint firstItem="264-fq-LFS" firstAttribute="top" secondItem="fKw-aI-bFp" secondAttribute="bottom" constant="40.5" id="9g5-Wn-Mha"/>
+                            <constraint firstItem="s8v-lc-G6T" firstAttribute="top" secondItem="b98-O9-xVd" secondAttribute="bottom" constant="22" id="ArE-9F-iQK"/>
+                            <constraint firstItem="fKw-aI-bFp" firstAttribute="bottom" secondItem="s8v-lc-G6T" secondAttribute="bottom" constant="42" id="D7s-Rd-qSn"/>
+                            <constraint firstItem="ugv-Vf-bIU" firstAttribute="trailing" secondItem="fKw-aI-bFp" secondAttribute="trailing" constant="23" id="FM3-bB-xV2"/>
+                            <constraint firstItem="ugv-Vf-bIU" firstAttribute="trailing" secondItem="b98-O9-xVd" secondAttribute="trailing" constant="17" id="V5f-E2-IIe"/>
+                            <constraint firstItem="s8v-lc-G6T" firstAttribute="trailing" secondItem="ugv-Vf-bIU" secondAttribute="trailing" id="deX-9b-plg"/>
+                            <constraint firstItem="fKw-aI-bFp" firstAttribute="leading" secondItem="ugv-Vf-bIU" secondAttribute="leading" constant="30" id="g0X-s5-mu9"/>
+                            <constraint firstItem="ugv-Vf-bIU" firstAttribute="trailing" secondItem="264-fq-LFS" secondAttribute="trailing" constant="29" id="kub-mp-nVq"/>
+                            <constraint firstItem="264-fq-LFS" firstAttribute="leading" secondItem="ugv-Vf-bIU" secondAttribute="leading" constant="31" id="raD-8w-v4z"/>
+                            <constraint firstItem="s8v-lc-G6T" firstAttribute="leading" secondItem="ugv-Vf-bIU" secondAttribute="leading" id="sEk-eX-iM1"/>
+                            <constraint firstItem="b98-O9-xVd" firstAttribute="leading" secondItem="ugv-Vf-bIU" secondAttribute="leading" constant="17" id="u6a-fg-EqH"/>
+                            <constraint firstItem="ugv-Vf-bIU" firstAttribute="bottom" secondItem="264-fq-LFS" secondAttribute="bottom" constant="23" id="uEI-Et-UYT"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="ugv-Vf-bIU"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oIa-Vw-QAN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1858.4000000000001" y="1592.6536731634185"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="back" width="24" height="24"/>
+        <image name="illustration" width="375" height="349"/>
+    </resources>
+</document>

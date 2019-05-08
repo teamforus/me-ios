@@ -12,6 +12,6 @@ class CurrentSession{
     
     static let shared = CurrentSession()
     
-    var user: User!
+//    var user: User!
     var token: String!
 }

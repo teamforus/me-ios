@@ -13,5 +13,9 @@ class MLoginQRAndCodeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+    
+    @IBAction func loginWithQr(_ sender: Any) {
+        NotificationCenter.default.post(name: Notification.Name("togleStateWindow"), object: nil)
+    }
 
 }

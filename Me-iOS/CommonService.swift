@@ -19,7 +19,7 @@ class CommonService: CommonServiceProtocol {
     
     func get<T>(url: String, completion: @escaping (T) -> ()) where T : Decodable {
         
-        var request = URLRequest(url: URL(string: BaseURL.baseURL + url)!)
+        var request = URLRequest(url: URL(string: BaseURL.baseURL(url: url))!)
         request.httpMethod = "GET"
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -34,7 +34,7 @@ class CommonService: CommonServiceProtocol {
                 
                 let responseData = try decoder.decode( T.self, from: data)
                 let httpStatus = response as? HTTPURLResponse
-                complete(responseData, httpStatus!.statusCode)
+//                complete(responseData, httpStatus!.statusCode)
             } catch {}
         }
         
@@ -43,7 +43,7 @@ class CommonService: CommonServiceProtocol {
     
     func getById<T>(url: String, id: String, completion: @escaping (T) -> ()) where T : Decodable {
         
-        var request = URLRequest(url: URL(string: BaseURL.baseURL + url + id)!)
+        var request = URLRequest(url: URL(string: BaseURL.baseURL(url: url + id))!)
         request.httpMethod = "GET"
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -58,7 +58,7 @@ class CommonService: CommonServiceProtocol {
                 
                 let responseData = try decoder.decode( T.self, from: data)
                 let httpStatus = response as? HTTPURLResponse
-                complete(responseData, httpStatus!.statusCode)
+//                complete(responseData, httpStatus!.statusCode)
             } catch {}
         }
         

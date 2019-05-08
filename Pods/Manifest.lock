@@ -1,0 +1,16 @@
+PODS:
+  - ISHPullUp (1.0.7)
+
+DEPENDENCIES:
+  - ISHPullUp
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - ISHPullUp
+
+SPEC CHECKSUMS:
+  ISHPullUp: eaa91bef06270264e1f923bc764705173d341495
+
+PODFILE CHECKSUM: 584d7ef6220dab6268ad5fbd55f575e66f9ac598
+
+COCOAPODS: 1.6.1
