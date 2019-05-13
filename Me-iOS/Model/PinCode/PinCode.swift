@@ -10,6 +10,7 @@ import Foundation
 
 struct PinCode: Decodable {
     
-    var auth_code: String?
+    var auth_code: Int?
+    var exchange_token: String?
     var access_token: String?
 }

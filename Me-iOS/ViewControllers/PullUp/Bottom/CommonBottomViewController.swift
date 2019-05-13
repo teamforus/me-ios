@@ -9,20 +9,87 @@
 import UIKit
 import ISHPullUp
 
-class CommonBottomViewController: UIViewController {
+public enum QRType{
+    case AuthToken
+    case Voucher
+    case Record
+}
 
+class CommonBottomViewController: UIViewController {
+    
     @IBOutlet private weak var handleView: ISHPullUpHandleView!
     @IBOutlet private weak var rootView: UIView!
     @IBOutlet private weak var topView: UIView!
+    @IBOutlet weak var qrCodeImageView: UIImageView!
     
+    
+    var timer : Timer! = Timer()
     private var firstAppearanceCompleted = false
     weak var pullUpController: ISHPullUpViewController!
     private var halfWayPoint = CGFloat(0)
+    var qrType: QRType! = QRType.AuthToken
+    lazy var bottomQRViewModel: CommonBottomViewModel! = {
+        return CommonBottomViewModel()
+    }()
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        NotificationCenter.default.addObserver(self, selector: #selector(toglePullUpView), name: Notification.Name("togleStateWindow"), object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(toglePullUpView), name: NotificationName.TogleStateWindow, object: nil)
+        
+        switch qrType {
+        case .AuthToken?:
+            
+            bottomQRViewModel.completeToken = { [weak self] (token) in
+                
+                DispatchQueue.main.async {
+                    
+                    self?.qrCodeImageView.generateQRCode(from: "{ \"type\": \"auth_token\",\"value\": \"\(token)\" }")
+                    self?.timer = Timer.scheduledTimer(timeInterval: 10, target: self!, selector: #selector(self?.checkAuthorizeToken), userInfo: nil, repeats: true)
+                }
+                
+            }
+            
+            bottomQRViewModel.initFetchQrToken()
+            
+            break
+        case .Voucher?:
+            
+            bottomQRViewModel.completeVoucher = { [weak self] (token) in
+                
+                self?.qrCodeImageView.generateQRCode(from: "{ \"type\": \"voucher\",\"value\": \"\(token)\" }")
+            }
+            
+            break
+        case .Record?:
+            
+            bottomQRViewModel.completeRecord = { [weak self] (token) in
+                
+                self?.qrCodeImageView.generateQRCode(from: "{ \"type\": \"record\",\"value\": \"\(token)\" }")
+            }
+            
+            break
+        default:
+            break
+        }
+    }
+    
+    @objc func checkAuthorizeToken(){
+        
+        bottomQRViewModel.completeAuthorize = { [weak self] (message) in
+            
+            DispatchQueue.main.async {
+                if message == "active"{
+                    self?.timer.invalidate()
+                     NotificationCenter.default.post(name: NotificationName.LoginQR, object: nil)
+                }
+            }
+            
+        }
+        
+        bottomQRViewModel.initAuthorizeToken(token: "")
     }
     
     @objc func toglePullUpView(){
@@ -34,17 +101,13 @@ class CommonBottomViewController: UIViewController {
         pullUpController.toggleState(animated: true)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func close(_ sender: Any) {
+        if pullUpController.state == .expanded || pullUpController.state == .intermediate{
+            pullUpController.toggleState(animated: true)
+            self.view.isHidden = true
+        }
     }
-    */
-
+    
 }
 
 extension CommonBottomViewController: ISHPullUpStateDelegate, ISHPullUpSizingDelegate{

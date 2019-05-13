@@ -290,6 +290,15 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="xuz-BQ-vOx"/>
                     </view>
+                    <connections>
+                        <outletCollection property="labels" destination="xJJ-bK-R5q" collectionClass="NSMutableArray" id="6fC-Ty-2Ts"/>
+                        <outletCollection property="labels" destination="1gh-ow-xq4" collectionClass="NSMutableArray" id="uTv-Ra-A6I"/>
+                        <outletCollection property="labels" destination="N7F-BT-Dk2" collectionClass="NSMutableArray" id="QsB-15-TKL"/>
+                        <outletCollection property="labels" destination="U0E-vI-izl" collectionClass="NSMutableArray" id="Vzy-PR-Un4"/>
+                        <outletCollection property="labels" destination="epb-BT-EwO" collectionClass="NSMutableArray" id="thi-4L-F0r"/>
+                        <outletCollection property="labels" destination="aAj-UV-Hc6" collectionClass="NSMutableArray" id="Arl-63-ncm"/>
+                        <segue destination="aN4-sf-x0J" kind="show" identifier="goToMain" id="gty-bA-geb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oY3-w6-mZp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -301,7 +310,15 @@
                 <viewControllerPlaceholder storyboardName="EmailLogin" id="GHd-i6-BeE" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E4L-rc-R3q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-13" y="210"/>
+            <point key="canvasLocation" x="-13" y="181"/>
+        </scene>
+        <!--Main-->
+        <scene sceneID="N43-cV-2F7">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Main" id="aN4-sf-x0J" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="q0P-HN-yAa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-39" y="238"/>
         </scene>
         <!--Common Pull Up View Controller-->
         <scene sceneID="McN-X9-etq">
@@ -352,6 +369,9 @@
                                                 <rect key="frame" x="311" y="20" width="24" height="24"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" image="closeIcon"/>
+                                                <connections>
+                                                    <action selector="close:" destination="rEZ-Yf-mLJ" eventType="touchUpInside" id="CCf-jD-sO7"/>
+                                                </connections>
                                             </button>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="qrImage2" translatesAutoresizingMaskIntoConstraints="NO" id="Jdx-ib-bof">
                                                 <rect key="frame" x="30" y="20" width="20" height="20"/>
@@ -401,6 +421,7 @@
                     <size key="freeformSize" width="355" height="527"/>
                     <connections>
                         <outlet property="handleView" destination="bIq-qw-2py" id="JkQ-68-fKT"/>
+                        <outlet property="qrCodeImageView" destination="5Fa-cR-cpn" id="JoC-ti-GDv"/>
                         <outlet property="rootView" destination="jEV-Dh-ddW" id="PSQ-gc-1fU"/>
                         <outlet property="topView" destination="8ab-Ln-vy0" id="KEX-CO-SJ4"/>
                     </connections>
