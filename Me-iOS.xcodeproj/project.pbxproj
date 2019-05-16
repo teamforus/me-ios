@@ -50,6 +50,17 @@
 		657DBA4C2289880A00C67500 /* AuthorizationQRToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657DBA4B2289880A00C67500 /* AuthorizationQRToken.swift */; };
 		657DBA4E228993E200C67500 /* StatusService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657DBA4D228993E200C67500 /* StatusService.swift */; };
 		657DBA512289973C00C67500 /* NotificationName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657DBA502289973C00C67500 /* NotificationName.swift */; };
+		65911B46228D7DBC00EA30D6 /* MWaletVoucherTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65911B45228D7DBC00EA30D6 /* MWaletVoucherTableViewCell.swift */; };
+		65911B48228D892800EA30D6 /* Voucher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65911B47228D892800EA30D6 /* Voucher.swift */; };
+		65911B4A228D899700EA30D6 /* Fund.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65911B49228D899700EA30D6 /* Fund.swift */; };
+		65911B4C228D8E4200EA30D6 /* Organization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65911B4B228D8E4200EA30D6 /* Organization.swift */; };
+		65911B4E228D8EAE00EA30D6 /* Logo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65911B4D228D8EAE00EA30D6 /* Logo.swift */; };
+		65911B50228D8F2900EA30D6 /* ProductCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65911B4F228D8F2900EA30D6 /* ProductCategory.swift */; };
+		65911B52228D8FC800EA30D6 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65911B51228D8FC800EA30D6 /* Transaction.swift */; };
+		65911B54228D900500EA30D6 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65911B53228D900500EA30D6 /* Product.swift */; };
+		65911B56228D904C00EA30D6 /* AllowedOrganization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65911B55228D904C00EA30D6 /* AllowedOrganization.swift */; };
+		65911B58228D912900EA30D6 /* AllowedProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65911B57228D912900EA30D6 /* AllowedProduct.swift */; };
+		65911B5A228D91BC00EA30D6 /* Office.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65911B59228D91BC00EA30D6 /* Office.swift */; };
 		65A8B6EA2282CBDC00B7DF05 /* CommonPullUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A8B6E92282CBDC00B7DF05 /* CommonPullUpViewController.swift */; };
 		65A8B6EC2282CD7E00B7DF05 /* String+Substring.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A8B6EB2282CD7E00B7DF05 /* String+Substring.swift */; };
 		65A8B6EE2282CE4500B7DF05 /* CommonBottomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A8B6ED2282CE4500B7DF05 /* CommonBottomViewController.swift */; };
@@ -88,6 +99,11 @@
 		65A8B7452282EDEB00B7DF05 /* EmailLogin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65A8B7442282EDEB00B7DF05 /* EmailLogin.storyboard */; };
 		65A8B7472282EE7B00B7DF05 /* MSuccessEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A8B7462282EE7B00B7DF05 /* MSuccessEmailViewController.swift */; };
 		65A8B7492282EE8500B7DF05 /* SuccessEmail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65A8B7482282EE8500B7DF05 /* SuccessEmail.storyboard */; };
+		65CF407B228C0B8F0006F5DE /* Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CF407A228C0B8F0006F5DE /* Register.swift */; };
+		65CF407D228C0BBD0006F5DE /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CF407C228C0BBD0006F5DE /* Errors.swift */; };
+		65CF407F228C0C6A0006F5DE /* Identity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CF407E228C0C6A0006F5DE /* Identity.swift */; };
+		65CF4081228C0CAB0006F5DE /* RecordsIndentity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CF4080228C0CAB0006F5DE /* RecordsIndentity.swift */; };
+		65CF408B228C1CC90006F5DE /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CF408A228C1CC90006F5DE /* APIService.swift */; };
 		CECB06D5C049466A525F37E6 /* Pods_Me_iOSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A89BE88EEB1A6C3C9A22BE7 /* Pods_Me_iOSUITests.framework */; };
 		CF22307B8167F520952552BE /* Pods_Me_iOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1ABB0BB041DF2B085D794CD5 /* Pods_Me_iOSTests.framework */; };
 		E234190710AA58EB6F4C206A /* Pods_Me_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43960597C5DD3C7D7D6E0BF0 /* Pods_Me_iOS.framework */; };
@@ -166,6 +182,17 @@
 		657DBA4B2289880A00C67500 /* AuthorizationQRToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationQRToken.swift; sourceTree = "<group>"; };
 		657DBA4D228993E200C67500 /* StatusService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusService.swift; sourceTree = "<group>"; };
 		657DBA502289973C00C67500 /* NotificationName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationName.swift; sourceTree = "<group>"; };
+		65911B45228D7DBC00EA30D6 /* MWaletVoucherTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MWaletVoucherTableViewCell.swift; sourceTree = "<group>"; };
+		65911B47228D892800EA30D6 /* Voucher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Voucher.swift; sourceTree = "<group>"; };
+		65911B49228D899700EA30D6 /* Fund.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fund.swift; sourceTree = "<group>"; };
+		65911B4B228D8E4200EA30D6 /* Organization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Organization.swift; sourceTree = "<group>"; };
+		65911B4D228D8EAE00EA30D6 /* Logo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logo.swift; sourceTree = "<group>"; };
+		65911B4F228D8F2900EA30D6 /* ProductCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCategory.swift; sourceTree = "<group>"; };
+		65911B51228D8FC800EA30D6 /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
+		65911B53228D900500EA30D6 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		65911B55228D904C00EA30D6 /* AllowedOrganization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllowedOrganization.swift; sourceTree = "<group>"; };
+		65911B57228D912900EA30D6 /* AllowedProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllowedProduct.swift; sourceTree = "<group>"; };
+		65911B59228D91BC00EA30D6 /* Office.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Office.swift; sourceTree = "<group>"; };
 		65A8B6E92282CBDC00B7DF05 /* CommonPullUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonPullUpViewController.swift; sourceTree = "<group>"; };
 		65A8B6EB2282CD7E00B7DF05 /* String+Substring.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Substring.swift"; sourceTree = "<group>"; };
 		65A8B6ED2282CE4500B7DF05 /* CommonBottomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonBottomViewController.swift; sourceTree = "<group>"; };
@@ -204,6 +231,11 @@
 		65A8B7442282EDEB00B7DF05 /* EmailLogin.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EmailLogin.storyboard; sourceTree = "<group>"; };
 		65A8B7462282EE7B00B7DF05 /* MSuccessEmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSuccessEmailViewController.swift; sourceTree = "<group>"; };
 		65A8B7482282EE8500B7DF05 /* SuccessEmail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SuccessEmail.storyboard; sourceTree = "<group>"; };
+		65CF407A228C0B8F0006F5DE /* Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Register.swift; sourceTree = "<group>"; };
+		65CF407C228C0BBD0006F5DE /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
+		65CF407E228C0C6A0006F5DE /* Identity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identity.swift; sourceTree = "<group>"; };
+		65CF4080228C0CAB0006F5DE /* RecordsIndentity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordsIndentity.swift; sourceTree = "<group>"; };
+		65CF408A228C1CC90006F5DE /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		B28B23E09EB36C61675A84C4 /* Pods-Me-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Me-iOS.debug.xcconfig"; path = "Target Support Files/Pods-Me-iOS/Pods-Me-iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		B70E502D6FE61D276D1C2E49 /* Pods-Me-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Me-iOS.release.xcconfig"; path = "Target Support Files/Pods-Me-iOS/Pods-Me-iOS.release.xcconfig"; sourceTree = "<group>"; };
 		CA1908806607F2B5393C2931 /* Pods-Me-iOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Me-iOSTests.debug.xcconfig"; path = "Target Support Files/Pods-Me-iOSTests/Pods-Me-iOSTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -388,9 +420,10 @@
 		657DBA422289821B00C67500 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				65139C7222802EFF003E0CDE /* LoginService.swift */,
 				65139C7622803197003E0CDE /* CommonService.swift */,
-				657DBA4D228993E200C67500 /* StatusService.swift */,
+				65CF4082228C0FDC0006F5DE /* LoginService */,
+				65CF4083228C0FE40006F5DE /* StatusService */,
+				65CF408A228C1CC90006F5DE /* APIService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -401,7 +434,21 @@
 				657DBA3E22897C3500C67500 /* ResponseDataArray.swift */,
 				657DBA3F22897C3500C67500 /* ResponseData.swift */,
 				657DBA442289822C00C67500 /* PinCode */,
-				657DBA4B2289880A00C67500 /* AuthorizationQRToken.swift */,
+				65CF4089228C10150006F5DE /* QRToken */,
+				65CF4084228C0FEB0006F5DE /* Register */,
+				65CF4085228C0FF20006F5DE /* Indenty */,
+				65CF4086228C0FF90006F5DE /* RecordsIndenty */,
+				65CF4088228C10080006F5DE /* Errors */,
+				65911B5B228D925800EA30D6 /* Voucher */,
+				65911B5C228D925E00EA30D6 /* Transaction */,
+				65911B5D228D928400EA30D6 /* Product */,
+				65911B5E228D928C00EA30D6 /* AllowedOrganization&Category */,
+				65911B60228D92B700EA30D6 /* AllowedProduct */,
+				65911B61228D92C100EA30D6 /* Office */,
+				65911B62228D92C600EA30D6 /* Fund */,
+				65911B63228D92D000EA30D6 /* Organization */,
+				65911B64228D92D900EA30D6 /* Logo */,
+				65911B65228D92E000EA30D6 /* ProductCategory */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -438,6 +485,86 @@
 				657DBA492289871400C67500 /* CommonBottomViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		65911B5B228D925800EA30D6 /* Voucher */ = {
+			isa = PBXGroup;
+			children = (
+				65911B47228D892800EA30D6 /* Voucher.swift */,
+			);
+			path = Voucher;
+			sourceTree = "<group>";
+		};
+		65911B5C228D925E00EA30D6 /* Transaction */ = {
+			isa = PBXGroup;
+			children = (
+				65911B51228D8FC800EA30D6 /* Transaction.swift */,
+			);
+			path = Transaction;
+			sourceTree = "<group>";
+		};
+		65911B5D228D928400EA30D6 /* Product */ = {
+			isa = PBXGroup;
+			children = (
+				65911B53228D900500EA30D6 /* Product.swift */,
+			);
+			path = Product;
+			sourceTree = "<group>";
+		};
+		65911B5E228D928C00EA30D6 /* AllowedOrganization&Category */ = {
+			isa = PBXGroup;
+			children = (
+				65911B55228D904C00EA30D6 /* AllowedOrganization.swift */,
+			);
+			path = "AllowedOrganization&Category";
+			sourceTree = "<group>";
+		};
+		65911B60228D92B700EA30D6 /* AllowedProduct */ = {
+			isa = PBXGroup;
+			children = (
+				65911B57228D912900EA30D6 /* AllowedProduct.swift */,
+			);
+			path = AllowedProduct;
+			sourceTree = "<group>";
+		};
+		65911B61228D92C100EA30D6 /* Office */ = {
+			isa = PBXGroup;
+			children = (
+				65911B59228D91BC00EA30D6 /* Office.swift */,
+			);
+			path = Office;
+			sourceTree = "<group>";
+		};
+		65911B62228D92C600EA30D6 /* Fund */ = {
+			isa = PBXGroup;
+			children = (
+				65911B49228D899700EA30D6 /* Fund.swift */,
+			);
+			path = Fund;
+			sourceTree = "<group>";
+		};
+		65911B63228D92D000EA30D6 /* Organization */ = {
+			isa = PBXGroup;
+			children = (
+				65911B4B228D8E4200EA30D6 /* Organization.swift */,
+			);
+			path = Organization;
+			sourceTree = "<group>";
+		};
+		65911B64228D92D900EA30D6 /* Logo */ = {
+			isa = PBXGroup;
+			children = (
+				65911B4D228D8EAE00EA30D6 /* Logo.swift */,
+			);
+			path = Logo;
+			sourceTree = "<group>";
+		};
+		65911B65228D92E000EA30D6 /* ProductCategory */ = {
+			isa = PBXGroup;
+			children = (
+				65911B4F228D8F2900EA30D6 /* ProductCategory.swift */,
+			);
+			path = ProductCategory;
 			sourceTree = "<group>";
 		};
 		65A8B6E72282CB9800B7DF05 /* LoginQRandCode */ = {
@@ -505,6 +632,7 @@
 			isa = PBXGroup;
 			children = (
 				65A8B70C2282E19400B7DF05 /* MVouchersViewController.swift */,
+				65911B45228D7DBC00EA30D6 /* MWaletVoucherTableViewCell.swift */,
 				65A8B7372282EBF900B7DF05 /* ViewModel */,
 			);
 			path = Vouchers;
@@ -658,6 +786,62 @@
 				65A8B7442282EDEB00B7DF05 /* EmailLogin.storyboard */,
 			);
 			path = EmailLogin;
+			sourceTree = "<group>";
+		};
+		65CF4082228C0FDC0006F5DE /* LoginService */ = {
+			isa = PBXGroup;
+			children = (
+				65139C7222802EFF003E0CDE /* LoginService.swift */,
+			);
+			path = LoginService;
+			sourceTree = "<group>";
+		};
+		65CF4083228C0FE40006F5DE /* StatusService */ = {
+			isa = PBXGroup;
+			children = (
+				657DBA4D228993E200C67500 /* StatusService.swift */,
+			);
+			path = StatusService;
+			sourceTree = "<group>";
+		};
+		65CF4084228C0FEB0006F5DE /* Register */ = {
+			isa = PBXGroup;
+			children = (
+				65CF407A228C0B8F0006F5DE /* Register.swift */,
+			);
+			path = Register;
+			sourceTree = "<group>";
+		};
+		65CF4085228C0FF20006F5DE /* Indenty */ = {
+			isa = PBXGroup;
+			children = (
+				65CF407E228C0C6A0006F5DE /* Identity.swift */,
+			);
+			path = Indenty;
+			sourceTree = "<group>";
+		};
+		65CF4086228C0FF90006F5DE /* RecordsIndenty */ = {
+			isa = PBXGroup;
+			children = (
+				65CF4080228C0CAB0006F5DE /* RecordsIndentity.swift */,
+			);
+			path = RecordsIndenty;
+			sourceTree = "<group>";
+		};
+		65CF4088228C10080006F5DE /* Errors */ = {
+			isa = PBXGroup;
+			children = (
+				65CF407C228C0BBD0006F5DE /* Errors.swift */,
+			);
+			path = Errors;
+			sourceTree = "<group>";
+		};
+		65CF4089228C10150006F5DE /* QRToken */ = {
+			isa = PBXGroup;
+			children = (
+				657DBA4B2289880A00C67500 /* AuthorizationQRToken.swift */,
+			);
+			path = QRToken;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -825,12 +1009,14 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Me-iOS/Pods-Me-iOS-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/ISHPullUp/ISHPullUp.framework",
+				"${BUILT_PRODUCTS_DIR}/SkyFloatingLabelTextField/SkyFloatingLabelTextField.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ISHPullUp.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SkyFloatingLabelTextField.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -912,7 +1098,10 @@
 			files = (
 				65139C7322802EFF003E0CDE /* LoginService.swift in Sources */,
 				65A8B70F2282E19F00B7DF05 /* MQRViewController.swift in Sources */,
+				65911B4C228D8E4200EA30D6 /* Organization.swift in Sources */,
+				65CF408B228C1CC90006F5DE /* APIService.swift in Sources */,
 				657DBA4A2289871400C67500 /* CommonBottomViewModel.swift in Sources */,
+				65911B54228D900500EA30D6 /* Product.swift in Sources */,
 				65A8B6F02282DB0200B7DF05 /* Extension+UIViewController.swift in Sources */,
 				65A8B71E2282E6BF00B7DF05 /* MVoucherViewController.swift in Sources */,
 				65A8B7282282EB8D00B7DF05 /* RegisterViewModel.swift in Sources */,
@@ -920,31 +1109,42 @@
 				65A8B7062282DE3D00B7DF05 /* MConfirmRegisterViewController.swift in Sources */,
 				65139C0E22802546003E0CDE /* Me_iOS.xcdatamodeld in Sources */,
 				65A8B7192282E52D00B7DF05 /* MProductVoucherViewController.swift in Sources */,
+				65CF407F228C0C6A0006F5DE /* Identity.swift in Sources */,
 				65139C7922803349003E0CDE /* CurrentSession.swift in Sources */,
 				65139C63228029EF003E0CDE /* CustomCornerUIView.swift in Sources */,
+				65911B50228D8F2900EA30D6 /* ProductCategory.swift in Sources */,
+				65CF407B228C0B8F0006F5DE /* Register.swift in Sources */,
 				65A8B7252282EADE00B7DF05 /* MPaymentViewController.swift in Sources */,
 				65A8B7302282EBD000B7DF05 /* ProductVoucherViewModel.swift in Sources */,
 				65A8B6EE2282CE4500B7DF05 /* CommonBottomViewController.swift in Sources */,
 				65139C5F228029EF003E0CDE /* ShadowButton.swift in Sources */,
 				657DBA46228983CB00C67500 /* Extension+UIImageView.swift in Sources */,
 				65139C64228029EF003E0CDE /* CornerImageView.swift in Sources */,
+				65911B4E228D8EAE00EA30D6 /* Logo.swift in Sources */,
 				65139C61228029EF003E0CDE /* Formater.swift in Sources */,
+				65911B46228D7DBC00EA30D6 /* MWaletVoucherTableViewCell.swift in Sources */,
 				65139C54228029C0003E0CDE /* UI.swift in Sources */,
 				65139C6B22802C25003E0CDE /* MLoginQRAndCodeViewController.swift in Sources */,
 				65139C0622802545003E0CDE /* AppDelegate.swift in Sources */,
+				65911B5A228D91BC00EA30D6 /* Office.swift in Sources */,
+				65911B56228D904C00EA30D6 /* AllowedOrganization.swift in Sources */,
 				65A8B6EA2282CBDC00B7DF05 /* CommonPullUpViewController.swift in Sources */,
 				65A8B6F22282DB9500B7DF05 /* MANavicationController.swift in Sources */,
 				657DBA4122897C3500C67500 /* ResponseData.swift in Sources */,
 				65139C3C2280273E003E0CDE /* ScanWorker.swift in Sources */,
 				657DBA4C2289880A00C67500 /* AuthorizationQRToken.swift in Sources */,
+				65911B58228D912900EA30D6 /* AllowedProduct.swift in Sources */,
 				65139C62228029EF003E0CDE /* SwitchCustom.swift in Sources */,
 				65A8B6EC2282CD7E00B7DF05 /* String+Substring.swift in Sources */,
 				65139C60228029EF003E0CDE /* RoundImageView.swift in Sources */,
 				65139C53228029C0003E0CDE /* AppLocker.swift in Sources */,
 				65139C3D2280273E003E0CDE /* HSScanViewController.swift in Sources */,
 				65139C3E2280273E003E0CDE /* HSDefaultScanView.swift in Sources */,
+				65911B4A228D899700EA30D6 /* Fund.swift in Sources */,
 				65A8B70D2282E19400B7DF05 /* MVouchersViewController.swift in Sources */,
+				65CF4081228C0CAB0006F5DE /* RecordsIndentity.swift in Sources */,
 				65139C3B2280273E003E0CDE /* ScanPermission.swift in Sources */,
+				65911B52228D8FC800EA30D6 /* Transaction.swift in Sources */,
 				657DBA4E228993E200C67500 /* StatusService.swift in Sources */,
 				65139C7122802E7E003E0CDE /* LoginQrAndCodeViewModel.swift in Sources */,
 				65A8B6F42282DBF400B7DF05 /* MRegisterViewController.swift in Sources */,
@@ -953,6 +1153,7 @@
 				65A8B7112282E1A900B7DF05 /* MRecordsViewController.swift in Sources */,
 				65139C7522802F25003E0CDE /* PinCode.swift in Sources */,
 				65139C66228029EF003E0CDE /* PausedMarqueLabel.swift in Sources */,
+				65911B48228D892800EA30D6 /* Voucher.swift in Sources */,
 				65A8B73B2282EC3800B7DF05 /* PaymentViewModel.swift in Sources */,
 				65A8B72C2282EBAE00B7DF05 /* QRViewModel.swift in Sources */,
 				65139C7B228034DA003E0CDE /* BaseURL.swift in Sources */,
@@ -960,6 +1161,7 @@
 				65A8B7322282EBDC00B7DF05 /* VoucherViewModel.swift in Sources */,
 				657DBA512289973C00C67500 /* NotificationName.swift in Sources */,
 				65A8B7432282EDDD00B7DF05 /* MEmailLoginViewController.swift in Sources */,
+				65CF407D228C0BBD0006F5DE /* Errors.swift in Sources */,
 				657DBA4022897C3500C67500 /* ResponseDataArray.swift in Sources */,
 				65139C7722803197003E0CDE /* CommonService.swift in Sources */,
 				65A8B72A2282EBA000B7DF05 /* VouchersViewModel.swift in Sources */,

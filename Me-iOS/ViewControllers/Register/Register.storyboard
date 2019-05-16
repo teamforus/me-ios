@@ -76,7 +76,7 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
-                                                    <segue destination="HyN-f0-UZV" kind="show" id="Pl0-ZU-6Nw"/>
+                                                    <action selector="done:" destination="eQh-KM-cO0" eventType="touchUpInside" id="lGK-am-leW"/>
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Me" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rbq-Ie-Lnh">
@@ -122,6 +122,9 @@
                                                         <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="validateEmailFieldWithTextField:" destination="eQh-KM-cO0" eventType="editingChanged" id="XFe-49-otv"/>
+                                                </connections>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DCL-uA-iFv">
                                                 <rect key="frame" x="0.0" y="9" width="56" height="38"/>
@@ -163,6 +166,9 @@
                                                         <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="validateEmailFieldWithTextField:" destination="eQh-KM-cO0" eventType="editingChanged" id="V6v-Z7-bEh"/>
+                                                </connections>
                                             </textField>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -198,6 +204,16 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="sd1-xP-J12"/>
                     </view>
+                    <connections>
+                        <outlet property="confirmEmailField" destination="qPc-d9-Inn" id="6oY-YJ-3U5"/>
+                        <outlet property="doneButton" destination="pg8-Af-07x" id="0Wa-Pl-OUV"/>
+                        <outlet property="firstNameField" destination="snF-AT-908" id="ITJ-V5-cvb"/>
+                        <outlet property="lastNameField" destination="5L9-FS-NoH" id="Z80-DF-sWy"/>
+                        <outlet property="primaryEmailField" destination="qeS-nT-vlt" id="6cC-WK-egM"/>
+                        <outlet property="validationConfirmEmail" destination="tMW-j0-viJ" id="apW-bP-uP8"/>
+                        <outlet property="validationPrimaryEmail" destination="Bp7-aO-bUg" id="V4p-np-p1R"/>
+                        <segue destination="HyN-f0-UZV" kind="show" identifier="goToConfirm" id="4eX-GT-k0C"/>
+                    </connections>
                 </viewController>
                 <tapGestureRecognizer id="VyD-w6-8cX"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hJ7-P1-WaH" userLabel="First Responder" sceneMemberID="firstResponder"/>

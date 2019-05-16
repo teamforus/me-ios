@@ -297,7 +297,7 @@
                         <outletCollection property="labels" destination="U0E-vI-izl" collectionClass="NSMutableArray" id="Vzy-PR-Un4"/>
                         <outletCollection property="labels" destination="epb-BT-EwO" collectionClass="NSMutableArray" id="thi-4L-F0r"/>
                         <outletCollection property="labels" destination="aAj-UV-Hc6" collectionClass="NSMutableArray" id="Arl-63-ncm"/>
-                        <segue destination="aN4-sf-x0J" kind="show" identifier="goToMain" id="gty-bA-geb"/>
+                        <segue destination="aN4-sf-x0J" kind="modal" identifier="goToMain" id="gty-bA-geb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oY3-w6-mZp" userLabel="First Responder" sceneMemberID="firstResponder"/>

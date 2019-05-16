@@ -25,6 +25,7 @@ class CommonBottomViewController: UIViewController {
     
     var timer : Timer! = Timer()
     private var firstAppearanceCompleted = false
+    var token: String!
     weak var pullUpController: ISHPullUpViewController!
     private var halfWayPoint = CGFloat(0)
     var qrType: QRType! = QRType.AuthToken
@@ -42,14 +43,15 @@ class CommonBottomViewController: UIViewController {
         switch qrType {
         case .AuthToken?:
             
-            bottomQRViewModel.completeToken = { [weak self] (token) in
+            bottomQRViewModel.completeToken = { [weak self] (token, accessToken) in
                 
                 DispatchQueue.main.async {
                     
                     self?.qrCodeImageView.generateQRCode(from: "{ \"type\": \"auth_token\",\"value\": \"\(token)\" }")
                     self?.timer = Timer.scheduledTimer(timeInterval: 10, target: self!, selector: #selector(self?.checkAuthorizeToken), userInfo: nil, repeats: true)
+                    self?.token = accessToken
+                    
                 }
-                
             }
             
             bottomQRViewModel.initFetchQrToken()
@@ -83,13 +85,15 @@ class CommonBottomViewController: UIViewController {
             DispatchQueue.main.async {
                 if message == "active"{
                     self?.timer.invalidate()
+                    UserDefaults.standard.set(self?.token, forKey: "TOKEN")
+                    UserDefaults.standard.synchronize()
                      NotificationCenter.default.post(name: NotificationName.LoginQR, object: nil)
                 }
             }
             
         }
+        bottomQRViewModel.initAuthorizeToken(token: token)
         
-        bottomQRViewModel.initAuthorizeToken(token: "")
     }
     
     @objc func toglePullUpView(){

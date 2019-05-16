@@ -13,7 +13,7 @@ class CommonBottomViewModel{
     var commonService: CommonServiceProtocol!
     var statusService: StatusServiceProtocol!
     
-    var completeToken: ((String)->())!
+    var completeToken: ((String, String)->())!
     var completeVoucher: ((String)->())!
     var completeRecord: ((String)->())!
     var completeAuthorize: ((String)->())!
@@ -26,7 +26,7 @@ class CommonBottomViewModel{
     func initFetchQrToken(){
         
         self.commonService.post(request: "identity/proxy/token") { (response: AuthorizationQRToken, statusCode) in
-            self.completeToken(response.auth_token ?? "")
+            self.completeToken(response.auth_token ?? "", response.access_token ?? "")
         }
         
     }
@@ -41,9 +41,9 @@ class CommonBottomViewModel{
     }
     
     func initAuthorizeToken(token: String){
-        statusService.checkStatus(request: token, complete: { [weak self] (response, statusCOde) in
+        self.statusService.checkStatus(request: token, complete: {  (response, statusCOde) in
             
-            self?.completeAuthorize(response.message ?? "")
+            self.completeAuthorize?(response.message ?? "")
             
         }) { (error) in
             

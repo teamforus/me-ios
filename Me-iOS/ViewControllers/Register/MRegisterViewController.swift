@@ -7,22 +7,125 @@
 //
 
 import UIKit
+import SkyFloatingLabelTextField
 
 class MRegisterViewController: UIViewController {
-
+    @IBOutlet weak var primaryEmailField: SkyFloatingLabelTextField!
+    @IBOutlet weak var confirmEmailField: SkyFloatingLabelTextField!
+    @IBOutlet weak var firstNameField: SkyFloatingLabelTextField!
+    @IBOutlet weak var lastNameField: SkyFloatingLabelTextField!
+    @IBOutlet weak var validationPrimaryEmail: UIImageView!
+    @IBOutlet weak var validationConfirmEmail: UIImageView!
+    @IBOutlet weak var doneButton: ShadowButton!
+    
+    lazy var registerViewModel: RegisterViewModel = {
+        return RegisterViewModel()
+    }()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        registerViewModel.complete = { [weak self] (response, statusCode) in
+            if statusCode == 422{
+                
+            }
+            
+        }
+    }
+    
+    
+    @IBAction func done(_ sender: UIButton){
+        
+        if validation(fields: [primaryEmailField, confirmEmailField, firstNameField, lastNameField],
+                      texts: [primaryEmailField.text!, confirmEmailField.text!, firstNameField.text!, lastNameField.text!]) {
+            
+            registerViewModel.initRegister(identity: Identity(pin_code: "1111",
+                                                              records: RecordsIndenty(primary_email: primaryEmailField.text!,
+                                                                                      family_name: lastNameField.text!,
+                                                                                      given_name: firstNameField.text!)))
+            
+        }
+        
+        
+        
     }
     
 
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+}
+
+extension MRegisterViewController{
+    
+    @IBAction func validateEmailField(textField:SkyFloatingLabelTextField) {
+        
+        if textField == primaryEmailField{
+            
+            if validateEmail(primaryEmailField.text!){
+                
+                validationPrimaryEmail.isHidden = false
+                confirmEmailField.isEnabled = true
+                
+            }else{
+                
+                validationPrimaryEmail.isHidden = true
+                confirmEmailField.isEnabled = false
+                
+            }
+            
+        }else if textField == confirmEmailField{
+            
+            if confirmEmailField.text == primaryEmailField.text{
+                
+                validationPrimaryEmail.isHidden = false
+                validationConfirmEmail.isHidden = false
+                doneButton.isEnabled = true
+                doneButton.backgroundColor = #colorLiteral(red: 0.2078431373, green: 0.3921568627, blue: 0.9764705882, alpha: 1)
+                
+            }else{
+                
+                validationPrimaryEmail.isHidden = true
+                validationConfirmEmail.isHidden = true
+                doneButton.isEnabled = false
+                doneButton.backgroundColor = #colorLiteral(red: 0.7647058824, green: 0.7647058824, blue: 0.7647058824, alpha: 1)
+                
+            }
+        }
     }
-    */
-
+    
+    fileprivate func validation( fields: [SkyFloatingLabelTextField], texts: [String]) -> Bool{
+        var validation: Bool! = false
+        
+        fields.forEach { (textField) in
+            
+            if textField.text != "" {
+                
+                textField.errorMessage = nil
+                
+            }else {
+                
+                textField.errorMessage = "Field is requierd"
+                
+            }
+        }
+        
+        if texts.contains(""){
+            
+            validation = false
+            
+        }else {
+            
+            validation = true
+            
+        }
+        
+        return validation
+    }
+    
+    
+    func validateEmail(_ candidate: String) -> Bool {
+        
+        let emailRegex = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+        return NSPredicate(format: "SELF MATCHES %@", emailRegex).evaluate(with: candidate)
+    }
 }

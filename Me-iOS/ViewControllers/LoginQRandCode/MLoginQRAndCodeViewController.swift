@@ -14,11 +14,13 @@ class MLoginQRAndCodeViewController: UIViewController {
     lazy var loginQrViewModel: LoginQrAndCodeViewModel = {
         return LoginQrAndCodeViewModel()
     }()
+    var timer: Timer! = Timer()
+    var token: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        loginQrViewModel.complete = { [weak self] (pinCode) in
+        loginQrViewModel.complete = { [weak self] (pinCode, token) in
             
             DispatchQueue.main.async {
                 let stringCode: String = "\(pinCode)"
@@ -28,6 +30,23 @@ class MLoginQRAndCodeViewController: UIViewController {
                         label.text = String(stringCode[counter])
                         counter += 1
                     })
+                }
+                
+                self?.token = token
+                self?.timer = Timer.scheduledTimer(timeInterval: 10, target: self!, selector: #selector(self?.didCheckAuthorize), userInfo: nil, repeats: true)
+            }
+            
+        }
+        
+        
+        loginQrViewModel.completeAuthorize = { [weak self] (message, statusCode) in
+            
+            DispatchQueue.main.async {
+                if message == "active"{
+                    self?.timer.invalidate()
+                    UserDefaults.standard.set(self?.token, forKey: "TOKEN")
+                    UserDefaults.standard.synchronize()
+                    self?.performSegue(withIdentifier: "goToMain", sender: self)
                 }
             }
             
@@ -47,4 +66,11 @@ class MLoginQRAndCodeViewController: UIViewController {
         NotificationCenter.default.post(name: NotificationName.TogleStateWindow, object: nil)
     }
     
+}
+
+extension MLoginQRAndCodeViewController{
+    
+    @objc func didCheckAuthorize() {
+        loginQrViewModel.initAuthorizeToken(token: token)
+    }
 }

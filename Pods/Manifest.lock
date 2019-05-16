@@ -1,16 +1,20 @@
 PODS:
   - ISHPullUp (1.0.7)
+  - SkyFloatingLabelTextField (3.6.0)
 
 DEPENDENCIES:
   - ISHPullUp
+  - SkyFloatingLabelTextField
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - ISHPullUp
+    - SkyFloatingLabelTextField
 
 SPEC CHECKSUMS:
   ISHPullUp: eaa91bef06270264e1f923bc764705173d341495
+  SkyFloatingLabelTextField: 38164979b79512f9ff9288ad8acfc4bbf5d843e3
 
-PODFILE CHECKSUM: 584d7ef6220dab6268ad5fbd55f575e66f9ac598
+PODFILE CHECKSUM: 56bbc78fb6fa68894ff1ae5594ce0446296cfd05
 
 COCOAPODS: 1.6.1
