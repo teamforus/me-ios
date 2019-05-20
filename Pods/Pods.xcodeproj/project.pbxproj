@@ -7,31 +7,37 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		01B0CA4A612CC8B5963E409E16679E46 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40CB39E715FBCDAA142E6513E126200A /* Foundation.framework */; };
-		1241D4FC1C1570894780E6564461AE60 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40CB39E715FBCDAA142E6513E126200A /* Foundation.framework */; };
-		1C6CCCD91C3C84CF812081E9D1B2DD76 /* SkyFloatingLabelTextFieldWithIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA05C3820DDD8EEE6082DC5A848711A /* SkyFloatingLabelTextFieldWithIcon.swift */; };
-		4081464B6A5CEC9F459718B23FC4C808 /* ISHPullUpViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 9ED13299629717F6C0DC38BD8B12B0AC /* ISHPullUpViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		119AA8F3E75317335DED1F466C75E963 /* SkyFloatingLabelTextField-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 9E1A29A03325D2357983218C55B4517B /* SkyFloatingLabelTextField-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1241D4FC1C1570894780E6564461AE60 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0CD490842D1267AC36524009F7A9B2A /* Foundation.framework */; };
+		13C8B217548B98BCB136AD0041012564 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E83663F81FCB07BBAA408574FF05126 /* QuartzCore.framework */; };
+		1A4A8249CBA666F2E898DE103F3157D0 /* Pods-Me-iOS-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 6916975B06047B9C2310B7372E789EA9 /* Pods-Me-iOS-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1D3E7C7AFA6E2A9BD0252C5C2DD38239 /* SkyFloatingLabelTextFieldWithIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE26BDC81F18DF0822F6E12B364CCC81 /* SkyFloatingLabelTextFieldWithIcon.swift */; };
+		333DDF83BF86FBD755EB71DDB5C6FCFD /* MarqueeLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DF5E35F5C90BA9FC3D75DC3B2C574A /* MarqueeLabel.swift */; };
+		3D7BE5AE8F62F20BDA9C695012C20FCE /* UITextField+fixCaretPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C96E7DA53A86D712711BCD6098C7B5F /* UITextField+fixCaretPosition.swift */; };
+		4081464B6A5CEC9F459718B23FC4C808 /* ISHPullUpViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = A424005E69DFCD0FD54CAF3277D726A4 /* ISHPullUpViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		42787E9A2C437C71688EE7322EF7952B /* Pods-Me-iOSTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E6CBB323D96ED8DE5335E83D241366B /* Pods-Me-iOSTests-dummy.m */; };
-		47FE994AEB0A6791D7D2B94EEC04BE8D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40CB39E715FBCDAA142E6513E126200A /* Foundation.framework */; };
-		57DC120796D45293E4F6302C7CF87493 /* ISHPullUpHandleView.m in Sources */ = {isa = PBXBuildFile; fileRef = D357CF5916C06EB56B579D9B4C5F0207 /* ISHPullUpHandleView.m */; };
-		66661DA9A90A08583F36DD414A1D36A5 /* Pods-Me-iOS-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 6916975B06047B9C2310B7372E789EA9 /* Pods-Me-iOS-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6F16371CD5C9E874371C151E328B2298 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40CB39E715FBCDAA142E6513E126200A /* Foundation.framework */; };
-		7758CD871D10A4BD802D37F8125941F4 /* ISHPullUp-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D18E2FA939DF7E6C99BA34773F5A54ED /* ISHPullUp-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		7AFE3FDC18570031F23C42EDDD4BF794 /* Pods-Me-iOS-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BA2E09698757B789ADD83E472160126 /* Pods-Me-iOS-dummy.m */; };
+		47FE994AEB0A6791D7D2B94EEC04BE8D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0CD490842D1267AC36524009F7A9B2A /* Foundation.framework */; };
+		56A4693F5ECEE83F29DF3BD0D2DC8522 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0CD490842D1267AC36524009F7A9B2A /* Foundation.framework */; };
+		57DC120796D45293E4F6302C7CF87493 /* ISHPullUpHandleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AD3645CAA4B42507EAD13C85D330609 /* ISHPullUpHandleView.m */; };
+		624FD1983268AE270F4BC36B87F2B979 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0CD490842D1267AC36524009F7A9B2A /* Foundation.framework */; };
+		6A9F165A7F02D613F182EEEA9C099FCE /* Pods-Me-iOS-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BA2E09698757B789ADD83E472160126 /* Pods-Me-iOS-dummy.m */; };
+		7758CD871D10A4BD802D37F8125941F4 /* ISHPullUp-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E6936CC3DDB600170D895A22B73DBBA /* ISHPullUp-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7CD26CEEAD8F3A837DFFE39509730CD5 /* Pods-Me-iOSUITests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D959A5F5B7DA0326E3E06F64979D61C /* Pods-Me-iOSUITests-dummy.m */; };
-		81EAD3AF5AB2E0AE79A2109E0B061362 /* SkyFloatingLabelTextField-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 523D7E71268D5027F306769861648527 /* SkyFloatingLabelTextField-dummy.m */; };
-		862A6BECAA8476DA8A081C555D38B709 /* ISHPullUpRoundedView.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D817305678FC7772CB8CD31F6A15C70 /* ISHPullUpRoundedView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		8719CA7F762325073A64B82FA437D871 /* ISHPullUp-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 77D9197A7C3CA33CE7B05BEA9316270A /* ISHPullUp-dummy.m */; };
-		8EF1EBC3F8414AFC7A06946031416FA0 /* UITextField+fixCaretPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D7368F83F78210E4F43BE312DABCA0 /* UITextField+fixCaretPosition.swift */; };
-		9BC5D5CB85E3187F972D34D6D90A86D6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECF2A2B0720AE923C22BED3192888BE0 /* UIKit.framework */; };
-		CF933924A067F36F5C8497219318AF83 /* SkyFloatingLabelTextField-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 952CECDDF45F6266B393130F504D2E15 /* SkyFloatingLabelTextField-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D66601730DC6E9D54377861EBC8CA001 /* ISHPullUpRoundedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EB5BA16B6A59DB1435D86A281910E18 /* ISHPullUpRoundedView.m */; };
-		DFE4A913D089FD380025C421EEA4BC36 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40CB39E715FBCDAA142E6513E126200A /* Foundation.framework */; };
+		862A6BECAA8476DA8A081C555D38B709 /* ISHPullUpRoundedView.h in Headers */ = {isa = PBXBuildFile; fileRef = 85B7BE90D548FB7B40352B8F00416B65 /* ISHPullUpRoundedView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		865297ECA735286C0D1C5C379BA995CE /* MarqueeLabel-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E5579B85FB50635B27A75590E209A525 /* MarqueeLabel-dummy.m */; };
+		8719CA7F762325073A64B82FA437D871 /* ISHPullUp-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = FF158F352D658F3B9DA34A8087A012AE /* ISHPullUp-dummy.m */; };
+		9BC5D5CB85E3187F972D34D6D90A86D6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B23E6659060337F19196726F1CEA06A0 /* UIKit.framework */; };
+		ADB5DE14557FC95AB23882D410B3D780 /* MarqueeLabel-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = A83176FF93635DCE4A8807439E5FF2B6 /* MarqueeLabel-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C5B126309627C87D7B7467DCF3F1E88F /* SkyFloatingLabelTextField-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 05A72353A2269FA16216F36C50913EC9 /* SkyFloatingLabelTextField-dummy.m */; };
+		D27DAE8F8C7A35329D7133A43913D139 /* SkyFloatingLabelTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93737CC87DF06917C190172DEE13F5E /* SkyFloatingLabelTextField.swift */; };
+		D66601730DC6E9D54377861EBC8CA001 /* ISHPullUpRoundedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 99453541609C1E3A146B6B0BB5DEC877 /* ISHPullUpRoundedView.m */; };
+		DFE4A913D089FD380025C421EEA4BC36 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0CD490842D1267AC36524009F7A9B2A /* Foundation.framework */; };
 		E0FC1BEEA02CD82530E988D6F4F7942B /* Pods-Me-iOSTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = C397604D46B329EFC5EE17F3C76BDEFC /* Pods-Me-iOSTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E332D48398F104E526BC199935FD0412 /* Pods-Me-iOSUITests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 73F4A371BE9917D63D30B968ADFE8F10 /* Pods-Me-iOSUITests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E468D47CCDAFBBDEB4AA588F16F5C980 /* ISHPullUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D65546F3674E3CD2AF09B3B65FFABA52 /* ISHPullUpViewController.m */; };
-		F5A6B80FCAF30157BF5AA97DB86B5C3C /* SkyFloatingLabelTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 267A9E420CE4B5FE3EC32B105548272C /* SkyFloatingLabelTextField.swift */; };
-		FC7236AAAD6331AB6CD7099A625DCF87 /* ISHPullUpHandleView.h in Headers */ = {isa = PBXBuildFile; fileRef = 483E397CFFADAA0DABC67943C4CE1829 /* ISHPullUpHandleView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E468D47CCDAFBBDEB4AA588F16F5C980 /* ISHPullUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F87D41559136D3BF6C0F87330015BBD /* ISHPullUpViewController.m */; };
+		FA7383B1054DA0857B9F5909F8390155 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0CD490842D1267AC36524009F7A9B2A /* Foundation.framework */; };
+		FC7236AAAD6331AB6CD7099A625DCF87 /* ISHPullUpHandleView.h in Headers */ = {isa = PBXBuildFile; fileRef = 54DC07B6F1F909725EE068C0CBFA48C5 /* ISHPullUpHandleView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FF2F28C178B59EFF56879D29B0C71914 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B23E6659060337F19196726F1CEA06A0 /* UIKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,103 +45,119 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = AB5CA2BD914B511C9A355EE7163C516F;
+			remoteGlobalIDString = D3EA314B8DDF685E84C0136727947030;
 			remoteInfo = "Pods-Me-iOS";
 		};
-		27CDD80DADA93CC7D5DC1FE7B6857B23 /* PBXContainerItemProxy */ = {
+		19099EF1D37B5D9A8F75D82F11A122E8 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 4785808CD75BEBA2EE09A40BF9C78AD9;
 			remoteInfo = ISHPullUp;
 		};
-		6FC8E951E207428BF321A8E63012EF40 /* PBXContainerItemProxy */ = {
+		20384E7DF1A8D3EBBB172D1F75E1D65C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 4C577F9FBF8BB4436C6D1D7E4C328718;
+			remoteGlobalIDString = 93560C05B87988775E43AA3CEBFCA82A;
+			remoteInfo = MarqueeLabel;
+		};
+		97FB6DE9357A3FD789EE0328C2413CA2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 21FE87C0DA5F3EE2ACE5A2BC22A90805;
 			remoteInfo = SkyFloatingLabelTextField;
 		};
 		DF92FC5228E46104F4C3FF027A2B0659 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = AB5CA2BD914B511C9A355EE7163C516F;
+			remoteGlobalIDString = D3EA314B8DDF685E84C0136727947030;
 			remoteInfo = "Pods-Me-iOS";
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		003E30F851E455B9438B2C615A2DF41D /* Pods-Me-iOS-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Me-iOS-frameworks.sh"; sourceTree = "<group>"; };
+		016057E773E696E5B7AD823F9094EBC8 /* MarqueeLabel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = MarqueeLabel.framework; path = MarqueeLabel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		05A72353A2269FA16216F36C50913EC9 /* SkyFloatingLabelTextField-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SkyFloatingLabelTextField-dummy.m"; sourceTree = "<group>"; };
 		094BCB8C254574E4496AC432892AAD11 /* Pods-Me-iOSTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Me-iOSTests.modulemap"; sourceTree = "<group>"; };
 		0FEF1512304A43621D814AF098A56F6E /* Pods-Me-iOSUITests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Me-iOSUITests-Info.plist"; sourceTree = "<group>"; };
-		12D542A712095CCDAAAE1ACF460C5C97 /* ISHPullUp.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = ISHPullUp.modulemap; sourceTree = "<group>"; };
+		183561F21E419D6F04E3E46662C34D5C /* MarqueeLabel.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = MarqueeLabel.modulemap; sourceTree = "<group>"; };
+		22946F1A299F1749255F3414D4D05F4B /* MarqueeLabel.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MarqueeLabel.xcconfig; sourceTree = "<group>"; };
 		22F3B7937FFEC1D195B567CAF1A5C36E /* Pods-Me-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Me-iOS.release.xcconfig"; sourceTree = "<group>"; };
-		267A9E420CE4B5FE3EC32B105548272C /* SkyFloatingLabelTextField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SkyFloatingLabelTextField.swift; path = Sources/SkyFloatingLabelTextField.swift; sourceTree = "<group>"; };
-		2713BC28F82A7903675B4130CC55FE3D /* SkyFloatingLabelTextField.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = SkyFloatingLabelTextField.modulemap; sourceTree = "<group>"; };
+		23CC022D56E0AAB3E10F125948E474CF /* SkyFloatingLabelTextField.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SkyFloatingLabelTextField.framework; path = SkyFloatingLabelTextField.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2F87D41559136D3BF6C0F87330015BBD /* ISHPullUpViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ISHPullUpViewController.m; path = ISHPullUp/ISHPullUpViewController.m; sourceTree = "<group>"; };
 		37B1E94C9C0508520788D7CF7D897C60 /* Pods-Me-iOS-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Me-iOS-Info.plist"; sourceTree = "<group>"; };
-		38CC1011869BD42496F2AF094B642D18 /* SkyFloatingLabelTextField-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "SkyFloatingLabelTextField-Info.plist"; sourceTree = "<group>"; };
-		40CB39E715FBCDAA142E6513E126200A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		4190DDC2247BCF2D913102DE85323225 /* Pods_Me_iOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Me_iOSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3E83663F81FCB07BBAA408574FF05126 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.0.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
+		4017F5B2C00AB0D5362932BF1788E651 /* ISHPullUp.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = ISHPullUp.xcconfig; sourceTree = "<group>"; };
 		41C10F226026DDF915A8F57D42AA6657 /* Pods-Me-iOSUITests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Me-iOSUITests-acknowledgements.plist"; sourceTree = "<group>"; };
-		483E397CFFADAA0DABC67943C4CE1829 /* ISHPullUpHandleView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ISHPullUpHandleView.h; path = ISHPullUp/ISHPullUpHandleView.h; sourceTree = "<group>"; };
+		45C9D933D7A550B2FB498AE7907B5857 /* Pods_Me_iOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Me_iOSTests.framework; path = "Pods-Me-iOSTests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4BFD11AB6856D4C346F5D99CDC4ADC28 /* Pods_Me_iOSUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Me_iOSUITests.framework; path = "Pods-Me-iOSUITests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C805BBC1BF42409911E1505182C60F3 /* Pods-Me-iOSTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Me-iOSTests-acknowledgements.plist"; sourceTree = "<group>"; };
-		4D817305678FC7772CB8CD31F6A15C70 /* ISHPullUpRoundedView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ISHPullUpRoundedView.h; path = ISHPullUp/ISHPullUpRoundedView.h; sourceTree = "<group>"; };
-		4EB5BA16B6A59DB1435D86A281910E18 /* ISHPullUpRoundedView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ISHPullUpRoundedView.m; path = ISHPullUp/ISHPullUpRoundedView.m; sourceTree = "<group>"; };
-		51C652B9A58D029A6A4B125B953489BD /* ISHPullUp-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ISHPullUp-prefix.pch"; sourceTree = "<group>"; };
-		523D7E71268D5027F306769861648527 /* SkyFloatingLabelTextField-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SkyFloatingLabelTextField-dummy.m"; sourceTree = "<group>"; };
-		567075990766B16E0AC5180864962FEC /* ISHPullUp-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ISHPullUp-Info.plist"; sourceTree = "<group>"; };
-		57B961AEE1B27F03A13AB97E83182F33 /* ISHPullUp.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = ISHPullUp.xcconfig; sourceTree = "<group>"; };
+		4C96E7DA53A86D712711BCD6098C7B5F /* UITextField+fixCaretPosition.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UITextField+fixCaretPosition.swift"; path = "Sources/UITextField+fixCaretPosition.swift"; sourceTree = "<group>"; };
+		506D51193EB5A1E18E3CD9819B606672 /* SkyFloatingLabelTextField-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SkyFloatingLabelTextField-prefix.pch"; sourceTree = "<group>"; };
+		51CD5F85887E1B2BE42EB45B9C5C4C38 /* Pods_Me_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Me_iOS.framework; path = "Pods-Me-iOS.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		54DC07B6F1F909725EE068C0CBFA48C5 /* ISHPullUpHandleView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ISHPullUpHandleView.h; path = ISHPullUp/ISHPullUpHandleView.h; sourceTree = "<group>"; };
 		5A426B5F5BBA4380E7D13DAEFBF7850A /* Pods-Me-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Me-iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		5E6CBB323D96ED8DE5335E83D241366B /* Pods-Me-iOSTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Me-iOSTests-dummy.m"; sourceTree = "<group>"; };
 		5EACC65A5395061DB5C8419A90800A0E /* Pods-Me-iOSTests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Me-iOSTests-Info.plist"; sourceTree = "<group>"; };
-		62E2F111F8EE3E01019491E342BD5746 /* Pods_Me_iOSUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Me_iOSUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6916975B06047B9C2310B7372E789EA9 /* Pods-Me-iOS-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Me-iOS-umbrella.h"; sourceTree = "<group>"; };
 		6BA2E09698757B789ADD83E472160126 /* Pods-Me-iOS-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Me-iOS-dummy.m"; sourceTree = "<group>"; };
-		70D027F2B75C9B47B4633CA3B69B5FCE /* Pods_Me_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Me_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6E6936CC3DDB600170D895A22B73DBBA /* ISHPullUp-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ISHPullUp-umbrella.h"; sourceTree = "<group>"; };
+		704C01311DF3A670E8F61F66623920BA /* ISHPullUp-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ISHPullUp-prefix.pch"; sourceTree = "<group>"; };
+		71B900D7D2D0C0189CFB081CC4001E04 /* SkyFloatingLabelTextField.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = SkyFloatingLabelTextField.modulemap; sourceTree = "<group>"; };
 		731B66A266D6E420A9C6FE6F33E6D3E6 /* Pods-Me-iOSUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Me-iOSUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		73F4A371BE9917D63D30B968ADFE8F10 /* Pods-Me-iOSUITests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Me-iOSUITests-umbrella.h"; sourceTree = "<group>"; };
-		77D9197A7C3CA33CE7B05BEA9316270A /* ISHPullUp-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "ISHPullUp-dummy.m"; sourceTree = "<group>"; };
 		79069090D8E5B1824BE8ECC706829E6B /* Pods-Me-iOS-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Me-iOS-acknowledgements.plist"; sourceTree = "<group>"; };
 		7BE67A91B3EABBF582118A9F8BADA473 /* Pods-Me-iOSUITests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Me-iOSUITests.modulemap"; sourceTree = "<group>"; };
 		8456F53817D579777E8D112D8B9FDD26 /* Pods-Me-iOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Me-iOSTests.debug.xcconfig"; sourceTree = "<group>"; };
-		8997E424836846BE6A93FCFBB5B7687E /* SkyFloatingLabelTextField-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SkyFloatingLabelTextField-prefix.pch"; sourceTree = "<group>"; };
+		85B7BE90D548FB7B40352B8F00416B65 /* ISHPullUpRoundedView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ISHPullUpRoundedView.h; path = ISHPullUp/ISHPullUpRoundedView.h; sourceTree = "<group>"; };
+		87DF5E35F5C90BA9FC3D75DC3B2C574A /* MarqueeLabel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MarqueeLabel.swift; path = Sources/Swift/MarqueeLabel.swift; sourceTree = "<group>"; };
+		890409969C0FB43996AC786CC4DA8E99 /* MarqueeLabel-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MarqueeLabel-prefix.pch"; sourceTree = "<group>"; };
 		9004156C7CE469E724DC42CAAB8E11C5 /* Pods-Me-iOSTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Me-iOSTests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		9072AB3D05B48AEA1E6FF5D0E12DE04A /* Pods-Me-iOS.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Me-iOS.modulemap"; sourceTree = "<group>"; };
-		952CECDDF45F6266B393130F504D2E15 /* SkyFloatingLabelTextField-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SkyFloatingLabelTextField-umbrella.h"; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		914DE40B88A594D3A6C00F52A2FFFEDF /* ISHPullUp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = ISHPullUp.framework; path = ISHPullUp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		99453541609C1E3A146B6B0BB5DEC877 /* ISHPullUpRoundedView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ISHPullUpRoundedView.m; path = ISHPullUp/ISHPullUpRoundedView.m; sourceTree = "<group>"; };
+		9AD3645CAA4B42507EAD13C85D330609 /* ISHPullUpHandleView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ISHPullUpHandleView.m; path = ISHPullUp/ISHPullUpHandleView.m; sourceTree = "<group>"; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9D959A5F5B7DA0326E3E06F64979D61C /* Pods-Me-iOSUITests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Me-iOSUITests-dummy.m"; sourceTree = "<group>"; };
-		9ED13299629717F6C0DC38BD8B12B0AC /* ISHPullUpViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ISHPullUpViewController.h; path = ISHPullUp/ISHPullUpViewController.h; sourceTree = "<group>"; };
-		A4D7368F83F78210E4F43BE312DABCA0 /* UITextField+fixCaretPosition.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UITextField+fixCaretPosition.swift"; path = "Sources/UITextField+fixCaretPosition.swift"; sourceTree = "<group>"; };
+		9E1A29A03325D2357983218C55B4517B /* SkyFloatingLabelTextField-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SkyFloatingLabelTextField-umbrella.h"; sourceTree = "<group>"; };
+		9E914273606179EC5B3B9268ED3595A1 /* ISHPullUp.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = ISHPullUp.modulemap; sourceTree = "<group>"; };
+		A0CD490842D1267AC36524009F7A9B2A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		A424005E69DFCD0FD54CAF3277D726A4 /* ISHPullUpViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ISHPullUpViewController.h; path = ISHPullUp/ISHPullUpViewController.h; sourceTree = "<group>"; };
+		A83176FF93635DCE4A8807439E5FF2B6 /* MarqueeLabel-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MarqueeLabel-umbrella.h"; sourceTree = "<group>"; };
+		B0B1F61FBB8A63C52474FA23C0574297 /* SkyFloatingLabelTextField.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SkyFloatingLabelTextField.xcconfig; sourceTree = "<group>"; };
+		B23E6659060337F19196726F1CEA06A0 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		B267C897DC6BBCCFD80F66518A0562CE /* Pods-Me-iOSUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Me-iOSUITests.release.xcconfig"; sourceTree = "<group>"; };
+		B45E70DB2F555429658C3535130E769A /* SkyFloatingLabelTextField-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "SkyFloatingLabelTextField-Info.plist"; sourceTree = "<group>"; };
+		B9440AC34A6135D4A3E1F8E80A0DF483 /* MarqueeLabel-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "MarqueeLabel-Info.plist"; sourceTree = "<group>"; };
 		C397604D46B329EFC5EE17F3C76BDEFC /* Pods-Me-iOSTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Me-iOSTests-umbrella.h"; sourceTree = "<group>"; };
 		CDE0B52950232A549A29829DF8F0286A /* Pods-Me-iOS-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Me-iOS-acknowledgements.markdown"; sourceTree = "<group>"; };
-		D0DA7C28F85BCE0FB31D7102EC56A077 /* SkyFloatingLabelTextField.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SkyFloatingLabelTextField.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		D18E2FA939DF7E6C99BA34773F5A54ED /* ISHPullUp-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ISHPullUp-umbrella.h"; sourceTree = "<group>"; };
-		D357CF5916C06EB56B579D9B4C5F0207 /* ISHPullUpHandleView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ISHPullUpHandleView.m; path = ISHPullUp/ISHPullUpHandleView.m; sourceTree = "<group>"; };
-		D65546F3674E3CD2AF09B3B65FFABA52 /* ISHPullUpViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ISHPullUpViewController.m; path = ISHPullUp/ISHPullUpViewController.m; sourceTree = "<group>"; };
-		D7138A30B08B54664EFD30B04012BA97 /* ISHPullUp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ISHPullUp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE26BDC81F18DF0822F6E12B364CCC81 /* SkyFloatingLabelTextFieldWithIcon.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SkyFloatingLabelTextFieldWithIcon.swift; path = Sources/SkyFloatingLabelTextFieldWithIcon.swift; sourceTree = "<group>"; };
 		D9CE472E2FB2D5F9B0BC29C724A11D9E /* Pods-Me-iOSUITests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Me-iOSUITests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		ECF2A2B0720AE923C22BED3192888BE0 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
-		EEA05C3820DDD8EEE6082DC5A848711A /* SkyFloatingLabelTextFieldWithIcon.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SkyFloatingLabelTextFieldWithIcon.swift; path = Sources/SkyFloatingLabelTextFieldWithIcon.swift; sourceTree = "<group>"; };
-		FC14F0A5DBC9C2818A1312609219DC54 /* SkyFloatingLabelTextField.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SkyFloatingLabelTextField.xcconfig; sourceTree = "<group>"; };
+		E5579B85FB50635B27A75590E209A525 /* MarqueeLabel-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "MarqueeLabel-dummy.m"; sourceTree = "<group>"; };
+		E93737CC87DF06917C190172DEE13F5E /* SkyFloatingLabelTextField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SkyFloatingLabelTextField.swift; path = Sources/SkyFloatingLabelTextField.swift; sourceTree = "<group>"; };
+		EAEE4FE5B734678650582CE02EE83E3E /* ISHPullUp-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ISHPullUp-Info.plist"; sourceTree = "<group>"; };
 		FCD88155C05F96358DE1C471FE984AA8 /* Pods-Me-iOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Me-iOSTests.release.xcconfig"; sourceTree = "<group>"; };
+		FF158F352D658F3B9DA34A8087A012AE /* ISHPullUp-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "ISHPullUp-dummy.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		0CC2DDB62D5D7E1451B0684CE326CBFC /* Frameworks */ = {
+		11C2DBD29722A2DBFA10FEC9CBEA0E3F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6F16371CD5C9E874371C151E328B2298 /* Foundation.framework in Frameworks */,
+				FA7383B1054DA0857B9F5909F8390155 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		1B8A9B997D0B2DEC911BA1B1D013B524 /* Frameworks */ = {
+		991EAF4C51E3366C1403619DA1DE9F66 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				01B0CA4A612CC8B5963E409E16679E46 /* Foundation.framework in Frameworks */,
+				56A4693F5ECEE83F29DF3BD0D2DC8522 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -164,29 +186,48 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F7A7823F1039142D608683A2E6B7B542 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				624FD1983268AE270F4BC36B87F2B979 /* Foundation.framework in Frameworks */,
+				13C8B217548B98BCB136AD0041012564 /* QuartzCore.framework in Frameworks */,
+				FF2F28C178B59EFF56879D29B0C71914 /* UIKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1628BF05B4CAFDCC3549A101F5A10A17 /* Frameworks */ = {
+		03C5C200A0787E300053CFA8F53CA094 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				E169A450ED27AC725DF52953F66D11E0 /* iOS */,
+				CD766BFEDD0FE46FD0AF278EAE74102F /* iOS */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		2CF501360F46DE4E4F7B9710EE4320C7 /* Support Files */ = {
+		13F2E4D539746A0D8D4806DAB50927CD /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				2713BC28F82A7903675B4130CC55FE3D /* SkyFloatingLabelTextField.modulemap */,
-				FC14F0A5DBC9C2818A1312609219DC54 /* SkyFloatingLabelTextField.xcconfig */,
-				523D7E71268D5027F306769861648527 /* SkyFloatingLabelTextField-dummy.m */,
-				38CC1011869BD42496F2AF094B642D18 /* SkyFloatingLabelTextField-Info.plist */,
-				8997E424836846BE6A93FCFBB5B7687E /* SkyFloatingLabelTextField-prefix.pch */,
-				952CECDDF45F6266B393130F504D2E15 /* SkyFloatingLabelTextField-umbrella.h */,
+				914DE40B88A594D3A6C00F52A2FFFEDF /* ISHPullUp.framework */,
+				016057E773E696E5B7AD823F9094EBC8 /* MarqueeLabel.framework */,
+				51CD5F85887E1B2BE42EB45B9C5C4C38 /* Pods_Me_iOS.framework */,
+				45C9D933D7A550B2FB498AE7907B5857 /* Pods_Me_iOSTests.framework */,
+				4BFD11AB6856D4C346F5D99CDC4ADC28 /* Pods_Me_iOSUITests.framework */,
+				23CC022D56E0AAB3E10F125948E474CF /* SkyFloatingLabelTextField.framework */,
 			);
-			name = "Support Files";
-			path = "../Target Support Files/SkyFloatingLabelTextField";
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3B546E82F6DEA7595A7336B7E299D65E /* MarqueeLabel */ = {
+			isa = PBXGroup;
+			children = (
+				9C572AA66E01BD7ADB9DE47CE4B5079F /* Support Files */,
+				F46D9447B16A67DF48A964C286509FBB /* Swift */,
+			);
+			name = MarqueeLabel;
+			path = MarqueeLabel;
 			sourceTree = "<group>";
 		};
 		40BD7D4EBCE4373ACD53719FE0AD6B10 /* Pods-Me-iOSUITests */ = {
@@ -205,30 +246,14 @@
 			path = "Target Support Files/Pods-Me-iOSUITests";
 			sourceTree = "<group>";
 		};
-		4DA4BBB504B111CFCD7BCFDE29693DA0 /* Support Files */ = {
+		6038165FAB75E3E6AC5A48FDE8F1235B /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				12D542A712095CCDAAAE1ACF460C5C97 /* ISHPullUp.modulemap */,
-				57B961AEE1B27F03A13AB97E83182F33 /* ISHPullUp.xcconfig */,
-				77D9197A7C3CA33CE7B05BEA9316270A /* ISHPullUp-dummy.m */,
-				567075990766B16E0AC5180864962FEC /* ISHPullUp-Info.plist */,
-				51C652B9A58D029A6A4B125B953489BD /* ISHPullUp-prefix.pch */,
-				D18E2FA939DF7E6C99BA34773F5A54ED /* ISHPullUp-umbrella.h */,
+				898E302CABA27F81B239726BB0F385BF /* ISHPullUp */,
+				3B546E82F6DEA7595A7336B7E299D65E /* MarqueeLabel */,
+				A1B0F4E925F680C6FE45C59C340DB9D6 /* SkyFloatingLabelTextField */,
 			);
-			name = "Support Files";
-			path = "../Target Support Files/ISHPullUp";
-			sourceTree = "<group>";
-		};
-		6B6FB83F827AD016BFDF59141ADAEFA5 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				D7138A30B08B54664EFD30B04012BA97 /* ISHPullUp.framework */,
-				70D027F2B75C9B47B4633CA3B69B5FCE /* Pods_Me_iOS.framework */,
-				4190DDC2247BCF2D913102DE85323225 /* Pods_Me_iOSTests.framework */,
-				62E2F111F8EE3E01019491E342BD5746 /* Pods_Me_iOSUITests.framework */,
-				D0DA7C28F85BCE0FB31D7102EC56A077 /* SkyFloatingLabelTextField.framework */,
-			);
-			name = Products;
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		6D8D6D54A3D89E551DA686736C0DE62D /* Pods-Me-iOSTests */ = {
@@ -247,23 +272,58 @@
 			path = "Target Support Files/Pods-Me-iOSTests";
 			sourceTree = "<group>";
 		};
-		8EB10D8A8AEF8BD8745D50611B9B5F4C /* Pods */ = {
+		80BFAC85F2E0285B9B847A2E116A3647 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				FE5CEF4D3CF9A543FFD67EAD6A58C4B0 /* ISHPullUp */,
-				8EB6115124C74FC90A982909A4AC13EE /* SkyFloatingLabelTextField */,
+				9E914273606179EC5B3B9268ED3595A1 /* ISHPullUp.modulemap */,
+				4017F5B2C00AB0D5362932BF1788E651 /* ISHPullUp.xcconfig */,
+				FF158F352D658F3B9DA34A8087A012AE /* ISHPullUp-dummy.m */,
+				EAEE4FE5B734678650582CE02EE83E3E /* ISHPullUp-Info.plist */,
+				704C01311DF3A670E8F61F66623920BA /* ISHPullUp-prefix.pch */,
+				6E6936CC3DDB600170D895A22B73DBBA /* ISHPullUp-umbrella.h */,
 			);
-			name = Pods;
+			name = "Support Files";
+			path = "../Target Support Files/ISHPullUp";
 			sourceTree = "<group>";
 		};
-		8EB6115124C74FC90A982909A4AC13EE /* SkyFloatingLabelTextField */ = {
+		898E302CABA27F81B239726BB0F385BF /* ISHPullUp */ = {
 			isa = PBXGroup;
 			children = (
-				267A9E420CE4B5FE3EC32B105548272C /* SkyFloatingLabelTextField.swift */,
-				EEA05C3820DDD8EEE6082DC5A848711A /* SkyFloatingLabelTextFieldWithIcon.swift */,
-				A4D7368F83F78210E4F43BE312DABCA0 /* UITextField+fixCaretPosition.swift */,
-				2CF501360F46DE4E4F7B9710EE4320C7 /* Support Files */,
+				54DC07B6F1F909725EE068C0CBFA48C5 /* ISHPullUpHandleView.h */,
+				9AD3645CAA4B42507EAD13C85D330609 /* ISHPullUpHandleView.m */,
+				85B7BE90D548FB7B40352B8F00416B65 /* ISHPullUpRoundedView.h */,
+				99453541609C1E3A146B6B0BB5DEC877 /* ISHPullUpRoundedView.m */,
+				A424005E69DFCD0FD54CAF3277D726A4 /* ISHPullUpViewController.h */,
+				2F87D41559136D3BF6C0F87330015BBD /* ISHPullUpViewController.m */,
+				80BFAC85F2E0285B9B847A2E116A3647 /* Support Files */,
 			);
+			name = ISHPullUp;
+			path = ISHPullUp;
+			sourceTree = "<group>";
+		};
+		9C572AA66E01BD7ADB9DE47CE4B5079F /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				183561F21E419D6F04E3E46662C34D5C /* MarqueeLabel.modulemap */,
+				22946F1A299F1749255F3414D4D05F4B /* MarqueeLabel.xcconfig */,
+				E5579B85FB50635B27A75590E209A525 /* MarqueeLabel-dummy.m */,
+				B9440AC34A6135D4A3E1F8E80A0DF483 /* MarqueeLabel-Info.plist */,
+				890409969C0FB43996AC786CC4DA8E99 /* MarqueeLabel-prefix.pch */,
+				A83176FF93635DCE4A8807439E5FF2B6 /* MarqueeLabel-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/MarqueeLabel";
+			sourceTree = "<group>";
+		};
+		A1B0F4E925F680C6FE45C59C340DB9D6 /* SkyFloatingLabelTextField */ = {
+			isa = PBXGroup;
+			children = (
+				E93737CC87DF06917C190172DEE13F5E /* SkyFloatingLabelTextField.swift */,
+				CE26BDC81F18DF0822F6E12B364CCC81 /* SkyFloatingLabelTextFieldWithIcon.swift */,
+				4C96E7DA53A86D712711BCD6098C7B5F /* UITextField+fixCaretPosition.swift */,
+				CE3195CD0E2364168E46696F1BCB82C1 /* Support Files */,
+			);
+			name = SkyFloatingLabelTextField;
 			path = SkyFloatingLabelTextField;
 			sourceTree = "<group>";
 		};
@@ -277,13 +337,37 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
+		CD766BFEDD0FE46FD0AF278EAE74102F /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				A0CD490842D1267AC36524009F7A9B2A /* Foundation.framework */,
+				3E83663F81FCB07BBAA408574FF05126 /* QuartzCore.framework */,
+				B23E6659060337F19196726F1CEA06A0 /* UIKit.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		CE3195CD0E2364168E46696F1BCB82C1 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				71B900D7D2D0C0189CFB081CC4001E04 /* SkyFloatingLabelTextField.modulemap */,
+				B0B1F61FBB8A63C52474FA23C0574297 /* SkyFloatingLabelTextField.xcconfig */,
+				05A72353A2269FA16216F36C50913EC9 /* SkyFloatingLabelTextField-dummy.m */,
+				B45E70DB2F555429658C3535130E769A /* SkyFloatingLabelTextField-Info.plist */,
+				506D51193EB5A1E18E3CD9819B606672 /* SkyFloatingLabelTextField-prefix.pch */,
+				9E1A29A03325D2357983218C55B4517B /* SkyFloatingLabelTextField-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/SkyFloatingLabelTextField";
+			sourceTree = "<group>";
+		};
 		CF1408CF629C7361332E53B88F7BD30C = {
 			isa = PBXGroup;
 			children = (
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
-				1628BF05B4CAFDCC3549A101F5A10A17 /* Frameworks */,
-				8EB10D8A8AEF8BD8745D50611B9B5F4C /* Pods */,
-				6B6FB83F827AD016BFDF59141ADAEFA5 /* Products */,
+				03C5C200A0787E300053CFA8F53CA094 /* Frameworks */,
+				6038165FAB75E3E6AC5A48FDE8F1235B /* Pods */,
+				13F2E4D539746A0D8D4806DAB50927CD /* Products */,
 				CABE5012E855A8BDD0F6CC66BA29EC7B /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
@@ -305,37 +389,22 @@
 			path = "Target Support Files/Pods-Me-iOS";
 			sourceTree = "<group>";
 		};
-		E169A450ED27AC725DF52953F66D11E0 /* iOS */ = {
+		F46D9447B16A67DF48A964C286509FBB /* Swift */ = {
 			isa = PBXGroup;
 			children = (
-				40CB39E715FBCDAA142E6513E126200A /* Foundation.framework */,
-				ECF2A2B0720AE923C22BED3192888BE0 /* UIKit.framework */,
+				87DF5E35F5C90BA9FC3D75DC3B2C574A /* MarqueeLabel.swift */,
 			);
-			name = iOS;
-			sourceTree = "<group>";
-		};
-		FE5CEF4D3CF9A543FFD67EAD6A58C4B0 /* ISHPullUp */ = {
-			isa = PBXGroup;
-			children = (
-				483E397CFFADAA0DABC67943C4CE1829 /* ISHPullUpHandleView.h */,
-				D357CF5916C06EB56B579D9B4C5F0207 /* ISHPullUpHandleView.m */,
-				4D817305678FC7772CB8CD31F6A15C70 /* ISHPullUpRoundedView.h */,
-				4EB5BA16B6A59DB1435D86A281910E18 /* ISHPullUpRoundedView.m */,
-				9ED13299629717F6C0DC38BD8B12B0AC /* ISHPullUpViewController.h */,
-				D65546F3674E3CD2AF09B3B65FFABA52 /* ISHPullUpViewController.m */,
-				4DA4BBB504B111CFCD7BCFDE29693DA0 /* Support Files */,
-			);
-			path = ISHPullUp;
+			name = Swift;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		38D3B6FA223F7B24415217A9CCD33953 /* Headers */ = {
+		278E2A3FAF5AF3F786B5E4EE7A9B7FD9 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CF933924A067F36F5C8497219318AF83 /* SkyFloatingLabelTextField-umbrella.h in Headers */,
+				119AA8F3E75317335DED1F466C75E963 /* SkyFloatingLabelTextField-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -347,11 +416,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		7C4824982C41D6F8DF67F2A6CAF62379 /* Headers */ = {
+		72C80D040EDF60E6564658B38C7F585B /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				66661DA9A90A08583F36DD414A1D36A5 /* Pods-Me-iOS-umbrella.h in Headers */,
+				ADB5DE14557FC95AB23882D410B3D780 /* MarqueeLabel-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -363,6 +432,14 @@
 				FC7236AAAD6331AB6CD7099A625DCF87 /* ISHPullUpHandleView.h in Headers */,
 				862A6BECAA8476DA8A081C555D38B709 /* ISHPullUpRoundedView.h in Headers */,
 				4081464B6A5CEC9F459718B23FC4C808 /* ISHPullUpViewController.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BF7B7A938D1FBFBDD629AA67664A2E03 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1A4A8249CBA666F2E898DE103F3157D0 /* Pods-Me-iOS-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -393,7 +470,25 @@
 			);
 			name = "Pods-Me-iOSUITests";
 			productName = "Pods-Me-iOSUITests";
-			productReference = 62E2F111F8EE3E01019491E342BD5746 /* Pods_Me_iOSUITests.framework */;
+			productReference = 4BFD11AB6856D4C346F5D99CDC4ADC28 /* Pods_Me_iOSUITests.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		21FE87C0DA5F3EE2ACE5A2BC22A90805 /* SkyFloatingLabelTextField */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 249DF631C0435B501BFE9A0DEC0779FD /* Build configuration list for PBXNativeTarget "SkyFloatingLabelTextField" */;
+			buildPhases = (
+				278E2A3FAF5AF3F786B5E4EE7A9B7FD9 /* Headers */,
+				8B425423BFA1284D54CC830D7CDE3BE6 /* Sources */,
+				11C2DBD29722A2DBFA10FEC9CBEA0E3F /* Frameworks */,
+				B5A780D7EE467143ED31DFD15D7F48EC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SkyFloatingLabelTextField;
+			productName = SkyFloatingLabelTextField;
+			productReference = 23CC022D56E0AAB3E10F125948E474CF /* SkyFloatingLabelTextField.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		34D6D77F061CBE762484713E0EC93CB4 /* Pods-Me-iOSTests */ = {
@@ -412,7 +507,7 @@
 			);
 			name = "Pods-Me-iOSTests";
 			productName = "Pods-Me-iOSTests";
-			productReference = 4190DDC2247BCF2D913102DE85323225 /* Pods_Me_iOSTests.framework */;
+			productReference = 45C9D933D7A550B2FB498AE7907B5857 /* Pods_Me_iOSTests.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		4785808CD75BEBA2EE09A40BF9C78AD9 /* ISHPullUp */ = {
@@ -430,45 +525,46 @@
 			);
 			name = ISHPullUp;
 			productName = ISHPullUp;
-			productReference = D7138A30B08B54664EFD30B04012BA97 /* ISHPullUp.framework */;
+			productReference = 914DE40B88A594D3A6C00F52A2FFFEDF /* ISHPullUp.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		4C577F9FBF8BB4436C6D1D7E4C328718 /* SkyFloatingLabelTextField */ = {
+		93560C05B87988775E43AA3CEBFCA82A /* MarqueeLabel */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8C8D378A55FAF8526BC46B742177D66D /* Build configuration list for PBXNativeTarget "SkyFloatingLabelTextField" */;
+			buildConfigurationList = B1B733E7B9870A7A0D7A1729C0E55156 /* Build configuration list for PBXNativeTarget "MarqueeLabel" */;
 			buildPhases = (
-				38D3B6FA223F7B24415217A9CCD33953 /* Headers */,
-				F0C1AA1BDA909CC3DA77180704BF0FD2 /* Sources */,
-				1B8A9B997D0B2DEC911BA1B1D013B524 /* Frameworks */,
-				74DED7F57CF24D260CAE34E0528FC939 /* Resources */,
+				72C80D040EDF60E6564658B38C7F585B /* Headers */,
+				3B578A0C7D2A8CD94BBE40EDFCB5FEB3 /* Sources */,
+				F7A7823F1039142D608683A2E6B7B542 /* Frameworks */,
+				1804E8636DC9B911FF327FF7433FAA0C /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = SkyFloatingLabelTextField;
-			productName = SkyFloatingLabelTextField;
-			productReference = D0DA7C28F85BCE0FB31D7102EC56A077 /* SkyFloatingLabelTextField.framework */;
+			name = MarqueeLabel;
+			productName = MarqueeLabel;
+			productReference = 016057E773E696E5B7AD823F9094EBC8 /* MarqueeLabel.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		AB5CA2BD914B511C9A355EE7163C516F /* Pods-Me-iOS */ = {
+		D3EA314B8DDF685E84C0136727947030 /* Pods-Me-iOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E34FEAAF768BACA85BC35FCC9E2646B3 /* Build configuration list for PBXNativeTarget "Pods-Me-iOS" */;
+			buildConfigurationList = 7C2F6513DD46EA9867DAA627DE66C076 /* Build configuration list for PBXNativeTarget "Pods-Me-iOS" */;
 			buildPhases = (
-				7C4824982C41D6F8DF67F2A6CAF62379 /* Headers */,
-				7BDE5496D134D861D8FAD1826C07BF03 /* Sources */,
-				0CC2DDB62D5D7E1451B0684CE326CBFC /* Frameworks */,
-				7C170C5CC28A5E07DF5D1B8DA72ECA0A /* Resources */,
+				BF7B7A938D1FBFBDD629AA67664A2E03 /* Headers */,
+				067ACFD3F49EFC624F80A3F9CC448300 /* Sources */,
+				991EAF4C51E3366C1403619DA1DE9F66 /* Frameworks */,
+				5762FA6A0DD7C310E29DFFE67C4BE018 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				B034664EFF5E0836C5605BD86F1286CA /* PBXTargetDependency */,
-				31D52BAA8BDBAA8BE9D402FDEFE84589 /* PBXTargetDependency */,
+				11799BC2F8855AB072EFB552AD6673E8 /* PBXTargetDependency */,
+				D70EB05394D80F20654DDE947B413EED /* PBXTargetDependency */,
+				DB234D6131A9F1C471194F1E1AEC5777 /* PBXTargetDependency */,
 			);
 			name = "Pods-Me-iOS";
 			productName = "Pods-Me-iOS";
-			productReference = 70D027F2B75C9B47B4633CA3B69B5FCE /* Pods_Me_iOS.framework */;
+			productReference = 51CD5F85887E1B2BE42EB45B9C5C4C38 /* Pods_Me_iOS.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -478,26 +574,26 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0930;
-				LastUpgradeCheck = 1020;
+				LastUpgradeCheck = 0930;
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				English,
 				en,
 			);
 			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
-			productRefGroup = 6B6FB83F827AD016BFDF59141ADAEFA5 /* Products */;
+			productRefGroup = 13F2E4D539746A0D8D4806DAB50927CD /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				4785808CD75BEBA2EE09A40BF9C78AD9 /* ISHPullUp */,
-				AB5CA2BD914B511C9A355EE7163C516F /* Pods-Me-iOS */,
+				93560C05B87988775E43AA3CEBFCA82A /* MarqueeLabel */,
+				D3EA314B8DDF685E84C0136727947030 /* Pods-Me-iOS */,
 				34D6D77F061CBE762484713E0EC93CB4 /* Pods-Me-iOSTests */,
 				187DF4FB9761040A0EBBD7EA9FD8D23B /* Pods-Me-iOSUITests */,
-				4C577F9FBF8BB4436C6D1D7E4C328718 /* SkyFloatingLabelTextField */,
+				21FE87C0DA5F3EE2ACE5A2BC22A90805 /* SkyFloatingLabelTextField */,
 			);
 		};
 /* End PBXProject section */
@@ -517,14 +613,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		74DED7F57CF24D260CAE34E0528FC939 /* Resources */ = {
+		1804E8636DC9B911FF327FF7433FAA0C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		7C170C5CC28A5E07DF5D1B8DA72ECA0A /* Resources */ = {
+		5762FA6A0DD7C310E29DFFE67C4BE018 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B5A780D7EE467143ED31DFD15D7F48EC /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -541,6 +644,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		067ACFD3F49EFC624F80A3F9CC448300 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6A9F165A7F02D613F182EEEA9C099FCE /* Pods-Me-iOS-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3B578A0C7D2A8CD94BBE40EDFCB5FEB3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				865297ECA735286C0D1C5C379BA995CE /* MarqueeLabel-dummy.m in Sources */,
+				333DDF83BF86FBD755EB71DDB5C6FCFD /* MarqueeLabel.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		46AB9383A682AACA8F078F1516CE2156 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -549,19 +669,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		7BDE5496D134D861D8FAD1826C07BF03 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				7AFE3FDC18570031F23C42EDDD4BF794 /* Pods-Me-iOS-dummy.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		83EEAAA792688D47FEE1CB0F589EC4EE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				42787E9A2C437C71688EE7322EF7952B /* Pods-Me-iOSTests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8B425423BFA1284D54CC830D7CDE3BE6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C5B126309627C87D7B7467DCF3F1E88F /* SkyFloatingLabelTextField-dummy.m in Sources */,
+				D27DAE8F8C7A35329D7133A43913D139 /* SkyFloatingLabelTextField.swift in Sources */,
+				1D3E7C7AFA6E2A9BD0252C5C2DD38239 /* SkyFloatingLabelTextFieldWithIcon.swift in Sources */,
+				3D7BE5AE8F62F20BDA9C695012C20FCE /* UITextField+fixCaretPosition.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -576,43 +699,38 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F0C1AA1BDA909CC3DA77180704BF0FD2 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				81EAD3AF5AB2E0AE79A2109E0B061362 /* SkyFloatingLabelTextField-dummy.m in Sources */,
-				F5A6B80FCAF30157BF5AA97DB86B5C3C /* SkyFloatingLabelTextField.swift in Sources */,
-				1C6CCCD91C3C84CF812081E9D1B2DD76 /* SkyFloatingLabelTextFieldWithIcon.swift in Sources */,
-				8EF1EBC3F8414AFC7A06946031416FA0 /* UITextField+fixCaretPosition.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		31D52BAA8BDBAA8BE9D402FDEFE84589 /* PBXTargetDependency */ = {
+		11799BC2F8855AB072EFB552AD6673E8 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = SkyFloatingLabelTextField;
-			target = 4C577F9FBF8BB4436C6D1D7E4C328718 /* SkyFloatingLabelTextField */;
-			targetProxy = 6FC8E951E207428BF321A8E63012EF40 /* PBXContainerItemProxy */;
+			name = ISHPullUp;
+			target = 4785808CD75BEBA2EE09A40BF9C78AD9 /* ISHPullUp */;
+			targetProxy = 19099EF1D37B5D9A8F75D82F11A122E8 /* PBXContainerItemProxy */;
 		};
 		619BAC2CF57E9716C039887CA3C3B87A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "Pods-Me-iOS";
-			target = AB5CA2BD914B511C9A355EE7163C516F /* Pods-Me-iOS */;
+			target = D3EA314B8DDF685E84C0136727947030 /* Pods-Me-iOS */;
 			targetProxy = 0CEFFD5053F2AAF31F41E5895794F332 /* PBXContainerItemProxy */;
 		};
-		B034664EFF5E0836C5605BD86F1286CA /* PBXTargetDependency */ = {
+		D70EB05394D80F20654DDE947B413EED /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = ISHPullUp;
-			target = 4785808CD75BEBA2EE09A40BF9C78AD9 /* ISHPullUp */;
-			targetProxy = 27CDD80DADA93CC7D5DC1FE7B6857B23 /* PBXContainerItemProxy */;
+			name = MarqueeLabel;
+			target = 93560C05B87988775E43AA3CEBFCA82A /* MarqueeLabel */;
+			targetProxy = 20384E7DF1A8D3EBBB172D1F75E1D65C /* PBXContainerItemProxy */;
 		};
 		D9051AA765D0E4A3D7B99095B549FF3A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "Pods-Me-iOS";
-			target = AB5CA2BD914B511C9A355EE7163C516F /* Pods-Me-iOS */;
+			target = D3EA314B8DDF685E84C0136727947030 /* Pods-Me-iOS */;
 			targetProxy = DF92FC5228E46104F4C3FF027A2B0659 /* PBXContainerItemProxy */;
+		};
+		DB234D6131A9F1C471194F1E1AEC5777 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SkyFloatingLabelTextField;
+			target = 21FE87C0DA5F3EE2ACE5A2BC22A90805 /* SkyFloatingLabelTextField */;
+			targetProxy = 97FB6DE9357A3FD789EE0328C2413CA2 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -657,7 +775,7 @@
 		};
 		1FECC0A35AFBB5DA66CCE35548BD755E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 57B961AEE1B27F03A13AB97E83182F33 /* ISHPullUp.xcconfig */;
+			baseConfigurationReference = 4017F5B2C00AB0D5362932BF1788E651 /* ISHPullUp.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -693,7 +811,7 @@
 		};
 		2ED0ED20D485C80EBA23590CDB8065BF /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 57B961AEE1B27F03A13AB97E83182F33 /* ISHPullUp.xcconfig */;
+			baseConfigurationReference = 4017F5B2C00AB0D5362932BF1788E651 /* ISHPullUp.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -720,6 +838,41 @@
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		324A6FC3900DD626285CDC7460D18911 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 22946F1A299F1749255F3414D4D05F4B /* MarqueeLabel.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/MarqueeLabel/MarqueeLabel-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/MarqueeLabel/MarqueeLabel-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/MarqueeLabel/MarqueeLabel.modulemap";
+				PRODUCT_MODULE_NAME = MarqueeLabel;
+				PRODUCT_NAME = MarqueeLabel;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -769,7 +922,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -830,7 +982,7 @@
 			};
 			name = Debug;
 		};
-		41CE475F67781BE050F1652FAB2E247A /* Debug */ = {
+		44840997C51275FEB42D0A5BFC765E52 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5A426B5F5BBA4380E7D13DAEFBF7850A /* Pods-Me-iOS.debug.xcconfig */;
 			buildSettings = {
@@ -907,78 +1059,7 @@
 			};
 			name = Release;
 		};
-		647E5E39FDD44D7A2F07E3086BA63736 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = FC14F0A5DBC9C2818A1312609219DC54 /* SkyFloatingLabelTextField.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/SkyFloatingLabelTextField/SkyFloatingLabelTextField-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/SkyFloatingLabelTextField/SkyFloatingLabelTextField-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MODULEMAP_FILE = "Target Support Files/SkyFloatingLabelTextField/SkyFloatingLabelTextField.modulemap";
-				PRODUCT_MODULE_NAME = SkyFloatingLabelTextField;
-				PRODUCT_NAME = SkyFloatingLabelTextField;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		7765671F7E2FE89F820F52635DBF9A9C /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = FC14F0A5DBC9C2818A1312609219DC54 /* SkyFloatingLabelTextField.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/SkyFloatingLabelTextField/SkyFloatingLabelTextField-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/SkyFloatingLabelTextField/SkyFloatingLabelTextField-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MODULEMAP_FILE = "Target Support Files/SkyFloatingLabelTextField/SkyFloatingLabelTextField.modulemap";
-				PRODUCT_MODULE_NAME = SkyFloatingLabelTextField;
-				PRODUCT_NAME = SkyFloatingLabelTextField;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		780C04CA8B219BC822921D4D4F58141A /* Release */ = {
+		646660280FCC7535196AC36CD2E3AD5E /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 22F3B7937FFEC1D195B567CAF1A5C36E /* Pods-Me-iOS.release.xcconfig */;
 			buildSettings = {
@@ -1021,7 +1102,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -1078,6 +1158,41 @@
 			};
 			name = Release;
 		};
+		AA84F20FB2E06FB9CFDA675FEADF185A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B0B1F61FBB8A63C52474FA23C0574297 /* SkyFloatingLabelTextField.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/SkyFloatingLabelTextField/SkyFloatingLabelTextField-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SkyFloatingLabelTextField/SkyFloatingLabelTextField-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/SkyFloatingLabelTextField/SkyFloatingLabelTextField.modulemap";
+				PRODUCT_MODULE_NAME = SkyFloatingLabelTextField;
+				PRODUCT_NAME = SkyFloatingLabelTextField;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
 		B52F40E3A9E7BB20A572C08EAF4E8DC1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 731B66A266D6E420A9C6FE6F33E6D3E6 /* Pods-Me-iOSUITests.debug.xcconfig */;
@@ -1116,9 +1231,90 @@
 			};
 			name = Debug;
 		};
+		BA596D3EAA8418C6CC944415DE28D07A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B0B1F61FBB8A63C52474FA23C0574297 /* SkyFloatingLabelTextField.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/SkyFloatingLabelTextField/SkyFloatingLabelTextField-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SkyFloatingLabelTextField/SkyFloatingLabelTextField-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/SkyFloatingLabelTextField/SkyFloatingLabelTextField.modulemap";
+				PRODUCT_MODULE_NAME = SkyFloatingLabelTextField;
+				PRODUCT_NAME = SkyFloatingLabelTextField;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		FF733531CE3B94627E025B971B22E65A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 22946F1A299F1749255F3414D4D05F4B /* MarqueeLabel.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/MarqueeLabel/MarqueeLabel-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/MarqueeLabel/MarqueeLabel-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/MarqueeLabel/MarqueeLabel.modulemap";
+				PRODUCT_MODULE_NAME = MarqueeLabel;
+				PRODUCT_NAME = MarqueeLabel;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		249DF631C0435B501BFE9A0DEC0779FD /* Build configuration list for PBXNativeTarget "SkyFloatingLabelTextField" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AA84F20FB2E06FB9CFDA675FEADF185A /* Debug */,
+				BA596D3EAA8418C6CC944415DE28D07A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -1137,11 +1333,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8C8D378A55FAF8526BC46B742177D66D /* Build configuration list for PBXNativeTarget "SkyFloatingLabelTextField" */ = {
+		7C2F6513DD46EA9867DAA627DE66C076 /* Build configuration list for PBXNativeTarget "Pods-Me-iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				7765671F7E2FE89F820F52635DBF9A9C /* Debug */,
-				647E5E39FDD44D7A2F07E3086BA63736 /* Release */,
+				44840997C51275FEB42D0A5BFC765E52 /* Debug */,
+				646660280FCC7535196AC36CD2E3AD5E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B1B733E7B9870A7A0D7A1729C0E55156 /* Build configuration list for PBXNativeTarget "MarqueeLabel" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				324A6FC3900DD626285CDC7460D18911 /* Debug */,
+				FF733531CE3B94627E025B971B22E65A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1160,15 +1365,6 @@
 			buildConfigurations = (
 				0DE4FC7C5C9D65FE18CA4E992F692366 /* Debug */,
 				470966C36D15918044C4D11591D1E3B3 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		E34FEAAF768BACA85BC35FCC9E2646B3 /* Build configuration list for PBXNativeTarget "Pods-Me-iOS" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				41CE475F67781BE050F1652FAB2E247A /* Debug */,
-				780C04CA8B219BC822921D4D4F58141A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

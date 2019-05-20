@@ -9,31 +9,38 @@
 import UIKit
 import ISHPullUp
 
-class CommonPullUpViewController: ISHPullUpViewController {
-    var content: String! = "content"
-    var bottom: String! = "bottom"
 
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        commonInit()
-        
-    }
+@IBDesignable
+class CommonPullUpViewController: ISHPullUpViewController {
+    
+        required init?(coder aDecoder: NSCoder) {
+            super.init(coder: aDecoder)
+            if self.contentViewController != nil && self.bottomViewController != nil {
+                
+            }else {
+                commonInit()
+            }
+    
+        }
+    
+    
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         commonInit()
     }
     
+    
     private func commonInit() {
-        let storyBoard = UIStoryboard(name: "LoginQRAndCodeViewController", bundle: nil)
-        let contentVC = storyBoard.instantiateViewController(withIdentifier: content)
-        let bottomVC = storyBoard.instantiateViewController(withIdentifier: bottom) as! CommonBottomViewController
+        let storyBoard = UIStoryboard(name: "LoginQRAndCodeViewController" , bundle: nil)
+        let contentVC = storyBoard.instantiateViewController(withIdentifier: "content")
+        let bottomVC = storyBoard.instantiateViewController(withIdentifier: "bottom") as! CommonBottomViewController
         contentViewController = contentVC
         bottomViewController = bottomVC
         bottomVC.pullUpController = self
         sizingDelegate = bottomVC
         stateDelegate = bottomVC
-//        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "hideTapBar"), object: nil)
+        //        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "hideTapBar"), object: nil)
     }
-
+    
 }

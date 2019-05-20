@@ -11,6 +11,7 @@ import Foundation
 struct Voucher: Decodable {
     
     var found_id: Int?
+    var id: Int?
     var identity_address: String?
     var address: String?
     var amount: String?

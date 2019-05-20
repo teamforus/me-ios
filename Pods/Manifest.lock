@@ -1,20 +1,24 @@
 PODS:
   - ISHPullUp (1.0.7)
+  - MarqueeLabel/Swift (3.2.0)
   - SkyFloatingLabelTextField (3.6.0)
 
 DEPENDENCIES:
   - ISHPullUp
+  - MarqueeLabel/Swift
   - SkyFloatingLabelTextField
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - ISHPullUp
+    - MarqueeLabel
     - SkyFloatingLabelTextField
 
 SPEC CHECKSUMS:
   ISHPullUp: eaa91bef06270264e1f923bc764705173d341495
+  MarqueeLabel: 440a502b91a9179bd98f9fff00ba1150650a1c0e
   SkyFloatingLabelTextField: 38164979b79512f9ff9288ad8acfc4bbf5d843e3
 
-PODFILE CHECKSUM: 56bbc78fb6fa68894ff1ae5594ce0446296cfd05
+PODFILE CHECKSUM: 9408cbf040579420acc040e446af06ecda24373e
 
 COCOAPODS: 1.6.1

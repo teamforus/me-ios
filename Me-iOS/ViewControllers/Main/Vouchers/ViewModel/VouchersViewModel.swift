@@ -30,7 +30,7 @@ class VouchersViewModel{
         
         commonService.get(request: "platform/vouchers", complete: { (response: ResponseDataArray<Voucher>, statusCode) in
             self.processFetchedLunche(vouchers: response.data ?? [])
-        }, failute: { (error) in
+        }, failure: { (error) in
             
         })
         

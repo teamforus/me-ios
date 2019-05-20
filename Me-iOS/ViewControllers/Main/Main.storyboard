@@ -146,8 +146,8 @@
                     <navigationItem key="navigationItem" id="zCo-la-hYJ"/>
                     <connections>
                         <outlet property="tableView" destination="5yR-zH-dKR" id="Hve-CW-lin"/>
-                        <segue destination="yXS-8F-HEa" kind="show" id="o6s-gf-Hnr"/>
-                        <segue destination="oem-tR-Bhz" kind="show" id="tzZ-Ns-oe3"/>
+                        <segue destination="yXS-8F-HEa" kind="show" identifier="goToVoucher" id="o6s-gf-Hnr"/>
+                        <segue destination="oem-tR-Bhz" kind="show" identifier="goToProduct" id="tzZ-Ns-oe3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JN4-Kx-GpU" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -330,6 +330,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="pod-Db-J7J"/>
                     </view>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="storyboardName" value="LoginQRAndCodeViewController"/>
+                        <userDefinedRuntimeAttribute type="string" keyPath="bottom" value="bottom"/>
+                        <userDefinedRuntimeAttribute type="string" keyPath="content" value="content"/>
+                    </userDefinedRuntimeAttributes>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rp4-iE-7pL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

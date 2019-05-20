@@ -9,6 +9,8 @@
 import UIKit
 
 class MVoucherViewController: UIViewController {
+    
+    var address: String!
 
     override func viewDidLoad() {
         super.viewDidLoad()

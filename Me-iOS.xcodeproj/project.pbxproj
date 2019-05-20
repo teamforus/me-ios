@@ -33,7 +33,6 @@
 		65139C63228029EF003E0CDE /* CustomCornerUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65139C5B228029EF003E0CDE /* CustomCornerUIView.swift */; };
 		65139C64228029EF003E0CDE /* CornerImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65139C5C228029EF003E0CDE /* CornerImageView.swift */; };
 		65139C65228029EF003E0CDE /* StatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65139C5D228029EF003E0CDE /* StatusView.swift */; };
-		65139C66228029EF003E0CDE /* PausedMarqueLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65139C5E228029EF003E0CDE /* PausedMarqueLabel.swift */; };
 		65139C6B22802C25003E0CDE /* MLoginQRAndCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65139C6A22802C25003E0CDE /* MLoginQRAndCodeViewController.swift */; };
 		65139C6D22802C4A003E0CDE /* First.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65139C6C22802C4A003E0CDE /* First.storyboard */; };
 		65139C6F22802CB7003E0CDE /* LoginQRAndCodeViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65139C6E22802CB7003E0CDE /* LoginQRAndCodeViewController.storyboard */; };
@@ -99,6 +98,8 @@
 		65A8B7452282EDEB00B7DF05 /* EmailLogin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65A8B7442282EDEB00B7DF05 /* EmailLogin.storyboard */; };
 		65A8B7472282EE7B00B7DF05 /* MSuccessEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A8B7462282EE7B00B7DF05 /* MSuccessEmailViewController.swift */; };
 		65A8B7492282EE8500B7DF05 /* SuccessEmail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65A8B7482282EE8500B7DF05 /* SuccessEmail.storyboard */; };
+		65BDB8632292CFFC0016296C /* PausedMarqueLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BDB8622292CFFC0016296C /* PausedMarqueLabel.swift */; };
+		65BDB8652292D5170016296C /* DownloadImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BDB8642292D5160016296C /* DownloadImage.swift */; };
 		65CF407B228C0B8F0006F5DE /* Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CF407A228C0B8F0006F5DE /* Register.swift */; };
 		65CF407D228C0BBD0006F5DE /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CF407C228C0BBD0006F5DE /* Errors.swift */; };
 		65CF407F228C0C6A0006F5DE /* Identity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CF407E228C0C6A0006F5DE /* Identity.swift */; };
@@ -165,7 +166,6 @@
 		65139C5B228029EF003E0CDE /* CustomCornerUIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCornerUIView.swift; sourceTree = "<group>"; };
 		65139C5C228029EF003E0CDE /* CornerImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CornerImageView.swift; sourceTree = "<group>"; };
 		65139C5D228029EF003E0CDE /* StatusView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusView.swift; sourceTree = "<group>"; };
-		65139C5E228029EF003E0CDE /* PausedMarqueLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PausedMarqueLabel.swift; sourceTree = "<group>"; };
 		65139C6A22802C25003E0CDE /* MLoginQRAndCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLoginQRAndCodeViewController.swift; sourceTree = "<group>"; };
 		65139C6C22802C4A003E0CDE /* First.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = First.storyboard; sourceTree = "<group>"; };
 		65139C6E22802CB7003E0CDE /* LoginQRAndCodeViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginQRAndCodeViewController.storyboard; sourceTree = "<group>"; };
@@ -231,6 +231,8 @@
 		65A8B7442282EDEB00B7DF05 /* EmailLogin.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EmailLogin.storyboard; sourceTree = "<group>"; };
 		65A8B7462282EE7B00B7DF05 /* MSuccessEmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSuccessEmailViewController.swift; sourceTree = "<group>"; };
 		65A8B7482282EE8500B7DF05 /* SuccessEmail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SuccessEmail.storyboard; sourceTree = "<group>"; };
+		65BDB8622292CFFC0016296C /* PausedMarqueLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PausedMarqueLabel.swift; sourceTree = "<group>"; };
+		65BDB8642292D5160016296C /* DownloadImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadImage.swift; sourceTree = "<group>"; };
 		65CF407A228C0B8F0006F5DE /* Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Register.swift; sourceTree = "<group>"; };
 		65CF407C228C0BBD0006F5DE /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		65CF407E228C0C6A0006F5DE /* Identity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identity.swift; sourceTree = "<group>"; };
@@ -370,6 +372,7 @@
 		65139C3F228029C0003E0CDE /* AppLocker */ = {
 			isa = PBXGroup;
 			children = (
+				65BDB8622292CFFC0016296C /* PausedMarqueLabel.swift */,
 				65139C40228029C0003E0CDE /* backspaceBlue@3x.png */,
 				65139C41228029C0003E0CDE /* backspaceBlue@2x.png */,
 				65139C42228029C0003E0CDE /* LICENSE */,
@@ -408,10 +411,10 @@
 				65A8B6F12282DB9500B7DF05 /* MANavicationController.swift */,
 				65139C5B228029EF003E0CDE /* CustomCornerUIView.swift */,
 				65139C59228029EF003E0CDE /* Formater.swift */,
-				65139C5E228029EF003E0CDE /* PausedMarqueLabel.swift */,
 				65139C58228029EF003E0CDE /* RoundImageView.swift */,
 				65139C57228029EE003E0CDE /* ShadowButton.swift */,
 				65139C5D228029EF003E0CDE /* StatusView.swift */,
+				65BDB8642292D5160016296C /* DownloadImage.swift */,
 				65139C5A228029EF003E0CDE /* SwitchCustom.swift */,
 			);
 			path = Custom;
@@ -1009,6 +1012,7 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Me-iOS/Pods-Me-iOS-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/ISHPullUp/ISHPullUp.framework",
+				"${BUILT_PRODUCTS_DIR}/MarqueeLabel/MarqueeLabel.framework",
 				"${BUILT_PRODUCTS_DIR}/SkyFloatingLabelTextField/SkyFloatingLabelTextField.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -1016,6 +1020,7 @@
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ISHPullUp.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MarqueeLabel.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SkyFloatingLabelTextField.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1117,6 +1122,7 @@
 				65A8B7252282EADE00B7DF05 /* MPaymentViewController.swift in Sources */,
 				65A8B7302282EBD000B7DF05 /* ProductVoucherViewModel.swift in Sources */,
 				65A8B6EE2282CE4500B7DF05 /* CommonBottomViewController.swift in Sources */,
+				65BDB8632292CFFC0016296C /* PausedMarqueLabel.swift in Sources */,
 				65139C5F228029EF003E0CDE /* ShadowButton.swift in Sources */,
 				657DBA46228983CB00C67500 /* Extension+UIImageView.swift in Sources */,
 				65139C64228029EF003E0CDE /* CornerImageView.swift in Sources */,
@@ -1152,9 +1158,9 @@
 				65139C65228029EF003E0CDE /* StatusView.swift in Sources */,
 				65A8B7112282E1A900B7DF05 /* MRecordsViewController.swift in Sources */,
 				65139C7522802F25003E0CDE /* PinCode.swift in Sources */,
-				65139C66228029EF003E0CDE /* PausedMarqueLabel.swift in Sources */,
 				65911B48228D892800EA30D6 /* Voucher.swift in Sources */,
 				65A8B73B2282EC3800B7DF05 /* PaymentViewModel.swift in Sources */,
+				65BDB8652292D5170016296C /* DownloadImage.swift in Sources */,
 				65A8B72C2282EBAE00B7DF05 /* QRViewModel.swift in Sources */,
 				65139C7B228034DA003E0CDE /* BaseURL.swift in Sources */,
 				65A8B73E2282ED1D00B7DF05 /* MProfileViewController.swift in Sources */,

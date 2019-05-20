@@ -7,24 +7,58 @@
 //
 
 import UIKit
+import MapKit
 
 class MProductVoucherViewController: UIViewController {
-
+    @IBOutlet weak var productNameLabel: PausedMarqueLabel!
+    @IBOutlet weak var organizationNameLabel: UILabel!
+    @IBOutlet weak var qrCodeImage: UIImageView!
+    @IBOutlet weak var organizationProductName: UILabel!
+    @IBOutlet weak var addressLabel: PausedMarqueLabel!
+    @IBOutlet weak var phoneNumberLabel: UILabel!
+    @IBOutlet weak var emailButton: UIButton!
+    @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var organizationIcon: CornerImageView!
+    
+    
+    var address: String!
+    lazy var productViewModel: ProductVoucherViewModel = {
+        return ProductVoucherViewModel()
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        
+        productViewModel.complete = { [weak self] (voucher) in
+            
+            DispatchQueue.main.async {
+                
+                self?.productNameLabel.text = voucher.product?.name ?? ""
+                self?.organizationNameLabel.text = voucher.fund?.organization?.name ?? ""
+                self?.organizationProductName.text = voucher.product?.organization?.name ?? ""
+                self?.addressLabel.text = voucher.offices?.first?.address ?? ""
+                self?.phoneNumberLabel.text = voucher.offices?.first?.phone ?? ""
+                self?.emailButton.setTitle(voucher.offices?.first?.organization?.email, for: .normal)
+                self?.organizationIcon.loadImageUsingUrlString(urlString: voucher.product?.organization?.logo?.sizes?.thumbnail ?? "", placeHolder: #imageLiteral(resourceName: "Resting"))
+                
+                
+                
+            }
+            
+        }
+        
+        productViewModel.initFetchById(address: address)
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    @IBAction func sendByEmail(_ sender: Any) {
     }
-    */
+    
+    @IBAction func info(_ sender: Any) {
+    }
+    
+    
 
 }

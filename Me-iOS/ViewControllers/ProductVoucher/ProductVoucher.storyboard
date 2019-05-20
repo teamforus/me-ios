@@ -24,7 +24,7 @@
         <!--Item 2-->
         <scene sceneID="lfX-Ve-V1c">
             <objects>
-                <viewController storyboardIdentifier="productVoucher" id="i5g-No-1l1" customClass="MProductVoucherViewController" customModule="Me_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="content" id="i5g-No-1l1" customClass="MProductVoucherViewController" customModule="Me_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="e9R-wt-e9A">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -47,7 +47,7 @@
                                                         <rect key="frame" x="0.0" y="238" width="375" height="70"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                                         <subviews>
-                                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d75-Qd-xat" customClass="ShadowButton" customModule="Me" customModuleProvider="target">
+                                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d75-Qd-xat" customClass="ShadowButton" customModule="Me_iOS" customModuleProvider="target">
                                                                 <rect key="frame" x="20" y="12" width="170" height="46"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                 <color key="backgroundColor" red="0.96852236989999996" green="0.96868795159999999" blue="0.96851199870000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -62,8 +62,11 @@
                                                                         <real key="value" value="6"/>
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
+                                                                <connections>
+                                                                    <action selector="sendByEmail:" destination="i5g-No-1l1" eventType="touchUpInside" id="ole-9V-3rF"/>
+                                                                </connections>
                                                             </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bdu-eB-oGB" customClass="ShadowButton" customModule="Me" customModuleProvider="target">
+                                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bdu-eB-oGB" customClass="ShadowButton" customModule="Me_iOS" customModuleProvider="target">
                                                                 <rect key="frame" x="202" y="12" width="156" height="46"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                 <color key="backgroundColor" red="0.96852236989999996" green="0.96868795159999999" blue="0.96851199870000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -76,6 +79,9 @@
                                                                         <real key="value" value="6"/>
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
+                                                                <connections>
+                                                                    <action selector="info:" destination="i5g-No-1l1" eventType="touchUpInside" id="4Tg-aS-6md"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -91,7 +97,7 @@
                                                         <rect key="frame" x="15" y="103" width="345" height="120"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                                     </imageView>
-                                                    <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Fiets" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yli-HN-EQC" customClass="PausedMarqueLabel" customModule="Me" customModuleProvider="target">
+                                                    <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Fiets" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yli-HN-EQC" customClass="PausedMarqueLabel" customModule="Me_iOS" customModuleProvider="target">
                                                         <rect key="frame" x="32" y="120" width="208" height="26"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <fontDescription key="fontDescription" name="GoogleSans-Medium" family="Google Sans" pointSize="20"/>
@@ -142,7 +148,7 @@
                                                     <constraint firstAttribute="height" constant="322" id="Q1V-wC-Hg4"/>
                                                 </constraints>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="era-9R-SMi" customClass="CustomCornerUIView" customModule="Me" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="era-9R-SMi" customClass="CustomCornerUIView" customModule="Me_iOS" customModuleProvider="target">
                                                 <rect key="frame" x="10" y="353" width="355" height="235"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Rocket Minds" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TTK-vD-7c6">
@@ -159,7 +165,7 @@
                                                         <color key="textColor" red="0.55673801899999997" green="0.55652600529999996" blue="0.57718861099999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VkW-KL-tSs" customClass="CornerImageView" customModule="Me" customModuleProvider="target">
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VkW-KL-tSs" customClass="CornerImageView" customModule="Me_iOS" customModuleProvider="target">
                                                         <rect key="frame" x="8" y="22" width="44" height="44"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <userDefinedRuntimeAttributes>
@@ -200,7 +206,7 @@
                                                                 <color key="textColor" red="0.40779560799999998" green="0.40787053109999999" blue="0.40779092909999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Ulgersmaweg 35, 9731BK, Groningen" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CHH-ru-snt" customClass="PausedMarqueLabel" customModule="Me" customModuleProvider="target">
+                                                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Ulgersmaweg 35, 9731BK, Groningen" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CHH-ru-snt" customClass="PausedMarqueLabel" customModule="Me_iOS" customModuleProvider="target">
                                                                 <rect key="frame" x="16" y="35" width="331" height="21"/>
                                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                 <fontDescription key="fontDescription" name="GoogleSans-Regular" family="Google Sans" pointSize="16"/>
@@ -289,7 +295,7 @@
                                     <constraint firstItem="lUs-DV-Tuu" firstAttribute="leading" secondItem="yv2-8p-7GK" secondAttribute="leading" id="tGP-qy-5cQ"/>
                                 </constraints>
                             </scrollView>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ISv-VT-zMg" customClass="StatusView" customModule="Me" customModuleProvider="target">
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ISv-VT-zMg" customClass="StatusView" customModule="Me_iOS" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="22"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.96460121870000004" green="0.96476620440000005" blue="0.96459084750000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -306,6 +312,17 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Item 2" id="FO7-wT-ZdN"/>
                     <size key="freeformSize" width="375" height="800"/>
+                    <connections>
+                        <outlet property="addressLabel" destination="CHH-ru-snt" id="HPt-C9-lkK"/>
+                        <outlet property="emailButton" destination="xfb-su-vwf" id="b7s-VU-T5L"/>
+                        <outlet property="mapView" destination="vrm-km-75b" id="CyY-rb-02D"/>
+                        <outlet property="organizationIcon" destination="VkW-KL-tSs" id="j2D-yq-5hS"/>
+                        <outlet property="organizationNameLabel" destination="wt9-Zp-qNM" id="5m1-vD-CzF"/>
+                        <outlet property="organizationProductName" destination="TTK-vD-7c6" id="eoD-c8-2Xj"/>
+                        <outlet property="phoneNumberLabel" destination="yYD-ZY-nUL" id="MWP-Ak-dGF"/>
+                        <outlet property="productNameLabel" destination="yli-HN-EQC" id="c63-0O-qF7"/>
+                        <outlet property="qrCodeImage" destination="iMx-UP-m5T" id="iK1-yH-nsj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fFv-sj-YYv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -314,7 +331,7 @@
         <!--Common Pull Up View Controller-->
         <scene sceneID="7nu-yb-y1Y">
             <objects>
-                <viewController storyboardIdentifier="contentProduct" id="GHb-Mw-jlE" customClass="CommonPullUpViewController" customModule="Me_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="general" id="GHb-Mw-jlE" customClass="CommonPullUpViewController" customModule="Me_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zWb-5T-tM7">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -329,7 +346,7 @@
         <!--Common Bottom View Controller-->
         <scene sceneID="3nV-0y-HWi">
             <objects>
-                <viewController storyboardIdentifier="bottomQRProduct" id="ZIc-Eo-hCv" customClass="CommonBottomViewController" customModule="Me_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="bottom" id="ZIc-Eo-hCv" customClass="CommonBottomViewController" customModule="Me_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="iJV-mw-ejj"/>
                         <viewControllerLayoutGuide type="bottom" id="ISz-C0-ITy"/>

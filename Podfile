@@ -8,6 +8,7 @@ target 'Me-iOS' do
   # Pods for Me-iOS
 pod 'ISHPullUp'
 pod 'SkyFloatingLabelTextField'
+pod 'MarqueeLabel/Swift'
 
   target 'Me-iOSTests' do
     inherit! :search_paths

@@ -9,9 +9,9 @@
 import Foundation
 
 protocol CommonServiceProtocol {
-    func get<T: Decodable>(request:String ,complete: @escaping (_ response: T,_ statusCode: Int)->(), failute: @escaping(_ error: Error)->() )
+    func get<T: Decodable>(request:String ,complete: @escaping (_ response: T,_ statusCode: Int)->(), failure: @escaping(_ error: Error)->() )
     
-    func getById<T: Decodable>(request:String, id: String ,complete: @escaping (_ response: T,_ statusCode: Int)->() )
+    func getById<T: Decodable>(request:String, id: String ,complete: @escaping (_ response: T,_ statusCode: Int)->(), failure: @escaping(_ error: Error)->()  )
     
     func createById<T: Decodable, E: Encodable>(request:String, id: String, data: E ,complete: @escaping (_ response: T,_ statusCode: Int)->() )
     
@@ -24,7 +24,7 @@ protocol CommonServiceProtocol {
 
 class CommonService: CommonServiceProtocol {
     
-    func get<T>(request: String, complete: @escaping (T, Int) -> (), failute: @escaping (Error) -> ()) where T : Decodable {
+    func get<T>(request: String, complete: @escaping (T, Int) -> (), failure: @escaping (Error) -> ()) where T : Decodable {
         
         var request = URLRequest(url: URL(string: BaseURL.baseURL(url: request))!)
         request.httpMethod = "GET"
@@ -44,7 +44,7 @@ class CommonService: CommonServiceProtocol {
                 complete(responseData, httpStatus.statusCode)
                 
             } catch let jsonError {
-                failute(jsonError)
+                failure(jsonError)
             }
         }
         
@@ -53,7 +53,7 @@ class CommonService: CommonServiceProtocol {
     
     
     
-    func getById<T>(request: String, id: String, complete: @escaping (T, Int) -> ()) where T : Decodable {
+    func getById<T>(request: String, id: String, complete: @escaping (T, Int) -> (), failure: @escaping (Error) -> ()) where T : Decodable {
         
         var request = URLRequest(url: URL(string: BaseURL.baseURL(url: request + id))!)
         request.httpMethod = "GET"
@@ -71,7 +71,10 @@ class CommonService: CommonServiceProtocol {
                 let responseData = try decoder.decode( T.self, from: data)
                 let httpStatus = response as? HTTPURLResponse
                 complete(responseData, httpStatus!.statusCode)
-            } catch {}
+            } catch let error {
+                failure(error)
+                
+            }
         }
         
         task.resume()

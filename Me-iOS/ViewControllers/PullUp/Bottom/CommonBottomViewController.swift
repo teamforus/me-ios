@@ -32,6 +32,7 @@ class CommonBottomViewController: UIViewController {
     lazy var bottomQRViewModel: CommonBottomViewModel! = {
         return CommonBottomViewModel()
     }()
+    var voucher: Voucher!
     
     
     
@@ -61,7 +62,7 @@ class CommonBottomViewController: UIViewController {
             
             bottomQRViewModel.completeVoucher = { [weak self] (token) in
                 
-                self?.qrCodeImageView.generateQRCode(from: "{ \"type\": \"voucher\",\"value\": \"\(token)\" }")
+                self?.qrCodeImageView.generateQRCode(from: "{ \"type\": \"voucher\",\"value\": \"\(self?.voucher.address)\" }")
             }
             
             break
