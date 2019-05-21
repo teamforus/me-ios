@@ -42,6 +42,11 @@
 		65139C7722803197003E0CDE /* CommonService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65139C7622803197003E0CDE /* CommonService.swift */; };
 		65139C7922803349003E0CDE /* CurrentSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65139C7822803349003E0CDE /* CurrentSession.swift */; };
 		65139C7B228034DA003E0CDE /* BaseURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65139C7A228034DA003E0CDE /* BaseURL.swift */; };
+		6568461722942E2900097E83 /* Extension+UITabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6568461622942E2900097E83 /* Extension+UITabBarController.swift */; };
+		65684619229432CE00097E83 /* TransactionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65684618229432CE00097E83 /* TransactionTableViewCell.swift */; };
+		6568461E22944A1800097E83 /* SkeletonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6568461B22944A1700097E83 /* SkeletonView.swift */; };
+		6568461F22944A1800097E83 /* SkeletonUIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6568461C22944A1700097E83 /* SkeletonUIImageView.swift */; };
+		6568462022944A1800097E83 /* UIViewMasking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6568461D22944A1700097E83 /* UIViewMasking.swift */; };
 		657DBA4022897C3500C67500 /* ResponseDataArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657DBA3E22897C3500C67500 /* ResponseDataArray.swift */; };
 		657DBA4122897C3500C67500 /* ResponseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657DBA3F22897C3500C67500 /* ResponseData.swift */; };
 		657DBA46228983CB00C67500 /* Extension+UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657DBA45228983CB00C67500 /* Extension+UIImageView.swift */; };
@@ -49,7 +54,7 @@
 		657DBA4C2289880A00C67500 /* AuthorizationQRToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657DBA4B2289880A00C67500 /* AuthorizationQRToken.swift */; };
 		657DBA4E228993E200C67500 /* StatusService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657DBA4D228993E200C67500 /* StatusService.swift */; };
 		657DBA512289973C00C67500 /* NotificationName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657DBA502289973C00C67500 /* NotificationName.swift */; };
-		65911B46228D7DBC00EA30D6 /* MWaletVoucherTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65911B45228D7DBC00EA30D6 /* MWaletVoucherTableViewCell.swift */; };
+		65911B46228D7DBC00EA30D6 /* VoucherTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65911B45228D7DBC00EA30D6 /* VoucherTableViewCell.swift */; };
 		65911B48228D892800EA30D6 /* Voucher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65911B47228D892800EA30D6 /* Voucher.swift */; };
 		65911B4A228D899700EA30D6 /* Fund.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65911B49228D899700EA30D6 /* Fund.swift */; };
 		65911B4C228D8E4200EA30D6 /* Organization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65911B4B228D8E4200EA30D6 /* Organization.swift */; };
@@ -175,6 +180,11 @@
 		65139C7622803197003E0CDE /* CommonService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonService.swift; sourceTree = "<group>"; };
 		65139C7822803349003E0CDE /* CurrentSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentSession.swift; sourceTree = "<group>"; };
 		65139C7A228034DA003E0CDE /* BaseURL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseURL.swift; sourceTree = "<group>"; };
+		6568461622942E2900097E83 /* Extension+UITabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UITabBarController.swift"; sourceTree = "<group>"; };
+		65684618229432CE00097E83 /* TransactionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionTableViewCell.swift; sourceTree = "<group>"; };
+		6568461B22944A1700097E83 /* SkeletonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkeletonView.swift; sourceTree = "<group>"; };
+		6568461C22944A1700097E83 /* SkeletonUIImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkeletonUIImageView.swift; sourceTree = "<group>"; };
+		6568461D22944A1700097E83 /* UIViewMasking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewMasking.swift; sourceTree = "<group>"; };
 		657DBA3E22897C3500C67500 /* ResponseDataArray.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseDataArray.swift; sourceTree = "<group>"; };
 		657DBA3F22897C3500C67500 /* ResponseData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseData.swift; sourceTree = "<group>"; };
 		657DBA45228983CB00C67500 /* Extension+UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIImageView.swift"; sourceTree = "<group>"; };
@@ -182,7 +192,7 @@
 		657DBA4B2289880A00C67500 /* AuthorizationQRToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationQRToken.swift; sourceTree = "<group>"; };
 		657DBA4D228993E200C67500 /* StatusService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusService.swift; sourceTree = "<group>"; };
 		657DBA502289973C00C67500 /* NotificationName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationName.swift; sourceTree = "<group>"; };
-		65911B45228D7DBC00EA30D6 /* MWaletVoucherTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MWaletVoucherTableViewCell.swift; sourceTree = "<group>"; };
+		65911B45228D7DBC00EA30D6 /* VoucherTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VoucherTableViewCell.swift; sourceTree = "<group>"; };
 		65911B47228D892800EA30D6 /* Voucher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Voucher.swift; sourceTree = "<group>"; };
 		65911B49228D899700EA30D6 /* Fund.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fund.swift; sourceTree = "<group>"; };
 		65911B4B228D8E4200EA30D6 /* Organization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Organization.swift; sourceTree = "<group>"; };
@@ -324,7 +334,9 @@
 				65A8B6EB2282CD7E00B7DF05 /* String+Substring.swift */,
 				65A8B6EF2282DB0200B7DF05 /* Extension+UIViewController.swift */,
 				657DBA45228983CB00C67500 /* Extension+UIImageView.swift */,
+				6568461622942E2900097E83 /* Extension+UITabBarController.swift */,
 				657DBA502289973C00C67500 /* NotificationName.swift */,
+				6568461A22944A1700097E83 /* LoadAnimation */,
 				65A8B6E82282CBB000B7DF05 /* ViewControllers */,
 				65139C0F22802548003E0CDE /* Assets.xcassets */,
 				65139C7A228034DA003E0CDE /* BaseURL.swift */,
@@ -418,6 +430,16 @@
 				65139C5A228029EF003E0CDE /* SwitchCustom.swift */,
 			);
 			path = Custom;
+			sourceTree = "<group>";
+		};
+		6568461A22944A1700097E83 /* LoadAnimation */ = {
+			isa = PBXGroup;
+			children = (
+				6568461B22944A1700097E83 /* SkeletonView.swift */,
+				6568461C22944A1700097E83 /* SkeletonUIImageView.swift */,
+				6568461D22944A1700097E83 /* UIViewMasking.swift */,
+			);
+			path = LoadAnimation;
 			sourceTree = "<group>";
 		};
 		657DBA422289821B00C67500 /* Services */ = {
@@ -635,7 +657,7 @@
 			isa = PBXGroup;
 			children = (
 				65A8B70C2282E19400B7DF05 /* MVouchersViewController.swift */,
-				65911B45228D7DBC00EA30D6 /* MWaletVoucherTableViewCell.swift */,
+				65911B45228D7DBC00EA30D6 /* VoucherTableViewCell.swift */,
 				65A8B7372282EBF900B7DF05 /* ViewModel */,
 			);
 			path = Vouchers;
@@ -684,6 +706,7 @@
 			isa = PBXGroup;
 			children = (
 				65A8B71D2282E6BF00B7DF05 /* MVoucherViewController.swift */,
+				65684618229432CE00097E83 /* TransactionTableViewCell.swift */,
 				65A8B7332282EBDF00B7DF05 /* ViewModel */,
 				65A8B71F2282E6E000B7DF05 /* Voucher.storyboard */,
 			);
@@ -1113,6 +1136,7 @@
 				65A8B7472282EE7B00B7DF05 /* MSuccessEmailViewController.swift in Sources */,
 				65A8B7062282DE3D00B7DF05 /* MConfirmRegisterViewController.swift in Sources */,
 				65139C0E22802546003E0CDE /* Me_iOS.xcdatamodeld in Sources */,
+				65684619229432CE00097E83 /* TransactionTableViewCell.swift in Sources */,
 				65A8B7192282E52D00B7DF05 /* MProductVoucherViewController.swift in Sources */,
 				65CF407F228C0C6A0006F5DE /* Identity.swift in Sources */,
 				65139C7922803349003E0CDE /* CurrentSession.swift in Sources */,
@@ -1128,7 +1152,7 @@
 				65139C64228029EF003E0CDE /* CornerImageView.swift in Sources */,
 				65911B4E228D8EAE00EA30D6 /* Logo.swift in Sources */,
 				65139C61228029EF003E0CDE /* Formater.swift in Sources */,
-				65911B46228D7DBC00EA30D6 /* MWaletVoucherTableViewCell.swift in Sources */,
+				65911B46228D7DBC00EA30D6 /* VoucherTableViewCell.swift in Sources */,
 				65139C54228029C0003E0CDE /* UI.swift in Sources */,
 				65139C6B22802C25003E0CDE /* MLoginQRAndCodeViewController.swift in Sources */,
 				65139C0622802545003E0CDE /* AppDelegate.swift in Sources */,
@@ -1151,10 +1175,13 @@
 				65CF4081228C0CAB0006F5DE /* RecordsIndentity.swift in Sources */,
 				65139C3B2280273E003E0CDE /* ScanPermission.swift in Sources */,
 				65911B52228D8FC800EA30D6 /* Transaction.swift in Sources */,
+				6568462022944A1800097E83 /* UIViewMasking.swift in Sources */,
+				6568461F22944A1800097E83 /* SkeletonUIImageView.swift in Sources */,
 				657DBA4E228993E200C67500 /* StatusService.swift in Sources */,
 				65139C7122802E7E003E0CDE /* LoginQrAndCodeViewModel.swift in Sources */,
 				65A8B6F42282DBF400B7DF05 /* MRegisterViewController.swift in Sources */,
 				65A8B72E2282EBC000B7DF05 /* RecordsViewModel.swift in Sources */,
+				6568461E22944A1800097E83 /* SkeletonView.swift in Sources */,
 				65139C65228029EF003E0CDE /* StatusView.swift in Sources */,
 				65A8B7112282E1A900B7DF05 /* MRecordsViewController.swift in Sources */,
 				65139C7522802F25003E0CDE /* PinCode.swift in Sources */,
@@ -1168,6 +1195,7 @@
 				657DBA512289973C00C67500 /* NotificationName.swift in Sources */,
 				65A8B7432282EDDD00B7DF05 /* MEmailLoginViewController.swift in Sources */,
 				65CF407D228C0BBD0006F5DE /* Errors.swift in Sources */,
+				6568461722942E2900097E83 /* Extension+UITabBarController.swift in Sources */,
 				657DBA4022897C3500C67500 /* ResponseDataArray.swift in Sources */,
 				65139C7722803197003E0CDE /* CommonService.swift in Sources */,
 				65A8B72A2282EBA000B7DF05 /* VouchersViewModel.swift in Sources */,

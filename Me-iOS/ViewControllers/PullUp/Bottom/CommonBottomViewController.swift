@@ -21,6 +21,9 @@ class CommonBottomViewController: UIViewController {
     @IBOutlet private weak var rootView: UIView!
     @IBOutlet private weak var topView: UIView!
     @IBOutlet weak var qrCodeImageView: UIImageView!
+    @IBOutlet weak var voucherName: UILabel!
+    @IBOutlet weak var expiredLabel: UILabel!
+    @IBOutlet weak var titleQrLabel: UILabel!
     
     
     var timer : Timer! = Timer()

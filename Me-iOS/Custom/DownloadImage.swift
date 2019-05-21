@@ -10,9 +10,8 @@ import UIKit
 
 let imageChache = NSCache<AnyObject, AnyObject>()
 
-class DownloadImage: UIImageView {
+extension UIImageView {
     
-    var imageUrlString: String?
     
     func loadImageUsingUrlString( urlString: String, placeHolder: UIImage){
         let url = URL(string: urlString)
@@ -24,7 +23,8 @@ class DownloadImage: UIImageView {
             return
         }
         
-        URLSession.shared.dataTask(with: url!) { (data, response, error) in
+        if let url = url {
+        URLSession.shared.dataTask(with: url) { (data, response, error) in
             
             if error != nil {
                 DispatchQueue.main.async {
@@ -41,6 +41,9 @@ class DownloadImage: UIImageView {
             }
             
             }.resume()
+        }else {
+            self.image = placeHolder
+        }
     }
     
 }

@@ -9,7 +9,7 @@
 import UIKit
 
 @IBDesignable
-class CornerImageView: DownloadImage {
+class CornerImageView: UIImageView {
     
     @IBInspectable var selectedShadowColor : UIColor = UIColor.black {
         didSet {

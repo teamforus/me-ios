@@ -45,6 +45,7 @@ class MLoginQRAndCodeViewController: UIViewController {
                 if message == "active"{
                     self?.timer.invalidate()
                     UserDefaults.standard.set(self?.token, forKey: "TOKEN")
+                    UserDefaults.standard.set(true, forKey: "isLoged")
                     UserDefaults.standard.synchronize()
                     self?.performSegue(withIdentifier: "goToMain", sender: self)
                 }
@@ -63,6 +64,8 @@ class MLoginQRAndCodeViewController: UIViewController {
     }
     
     @IBAction func loginWithQr(_ sender: Any) {
+        UserDefaults.standard.set(true, forKey: "isLoged")
+        UserDefaults.standard.synchronize()
         NotificationCenter.default.post(name: NotificationName.TogleStateWindow, object: nil)
     }
     

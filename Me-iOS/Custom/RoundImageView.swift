@@ -11,10 +11,6 @@ import UIKit
 @IBDesignable
 class RoundImageView: UIImageView {
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-    }
-    
     required init(coder: NSCoder) {
         super.init(coder: coder)!
         self.layer.masksToBounds = false

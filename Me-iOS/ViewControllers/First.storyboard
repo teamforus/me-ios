@@ -136,7 +136,7 @@
         <!--Hidden Nav Bar Navigation Controller-->
         <scene sceneID="1tB-IA-WG2">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="Gmy-wc-PUf" customClass="HiddenNavBarNavigationController" customModule="Me_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="first" automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="Gmy-wc-PUf" customClass="HiddenNavBarNavigationController" customModule="Me_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="gqk-8c-vQe">
                         <autoresizingMask key="autoresizingMask"/>

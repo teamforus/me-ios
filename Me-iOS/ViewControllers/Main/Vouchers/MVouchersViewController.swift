@@ -41,6 +41,11 @@ class MVouchersViewController: UIViewController {
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tabBarController?.set(visible: true, animated: true)
+    }
+    
     
     
      // MARK: - Navigation
@@ -79,7 +84,7 @@ extension MVouchersViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! MWaletVoucherTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! VoucherTableViewCell
         
         cell.voucher = voucherViewModel.getCellViewModel(at: indexPath)
         
