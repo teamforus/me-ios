@@ -64,8 +64,7 @@ class MLoginQRAndCodeViewController: UIViewController {
     }
     
     @IBAction func loginWithQr(_ sender: Any) {
-        UserDefaults.standard.set(true, forKey: "isLoged")
-        UserDefaults.standard.synchronize()
+        
         NotificationCenter.default.post(name: NotificationName.TogleStateWindow, object: nil)
     }
     

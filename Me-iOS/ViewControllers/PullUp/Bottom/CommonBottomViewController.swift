@@ -90,6 +90,7 @@ class CommonBottomViewController: UIViewController {
                 if message == "active"{
                     self?.timer.invalidate()
                     UserDefaults.standard.set(self?.token, forKey: "TOKEN")
+                    UserDefaults.standard.set(true, forKey: "isLoged")
                     UserDefaults.standard.synchronize()
                      NotificationCenter.default.post(name: NotificationName.LoginQR, object: nil)
                 }
