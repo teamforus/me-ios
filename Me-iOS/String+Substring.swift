@@ -74,12 +74,12 @@ extension String {
             let index = self.index(self.startIndex, offsetBy: a)
             if self[index] == "{"{
                 indexA[x] = a
-                debugPrint(indexA[x])
+//                debugPrint(indexA[x])
                 x+=1
             }
             if self[index] == "}"{
                 indexB[z] = a
-                debugPrint(indexB[z])
+//                debugPrint(indexB[z])
                 z+=1
             }
             if self[index] == "£"{

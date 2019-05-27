@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -264,7 +263,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="87" id="TfW-Mc-Pmc" customClass="MAPersonalTableViewCell" customModule="Me_iOS" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="87" id="TfW-Mc-Pmc" customClass="RecordsTableViewCell" customModule="Me_iOS" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="87"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="TfW-Mc-Pmc" id="WjF-tu-pFl">
@@ -319,6 +318,7 @@
                                             <outlet property="nameLabel" destination="5fU-r2-fuI" id="Qto-ZS-T5S"/>
                                             <outlet property="validateText" destination="McN-ut-AJt" id="fz2-yC-RZ0"/>
                                             <outlet property="validationNumber" destination="o4b-Rb-FmZ" id="1MW-Uq-IDA"/>
+                                            <segue destination="V6h-uT-BmP" kind="show" id="P7Z-gr-KYD"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -359,10 +359,21 @@
                         <viewLayoutGuide key="safeArea" id="hQ2-i6-qrA"/>
                     </view>
                     <navigationItem key="navigationItem" id="lVg-j5-AgA"/>
+                    <connections>
+                        <outlet property="tableView" destination="QFd-Zz-7yk" id="YBe-Oq-XqT"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1pc-XS-0Zr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3157" y="-619"/>
+        </scene>
+        <!--RecordDetail-->
+        <scene sceneID="LBX-03-8xA">
+            <objects>
+                <viewControllerPlaceholder storyboardName="RecordDetail" id="V6h-uT-BmP" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qj7-qp-95c" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3850" y="-682"/>
         </scene>
     </scenes>
     <resources>

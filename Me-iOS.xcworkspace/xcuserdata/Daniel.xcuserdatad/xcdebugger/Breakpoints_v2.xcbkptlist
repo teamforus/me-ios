@@ -10,7 +10,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Me-iOS/Services/CommonService.swift"
-            timestampString = "580315988.600252"
+            timestampString = "580645341.557662"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "47"
@@ -26,7 +26,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Me-iOS/Services/CommonService.swift"
-            timestampString = "580315988.600414"
+            timestampString = "580645341.5577331"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "42"
@@ -42,12 +42,12 @@
                   moduleName = "Me-iOS"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Daniel/Documents/GitHub/res-me-ios/Me-iOS/Services/CommonService.swift"
-                  timestampString = "580313267.460529"
+                  timestampString = "580653794.889876"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "42"
                   endingLineNumber = "42"
-                  offsetFromSymbolStart = "1919">
+                  offsetFromSymbolStart = "2012">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -57,7 +57,7 @@
                   moduleName = "Me-iOS"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Daniel/Documents/GitHub/res-me-ios/Me-iOS/Services/CommonService.swift"
-                  timestampString = "580313267.462689"
+                  timestampString = "580653794.89275"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "43"
