@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct ProductCategory: Decodable {
+struct ProductCategory: Decodable, Hashable {
     
     var id: Int?
     var key: String?

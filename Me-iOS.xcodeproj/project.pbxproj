@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		65100AFD229D65A9007892D1 /* Extension+Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65100AFC229D65A9007892D1 /* Extension+Array.swift */; };
+		65100AFF229D7102007892D1 /* MRecordValidatorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65100AFE229D7102007892D1 /* MRecordValidatorsViewController.swift */; };
+		65100B01229D7113007892D1 /* RecordValidators.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65100B00229D7113007892D1 /* RecordValidators.storyboard */; };
+		65100B03229D7167007892D1 /* RecordValidatorsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65100B02229D7167007892D1 /* RecordValidatorsViewModel.swift */; };
+		65100B08229D9146007892D1 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 65100B0A229D9146007892D1 /* Localizable.strings */; };
 		65139C0622802545003E0CDE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65139C0522802545003E0CDE /* AppDelegate.swift */; };
 		65139C0E22802546003E0CDE /* Me_iOS.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 65139C0C22802545003E0CDE /* Me_iOS.xcdatamodeld */; };
 		65139C1022802548003E0CDE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 65139C0F22802548003E0CDE /* Assets.xcassets */; };
@@ -148,6 +153,12 @@
 		419E6D0E1450A2994CF709CB /* Pods-Me-iOSUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Me-iOSUITests.debug.xcconfig"; path = "Target Support Files/Pods-Me-iOSUITests/Pods-Me-iOSUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		43960597C5DD3C7D7D6E0BF0 /* Pods_Me_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Me_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		644A1B68834DF814F70203BA /* Pods-Me-iOS.demo.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Me-iOS.demo.xcconfig"; path = "Target Support Files/Pods-Me-iOS/Pods-Me-iOS.demo.xcconfig"; sourceTree = "<group>"; };
+		65100AFC229D65A9007892D1 /* Extension+Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Array.swift"; sourceTree = "<group>"; };
+		65100AFE229D7102007892D1 /* MRecordValidatorsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MRecordValidatorsViewController.swift; sourceTree = "<group>"; };
+		65100B00229D7113007892D1 /* RecordValidators.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = RecordValidators.storyboard; path = ../RecordValidators.storyboard; sourceTree = "<group>"; };
+		65100B02229D7167007892D1 /* RecordValidatorsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordValidatorsViewModel.swift; sourceTree = "<group>"; };
+		65100B09229D9146007892D1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		65100B0B229D9149007892D1 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Localizable.strings; sourceTree = "<group>"; };
 		65139C0222802545003E0CDE /* Me-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Me-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		65139C0522802545003E0CDE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		65139C0D22802545003E0CDE /* Me_iOS.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Me_iOS.xcdatamodel; sourceTree = "<group>"; };
@@ -337,6 +348,32 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		65100AFB229D563E007892D1 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				654F97AD229C03D0009C9FFA /* RecordDetailViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		65100B04229D76C9007892D1 /* RecordValidators */ = {
+			isa = PBXGroup;
+			children = (
+				65100AFE229D7102007892D1 /* MRecordValidatorsViewController.swift */,
+				65100B05229D8167007892D1 /* ViewModel */,
+				65100B00229D7113007892D1 /* RecordValidators.storyboard */,
+			);
+			path = RecordValidators;
+			sourceTree = "<group>";
+		};
+		65100B05229D8167007892D1 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				65100B02229D7167007892D1 /* RecordValidatorsViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		65139BF922802545003E0CDE = {
 			isa = PBXGroup;
 			children = (
@@ -367,6 +404,7 @@
 				65A8B6EF2282DB0200B7DF05 /* Extension+UIViewController.swift */,
 				657DBA45228983CB00C67500 /* Extension+UIImageView.swift */,
 				6568461622942E2900097E83 /* Extension+UITabBarController.swift */,
+				65100AFC229D65A9007892D1 /* Extension+Array.swift */,
 				657DBA502289973C00C67500 /* NotificationName.swift */,
 				6568461A22944A1700097E83 /* LoadAnimation */,
 				65A8B6E82282CBB000B7DF05 /* ViewControllers */,
@@ -378,6 +416,7 @@
 				65139C6722802A33003E0CDE /* Custom */,
 				65A8B6F82282DD2C00B7DF05 /* Google-Sans-Font */,
 				65139C1122802548003E0CDE /* LaunchScreen.storyboard */,
+				65100B0A229D9146007892D1 /* Localizable.strings */,
 				65139C1422802548003E0CDE /* Info.plist */,
 				65139C0C22802545003E0CDE /* Me_iOS.xcdatamodeld */,
 			);
@@ -476,8 +515,8 @@
 			isa = PBXGroup;
 			children = (
 				654F97A9229BF671009C9FFA /* MRecordDetailViewController.swift */,
-				654F97AD229C03D0009C9FFA /* RecordDetailViewModel.swift */,
 				654F97AC229C02F2009C9FFA /* Cell */,
+				65100AFB229D563E007892D1 /* ViewModel */,
 				654F97A5229BF4E2009C9FFA /* RecordDetail.storyboard */,
 			);
 			path = RecordDetail;
@@ -679,6 +718,7 @@
 				65A8B7262282EAF900B7DF05 /* Payment */,
 				65A8B7412282ED5300B7DF05 /* Profile */,
 				654F97AB229BF767009C9FFA /* RecordDetail */,
+				65100B04229D76C9007892D1 /* RecordValidators */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -1064,10 +1104,12 @@
 				65139C55228029C0003E0CDE /* README.md in Resources */,
 				65A8B7402282ED2500B7DF05 /* Profile.storyboard in Resources */,
 				65A8B71B2282E6A700B7DF05 /* ProductVoucher.storyboard in Resources */,
+				65100B08229D9146007892D1 /* Localizable.strings in Resources */,
 				65139C4E228029C0003E0CDE /* backspaceBlue@3x.png in Resources */,
 				65139C52228029C0003E0CDE /* AppLocker.xib in Resources */,
 				65139C6D22802C4A003E0CDE /* First.storyboard in Resources */,
 				65A8B6F62282DC2000B7DF05 /* Register.storyboard in Resources */,
+				65100B01229D7113007892D1 /* RecordValidators.storyboard in Resources */,
 				65A8B7452282EDEB00B7DF05 /* EmailLogin.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1217,6 +1259,7 @@
 				657DBA46228983CB00C67500 /* Extension+UIImageView.swift in Sources */,
 				65139C64228029EF003E0CDE /* CornerImageView.swift in Sources */,
 				65911B4E228D8EAE00EA30D6 /* Logo.swift in Sources */,
+				65100AFD229D65A9007892D1 /* Extension+Array.swift in Sources */,
 				65139C61228029EF003E0CDE /* Formater.swift in Sources */,
 				65911B46228D7DBC00EA30D6 /* VoucherTableViewCell.swift in Sources */,
 				65139C54228029C0003E0CDE /* UI.swift in Sources */,
@@ -1234,6 +1277,7 @@
 				65911B58228D912900EA30D6 /* AllowedProduct.swift in Sources */,
 				65139C62228029EF003E0CDE /* SwitchCustom.swift in Sources */,
 				65A8B6EC2282CD7E00B7DF05 /* String+Substring.swift in Sources */,
+				65100AFF229D7102007892D1 /* MRecordValidatorsViewController.swift in Sources */,
 				65139C60228029EF003E0CDE /* RoundImageView.swift in Sources */,
 				65139C53228029C0003E0CDE /* AppLocker.swift in Sources */,
 				65139C3D2280273E003E0CDE /* HSScanViewController.swift in Sources */,
@@ -1248,6 +1292,7 @@
 				657DBA4E228993E200C67500 /* StatusService.swift in Sources */,
 				65139C7122802E7E003E0CDE /* LoginQrAndCodeViewModel.swift in Sources */,
 				65A8B6F42282DBF400B7DF05 /* MRegisterViewController.swift in Sources */,
+				65100B03229D7167007892D1 /* RecordValidatorsViewModel.swift in Sources */,
 				65A8B72E2282EBC000B7DF05 /* RecordsViewModel.swift in Sources */,
 				6568461E22944A1800097E83 /* SkeletonView.swift in Sources */,
 				65139C65228029EF003E0CDE /* StatusView.swift in Sources */,
@@ -1304,6 +1349,15 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		65100B0A229D9146007892D1 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				65100B09229D9146007892D1 /* en */,
+				65100B0B229D9149007892D1 /* nl */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		65139C1122802548003E0CDE /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Organization: Decodable {
+struct Organization: Decodable, Hashable {
     
     var id: Int?
     var organization_id: Int?

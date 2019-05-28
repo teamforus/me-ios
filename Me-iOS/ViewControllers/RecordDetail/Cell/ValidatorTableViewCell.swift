@@ -9,22 +9,33 @@
 import UIKit
 
 class ValidatorTableViewCell: UITableViewCell {
-
+    
     @IBOutlet weak var nameValidator: UILabel!
     @IBOutlet weak var descriptionValidator: UILabel!
     @IBOutlet weak var iconValidator: UIImageView!
     var validator: Validator!{
         didSet{
-//            self.nameValidator.text = validator.identity_address ?? ""
+            if descriptionValidator != nil {
+                
+                self.nameValidator.text = validator.organization?.name ?? ""
+                self.descriptionValidator.text = validator.identity_address ?? ""
+                
+            }else {
+                
+                self.nameValidator.text = validator.identity_address ?? ""
+                
+            }
+            
         }
     }
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        self.selectionStyle = .none
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
-
+    
 }

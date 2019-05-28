@@ -12,6 +12,8 @@ import Foundation
 class RecordsViewModel{
     
     var commonService: CommonServiceProtocol!
+    var selectedRecord: Record?
+    var isAllowSegue: Bool = false
     
     private var cellViewModels: [Record] = [Record]() {
         didSet {
@@ -56,5 +58,15 @@ class RecordsViewModel{
             vms.append( createCellViewModel(record: record) )
         }
         self.cellViewModels = vms
+    }
+}
+
+
+extension RecordsViewModel {
+    
+    func userPressed( at indexPath: IndexPath) {
+        let record = self.cellViewModels[indexPath.row]
+        self.isAllowSegue = true
+        self.selectedRecord = record
     }
 }

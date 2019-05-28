@@ -27,16 +27,23 @@ class MRecordsViewController: UIViewController {
             }
         }
         
-           recordViewModel.initFitch()
+        
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-     
+        recordViewModel.initFitch()
     }
-
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let recordVC = segue.destination as? MRecordDetailViewController,
+            let record = recordViewModel.selectedRecord {
+            recordVC.recordId = String(record.id ?? 0)
+        }
+    }
+    
 }
 
 extension MRecordsViewController: UITableViewDelegate, UITableViewDataSource{
@@ -57,4 +64,15 @@ extension MRecordsViewController: UITableViewDelegate, UITableViewDataSource{
         
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+        
+        self.recordViewModel.userPressed(at: indexPath)
+        if recordViewModel.isAllowSegue {
+            return indexPath
+        }else {
+            return nil
+        }
+    }
 }
+

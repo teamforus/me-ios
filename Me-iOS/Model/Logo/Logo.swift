@@ -9,7 +9,7 @@
 import Foundation
 
 
-struct Logo: Decodable {
+struct Logo: Decodable, Hashable {
     
     var uid: String?
     var originalName: String?
@@ -18,7 +18,7 @@ struct Logo: Decodable {
     var sizes: Size?
 }
 
-struct Size: Decodable {
+struct Size: Decodable, Hashable {
     
     var thumbnail: String?
     var large: String?

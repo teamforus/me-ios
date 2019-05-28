@@ -8,9 +8,10 @@
 
 import Foundation
 
-struct Validator: Decodable{
+struct Validator: Decodable, Hashable {
     
     var identity_address: String?
     var state: String?
     var id: Int?
+    var organization: Organization?
 }

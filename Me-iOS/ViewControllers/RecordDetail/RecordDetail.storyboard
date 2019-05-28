@@ -64,6 +64,9 @@
                                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C1d-wP-B5j">
                                                         <rect key="frame" x="0.0" y="0.0" width="355" height="80"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <connections>
+                                                            <segue destination="Omh-YU-cVc" kind="show" id="exe-mz-Zek"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XXm-PG-izE" customClass="ShadowButton" customModule="Me_iOS" customModuleProvider="target">
                                                         <rect key="frame" x="15" y="90" width="325" height="36"/>
@@ -106,7 +109,7 @@
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <prototypes>
                                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="88" id="bJ4-SO-Fpc" customClass="ValidatorTableViewCell" customModule="Me_iOS" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="116" width="375" height="88"/>
+                                                                <rect key="frame" x="0.0" y="28" width="375" height="88"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bJ4-SO-Fpc" id="A9V-th-dUx">
                                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="87.5"/>
@@ -223,6 +226,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WHz-N7-iRV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1574" y="1857"/>
+        </scene>
+        <!--RecordValidators-->
+        <scene sceneID="Up0-RS-Dwn">
+            <objects>
+                <viewControllerPlaceholder storyboardName="RecordValidators" id="Omh-YU-cVc" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="X2Y-3e-9qf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2263" y="1856"/>
         </scene>
     </scenes>
     <resources>

@@ -1,0 +1,96 @@
+/* 
+  Localizabel.strings
+  Me
+
+  Created by Tcacenco Daniel on 9/3/18.
+  Copyright © 2018 Foundation Forus. All rights reserved.
+*/
+
+"Personal" = "Personal";
+"Medical" = "Medical";
+"Business" = "Business";
+"Relationships" = "Relationships";
+"Certificates" = "Certificates";
+"Others" = "Others";
+"My currencies" = "My currencies";
+"Property" = "Property";
+"Search currency" = "Search currency";
+"Paid" = "Paid";
+"A record has been validated!" = "A record has been validated!";
+"Change passcode" = "Change passcode";
+"Enter your old code" = "Enter your old code";
+"Login code" = "Login code";
+"Enter a new login code" = "Enter a new login code";
+"Set up the login code" = "Set up the login code";
+"How does it work?" = "How does it work?";
+"If you already have a Me identity and logged into the web-shop, then go to the web-shop and click on 'Authorize device' and enter the code that is visible on this screen." = "If you already have a Me identity and logged into the web-shop, then go to the web-shop and click on 'Authorize device' and enter the code that is visible on this screen.";
+"Turn off login code" = "Turn off login code";
+"Enter login code" = "Enter login code";
+"Something went wrong, please try again…" = "Something went wrong, please try again…";
+"This email is already used" = "This email is already used";
+"Use Touch ID to log in?" = "Use Touch ID to log in?";
+"Use Touch ID" = "Use Touch ID";
+"Enter your login code to use Face ID" = "Enter your login code to use Face ID";
+"Confirm the code" = "Confirm the code";
+"Enter a new login code" = "Enter a new login code";
+"Cancel" = "Cancel";
+"The scanner is not supported on this device" = "The scanner is not supported on this device";
+"This app is not authorized to use Back Camera" = "This app is not authorized to use Back Camera";
+"Sorry you do not meet the criteria for this voucher" = "Sorry you do not meet the criteria for this voucher";
+"Email is empty" = "Email is empty";
+"Invalid Email address" = "Invalid Email address";
+"This email does not exist" = "This email does not exist";
+"Turn on Touch ID" = "Turn on Touch ID";
+"Payment succeeded" = "Payment succeeded! The processing can take up to 3 business days.";
+"Please enter the amount" = "Please enter the amount";
+"Insufficient funds on the voucher" = "Insufficient funds on the voucher";
+"Success" = "Success";
+"Success!" = "Success!";
+"Insufficient funds on the voucher. Please, request extra payment of" = "Insufficient funds on the voucher. Please, request extra payment of ";
+"REQUEST" = "REQUEST";
+"Validate" = "Validate";
+"Error" = "Error";
+"This device in not authorize" = "This device in not authorize";
+"About Me" = "About Me";
+"With the Me you can create an identity, receive and use your vouchers. For more information please visit our website — https://zuidhorn.forus.io" = "With the Me you can create an identity, receive and use your vouchers.";
+"Create passcode" = "Create passcode";
+"Wrong passcode, please try again" = "Wrong passcode, please try again";
+"Codes don't match. Please try again" = "Codes don't match. Please try again";
+"Enter your login code" = "Enter your login code";
+"The voucher is empty! No transactions can be done." = "The voucher is empty! No transactions can be done.";
+"This product voucher is used!" = "This product voucher is used!";
+"Error!" = "Error!";
+"Unknown QR-code!" = "Unknown QR-code!";
+"You can't scan this voucher. You are not accepted as a provider for the fund that hands out these vouchers." = "You can't scan this voucher. You are not accepted as a provider for the fund that hands out these vouchers.";
+"Camera permission request was denied." = "Camera permission request was denied.";
+"Press settings to give an access or cancel to close this window." = "Press settings to give an access or cancel to close this window.";
+"Settings" = "Settings";
+"Scanning successfully!" = "QR-code was recognized";
+"Address" = "Address";
+"Copy address" = "Copy address";
+"Copied to clipboard" = "Copied to clipboard";
+"Transaction" = "Transaction";
+"Product voucher" = "Product voucher";
+"Would you like to send us your feedback by e-mail?" = "Would you like to send us your feedback by e-mail?";
+"Confirm" = "Confirm";
+"My feedback about the Me app" = "My feedback about the Me app";
+"Question from Me user" = "Question from Me user";
+"Mail services are not available" = "Mail services are not available.";
+"Send the voucher to your email?" = "Send the voucher to your email?";
+"No phone number" = "No phone number";
+"Please try to send email again." = "Please try to send email again.";
+"E-mail to me" = "E-mail to me";
+"This is your" = "This is your";
+"voucher in the form of a QR-code" = "-voucher in the form of a QR-code";
+"Warning" = "Warning";
+"Before we get started, please confirm your email address." = "Before we get started, please confirm your email address.";
+"This is your vouchers QR-code." = "This is your vouchers QR-code.";
+"Log out" = "Log out";
+"Loading..." = "Loading...";
+"Field is empty" = "Field is empty";
+"No Internet Conecction" = "No Internet Conecction";
+"Voucher not have enough funds" = "Sorry not enough funds on voucher";
+"This voucher expires on " = "This voucher expires on ";
+"Used" = "Used";
+"Expired" = "Expired";
+"You sure you wan't to login this device?" = "You sure you wan't to login this device?";
