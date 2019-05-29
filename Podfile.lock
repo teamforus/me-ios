@@ -1,24 +1,32 @@
 PODS:
+  - BWWalkthrough (3.0.0)
   - ISHPullUp (1.0.7)
   - MarqueeLabel/Swift (3.2.0)
   - SkyFloatingLabelTextField (3.6.0)
+  - UICheckbox.Swift (1.0.0)
 
 DEPENDENCIES:
+  - BWWalkthrough
   - ISHPullUp
   - MarqueeLabel/Swift
   - SkyFloatingLabelTextField
+  - UICheckbox.Swift
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - BWWalkthrough
     - ISHPullUp
     - MarqueeLabel
     - SkyFloatingLabelTextField
+    - UICheckbox.Swift
 
 SPEC CHECKSUMS:
+  BWWalkthrough: b86abce6aa2e4ce21e36a12a277fa6e89a5db075
   ISHPullUp: eaa91bef06270264e1f923bc764705173d341495
   MarqueeLabel: 440a502b91a9179bd98f9fff00ba1150650a1c0e
   SkyFloatingLabelTextField: 38164979b79512f9ff9288ad8acfc4bbf5d843e3
+  UICheckbox.Swift: 85715689206fac5bae38b308f19c2a3e00442c3b
 
-PODFILE CHECKSUM: 9408cbf040579420acc040e446af06ecda24373e
+PODFILE CHECKSUM: 1835362c57864aacc71b63d642b0fa0024507eb2
 
 COCOAPODS: 1.6.1

@@ -9,6 +9,8 @@ target 'Me-iOS' do
 pod 'ISHPullUp'
 pod 'SkyFloatingLabelTextField'
 pod 'MarqueeLabel/Swift'
+pod 'BWWalkthrough'
+pod 'UICheckbox.Swift'
 
   target 'Me-iOSTests' do
     inherit! :search_paths

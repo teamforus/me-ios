@@ -13,4 +13,7 @@ struct NotificationName{
     
     public static let TogleStateWindow = Notification.Name("TogleStateWindowBottom")
     public static let LoginQR = Notification.Name("LoginWithQrCode")
+    public static let EnableNextButton = Notification.Name("EnableNextButton")
+    public static let SelectedCategoryType = Notification.Name("SETSELECTEDCATEGORYTYPE")
+    public static let ClosePageControll = Notification.Name("CLOSESLIDEPAGE")
 }

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import BWWalkthrough
 
 class MRecordsViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
@@ -18,6 +19,8 @@ class MRecordsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        NotificationCenter.default.addObserver(self, selector: #selector(walkthroughCloseButtonPressed), name: NotificationName.ClosePageControll, object: nil)
+        
         recordViewModel.complete = { [weak self] (records) in
             
             DispatchQueue.main.async {
@@ -26,8 +29,22 @@ class MRecordsViewController: UIViewController {
                 
             }
         }
+    }
+    
+    @IBAction func createRecord(_ sender: UIButton) {
         
+        var stb = UIStoryboard(name: "ChooseTypeRecord", bundle: nil)
+        let walkthrough = stb.instantiateViewController(withIdentifier: "walk") as! BWWalkthroughViewController
+        let pageOne = stb.instantiateViewController(withIdentifier: "types")
+        stb = UIStoryboard(name: "TextRecord", bundle: nil)
+        let pageTwo = stb.instantiateViewController(withIdentifier: "text")
         
+        walkthrough.delegate = self
+        walkthrough.scrollview.isScrollEnabled = false
+        walkthrough.add(viewController:pageOne)
+        walkthrough.add(viewController:pageTwo)
+        
+        self.present(walkthrough, animated: true, completion: nil)
         
     }
     
@@ -44,6 +61,19 @@ class MRecordsViewController: UIViewController {
         }
     }
     
+}
+
+extension MRecordsViewController: BWWalkthroughViewControllerDelegate{
+    
+    func walkthroughPageDidChange(_ pageNumber: Int) {
+        if pageNumber == 3{
+            NotificationCenter.default.post(name: Notification.Name("HidePageNumber"), object: nil)
+        }
+    }
+    
+    func walkthroughCloseButtonPressed() {
+        self.dismiss(animated: true, completion: nil)
+    }
 }
 
 extension MRecordsViewController: UITableViewDelegate, UITableViewDataSource{

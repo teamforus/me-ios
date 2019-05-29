@@ -122,6 +122,14 @@
 		65CF407F228C0C6A0006F5DE /* Identity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CF407E228C0C6A0006F5DE /* Identity.swift */; };
 		65CF4081228C0CAB0006F5DE /* RecordsIndentity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CF4080228C0CAB0006F5DE /* RecordsIndentity.swift */; };
 		65CF408B228C1CC90006F5DE /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CF408A228C1CC90006F5DE /* APIService.swift */; };
+		65F1BB1A229EBCB5007D2C8A /* MChooseTypeRecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F1BB19229EBCB5007D2C8A /* MChooseTypeRecordViewController.swift */; };
+		65F1BB1D229EBF0A007D2C8A /* MChooseTypeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F1BB1C229EBF0A007D2C8A /* MChooseTypeTableViewCell.swift */; };
+		65F1BB1F229EBF66007D2C8A /* ChooseTypeRecord.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65F1BB1E229EBF66007D2C8A /* ChooseTypeRecord.storyboard */; };
+		65F1BB22229EC0B6007D2C8A /* ChooseTypeRecordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F1BB21229EC0B6007D2C8A /* ChooseTypeRecordViewModel.swift */; };
+		65F1BB25229EC1C4007D2C8A /* RecordType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F1BB24229EC1C4007D2C8A /* RecordType.swift */; };
+		65F1BB2A229ECA8F007D2C8A /* MTextRecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F1BB29229ECA8F007D2C8A /* MTextRecordViewController.swift */; };
+		65F1BB2C229ECAA6007D2C8A /* TextRecord.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65F1BB2B229ECAA6007D2C8A /* TextRecord.storyboard */; };
+		65F1BB2E229ED06C007D2C8A /* TextRecordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F1BB2D229ED06C007D2C8A /* TextRecordViewModel.swift */; };
 		CECB06D5C049466A525F37E6 /* Pods_Me_iOSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A89BE88EEB1A6C3C9A22BE7 /* Pods_Me_iOSUITests.framework */; };
 		CF22307B8167F520952552BE /* Pods_Me_iOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1ABB0BB041DF2B085D794CD5 /* Pods_Me_iOSTests.framework */; };
 		E234190710AA58EB6F4C206A /* Pods_Me_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43960597C5DD3C7D7D6E0BF0 /* Pods_Me_iOS.framework */; };
@@ -276,6 +284,14 @@
 		65CF407E228C0C6A0006F5DE /* Identity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identity.swift; sourceTree = "<group>"; };
 		65CF4080228C0CAB0006F5DE /* RecordsIndentity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordsIndentity.swift; sourceTree = "<group>"; };
 		65CF408A228C1CC90006F5DE /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		65F1BB19229EBCB5007D2C8A /* MChooseTypeRecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MChooseTypeRecordViewController.swift; sourceTree = "<group>"; };
+		65F1BB1C229EBF0A007D2C8A /* MChooseTypeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MChooseTypeTableViewCell.swift; sourceTree = "<group>"; };
+		65F1BB1E229EBF66007D2C8A /* ChooseTypeRecord.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ChooseTypeRecord.storyboard; sourceTree = "<group>"; };
+		65F1BB21229EC0B6007D2C8A /* ChooseTypeRecordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseTypeRecordViewModel.swift; sourceTree = "<group>"; };
+		65F1BB24229EC1C4007D2C8A /* RecordType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordType.swift; sourceTree = "<group>"; };
+		65F1BB29229ECA8F007D2C8A /* MTextRecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTextRecordViewController.swift; sourceTree = "<group>"; };
+		65F1BB2B229ECAA6007D2C8A /* TextRecord.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TextRecord.storyboard; sourceTree = "<group>"; };
+		65F1BB2D229ED06C007D2C8A /* TextRecordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextRecordViewModel.swift; sourceTree = "<group>"; };
 		7EDD935B59E7B64986126EBB /* Pods-Me-iOSTests.demo.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Me-iOSTests.demo.xcconfig"; path = "Target Support Files/Pods-Me-iOSTests/Pods-Me-iOSTests.demo.xcconfig"; sourceTree = "<group>"; };
 		B28B23E09EB36C61675A84C4 /* Pods-Me-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Me-iOS.debug.xcconfig"; path = "Target Support Files/Pods-Me-iOS/Pods-Me-iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		B35DBF08EFFB23E932F2520B /* Pods-Me-iOSUITests.dev.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Me-iOSUITests.dev.xcconfig"; path = "Target Support Files/Pods-Me-iOSUITests/Pods-Me-iOSUITests.dev.xcconfig"; sourceTree = "<group>"; };
@@ -572,8 +588,9 @@
 				65911B63228D92D000EA30D6 /* Organization */,
 				65911B64228D92D900EA30D6 /* Logo */,
 				65911B65228D92E000EA30D6 /* ProductCategory */,
-				654F979E229BE71F009C9FFA /* Record.swift */,
-				654F97A0229BE762009C9FFA /* Validator.swift */,
+				65F1BB23229EC1B8007D2C8A /* Record */,
+				65F1BB26229EC1C7007D2C8A /* Validator */,
+				65F1BB27229EC1D0007D2C8A /* RecordType */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -719,6 +736,8 @@
 				65A8B7412282ED5300B7DF05 /* Profile */,
 				654F97AB229BF767009C9FFA /* RecordDetail */,
 				65100B04229D76C9007892D1 /* RecordValidators */,
+				65F1BB20229EBF6F007D2C8A /* ChooseTypeRecord */,
+				65F1BB2F229EDD90007D2C8A /* TextAreaRecord */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -973,6 +992,75 @@
 			path = QRToken;
 			sourceTree = "<group>";
 		};
+		65F1BB1B229EBF0A007D2C8A /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				65F1BB1C229EBF0A007D2C8A /* MChooseTypeTableViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		65F1BB20229EBF6F007D2C8A /* ChooseTypeRecord */ = {
+			isa = PBXGroup;
+			children = (
+				65F1BB19229EBCB5007D2C8A /* MChooseTypeRecordViewController.swift */,
+				65F1BB1B229EBF0A007D2C8A /* Cell */,
+				65F1BB28229ECA07007D2C8A /* ViewModel */,
+				65F1BB1E229EBF66007D2C8A /* ChooseTypeRecord.storyboard */,
+			);
+			path = ChooseTypeRecord;
+			sourceTree = "<group>";
+		};
+		65F1BB23229EC1B8007D2C8A /* Record */ = {
+			isa = PBXGroup;
+			children = (
+				654F979E229BE71F009C9FFA /* Record.swift */,
+			);
+			path = Record;
+			sourceTree = "<group>";
+		};
+		65F1BB26229EC1C7007D2C8A /* Validator */ = {
+			isa = PBXGroup;
+			children = (
+				654F97A0229BE762009C9FFA /* Validator.swift */,
+			);
+			path = Validator;
+			sourceTree = "<group>";
+		};
+		65F1BB27229EC1D0007D2C8A /* RecordType */ = {
+			isa = PBXGroup;
+			children = (
+				65F1BB24229EC1C4007D2C8A /* RecordType.swift */,
+			);
+			path = RecordType;
+			sourceTree = "<group>";
+		};
+		65F1BB28229ECA07007D2C8A /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				65F1BB21229EC0B6007D2C8A /* ChooseTypeRecordViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		65F1BB2F229EDD90007D2C8A /* TextAreaRecord */ = {
+			isa = PBXGroup;
+			children = (
+				65F1BB29229ECA8F007D2C8A /* MTextRecordViewController.swift */,
+				65F1BB30229EDD9A007D2C8A /* ViewModel */,
+				65F1BB2B229ECAA6007D2C8A /* TextRecord.storyboard */,
+			);
+			path = TextAreaRecord;
+			sourceTree = "<group>";
+		};
+		65F1BB30229EDD9A007D2C8A /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				65F1BB2D229ED06C007D2C8A /* TextRecordViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1092,12 +1180,14 @@
 				65A8B7032282DD2C00B7DF05 /* GoogleSans-MediumItalic.ttf in Resources */,
 				65A8B7492282EE8500B7DF05 /* SuccessEmail.storyboard in Resources */,
 				65A8B7232282EA6100B7DF05 /* Payment.storyboard in Resources */,
+				65F1BB1F229EBF66007D2C8A /* ChooseTypeRecord.storyboard in Resources */,
 				65A8B7012282DD2C00B7DF05 /* GoogleSans-BoldItalic.ttf in Resources */,
 				65A8B7002282DD2C00B7DF05 /* GoogleSans-Bold.ttf in Resources */,
 				65139C1322802548003E0CDE /* LaunchScreen.storyboard in Resources */,
 				65139C56228029C0003E0CDE /* backspaceBlue.png in Resources */,
 				65A8B70B2282E00400B7DF05 /* Main.storyboard in Resources */,
 				65139C1022802548003E0CDE /* Assets.xcassets in Resources */,
+				65F1BB2C229ECAA6007D2C8A /* TextRecord.storyboard in Resources */,
 				65A8B6FF2282DD2C00B7DF05 /* GoogleSans-Italic.ttf in Resources */,
 				65139C51228029C0003E0CDE /* AppLocker.strings in Resources */,
 				65A8B7202282E6E000B7DF05 /* Voucher.storyboard in Resources */,
@@ -1140,17 +1230,21 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Me-iOS/Pods-Me-iOS-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/BWWalkthrough/BWWalkthrough.framework",
 				"${BUILT_PRODUCTS_DIR}/ISHPullUp/ISHPullUp.framework",
 				"${BUILT_PRODUCTS_DIR}/MarqueeLabel/MarqueeLabel.framework",
 				"${BUILT_PRODUCTS_DIR}/SkyFloatingLabelTextField/SkyFloatingLabelTextField.framework",
+				"${BUILT_PRODUCTS_DIR}/UICheckbox.Swift/UICheckbox_Swift.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BWWalkthrough.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ISHPullUp.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MarqueeLabel.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SkyFloatingLabelTextField.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UICheckbox_Swift.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1252,6 +1346,7 @@
 				65911B50228D8F2900EA30D6 /* ProductCategory.swift in Sources */,
 				65CF407B228C0B8F0006F5DE /* Register.swift in Sources */,
 				65A8B7252282EADE00B7DF05 /* MPaymentViewController.swift in Sources */,
+				65F1BB2A229ECA8F007D2C8A /* MTextRecordViewController.swift in Sources */,
 				65A8B7302282EBD000B7DF05 /* ProductVoucherViewModel.swift in Sources */,
 				65A8B6EE2282CE4500B7DF05 /* CommonBottomViewController.swift in Sources */,
 				65BDB8632292CFFC0016296C /* PausedMarqueLabel.swift in Sources */,
@@ -1265,6 +1360,8 @@
 				65139C54228029C0003E0CDE /* UI.swift in Sources */,
 				654F979F229BE71F009C9FFA /* Record.swift in Sources */,
 				654F97AE229C03D0009C9FFA /* RecordDetailViewModel.swift in Sources */,
+				65F1BB1A229EBCB5007D2C8A /* MChooseTypeRecordViewController.swift in Sources */,
+				65F1BB1D229EBF0A007D2C8A /* MChooseTypeTableViewCell.swift in Sources */,
 				65139C6B22802C25003E0CDE /* MLoginQRAndCodeViewController.swift in Sources */,
 				65139C0622802545003E0CDE /* AppDelegate.swift in Sources */,
 				65911B5A228D91BC00EA30D6 /* Office.swift in Sources */,
@@ -1279,6 +1376,7 @@
 				65A8B6EC2282CD7E00B7DF05 /* String+Substring.swift in Sources */,
 				65100AFF229D7102007892D1 /* MRecordValidatorsViewController.swift in Sources */,
 				65139C60228029EF003E0CDE /* RoundImageView.swift in Sources */,
+				65F1BB2E229ED06C007D2C8A /* TextRecordViewModel.swift in Sources */,
 				65139C53228029C0003E0CDE /* AppLocker.swift in Sources */,
 				65139C3D2280273E003E0CDE /* HSScanViewController.swift in Sources */,
 				65139C3E2280273E003E0CDE /* HSDefaultScanView.swift in Sources */,
@@ -1304,6 +1402,7 @@
 				65BDB8652292D5170016296C /* DownloadImage.swift in Sources */,
 				65A8B72C2282EBAE00B7DF05 /* QRViewModel.swift in Sources */,
 				65139C7B228034DA003E0CDE /* BaseURL.swift in Sources */,
+				65F1BB25229EC1C4007D2C8A /* RecordType.swift in Sources */,
 				65A8B73E2282ED1D00B7DF05 /* MProfileViewController.swift in Sources */,
 				65A8B7322282EBDC00B7DF05 /* VoucherViewModel.swift in Sources */,
 				657DBA512289973C00C67500 /* NotificationName.swift in Sources */,
@@ -1313,6 +1412,7 @@
 				654F97A8229BF5C5009C9FFA /* ValidatorTableViewCell.swift in Sources */,
 				657DBA4022897C3500C67500 /* ResponseDataArray.swift in Sources */,
 				65139C7722803197003E0CDE /* CommonService.swift in Sources */,
+				65F1BB22229EC0B6007D2C8A /* ChooseTypeRecordViewModel.swift in Sources */,
 				65A8B72A2282EBA000B7DF05 /* VouchersViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

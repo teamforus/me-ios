@@ -8,149 +8,216 @@
 
 /* Begin PBXBuildFile section */
 		00F06437DC83EFA52108CB9EBC4EA87D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E83663F81FCB07BBAA408574FF05126 /* QuartzCore.framework */; };
+		0849246C27936F37533C878EFAE1F9DE /* BWWalkthroughPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9E05472EAADF421D8F93F1351631EE /* BWWalkthroughPageViewController.swift */; };
 		09D754E95F41C402055196E6A27E7B6F /* Pods-Me-iOSTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C8E84C145C17C19253395A21ADF4D29A /* Pods-Me-iOSTests-dummy.m */; };
+		0A3D61EFB8B3D4EF742F67A2193FCF25 /* Pods-Me-iOS-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DEE8D360DDE9B39E533AE70F23CB97D /* Pods-Me-iOS-dummy.m */; };
+		0AF8867BC5BA74BD8B707CD807E7F001 /* UICheckbox.Swift-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 019C6D760451DE4E5462BCC34308810E /* UICheckbox.Swift-dummy.m */; };
 		160AAD98295A75E33F8EE3DF86496A1E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0CD490842D1267AC36524009F7A9B2A /* Foundation.framework */; };
-		2506511F5F2EECCD7EA02E6323FA6092 /* Pods-Me-iOS-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DEE8D360DDE9B39E533AE70F23CB97D /* Pods-Me-iOS-dummy.m */; };
-		25130EACCC4ECA3CFC2986AEBE54B35D /* MarqueeLabel-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = A83176FF93635DCE4A8807439E5FF2B6 /* MarqueeLabel-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		299C460609DF612DD1C29C0E9C0961FA /* UITextField+fixCaretPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C96E7DA53A86D712711BCD6098C7B5F /* UITextField+fixCaretPosition.swift */; };
-		323EA55E3835E72250F9DE5863E78BE3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0CD490842D1267AC36524009F7A9B2A /* Foundation.framework */; };
+		19906E71EAB85CD9D8CE6403B77F3813 /* SkyFloatingLabelTextField-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4857AFCE4DE72FF4349F3A49408F2731 /* SkyFloatingLabelTextField-dummy.m */; };
+		1FA40A42C88B2C60F2401279F00686C7 /* BWWalkthrough-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A1E07DAC406440A4BF2362F4EBA79DDC /* BWWalkthrough-dummy.m */; };
+		25130EACCC4ECA3CFC2986AEBE54B35D /* MarqueeLabel-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 418648B8F3A8EB61D825BE7D9DAFB365 /* MarqueeLabel-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		282539C2F176B51738F4373190E65964 /* Pods-Me-iOS-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 9E8AE801F5CFF7D5C461C143B734377A /* Pods-Me-iOS-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2FE2E6ECB3A010FD4EE07375E7465505 /* UITextField+fixCaretPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722147B90A2BE33E68F5241E2F65BAED /* UITextField+fixCaretPosition.swift */; };
+		303D0704B3BF36EC7A1DB7A2CE58BBCC /* UICheckbox.Swift-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 22E590420AE389903FDF4734D2761768 /* UICheckbox.Swift-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		329BFB6B41C41D75B729F50AABA1D4DC /* Pods-Me-iOSUITests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F320C37D2BA0208CB8E00DD5DE24C72C /* Pods-Me-iOSUITests-dummy.m */; };
 		403D39FDE21C44B3443A1C4EEEE214DC /* Pods-Me-iOSUITests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 08BC516E57C7693813AB464F4B93AC71 /* Pods-Me-iOSUITests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		46D92E32233E4B5659C21F76854E2193 /* MarqueeLabel-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E5579B85FB50635B27A75590E209A525 /* MarqueeLabel-dummy.m */; };
-		47A8C3ACCBCE9772F93A5752FD90BF74 /* SkyFloatingLabelTextField-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 9E1A29A03325D2357983218C55B4517B /* SkyFloatingLabelTextField-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		4C558606FA575FEA4A5C3D0AB7A2F602 /* ISHPullUpRoundedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 99453541609C1E3A146B6B0BB5DEC877 /* ISHPullUpRoundedView.m */; };
-		4CF1176F45EEDA2EC8007A060B86C037 /* ISHPullUpViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = A424005E69DFCD0FD54CAF3277D726A4 /* ISHPullUpViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		429FF73DC4669CFB8AC44B7E686CD55D /* SkyFloatingLabelTextFieldWithIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A312B93C9F4A23D34A771F03695898C /* SkyFloatingLabelTextFieldWithIcon.swift */; };
+		46D92E32233E4B5659C21F76854E2193 /* MarqueeLabel-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CC26B6839D692B06A848826AB1D4890 /* MarqueeLabel-dummy.m */; };
+		4C558606FA575FEA4A5C3D0AB7A2F602 /* ISHPullUpRoundedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 585E0AEB76E3D4D38B035E4EE7BA71DD /* ISHPullUpRoundedView.m */; };
+		4CF1176F45EEDA2EC8007A060B86C037 /* ISHPullUpViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 96D24973BE91A7E8E4C01C919C23B191 /* ISHPullUpViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5672568FCBDC2C9EE2F7A2C5FFD136D8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0CD490842D1267AC36524009F7A9B2A /* Foundation.framework */; };
 		5814888608CF767C0751A539C478072F /* Pods-Me-iOSTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 190638AEF45293F8A6BDDBA7B8E7A144 /* Pods-Me-iOSTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		592DF4E835A597DF836D8A5D40878570 /* SkyFloatingLabelTextFieldWithIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE26BDC81F18DF0822F6E12B364CCC81 /* SkyFloatingLabelTextFieldWithIcon.swift */; };
+		5A793A98A98D81314793E12FA9B1C8A0 /* BWWalkthrough-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 702CC6285FB04F5B7069015583C151F5 /* BWWalkthrough-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5AD1744D66B9E3F4257AA9AB99AD02AF /* SkyFloatingLabelTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6328F50E40C232AE7C1702A9BCBFD688 /* SkyFloatingLabelTextField.swift */; };
 		5F04FA2FFF0829DDF8E0EEBA15A62A34 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0CD490842D1267AC36524009F7A9B2A /* Foundation.framework */; };
+		6364EA92E0B8202536D3FB5EABA173FB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0CD490842D1267AC36524009F7A9B2A /* Foundation.framework */; };
+		6532A2361002FDA2B700684631F23681 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0CD490842D1267AC36524009F7A9B2A /* Foundation.framework */; };
+		6778F344485B107ADF82475046A1A46E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0CD490842D1267AC36524009F7A9B2A /* Foundation.framework */; };
+		67A7A8F99A045BEC41C747E1FEFA4F0C /* ic_check_3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 14D3E41A521EA275A64EBE4F8AAA3FE3 /* ic_check_3x.png */; };
+		6B7F716A132A4DF50CC068348FFFB353 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0CD490842D1267AC36524009F7A9B2A /* Foundation.framework */; };
 		718CEAEE15CEF1A2F5D0A154F3074DC8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0CD490842D1267AC36524009F7A9B2A /* Foundation.framework */; };
-		7EEAFF44984D44E119A4CE2CD9352B14 /* MarqueeLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DF5E35F5C90BA9FC3D75DC3B2C574A /* MarqueeLabel.swift */; };
+		7EEAFF44984D44E119A4CE2CD9352B14 /* MarqueeLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A838460FF943D3F1439338783CEED79 /* MarqueeLabel.swift */; };
 		83B3CA3B178A1A3732AA78D0E2B4E2E6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B23E6659060337F19196726F1CEA06A0 /* UIKit.framework */; };
-		89FBFDA0CE2AB02FE33D6000E861AA3E /* SkyFloatingLabelTextField-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 05A72353A2269FA16216F36C50913EC9 /* SkyFloatingLabelTextField-dummy.m */; };
-		93B5D1A873358B6CC3ABF048414DFCC6 /* ISHPullUpHandleView.h in Headers */ = {isa = PBXBuildFile; fileRef = 54DC07B6F1F909725EE068C0CBFA48C5 /* ISHPullUpHandleView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A684D43FFC521D776ACF70442DFC8059 /* SkyFloatingLabelTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93737CC87DF06917C190172DEE13F5E /* SkyFloatingLabelTextField.swift */; };
-		AB10220B681EB26D12E7BD844EBF5CAE /* ISHPullUpHandleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AD3645CAA4B42507EAD13C85D330609 /* ISHPullUpHandleView.m */; };
-		AE1E04B53C5222C574055E7B5C582D57 /* ISHPullUp-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = FF158F352D658F3B9DA34A8087A012AE /* ISHPullUp-dummy.m */; };
-		B1184E75B63FE50F6F51A01AAE9CD5C3 /* ISHPullUpRoundedView.h in Headers */ = {isa = PBXBuildFile; fileRef = 85B7BE90D548FB7B40352B8F00416B65 /* ISHPullUpRoundedView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B7B7B269ED7B98827829301ED7CD621C /* ISHPullUp-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E6936CC3DDB600170D895A22B73DBBA /* ISHPullUp-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C4D2C2C476EB277FC68AF92C7E6BBB25 /* ISHPullUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F87D41559136D3BF6C0F87330015BBD /* ISHPullUpViewController.m */; };
-		C7755A13002839CAE7734BFC6583E973 /* Pods-Me-iOS-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 9E8AE801F5CFF7D5C461C143B734377A /* Pods-Me-iOS-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CAF45E1609EE0F940EF1EE45AED5FBF3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0CD490842D1267AC36524009F7A9B2A /* Foundation.framework */; };
+		93B5D1A873358B6CC3ABF048414DFCC6 /* ISHPullUpHandleView.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F38461C1DF158F018670CE2099E1A63 /* ISHPullUpHandleView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A3A6586581237A8D1FD5702067AD4E66 /* SkyFloatingLabelTextField-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = B3546A2A12200BBCB4A7C891905D41EA /* SkyFloatingLabelTextField-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB10220B681EB26D12E7BD844EBF5CAE /* ISHPullUpHandleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ADF124ACD0AFCBACC878AE0ECF00C07 /* ISHPullUpHandleView.m */; };
+		AE1E04B53C5222C574055E7B5C582D57 /* ISHPullUp-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A4BB5BCA430FA92DC0B8BE699E352CCF /* ISHPullUp-dummy.m */; };
+		B1184E75B63FE50F6F51A01AAE9CD5C3 /* ISHPullUpRoundedView.h in Headers */ = {isa = PBXBuildFile; fileRef = 57699224A9BEFEA0F876D96BEDC8AAD4 /* ISHPullUpRoundedView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B7B7B269ED7B98827829301ED7CD621C /* ISHPullUp-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F87AD37CD8E158681DE88D5F2EBAA389 /* ISHPullUp-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C4D2C2C476EB277FC68AF92C7E6BBB25 /* ISHPullUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F326D8A31DBF65ED7AE185AFA7E3D1B /* ISHPullUpViewController.m */; };
+		CD0F2ED48349E07DCF99756E2F4F31A9 /* BWWalkthroughViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4ACEC9C4C485049C6C3B46D060BBC3C /* BWWalkthroughViewController.swift */; };
+		DB286CC1E71605FA9DB698CE26543524 /* UICheckbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A74A62320FE5BF7C686AEB2D97BCC1 /* UICheckbox.swift */; };
 		E62A53E1731BCDFD105E1B991D174369 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B23E6659060337F19196726F1CEA06A0 /* UIKit.framework */; };
+		FD7696A9E9F87A1DFB631CDE8ACD7C66 /* UICheckbox.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 77617AFD6156128446520B869F6917A6 /* UICheckbox.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		50C49F1F114C07CFC6D30141ADBC57BA /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 72F4B1C6006CCB182874529CCA16E3C5;
-			remoteInfo = "Pods-Me-iOS";
-		};
-		5953AB800623C6E2644EC5657E1680F0 /* PBXContainerItemProxy */ = {
+		0D29331AE9BDB9A44DEA7FFBC4B96D03 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 39A2FE37BA2B5CC45C0234009DC6E697;
 			remoteInfo = ISHPullUp;
 		};
-		62BBB38DEFE5A9679C8AFA7280CF22AF /* PBXContainerItemProxy */ = {
+		1167761A98146B6C4DA9F2476A807DD0 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 10A378F199157B44C21E0F85C8AEC09C;
+			remoteGlobalIDString = 0B0ADE750242A19FA2887DAA4ABAE4EE;
 			remoteInfo = SkyFloatingLabelTextField;
 		};
-		82B99832E13326ABBC2319F8D1C127D5 /* PBXContainerItemProxy */ = {
+		1D6FD5BA8DD5268FB1AF0FF68A31D735 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 107B035862A6FEECD7E56CA2A580DFC8;
+			remoteInfo = "UICheckbox.Swift-UICheckbox";
+		};
+		50C49F1F114C07CFC6D30141ADBC57BA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 26667A8E98F8AA68A047223615177404;
+			remoteInfo = "Pods-Me-iOS";
+		};
+		79FD45B0257BE0B8988DEAFF397843D5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0EFE3350BD1758C0C6951501CE032A84;
+			remoteInfo = BWWalkthrough;
+		};
+		E5333DED9E360489532120981394C78C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A360BA3D24399312B2D722F9D99FAF26;
+			remoteInfo = UICheckbox.Swift;
+		};
+		E7065F7381FF2A7BB9DBBCE6DB30F5E2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 26667A8E98F8AA68A047223615177404;
+			remoteInfo = "Pods-Me-iOS";
+		};
+		F38A5627A03F2D02D724841A4D1E14EE /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = BE1D48CAA1E99CFE94BC5802FF84E8F2;
 			remoteInfo = MarqueeLabel;
 		};
-		E7065F7381FF2A7BB9DBBCE6DB30F5E2 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 72F4B1C6006CCB182874529CCA16E3C5;
-			remoteInfo = "Pods-Me-iOS";
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		016057E773E696E5B7AD823F9094EBC8 /* MarqueeLabel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = MarqueeLabel.framework; path = MarqueeLabel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		05A72353A2269FA16216F36C50913EC9 /* SkyFloatingLabelTextField-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SkyFloatingLabelTextField-dummy.m"; sourceTree = "<group>"; };
+		019C6D760451DE4E5462BCC34308810E /* UICheckbox.Swift-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UICheckbox.Swift-dummy.m"; sourceTree = "<group>"; };
+		06E8BA2D3957D50240BC31690ED470CD /* MarqueeLabel.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = MarqueeLabel.modulemap; sourceTree = "<group>"; };
+		07A1785881549B4602FA53AF53621F3C /* BWWalkthrough-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "BWWalkthrough-Info.plist"; sourceTree = "<group>"; };
 		07EDC635165FD8353179EFCA9B2FE6B1 /* Pods-Me-iOS-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Me-iOS-frameworks.sh"; sourceTree = "<group>"; };
 		08BC516E57C7693813AB464F4B93AC71 /* Pods-Me-iOSUITests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Me-iOSUITests-umbrella.h"; sourceTree = "<group>"; };
-		183561F21E419D6F04E3E46662C34D5C /* MarqueeLabel.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = MarqueeLabel.modulemap; sourceTree = "<group>"; };
+		14D3E41A521EA275A64EBE4F8AAA3FE3 /* ic_check_3x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = ic_check_3x.png; path = UICheckbox/Assets/ic_check_3x.png; sourceTree = "<group>"; };
 		190638AEF45293F8A6BDDBA7B8E7A144 /* Pods-Me-iOSTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Me-iOSTests-umbrella.h"; sourceTree = "<group>"; };
+		1E869E2710528461EF7B8CC1EFD20CF3 /* MarqueeLabel-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MarqueeLabel-prefix.pch"; sourceTree = "<group>"; };
+		1FBA98776013EC2D5D5AAE4AD1ACFF46 /* ResourceBundle-UICheckbox-UICheckbox.Swift-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-UICheckbox-UICheckbox.Swift-Info.plist"; sourceTree = "<group>"; };
+		20B5E43B9EF20C65E34F65D858048D30 /* SkyFloatingLabelTextField.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = SkyFloatingLabelTextField.modulemap; sourceTree = "<group>"; };
 		20C178F0A5E8F8EBB9F5F8BC3A3A5192 /* Pods-Me-iOSTests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Me-iOSTests-Info.plist"; sourceTree = "<group>"; };
-		22946F1A299F1749255F3414D4D05F4B /* MarqueeLabel.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MarqueeLabel.xcconfig; sourceTree = "<group>"; };
+		22E590420AE389903FDF4734D2761768 /* UICheckbox.Swift-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UICheckbox.Swift-umbrella.h"; sourceTree = "<group>"; };
 		23219134AB0A0DFDA3DE55F3E5E921AB /* Pods-Me-iOS.demo.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Me-iOS.demo.xcconfig"; sourceTree = "<group>"; };
-		23CC022D56E0AAB3E10F125948E474CF /* SkyFloatingLabelTextField.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SkyFloatingLabelTextField.framework; path = SkyFloatingLabelTextField.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2502406FCEE587A0290E561D399781F9 /* Pods-Me-iOSTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Me-iOSTests-acknowledgements.plist"; sourceTree = "<group>"; };
-		2F87D41559136D3BF6C0F87330015BBD /* ISHPullUpViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ISHPullUpViewController.m; path = ISHPullUp/ISHPullUpViewController.m; sourceTree = "<group>"; };
 		30C4BE3F2A28FFA1B75C0B331A9757E7 /* Pods-Me-iOSTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Me-iOSTests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		3C02F173277F67B5CEEC83FDDBD747C6 /* SkyFloatingLabelTextField.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SkyFloatingLabelTextField.framework; path = SkyFloatingLabelTextField.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E83663F81FCB07BBAA408574FF05126 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.0.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
-		4017F5B2C00AB0D5362932BF1788E651 /* ISHPullUp.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = ISHPullUp.xcconfig; sourceTree = "<group>"; };
-		45C9D933D7A550B2FB498AE7907B5857 /* Pods_Me_iOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Me_iOSTests.framework; path = "Pods-Me-iOSTests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		4BFD11AB6856D4C346F5D99CDC4ADC28 /* Pods_Me_iOSUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Me_iOSUITests.framework; path = "Pods-Me-iOSUITests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		4C96E7DA53A86D712711BCD6098C7B5F /* UITextField+fixCaretPosition.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UITextField+fixCaretPosition.swift"; path = "Sources/UITextField+fixCaretPosition.swift"; sourceTree = "<group>"; };
-		506D51193EB5A1E18E3CD9819B606672 /* SkyFloatingLabelTextField-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SkyFloatingLabelTextField-prefix.pch"; sourceTree = "<group>"; };
-		51CD5F85887E1B2BE42EB45B9C5C4C38 /* Pods_Me_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Me_iOS.framework; path = "Pods-Me-iOS.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		54DC07B6F1F909725EE068C0CBFA48C5 /* ISHPullUpHandleView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ISHPullUpHandleView.h; path = ISHPullUp/ISHPullUpHandleView.h; sourceTree = "<group>"; };
+		3F2255F49112FBEB8FB5AD0D88AD1D74 /* ISHPullUp-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ISHPullUp-prefix.pch"; sourceTree = "<group>"; };
+		408A91E75082084B34F883C580137C46 /* SkyFloatingLabelTextField-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "SkyFloatingLabelTextField-Info.plist"; sourceTree = "<group>"; };
+		418648B8F3A8EB61D825BE7D9DAFB365 /* MarqueeLabel-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MarqueeLabel-umbrella.h"; sourceTree = "<group>"; };
+		4857AFCE4DE72FF4349F3A49408F2731 /* SkyFloatingLabelTextField-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SkyFloatingLabelTextField-dummy.m"; sourceTree = "<group>"; };
+		4A312B93C9F4A23D34A771F03695898C /* SkyFloatingLabelTextFieldWithIcon.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SkyFloatingLabelTextFieldWithIcon.swift; path = Sources/SkyFloatingLabelTextFieldWithIcon.swift; sourceTree = "<group>"; };
+		4AA5B6D9719D28596A6A7A43923D7BD2 /* ISHPullUp.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = ISHPullUp.modulemap; sourceTree = "<group>"; };
 		554FA6868EA1364A2AA34C5646934677 /* Pods-Me-iOSTests.alpha.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Me-iOSTests.alpha.xcconfig"; sourceTree = "<group>"; };
+		57699224A9BEFEA0F876D96BEDC8AAD4 /* ISHPullUpRoundedView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ISHPullUpRoundedView.h; path = ISHPullUp/ISHPullUpRoundedView.h; sourceTree = "<group>"; };
+		585E0AEB76E3D4D38B035E4EE7BA71DD /* ISHPullUpRoundedView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ISHPullUpRoundedView.m; path = ISHPullUp/ISHPullUpRoundedView.m; sourceTree = "<group>"; };
+		5A838460FF943D3F1439338783CEED79 /* MarqueeLabel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MarqueeLabel.swift; path = Sources/Swift/MarqueeLabel.swift; sourceTree = "<group>"; };
+		5BFD8635C7C35A18B125D246C507F5EE /* UICheckbox.Swift-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UICheckbox.Swift-prefix.pch"; sourceTree = "<group>"; };
+		5F326D8A31DBF65ED7AE185AFA7E3D1B /* ISHPullUpViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ISHPullUpViewController.m; path = ISHPullUp/ISHPullUpViewController.m; sourceTree = "<group>"; };
+		5F38461C1DF158F018670CE2099E1A63 /* ISHPullUpHandleView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ISHPullUpHandleView.h; path = ISHPullUp/ISHPullUpHandleView.h; sourceTree = "<group>"; };
+		6328F50E40C232AE7C1702A9BCBFD688 /* SkyFloatingLabelTextField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SkyFloatingLabelTextField.swift; path = Sources/SkyFloatingLabelTextField.swift; sourceTree = "<group>"; };
+		6848397E2CB23DC465084B59B866E0C7 /* Pods_Me_iOSUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Me_iOSUITests.framework; path = "Pods-Me-iOSUITests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A2CD0111055E6FC93BBFEF16EFCFD31 /* Pods-Me-iOS-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Me-iOS-Info.plist"; sourceTree = "<group>"; };
-		6E6936CC3DDB600170D895A22B73DBBA /* ISHPullUp-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ISHPullUp-umbrella.h"; sourceTree = "<group>"; };
-		704C01311DF3A670E8F61F66623920BA /* ISHPullUp-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ISHPullUp-prefix.pch"; sourceTree = "<group>"; };
-		71B900D7D2D0C0189CFB081CC4001E04 /* SkyFloatingLabelTextField.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = SkyFloatingLabelTextField.modulemap; sourceTree = "<group>"; };
+		6ADF124ACD0AFCBACC878AE0ECF00C07 /* ISHPullUpHandleView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ISHPullUpHandleView.m; path = ISHPullUp/ISHPullUpHandleView.m; sourceTree = "<group>"; };
+		702CC6285FB04F5B7069015583C151F5 /* BWWalkthrough-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "BWWalkthrough-umbrella.h"; sourceTree = "<group>"; };
+		722147B90A2BE33E68F5241E2F65BAED /* UITextField+fixCaretPosition.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UITextField+fixCaretPosition.swift"; path = "Sources/UITextField+fixCaretPosition.swift"; sourceTree = "<group>"; };
+		77617AFD6156128446520B869F6917A6 /* UICheckbox.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = UICheckbox.bundle; path = "UICheckbox.Swift-UICheckbox.bundle"; sourceTree = BUILT_PRODUCTS_DIR; };
+		780EBBBCFCE23D83EE9BBBB76E95E2FE /* BWWalkthrough.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = BWWalkthrough.xcconfig; sourceTree = "<group>"; };
+		79884A02C04C641BC3D709D4DE4AF0E2 /* BWWalkthrough.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = BWWalkthrough.modulemap; sourceTree = "<group>"; };
 		7B439A2F7CEBA4FF9CB4D8DA2143DFD9 /* Pods-Me-iOSUITests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Me-iOSUITests-acknowledgements.plist"; sourceTree = "<group>"; };
 		7B79C191E86AE7F71F7F0F09EE4A3E70 /* Pods-Me-iOSUITests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Me-iOSUITests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		7CC26B6839D692B06A848826AB1D4890 /* MarqueeLabel-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "MarqueeLabel-dummy.m"; sourceTree = "<group>"; };
 		809C7E6AA28E4EC144CC47995FCD7569 /* Pods-Me-iOSTests.dev.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Me-iOSTests.dev.xcconfig"; sourceTree = "<group>"; };
-		85B7BE90D548FB7B40352B8F00416B65 /* ISHPullUpRoundedView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ISHPullUpRoundedView.h; path = ISHPullUp/ISHPullUpRoundedView.h; sourceTree = "<group>"; };
-		87DF5E35F5C90BA9FC3D75DC3B2C574A /* MarqueeLabel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MarqueeLabel.swift; path = Sources/Swift/MarqueeLabel.swift; sourceTree = "<group>"; };
-		890409969C0FB43996AC786CC4DA8E99 /* MarqueeLabel-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MarqueeLabel-prefix.pch"; sourceTree = "<group>"; };
-		914DE40B88A594D3A6C00F52A2FFFEDF /* ISHPullUp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = ISHPullUp.framework; path = ISHPullUp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		99453541609C1E3A146B6B0BB5DEC877 /* ISHPullUpRoundedView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ISHPullUpRoundedView.m; path = ISHPullUp/ISHPullUpRoundedView.m; sourceTree = "<group>"; };
+		80E66FDF9D3C54CFFF66BC7CA96FF14C /* Pods_Me_iOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Me_iOSTests.framework; path = "Pods-Me-iOSTests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		88607433CDD1572E1E7E7D02373FA148 /* ISHPullUp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = ISHPullUp.framework; path = ISHPullUp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9695FD7C84F26B4267576F98421B98CF /* SkyFloatingLabelTextField-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SkyFloatingLabelTextField-prefix.pch"; sourceTree = "<group>"; };
+		96D24973BE91A7E8E4C01C919C23B191 /* ISHPullUpViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ISHPullUpViewController.h; path = ISHPullUp/ISHPullUpViewController.h; sourceTree = "<group>"; };
 		9A57AAEC14E50BB51529A7E9A4D1C7B4 /* Pods-Me-iOSUITests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Me-iOSUITests-Info.plist"; sourceTree = "<group>"; };
-		9AD3645CAA4B42507EAD13C85D330609 /* ISHPullUpHandleView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ISHPullUpHandleView.m; path = ISHPullUp/ISHPullUpHandleView.m; sourceTree = "<group>"; };
 		9C31826DE9D250C111709F9EE692FAF1 /* Pods-Me-iOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Me-iOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9DA3930474DA04C4748E656D01A4B67F /* BWWalkthrough.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = BWWalkthrough.framework; path = BWWalkthrough.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DEE8D360DDE9B39E533AE70F23CB97D /* Pods-Me-iOS-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Me-iOS-dummy.m"; sourceTree = "<group>"; };
-		9E1A29A03325D2357983218C55B4517B /* SkyFloatingLabelTextField-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SkyFloatingLabelTextField-umbrella.h"; sourceTree = "<group>"; };
 		9E8AE801F5CFF7D5C461C143B734377A /* Pods-Me-iOS-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Me-iOS-umbrella.h"; sourceTree = "<group>"; };
-		9E914273606179EC5B3B9268ED3595A1 /* ISHPullUp.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = ISHPullUp.modulemap; sourceTree = "<group>"; };
+		9F933F9669A6A9E4237B9532104A64F5 /* ISHPullUp.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = ISHPullUp.xcconfig; sourceTree = "<group>"; };
 		A0CD490842D1267AC36524009F7A9B2A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		A424005E69DFCD0FD54CAF3277D726A4 /* ISHPullUpViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ISHPullUpViewController.h; path = ISHPullUp/ISHPullUpViewController.h; sourceTree = "<group>"; };
-		A83176FF93635DCE4A8807439E5FF2B6 /* MarqueeLabel-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MarqueeLabel-umbrella.h"; sourceTree = "<group>"; };
+		A1E07DAC406440A4BF2362F4EBA79DDC /* BWWalkthrough-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "BWWalkthrough-dummy.m"; sourceTree = "<group>"; };
+		A4BB5BCA430FA92DC0B8BE699E352CCF /* ISHPullUp-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "ISHPullUp-dummy.m"; sourceTree = "<group>"; };
+		A5A78E2F2DDD86193ACDAECD739A1F4C /* UICheckbox_Swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = UICheckbox_Swift.framework; path = UICheckbox.Swift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A87DC8981ED14D2EE04580A93E2E1D67 /* Pods-Me-iOSUITests.dev.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Me-iOSUITests.dev.xcconfig"; sourceTree = "<group>"; };
 		A8FB7035DF09490466E12BAA624486D8 /* Pods-Me-iOS.dev.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Me-iOS.dev.xcconfig"; sourceTree = "<group>"; };
 		B095383D57C0073A7FA6A3C712EF0889 /* Pods-Me-iOS.alpha.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Me-iOS.alpha.xcconfig"; sourceTree = "<group>"; };
-		B0B1F61FBB8A63C52474FA23C0574297 /* SkyFloatingLabelTextField.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SkyFloatingLabelTextField.xcconfig; sourceTree = "<group>"; };
 		B23E6659060337F19196726F1CEA06A0 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
-		B45E70DB2F555429658C3535130E769A /* SkyFloatingLabelTextField-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "SkyFloatingLabelTextField-Info.plist"; sourceTree = "<group>"; };
-		B9440AC34A6135D4A3E1F8E80A0DF483 /* MarqueeLabel-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "MarqueeLabel-Info.plist"; sourceTree = "<group>"; };
+		B3546A2A12200BBCB4A7C891905D41EA /* SkyFloatingLabelTextField-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SkyFloatingLabelTextField-umbrella.h"; sourceTree = "<group>"; };
+		B6294450423EBD95A29ED02C720C2A4A /* Pods_Me_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Me_iOS.framework; path = "Pods-Me-iOS.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9A71071FAEB02AC7F37FC0221BA9CAA /* Pods-Me-iOSTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Me-iOSTests.modulemap"; sourceTree = "<group>"; };
+		BA798C3D6DE3AC01E6B710EA702BE3B9 /* UICheckbox.Swift.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = UICheckbox.Swift.modulemap; sourceTree = "<group>"; };
 		BCDCB6240E960994B898F078276F696F /* Pods-Me-iOS-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Me-iOS-acknowledgements.plist"; sourceTree = "<group>"; };
 		C1052AF0FEF53D027247DD0624D54A0E /* Pods-Me-iOSUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Me-iOSUITests.release.xcconfig"; sourceTree = "<group>"; };
 		C46E574E606D20F24416E8A98A380310 /* Pods-Me-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Me-iOS.release.xcconfig"; sourceTree = "<group>"; };
+		C7F83131811E1784AD411927D9263FF5 /* UICheckbox.Swift.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = UICheckbox.Swift.xcconfig; sourceTree = "<group>"; };
 		C8E84C145C17C19253395A21ADF4D29A /* Pods-Me-iOSTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Me-iOSTests-dummy.m"; sourceTree = "<group>"; };
+		CCCB28B3287C3400E6827E64F1AFB970 /* MarqueeLabel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = MarqueeLabel.framework; path = MarqueeLabel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE21F81096DC7FA767EC5944875DD553 /* Pods-Me-iOSTests.demo.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Me-iOSTests.demo.xcconfig"; sourceTree = "<group>"; };
-		CE26BDC81F18DF0822F6E12B364CCC81 /* SkyFloatingLabelTextFieldWithIcon.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SkyFloatingLabelTextFieldWithIcon.swift; path = Sources/SkyFloatingLabelTextFieldWithIcon.swift; sourceTree = "<group>"; };
 		D4483F2DE371AC7884B246136DF13C19 /* Pods-Me-iOSUITests.demo.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Me-iOSUITests.demo.xcconfig"; sourceTree = "<group>"; };
+		D7FB4BDC8BCEB1C3F51425F7B9DD2162 /* MarqueeLabel.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MarqueeLabel.xcconfig; sourceTree = "<group>"; };
+		D8BC11AF410B20A32A9FF8785724F641 /* UICheckbox.Swift-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "UICheckbox.Swift-Info.plist"; sourceTree = "<group>"; };
 		D8F40A6C4E6C78456BE9FB517753A2ED /* Pods-Me-iOSUITests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Me-iOSUITests.modulemap"; sourceTree = "<group>"; };
 		DCB0554F8AF8F593E252582CB88639E5 /* Pods-Me-iOS.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Me-iOS.modulemap"; sourceTree = "<group>"; };
 		DCC3F3E28F45F897237FBC4F370A191B /* Pods-Me-iOS-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Me-iOS-acknowledgements.markdown"; sourceTree = "<group>"; };
 		DE139568C59B1A5C5D1048DC9C08382D /* Pods-Me-iOSUITests.alpha.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Me-iOSUITests.alpha.xcconfig"; sourceTree = "<group>"; };
-		E5579B85FB50635B27A75590E209A525 /* MarqueeLabel-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "MarqueeLabel-dummy.m"; sourceTree = "<group>"; };
-		E93737CC87DF06917C190172DEE13F5E /* SkyFloatingLabelTextField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SkyFloatingLabelTextField.swift; path = Sources/SkyFloatingLabelTextField.swift; sourceTree = "<group>"; };
-		EAEE4FE5B734678650582CE02EE83E3E /* ISHPullUp-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ISHPullUp-Info.plist"; sourceTree = "<group>"; };
+		E0D32F8314C8B97235C8AFB2D1A5A5BB /* ISHPullUp-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ISHPullUp-Info.plist"; sourceTree = "<group>"; };
+		E4ACEC9C4C485049C6C3B46D060BBC3C /* BWWalkthroughViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BWWalkthroughViewController.swift; path = BWWalkthrough/BWWalkthroughViewController.swift; sourceTree = "<group>"; };
+		E60F2D6FB69D6A2B9E48D7DF10B9045B /* MarqueeLabel-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "MarqueeLabel-Info.plist"; sourceTree = "<group>"; };
+		EB33C90BA1E2C2CD91BE5A8A70267F89 /* BWWalkthrough-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "BWWalkthrough-prefix.pch"; sourceTree = "<group>"; };
+		EC9E05472EAADF421D8F93F1351631EE /* BWWalkthroughPageViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BWWalkthroughPageViewController.swift; path = BWWalkthrough/BWWalkthroughPageViewController.swift; sourceTree = "<group>"; };
+		F0A74A62320FE5BF7C686AEB2D97BCC1 /* UICheckbox.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UICheckbox.swift; path = UICheckbox/Classes/UICheckbox.swift; sourceTree = "<group>"; };
 		F320C37D2BA0208CB8E00DD5DE24C72C /* Pods-Me-iOSUITests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Me-iOSUITests-dummy.m"; sourceTree = "<group>"; };
-		FF158F352D658F3B9DA34A8087A012AE /* ISHPullUp-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "ISHPullUp-dummy.m"; sourceTree = "<group>"; };
+		F862992B54B0C8E0FA629477D72A8FD8 /* SkyFloatingLabelTextField.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SkyFloatingLabelTextField.xcconfig; sourceTree = "<group>"; };
+		F87AD37CD8E158681DE88D5F2EBAA389 /* ISHPullUp-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ISHPullUp-umbrella.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		09DBE575FD0EABC7518ECDC302C4B684 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6364EA92E0B8202536D3FB5EABA173FB /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		514CADC5B34CBF0548E63EBFD2BF32CA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		59BE97F8FFA41BC193CF375DCC5B42CA /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -160,11 +227,19 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		68792D05777548785E8E491AD141C4A2 /* Frameworks */ = {
+		6EE82B0AF18F116A0281ABA3F8EE4C19 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				323EA55E3835E72250F9DE5863E78BE3 /* Foundation.framework in Frameworks */,
+				6778F344485B107ADF82475046A1A46E /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7D7E8145DAFD5CF16833E43938E4401A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6B7F716A132A4DF50CC068348FFFB353 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -186,19 +261,19 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C67FCF14B7081656F36B0D4D0EC39762 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6532A2361002FDA2B700684631F23681 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C772F115B1DDA14EA4566D47ACE68845 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				718CEAEE15CEF1A2F5D0A154F3074DC8 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		DC71C21D350C154EF0A727C39B3CAB64 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				CAF45E1609EE0F940EF1EE45AED5FBF3 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -213,19 +288,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		13F2E4D539746A0D8D4806DAB50927CD /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				914DE40B88A594D3A6C00F52A2FFFEDF /* ISHPullUp.framework */,
-				016057E773E696E5B7AD823F9094EBC8 /* MarqueeLabel.framework */,
-				51CD5F85887E1B2BE42EB45B9C5C4C38 /* Pods_Me_iOS.framework */,
-				45C9D933D7A550B2FB498AE7907B5857 /* Pods_Me_iOSTests.framework */,
-				4BFD11AB6856D4C346F5D99CDC4ADC28 /* Pods_Me_iOSUITests.framework */,
-				23CC022D56E0AAB3E10F125948E474CF /* SkyFloatingLabelTextField.framework */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		1D62B64E26070FC54E4694232E8DB4C7 /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -236,14 +298,30 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		3B546E82F6DEA7595A7336B7E299D65E /* MarqueeLabel */ = {
+		2EB2EAE6E48E2EF9EE15FE68C3D8D00E /* UICheckbox.Swift */ = {
 			isa = PBXGroup;
 			children = (
-				9C572AA66E01BD7ADB9DE47CE4B5079F /* Support Files */,
-				F46D9447B16A67DF48A964C286509FBB /* Swift */,
+				F0A74A62320FE5BF7C686AEB2D97BCC1 /* UICheckbox.swift */,
+				812AB50ADF2CB90DE890EB606A8EAD0D /* Resources */,
+				E1845319E315332AB2F0D7A700A613AB /* Support Files */,
 			);
-			name = MarqueeLabel;
-			path = MarqueeLabel;
+			name = UICheckbox.Swift;
+			path = UICheckbox.Swift;
+			sourceTree = "<group>";
+		};
+		3AEE8F232A396B574F35B9F6618D2B1C /* ISHPullUp */ = {
+			isa = PBXGroup;
+			children = (
+				5F38461C1DF158F018670CE2099E1A63 /* ISHPullUpHandleView.h */,
+				6ADF124ACD0AFCBACC878AE0ECF00C07 /* ISHPullUpHandleView.m */,
+				57699224A9BEFEA0F876D96BEDC8AAD4 /* ISHPullUpRoundedView.h */,
+				585E0AEB76E3D4D38B035E4EE7BA71DD /* ISHPullUpRoundedView.m */,
+				96D24973BE91A7E8E4C01C919C23B191 /* ISHPullUpViewController.h */,
+				5F326D8A31DBF65ED7AE185AFA7E3D1B /* ISHPullUpViewController.m */,
+				70EF247CF3726AF389520F0CA0905C7A /* Support Files */,
+			);
+			name = ISHPullUp;
+			path = ISHPullUp;
 			sourceTree = "<group>";
 		};
 		3F1D5DF0BF3D76711ECF74EFE0698CFB /* Pods-Me-iOSUITests */ = {
@@ -264,69 +342,98 @@
 			path = "Target Support Files/Pods-Me-iOSUITests";
 			sourceTree = "<group>";
 		};
-		6038165FAB75E3E6AC5A48FDE8F1235B /* Pods */ = {
+		42C351F7B63994ECD21293EE6BFB6D8A /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				898E302CABA27F81B239726BB0F385BF /* ISHPullUp */,
-				3B546E82F6DEA7595A7336B7E299D65E /* MarqueeLabel */,
-				A1B0F4E925F680C6FE45C59C340DB9D6 /* SkyFloatingLabelTextField */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		80BFAC85F2E0285B9B847A2E116A3647 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				9E914273606179EC5B3B9268ED3595A1 /* ISHPullUp.modulemap */,
-				4017F5B2C00AB0D5362932BF1788E651 /* ISHPullUp.xcconfig */,
-				FF158F352D658F3B9DA34A8087A012AE /* ISHPullUp-dummy.m */,
-				EAEE4FE5B734678650582CE02EE83E3E /* ISHPullUp-Info.plist */,
-				704C01311DF3A670E8F61F66623920BA /* ISHPullUp-prefix.pch */,
-				6E6936CC3DDB600170D895A22B73DBBA /* ISHPullUp-umbrella.h */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/ISHPullUp";
-			sourceTree = "<group>";
-		};
-		898E302CABA27F81B239726BB0F385BF /* ISHPullUp */ = {
-			isa = PBXGroup;
-			children = (
-				54DC07B6F1F909725EE068C0CBFA48C5 /* ISHPullUpHandleView.h */,
-				9AD3645CAA4B42507EAD13C85D330609 /* ISHPullUpHandleView.m */,
-				85B7BE90D548FB7B40352B8F00416B65 /* ISHPullUpRoundedView.h */,
-				99453541609C1E3A146B6B0BB5DEC877 /* ISHPullUpRoundedView.m */,
-				A424005E69DFCD0FD54CAF3277D726A4 /* ISHPullUpViewController.h */,
-				2F87D41559136D3BF6C0F87330015BBD /* ISHPullUpViewController.m */,
-				80BFAC85F2E0285B9B847A2E116A3647 /* Support Files */,
-			);
-			name = ISHPullUp;
-			path = ISHPullUp;
-			sourceTree = "<group>";
-		};
-		9C572AA66E01BD7ADB9DE47CE4B5079F /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				183561F21E419D6F04E3E46662C34D5C /* MarqueeLabel.modulemap */,
-				22946F1A299F1749255F3414D4D05F4B /* MarqueeLabel.xcconfig */,
-				E5579B85FB50635B27A75590E209A525 /* MarqueeLabel-dummy.m */,
-				B9440AC34A6135D4A3E1F8E80A0DF483 /* MarqueeLabel-Info.plist */,
-				890409969C0FB43996AC786CC4DA8E99 /* MarqueeLabel-prefix.pch */,
-				A83176FF93635DCE4A8807439E5FF2B6 /* MarqueeLabel-umbrella.h */,
+				06E8BA2D3957D50240BC31690ED470CD /* MarqueeLabel.modulemap */,
+				D7FB4BDC8BCEB1C3F51425F7B9DD2162 /* MarqueeLabel.xcconfig */,
+				7CC26B6839D692B06A848826AB1D4890 /* MarqueeLabel-dummy.m */,
+				E60F2D6FB69D6A2B9E48D7DF10B9045B /* MarqueeLabel-Info.plist */,
+				1E869E2710528461EF7B8CC1EFD20CF3 /* MarqueeLabel-prefix.pch */,
+				418648B8F3A8EB61D825BE7D9DAFB365 /* MarqueeLabel-umbrella.h */,
 			);
 			name = "Support Files";
 			path = "../Target Support Files/MarqueeLabel";
 			sourceTree = "<group>";
 		};
-		A1B0F4E925F680C6FE45C59C340DB9D6 /* SkyFloatingLabelTextField */ = {
+		48B9290A3DE990059B5C9F124A50572D /* SkyFloatingLabelTextField */ = {
 			isa = PBXGroup;
 			children = (
-				E93737CC87DF06917C190172DEE13F5E /* SkyFloatingLabelTextField.swift */,
-				CE26BDC81F18DF0822F6E12B364CCC81 /* SkyFloatingLabelTextFieldWithIcon.swift */,
-				4C96E7DA53A86D712711BCD6098C7B5F /* UITextField+fixCaretPosition.swift */,
-				CE3195CD0E2364168E46696F1BCB82C1 /* Support Files */,
+				6328F50E40C232AE7C1702A9BCBFD688 /* SkyFloatingLabelTextField.swift */,
+				4A312B93C9F4A23D34A771F03695898C /* SkyFloatingLabelTextFieldWithIcon.swift */,
+				722147B90A2BE33E68F5241E2F65BAED /* UITextField+fixCaretPosition.swift */,
+				FD56353F2746B023805C5073F03D56C3 /* Support Files */,
 			);
 			name = SkyFloatingLabelTextField;
 			path = SkyFloatingLabelTextField;
+			sourceTree = "<group>";
+		};
+		70EF247CF3726AF389520F0CA0905C7A /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				4AA5B6D9719D28596A6A7A43923D7BD2 /* ISHPullUp.modulemap */,
+				9F933F9669A6A9E4237B9532104A64F5 /* ISHPullUp.xcconfig */,
+				A4BB5BCA430FA92DC0B8BE699E352CCF /* ISHPullUp-dummy.m */,
+				E0D32F8314C8B97235C8AFB2D1A5A5BB /* ISHPullUp-Info.plist */,
+				3F2255F49112FBEB8FB5AD0D88AD1D74 /* ISHPullUp-prefix.pch */,
+				F87AD37CD8E158681DE88D5F2EBAA389 /* ISHPullUp-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/ISHPullUp";
+			sourceTree = "<group>";
+		};
+		77562AB532E7CBCCD61E047951D69CFE /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				FC483885E240F6AC15615FDE22BE0DFE /* BWWalkthrough */,
+				3AEE8F232A396B574F35B9F6618D2B1C /* ISHPullUp */,
+				7AED7CBE6879AFEAB45D3659865CF316 /* MarqueeLabel */,
+				48B9290A3DE990059B5C9F124A50572D /* SkyFloatingLabelTextField */,
+				2EB2EAE6E48E2EF9EE15FE68C3D8D00E /* UICheckbox.Swift */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		7AED7CBE6879AFEAB45D3659865CF316 /* MarqueeLabel */ = {
+			isa = PBXGroup;
+			children = (
+				42C351F7B63994ECD21293EE6BFB6D8A /* Support Files */,
+				8E204746D9D4C0AA337F594A4116C0A0 /* Swift */,
+			);
+			name = MarqueeLabel;
+			path = MarqueeLabel;
+			sourceTree = "<group>";
+		};
+		812AB50ADF2CB90DE890EB606A8EAD0D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				14D3E41A521EA275A64EBE4F8AAA3FE3 /* ic_check_3x.png */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		86F42B8055EEC9D4193E179371F57FF6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9DA3930474DA04C4748E656D01A4B67F /* BWWalkthrough.framework */,
+				88607433CDD1572E1E7E7D02373FA148 /* ISHPullUp.framework */,
+				CCCB28B3287C3400E6827E64F1AFB970 /* MarqueeLabel.framework */,
+				B6294450423EBD95A29ED02C720C2A4A /* Pods_Me_iOS.framework */,
+				80E66FDF9D3C54CFFF66BC7CA96FF14C /* Pods_Me_iOSTests.framework */,
+				6848397E2CB23DC465084B59B866E0C7 /* Pods_Me_iOSUITests.framework */,
+				3C02F173277F67B5CEEC83FDDBD747C6 /* SkyFloatingLabelTextField.framework */,
+				77617AFD6156128446520B869F6917A6 /* UICheckbox.bundle */,
+				A5A78E2F2DDD86193ACDAECD739A1F4C /* UICheckbox_Swift.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8E204746D9D4C0AA337F594A4116C0A0 /* Swift */ = {
+			isa = PBXGroup;
+			children = (
+				5A838460FF943D3F1439338783CEED79 /* MarqueeLabel.swift */,
+			);
+			name = Swift;
 			sourceTree = "<group>";
 		};
 		B77B57868B86ECD848255075E3879DD0 /* Pods-Me-iOSTests */ = {
@@ -357,37 +464,69 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
-		CE3195CD0E2364168E46696F1BCB82C1 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				71B900D7D2D0C0189CFB081CC4001E04 /* SkyFloatingLabelTextField.modulemap */,
-				B0B1F61FBB8A63C52474FA23C0574297 /* SkyFloatingLabelTextField.xcconfig */,
-				05A72353A2269FA16216F36C50913EC9 /* SkyFloatingLabelTextField-dummy.m */,
-				B45E70DB2F555429658C3535130E769A /* SkyFloatingLabelTextField-Info.plist */,
-				506D51193EB5A1E18E3CD9819B606672 /* SkyFloatingLabelTextField-prefix.pch */,
-				9E1A29A03325D2357983218C55B4517B /* SkyFloatingLabelTextField-umbrella.h */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/SkyFloatingLabelTextField";
-			sourceTree = "<group>";
-		};
 		CF1408CF629C7361332E53B88F7BD30C = {
 			isa = PBXGroup;
 			children = (
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
 				03C5C200A0787E300053CFA8F53CA094 /* Frameworks */,
-				6038165FAB75E3E6AC5A48FDE8F1235B /* Pods */,
-				13F2E4D539746A0D8D4806DAB50927CD /* Products */,
+				77562AB532E7CBCCD61E047951D69CFE /* Pods */,
+				86F42B8055EEC9D4193E179371F57FF6 /* Products */,
 				1D62B64E26070FC54E4694232E8DB4C7 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
-		F46D9447B16A67DF48A964C286509FBB /* Swift */ = {
+		E1845319E315332AB2F0D7A700A613AB /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				87DF5E35F5C90BA9FC3D75DC3B2C574A /* MarqueeLabel.swift */,
+				1FBA98776013EC2D5D5AAE4AD1ACFF46 /* ResourceBundle-UICheckbox-UICheckbox.Swift-Info.plist */,
+				BA798C3D6DE3AC01E6B710EA702BE3B9 /* UICheckbox.Swift.modulemap */,
+				C7F83131811E1784AD411927D9263FF5 /* UICheckbox.Swift.xcconfig */,
+				019C6D760451DE4E5462BCC34308810E /* UICheckbox.Swift-dummy.m */,
+				D8BC11AF410B20A32A9FF8785724F641 /* UICheckbox.Swift-Info.plist */,
+				5BFD8635C7C35A18B125D246C507F5EE /* UICheckbox.Swift-prefix.pch */,
+				22E590420AE389903FDF4734D2761768 /* UICheckbox.Swift-umbrella.h */,
 			);
-			name = Swift;
+			name = "Support Files";
+			path = "../Target Support Files/UICheckbox.Swift";
+			sourceTree = "<group>";
+		};
+		EF517D84755DAE744FD29E132E24DD77 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				79884A02C04C641BC3D709D4DE4AF0E2 /* BWWalkthrough.modulemap */,
+				780EBBBCFCE23D83EE9BBBB76E95E2FE /* BWWalkthrough.xcconfig */,
+				A1E07DAC406440A4BF2362F4EBA79DDC /* BWWalkthrough-dummy.m */,
+				07A1785881549B4602FA53AF53621F3C /* BWWalkthrough-Info.plist */,
+				EB33C90BA1E2C2CD91BE5A8A70267F89 /* BWWalkthrough-prefix.pch */,
+				702CC6285FB04F5B7069015583C151F5 /* BWWalkthrough-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/BWWalkthrough";
+			sourceTree = "<group>";
+		};
+		FC483885E240F6AC15615FDE22BE0DFE /* BWWalkthrough */ = {
+			isa = PBXGroup;
+			children = (
+				EC9E05472EAADF421D8F93F1351631EE /* BWWalkthroughPageViewController.swift */,
+				E4ACEC9C4C485049C6C3B46D060BBC3C /* BWWalkthroughViewController.swift */,
+				EF517D84755DAE744FD29E132E24DD77 /* Support Files */,
+			);
+			name = BWWalkthrough;
+			path = BWWalkthrough;
+			sourceTree = "<group>";
+		};
+		FD56353F2746B023805C5073F03D56C3 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				20B5E43B9EF20C65E34F65D858048D30 /* SkyFloatingLabelTextField.modulemap */,
+				F862992B54B0C8E0FA629477D72A8FD8 /* SkyFloatingLabelTextField.xcconfig */,
+				4857AFCE4DE72FF4349F3A49408F2731 /* SkyFloatingLabelTextField-dummy.m */,
+				408A91E75082084B34F883C580137C46 /* SkyFloatingLabelTextField-Info.plist */,
+				9695FD7C84F26B4267576F98421B98CF /* SkyFloatingLabelTextField-prefix.pch */,
+				B3546A2A12200BBCB4A7C891905D41EA /* SkyFloatingLabelTextField-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/SkyFloatingLabelTextField";
 			sourceTree = "<group>";
 		};
 		FF23D8A0C088A1207703230E5CE95FF3 /* Pods-Me-iOS */ = {
@@ -412,19 +551,19 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		3F3B081077CDE459CF798AFCB1E38741 /* Headers */ = {
+		16A5FD4DC6C6C6BF0872D3597104A61A /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C7755A13002839CAE7734BFC6583E973 /* Pods-Me-iOS-umbrella.h in Headers */,
+				A3A6586581237A8D1FD5702067AD4E66 /* SkyFloatingLabelTextField-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		46E1F81FFC4F83EA87F22FDD519DF105 /* Headers */ = {
+		34014C5382DAEE707D7BBFF280CC7EAD /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				47A8C3ACCBCE9772F93A5752FD90BF74 /* SkyFloatingLabelTextField-umbrella.h in Headers */,
+				303D0704B3BF36EC7A1DB7A2CE58BBCC /* UICheckbox.Swift-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -463,17 +602,33 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		E799CB81DB25E6B72A17F3F27A0EF4F9 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				282539C2F176B51738F4373190E65964 /* Pods-Me-iOS-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FCBC283D98B14A11868AE0B7811D405F /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5A793A98A98D81314793E12FA9B1C8A0 /* BWWalkthrough-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		10A378F199157B44C21E0F85C8AEC09C /* SkyFloatingLabelTextField */ = {
+		0B0ADE750242A19FA2887DAA4ABAE4EE /* SkyFloatingLabelTextField */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 119E5FA6DD4554B3D4AA3378409B2C68 /* Build configuration list for PBXNativeTarget "SkyFloatingLabelTextField" */;
+			buildConfigurationList = 1B52EE389949B6B79CDDCDFF28695E4B /* Build configuration list for PBXNativeTarget "SkyFloatingLabelTextField" */;
 			buildPhases = (
-				46E1F81FFC4F83EA87F22FDD519DF105 /* Headers */,
-				168543DAA6B51F95206184C8750EDA74 /* Sources */,
-				68792D05777548785E8E491AD141C4A2 /* Frameworks */,
-				0A8582DF71C71C7BDD87B44104A10662 /* Resources */,
+				16A5FD4DC6C6C6BF0872D3597104A61A /* Headers */,
+				4C983134E3B7E0C78166EA5D8F5AD873 /* Sources */,
+				6EE82B0AF18F116A0281ABA3F8EE4C19 /* Frameworks */,
+				94CD39FB4C9C9E12E5ABB7DEA57EBEC8 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -481,7 +636,65 @@
 			);
 			name = SkyFloatingLabelTextField;
 			productName = SkyFloatingLabelTextField;
-			productReference = 23CC022D56E0AAB3E10F125948E474CF /* SkyFloatingLabelTextField.framework */;
+			productReference = 3C02F173277F67B5CEEC83FDDBD747C6 /* SkyFloatingLabelTextField.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		0EFE3350BD1758C0C6951501CE032A84 /* BWWalkthrough */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C69E510ECAC46759FA677D8AAC2272FE /* Build configuration list for PBXNativeTarget "BWWalkthrough" */;
+			buildPhases = (
+				FCBC283D98B14A11868AE0B7811D405F /* Headers */,
+				AD666D3C08A7D6E6F661B2C75546519F /* Sources */,
+				09DBE575FD0EABC7518ECDC302C4B684 /* Frameworks */,
+				345A5306885AE3102D0E8E4832A873EF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BWWalkthrough;
+			productName = BWWalkthrough;
+			productReference = 9DA3930474DA04C4748E656D01A4B67F /* BWWalkthrough.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		107B035862A6FEECD7E56CA2A580DFC8 /* UICheckbox.Swift-UICheckbox */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8AD487AEAA96EA32B00AA10CB06323E6 /* Build configuration list for PBXNativeTarget "UICheckbox.Swift-UICheckbox" */;
+			buildPhases = (
+				12F66471F31C39865AC8035492D5FAA6 /* Sources */,
+				514CADC5B34CBF0548E63EBFD2BF32CA /* Frameworks */,
+				C2C3589D79E0293794BB10807D17A531 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "UICheckbox.Swift-UICheckbox";
+			productName = "UICheckbox.Swift-UICheckbox";
+			productReference = 77617AFD6156128446520B869F6917A6 /* UICheckbox.bundle */;
+			productType = "com.apple.product-type.bundle";
+		};
+		26667A8E98F8AA68A047223615177404 /* Pods-Me-iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F961805C417F84990DBA6DD2BB72690F /* Build configuration list for PBXNativeTarget "Pods-Me-iOS" */;
+			buildPhases = (
+				E799CB81DB25E6B72A17F3F27A0EF4F9 /* Headers */,
+				2F0DEE4845C20BDF23B45FD3B6FD23C8 /* Sources */,
+				C67FCF14B7081656F36B0D4D0EC39762 /* Frameworks */,
+				0387620986FED57EF41625BA6B24B1D0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				277CF4844DB5446968E0A044FEED4C69 /* PBXTargetDependency */,
+				C8F683A71BE5E2DEF7C1C55765D8B0F0 /* PBXTargetDependency */,
+				7AEE33BEAE41B13CF72145F0F335527A /* PBXTargetDependency */,
+				05DA502714368584B0BCBA26BC195CCF /* PBXTargetDependency */,
+				9A031E4C08A436BFFFE722BF15E5CEC4 /* PBXTargetDependency */,
+			);
+			name = "Pods-Me-iOS";
+			productName = "Pods-Me-iOS";
+			productReference = B6294450423EBD95A29ED02C720C2A4A /* Pods_Me_iOS.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		39A2FE37BA2B5CC45C0234009DC6E697 /* ISHPullUp */ = {
@@ -499,28 +712,7 @@
 			);
 			name = ISHPullUp;
 			productName = ISHPullUp;
-			productReference = 914DE40B88A594D3A6C00F52A2FFFEDF /* ISHPullUp.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		72F4B1C6006CCB182874529CCA16E3C5 /* Pods-Me-iOS */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 71AD3DED5D7D0E7FE180032FC1EE4893 /* Build configuration list for PBXNativeTarget "Pods-Me-iOS" */;
-			buildPhases = (
-				3F3B081077CDE459CF798AFCB1E38741 /* Headers */,
-				2E6A8191AD8278FD8B32116694B5FF63 /* Sources */,
-				DC71C21D350C154EF0A727C39B3CAB64 /* Frameworks */,
-				BF0F5EFB9F4A32798336B8660E8D17AF /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				A0F2DA671D3CDECF8323B745161516E8 /* PBXTargetDependency */,
-				CBACE5B1F76CDCB2681EB0A2ECB67AF9 /* PBXTargetDependency */,
-				06FBC49CCB770767C30E44CA2F3F2616 /* PBXTargetDependency */,
-			);
-			name = "Pods-Me-iOS";
-			productName = "Pods-Me-iOS";
-			productReference = 51CD5F85887E1B2BE42EB45B9C5C4C38 /* Pods_Me_iOS.framework */;
+			productReference = 88607433CDD1572E1E7E7D02373FA148 /* ISHPullUp.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		7AF6C5B00D5909E76ECC0457FF5DA0AB /* Pods-Me-iOSTests */ = {
@@ -539,7 +731,7 @@
 			);
 			name = "Pods-Me-iOSTests";
 			productName = "Pods-Me-iOSTests";
-			productReference = 45C9D933D7A550B2FB498AE7907B5857 /* Pods_Me_iOSTests.framework */;
+			productReference = 80E66FDF9D3C54CFFF66BC7CA96FF14C /* Pods_Me_iOSTests.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		85A898031A4A229C3ECABAF60EB71F21 /* Pods-Me-iOSUITests */ = {
@@ -558,7 +750,26 @@
 			);
 			name = "Pods-Me-iOSUITests";
 			productName = "Pods-Me-iOSUITests";
-			productReference = 4BFD11AB6856D4C346F5D99CDC4ADC28 /* Pods_Me_iOSUITests.framework */;
+			productReference = 6848397E2CB23DC465084B59B866E0C7 /* Pods_Me_iOSUITests.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		A360BA3D24399312B2D722F9D99FAF26 /* UICheckbox.Swift */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7D2AC06B3D3B356BA202BC360E65EBE9 /* Build configuration list for PBXNativeTarget "UICheckbox.Swift" */;
+			buildPhases = (
+				34014C5382DAEE707D7BBFF280CC7EAD /* Headers */,
+				BD28FAEFA07A804EB3AE995AB69211E5 /* Sources */,
+				7D7E8145DAFD5CF16833E43938E4401A /* Frameworks */,
+				5D397F4DE1F7EAE7CCDE01778900D288 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CD891C94B14C32DF12279D3E6EED0332 /* PBXTargetDependency */,
+			);
+			name = UICheckbox.Swift;
+			productName = UICheckbox.Swift;
+			productReference = A5A78E2F2DDD86193ACDAECD739A1F4C /* UICheckbox_Swift.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		BE1D48CAA1E99CFE94BC5802FF84E8F2 /* MarqueeLabel */ = {
@@ -576,7 +787,7 @@
 			);
 			name = MarqueeLabel;
 			productName = MarqueeLabel;
-			productReference = 016057E773E696E5B7AD823F9094EBC8 /* MarqueeLabel.framework */;
+			productReference = CCCB28B3287C3400E6827E64F1AFB970 /* MarqueeLabel.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -596,22 +807,25 @@
 				en,
 			);
 			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
-			productRefGroup = 13F2E4D539746A0D8D4806DAB50927CD /* Products */;
+			productRefGroup = 86F42B8055EEC9D4193E179371F57FF6 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
+				0EFE3350BD1758C0C6951501CE032A84 /* BWWalkthrough */,
 				39A2FE37BA2B5CC45C0234009DC6E697 /* ISHPullUp */,
 				BE1D48CAA1E99CFE94BC5802FF84E8F2 /* MarqueeLabel */,
-				72F4B1C6006CCB182874529CCA16E3C5 /* Pods-Me-iOS */,
+				26667A8E98F8AA68A047223615177404 /* Pods-Me-iOS */,
 				7AF6C5B00D5909E76ECC0457FF5DA0AB /* Pods-Me-iOSTests */,
 				85A898031A4A229C3ECABAF60EB71F21 /* Pods-Me-iOSUITests */,
-				10A378F199157B44C21E0F85C8AEC09C /* SkyFloatingLabelTextField */,
+				0B0ADE750242A19FA2887DAA4ABAE4EE /* SkyFloatingLabelTextField */,
+				A360BA3D24399312B2D722F9D99FAF26 /* UICheckbox.Swift */,
+				107B035862A6FEECD7E56CA2A580DFC8 /* UICheckbox.Swift-UICheckbox */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		0A8582DF71C71C7BDD87B44104A10662 /* Resources */ = {
+		0387620986FED57EF41625BA6B24B1D0 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -622,6 +836,21 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		345A5306885AE3102D0E8E4832A873EF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5D397F4DE1F7EAE7CCDE01778900D288 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FD7696A9E9F87A1DFB631CDE8ACD7C66 /* UICheckbox.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -646,32 +875,47 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		BF0F5EFB9F4A32798336B8660E8D17AF /* Resources */ = {
+		94CD39FB4C9C9E12E5ABB7DEA57EBEC8 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-/* End PBXResourcesBuildPhase section */
-
-/* Begin PBXSourcesBuildPhase section */
-		168543DAA6B51F95206184C8750EDA74 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
+		C2C3589D79E0293794BB10807D17A531 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				89FBFDA0CE2AB02FE33D6000E861AA3E /* SkyFloatingLabelTextField-dummy.m in Sources */,
-				A684D43FFC521D776ACF70442DFC8059 /* SkyFloatingLabelTextField.swift in Sources */,
-				592DF4E835A597DF836D8A5D40878570 /* SkyFloatingLabelTextFieldWithIcon.swift in Sources */,
-				299C460609DF612DD1C29C0E9C0961FA /* UITextField+fixCaretPosition.swift in Sources */,
+				67A7A8F99A045BEC41C747E1FEFA4F0C /* ic_check_3x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2E6A8191AD8278FD8B32116694B5FF63 /* Sources */ = {
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		12F66471F31C39865AC8035492D5FAA6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2506511F5F2EECCD7EA02E6323FA6092 /* Pods-Me-iOS-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2F0DEE4845C20BDF23B45FD3B6FD23C8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0A3D61EFB8B3D4EF742F67A2193FCF25 /* Pods-Me-iOS-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4C983134E3B7E0C78166EA5D8F5AD873 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				19906E71EAB85CD9D8CE6403B77F3813 /* SkyFloatingLabelTextField-dummy.m in Sources */,
+				5AD1744D66B9E3F4257AA9AB99AD02AF /* SkyFloatingLabelTextField.swift in Sources */,
+				429FF73DC4669CFB8AC44B7E686CD55D /* SkyFloatingLabelTextFieldWithIcon.swift in Sources */,
+				2FE2E6ECB3A010FD4EE07375E7465505 /* UITextField+fixCaretPosition.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -684,11 +928,30 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		AD666D3C08A7D6E6F661B2C75546519F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1FA40A42C88B2C60F2401279F00686C7 /* BWWalkthrough-dummy.m in Sources */,
+				0849246C27936F37533C878EFAE1F9DE /* BWWalkthroughPageViewController.swift in Sources */,
+				CD0F2ED48349E07DCF99756E2F4F31A9 /* BWWalkthroughViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B81E8074A2E94B958680D25937D5CC28 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				329BFB6B41C41D75B729F50AABA1D4DC /* Pods-Me-iOSUITests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BD28FAEFA07A804EB3AE995AB69211E5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DB286CC1E71605FA9DB698CE26543524 /* UICheckbox.swift in Sources */,
+				0AF8867BC5BA74BD8B707CD807E7F001 /* UICheckbox.Swift-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -714,35 +977,53 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		06FBC49CCB770767C30E44CA2F3F2616 /* PBXTargetDependency */ = {
+		05DA502714368584B0BCBA26BC195CCF /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = SkyFloatingLabelTextField;
-			target = 10A378F199157B44C21E0F85C8AEC09C /* SkyFloatingLabelTextField */;
-			targetProxy = 62BBB38DEFE5A9679C8AFA7280CF22AF /* PBXContainerItemProxy */;
+			target = 0B0ADE750242A19FA2887DAA4ABAE4EE /* SkyFloatingLabelTextField */;
+			targetProxy = 1167761A98146B6C4DA9F2476A807DD0 /* PBXContainerItemProxy */;
+		};
+		277CF4844DB5446968E0A044FEED4C69 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = BWWalkthrough;
+			target = 0EFE3350BD1758C0C6951501CE032A84 /* BWWalkthrough */;
+			targetProxy = 79FD45B0257BE0B8988DEAFF397843D5 /* PBXContainerItemProxy */;
 		};
 		67095F9E092D40B9A70330CC6FA5520F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "Pods-Me-iOS";
-			target = 72F4B1C6006CCB182874529CCA16E3C5 /* Pods-Me-iOS */;
+			target = 26667A8E98F8AA68A047223615177404 /* Pods-Me-iOS */;
 			targetProxy = E7065F7381FF2A7BB9DBBCE6DB30F5E2 /* PBXContainerItemProxy */;
 		};
 		6F61683BFE64981909C83CA56A573DCA /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "Pods-Me-iOS";
-			target = 72F4B1C6006CCB182874529CCA16E3C5 /* Pods-Me-iOS */;
+			target = 26667A8E98F8AA68A047223615177404 /* Pods-Me-iOS */;
 			targetProxy = 50C49F1F114C07CFC6D30141ADBC57BA /* PBXContainerItemProxy */;
 		};
-		A0F2DA671D3CDECF8323B745161516E8 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = ISHPullUp;
-			target = 39A2FE37BA2B5CC45C0234009DC6E697 /* ISHPullUp */;
-			targetProxy = 5953AB800623C6E2644EC5657E1680F0 /* PBXContainerItemProxy */;
-		};
-		CBACE5B1F76CDCB2681EB0A2ECB67AF9 /* PBXTargetDependency */ = {
+		7AEE33BEAE41B13CF72145F0F335527A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = MarqueeLabel;
 			target = BE1D48CAA1E99CFE94BC5802FF84E8F2 /* MarqueeLabel */;
-			targetProxy = 82B99832E13326ABBC2319F8D1C127D5 /* PBXContainerItemProxy */;
+			targetProxy = F38A5627A03F2D02D724841A4D1E14EE /* PBXContainerItemProxy */;
+		};
+		9A031E4C08A436BFFFE722BF15E5CEC4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = UICheckbox.Swift;
+			target = A360BA3D24399312B2D722F9D99FAF26 /* UICheckbox.Swift */;
+			targetProxy = E5333DED9E360489532120981394C78C /* PBXContainerItemProxy */;
+		};
+		C8F683A71BE5E2DEF7C1C55765D8B0F0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = ISHPullUp;
+			target = 39A2FE37BA2B5CC45C0234009DC6E697 /* ISHPullUp */;
+			targetProxy = 0D29331AE9BDB9A44DEA7FFBC4B96D03 /* PBXContainerItemProxy */;
+		};
+		CD891C94B14C32DF12279D3E6EED0332 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "UICheckbox.Swift-UICheckbox";
+			target = 107B035862A6FEECD7E56CA2A580DFC8 /* UICheckbox.Swift-UICheckbox */;
+			targetProxy = 1D6FD5BA8DD5268FB1AF0FF68A31D735 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -786,45 +1067,6 @@
 			};
 			name = Release;
 		};
-		114574437A640601159E4C2F81AA9B2F /* Dev */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = A8FB7035DF09490466E12BAA624486D8 /* Pods-Me-iOS.dev.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-Me-iOS/Pods-Me-iOS-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-Me-iOS/Pods-Me-iOS.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Dev;
-		};
 		1362950EB57C0545FE219A5BA79762C0 /* Dev */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A87DC8981ED14D2EE04580A93E2E1D67 /* Pods-Me-iOSUITests.dev.xcconfig */;
@@ -866,7 +1108,7 @@
 		};
 		14C544F104D2F87C5316D898E232EBD2 /* Demo */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4017F5B2C00AB0D5362932BF1788E651 /* ISHPullUp.xcconfig */;
+			baseConfigurationReference = 9F933F9669A6A9E4237B9532104A64F5 /* ISHPullUp.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -900,11 +1142,28 @@
 			};
 			name = Demo;
 		};
-		212E39C1A599A1BF6CA7B28618CA77D8 /* Debug */ = {
+		15967D3BF86426AB4C1D306F843479B9 /* Dev */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C7F83131811E1784AD411927D9263FF5 /* UICheckbox.Swift.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/UICheckbox.Swift";
+				INFOPLIST_FILE = "Target Support Files/UICheckbox.Swift/ResourceBundle-UICheckbox-UICheckbox.Swift-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				PRODUCT_NAME = UICheckbox;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Dev;
+		};
+		1D7E2085E5660305A1C070409F65C2FD /* Dev */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C7F83131811E1784AD411927D9263FF5 /* UICheckbox.Swift.xcconfig */;
+			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -914,32 +1173,48 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-Me-iOS/Pods-Me-iOS-Info.plist";
+				GCC_PREFIX_HEADER = "Target Support Files/UICheckbox.Swift/UICheckbox.Swift-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/UICheckbox.Swift/UICheckbox.Swift-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-Me-iOS/Pods-Me-iOS.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				MODULEMAP_FILE = "Target Support Files/UICheckbox.Swift/UICheckbox.Swift.modulemap";
+				PRODUCT_MODULE_NAME = UICheckbox_Swift;
+				PRODUCT_NAME = UICheckbox_Swift;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Debug;
+			name = Dev;
+		};
+		1F3F4C522EBF04A9ADA7E7E893B638EA /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C7F83131811E1784AD411927D9263FF5 /* UICheckbox.Swift.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/UICheckbox.Swift";
+				INFOPLIST_FILE = "Target Support Files/UICheckbox.Swift/ResourceBundle-UICheckbox-UICheckbox.Swift-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				PRODUCT_NAME = UICheckbox;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
 		};
 		24280B6ED905275B4FE7FE5B43C4E1A0 /* Demo */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 22946F1A299F1749255F3414D4D05F4B /* MarqueeLabel.xcconfig */;
+			baseConfigurationReference = D7FB4BDC8BCEB1C3F51425F7B9DD2162 /* MarqueeLabel.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -1012,9 +1287,9 @@
 			};
 			name = Demo;
 		};
-		319542C39BFD0FA84E6D3236714C58AC /* Alpha */ = {
+		33C9D1BF3E365D0C7861B7BC50383492 /* Dev */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B0B1F61FBB8A63C52474FA23C0574297 /* SkyFloatingLabelTextField.xcconfig */;
+			baseConfigurationReference = F862992B54B0C8E0FA629477D72A8FD8 /* SkyFloatingLabelTextField.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -1046,7 +1321,7 @@
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Alpha;
+			name = Dev;
 		};
 		33E24ED71F0763433B86DE9C045D4EED /* Demo */ = {
 			isa = XCBuildConfiguration;
@@ -1209,10 +1484,11 @@
 			};
 			name = Debug;
 		};
-		4222EDC949CB001326842ACD52C63184 /* Demo */ = {
+		41F410612C073A832966537DE0D42437 /* Alpha */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B0B1F61FBB8A63C52474FA23C0574297 /* SkyFloatingLabelTextField.xcconfig */;
+			baseConfigurationReference = 780EBBBCFCE23D83EE9BBBB76E95E2FE /* BWWalkthrough.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -1222,32 +1498,32 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/SkyFloatingLabelTextField/SkyFloatingLabelTextField-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/SkyFloatingLabelTextField/SkyFloatingLabelTextField-Info.plist";
+				GCC_PREFIX_HEADER = "Target Support Files/BWWalkthrough/BWWalkthrough-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/BWWalkthrough/BWWalkthrough-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MODULEMAP_FILE = "Target Support Files/SkyFloatingLabelTextField/SkyFloatingLabelTextField.modulemap";
-				PRODUCT_MODULE_NAME = SkyFloatingLabelTextField;
-				PRODUCT_NAME = SkyFloatingLabelTextField;
+				MODULEMAP_FILE = "Target Support Files/BWWalkthrough/BWWalkthrough.modulemap";
+				PRODUCT_MODULE_NAME = BWWalkthrough;
+				PRODUCT_NAME = BWWalkthrough;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Demo;
+			name = Alpha;
 		};
 		47EBE04BCD916B360D6681280C9F7CE7 /* Alpha */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 22946F1A299F1749255F3414D4D05F4B /* MarqueeLabel.xcconfig */;
+			baseConfigurationReference = D7FB4BDC8BCEB1C3F51425F7B9DD2162 /* MarqueeLabel.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -1280,6 +1556,171 @@
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Alpha;
+		};
+		4BAE0147392206C9B857A1E6125C9D73 /* Demo */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 23219134AB0A0DFDA3DE55F3E5E921AB /* Pods-Me-iOS.demo.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-Me-iOS/Pods-Me-iOS-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Me-iOS/Pods-Me-iOS.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Demo;
+		};
+		4D446C4F9ECBEDDFA5F00E90F0914DE2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F862992B54B0C8E0FA629477D72A8FD8 /* SkyFloatingLabelTextField.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/SkyFloatingLabelTextField/SkyFloatingLabelTextField-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SkyFloatingLabelTextField/SkyFloatingLabelTextField-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/SkyFloatingLabelTextField/SkyFloatingLabelTextField.modulemap";
+				PRODUCT_MODULE_NAME = SkyFloatingLabelTextField;
+				PRODUCT_NAME = SkyFloatingLabelTextField;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		54FC66994FDB0B8B65C2DBCA42DC74C1 /* Demo */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C7F83131811E1784AD411927D9263FF5 /* UICheckbox.Swift.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/UICheckbox.Swift";
+				INFOPLIST_FILE = "Target Support Files/UICheckbox.Swift/ResourceBundle-UICheckbox-UICheckbox.Swift-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				PRODUCT_NAME = UICheckbox;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Demo;
+		};
+		584C15DD84B3065A08699FE885928E8A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 780EBBBCFCE23D83EE9BBBB76E95E2FE /* BWWalkthrough.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/BWWalkthrough/BWWalkthrough-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/BWWalkthrough/BWWalkthrough-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/BWWalkthrough/BWWalkthrough.modulemap";
+				PRODUCT_MODULE_NAME = BWWalkthrough;
+				PRODUCT_NAME = BWWalkthrough;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		5854AA778730BBB91AAA597AD3E732B1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C7F83131811E1784AD411927D9263FF5 /* UICheckbox.Swift.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/UICheckbox.Swift/UICheckbox.Swift-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/UICheckbox.Swift/UICheckbox.Swift-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/UICheckbox.Swift/UICheckbox.Swift.modulemap";
+				PRODUCT_MODULE_NAME = UICheckbox_Swift;
+				PRODUCT_NAME = UICheckbox_Swift;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
 		};
 		59136031A0BA958E6B6CD823BC9BDF18 /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -1320,6 +1761,41 @@
 			};
 			name = Release;
 		};
+		5A3FD2CE1B404CF695470B4429EF80E7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F862992B54B0C8E0FA629477D72A8FD8 /* SkyFloatingLabelTextField.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/SkyFloatingLabelTextField/SkyFloatingLabelTextField-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SkyFloatingLabelTextField/SkyFloatingLabelTextField-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/SkyFloatingLabelTextField/SkyFloatingLabelTextField.modulemap";
+				PRODUCT_MODULE_NAME = SkyFloatingLabelTextField;
+				PRODUCT_NAME = SkyFloatingLabelTextField;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
 		606002EFEDDBC13925C346A28F3D3566 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1359,7 +1835,7 @@
 		};
 		619DD3BB4444438D1EE40B09B986AD74 /* Dev */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4017F5B2C00AB0D5362932BF1788E651 /* ISHPullUp.xcconfig */;
+			baseConfigurationReference = 9F933F9669A6A9E4237B9532104A64F5 /* ISHPullUp.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -1393,7 +1869,154 @@
 			};
 			name = Dev;
 		};
-		6CDB921E258B1F747B17155C4619C094 /* Release */ = {
+		6661FC848028674A4659D756B3B7D1CF /* Demo */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C7F83131811E1784AD411927D9263FF5 /* UICheckbox.Swift.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/UICheckbox.Swift/UICheckbox.Swift-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/UICheckbox.Swift/UICheckbox.Swift-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/UICheckbox.Swift/UICheckbox.Swift.modulemap";
+				PRODUCT_MODULE_NAME = UICheckbox_Swift;
+				PRODUCT_NAME = UICheckbox_Swift;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Demo;
+		};
+		6BD461B9F52C4E297C008FC0F2EBC324 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C7F83131811E1784AD411927D9263FF5 /* UICheckbox.Swift.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/UICheckbox.Swift/UICheckbox.Swift-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/UICheckbox.Swift/UICheckbox.Swift-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/UICheckbox.Swift/UICheckbox.Swift.modulemap";
+				PRODUCT_MODULE_NAME = UICheckbox_Swift;
+				PRODUCT_NAME = UICheckbox_Swift;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		6C21585443AB5F7630EC787FB6506415 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-Me-iOS/Pods-Me-iOS-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Me-iOS/Pods-Me-iOS.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		6D29B788DBE5ACAD0B50D1AAB4C42468 /* Dev */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A8FB7035DF09490466E12BAA624486D8 /* Pods-Me-iOS.dev.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-Me-iOS/Pods-Me-iOS-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Me-iOS/Pods-Me-iOS.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Dev;
+		};
+		7FFB5CD072AE4C678DA675987FB1DC24 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C46E574E606D20F24416E8A98A380310 /* Pods-Me-iOS.release.xcconfig */;
 			buildSettings = {
@@ -1471,48 +2094,9 @@
 			};
 			name = Dev;
 		};
-		8395C8DC003006FC9F6D4430BB9F1B5F /* Demo */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 23219134AB0A0DFDA3DE55F3E5E921AB /* Pods-Me-iOS.demo.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-Me-iOS/Pods-Me-iOS-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-Me-iOS/Pods-Me-iOS.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Demo;
-		};
 		8633C29A697DE46885D1F8E5D196159C /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4017F5B2C00AB0D5362932BF1788E651 /* ISHPullUp.xcconfig */;
+			baseConfigurationReference = 9F933F9669A6A9E4237B9532104A64F5 /* ISHPullUp.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -1586,7 +2170,7 @@
 		};
 		8990352C344929389DCBBCEE122E2EB9 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 22946F1A299F1749255F3414D4D05F4B /* MarqueeLabel.xcconfig */;
+			baseConfigurationReference = D7FB4BDC8BCEB1C3F51425F7B9DD2162 /* MarqueeLabel.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -1618,77 +2202,6 @@
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
-		};
-		8BE63869DE151900C9E1915E6D1E0CF5 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = B0B1F61FBB8A63C52474FA23C0574297 /* SkyFloatingLabelTextField.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/SkyFloatingLabelTextField/SkyFloatingLabelTextField-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/SkyFloatingLabelTextField/SkyFloatingLabelTextField-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MODULEMAP_FILE = "Target Support Files/SkyFloatingLabelTextField/SkyFloatingLabelTextField.modulemap";
-				PRODUCT_MODULE_NAME = SkyFloatingLabelTextField;
-				PRODUCT_NAME = SkyFloatingLabelTextField;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		8D4440A690BD8EBEEE0B891CFF7FB544 /* Dev */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = B0B1F61FBB8A63C52474FA23C0574297 /* SkyFloatingLabelTextField.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/SkyFloatingLabelTextField/SkyFloatingLabelTextField-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/SkyFloatingLabelTextField/SkyFloatingLabelTextField-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MODULEMAP_FILE = "Target Support Files/SkyFloatingLabelTextField/SkyFloatingLabelTextField.modulemap";
-				PRODUCT_MODULE_NAME = SkyFloatingLabelTextField;
-				PRODUCT_NAME = SkyFloatingLabelTextField;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Dev;
 		};
 		924D56B1D59CD3049300EAEEA256114E /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -1750,9 +2263,46 @@
 			};
 			name = Release;
 		};
+		9F68C0521F48ACFAC4EC0BA19F3A4169 /* Demo */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 780EBBBCFCE23D83EE9BBBB76E95E2FE /* BWWalkthrough.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/BWWalkthrough/BWWalkthrough-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/BWWalkthrough/BWWalkthrough-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/BWWalkthrough/BWWalkthrough.modulemap";
+				PRODUCT_MODULE_NAME = BWWalkthrough;
+				PRODUCT_NAME = BWWalkthrough;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Demo;
+		};
 		A50F28AE3E5C0BADD4846646E569B94C /* Alpha */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4017F5B2C00AB0D5362932BF1788E651 /* ISHPullUp.xcconfig */;
+			baseConfigurationReference = 9F933F9669A6A9E4237B9532104A64F5 /* ISHPullUp.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -1848,7 +2398,7 @@
 		};
 		B1E2F9B62118B9B61A62601687A818F5 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4017F5B2C00AB0D5362932BF1788E651 /* ISHPullUp.xcconfig */;
+			baseConfigurationReference = 9F933F9669A6A9E4237B9532104A64F5 /* ISHPullUp.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -1882,12 +2432,10 @@
 			};
 			name = Release;
 		};
-		B66848B922A1566791EA68BED1C94D11 /* Alpha */ = {
+		B6972E9BD7E21BC11F91C7E2927C7282 /* Alpha */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B095383D57C0073A7FA6A3C712EF0889 /* Pods-Me-iOS.alpha.xcconfig */;
+			baseConfigurationReference = C7F83131811E1784AD411927D9263FF5 /* UICheckbox.Swift.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -1897,23 +2445,22 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-Me-iOS/Pods-Me-iOS-Info.plist";
+				GCC_PREFIX_HEADER = "Target Support Files/UICheckbox.Swift/UICheckbox.Swift-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/UICheckbox.Swift/UICheckbox.Swift-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-Me-iOS/Pods-Me-iOS.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				MODULEMAP_FILE = "Target Support Files/UICheckbox.Swift/UICheckbox.Swift.modulemap";
+				PRODUCT_MODULE_NAME = UICheckbox_Swift;
+				PRODUCT_NAME = UICheckbox_Swift;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -2020,9 +2567,25 @@
 			};
 			name = Dev;
 		};
+		C1DA5867E483897B3DE5A000ECBEE711 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C7F83131811E1784AD411927D9263FF5 /* UICheckbox.Swift.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/UICheckbox.Swift";
+				INFOPLIST_FILE = "Target Support Files/UICheckbox.Swift/ResourceBundle-UICheckbox-UICheckbox.Swift-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				PRODUCT_NAME = UICheckbox;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
 		C668F29E330F02D3FFB00D7CE66A68EE /* Dev */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 22946F1A299F1749255F3414D4D05F4B /* MarqueeLabel.xcconfig */;
+			baseConfigurationReference = D7FB4BDC8BCEB1C3F51425F7B9DD2162 /* MarqueeLabel.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -2058,7 +2621,7 @@
 		};
 		C787D35C763861B935C573AA5D467F5B /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 22946F1A299F1749255F3414D4D05F4B /* MarqueeLabel.xcconfig */;
+			baseConfigurationReference = D7FB4BDC8BCEB1C3F51425F7B9DD2162 /* MarqueeLabel.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -2092,9 +2655,27 @@
 			};
 			name = Release;
 		};
-		D0F65059AC493038CF624AD5054765A9 /* Release */ = {
+		CD1FE90A9F484EB7F70FF80E8F338F57 /* Alpha */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B0B1F61FBB8A63C52474FA23C0574297 /* SkyFloatingLabelTextField.xcconfig */;
+			baseConfigurationReference = C7F83131811E1784AD411927D9263FF5 /* UICheckbox.Swift.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/UICheckbox.Swift";
+				INFOPLIST_FILE = "Target Support Files/UICheckbox.Swift/ResourceBundle-UICheckbox-UICheckbox.Swift-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				PRODUCT_NAME = UICheckbox;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Alpha;
+		};
+		D0D0970C4ECA6083A2C3B14976983574 /* Alpha */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F862992B54B0C8E0FA629477D72A8FD8 /* SkyFloatingLabelTextField.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -2126,7 +2707,156 @@
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
+			name = Alpha;
+		};
+		DF8640C3467C316893A7F6EA565F9C6C /* Demo */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F862992B54B0C8E0FA629477D72A8FD8 /* SkyFloatingLabelTextField.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/SkyFloatingLabelTextField/SkyFloatingLabelTextField-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SkyFloatingLabelTextField/SkyFloatingLabelTextField-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/SkyFloatingLabelTextField/SkyFloatingLabelTextField.modulemap";
+				PRODUCT_MODULE_NAME = SkyFloatingLabelTextField;
+				PRODUCT_NAME = SkyFloatingLabelTextField;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Demo;
+		};
+		E901E334FF45D47DE6DF6CC19CFC8FC7 /* Dev */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 780EBBBCFCE23D83EE9BBBB76E95E2FE /* BWWalkthrough.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/BWWalkthrough/BWWalkthrough-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/BWWalkthrough/BWWalkthrough-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/BWWalkthrough/BWWalkthrough.modulemap";
+				PRODUCT_MODULE_NAME = BWWalkthrough;
+				PRODUCT_NAME = BWWalkthrough;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Dev;
+		};
+		EAF59E718DC11822BDC93A89F52FD206 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 780EBBBCFCE23D83EE9BBBB76E95E2FE /* BWWalkthrough.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/BWWalkthrough/BWWalkthrough-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/BWWalkthrough/BWWalkthrough-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/BWWalkthrough/BWWalkthrough.modulemap";
+				PRODUCT_MODULE_NAME = BWWalkthrough;
+				PRODUCT_NAME = BWWalkthrough;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
 			name = Release;
+		};
+		F3DD8C249ABD1B954FEFB566CDA6CA2D /* Alpha */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B095383D57C0073A7FA6A3C712EF0889 /* Pods-Me-iOS.alpha.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-Me-iOS/Pods-Me-iOS-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Me-iOS/Pods-Me-iOS.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Alpha;
 		};
 		FA14721516816EFD19D7D187156CAA1B /* Alpha */ = {
 			isa = XCBuildConfiguration;
@@ -2170,14 +2900,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		119E5FA6DD4554B3D4AA3378409B2C68 /* Build configuration list for PBXNativeTarget "SkyFloatingLabelTextField" */ = {
+		1B52EE389949B6B79CDDCDFF28695E4B /* Build configuration list for PBXNativeTarget "SkyFloatingLabelTextField" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				319542C39BFD0FA84E6D3236714C58AC /* Alpha */,
-				8BE63869DE151900C9E1915E6D1E0CF5 /* Debug */,
-				4222EDC949CB001326842ACD52C63184 /* Demo */,
-				8D4440A690BD8EBEEE0B891CFF7FB544 /* Dev */,
-				D0F65059AC493038CF624AD5054765A9 /* Release */,
+				D0D0970C4ECA6083A2C3B14976983574 /* Alpha */,
+				5A3FD2CE1B404CF695470B4429EF80E7 /* Debug */,
+				DF8640C3467C316893A7F6EA565F9C6C /* Demo */,
+				33C9D1BF3E365D0C7861B7BC50383492 /* Dev */,
+				4D446C4F9ECBEDDFA5F00E90F0914DE2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -2206,14 +2936,14 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		71AD3DED5D7D0E7FE180032FC1EE4893 /* Build configuration list for PBXNativeTarget "Pods-Me-iOS" */ = {
+		7D2AC06B3D3B356BA202BC360E65EBE9 /* Build configuration list for PBXNativeTarget "UICheckbox.Swift" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				B66848B922A1566791EA68BED1C94D11 /* Alpha */,
-				212E39C1A599A1BF6CA7B28618CA77D8 /* Debug */,
-				8395C8DC003006FC9F6D4430BB9F1B5F /* Demo */,
-				114574437A640601159E4C2F81AA9B2F /* Dev */,
-				6CDB921E258B1F747B17155C4619C094 /* Release */,
+				B6972E9BD7E21BC11F91C7E2927C7282 /* Alpha */,
+				6BD461B9F52C4E297C008FC0F2EBC324 /* Debug */,
+				6661FC848028674A4659D756B3B7D1CF /* Demo */,
+				1D7E2085E5660305A1C070409F65C2FD /* Dev */,
+				5854AA778730BBB91AAA597AD3E732B1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -2230,6 +2960,18 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		8AD487AEAA96EA32B00AA10CB06323E6 /* Build configuration list for PBXNativeTarget "UICheckbox.Swift-UICheckbox" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CD1FE90A9F484EB7F70FF80E8F338F57 /* Alpha */,
+				C1DA5867E483897B3DE5A000ECBEE711 /* Debug */,
+				54FC66994FDB0B8B65C2DBCA42DC74C1 /* Demo */,
+				15967D3BF86426AB4C1D306F843479B9 /* Dev */,
+				1F3F4C522EBF04A9ADA7E7E893B638EA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		9A6FE18EB2C167A91A779B9B6007D085 /* Build configuration list for PBXNativeTarget "Pods-Me-iOSTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -2242,6 +2984,18 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		C69E510ECAC46759FA677D8AAC2272FE /* Build configuration list for PBXNativeTarget "BWWalkthrough" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				41F410612C073A832966537DE0D42437 /* Alpha */,
+				584C15DD84B3065A08699FE885928E8A /* Debug */,
+				9F68C0521F48ACFAC4EC0BA19F3A4169 /* Demo */,
+				E901E334FF45D47DE6DF6CC19CFC8FC7 /* Dev */,
+				EAF59E718DC11822BDC93A89F52FD206 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		D43C80702A22826CF43A7C186EA39CA3 /* Build configuration list for PBXNativeTarget "MarqueeLabel" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -2250,6 +3004,18 @@
 				24280B6ED905275B4FE7FE5B43C4E1A0 /* Demo */,
 				C668F29E330F02D3FFB00D7CE66A68EE /* Dev */,
 				C787D35C763861B935C573AA5D467F5B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F961805C417F84990DBA6DD2BB72690F /* Build configuration list for PBXNativeTarget "Pods-Me-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F3DD8C249ABD1B954FEFB566CDA6CA2D /* Alpha */,
+				6C21585443AB5F7630EC787FB6506415 /* Debug */,
+				4BAE0147392206C9B857A1E6125C9D73 /* Demo */,
+				6D29B788DBE5ACAD0B50D1AAB4C42468 /* Dev */,
+				7FFB5CD072AE4C678DA675987FB1DC24 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
