@@ -15,18 +15,30 @@ class RecordDetailViewModel {
     
     private var cellViewModels: [Validator] = [Validator]()
     
+    var completeDelete: ((Int)->())?
+    
     init(commonService: CommonServiceProtocol = CommonService()) {
         self.commonService = commonService
     }
     
     var complete: ((Record)->())?
     
-    func initFetchById(id: String){
+    func initFetchById(id: String) {
         
         commonService.getById(request: "identity/records/", id: id, complete: { (response: Record, statusCode) in
             self.processFetchedLunche(validators: response.validations ?? [])
             self.complete?(response)
             
+        }) { (error) in
+            
+        }
+        
+    }
+    
+    func initDeleteById(id: String) {
+        
+        commonService.deleteById(request: "identity/records/", id: id, complete: { (statusCode) in
+            self.completeDelete?(statusCode)
         }) { (error) in
             
         }

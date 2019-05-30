@@ -15,7 +15,7 @@ class CommonBottomViewModel{
     
     var completeToken: ((String, String)->())!
     var completeVoucher: ((String)->())!
-    var completeRecord: ((String)->())!
+    var completeRecord: ((RecordValidation)->())!
     var completeAuthorize: ((String)->())!
     
     init(commonService: CommonServiceProtocol = CommonService(), statusService: StatusServiceProtocol = StatusService()) {
@@ -36,8 +36,16 @@ class CommonBottomViewModel{
        
     }
     
-    func initFetchRecordToken(idRecords: String){
+    func initFetchRecordToken(idRecords: Int){
         
+        let parameters = ["record_id" : idRecords]
+        
+        self.commonService.postWithParameters(request: "identity/record-validations", parameters: parameters, complete: { (response: RecordValidation, statusCode) in
+            
+            self.completeRecord?(response)
+        }) { (error) in
+            
+        }
     }
     
     func initAuthorizeToken(token: String){

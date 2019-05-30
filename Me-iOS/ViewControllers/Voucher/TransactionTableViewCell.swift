@@ -20,13 +20,12 @@ class TransactionTableViewCell: UITableViewCell {
             self.companyTitle.text = transaction?.product != nil ? transaction?.product?.name : transaction?.organization?.name ?? ""
         
             if transaction?.product != nil {
-//                if transaction?.product.photo != nil {
-//                    self.imageTransfer.sd_setImage(with: URL(string: transaction?.product.photo?.sizes?.thumbnail ?? ""), placeholderImage: UIImage(named: "Resting"))
-//                }
+                
+                self.imageTransfer.loadImageUsingUrlString(urlString: transaction?.product?.photo?.sizes?.thumbnail ?? "", placeHolder: #imageLiteral(resourceName: "Resting"))
+                
             }else if transaction?.organization != nil {
-//                if transaction?.organization.logo != nil {
-//                    self.imageTransfer.sd_setImage(with: URL(string: transaction?.organization.logo?.sizes?.thumbnail ?? ""), placeholderImage: UIImage(named: "Resting"))
-//                }
+                
+                self.imageTransfer.loadImageUsingUrlString(urlString: transaction?.organization?.logo?.sizes?.thumbnail ?? "", placeHolder: #imageLiteral(resourceName: "Resting"))
             }
             
             if let price = transaction?.amount {

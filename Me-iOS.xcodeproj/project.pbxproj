@@ -130,6 +130,7 @@
 		65F1BB2A229ECA8F007D2C8A /* MTextRecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F1BB29229ECA8F007D2C8A /* MTextRecordViewController.swift */; };
 		65F1BB2C229ECAA6007D2C8A /* TextRecord.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65F1BB2B229ECAA6007D2C8A /* TextRecord.storyboard */; };
 		65F1BB2E229ED06C007D2C8A /* TextRecordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F1BB2D229ED06C007D2C8A /* TextRecordViewModel.swift */; };
+		65FE8E02229FF16A00BB1596 /* RecordValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65FE8E01229FF16A00BB1596 /* RecordValidation.swift */; };
 		CECB06D5C049466A525F37E6 /* Pods_Me_iOSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A89BE88EEB1A6C3C9A22BE7 /* Pods_Me_iOSUITests.framework */; };
 		CF22307B8167F520952552BE /* Pods_Me_iOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1ABB0BB041DF2B085D794CD5 /* Pods_Me_iOSTests.framework */; };
 		E234190710AA58EB6F4C206A /* Pods_Me_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43960597C5DD3C7D7D6E0BF0 /* Pods_Me_iOS.framework */; };
@@ -292,6 +293,7 @@
 		65F1BB29229ECA8F007D2C8A /* MTextRecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTextRecordViewController.swift; sourceTree = "<group>"; };
 		65F1BB2B229ECAA6007D2C8A /* TextRecord.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TextRecord.storyboard; sourceTree = "<group>"; };
 		65F1BB2D229ED06C007D2C8A /* TextRecordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextRecordViewModel.swift; sourceTree = "<group>"; };
+		65FE8E01229FF16A00BB1596 /* RecordValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordValidation.swift; sourceTree = "<group>"; };
 		7EDD935B59E7B64986126EBB /* Pods-Me-iOSTests.demo.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Me-iOSTests.demo.xcconfig"; path = "Target Support Files/Pods-Me-iOSTests/Pods-Me-iOSTests.demo.xcconfig"; sourceTree = "<group>"; };
 		B28B23E09EB36C61675A84C4 /* Pods-Me-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Me-iOS.debug.xcconfig"; path = "Target Support Files/Pods-Me-iOS/Pods-Me-iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		B35DBF08EFFB23E932F2520B /* Pods-Me-iOSUITests.dev.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Me-iOSUITests.dev.xcconfig"; path = "Target Support Files/Pods-Me-iOSUITests/Pods-Me-iOSUITests.dev.xcconfig"; sourceTree = "<group>"; };
@@ -591,6 +593,7 @@
 				65F1BB23229EC1B8007D2C8A /* Record */,
 				65F1BB26229EC1C7007D2C8A /* Validator */,
 				65F1BB27229EC1D0007D2C8A /* RecordType */,
+				65FE8E01229FF16A00BB1596 /* RecordValidation.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1358,6 +1361,7 @@
 				65139C61228029EF003E0CDE /* Formater.swift in Sources */,
 				65911B46228D7DBC00EA30D6 /* VoucherTableViewCell.swift in Sources */,
 				65139C54228029C0003E0CDE /* UI.swift in Sources */,
+				65FE8E02229FF16A00BB1596 /* RecordValidation.swift in Sources */,
 				654F979F229BE71F009C9FFA /* Record.swift in Sources */,
 				654F97AE229C03D0009C9FFA /* RecordDetailViewModel.swift in Sources */,
 				65F1BB1A229EBCB5007D2C8A /* MChooseTypeRecordViewController.swift in Sources */,

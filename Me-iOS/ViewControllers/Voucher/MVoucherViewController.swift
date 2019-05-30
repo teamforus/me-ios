@@ -58,7 +58,12 @@ class MVoucherViewController: UIViewController {
                 self?.images.forEach { (view) in
                     view.stopAnimating()
                 }
+                
+                self?.qrImage.isUserInteractionEnabled = true
+                self?.qrImage.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self?.opendQR)))
             }
+            
+            
         }
         
         voucherViewModel.reloadTableViewClosure = { [weak self] in
@@ -74,6 +79,10 @@ class MVoucherViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.tabBarController?.set(visible: false, animated: true)
+    }
+    
+    @objc func opendQR() {
+        NotificationCenter.default.post(name: NotificationName.TogleStateWindow, object: nil)
     }
     
     @IBAction func sendEmail(_ sender: Any) {

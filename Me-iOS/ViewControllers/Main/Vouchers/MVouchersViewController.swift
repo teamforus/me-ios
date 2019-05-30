@@ -58,6 +58,7 @@ class MVouchersViewController: UIViewController {
         (generalVC.contentViewController as! MProductVoucherViewController).address = self.voucherViewModel.selectedVoucher?.address ?? ""
         (generalVC.bottomViewController as! CommonBottomViewController).voucher = self.voucherViewModel.selectedVoucher
         (generalVC.bottomViewController as! CommonBottomViewController).qrType = .Voucher
+        (generalVC.bottomViewController as! CommonBottomViewController).voucher = self.voucherViewModel.selectedVoucher
             
         }else if segue.identifier == "goToVoucher" {
             
@@ -65,6 +66,7 @@ class MVouchersViewController: UIViewController {
             (generalVC.contentViewController as! MVoucherViewController).address = self.voucherViewModel.selectedVoucher?.address ?? ""
             (generalVC.bottomViewController as! CommonBottomViewController).voucher = self.voucherViewModel.selectedVoucher
             (generalVC.bottomViewController as! CommonBottomViewController).qrType = .Voucher
+            (generalVC.bottomViewController as! CommonBottomViewController).voucher = self.voucherViewModel.selectedVoucher
             
         }
      }
@@ -119,7 +121,6 @@ extension UIViewController{
         passVC.contentViewController = storyBoard.instantiateViewController(withIdentifier: "content")
         
         passVC.bottomViewController = storyBoard.instantiateViewController(withIdentifier: "bottom")
-        
         
         (passVC.bottomViewController as! CommonBottomViewController).pullUpController = passVC
         passVC.sizingDelegate = (passVC.bottomViewController as! CommonBottomViewController)

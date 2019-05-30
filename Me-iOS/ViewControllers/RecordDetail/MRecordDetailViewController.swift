@@ -47,6 +47,23 @@ class MRecordDetailViewController: UIViewController {
         
         recordDetailViewModel.initFetchById(id: recordId)
         
+        recordDetailViewModel.completeDelete = { [weak self] (statusCode) in
+            
+            DispatchQueue.main.async {
+                
+                self?.navigationController?.popViewController(animated: true)
+            }
+        }
+    }
+    
+    
+    @IBAction func showQRCode(_ sender: Any) {
+        NotificationCenter.default.post(name: NotificationName.TogleStateWindow, object: nil)
+    }
+    
+    @IBAction func deleteRecord(_ sender: UIButton) {
+        recordDetailViewModel.initDeleteById(id: recordId)
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

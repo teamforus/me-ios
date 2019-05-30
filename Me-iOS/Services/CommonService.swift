@@ -22,9 +22,35 @@ protocol CommonServiceProtocol {
     func getByType<E: RawRepresentable, T: Decodable>(request:String ,e: E ,complete: @escaping (_ response: T, _ statusCode: Int)->() ) where E.RawValue == String
     
     func postWithParameters<T: Decodable>(request: String, parameters: [String : Any], complete: @escaping (_ response: T, _ statusCode: Int)->(), failure: @escaping(_ error: Error)->())
+    
+    func deleteById(request: String, id: String, complete: @escaping ( _ statusCode: Int)->(), failure: @escaping(_ error: Error)->())
 }
 
 class CommonService: CommonServiceProtocol {
+    
+    
+    func deleteById(request: String, id: String, complete: @escaping (Int) -> (), failure: @escaping (Error) -> ()) {
+        
+        let url = URL(string: BaseURL.baseURL(url: request + id))!
+        var request = URLRequest(url: url)
+        request.httpMethod = "DELETE"
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        request.addValue("app-me_app", forHTTPHeaderField: "Client-Type")
+        request.addValue("Bearer " + CurrentSession.shared.token, forHTTPHeaderField: "Authorization")
+        
+        let session = URLSession.shared
+        
+        let task = session.dataTask(with: request) { (data, response, error) in
+            guard data != nil else { return }
+                
+                let httpResponse = response as? HTTPURLResponse
+                
+                complete(httpResponse!.statusCode)
+        }
+        
+        task.resume()
+    }
+    
     
     func postWithParameters<T>(request: String, parameters: [String : Any], complete: @escaping (T, Int) -> (), failure: @escaping (Error) -> ()) where T : Decodable {
         

@@ -29,6 +29,7 @@ class CommonBottomViewController: UIViewController {
     var timer : Timer! = Timer()
     private var firstAppearanceCompleted = false
     var token: String!
+    var idRecord: Int!
     weak var pullUpController: ISHPullUpViewController!
     private var halfWayPoint = CGFloat(0)
     var qrType: QRType! = QRType.AuthToken
@@ -63,18 +64,33 @@ class CommonBottomViewController: UIViewController {
             break
         case .Voucher?:
             
-            bottomQRViewModel.completeVoucher = { [weak self] (token) in
+                self.qrCodeImageView.generateQRCode(from: "{ \"type\": \"voucher\",\"value\": \"\(self.voucher.address ?? "")\" }")
                 
-                self?.qrCodeImageView.generateQRCode(from: "{ \"type\": \"voucher\",\"value\": \"\(self?.voucher.address)\" }")
-            }
-            
+                if voucher.product != nil {
+                    
+                  titleQrLabel.text = voucher.product?.name ?? ""
+                    
+                }else {
+                  
+                    titleQrLabel.text = voucher.fund?.name ?? ""
+                    
+                }
+                
+                expiredLabel.text = "This voucher expires on " + (voucher.expire_at?.date?.dateFormaterExpireDate())!
+                
             break
         case .Record?:
             
-            bottomQRViewModel.completeRecord = { [weak self] (token) in
+            bottomQRViewModel.completeRecord = { [weak self] (record) in
                 
-                self?.qrCodeImageView.generateQRCode(from: "{ \"type\": \"record\",\"value\": \"\(token)\" }")
+                DispatchQueue.main.async {
+                    
+                self?.qrCodeImageView.generateQRCode(from: "{ \"type\": \"record\",\"value\": \"\(record.uuid ?? "")\" }")
+                    
+                }
             }
+            
+            bottomQRViewModel.initFetchRecordToken(idRecords: idRecord)
             
             break
         default:
