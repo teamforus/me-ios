@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -18,7 +17,7 @@
         <!--Success Email View Controller-->
         <scene sceneID="TV9-vy-TcN">
             <objects>
-                <viewController id="Dvo-As-KDQ" customClass="MASuccessEmailViewController" customModule="Me_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Dvo-As-KDQ" customClass="MSuccessEmailViewController" customModule="Me_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lBx-qg-EDD">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -60,7 +59,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="openMailApp:" destination="Dvo-As-KDQ" eventType="touchUpInside" id="BGi-Ld-dUX"/>
+                                    <action selector="openMailApp:" destination="Dvo-As-KDQ" eventType="touchUpInside" id="9Et-3B-m7c"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pqB-sU-g6i" customClass="ShadowButton" customModule="Me_iOS" customModuleProvider="target">
@@ -89,7 +88,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="cancel:" destination="Dvo-As-KDQ" eventType="touchUpInside" id="E1p-2z-sRq"/>
+                                    <action selector="cancel:" destination="Dvo-As-KDQ" eventType="touchUpInside" id="Rts-WC-jUw"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -97,7 +96,7 @@
                         <viewLayoutGuide key="safeArea" id="I8I-x3-gVB"/>
                     </view>
                     <connections>
-                        <segue destination="MJz-0w-Aaw" kind="presentation" id="qao-pc-Zzq"/>
+                        <segue destination="MJz-0w-Aaw" kind="presentation" identifier="goToMain" id="qao-pc-Zzq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d7Q-wG-hMl" userLabel="First Responder" sceneMemberID="firstResponder"/>
