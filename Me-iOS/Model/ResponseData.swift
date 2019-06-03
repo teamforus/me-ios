@@ -11,5 +11,6 @@ import Foundation
 struct ResponseData<T: Decodable>: Decodable{
     
     var data: T?
+     var message : String?
 //    var errors: Errors?
 }

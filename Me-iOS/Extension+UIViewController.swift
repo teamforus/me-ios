@@ -106,6 +106,19 @@ extension UIViewController{
         
     }
     
+    func showSimpleAlertWithSingleAction(title:String, message: String, okAction: UIAlertAction) {
+        
+        let allertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        
+        allertController.addAction(okAction)
+        
+        
+        self.present(allertController, animated: true)
+    
+        
+    }
+    
     func validateEmail(_ candidate: String) -> Bool {
         
         let emailRegex = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"

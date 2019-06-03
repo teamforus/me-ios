@@ -14,6 +14,9 @@ class QRViewModel{
     var commonService: CommonServiceProtocol!
     var authorizeToken: (()->())!
     
+    var validateRecord: ((RecordValidation)->())!
+    var validateApproveRecord: ((Int)->())!
+    
     init(commonService: CommonServiceProtocol = CommonService()) {
         self.commonService = commonService
     }
@@ -37,5 +40,24 @@ class QRViewModel{
     
     func initValidationRecord(code: String) {
         
+        commonService.get(request: "identity/record-validations/" + code, complete: { (response: RecordValidation, statusCode) in
+            
+            self.validateRecord(response)
+            
+        }) { (error) in
+            
+        }
+        
+    }
+    
+    func initApproveValidationRecord(code: String) {
+        
+        commonService.get(request: "identity/record-validations/" + code + "/approve", complete: { (response: AuthorizationQRToken, statusCode) in
+            
+            self.validateApproveRecord(statusCode)
+            
+        }) { (error) in
+            
+        }
     }
 }

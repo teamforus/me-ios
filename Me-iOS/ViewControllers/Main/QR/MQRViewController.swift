@@ -8,6 +8,12 @@
 
 import UIKit
 
+enum QRTypeScann: String {
+    case authToken = "auth_token"
+    case voucher = "voucher"
+    case record = "record"
+}
+
 class MQRViewController: HSScanViewController {
     
     lazy var qrViewModel: QRViewModel = {
@@ -27,6 +33,39 @@ class MQRViewController: HSScanViewController {
             }
         }
         
+        qrViewModel.validateRecord = { [weak self] (recordValidation) in
+            
+            DispatchQueue.main.async {
+                
+                self?.showSimpleAlertWithAction(title: recordValidation.name ?? "", message: recordValidation.value ?? "",
+                                            okAction: UIAlertAction(title: "Validate".localized(), style: .default, handler: { (action) in
+                                                
+                                                self?.qrViewModel.initApproveValidationRecord(code: recordValidation.uuid ?? "")
+                                                
+                                            }),
+                                            cancelAction: UIAlertAction(title: "Cancel".localized(), style: .default, handler: { (action) in
+                                                self?.scanWorker.start()
+                                            }))
+            }
+            
+        }
+        
+        qrViewModel.validateApproveRecord = { [weak self] (statusCode) in
+            
+            DispatchQueue.main.async {
+                
+                if statusCode != 401 {
+                    
+                    self?.showSimpleAlertWithSingleAction(title: "Success".localized(), message: "A record has been validated!".localized(),
+                                                    okAction: UIAlertAction(title: "OK", style: .default, handler: { (action) in
+                                                        self?.scanWorker.start()
+                                                    }))
+                    
+                }
+                
+            }
+        }
+        
     }
     
 }
@@ -36,16 +75,20 @@ extension MQRViewController: HSScanViewControllerDelegate{
     func scanFinished(scanResult: ScanResult, error: String?) {
         
         if let data = scanResult.scanResultString?.data(using: .utf8) {
+            let jsonDecoder = JSONDecoder()
             do {
-                if let jsonArray = try JSONSerialization.jsonObject(with: data, options : .allowFragments) as? Dictionary<String,Any>
+                
+                let qr = try jsonDecoder.decode(QRText.self, from: data)
+                
+                if qr.type != nil
                 {
-                    if jsonArray["type"] as! String == "auth_token"{
+                    if qr.type == QRTypeScann.authToken.rawValue {
                         self.scanWorker.stop()
                         self.showSimpleAlertWithAction(title: "Login QR",
                                                        message: "You sure you wan't to login this device?".localized(),
                                                        okAction: UIAlertAction(title: "YES", style: .default, handler: { (action) in
                                                         
-                                                        self.qrViewModel.initAuthorizeToken(token: jsonArray["value"] as! String)
+                                                        self.qrViewModel.initAuthorizeToken(token: qr.value)
                             
                                                        }),
                                                        cancelAction: UIAlertAction(title: "NO", style: .default, handler: { (action) in
@@ -53,6 +96,19 @@ extension MQRViewController: HSScanViewControllerDelegate{
                                                         self.scanWorker.start()
                                                        }))
                         
+                        
+                    } else if qr.type == QRTypeScann.voucher.rawValue {
+                        
+                        self.scanWorker.stop()
+                        
+                        self.qrViewModel.initVoucherAddress(address: qr.value)
+                        
+                        
+                    } else if qr.type == QRTypeScann.voucher.rawValue {
+                        
+                        self.scanWorker.stop()
+                        
+                        self.qrViewModel.initValidationRecord(code: qr.value)
                         
                     }
                 }
