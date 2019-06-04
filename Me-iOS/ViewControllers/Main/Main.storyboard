@@ -180,10 +180,21 @@
                         <viewLayoutGuide key="safeArea" id="iXk-vG-U9X"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="QR" image="iconGrey" id="ScF-cs-iUb"/>
+                    <connections>
+                        <segue destination="Xna-gt-1Ae" kind="presentation" identifier="goToVoucherPayment" id="b25-wn-f2v"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wmc-qW-yeP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2209" y="211"/>
+        </scene>
+        <!--Payment-->
+        <scene sceneID="6Th-Nh-QAp">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Payment" id="Xna-gt-1Ae" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aFl-SN-Lnf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2824" y="211"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="4OI-eX-3Rd">

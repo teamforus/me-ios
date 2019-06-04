@@ -13,8 +13,8 @@ struct AllowedProduct: Decodable {
     var id: Int?
     var name: String?
     var description: String?
-    var price: Int?
-    var old_price: Int?
+    var price: String?
+    var old_price: String?
     var total_amount: Int?
     var sold_amount: Int?
 }

@@ -94,3 +94,6 @@
 "Used" = "Used";
 "Expired" = "Expired";
 "You sure you wan't to login this device?" = "You sure you wan't to login this device?";
+"Confirm transaction" = "Confirm transaction";
+"Please confirm the transaction of %@" = "Please confirm the transaction of %@.";
+"Insufficient funds on the voucher. Please, request extra payment of €%.02f" = "Insufficient funds on the voucher. Please, request extra payment of €%.02f";

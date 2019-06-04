@@ -126,6 +126,13 @@
 		65CF407F228C0C6A0006F5DE /* Identity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CF407E228C0C6A0006F5DE /* Identity.swift */; };
 		65CF4081228C0CAB0006F5DE /* RecordsIndentity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CF4080228C0CAB0006F5DE /* RecordsIndentity.swift */; };
 		65CF408B228C1CC90006F5DE /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CF408A228C1CC90006F5DE /* APIService.swift */; };
+		65D11B7022A69CE600756BE0 /* AllowedOrganizationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D11B6E22A69CE500756BE0 /* AllowedOrganizationsViewController.swift */; };
+		65D11B7122A69CE600756BE0 /* AllowedOrganizationsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65D11B6F22A69CE600756BE0 /* AllowedOrganizationsViewController.xib */; };
+		65D11B7922A69D5200756BE0 /* OrganizationTableViewCell.strings in Resources */ = {isa = PBXBuildFile; fileRef = 65D11B7322A69D5100756BE0 /* OrganizationTableViewCell.strings */; };
+		65D11B7A22A69D5200756BE0 /* OrganizationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65D11B7522A69D5100756BE0 /* OrganizationTableViewCell.xib */; };
+		65D11B7B22A69D5200756BE0 /* OrganizationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D11B7822A69D5200756BE0 /* OrganizationTableViewCell.swift */; };
+		65D11B8022A6ADF400756BE0 /* ConfirmPaymentPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D11B7E22A6ADF400756BE0 /* ConfirmPaymentPopUp.swift */; };
+		65D11B8122A6ADF400756BE0 /* ConfirmPaymentPopUp.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65D11B7F22A6ADF400756BE0 /* ConfirmPaymentPopUp.xib */; };
 		65F1BB1A229EBCB5007D2C8A /* MChooseTypeRecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F1BB19229EBCB5007D2C8A /* MChooseTypeRecordViewController.swift */; };
 		65F1BB1D229EBF0A007D2C8A /* MChooseTypeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F1BB1C229EBF0A007D2C8A /* MChooseTypeTableViewCell.swift */; };
 		65F1BB1F229EBF66007D2C8A /* ChooseTypeRecord.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65F1BB1E229EBF66007D2C8A /* ChooseTypeRecord.storyboard */; };
@@ -295,6 +302,14 @@
 		65CF407E228C0C6A0006F5DE /* Identity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identity.swift; sourceTree = "<group>"; };
 		65CF4080228C0CAB0006F5DE /* RecordsIndentity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordsIndentity.swift; sourceTree = "<group>"; };
 		65CF408A228C1CC90006F5DE /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		65D11B6E22A69CE500756BE0 /* AllowedOrganizationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllowedOrganizationsViewController.swift; sourceTree = "<group>"; };
+		65D11B6F22A69CE600756BE0 /* AllowedOrganizationsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AllowedOrganizationsViewController.xib; sourceTree = "<group>"; };
+		65D11B7422A69D5100756BE0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/OrganizationTableViewCell.strings; sourceTree = "<group>"; };
+		65D11B7622A69D5100756BE0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/OrganizationTableViewCell.xib; sourceTree = "<group>"; };
+		65D11B7722A69D5200756BE0 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/OrganizationTableViewCell.strings; sourceTree = "<group>"; };
+		65D11B7822A69D5200756BE0 /* OrganizationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrganizationTableViewCell.swift; sourceTree = "<group>"; };
+		65D11B7E22A6ADF400756BE0 /* ConfirmPaymentPopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmPaymentPopUp.swift; sourceTree = "<group>"; };
+		65D11B7F22A6ADF400756BE0 /* ConfirmPaymentPopUp.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConfirmPaymentPopUp.xib; sourceTree = "<group>"; };
 		65F1BB19229EBCB5007D2C8A /* MChooseTypeRecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MChooseTypeRecordViewController.swift; sourceTree = "<group>"; };
 		65F1BB1C229EBF0A007D2C8A /* MChooseTypeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MChooseTypeTableViewCell.swift; sourceTree = "<group>"; };
 		65F1BB1E229EBF66007D2C8A /* ChooseTypeRecord.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ChooseTypeRecord.storyboard; sourceTree = "<group>"; };
@@ -441,6 +456,7 @@
 				65139C6722802A33003E0CDE /* Custom */,
 				65A8B6F82282DD2C00B7DF05 /* Google-Sans-Font */,
 				65139C1122802548003E0CDE /* LaunchScreen.storyboard */,
+				65D11B7D22A6ACE000756BE0 /* PopUp */,
 				65100B0A229D9146007892D1 /* Localizable.strings */,
 				65139C1422802548003E0CDE /* Info.plist */,
 				65139C0C22802545003E0CDE /* Me_iOS.xcdatamodeld */,
@@ -1051,6 +1067,44 @@
 			path = QRToken;
 			sourceTree = "<group>";
 		};
+		65D11B7222A69D5100756BE0 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				65D11B7322A69D5100756BE0 /* OrganizationTableViewCell.strings */,
+				65D11B7522A69D5100756BE0 /* OrganizationTableViewCell.xib */,
+				65D11B7822A69D5200756BE0 /* OrganizationTableViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		65D11B7C22A6ACD300756BE0 /* Organization */ = {
+			isa = PBXGroup;
+			children = (
+				65D11B6E22A69CE500756BE0 /* AllowedOrganizationsViewController.swift */,
+				65D11B6F22A69CE600756BE0 /* AllowedOrganizationsViewController.xib */,
+				65D11B7222A69D5100756BE0 /* Cell */,
+			);
+			path = Organization;
+			sourceTree = "<group>";
+		};
+		65D11B7D22A6ACE000756BE0 /* PopUp */ = {
+			isa = PBXGroup;
+			children = (
+				65D11B7C22A6ACD300756BE0 /* Organization */,
+				65D11B8222A6B13700756BE0 /* ConfirmPayment */,
+			);
+			path = PopUp;
+			sourceTree = "<group>";
+		};
+		65D11B8222A6B13700756BE0 /* ConfirmPayment */ = {
+			isa = PBXGroup;
+			children = (
+				65D11B7E22A6ADF400756BE0 /* ConfirmPaymentPopUp.swift */,
+				65D11B7F22A6ADF400756BE0 /* ConfirmPaymentPopUp.xib */,
+			);
+			path = ConfirmPayment;
+			sourceTree = "<group>";
+		};
 		65F1BB1B229EBF0A007D2C8A /* Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -1243,11 +1297,14 @@
 				65A8B7082282DE4800B7DF05 /* ConfirmRegister.storyboard in Resources */,
 				654F97A6229BF4E2009C9FFA /* RecordDetail.storyboard in Resources */,
 				65A8B7042282DD2C00B7DF05 /* GoogleSans-Medium.ttf in Resources */,
+				65D11B7122A69CE600756BE0 /* AllowedOrganizationsViewController.xib in Resources */,
 				65A8B7022282DD2C00B7DF05 /* GoogleSans-Regular.ttf in Resources */,
+				65D11B8122A6ADF400756BE0 /* ConfirmPaymentPopUp.xib in Resources */,
 				65A8B7032282DD2C00B7DF05 /* GoogleSans-MediumItalic.ttf in Resources */,
 				65A8B7492282EE8500B7DF05 /* SuccessEmail.storyboard in Resources */,
 				65A8B7232282EA6100B7DF05 /* Payment.storyboard in Resources */,
 				65F1BB1F229EBF66007D2C8A /* ChooseTypeRecord.storyboard in Resources */,
+				65D11B7922A69D5200756BE0 /* OrganizationTableViewCell.strings in Resources */,
 				65A8B7012282DD2C00B7DF05 /* GoogleSans-BoldItalic.ttf in Resources */,
 				65A8B7002282DD2C00B7DF05 /* GoogleSans-Bold.ttf in Resources */,
 				65139C1322802548003E0CDE /* LaunchScreen.storyboard in Resources */,
@@ -1263,6 +1320,7 @@
 				65A8B71B2282E6A700B7DF05 /* ProductVoucher.storyboard in Resources */,
 				65100B08229D9146007892D1 /* Localizable.strings in Resources */,
 				65139C4E228029C0003E0CDE /* backspaceBlue@3x.png in Resources */,
+				65D11B7A22A69D5200756BE0 /* OrganizationTableViewCell.xib in Resources */,
 				65139C52228029C0003E0CDE /* AppLocker.xib in Resources */,
 				65139C6D22802C4A003E0CDE /* First.storyboard in Resources */,
 				65A8B6F62282DC2000B7DF05 /* Register.storyboard in Resources */,
@@ -1407,6 +1465,7 @@
 				65684619229432CE00097E83 /* TransactionTableViewCell.swift in Sources */,
 				654F97AA229BF671009C9FFA /* MRecordDetailViewController.swift in Sources */,
 				65A8B7192282E52D00B7DF05 /* MProductVoucherViewController.swift in Sources */,
+				65D11B8022A6ADF400756BE0 /* ConfirmPaymentPopUp.swift in Sources */,
 				65CF407F228C0C6A0006F5DE /* Identity.swift in Sources */,
 				65139C7922803349003E0CDE /* CurrentSession.swift in Sources */,
 				65139C63228029EF003E0CDE /* CustomCornerUIView.swift in Sources */,
@@ -1473,6 +1532,8 @@
 				65BDB8652292D5170016296C /* DownloadImage.swift in Sources */,
 				65A8B72C2282EBAE00B7DF05 /* QRViewModel.swift in Sources */,
 				65139C7B228034DA003E0CDE /* BaseURL.swift in Sources */,
+				65D11B7022A69CE600756BE0 /* AllowedOrganizationsViewController.swift in Sources */,
+				65D11B7B22A69D5200756BE0 /* OrganizationTableViewCell.swift in Sources */,
 				65F1BB25229EC1C4007D2C8A /* RecordType.swift in Sources */,
 				65A8B73E2282ED1D00B7DF05 /* MProfileViewController.swift in Sources */,
 				65A8B7322282EBDC00B7DF05 /* VoucherViewModel.swift in Sources */,
@@ -1553,6 +1614,23 @@
 				65139C48228029C0003E0CDE /* Base */,
 			);
 			name = AppLocker.xib;
+			sourceTree = "<group>";
+		};
+		65D11B7322A69D5100756BE0 /* OrganizationTableViewCell.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				65D11B7422A69D5100756BE0 /* en */,
+				65D11B7722A69D5200756BE0 /* nl */,
+			);
+			name = OrganizationTableViewCell.strings;
+			sourceTree = "<group>";
+		};
+		65D11B7522A69D5100756BE0 /* OrganizationTableViewCell.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				65D11B7622A69D5100756BE0 /* Base */,
+			);
+			name = OrganizationTableViewCell.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

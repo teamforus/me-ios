@@ -17,6 +17,8 @@ class QRViewModel{
     var validateRecord: ((RecordValidation)->())!
     var validateApproveRecord: ((Int)->())!
     
+    var getVoucher: ((Voucher, Int)->())!
+    
     init(commonService: CommonServiceProtocol = CommonService()) {
         self.commonService = commonService
     }
@@ -35,6 +37,15 @@ class QRViewModel{
     
     
     func initVoucherAddress(address: String) {
+        
+        commonService.get(request: "platform/vouchers/"+address+"/provider", complete: { (response: ResponseData<Voucher>, statusCode) in
+            
+            self.getVoucher(response.data!, statusCode)
+            
+        }) { (error) in
+            
+        }
+        
     }
     
     

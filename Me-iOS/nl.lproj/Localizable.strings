@@ -94,3 +94,6 @@
 "Used" = "Gebruikt";
 "Expired" = "Verlopen";
 "You sure you wan't to login this device?" = "Weet je zeker dat je op dit apparaat wilt inloggen?";
+"Confirm transaction" = "Bevestig betaling";
+"Please confirm the transaction of %@" = "Is het bedrag van %@ correct?";
+"Insufficient funds on the voucher. Please, request extra payment of €%.02f" = "Onvoldoende budget op de voucher. Vraag de klant of hij een bedrag van €%.02f wilt bijbetalen.";
