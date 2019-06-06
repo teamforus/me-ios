@@ -7,13 +7,134 @@
 //
 
 import UIKit
+import MessageUI
 
 class MProfileViewController: UIViewController {
-
+    @IBOutlet weak var profileNameLabel: UILabel!
+    @IBOutlet weak var emailLabel: UILabel!
+    @IBOutlet weak var appVersionLabel: UILabel!
+    @IBOutlet weak var buttonConstraingHeight: NSLayoutConstraint!
+    @IBOutlet weak var changePassCodeView: CustomCornerUIView!
+    @IBOutlet weak var turnOffPascodeView: CustomCornerUIView!
+    @IBOutlet weak var useFaceIdView: CustomCornerUIView!
+    @IBOutlet weak var faceIdVerticalSpacing: NSLayoutConstraint!
+    @IBOutlet weak var changePasscodeLabel: UILabel!
+    @IBOutlet weak var crashButton: UIButton!
+    @IBOutlet weak var startScannerSwitch: UISwitchCustom!
+    
+    lazy var profileViewModel: ProfileViewModel = {
+        return ProfileViewModel()
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if UserDefaults.standard.string(forKey: ALConstants.kPincode) == "" || UserDefaults.standard.string(forKey: ALConstants.kPincode) == nil{
+            
+            changePasscodeLabel.text = "Create passcode".localized()
+            self.didUpdateButtonStackView(isHiddeButtons: true, buttonHeightConstant: 130, verticalConstant: 10)
+            
+        }else{
+            
+            changePasscodeLabel.text = "Change passcode".localized()
+            self.didUpdateButtonStackView(isHiddeButtons: false, buttonHeightConstant: 249, verticalConstant: 66)
+            
+        }
+        
+        let versionApp: AnyObject? = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as AnyObject
+        let buildAppNumber: AnyObject? = Bundle.main.infoDictionary?["CFBundleVersion"] as AnyObject
+        #if (DEV || ALPHA || DEMO)
+        self.appVersionLabel.text = (versionApp as? String)! + " (" + (buildAppNumber as? String)! + ")"
+        #else
+        self.appVersionLabel.text = (versionApp as? String)!
+        #endif
+        
+        
+        profileViewModel.complete = { [weak self] (fullName, email) in
+            
+            DispatchQueue.main.async {
+                
+                self?.profileNameLabel.text = fullName
+                self?.emailLabel.text = email
+            }
+            
+        }
+        
+        profileViewModel.initProfile()
 
-        // Do any additional setup after loading the view.
+        if UserDefaults.standard.bool(forKey: UserDefaultsName.StartFromScanner) {
+            
+            startScannerSwitch.isOn = true
+            
+        }
+        
     }
+    
+    @IBAction func switchStartFromScanner(_ sender: UISwitch) {
+        if sender.isOn {
+            
+            UserDefaults.standard.setValue(true, forKey: UserDefaultsName.StartFromScanner)
+            
+        }else {
+            
+            UserDefaults.standard.setValue(false, forKey: UserDefaultsName.StartFromScanner)
+            
+        }
+    }
+    
+    @IBAction func useFaceId(_ sender: Any) {
+    }
+    
+    @IBAction func sendCrashReports(_ sender: Any) {
+    }
+    
+    @IBAction func about(_ sender: Any) {
+    }
+    
+    @IBAction func feedback(_ sender: Any) {
+        
+        showSimpleAlertWithAction(title: "Support", message: "Would you like to send us your feedback by e-mail?".localized(),
+                                  okAction: UIAlertAction(title: "Cancel".localized(), style: .cancel, handler: { (action) in
+                                  }),
+                                  cancelAction: UIAlertAction(title: "Confirm".localized(), style: .default, handler: { (action) in
+                                    if MFMailComposeViewController.canSendMail() {
+                                        
+                                        let composeVC = MFMailComposeViewController()
+                                        composeVC.mailComposeDelegate = self
+                                        composeVC.setToRecipients(["feedback@forus.io"])
+                                        composeVC.setSubject("My feedback about the Me app".localized())
+                                        composeVC.setMessageBody("", isHTML: false)
+                                        self.present(composeVC, animated: true, completion: nil)
+                                        
+                                    }else{
+                                        
+                                        self.showSimpleAlert(title: "Warning".localized(), message: "Mail services are not available".localized())
+                                        
+                                    }
+                                  }))
+        
+    }
+    
+    @IBAction func crash(_ sender: Any) {
+    }
+    
+}
 
+extension MProfileViewController {
+    
+    func didUpdateButtonStackView(isHiddeButtons: Bool, buttonHeightConstant: CGFloat, verticalConstant: CGFloat){
+        buttonConstraingHeight.constant = buttonHeightConstant
+        faceIdVerticalSpacing.constant = verticalConstant
+        turnOffPascodeView.isHidden = isHiddeButtons
+        useFaceIdView.isHidden = isHiddeButtons
+    }
+    
+}
+
+extension MProfileViewController: MFMailComposeViewControllerDelegate{
+    
+    func mailComposeController(_ controller: MFMailComposeViewController,
+                               didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true)
+    }
 }

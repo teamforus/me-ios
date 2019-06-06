@@ -124,6 +124,10 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="userpick" translatesAutoresizingMaskIntoConstraints="NO" id="L7t-cx-94J" customClass="RoundImageView" customModule="Me_iOS" customModuleProvider="target">
+                                <rect key="frame" x="350" y="84" width="44" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eXL-Of-UmA" customClass="ShadowButton" customModule="Me_iOS" customModuleProvider="target">
                                 <rect key="frame" x="350" y="84" width="44" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
@@ -132,11 +136,10 @@
                                         <real key="value" value="12"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="sEW-B4-Oem" kind="presentation" id="391-Mc-CAy"/>
+                                </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="userpick" translatesAutoresizingMaskIntoConstraints="NO" id="L7t-cx-94J" customClass="RoundImageView" customModule="Me_iOS" customModuleProvider="target">
-                                <rect key="frame" x="350" y="84" width="44" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <gestureRecognizers/>
@@ -153,13 +156,21 @@
             </objects>
             <point key="canvasLocation" x="2208.8000000000002" y="1027.736131934033"/>
         </scene>
+        <!--Profile-->
+        <scene sceneID="9F4-Vh-moV">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Profile" id="sEW-B4-Oem" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nIn-TS-3ai" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2814" y="981"/>
+        </scene>
         <!--Voucher-->
         <scene sceneID="VLB-9m-Hcx">
             <objects>
                 <viewControllerPlaceholder storyboardName="Voucher" id="yXS-8F-HEa" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2F3-MO-e7g" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2825" y="992"/>
+            <point key="canvasLocation" x="2822" y="1040"/>
         </scene>
         <!--ProductVoucher-->
         <scene sceneID="m56-yQ-2jr">
@@ -167,7 +178,7 @@
                 <viewControllerPlaceholder storyboardName="ProductVoucher" id="oem-tR-Bhz" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7T4-bf-f05" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2859" y="1063"/>
+            <point key="canvasLocation" x="2857" y="1111"/>
         </scene>
         <!--QR-->
         <scene sceneID="RDU-Ky-hO4">
@@ -329,7 +340,7 @@
                                             <outlet property="nameLabel" destination="5fU-r2-fuI" id="Qto-ZS-T5S"/>
                                             <outlet property="validateText" destination="McN-ut-AJt" id="fz2-yC-RZ0"/>
                                             <outlet property="validationNumber" destination="o4b-Rb-FmZ" id="1MW-Uq-IDA"/>
-                                            <segue destination="V6h-uT-BmP" kind="show" id="P7Z-gr-KYD"/>
+                                            <segue destination="V6h-uT-BmP" kind="show" identifier="goToRecordDetail" id="P7Z-gr-KYD"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -367,6 +378,9 @@
                                         <real key="value" value="12"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="aWS-SZ-nKf" kind="presentation" id="bow-Fa-QKj"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -381,13 +395,21 @@
             </objects>
             <point key="canvasLocation" x="3157" y="-619"/>
         </scene>
+        <!--Profile-->
+        <scene sceneID="ZLx-q9-Ged">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Profile" id="aWS-SZ-nKf" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Qmi-N2-Dj6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3765" y="-647"/>
+        </scene>
         <!--RecordDetail-->
         <scene sceneID="LBX-03-8xA">
             <objects>
                 <viewControllerPlaceholder storyboardName="RecordDetail" id="V6h-uT-BmP" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qj7-qp-95c" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3790" y="-619"/>
+            <point key="canvasLocation" x="3793" y="-591"/>
         </scene>
     </scenes>
     <resources>

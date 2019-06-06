@@ -44,7 +44,7 @@ class MQRViewController: HSScanViewController {
                                                     self?.qrViewModel.initApproveValidationRecord(code: recordValidation.uuid ?? "")
                                                     
                                                 }),
-                                                cancelAction: UIAlertAction(title: "Cancel".localized(), style: .default, handler: { (action) in
+                                                cancelAction: UIAlertAction(title: "Cancel".localized(), style: .cancel, handler: { (action) in
                                                     self?.scanWorker.start()
                                                 }))
             }
@@ -135,7 +135,7 @@ extension MQRViewController: HSScanViewControllerDelegate{
                                                         self.qrViewModel.initAuthorizeToken(token: qr.value)
                                                         
                                                        }),
-                                                       cancelAction: UIAlertAction(title: "NO", style: .default, handler: { (action) in
+                                                       cancelAction: UIAlertAction(title: "NO", style: .cancel, handler: { (action) in
                                                         
                                                         self.scanWorker.start()
                                                        }))

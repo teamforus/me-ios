@@ -23,7 +23,7 @@ class MPaymentViewController: UIViewController {
     
     var voucher: Voucher!
     var selectedAllowerdOrganization: AllowedOrganization!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -34,13 +34,32 @@ class MPaymentViewController: UIViewController {
     
     @IBAction func send(_ sender: Any) {
         
-        let vc = ConfirmPaymentPopUp()
-        vc.modalTransitionStyle = .crossDissolve
-        vc.modalPresentationStyle = .overCurrentContext
-        self.present(vc, animated: true) 
+        if amountField.text != "" {
+            
+            let vc = ConfirmPaymentPopUp()
+            vc.voucher = voucher
+            vc.organizationId = selectedAllowerdOrganization?.id ?? 0
+            vc.note = notesField.text
+            vc.amount = amountField.text
+            vc.modalTransitionStyle = .crossDissolve
+            vc.modalPresentationStyle = .overCurrentContext
+            self.present(vc, animated: true)
+            
+        }else {
+            
+            showSimpleAlert(title: "Warning".localized(), message: "Please enter the amount".localized())
+            
+        }
     }
     
-
+    
+    @IBAction func dismissKeyboard(_ sender: Any) {
+        
+        self.view.endEditing(true)
+        
+    }
+    
+    
 }
 
 extension MPaymentViewController {
@@ -69,7 +88,7 @@ extension MPaymentViewController {
             organizationLabel.text = voucher.fund?.organization?.name ?? ""
             allowedOriganizationLabel.text = voucher.allowed_organizations?.first?.name ?? ""
             organizationIcon.loadImageUsingUrlString(urlString: voucher.allowed_organizations?.first?.logo?.sizes?.thumbnail ?? "", placeHolder: #imageLiteral(resourceName: "Resting"))
-            
+            selectedAllowerdOrganization = voucher.allowed_organizations?.first
         }
         
     }
@@ -83,6 +102,9 @@ extension MPaymentViewController {
         popOverVC.view.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height)
         self.view.addSubview(popOverVC.view)
     }
+    
+    
+    
 }
 
 extension MPaymentViewController: AllowedOrganizationsViewControllerDelegate {

@@ -56,6 +56,11 @@ class MRecordDetailViewController: UIViewController {
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+    }
+    
     
     @IBAction func showQRCode(_ sender: Any) {
         NotificationCenter.default.post(name: NotificationName.TogleStateWindow, object: nil)

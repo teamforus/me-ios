@@ -18,3 +18,5 @@ struct NotificationName{
     public static let ClosePageControll = Notification.Name("CLOSESLIDEPAGE")
     public static let AuthorizeTokenEmail = Notification.Name("authorizeToken")
 }
+
+

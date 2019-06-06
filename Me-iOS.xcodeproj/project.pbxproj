@@ -47,6 +47,9 @@
 		65139C7722803197003E0CDE /* CommonService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65139C7622803197003E0CDE /* CommonService.swift */; };
 		65139C7922803349003E0CDE /* CurrentSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65139C7822803349003E0CDE /* CurrentSession.swift */; };
 		65139C7B228034DA003E0CDE /* BaseURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65139C7A228034DA003E0CDE /* BaseURL.swift */; };
+		654ACBA922A92A870052C9C2 /* PayTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654ACBA822A92A870052C9C2 /* PayTransaction.swift */; };
+		654ACBAC22A94D550052C9C2 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654ACBAB22A94D550052C9C2 /* ProfileViewModel.swift */; };
+		654ACBAE22A9523B0052C9C2 /* UserDefaultsName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654ACBAD22A9523B0052C9C2 /* UserDefaultsName.swift */; };
 		654F979F229BE71F009C9FFA /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654F979E229BE71F009C9FFA /* Record.swift */; };
 		654F97A1229BE762009C9FFA /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654F97A0229BE762009C9FFA /* Validator.swift */; };
 		654F97A3229BE9A4009C9FFA /* RecordsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654F97A2229BE9A4009C9FFA /* RecordsTableViewCell.swift */; };
@@ -221,6 +224,9 @@
 		65139C7622803197003E0CDE /* CommonService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonService.swift; sourceTree = "<group>"; };
 		65139C7822803349003E0CDE /* CurrentSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentSession.swift; sourceTree = "<group>"; };
 		65139C7A228034DA003E0CDE /* BaseURL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseURL.swift; sourceTree = "<group>"; };
+		654ACBA822A92A870052C9C2 /* PayTransaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayTransaction.swift; sourceTree = "<group>"; };
+		654ACBAB22A94D550052C9C2 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		654ACBAD22A9523B0052C9C2 /* UserDefaultsName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsName.swift; sourceTree = "<group>"; };
 		654F979E229BE71F009C9FFA /* Record.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Record.swift; sourceTree = "<group>"; };
 		654F97A0229BE762009C9FFA /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
 		654F97A2229BE9A4009C9FFA /* RecordsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RecordsTableViewCell.swift; path = ../RecordsTableViewCell.swift; sourceTree = "<group>"; };
@@ -544,6 +550,14 @@
 			path = Custom;
 			sourceTree = "<group>";
 		};
+		654ACBAA22A92F7F0052C9C2 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+				654ACBA822A92A870052C9C2 /* PayTransaction.swift */,
+			);
+			path = "New Group";
+			sourceTree = "<group>";
+		};
 		654F97A4229BEA43009C9FFA /* Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -599,6 +613,7 @@
 				6568461622942E2900097E83 /* Extension+UITabBarController.swift */,
 				65100AFC229D65A9007892D1 /* Extension+Array.swift */,
 				657DBA502289973C00C67500 /* NotificationName.swift */,
+				654ACBAD22A9523B0052C9C2 /* UserDefaultsName.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -648,6 +663,7 @@
 				65F1BB26229EC1C7007D2C8A /* Validator */,
 				65F1BB27229EC1D0007D2C8A /* RecordType */,
 				6568BAB522A52CF8001C722C /* RecordValidation */,
+				654ACBAA22A92F7F0052C9C2 /* New Group */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -970,6 +986,7 @@
 			isa = PBXGroup;
 			children = (
 				65A8B73D2282ED1D00B7DF05 /* MProfileViewController.swift */,
+				654ACBAB22A94D550052C9C2 /* ProfileViewModel.swift */,
 				65A8B73F2282ED2500B7DF05 /* Profile.storyboard */,
 			);
 			path = Profile;
@@ -1463,6 +1480,7 @@
 				65139C0E22802546003E0CDE /* Me_iOS.xcdatamodeld in Sources */,
 				654F97A3229BE9A4009C9FFA /* RecordsTableViewCell.swift in Sources */,
 				65684619229432CE00097E83 /* TransactionTableViewCell.swift in Sources */,
+				654ACBAC22A94D550052C9C2 /* ProfileViewModel.swift in Sources */,
 				654F97AA229BF671009C9FFA /* MRecordDetailViewController.swift in Sources */,
 				65A8B7192282E52D00B7DF05 /* MProductVoucherViewController.swift in Sources */,
 				65D11B8022A6ADF400756BE0 /* ConfirmPaymentPopUp.swift in Sources */,
@@ -1519,6 +1537,7 @@
 				657DBA4E228993E200C67500 /* StatusService.swift in Sources */,
 				65139C7122802E7E003E0CDE /* LoginQrAndCodeViewModel.swift in Sources */,
 				65A8B6F42282DBF400B7DF05 /* MRegisterViewController.swift in Sources */,
+				654ACBAE22A9523B0052C9C2 /* UserDefaultsName.swift in Sources */,
 				65100B03229D7167007892D1 /* RecordValidatorsViewModel.swift in Sources */,
 				65A8B72E2282EBC000B7DF05 /* RecordsViewModel.swift in Sources */,
 				6568461E22944A1800097E83 /* SkeletonView.swift in Sources */,
@@ -1530,6 +1549,7 @@
 				65911B48228D892800EA30D6 /* Voucher.swift in Sources */,
 				65A8B73B2282EC3800B7DF05 /* PaymentViewModel.swift in Sources */,
 				65BDB8652292D5170016296C /* DownloadImage.swift in Sources */,
+				654ACBA922A92A870052C9C2 /* PayTransaction.swift in Sources */,
 				65A8B72C2282EBAE00B7DF05 /* QRViewModel.swift in Sources */,
 				65139C7B228034DA003E0CDE /* BaseURL.swift in Sources */,
 				65D11B7022A69CE600756BE0 /* AllowedOrganizationsViewController.swift in Sources */,

@@ -119,8 +119,10 @@ class CommonBottomViewController: UIViewController {
     
     @objc func toglePullUpView(){
         if pullUpController.state == .expanded{
+            self.setStatusBarStyle(.default)
             self.view.isHidden = true
         }else{
+            self.setStatusBarStyle(.lightContent)
             self.view.isHidden = false
         }
         pullUpController.toggleState(animated: true)
@@ -129,6 +131,7 @@ class CommonBottomViewController: UIViewController {
     @IBAction func close(_ sender: Any) {
         if pullUpController.state == .expanded || pullUpController.state == .intermediate{
             pullUpController.toggleState(animated: true)
+            self.setStatusBarStyle(.default)
             self.view.isHidden = true
         }
     }
@@ -166,6 +169,7 @@ extension CommonBottomViewController: ISHPullUpStateDelegate, ISHPullUpSizingDel
         handleView.setState(ISHPullUpHandleView.handleState(for: state), animated: firstAppearanceCompleted)
         if state == .collapsed {
             self.view.isHidden = true
+            self.setStatusBarStyle(.default)
         }else if state == .intermediate {
             pullUpController.toggleState(animated: true)
         }

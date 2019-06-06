@@ -11,19 +11,72 @@ import UIKit
 class ConfirmPaymentPopUp: UIViewController {
     @IBOutlet weak var paymentLabel: UILabel!
     @IBOutlet weak var insuficientLabel: UILabel!
+    @IBOutlet weak var bodyView: CustomCornerUIView!
+    
+    
+    var voucher: Voucher!
+    var amount: String!
+    var organizationId: Int!
+    var note: String!
+    var commonService: CommonServiceProtocol! = CommonService()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        paymentLabel.text = String(format: NSLocalizedString("Please confirm the transaction of %@", comment: ""), NSNumber(value: 20.0))
-        insuficientLabel.text = String(format: NSLocalizedString("Insufficient funds on the voucher. Please, request extra payment of €%.02f", comment: ""), 20.0)
         
+        if voucher.product != nil {
+            
+            paymentLabel.text = "Are you sure you want to confirm this transaction".localized()
+            
+            self.didChangeHeightView()
+            
+        }else {
+            
+            let amountVoucher = Double(voucher.amount ?? "0.00")!
+            let aditionalAmount = Double(amount.replacingOccurrences(of: ",", with: "."))! - amountVoucher
+            
+            paymentLabel.text = String(format: NSLocalizedString("Please confirm the transaction of %@", comment: ""), amount)
+            
+            
+            if Double(amount!.replacingOccurrences(of: ",", with: "."))! > amountVoucher {
+                
+                insuficientLabel.text = String(format: NSLocalizedString("Insufficient funds on the voucher. Please, request extra payment of €%.02f", comment: ""), aditionalAmount)
+                
+            }else{
+                
+                self.didChangeHeightView()
+                
+            }
+        }
     }
-
+    
     
     @IBAction func confirm(_ sender: Any) {
+        
+        let payTransaction = PayTransaction(organization_id: organizationId ?? 0, amount: amount ?? "", note: note ?? "")
+        
+        commonService.create(request: "platform/vouchers/"+voucher.address!+"/transactions", data: payTransaction) { (response: ResponseData<Transaction>, statusCode) in
+            
+            if statusCode == 201 {
+                
+                self.showSimpleAlertWithSingleAction(title: "Success".localized(), message: "Payment succeeded".localized(), okAction: UIAlertAction(title: "OK", style: .default, handler: { (action) in
+                    
+                    self.presentingViewController?.presentingViewController?.dismiss(animated: true)
+                }))
+            }else {
+                self.showSimpleAlert(title: "Warning".localized(), message: "Voucher not have enough funds".localized())
+            }
+        }
     }
     
-    
+}
 
+extension ConfirmPaymentPopUp {
+    
+    func didChangeHeightView(){
+        var reactBodyView = bodyView.frame
+        reactBodyView.size.height = reactBodyView.size.height - 36
+        bodyView.frame = reactBodyView
+        insuficientLabel.isHidden = true
+    }
+    
 }

@@ -97,3 +97,4 @@
 "Confirm transaction" = "Bevestig betaling";
 "Please confirm the transaction of %@" = "Is het bedrag van %@ correct?";
 "Insufficient funds on the voucher. Please, request extra payment of €%.02f" = "Onvoldoende budget op de voucher. Vraag de klant of hij een bedrag van €%.02f wilt bijbetalen.";
+"Are you sure you want to confirm this transaction" = "Weet u zeker dat u deze transactie wil bevestigen?";

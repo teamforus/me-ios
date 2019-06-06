@@ -156,6 +156,23 @@ extension UIViewController{
     func getLanguageISO() -> String {
         return Locale.current.languageCode!
     }
+    
+    func setStatusBarStyle(_ style: UIStatusBarStyle) {
+        if let statusBar = UIApplication.shared.value(forKey: "statusBar") as? UIView {
+            statusBar.setValue(style == .lightContent ? UIColor.white : .black, forKey: "foregroundColor")
+        }
+    }
+    
+    @IBAction func logout(_ sender: UIButton) {
+        UserDefaults.standard.setValue(false, forKey: UserDefaultsName.UserIsLoged)
+        let storyboard:UIStoryboard = UIStoryboard(name: "First", bundle: nil)
+        let navigationController:HiddenNavBarNavigationController = storyboard.instantiateInitialViewController() as! HiddenNavBarNavigationController
+        let firstPageVC:UIViewController = storyboard.instantiateViewController(withIdentifier: "firstPage") as UIViewController
+        navigationController.viewControllers = [firstPageVC]
+        self.present(navigationController, animated: true, completion: nil)
+        
+    }
+    
 }
 
 

@@ -18,10 +18,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        if UserDefaults.standard.bool(forKey: "isLoged"){
+        if UserDefaults.standard.bool(forKey: UserDefaultsName.UserIsLoged){
             
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let initialViewController = storyboard.instantiateViewController(withIdentifier: "tabBar")
+            let initialViewController = storyboard.instantiateViewController(withIdentifier: "tabBar") as! UITabBarController
+            
+            if UserDefaults.standard.bool(forKey: UserDefaultsName.StartFromScanner){
+                
+                initialViewController.selectedIndex = 1
+                
+            }
+            
             self.window?.rootViewController = initialViewController
             
         }else {

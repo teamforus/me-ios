@@ -59,6 +59,11 @@ class MLoginQRAndCodeViewController: UIViewController {
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.setStatusBarStyle(.default)
+    }
+    
     @objc func logIn(){
         performSegue(withIdentifier: "goToMain", sender: self)
     }
