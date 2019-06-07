@@ -22,6 +22,7 @@ class MPaymentViewController: UIViewController {
     @IBOutlet weak var arrowIcon: UIImageView!
     
     var voucher: Voucher!
+    var tabBar: UITabBarController!
     var selectedAllowerdOrganization: AllowedOrganization!
     
     override func viewDidLoad() {
@@ -41,6 +42,7 @@ class MPaymentViewController: UIViewController {
             vc.organizationId = selectedAllowerdOrganization?.id ?? 0
             vc.note = notesField.text
             vc.amount = amountField.text
+            vc.tabBar = tabBar
             vc.modalTransitionStyle = .crossDissolve
             vc.modalPresentationStyle = .overCurrentContext
             self.present(vc, animated: true)

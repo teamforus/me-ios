@@ -19,7 +19,7 @@ class MVouchersViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        CurrentSession.shared.token = UserDefaults.standard.string(forKey: "TOKEN")
+        
         
         
         voucherViewModel.complete = { [weak self] (vouchers) in

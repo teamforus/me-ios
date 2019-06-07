@@ -21,6 +21,7 @@ class MProfileViewController: UIViewController {
     @IBOutlet weak var changePasscodeLabel: UILabel!
     @IBOutlet weak var crashButton: UIButton!
     @IBOutlet weak var startScannerSwitch: UISwitchCustom!
+    @IBOutlet weak var userFaceIdSwitch: UISwitchCustom!
     
     lazy var profileViewModel: ProfileViewModel = {
         return ProfileViewModel()
@@ -28,18 +29,6 @@ class MProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        if UserDefaults.standard.string(forKey: ALConstants.kPincode) == "" || UserDefaults.standard.string(forKey: ALConstants.kPincode) == nil{
-            
-            changePasscodeLabel.text = "Create passcode".localized()
-            self.didUpdateButtonStackView(isHiddeButtons: true, buttonHeightConstant: 130, verticalConstant: 10)
-            
-        }else{
-            
-            changePasscodeLabel.text = "Change passcode".localized()
-            self.didUpdateButtonStackView(isHiddeButtons: false, buttonHeightConstant: 249, verticalConstant: 66)
-            
-        }
         
         let versionApp: AnyObject? = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as AnyObject
         let buildAppNumber: AnyObject? = Bundle.main.infoDictionary?["CFBundleVersion"] as AnyObject
@@ -68,6 +57,30 @@ class MProfileViewController: UIViewController {
             
         }
         
+        if UserDefaults.standard.bool(forKey: UserDefaultsName.UseTouchID) {
+            
+            userFaceIdSwitch.isOn = true
+            
+        }
+        
+    }
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if passcodeIsSet() {
+            changePasscodeLabel.text = "Change passcode".localized()
+            self.didUpdateButtonStackView(isHiddeButtons: false, buttonHeightConstant: 249, verticalConstant: 66)
+            
+            
+        }else{
+            
+            changePasscodeLabel.text = "Create passcode".localized()
+            self.didUpdateButtonStackView(isHiddeButtons: true, buttonHeightConstant: 130, verticalConstant: 10)
+            
+        }
+        
     }
     
     @IBAction func switchStartFromScanner(_ sender: UISwitch) {
@@ -82,7 +95,18 @@ class MProfileViewController: UIViewController {
         }
     }
     
-    @IBAction func useFaceId(_ sender: Any) {
+    @IBAction func useFaceId(_ sender: UISwitch) {
+        
+        if sender.isOn {
+            
+            UserDefaults.standard.setValue(true, forKey: UserDefaultsName.UseTouchID)
+            
+        }else {
+            
+            UserDefaults.standard.setValue(false, forKey: UserDefaultsName.UseTouchID)
+            
+        }
+        
     }
     
     @IBAction func sendCrashReports(_ sender: Any) {
@@ -117,6 +141,28 @@ class MProfileViewController: UIViewController {
     
     @IBAction func crash(_ sender: Any) {
     }
+    
+    @IBAction func creatEditPasscode(_ sender: Any) {
+        
+        
+        if passcodeIsSet() {
+            
+            didChooseAppLocker(title: "Change passcode".localized(), subTitle: "Enter your old code".localized(), cancelButtonIsVissible: true, mode: .change)
+            
+        }else {
+            
+            didChooseAppLocker(title: "Login code".localized(), subTitle: "Enter a new login code".localized(), cancelButtonIsVissible: true, mode: .create)
+            
+        }
+        
+    }
+    
+    @IBAction func deletePasscode(_ sender: Any) {
+        
+        didChooseAppLocker(title: "Turn off login code".localized(), subTitle: "Enter login code".localized(), cancelButtonIsVissible: true, mode: .deactive)
+    }
+    
+    
     
 }
 

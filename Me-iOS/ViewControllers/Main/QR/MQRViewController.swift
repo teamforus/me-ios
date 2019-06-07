@@ -107,6 +107,7 @@ class MQRViewController: HSScanViewController {
         if let paymentVC = segue.destination as? MPaymentViewController {
             
             paymentVC.voucher = voucher
+            paymentVC.tabBar = self.tabBarController
             
         }
         

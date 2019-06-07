@@ -16,6 +16,7 @@ class ConfirmPaymentPopUp: UIViewController {
     
     var voucher: Voucher!
     var amount: String!
+    var tabBar: UITabBarController!
     var organizationId: Int!
     var note: String!
     var commonService: CommonServiceProtocol! = CommonService()
@@ -60,6 +61,7 @@ class ConfirmPaymentPopUp: UIViewController {
                 
                 self.showSimpleAlertWithSingleAction(title: "Success".localized(), message: "Payment succeeded".localized(), okAction: UIAlertAction(title: "OK", style: .default, handler: { (action) in
                     
+                    self.tabBar.selectedIndex = 0
                     self.presentingViewController?.presentingViewController?.dismiss(animated: true)
                 }))
             }else {

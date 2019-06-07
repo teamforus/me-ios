@@ -154,13 +154,13 @@ public class AppLocker: UIViewController {
     }
     
     private func validateModeAction() {
-        UserDefaults.standard.set(true, forKey: "PINCODEENABLED")
+        UserDefaults.standard.set(true, forKey: UserDefaultsName.PinCodeEnabled)
         pin == savedPin ? dismiss(animated: true, completion: nil) : incorrectPinAnimation()
         delegate.closePinCodeView(typeClose: .validate)
     }
     
     private func removePin() {
-        UserDefaults.standard.set(false, forKey: "PINCODEENABLED")
+        UserDefaults.standard.set(false, forKey: UserDefaultsName.PinCodeEnabled)
         UserDefaults.standard.removeObject(forKey: ALConstants.kPincode)
         dismiss(animated: true, completion: nil)
         delegate.closePinCodeView(typeClose: .delete)
@@ -168,7 +168,7 @@ public class AppLocker: UIViewController {
     }
     
     private func confirmPin() {
-        UserDefaults.standard.set(true, forKey: "PINCODEENABLED")
+        UserDefaults.standard.set(true, forKey: UserDefaultsName.PinCodeEnabled)
         if pin == reservedPin {
             savedPin = pin
             dismiss(animated: true, completion: nil)
@@ -276,6 +276,8 @@ public extension AppLocker {
         guard let _ = UIApplication.shared.keyWindow?.rootViewController,
             
             let locker = Bundle(for: self.classForCoder()).loadNibNamed(ALConstants.nibName, owner: self, options: nil)?.first as? AppLocker else {
+                print()
+                
                 return
         }
         //    if mode == .validate {

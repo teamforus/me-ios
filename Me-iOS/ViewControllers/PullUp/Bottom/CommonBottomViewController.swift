@@ -107,6 +107,7 @@ class CommonBottomViewController: UIViewController {
                     self?.timer.invalidate()
                     UserDefaults.standard.set(self?.token, forKey: "TOKEN")
                     UserDefaults.standard.set(true, forKey: "isLoged")
+                    CurrentSession.shared.token = self?.token
                     UserDefaults.standard.synchronize()
                      NotificationCenter.default.post(name: NotificationName.LoginQR, object: nil)
                 }

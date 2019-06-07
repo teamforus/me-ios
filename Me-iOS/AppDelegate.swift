@@ -18,6 +18,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
+        
+        window?.makeKeyAndVisible()
+        CurrentSession.shared.token = UserDefaults.standard.string(forKey: "TOKEN")
+        
         if UserDefaults.standard.bool(forKey: UserDefaultsName.UserIsLoged){
             
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -34,11 +38,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }else {
             
             let storyboard = UIStoryboard(name: "First", bundle: nil)
-            let initialViewController = storyboard.instantiateViewController(withIdentifier: "first")
+            let initialViewController = storyboard.instantiateViewController(withIdentifier: "first") as! HiddenNavBarNavigationController
             self.window?.rootViewController = initialViewController
             
         }
-        
+        didCheckPasscode(vc: self.window!.rootViewController!)
         initPush(application)
         
         return true
@@ -214,5 +218,28 @@ extension AppDelegate {
         
         application.registerForRemoteNotifications()
     }
+    
+    func didCheckPasscode(vc: UIViewController){
+        if UserDefaults.standard.string(forKey: ALConstants.kPincode) != "" && UserDefaults.standard.string(forKey: ALConstants.kPincode) != nil {
+            var appearance = ALAppearance()
+            appearance.image = UIImage(named: "lock")!
+            appearance.title = "Enter login code".localized()
+            appearance.isSensorsEnabled = true
+            appearance.cancelIsVissible = false
+            appearance.delegate = self
+            
+            AppLocker.present(with: .validate, and: appearance, withController: vc)
+        }
+    }
+}
+
+extension AppDelegate: AppLockerDelegate{
+    
+    func closePinCodeView(typeClose: typeClose) {
+        if typeClose == .logout{
+            
+        }
+    }
+    
 }
 

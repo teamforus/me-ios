@@ -119,7 +119,7 @@ extension UIViewController{
         
         
         self.present(allertController, animated: true)
-    
+        
         
     }
     
@@ -173,6 +173,34 @@ extension UIViewController{
         
     }
     
+    func didChooseAppLocker(title: String, subTitle: String, cancelButtonIsVissible: Bool, mode: ALMode){
+        var appearance = ALAppearance()
+        appearance.image = UIImage(named: "lock")!
+        appearance.title = title
+        appearance.subtitle = subTitle
+        appearance.isSensorsEnabled = UserDefaults.standard.bool(forKey: UserDefaultsName.UseTouchID)
+        appearance.cancelIsVissible = cancelButtonIsVissible
+        appearance.delegate = self
+        
+        AppLocker.present(with: mode, and: appearance, withController: self)
+    }
+    
+    func passcodeIsSet() -> Bool {
+        
+        if UserDefaults.standard.string(forKey: ALConstants.kPincode) == "" || UserDefaults.standard.string(forKey: ALConstants.kPincode) == nil {
+            return false
+        }
+        
+        return true
+    }
+    
 }
 
+
+extension UIViewController: AppLockerDelegate {
+    
+    func closePinCodeView(typeClose: typeClose) {
+        
+    }
+}
 

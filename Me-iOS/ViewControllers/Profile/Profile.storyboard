@@ -144,6 +144,9 @@
                                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ycd-8C-4bj">
                                                                 <rect key="frame" x="0.0" y="0.0" width="342" height="56"/>
                                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                                <connections>
+                                                                    <action selector="creatEditPasscode:" destination="eu3-EV-5Ar" eventType="touchUpInside" id="hEO-Od-ZcN"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                         <color key="backgroundColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -173,6 +176,9 @@
                                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7JZ-5w-dnO">
                                                                 <rect key="frame" x="0.0" y="0.0" width="342" height="56"/>
                                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                                <connections>
+                                                                    <action selector="deletePasscode:" destination="eu3-EV-5Ar" eventType="touchUpInside" id="WKd-YK-eik"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                         <color key="backgroundColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -199,7 +205,7 @@
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aF3-gf-gHS" customClass="UISwitchCustom" customModule="Me_iOS" customModuleProvider="target">
+                                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="aF3-gf-gHS" customClass="UISwitchCustom" customModule="Me_iOS" customModuleProvider="target">
                                                                 <rect key="frame" x="279" y="13" width="49" height="31"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                                                 <color key="onTintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -249,7 +255,7 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="629-dg-gyi" customClass="UISwitchCustom" customModule="Me_iOS" customModuleProvider="target">
+                                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="629-dg-gyi" customClass="UISwitchCustom" customModule="Me_iOS" customModuleProvider="target">
                                                         <rect key="frame" x="280" y="14" width="49" height="31"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                                         <color key="onTintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -404,6 +410,7 @@
                         <outlet property="startScannerSwitch" destination="mxb-o1-SKo" id="ia7-09-DbA"/>
                         <outlet property="turnOffPascodeView" destination="AHo-7Q-nI7" id="Yd2-fv-FH3"/>
                         <outlet property="useFaceIdView" destination="pLQ-IY-Xhm" id="oNj-HJ-xd8"/>
+                        <outlet property="userFaceIdSwitch" destination="aF3-gf-gHS" id="o6r-6U-mBu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qRh-Tn-urI" userLabel="First Responder" sceneMemberID="firstResponder"/>
