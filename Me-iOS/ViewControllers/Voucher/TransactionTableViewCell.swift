@@ -41,6 +41,7 @@ class TransactionTableViewCell: UITableViewCell {
     @IBOutlet weak var imageEarth: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
+        selectionStyle = .none
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

@@ -13,6 +13,7 @@ class ProductVoucherViewModel{
     var commonServices: CommonServiceProtocol!
     
     var complete: ((Voucher)->())?
+    var completeSendEmail: ((Int)->())?
     
     init(commonServices: CommonServiceProtocol = CommonService()) {
         self.commonServices = commonServices
@@ -27,6 +28,17 @@ class ProductVoucherViewModel{
         }, failure: { (error) in
             print(error)
         })
+        
+    }
+    
+    func sendEmail(address: String) {
+        
+        
+        commonServices.postWithoutParamtersAndResponse(request: "platform/vouchers/"+address+"/send-email", complete: { (statusCode) in
+            self.completeSendEmail?(statusCode)
+        }) { (error) in
+            
+        }
         
     }
     

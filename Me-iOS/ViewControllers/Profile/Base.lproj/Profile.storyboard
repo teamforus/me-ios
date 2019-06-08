@@ -320,7 +320,7 @@
                                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
                                                         <connections>
-                                                            <action selector="about:" destination="eu3-EV-5Ar" eventType="touchUpInside" id="zfT-SU-ErT"/>
+                                                            <segue destination="rSU-ff-RMe" kind="presentation" id="npX-g4-JPY"/>
                                                         </connections>
                                                     </button>
                                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Hz7-Gv-NGk">
@@ -404,6 +404,7 @@
                         <outlet property="changePassCodeView" destination="wNw-9x-l3y" id="aNg-kj-CA3"/>
                         <outlet property="changePasscodeLabel" destination="AbL-ew-Qz7" id="qLV-7E-3zc"/>
                         <outlet property="crashButton" destination="uyU-tZ-kOJ" id="jQh-8M-CgW"/>
+                        <outlet property="crashReportSwitch" destination="629-dg-gyi" id="Mvs-fw-hT4"/>
                         <outlet property="emailLabel" destination="Rkq-EJ-VPa" id="bSD-h1-S3j"/>
                         <outlet property="faceIdVerticalSpacing" destination="JHA-Sf-Y0d" id="vHg-rG-MEw"/>
                         <outlet property="profileNameLabel" destination="Ncj-5F-IHr" id="eaq-jQ-EM2"/>
@@ -416,6 +417,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qRh-Tn-urI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-87.200000000000003" y="249.62518740629687"/>
+        </scene>
+        <!--About-->
+        <scene sceneID="sWZ-wv-Wsq">
+            <objects>
+                <viewControllerPlaceholder storyboardName="About" id="rSU-ff-RMe" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sIj-Vg-dyv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="462" y="249"/>
         </scene>
     </scenes>
     <resources>

@@ -8,6 +8,7 @@
 
 import UIKit
 import MessageUI
+import Crashlytics
 
 class MProfileViewController: UIViewController {
     @IBOutlet weak var profileNameLabel: UILabel!
@@ -22,6 +23,7 @@ class MProfileViewController: UIViewController {
     @IBOutlet weak var crashButton: UIButton!
     @IBOutlet weak var startScannerSwitch: UISwitchCustom!
     @IBOutlet weak var userFaceIdSwitch: UISwitchCustom!
+    @IBOutlet weak var crashReportSwitch: UISwitchCustom!
     
     lazy var profileViewModel: ProfileViewModel = {
         return ProfileViewModel()
@@ -60,6 +62,12 @@ class MProfileViewController: UIViewController {
         if UserDefaults.standard.bool(forKey: UserDefaultsName.UseTouchID) {
             
             userFaceIdSwitch.isOn = true
+            
+        }
+        
+        if UserDefaults.standard.bool(forKey: UserDefaultsName.AddressIndentityCrash) {
+            
+            crashReportSwitch.isOn = true
             
         }
         
@@ -109,10 +117,18 @@ class MProfileViewController: UIViewController {
         
     }
     
-    @IBAction func sendCrashReports(_ sender: Any) {
-    }
-    
-    @IBAction func about(_ sender: Any) {
+    @IBAction func sendCrashReports(_ sender: UISwitch) {
+        
+        if sender.isOn {
+            
+            UserDefaults.standard.setValue(true, forKey: UserDefaultsName.AddressIndentityCrash)
+            
+        }else {
+            
+            UserDefaults.standard.setValue(false, forKey: UserDefaultsName.AddressIndentityCrash)
+            
+        }
+        
     }
     
     @IBAction func feedback(_ sender: Any) {
@@ -140,6 +156,7 @@ class MProfileViewController: UIViewController {
     }
     
     @IBAction func crash(_ sender: Any) {
+        Crashlytics.sharedInstance().crash()
     }
     
     @IBAction func creatEditPasscode(_ sender: Any) {

@@ -32,14 +32,8 @@ class VoucherTableViewCell: UITableViewCell {
                     self.priceLabel.attributedText = "0.{0}".customText(fontBigSize: 20, minFontSize: 14)
                 }
                 
-                self.voucherImage.loadImageUsingUrlString(urlString: voucher?.fund?.logo?.sizes?.thumbnail ?? "", placeHolder: #imageLiteral(resourceName: "Resting"))
+                self.voucherImage.loadImageUsingUrlString(urlString: voucher?.fund?.organization?.logo?.sizes?.thumbnail ?? "", placeHolder: #imageLiteral(resourceName: "Resting"))
             }
-            
-            
-//            if voucher?.product?.photo != nil || voucher?.found.logo != nil {
-//                self.voucherImage.sd_setImage(with: URL(string: (voucher?.product != nil ? voucher?.product?.photo?.sizes?.thumbnail : voucher?.found.logo.sizes?.thumbnail) ?? ""), placeholderImage: UIImage(named: "Resting"))
-//
-//            }
         }
     }
     

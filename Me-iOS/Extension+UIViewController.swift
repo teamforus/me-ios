@@ -102,9 +102,11 @@ extension UIViewController{
         let allertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         
         
+        allertController.addAction(cancelAction)
+        
         allertController.addAction(okAction)
         
-        allertController.addAction(cancelAction)
+        
         
         self.present(allertController, animated: true)
         
@@ -139,7 +141,7 @@ extension UIViewController{
         });
     }
     
-    func removeAnimate()
+   @IBAction func removeAnimate()
     {
         UIView.animate(withDuration: 0.25, animations: {
             self.view.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
@@ -192,6 +194,22 @@ extension UIViewController{
         }
         
         return true
+    }
+    
+    func showPopUP(vc: UIViewController) {
+        
+        vc.modalTransitionStyle = .crossDissolve
+        vc.modalPresentationStyle = .overCurrentContext
+        self.present(vc, animated: true)
+        
+    }
+    
+    func showPopUPWithAnimation(vc: UIViewController) {
+        
+        self.addChild(vc)
+        vc.view.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height)
+        self.view.addSubview(vc.view)
+        
     }
     
 }

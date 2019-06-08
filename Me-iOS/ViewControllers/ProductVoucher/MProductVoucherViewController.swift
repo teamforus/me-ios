@@ -9,6 +9,7 @@
 import UIKit
 import MapKit
 import SafariServices
+import MessageUI
 
 class MProductVoucherViewController: UIViewController {
     @IBOutlet weak var productNameLabel: UILabel!
@@ -24,6 +25,8 @@ class MProductVoucherViewController: UIViewController {
     @IBOutlet var labeles: [SkeletonView]!
     @IBOutlet var images: [SkeletonUIImageView]!
     var address: String!
+    var latitude: Double!
+    var longitude: Double!
     var voucher: Voucher!
     lazy var productViewModel: ProductVoucherViewModel = {
         return ProductVoucherViewModel()
@@ -56,6 +59,29 @@ class MProductVoucherViewController: UIViewController {
                 self?.qrCodeImage.isUserInteractionEnabled = true
                 self?.qrCodeImage.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self?.opendQR)))
                 
+                //organizationLabel gesture
+                self?.emailButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self?.Tap)))
+                self?.emailButton.addGestureRecognizer(UILongPressGestureRecognizer(target: self, action: #selector(self?.Long)))
+                
+                
+                if let latitudeValue = voucher.offices?.first?.lat, let lat = Double(latitudeValue) {
+                    self?.latitude = lat
+                }
+                
+                if let longitudeValue = voucher.offices?.first?.lon, let lon = Double(longitudeValue) {
+                    self?.longitude = lon
+                }
+                
+                self?.mapView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self?.goToMap)))
+                let viewRegion = MKCoordinateRegion( center: CLLocationCoordinate2D(latitude: self!.latitude , longitude: self!.longitude), latitudinalMeters: 10000, longitudinalMeters: 10000)
+                self?.mapView.setRegion(viewRegion, animated: false)
+                self?.mapView.region = viewRegion
+                
+                voucher.offices?.forEach({ (office) in
+                    
+                    self?.mapView.addAnnotation((self?.setAnnotation(lattitude: self!.latitude, longitude: self!.longitude))!)
+                })
+                
                 self?.labeles.forEach { (view) in
                     view.stopAnimating()
                 }
@@ -80,6 +106,24 @@ class MProductVoucherViewController: UIViewController {
     }
     
     @IBAction func sendByEmail(_ sender: Any) {
+        
+        productViewModel.completeSendEmail = { [weak self] (statusCode) in
+            
+            DispatchQueue.main.async {
+                
+                self?.showPopUPWithAnimation(vc: SuccessSendingViewController(nibName: "SuccessSendingViewController", bundle: nil))
+                
+            }
+        }
+        
+        showSimpleAlertWithAction(title: "E-mail to me".localized(),
+                                  message: "Send the voucher to your email?".localized(),
+                                  okAction: UIAlertAction(title: "Confirm".localized(), style: .default, handler: { (action) in
+                                    
+                                    self.productViewModel.sendEmail(address: self.voucher.address ?? "")
+                                    
+                                  }),
+                                  cancelAction: UIAlertAction(title: "Cancel".localized(), style: .cancel, handler: nil))
     }
     
     @IBAction func info(_ sender: Any) {
@@ -89,4 +133,144 @@ class MProductVoucherViewController: UIViewController {
         }
     }
     
+    @IBAction func callPhone(_ sender: Any) {
+        guard let number = URL(string: "tel://" + (voucher.offices?.first?.phone!)!) else { return }
+        UIApplication.shared.open(number)
+    }
+    
+}
+
+extension MProductVoucherViewController {
+    
+    @objc func Tap() {
+        
+        
+        showSimpleAlertWithAction(title:  "E-mail to me".localized(),
+                                  message: "Question from Me user".localized(),
+                                  okAction: UIAlertAction(title: "Confirm".localized(), style: .default, handler: { (action) in
+                                    
+                                    if MFMailComposeViewController.canSendMail() {
+                                        let composeVC = MFMailComposeViewController()
+                                        composeVC.mailComposeDelegate = self
+                                        composeVC.setToRecipients([(self.voucher.offices?.first?.organization?.email)!])
+                                        composeVC.setSubject("Question from Me user".localized())
+                                        composeVC.setMessageBody("", isHTML: false)
+                                        self.present(composeVC, animated: true, completion: nil)
+                                    }else{
+                                        self.showSimpleAlert(title: "Warning".localized(), message: "Mail services are not available".localized())
+                                    }
+                                    
+                                  }),
+                                  cancelAction: UIAlertAction(title: "Cancel".localized(), style: .default, handler: nil))
+        
+      
+        
+    }
+    
+    @objc func Long() {
+        UIPasteboard.general.string = self.voucher.offices?.first?.organization?.email
+        self.showSimpleToast(message: "Copied to clipboard".localized())
+    }
+    
+    @objc func goToMap(){
+        let actionSheet = UIAlertController.init(title: "Address".localized(), message: nil, preferredStyle: .actionSheet)
+        
+        //open apple maps
+        actionSheet.addAction(UIAlertAction.init(title: "Open in Apple Maps", style: UIAlertAction.Style.default, handler: { (action) in
+            
+            self.openMapForPlace(lattitude: self.latitude, longitude: self.longitude)
+        }))
+        
+        //open google maps
+        actionSheet.addAction(UIAlertAction.init(title: "Open in Google Maps", style: UIAlertAction.Style.default, handler: { (action) in
+            if (UIApplication.shared.canOpenURL(URL(string:"comgooglemaps://")!))
+            {
+                UIApplication.shared.open(URL(string:
+                    "comgooglemaps://?saddr=&daddr=\(self.latitude!),\(self.longitude!)")!, options: [:], completionHandler: { (succes) in
+                })
+            } else if (UIApplication.shared.canOpenURL(URL(string:"https://maps.google.com")!))
+            {
+                UIApplication.shared.open(URL(string:
+                    "https://maps.google.com/?q=\(self.latitude!),\(self.longitude!)")!, options: [:], completionHandler: { (succes) in
+                })
+            }
+        }))
+        
+        //copy to clipboard
+        actionSheet.addAction(UIAlertAction.init(title: "Copy address".localized(), style: UIAlertAction.Style.default, handler: { (action) in
+            UIPasteboard.general.string = self.voucher.offices?.first?.address
+            self.showSimpleToast(message: "Copied to clipboard".localized())
+        }))
+        actionSheet.addAction(UIAlertAction.init(title: "Cancel".localized(), style: UIAlertAction.Style.cancel, handler: { (action) in
+        }))
+        //Present the controller
+        self.present(actionSheet, animated: true, completion: nil)
+    }
+    
+    func setAnnotation(lattitude: Double, longitude: Double) -> CustomPointAnnotation{
+        let annotation = CustomPointAnnotation()
+        annotation.coordinate = CLLocationCoordinate2DMake(lattitude, longitude)
+        annotation.imageName = "carLocation"
+        return annotation
+    }
+    
+    func openMapForPlace(lattitude: Double, longitude: Double) {
+        
+        let latitude: CLLocationDegrees = lattitude
+        let longitude: CLLocationDegrees = longitude
+        
+        let regionDistance:CLLocationDistance = 10000
+        let coordinates = CLLocationCoordinate2DMake(latitude, longitude)
+        let regionSpan = MKCoordinateRegion(center: coordinates, latitudinalMeters: regionDistance, longitudinalMeters: regionDistance)
+        let options = [
+            MKLaunchOptionsMapCenterKey: NSValue(mkCoordinate: regionSpan.center),
+            MKLaunchOptionsMapSpanKey: NSValue(mkCoordinateSpan: regionSpan.span)
+        ]
+        let placemark = MKPlacemark(coordinate: coordinates, addressDictionary: nil)
+        let mapItem = MKMapItem(placemark: placemark)
+        mapItem.name = "Address Name"
+        mapItem.openInMaps(launchOptions: options)
+    }
+    
+}
+
+extension MProductVoucherViewController: MFMailComposeViewControllerDelegate{
+    func mailComposeController(_ controller: MFMailComposeViewController,
+                               didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true, completion: nil)
+    }
+}
+
+extension MProductVoucherViewController: MKMapViewDelegate{
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        if !(annotation is CustomPointAnnotation) {
+            return nil
+        }
+        let reuseId = "annotation"
+        var anView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseId)
+        if anView == nil {
+            anView = MKAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
+            anView?.canShowCallout = true
+        }
+        else {
+            anView?.annotation = annotation
+        }
+        let cpa = annotation as! CustomPointAnnotation
+        anView?.image = UIImage(named:cpa.imageName)
+        
+        return anView
+    }
+    
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+        let circle = MKCircleRenderer(overlay: overlay)
+        circle.strokeColor = #colorLiteral(red: 0.3073092699, green: 0.4766488671, blue: 0.9586974978, alpha: 1)
+        circle.fillColor = #colorLiteral(red: 0.746714294, green: 0.8004079461, blue: 0.9871394038, alpha: 0.7)
+        circle.lineWidth = 1
+        return circle
+    }
+}
+
+
+class CustomPointAnnotation: MKPointAnnotation {
+    var imageName: String!
 }

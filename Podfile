@@ -11,6 +11,8 @@ pod 'SkyFloatingLabelTextField'
 pod 'MarqueeLabel/Swift'
 pod 'BWWalkthrough'
 pod 'UICheckbox.Swift'
+pod 'Fabric'
+pod 'Crashlytics'
 
   target 'Me-iOSTests' do
     inherit! :search_paths

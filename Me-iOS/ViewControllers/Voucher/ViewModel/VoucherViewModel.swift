@@ -24,6 +24,7 @@ class VoucherViewModel{
     
     var reloadTableViewClosure: (()->())?
     var reloadDataVoucher: ((Voucher)->())?
+    var completeSendEmail: ((Int)->())?
     
     func initFetchById(address: String){
         
@@ -32,12 +33,23 @@ class VoucherViewModel{
             var array = response.data?.transactions ?? []
             array.append(contentsOf: response.data?.product_vouchers ?? [])
             
-            self.processFetchedLunche(transactions: array)
+            self.processFetchedLunche(transactions: array.sorted(by: { $0.created_at?.compare($1.created_at ?? "") == .orderedDescending}))
             self.reloadDataVoucher!(response.data!)
             
         }, failure: { (error) in
             print(error)
         })
+        
+    }
+    
+    func sendEmail(address: String) {
+        
+        
+        commonService.postWithoutParamtersAndResponse(request: "platform/vouchers/"+address+"/send-email", complete: { (statusCode) in
+            self.completeSendEmail?(statusCode)
+        }) { (error) in
+            
+        }
         
     }
     

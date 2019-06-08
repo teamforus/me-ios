@@ -29,12 +29,47 @@ protocol CommonServiceProtocol {
     
     func postWithParameters<T: Decodable>(request: String, parameters: [String : Any], complete: @escaping (_ response: T, _ statusCode: Int)->(), failure: @escaping(_ error: Error)->())
     
+    func postWithoutParamtersAndResponse(request: String, complete: @escaping ( _ statusCode: Int)->(), failure: @escaping(_ error: Error)->())
+    
     func postWithParametersWithoutToken<T: Decodable>(request: String, parameters: [String : Any], complete: @escaping (_ response: T, _ statusCode: Int)->(), failure: @escaping(_ error: Error)->())
     
     func deleteById(request: String, id: String, complete: @escaping ( _ statusCode: Int)->(), failure: @escaping(_ error: Error)->())
 }
 
 class CommonService: CommonServiceProtocol {
+    
+    
+    func postWithoutParamtersAndResponse(request: String, complete: @escaping (Int) -> (), failure: @escaping (Error) -> ()) {
+        
+        
+        let url = URL(string: BaseURL.baseURL(url: request))!
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        request.addValue("Bearer " + CurrentSession.shared.token, forHTTPHeaderField: "Authorization")
+        
+        
+        let session = URLSession.shared
+        
+        let task = session.dataTask(with: request) { (data, response, error) in
+            guard let data = data else { return }
+            let decoder = JSONDecoder()
+            do {
+                
+                let httpResponse = response as? HTTPURLResponse
+                
+                complete( httpResponse!.statusCode)
+            } catch let error {
+                
+                failure(error)
+                
+            }
+        }
+        
+        task.resume()
+        
+    }
+    
     
     
     func postWithoutToken<T, E>(request: String, e: E, complete: @escaping (T, Int) -> (), failure: @escaping (Error) -> ()) where T : Decodable, E : Encodable {

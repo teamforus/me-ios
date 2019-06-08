@@ -16,6 +16,7 @@ class MVoucherViewController: UIViewController {
     @IBOutlet weak var organizationName: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var qrImage: UIImageView!
+    @IBOutlet weak var heightConstraint: NSLayoutConstraint!
     
     lazy var voucherViewModel: VoucherViewModel = {
         return VoucherViewModel()
@@ -86,6 +87,25 @@ class MVoucherViewController: UIViewController {
     }
     
     @IBAction func sendEmail(_ sender: Any) {
+        
+        voucherViewModel.completeSendEmail = { [weak self] (statusCode) in
+            
+            DispatchQueue.main.async {
+                
+                self?.showPopUPWithAnimation(vc: SuccessSendingViewController(nibName: "SuccessSendingViewController", bundle: nil))
+                
+            }
+        }
+        
+        showSimpleAlertWithAction(title: "E-mail to me".localized(),
+                                        message: "Send the voucher to your email?".localized(),
+                                        okAction: UIAlertAction(title: "Confirm".localized(), style: .default, handler: { (action) in
+                                            
+                                            self.voucherViewModel.sendEmail(address: self.voucher.address ?? "")
+                                            
+                                        }),
+                                        cancelAction: UIAlertAction(title: "Cancel".localized(), style: .cancel, handler: nil))
+        
     }
     
     @IBAction func info(_ sender: Any) {
@@ -115,4 +135,37 @@ extension MVoucherViewController: UITableViewDelegate, UITableViewDataSource{
         return cell
     }
     
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        didAnimateTransactioList()
+    }
+    
+}
+
+extension MVoucherViewController{
+    
+    func didAnimateTransactioList(){
+        if voucherViewModel.numberOfCells > 8{
+            if isFirstCellVisible(){
+                self.heightConstraint.constant = 322
+                UIView.animate(withDuration: 0.5) {
+                    self.view.layoutIfNeeded()
+                }
+            }else{
+                self.heightConstraint.constant = 60
+                UIView.animate(withDuration: 0.5) {
+                    self.view.layoutIfNeeded()
+                }
+            }
+        }
+    }
+    
+    func isFirstCellVisible() -> Bool{
+        let indexes = tableView.indexPathsForVisibleRows
+        for indexPath in indexes!{
+            if indexPath.row == 0{
+                return true
+            }
+        }
+        return false
+    }
 }

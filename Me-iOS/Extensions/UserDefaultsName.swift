@@ -14,4 +14,5 @@ struct UserDefaultsName {
     public static let UserIsLoged = "isLoged"
     public static let PinCodeEnabled = "PINCODEENABLED"
     public static let UseTouchID = "isWithTouchID"
+    public static let AddressIndentityCrash = "UseAddressIdentityForCrash"
 }

@@ -9,20 +9,37 @@
 import UIKit
 import CoreData
 import UserNotifications
+import Fabric
+import Crashlytics
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+    
     var window: UIWindow?
-
-
+    var commonService: CommonServiceProtocol! = CommonService()
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
+        #if DEBUG
+        #else
+        Fabric.with([Crashlytics.self])
+        
+        #endif
         
         window?.makeKeyAndVisible()
         CurrentSession.shared.token = UserDefaults.standard.string(forKey: "TOKEN")
         
         if UserDefaults.standard.bool(forKey: UserDefaultsName.UserIsLoged){
+            
+            
+            if UserDefaults.standard.bool(forKey: UserDefaultsName.AddressIndentityCrash) {
+                
+                commonService.get(request: "identity", complete: { (response: Office, statusCode) in
+                    Crashlytics.sharedInstance().setUserIdentifier(response.address)
+                }) { (error) in
+                    
+                }
+            }
             
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let initialViewController = storyboard.instantiateViewController(withIdentifier: "tabBar") as! UITabBarController
@@ -47,19 +64,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         return true
     }
-
+    
     func applicationWillResignActive(_ application: UIApplication) {
     }
-
+    
     func applicationDidEnterBackground(_ application: UIApplication) {
     }
-
+    
     func applicationWillEnterForeground(_ application: UIApplication) {
     }
-
+    
     func applicationDidBecomeActive(_ application: UIApplication) {
     }
-
+    
     func applicationWillTerminate(_ application: UIApplication) {
         self.saveContext()
     }
@@ -76,9 +93,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         return true
     }
-
+    
     // MARK: - Core Data stack
-
+    
     lazy var persistentContainer: NSPersistentContainer = {
         
         let container = NSPersistentContainer(name: "Me_iOS")
@@ -90,9 +107,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         })
         return container
     }()
-
+    
     // MARK: - Core Data Saving support
-
+    
     func saveContext () {
         let context = persistentContainer.viewContext
         if context.hasChanges {
@@ -105,7 +122,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
-   // TODO: Notification
+    // TODO: Notification
     
     // [START receive_message]
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any]) {
@@ -117,9 +134,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Messaging.messaging().appDidReceiveMessage(userInfo)
         
         // Print message ID.
-//        if let messageID = userInfo[gcmMessageIDKey] {
-//            print("Message ID: \(messageID)")
-//        }
+        //        if let messageID = userInfo[gcmMessageIDKey] {
+        //            print("Message ID: \(messageID)")
+        //        }
         
         // Print full message.
         print(userInfo)
@@ -135,9 +152,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Messaging.messaging().appDidReceiveMessage(userInfo)
         
         // Print message ID.
-//        if let messageID = userInfo[gcmMessageIDKey] {
-//            print("Message ID: \(messageID)")
-//        }
+        //        if let messageID = userInfo[gcmMessageIDKey] {
+        //            print("Message ID: \(messageID)")
+        //        }
         
         // Print full message.
         print(userInfo)
@@ -158,7 +175,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UserDefaults.standard.setValue(deviceTokenString, forKey: "TOKENPUSH")
         UserDefaults.standard.synchronize()
     }
-
+    
 }
 
 @available(iOS 10, *)
@@ -174,9 +191,9 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
         // Messaging.messaging().appDidReceiveMessage(userInfo)
         
         // Print message ID.
-//        if let messageID = userInfo[gcmMessageIDKey] {
-//            print("Message ID: \(messageID)")
-//        }
+        //        if let messageID = userInfo[gcmMessageIDKey] {
+        //            print("Message ID: \(messageID)")
+        //        }
         
         // Print full message.
         print(userInfo)
