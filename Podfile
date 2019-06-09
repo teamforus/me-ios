@@ -13,7 +13,7 @@ pod 'BWWalkthrough'
 pod 'UICheckbox.Swift'
 pod 'Fabric'
 pod 'Crashlytics'
-pod 'ABLoaderView'
+pod 'IQKeyboardManagerSwift'
 
   target 'Me-iOSTests' do
     inherit! :search_paths

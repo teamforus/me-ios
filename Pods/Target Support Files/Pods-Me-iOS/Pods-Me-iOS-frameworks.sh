@@ -153,32 +153,32 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Dev" ]]; then
-  install_framework "${BUILT_PRODUCTS_DIR}/ABLoaderView/ABLoaderView.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/BWWalkthrough/BWWalkthrough.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/ISHPullUp/ISHPullUp.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/MarqueeLabel/MarqueeLabel.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SkyFloatingLabelTextField/SkyFloatingLabelTextField.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/UICheckbox.Swift/UICheckbox_Swift.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
-  install_framework "${BUILT_PRODUCTS_DIR}/ABLoaderView/ABLoaderView.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/BWWalkthrough/BWWalkthrough.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/ISHPullUp/ISHPullUp.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/MarqueeLabel/MarqueeLabel.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SkyFloatingLabelTextField/SkyFloatingLabelTextField.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/UICheckbox.Swift/UICheckbox_Swift.framework"
 fi
 if [[ "$CONFIGURATION" == "Demo" ]]; then
-  install_framework "${BUILT_PRODUCTS_DIR}/ABLoaderView/ABLoaderView.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/BWWalkthrough/BWWalkthrough.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/ISHPullUp/ISHPullUp.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/MarqueeLabel/MarqueeLabel.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SkyFloatingLabelTextField/SkyFloatingLabelTextField.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/UICheckbox.Swift/UICheckbox_Swift.framework"
 fi
 if [[ "$CONFIGURATION" == "Alpha" ]]; then
-  install_framework "${BUILT_PRODUCTS_DIR}/ABLoaderView/ABLoaderView.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/BWWalkthrough/BWWalkthrough.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/ISHPullUp/ISHPullUp.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/MarqueeLabel/MarqueeLabel.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SkyFloatingLabelTextField/SkyFloatingLabelTextField.framework"

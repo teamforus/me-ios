@@ -1,19 +1,19 @@
 PODS:
-  - ABLoaderView (1.0.2)
   - BWWalkthrough (3.0.0)
   - Crashlytics (3.12.0):
     - Fabric (~> 1.9.0)
   - Fabric (1.9.0)
+  - IQKeyboardManagerSwift (6.2.0)
   - ISHPullUp (1.0.7)
   - MarqueeLabel/Swift (3.2.0)
   - SkyFloatingLabelTextField (3.6.0)
   - UICheckbox.Swift (1.0.0)
 
 DEPENDENCIES:
-  - ABLoaderView
   - BWWalkthrough
   - Crashlytics
   - Fabric
+  - IQKeyboardManagerSwift
   - ISHPullUp
   - MarqueeLabel/Swift
   - SkyFloatingLabelTextField
@@ -21,25 +21,25 @@ DEPENDENCIES:
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
-    - ABLoaderView
     - BWWalkthrough
     - Crashlytics
     - Fabric
+    - IQKeyboardManagerSwift
     - ISHPullUp
     - MarqueeLabel
     - SkyFloatingLabelTextField
     - UICheckbox.Swift
 
 SPEC CHECKSUMS:
-  ABLoaderView: 389caecbd6f855bfcf3c1c0d80fb14ce4ab9da2c
   BWWalkthrough: b86abce6aa2e4ce21e36a12a277fa6e89a5db075
   Crashlytics: 07fb167b1694128c1c9a5a5cc319b0e9c3ca0933
   Fabric: f988e33c97f08930a413e08123064d2e5f68d655
+  IQKeyboardManagerSwift: b07ccf9d8cafe993dcd6cb794eb4ba34611a0c4e
   ISHPullUp: eaa91bef06270264e1f923bc764705173d341495
   MarqueeLabel: 440a502b91a9179bd98f9fff00ba1150650a1c0e
   SkyFloatingLabelTextField: 38164979b79512f9ff9288ad8acfc4bbf5d843e3
   UICheckbox.Swift: 85715689206fac5bae38b308f19c2a3e00442c3b
 
-PODFILE CHECKSUM: 1ff8391f0fb83a6d4c774f55680f7d3d059c5400
+PODFILE CHECKSUM: c811101096359c053b1b0199381b8ee8c6dafbcb
 
 COCOAPODS: 1.6.1

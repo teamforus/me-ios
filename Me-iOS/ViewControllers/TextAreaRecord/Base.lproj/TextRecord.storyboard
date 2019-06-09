@@ -173,6 +173,7 @@
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="Tew-LF-BS7" firstAttribute="trailing" secondItem="1zi-Cp-Zr1" secondAttribute="trailing" id="Bue-vo-YZf"/>
                             <constraint firstItem="Tew-LF-BS7" firstAttribute="leading" secondItem="1zi-Cp-Zr1" secondAttribute="leading" id="Z0w-h2-ovU"/>
@@ -189,7 +190,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zdh-LJ-Sl2" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="Saq-1I-m2e"/>
+                <tapGestureRecognizer id="Saq-1I-m2e">
+                    <connections>
+                        <action selector="dismissKeyboard:" destination="KJe-GC-e1P" id="DZD-h8-fEu"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2992.8000000000002" y="230.73463268365819"/>
         </scene>

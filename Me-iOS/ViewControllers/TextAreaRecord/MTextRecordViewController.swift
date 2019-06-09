@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import IQKeyboardManagerSwift
 
 class MTextRecordViewController: UIViewController {
     @IBOutlet weak var textUITextView: UITextView!
@@ -22,6 +23,9 @@ class MTextRecordViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        IQKeyboardManager.shared.enable = true
+        IQKeyboardManager.shared.shouldShowToolbarPlaceholder = false
         
          NotificationCenter.default.addObserver(self, selector: #selector(setSelectedCategoryType), name: NotificationName.SelectedCategoryType, object: nil)
 
@@ -73,6 +77,11 @@ class MTextRecordViewController: UIViewController {
         }
         
     }
+    
+    @IBAction func dismissKeyboard(_ sender: Any) {
+        self.view.endEditing(true)
+    }
+    
 
 }
 

@@ -10,8 +10,7 @@
 #endif
 #endif
 
-#import "ABLoaderView.h"
 
-FOUNDATION_EXPORT double ABLoaderViewVersionNumber;
-FOUNDATION_EXPORT const unsigned char ABLoaderViewVersionString[];
+FOUNDATION_EXPORT double IQKeyboardManagerSwiftVersionNumber;
+FOUNDATION_EXPORT const unsigned char IQKeyboardManagerSwiftVersionString[];
 
