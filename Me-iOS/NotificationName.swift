@@ -17,6 +17,7 @@ struct NotificationName{
     public static let SelectedCategoryType = Notification.Name("SETSELECTEDCATEGORYTYPE")
     public static let ClosePageControll = Notification.Name("CLOSESLIDEPAGE")
     public static let AuthorizeTokenEmail = Notification.Name("authorizeToken")
+    public static let AuthorizeTokenSignUp = Notification.Name("authorizeTokenSignUp")
 }
 
 

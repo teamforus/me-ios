@@ -1,0 +1,12 @@
+
+/* Class = "UIButton"; normalTitle = "AANMAKEN"; ObjectID = "0ZO-XA-PbT"; */
+"0ZO-XA-PbT.normalTitle" = "CREATE NEW PROFILE";
+
+/* Class = "UIButton"; normalTitle = "IK HEB EEN ME IDENTITEIT"; ObjectID = "EPp-cx-awG"; */
+"EPp-cx-awG.normalTitle" =  "I ALREADY HAVE A PROFILE";
+
+/* Class = "UILabel"; text = "Stel uw identiteit in"; ObjectID = "t3X-pC-TIo"; */
+"t3X-pC-TIo.text" = "Create your profile";
+
+/* Class = "UILabel"; text = "Welkom bij Me"; ObjectID = "yyn-hr-0CS"; */
+"yyn-hr-0CS.text" = "Welcome to Me";

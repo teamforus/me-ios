@@ -18,6 +18,17 @@ class VoucherTableViewCell: UITableViewCell {
         didSet{
             self.voucherTitleLabel.text = voucher?.product != nil ? voucher?.product?.name : voucher?.fund?.name
             self.organizationNameLabel.text = voucher?.fund?.organization?.name ?? ""
+            
+            if voucher?.transactions != nil{
+                
+                usedVoucherLabel.isHidden = false
+                
+            } else {
+                
+                self.usedVoucherLabel.isHidden = true
+                
+            }
+            
             if voucher?.product != nil{
                 
                 self.priceLabel.isHidden = true

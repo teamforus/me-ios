@@ -26,7 +26,7 @@ enum typeClose: Int {
 public enum ALConstants {
     static let nibName = "AppLocker"
     static let kPincode = "pinCode" // Key for saving pincode to UserDefaults
-    static let kLocalizedReason = "Unlock with sensor" // Your message when sensors must be shown
+    static var kLocalizedReason = "Unlock with sensor" // Your message when sensors must be shown
     static let duration = 0.3 // Duration of indicator filling
     static let maxPinLength = 4
     
@@ -221,6 +221,17 @@ public class AppLocker: UIViewController {
         guard context.canEvaluatePolicy(policy, error: &err) else {return}
         
         // The user is able to use his/her Touch ID / Face ID 👍
+        
+        if faceIDAvailable() {
+            
+            ALConstants.kLocalizedReason = "Unlock with Face ID"
+            
+        }else {
+            
+            ALConstants.kLocalizedReason = "Unlock with Touch ID"
+            
+        }
+        
         context.evaluatePolicy(policy, localizedReason: ALConstants.kLocalizedReason, reply: {  success, error in
             if success {
                 self.dismiss(animated: true, completion: nil)

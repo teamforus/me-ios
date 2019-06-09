@@ -29,6 +29,9 @@ class MRegisterViewController: UIViewController {
         registerViewModel.complete = { [weak self] (response, statusCode) in
             if statusCode == 422{
                 
+            }else {
+                
+                self?.performSegue(withIdentifier: "goToConfirm", sender: nil)
             }
             
         }
@@ -46,12 +49,16 @@ class MRegisterViewController: UIViewController {
                                                                                       given_name: firstNameField.text!)))
             
         }
-        
-        
-        
     }
     
-
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let successRegisterVC = segue.destination as? MConfirmRegisterViewController {
+            
+            successRegisterVC.firstName = firstNameField.text
+            successRegisterVC.lastName = lastNameField.text
+            successRegisterVC.primaryEmail = primaryEmailField.text
+        }
+    }
 
 }
 

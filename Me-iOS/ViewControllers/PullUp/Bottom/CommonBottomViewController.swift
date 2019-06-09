@@ -53,7 +53,7 @@ class CommonBottomViewController: UIViewController {
                 DispatchQueue.main.async {
                     
                     self?.qrCodeImageView.generateQRCode(from: "{ \"type\": \"auth_token\",\"value\": \"\(token)\" }")
-                    self?.timer = Timer.scheduledTimer(timeInterval: 10, target: self!, selector: #selector(self?.checkAuthorizeToken), userInfo: nil, repeats: true)
+                    self?.timer = Timer.scheduledTimer(timeInterval: 7, target: self!, selector: #selector(self?.checkAuthorizeToken), userInfo: nil, repeats: true)
                     self?.token = accessToken
                     
                 }
@@ -76,7 +76,7 @@ class CommonBottomViewController: UIViewController {
                     
                 }
                 
-                expiredLabel.text = "This voucher expires on " + (voucher.expire_at?.date?.dateFormaterExpireDate())!
+                expiredLabel.text = "This voucher expires on ".localized() + (voucher.expire_at?.date?.dateFormaterExpireDate())!
                 
             break
         case .Record?:

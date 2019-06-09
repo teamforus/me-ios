@@ -51,6 +51,8 @@ class MRecordsViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        self.setStatusBarStyle(.default)
+        self.tabBarController?.set(visible: true, animated: true)
         recordViewModel.initFitch()
     }
     

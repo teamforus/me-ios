@@ -59,9 +59,6 @@ class MVoucherViewController: UIViewController {
                 self?.images.forEach { (view) in
                     view.stopAnimating()
                 }
-                
-                self?.qrImage.isUserInteractionEnabled = true
-                self?.qrImage.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self?.opendQR)))
             }
             
             
@@ -82,7 +79,7 @@ class MVoucherViewController: UIViewController {
         self.tabBarController?.set(visible: false, animated: true)
     }
     
-    @objc func opendQR() {
+    @IBAction func opendQR(_ sender: UIButton) {
         NotificationCenter.default.post(name: NotificationName.TogleStateWindow, object: nil)
     }
     

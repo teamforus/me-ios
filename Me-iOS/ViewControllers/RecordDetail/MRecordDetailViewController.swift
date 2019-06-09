@@ -12,6 +12,7 @@ class MRecordDetailViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var recordTypeLabel: UILabel!
     @IBOutlet weak var recordValue: UILabel!
+    @IBOutlet weak var borderView: CustomCornerUIView!
     
     var recordId: String!
     var record: Record!
@@ -42,6 +43,7 @@ class MRecordDetailViewController: UIViewController {
                     self?.tableView.isHidden = false
                     
                 }
+                
             }
         }
         
@@ -58,7 +60,7 @@ class MRecordDetailViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        self.tabBarController?.set(visible: false, animated: true)
     }
     
     

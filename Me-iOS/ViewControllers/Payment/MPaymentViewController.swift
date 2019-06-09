@@ -67,7 +67,7 @@ class MPaymentViewController: UIViewController {
 extension MPaymentViewController {
     
     func initView(){
-        
+        self.setStatusBarStyle(.default)
         if voucher?.product != nil {
             
             arrowIcon.isHidden = true
@@ -86,7 +86,7 @@ extension MPaymentViewController {
         }else {
             
             voucherNameLabel.text = voucher.fund?.name ?? ""
-            voucherIcon.loadImageUsingUrlString(urlString: voucher.fund?.logo?.sizes?.thumbnail ?? "", placeHolder: #imageLiteral(resourceName: "Resting"))
+            voucherIcon.loadImageUsingUrlString(urlString: voucher.fund?.organization?.logo?.sizes?.thumbnail ?? "", placeHolder: #imageLiteral(resourceName: "Resting"))
             organizationLabel.text = voucher.fund?.organization?.name ?? ""
             allowedOriganizationLabel.text = voucher.allowed_organizations?.first?.name ?? ""
             organizationIcon.loadImageUsingUrlString(urlString: voucher.allowed_organizations?.first?.logo?.sizes?.thumbnail ?? "", placeHolder: #imageLiteral(resourceName: "Resting"))

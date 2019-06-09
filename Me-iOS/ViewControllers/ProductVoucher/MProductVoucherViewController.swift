@@ -56,9 +56,6 @@ class MProductVoucherViewController: UIViewController {
                 self?.qrCodeImage.generateQRCode(from: "{\"type\": \"voucher\",\"value\": \"\(voucher.address ?? "")\" }")
                 self?.voucher = voucher
                 
-                self?.qrCodeImage.isUserInteractionEnabled = true
-                self?.qrCodeImage.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self?.opendQR)))
-                
                 //organizationLabel gesture
                 self?.emailButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self?.Tap)))
                 self?.emailButton.addGestureRecognizer(UILongPressGestureRecognizer(target: self, action: #selector(self?.Long)))
@@ -101,7 +98,7 @@ class MProductVoucherViewController: UIViewController {
         self.tabBarController?.set(visible: false, animated: true)
     }
     
-    @objc func opendQR() {
+    @IBAction func opendQR(_ sender: UIButton) {
         NotificationCenter.default.post(name: NotificationName.TogleStateWindow, object: nil)
     }
     

@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -21,15 +20,15 @@
         </array>
     </customFonts>
     <scenes>
-        <!--Register View Controller-->
+        <!--Confirm Register View Controller-->
         <scene sceneID="IUl-3W-KsF">
             <objects>
-                <viewController id="dxs-ZW-TfE" customClass="MRegisterViewController" customModule="Me_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="dxs-ZW-TfE" customClass="MConfirmRegisterViewController" customModule="Me_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dHY-B8-WK8">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="264-fq-LFS" customClass="ShadowButton" customModule="Me" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="264-fq-LFS" customClass="ShadowButton" customModule="Me_iOS" customModuleProvider="target">
                                 <rect key="frame" x="31" y="784.5" width="354" height="54.5"/>
                                 <color key="backgroundColor" red="0.20392156859999999" green="0.38431372549999998" blue="0.96470588239999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -56,6 +55,9 @@
                                         <real key="value" value="10"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="openMail:" destination="dxs-ZW-TfE" eventType="touchUpInside" id="9GQ-e1-AwN"/>
+                                </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="back" translatesAutoresizingMaskIntoConstraints="NO" id="RaU-r4-wZx">
                                 <rect key="frame" x="14" y="24" width="24" height="24"/>
@@ -112,10 +114,22 @@ Before we get started, please confirm your email address.</string>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ugv-Vf-bIU"/>
                     </view>
+                    <connections>
+                        <outlet property="welcomeLabel" destination="fKw-aI-bFp" id="RT0-ml-44i"/>
+                        <segue destination="wN1-Mp-ASB" kind="presentation" identifier="goToMain" id="9DX-ZZ-2zW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oIa-Vw-QAN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1858.4000000000001" y="1592.6536731634185"/>
+        </scene>
+        <!--Main-->
+        <scene sceneID="3st-m3-luF">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Main" id="wN1-Mp-ASB" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Cjf-ab-zQE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1214" y="1592"/>
         </scene>
     </scenes>
     <resources>

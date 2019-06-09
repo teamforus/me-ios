@@ -102,6 +102,11 @@ class MQRViewController: HSScanViewController {
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.setStatusBarStyle(.lightContent)
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
        
         if let paymentVC = segue.destination as? MPaymentViewController {

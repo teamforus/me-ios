@@ -20,6 +20,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
+        application.applicationIconBadgeNumber = 0
+        
         #if DEBUG
         #else
         Fabric.with([Crashlytics.self])
@@ -84,7 +86,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
         if url.absoluteString.contains("meapp://identity-confirmation"){
             
-            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "authorizeTokenSignUp"), object: self, userInfo: ["authToken" : url.absoluteString.replacingOccurrences(of: "meapp://identity-confirmation?token=", with: "")])
+            NotificationCenter.default.post(name: NotificationName.AuthorizeTokenSignUp, object: self, userInfo: ["authToken" : url.absoluteString.replacingOccurrences(of: "meapp://identity-confirmation?token=", with: "")])
             
         }else if url.absoluteString.contains("meapp://identity-restore"){
             

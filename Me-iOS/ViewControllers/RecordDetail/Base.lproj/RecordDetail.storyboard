@@ -43,13 +43,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Jx-hd-zPA">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0Jx-hd-zPA">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
-                                    <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X5u-H2-PWb">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                    <view opaque="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="X5u-H2-PWb">
+                                        <rect key="frame" x="0.0" y="-3" width="375" height="667"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="owV-nu-EIT">
+                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="owV-nu-EIT">
                                                 <rect key="frame" x="31" y="600" width="314" height="24"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="314" id="0JH-n6-K2S"/>
@@ -214,8 +214,8 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="X5u-H2-PWb" secondAttribute="trailing" id="Ap3-L3-LLn"/>
-                                    <constraint firstItem="X5u-H2-PWb" firstAttribute="top" secondItem="0Jx-hd-zPA" secondAttribute="top" id="Jrw-aH-xrd"/>
-                                    <constraint firstAttribute="bottom" secondItem="X5u-H2-PWb" secondAttribute="bottom" id="kPF-Wd-GbT"/>
+                                    <constraint firstItem="X5u-H2-PWb" firstAttribute="top" secondItem="0Jx-hd-zPA" secondAttribute="top" constant="-3" id="Jrw-aH-xrd"/>
+                                    <constraint firstAttribute="bottom" secondItem="X5u-H2-PWb" secondAttribute="bottom" constant="3" id="kPF-Wd-GbT"/>
                                     <constraint firstItem="X5u-H2-PWb" firstAttribute="leading" secondItem="0Jx-hd-zPA" secondAttribute="leading" id="zcw-6W-MCB"/>
                                 </constraints>
                             </scrollView>
@@ -239,6 +239,7 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="667"/>
                     <connections>
+                        <outlet property="borderView" destination="QIh-w6-1ts" id="Twf-9t-xUK"/>
                         <outlet property="recordTypeLabel" destination="fAd-C3-1pq" id="zhi-jW-U2v"/>
                         <outlet property="recordValue" destination="GD3-0S-rSM" id="ixe-J0-86v"/>
                         <outlet property="tableView" destination="K6L-y0-eG7" id="YZb-gI-ZWj"/>

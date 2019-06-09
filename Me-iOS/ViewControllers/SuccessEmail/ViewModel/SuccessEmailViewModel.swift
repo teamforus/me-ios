@@ -27,4 +27,13 @@ class SuccessEmailViewModel {
             
         }
     }
+    
+    func initSignUp(token: String) {
+        
+        commonService.getWithoutToken(request: "identity/proxy/confirmation/exchange/" + token, complete: { (response: AuthorizationQRToken, statusCode) in
+            self.complete?(response.access_token ?? "")
+        }) { (error) in
+            
+        }
+    }
 }

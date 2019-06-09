@@ -36,7 +36,7 @@ class SkeletonView: UILabel {
             gradientBackgroundColor
         ]
         
-        self.layer.cornerRadius = 12.0
+//        self.layer.cornerRadius = 12.0
         self.layer.masksToBounds = true
         gradientLayer.locations = self.startLocations
         self.layer.addSublayer(gradientLayer)

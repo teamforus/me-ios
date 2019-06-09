@@ -8,7 +8,7 @@
 
 import Foundation
 import UIKit
-
+import LocalAuthentication
 
 extension UIViewController{
     
@@ -141,7 +141,7 @@ extension UIViewController{
         });
     }
     
-   @IBAction func removeAnimate()
+    @IBAction func removeAnimate()
     {
         UIView.animate(withDuration: 0.25, animations: {
             self.view.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
@@ -166,6 +166,10 @@ extension UIViewController{
     }
     
     @IBAction func logout(_ sender: UIButton) {
+        UserDefaults.standard.setValue(false, forKey: UserDefaultsName.AddressIndentityCrash)
+        UserDefaults.standard.setValue(false, forKey: UserDefaultsName.UseTouchID)
+        UserDefaults.standard.setValue(false, forKey: UserDefaultsName.StartFromScanner)
+        UserDefaults.standard.set("", forKey: ALConstants.kPincode)
         UserDefaults.standard.setValue(false, forKey: UserDefaultsName.UserIsLoged)
         let storyboard:UIStoryboard = UIStoryboard(name: "First", bundle: nil)
         let navigationController:HiddenNavBarNavigationController = storyboard.instantiateInitialViewController() as! HiddenNavBarNavigationController
@@ -210,6 +214,14 @@ extension UIViewController{
         vc.view.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height)
         self.view.addSubview(vc.view)
         
+    }
+    
+    func faceIDAvailable() -> Bool {
+        if #available(iOS 11.0, *) {
+            let context = LAContext()
+            return (context.canEvaluatePolicy(LAPolicy.deviceOwnerAuthentication, error: nil) && context.biometryType == .faceID)
+        }
+        return false
     }
     
 }
