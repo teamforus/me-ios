@@ -53,20 +53,27 @@ class ConfirmPaymentPopUp: UIViewController {
     
     @IBAction func confirm(_ sender: Any) {
         
-        let payTransaction = PayTransaction(organization_id: organizationId ?? 0, amount: amount ?? "", note: note ?? "")
-        
-        commonService.create(request: "platform/vouchers/"+voucher.address!+"/transactions", data: payTransaction) { (response: ResponseData<Transaction>, statusCode) in
+        if isReachable() {
             
-            if statusCode == 201 {
+            let payTransaction = PayTransaction(organization_id: organizationId ?? 0, amount: amount ?? "", note: note ?? "")
+            
+            commonService.create(request: "platform/vouchers/"+voucher.address!+"/transactions", data: payTransaction) { (response: ResponseData<Transaction>, statusCode) in
                 
-                self.showSimpleAlertWithSingleAction(title: "Success".localized(), message: "Payment succeeded".localized(), okAction: UIAlertAction(title: "OK", style: .default, handler: { (action) in
+                if statusCode == 201 {
                     
-                    self.tabBar.selectedIndex = 0
-                    self.presentingViewController?.presentingViewController?.dismiss(animated: true)
-                }))
-            }else {
-                self.showSimpleAlert(title: "Warning".localized(), message: "Voucher not have enough funds".localized())
+                    self.showSimpleAlertWithSingleAction(title: "Success".localized(), message: "Payment succeeded".localized(), okAction: UIAlertAction(title: "OK", style: .default, handler: { (action) in
+                        
+                        self.tabBar.selectedIndex = 0
+                        self.presentingViewController?.presentingViewController?.dismiss(animated: true)
+                    }))
+                }else {
+                    self.showSimpleAlert(title: "Warning".localized(), message: "Voucher not have enough funds".localized())
+                }
             }
+        }else {
+            
+            showInternetUnable()
+            
         }
     }
     

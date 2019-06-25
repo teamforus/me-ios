@@ -90,7 +90,15 @@ class MProductVoucherViewController: UIViewController {
             
         }
         
-        productViewModel.initFetchById(address: address)
+        if isReachable() {
+            
+            productViewModel.initFetchById(address: address)
+            
+        }else {
+            
+            showInternetUnable()
+            
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -160,7 +168,7 @@ extension MProductVoucherViewController {
                                   }),
                                   cancelAction: UIAlertAction(title: "Cancel".localized(), style: .default, handler: nil))
         
-      
+        
         
     }
     

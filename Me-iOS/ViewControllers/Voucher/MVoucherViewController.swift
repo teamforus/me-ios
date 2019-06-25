@@ -71,7 +71,16 @@ class MVoucherViewController: UIViewController {
             }
         }
         
-        voucherViewModel.initFetchById(address: address)
+        
+        if isReachable() {
+            
+            voucherViewModel.initFetchById(address: address)
+            
+        }else {
+            
+            showInternetUnable()
+            
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -95,13 +104,13 @@ class MVoucherViewController: UIViewController {
         }
         
         showSimpleAlertWithAction(title: "E-mail to me".localized(),
-                                        message: "Send the voucher to your email?".localized(),
-                                        okAction: UIAlertAction(title: "Confirm".localized(), style: .default, handler: { (action) in
-                                            
-                                            self.voucherViewModel.sendEmail(address: self.voucher.address ?? "")
-                                            
-                                        }),
-                                        cancelAction: UIAlertAction(title: "Cancel".localized(), style: .cancel, handler: nil))
+                                  message: "Send the voucher to your email?".localized(),
+                                  okAction: UIAlertAction(title: "Confirm".localized(), style: .default, handler: { (action) in
+                                    
+                                    self.voucherViewModel.sendEmail(address: self.voucher.address ?? "")
+                                    
+                                  }),
+                                  cancelAction: UIAlertAction(title: "Cancel".localized(), style: .cancel, handler: nil))
         
     }
     

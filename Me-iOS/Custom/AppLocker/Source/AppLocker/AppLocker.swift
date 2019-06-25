@@ -248,7 +248,7 @@ public class AppLocker: UIViewController {
         case ALConstants.button.cancel.rawValue:
             clearView()
             if isCancelButton == false{
-                logOutProfile()
+                self.logout(sender)
             }else{
             self.dismiss(animated: true)
                 delegate.closePinCodeView(typeClose: .cancel)
@@ -258,18 +258,6 @@ public class AppLocker: UIViewController {
         }
     }
     
-    func logOutProfile(){
-//        UserDefaults.standard.set("", forKey: ALConstants.kPincode)
-//            let storyboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-//            let navigationController:HiddenNavBarNavigationController = storyboard.instantiateInitialViewController() as! HiddenNavBarNavigationController
-//            let firstPageVC:UIViewController = storyboard.instantiateViewController(withIdentifier: "firstPage") as UIViewController
-//            navigationController.viewControllers = [firstPageVC]
-//        var vc = UIApplication.shared.keyWindow?.rootViewController
-//        while ((vc?.presentedViewController) != nil) {
-//            vc = vc?.presentedViewController
-//        }
-//            vc?.present(navigationController, animated: true, completion: nil)
-        }
 }
 
 // MARK: - CAAnimationDelegate

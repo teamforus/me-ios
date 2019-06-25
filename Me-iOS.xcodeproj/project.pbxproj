@@ -126,6 +126,7 @@
 		65A8B73E2282ED1D00B7DF05 /* MProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A8B73D2282ED1D00B7DF05 /* MProfileViewController.swift */; };
 		65A8B7432282EDDD00B7DF05 /* MEmailLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A8B7422282EDDD00B7DF05 /* MEmailLoginViewController.swift */; };
 		65A8B7472282EE7B00B7DF05 /* MSuccessEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A8B7462282EE7B00B7DF05 /* MSuccessEmailViewController.swift */; };
+		65B3784D22C241F50095A2EF /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B3784C22C241F50095A2EF /* Reachability.swift */; };
 		65B4DE3E22A15F5C00AFC878 /* SuccessEmailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B4DE3D22A15F5C00AFC878 /* SuccessEmailViewModel.swift */; };
 		65B4DE4122A1682400AFC878 /* EmailLoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B4DE4022A1682400AFC878 /* EmailLoginViewModel.swift */; };
 		65B4DE4622A17F8600AFC878 /* Extension+Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B4DE4522A17F8600AFC878 /* Extension+Data.swift */; };
@@ -343,6 +344,7 @@
 		65A8B73D2282ED1D00B7DF05 /* MProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MProfileViewController.swift; sourceTree = "<group>"; };
 		65A8B7422282EDDD00B7DF05 /* MEmailLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MEmailLoginViewController.swift; sourceTree = "<group>"; };
 		65A8B7462282EE7B00B7DF05 /* MSuccessEmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSuccessEmailViewController.swift; sourceTree = "<group>"; };
+		65B3784C22C241F50095A2EF /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		65B4DE3D22A15F5C00AFC878 /* SuccessEmailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessEmailViewModel.swift; sourceTree = "<group>"; };
 		65B4DE4022A1682400AFC878 /* EmailLoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EmailLoginViewModel.swift; path = ../EmailLoginViewModel.swift; sourceTree = "<group>"; };
 		65B4DE4322A17E7800AFC878 /* Me.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Me.entitlements; sourceTree = "<group>"; };
@@ -608,6 +610,7 @@
 				65139C5D228029EF003E0CDE /* StatusView.swift */,
 				65BDB8642292D5160016296C /* DownloadImage.swift */,
 				65139C5A228029EF003E0CDE /* SwitchCustom.swift */,
+				65B3784C22C241F50095A2EF /* Reachability.swift */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -1572,6 +1575,7 @@
 				65911B46228D7DBC00EA30D6 /* VoucherTableViewCell.swift in Sources */,
 				65139C54228029C0003E0CDE /* UI.swift in Sources */,
 				65FE8E02229FF16A00BB1596 /* RecordValidation.swift in Sources */,
+				65B3784D22C241F50095A2EF /* Reachability.swift in Sources */,
 				65B4DE4122A1682400AFC878 /* EmailLoginViewModel.swift in Sources */,
 				654F979F229BE71F009C9FFA /* Record.swift in Sources */,
 				654F97AE229C03D0009C9FFA /* RecordDetailViewModel.swift in Sources */,

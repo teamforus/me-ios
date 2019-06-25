@@ -52,7 +52,15 @@ class MRecordValidatorsViewController: UIViewController {
             
         }
         
-        recordValidatorViewModel.initFecth()
+        if isReachable() {
+            
+            recordValidatorViewModel.initFecth()
+            
+        }else {
+            
+            showInternetUnable()
+            
+        }
         
     }
     
@@ -81,7 +89,15 @@ extension MRecordValidatorsViewController: UITableViewDataSource, UITableViewDel
         self.recordValidatorViewModel.userPressed(at: indexPath)
         let validator = self.recordValidatorViewModel.selectedValidator
         
-        self.recordValidatorViewModel.initValidateRecord(validatorId: validator?.id ?? 0, recordId: record.id ?? 0)
+        if isReachable() {
+            
+            self.recordValidatorViewModel.initValidateRecord(validatorId: validator?.id ?? 0, recordId: record.id ?? 0)
+            
+        }else {
+            
+            showInternetUnable()
+            
+        }
         
     }
 }

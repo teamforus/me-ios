@@ -53,18 +53,28 @@ class MRecordsViewController: UIViewController {
         
         self.setStatusBarStyle(.default)
         self.tabBarController?.set(visible: true, animated: true)
-        recordViewModel.initFitch()
+        
+        
+        if isReachable() {
+            
+            recordViewModel.initFitch()
+            
+        }else {
+            
+            showInternetUnable()
+            
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "goToRecordDetail" {
-        
-        let record = recordViewModel.selectedRecord
-        let generalVC = didSetPullUP(storyBoardName: "RecordDetail", segue: segue)
-        (generalVC.contentViewController as! MRecordDetailViewController).recordId =  String(record?.id ?? 0)
-        (generalVC.bottomViewController as! CommonBottomViewController).qrType = .Record
-        (generalVC.bottomViewController as! CommonBottomViewController).idRecord = record?.id ?? 0
+            
+            let record = recordViewModel.selectedRecord
+            let generalVC = didSetPullUP(storyBoardName: "RecordDetail", segue: segue)
+            (generalVC.contentViewController as! MRecordDetailViewController).recordId =  String(record?.id ?? 0)
+            (generalVC.bottomViewController as! CommonBottomViewController).qrType = .Record
+            (generalVC.bottomViewController as! CommonBottomViewController).idRecord = record?.id ?? 0
             
         }
         

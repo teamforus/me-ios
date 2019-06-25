@@ -28,7 +28,15 @@ class MChooseTypeRecordViewController: UIViewController {
             }
         }
         
-        chooseTypeRecordVM.initFetch()
+        if isReachable() {
+            
+            chooseTypeRecordVM.initFetch()
+            
+        }else {
+            
+            showInternetUnable()
+            
+        }
         
     }
 }

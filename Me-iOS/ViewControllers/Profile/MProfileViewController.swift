@@ -36,8 +36,10 @@ class MProfileViewController: UIViewController {
         let buildAppNumber: AnyObject? = Bundle.main.infoDictionary?["CFBundleVersion"] as AnyObject
         #if (DEV || ALPHA || DEMO)
         self.appVersionLabel.text = (versionApp as? String)! + " (" + (buildAppNumber as? String)! + ")"
+        crashButton.isHidden = false
         #else
         self.appVersionLabel.text = (versionApp as? String)!
+        crashButton.isHidden = true
         #endif
         
         
@@ -51,8 +53,16 @@ class MProfileViewController: UIViewController {
             
         }
         
-        profileViewModel.initProfile()
-
+        if isReachable() {
+            
+            profileViewModel.initProfile()
+            
+        }else {
+            
+            showInternetUnable()
+            
+        }
+        
         if UserDefaults.standard.bool(forKey: UserDefaultsName.StartFromScanner) {
             
             startScannerSwitch.isOn = true

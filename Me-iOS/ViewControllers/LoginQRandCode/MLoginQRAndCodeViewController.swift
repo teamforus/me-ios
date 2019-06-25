@@ -53,9 +53,17 @@ class MLoginQRAndCodeViewController: UIViewController {
             
         }
         
-        loginQrViewModel.initFetchPinCode()
+        if isReachable() {
+            
+            loginQrViewModel.initFetchPinCode()
+            
+        }else {
+            
+            showInternetUnable()
+            
+        }
         
-         NotificationCenter.default.addObserver(self, selector: #selector(logIn), name: NotificationName.LoginQR, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(logIn), name: NotificationName.LoginQR, object: nil)
         
     }
     

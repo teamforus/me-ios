@@ -42,11 +42,17 @@ class MRegisterViewController: UIViewController {
         
         if validation(fields: [primaryEmailField, confirmEmailField, firstNameField, lastNameField],
                       texts: [primaryEmailField.text!, confirmEmailField.text!, firstNameField.text!, lastNameField.text!]) {
-            
+            if isReachable() {
+                
             registerViewModel.initRegister(identity: Identity(pin_code: "1111",
                                                               records: RecordsIndenty(primary_email: primaryEmailField.text!,
                                                                                       family_name: lastNameField.text!,
                                                                                       given_name: firstNameField.text!)))
+            }else {
+                
+                showInternetUnable()
+                
+            }
             
         }
     }

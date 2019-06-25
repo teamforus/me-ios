@@ -14,7 +14,7 @@ class MTextRecordViewController: UIViewController {
     @IBOutlet weak var selectedCategory: ShadowButton!
     @IBOutlet weak var selectedType: ShadowButton!
     @IBOutlet weak var clearUIButton: UIButton!
-
+    
     
     var recordType: RecordType!
     lazy var textRecordViewModel: TextRecordViewModel = {
@@ -27,8 +27,8 @@ class MTextRecordViewController: UIViewController {
         IQKeyboardManager.shared.enable = true
         IQKeyboardManager.shared.shouldShowToolbarPlaceholder = false
         
-         NotificationCenter.default.addObserver(self, selector: #selector(setSelectedCategoryType), name: NotificationName.SelectedCategoryType, object: nil)
-
+        NotificationCenter.default.addObserver(self, selector: #selector(setSelectedCategoryType), name: NotificationName.SelectedCategoryType, object: nil)
+        
         textRecordViewModel.complete = { [weak self] (statusCode) in
             DispatchQueue.main.async {
                 
@@ -37,8 +37,8 @@ class MTextRecordViewController: UIViewController {
                     self?.showSimpleAlert(title: "Warning", message: "Something goes wrong please try again!")
                     
                 }else {
-                
-                NotificationCenter.default.post(name: NotificationName.ClosePageControll, object: nil)
+                    
+                    NotificationCenter.default.post(name: NotificationName.ClosePageControll, object: nil)
                     
                 }
             }
@@ -68,21 +68,26 @@ class MTextRecordViewController: UIViewController {
     
     @IBAction func createRecord(_ sender: UIButton) {
         
-        if textUITextView.text != "" {
-        
-        textRecordViewModel.initCreateRecord(type: recordType.key ?? "", value: textUITextView.text)
+        if isReachable() {
+            
+            if textUITextView.text != "" {
+                
+                textRecordViewModel.initCreateRecord(type: recordType.key ?? "", value: textUITextView.text)
+                
+            }else {
+                showSimpleAlert(title: "Warning", message: "Please fill textarea.")
+            }
             
         }else {
-            showSimpleAlert(title: "Warning", message: "Please fill textarea.")
+            
+            showInternetUnable()
+            
         }
         
     }
     
-    @IBAction func dismissKeyboard(_ sender: Any) {
-        self.view.endEditing(true)
-    }
     
-
+    
 }
 
 extension MTextRecordViewController: UITextViewDelegate{

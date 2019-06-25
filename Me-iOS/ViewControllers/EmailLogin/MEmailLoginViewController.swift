@@ -8,6 +8,7 @@
 
 import UIKit
 import SkyFloatingLabelTextField
+import IQKeyboardManagerSwift
 
 class MEmailLoginViewController: UIViewController {
     @IBOutlet weak var emailField: SkyFloatingLabelTextField!
@@ -20,14 +21,17 @@ class MEmailLoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        IQKeyboardManager.shared.enable = true
+        IQKeyboardManager.shared.enableAutoToolbar = true
+        
         emailLoginViewModel.complete = { [weak self] (statusCode) in
             
             DispatchQueue.main.async {
                 
                 if statusCode == 200 {
                     
-                self?.performSegue(withIdentifier: "goToSuccessMail", sender: self)
+                    self?.performSegue(withIdentifier: "goToSuccessMail", sender: self)
                     
                 }else {
                     
@@ -41,25 +45,32 @@ class MEmailLoginViewController: UIViewController {
     
     @IBAction func validateEmailField(textField:SkyFloatingLabelTextField) {
         
-            if validateEmail(emailField.text!){
-                
-                validationIcon.isHidden = false
-                confirmButton.backgroundColor = #colorLiteral(red: 0.7647058824, green: 0.7647058824, blue: 0.7647058824, alpha: 1)
-                confirmButton.isEnabled = false
-                
-            }else{
-                
-                validationIcon.isHidden = true
-                confirmButton.backgroundColor = #colorLiteral(red: 0.2078431373, green: 0.3921568627, blue: 0.9764705882, alpha: 1)
-                confirmButton.isEnabled = true
-            }
+        if validateEmail(emailField.text!){
+            
+            validationIcon.isHidden = false
+            confirmButton.backgroundColor = #colorLiteral(red: 0.2078431373, green: 0.3921568627, blue: 0.9764705882, alpha: 1)
+            confirmButton.isEnabled = true
+            
+        }else{
+            
+            validationIcon.isHidden = true
+            confirmButton.backgroundColor = #colorLiteral(red: 0.7647058824, green: 0.7647058824, blue: 0.7647058824, alpha: 1)
+            confirmButton.isEnabled = false
+        }
     }
     
-
+    
     @IBAction func confirm(_ sender: Any) {
-        
-        emailLoginViewModel.initLoginByEmail(email: emailField.text ?? "")
+        if isReachable() {
+            
+            emailLoginViewModel.initLoginByEmail(email: emailField.text ?? "")
+            
+        }else {
+            
+            showInternetUnable()
+            
+        }
     }
     
-
+    
 }

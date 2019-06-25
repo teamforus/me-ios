@@ -54,12 +54,7 @@ class MPaymentViewController: UIViewController {
         }
     }
     
-    
-    @IBAction func dismissKeyboard(_ sender: Any) {
-        
-        self.view.endEditing(true)
-        
-    }
+  
     
     
 }
@@ -96,6 +91,7 @@ extension MPaymentViewController {
     }
     
     @IBAction func showOrganizations(_ sender: UIButton) {
+        
         let popOverVC = AllowedOrganizationsViewController(nibName: "AllowedOrganizationsViewController", bundle: nil)
         popOverVC.allowedOrganizations = self.voucher.allowed_organizations
         popOverVC.delegate = self

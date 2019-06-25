@@ -20,7 +20,7 @@ class MRecordDetailViewController: UIViewController {
         return RecordDetailViewModel()
     }()
     
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -47,7 +47,16 @@ class MRecordDetailViewController: UIViewController {
             }
         }
         
-        recordDetailViewModel.initFetchById(id: recordId)
+        
+        if isReachable() {
+            
+            recordDetailViewModel.initFetchById(id: recordId)
+            
+        }else {
+            
+            showInternetUnable()
+            
+        }
         
         recordDetailViewModel.completeDelete = { [weak self] (statusCode) in
             
@@ -78,7 +87,7 @@ class MRecordDetailViewController: UIViewController {
             recordValidatorVC.record = self.record
         }
     }
-
+    
 }
 
 extension MRecordDetailViewController: UITableViewDataSource, UITableViewDelegate {

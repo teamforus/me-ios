@@ -94,7 +94,7 @@ class MQRViewController: HSScanViewController {
                     self?.showSimpleAlert(title: "Error!".localized(), message: "You can't scan this voucher. You are not accepted as a provider for the fund that hands out these vouchers.".localized())
                 }
                 
-                 self?.scanWorker.start()
+                self?.scanWorker.start()
                 
             }
             
@@ -108,7 +108,7 @@ class MQRViewController: HSScanViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-       
+        
         if let paymentVC = segue.destination as? MPaymentViewController {
             
             paymentVC.voucher = voucher
@@ -123,48 +123,51 @@ class MQRViewController: HSScanViewController {
 extension MQRViewController: HSScanViewControllerDelegate{
     
     func scanFinished(scanResult: ScanResult, error: String?) {
-        
-        if let data = scanResult.scanResultString?.data(using: .utf8) {
-            let jsonDecoder = JSONDecoder()
-            do {
-                
-                let qr = try jsonDecoder.decode(QRText.self, from: data)
-                
-                if qr.type != nil
-                {
-                    if qr.type == QRTypeScann.authToken.rawValue {
-                        self.scanWorker.stop()
-                        self.showSimpleAlertWithAction(title: "Login QR",
-                                                       message: "You sure you wan't to login this device?".localized(),
-                                                       okAction: UIAlertAction(title: "YES", style: .default, handler: { (action) in
-                                                        
-                                                        self.qrViewModel.initAuthorizeToken(token: qr.value)
-                                                        
-                                                       }),
-                                                       cancelAction: UIAlertAction(title: "NO", style: .cancel, handler: { (action) in
-                                                        
-                                                        self.scanWorker.start()
-                                                       }))
-                        
-                        
-                    } else if qr.type == QRTypeScann.voucher.rawValue {
-                        
-                        self.scanWorker.stop()
-                        
-                        self.qrViewModel.initVoucherAddress(address: qr.value)
-                        
-                        
-                    } else if qr.type == QRTypeScann.record.rawValue {
-                        
-                        self.scanWorker.stop()
-                        
-                        self.qrViewModel.initValidationRecord(code: qr.value)
-                        
+        if isReachable() {
+            if let data = scanResult.scanResultString?.data(using: .utf8) {
+                let jsonDecoder = JSONDecoder()
+                do {
+                    
+                    let qr = try jsonDecoder.decode(QRText.self, from: data)
+                    
+                    if qr.type != nil
+                    {
+                        if qr.type == QRTypeScann.authToken.rawValue {
+                            self.scanWorker.stop()
+                            self.showSimpleAlertWithAction(title: "Login QR",
+                                                           message: "You sure you wan't to login this device?".localized(),
+                                                           okAction: UIAlertAction(title: "YES", style: .default, handler: { (action) in
+                                                            
+                                                            self.qrViewModel.initAuthorizeToken(token: qr.value)
+                                                            
+                                                           }),
+                                                           cancelAction: UIAlertAction(title: "NO", style: .cancel, handler: { (action) in
+                                                            
+                                                            self.scanWorker.start()
+                                                           }))
+                            
+                            
+                        } else if qr.type == QRTypeScann.voucher.rawValue {
+                            
+                            self.scanWorker.stop()
+                            
+                            self.qrViewModel.initVoucherAddress(address: qr.value)
+                            
+                            
+                        } else if qr.type == QRTypeScann.record.rawValue {
+                            
+                            self.scanWorker.stop()
+                            
+                            self.qrViewModel.initValidationRecord(code: qr.value)
+                            
+                        }
                     }
+                } catch {
+                    showSimpleToast(message: "Unknown QR-code!")
                 }
-            } catch {
-                showSimpleToast(message: "Unknown QR-code!")
             }
+        }else {
+            showInternetUnable()
         }
         
         

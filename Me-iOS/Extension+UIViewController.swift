@@ -112,6 +112,15 @@ extension UIViewController{
         
     }
     
+    func showInternetUnable(){
+        let alert: UIAlertController
+        alert = UIAlertController(title: "Warning".localized(), message: "No Internet Conecction".localized(), preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
+        }))
+        
+        self.present(alert, animated: true)
+    }
+    
     func showSimpleAlertWithSingleAction(title:String, message: String, okAction: UIAlertAction) {
         
         let allertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
@@ -222,6 +231,23 @@ extension UIViewController{
             return (context.canEvaluatePolicy(LAPolicy.deviceOwnerAuthentication, error: nil) && context.biometryType == .faceID)
         }
         return false
+    }
+    
+    @IBAction func dismissKeyboard(_ sender: Any) {
+        self.view.endEditing(true)
+    }
+    
+    func isReachable() -> Bool {
+        let reachablity = try! Reachability()
+        if reachablity.connection == .unavailable{
+            
+            return false
+            
+         }else {
+            
+            return true
+            
+        }
     }
     
 }
