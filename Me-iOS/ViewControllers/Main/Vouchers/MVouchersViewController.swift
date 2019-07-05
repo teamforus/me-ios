@@ -8,9 +8,12 @@
 
 import UIKit
 import ISHPullUp
+import KVSpinnerView
 
 class MVouchersViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
+    private let refreshControl = UIRefreshControl()
+    var isFromLogin: Bool!
     
     lazy var voucherViewModel: VouchersViewModel = {
         return VouchersViewModel()
@@ -19,8 +22,19 @@ class MVouchersViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        registerForPreviewing(with: self, sourceView: tableView)
         
+        if #available(iOS 10.0, *) {
+            tableView.refreshControl = refreshControl
+        } else {
+            tableView.addSubview(refreshControl)
+        }
         
+        if isFromLogin != nil {
+            self.showPopUPWithAnimation(vc: MCrashConfirmViewController(nibName: "MCrashConfirmViewController", bundle: nil))
+        }
+        
+        refreshControl.addTarget(self, action: #selector(refreshData(_:)), for: .valueChanged)
         
         voucherViewModel.complete = { [weak self] (vouchers) in
             
@@ -33,32 +47,50 @@ class MVouchersViewController: UIViewController {
                     
                     self?.tableView.isHidden = false
                 }
-                
+                KVSpinnerView.dismiss()
+                self?.refreshControl.endRefreshing()
             }
         }
         
-        voucherViewModel.initFetch()
-        
+        initFetch()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
         self.setStatusBarStyle(.default)
         self.tabBarController?.set(visible: true, animated: true)
     }
     
+    func initFetch() {
+        
+        if isReachable() {
+            
+            KVSpinnerView.show()
+            voucherViewModel.vc = self
+            voucherViewModel.initFetch()
+            
+        }else {
+            
+            showInternetUnable()
+        }
+    }
+    
+    @objc func refreshData(_ sender: Any) {
+        initFetch()
+    }
     
     
-     // MARK: - Navigation
+    // MARK: - Navigation
     
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "goToProduct" {
-        
-        let generalVC = didSetPullUP(storyBoardName: "ProductVoucher", segue: segue)
-        (generalVC.contentViewController as! MProductVoucherViewController).address = self.voucherViewModel.selectedVoucher?.address ?? ""
-        (generalVC.bottomViewController as! CommonBottomViewController).voucher = self.voucherViewModel.selectedVoucher
-        (generalVC.bottomViewController as! CommonBottomViewController).qrType = .Voucher
+            
+            let generalVC = didSetPullUP(storyBoardName: "ProductVoucher", segue: segue)
+            (generalVC.contentViewController as! MProductVoucherViewController).address = self.voucherViewModel.selectedVoucher?.address ?? ""
+            (generalVC.bottomViewController as! CommonBottomViewController).voucher = self.voucherViewModel.selectedVoucher
+            (generalVC.bottomViewController as! CommonBottomViewController).qrType = .Voucher
             
         }else if segue.identifier == "goToVoucher" {
             
@@ -68,9 +100,34 @@ class MVouchersViewController: UIViewController {
             (generalVC.bottomViewController as! CommonBottomViewController).qrType = .Voucher
             
         }
-     }
+    }
     
- 
+    func didSetPullUPWithoutSegue(storyBoardName: String, isProduct: Bool) -> CommonPullUpViewController {
+        
+        let storyBoard = UIStoryboard(name: storyBoardName , bundle: nil)
+        let passVC = storyBoard.instantiateViewController(withIdentifier: "general") as! CommonPullUpViewController
+        
+        passVC.contentViewController = storyBoard.instantiateViewController(withIdentifier: "content")
+        
+        passVC.bottomViewController = storyBoard.instantiateViewController(withIdentifier: "bottom")
+        
+        (passVC.bottomViewController as! CommonBottomViewController).pullUpController = passVC
+        passVC.sizingDelegate = (passVC.bottomViewController as! CommonBottomViewController)
+        
+        if isProduct {
+            
+            (passVC.contentViewController as! MProductVoucherViewController).address = self.voucherViewModel.selectedVoucher?.address ?? ""
+        }else {
+            
+            (passVC.contentViewController as! MVoucherViewController).address = self.voucherViewModel.selectedVoucher?.address ?? ""
+            
+        }
+        passVC.stateDelegate = (passVC.bottomViewController as! CommonBottomViewController)
+        (passVC.bottomViewController as! CommonBottomViewController).voucher = self.voucherViewModel.selectedVoucher
+        (passVC.bottomViewController as! CommonBottomViewController).qrType = .Voucher
+        
+        return passVC
+    }
     
 }
 
@@ -110,6 +167,42 @@ extension MVouchersViewController: UITableViewDelegate, UITableViewDataSource{
     }
 }
 
+extension MVouchersViewController: UIViewControllerPreviewingDelegate{
+    
+    private func createDetailViewControllerIndexPath(vc: UIViewController, indexPath: IndexPath) -> UIViewController {
+        
+        let detailViewController = vc
+        
+        return detailViewController
+    }
+    
+    public func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
+        
+        guard let indexPath = tableView.indexPathForRow(at: location) else {
+            return nil
+        }
+        
+        self.voucherViewModel.userPressed(at: indexPath)
+        var detailViewController = UIViewController()
+        if voucherViewModel.selectedVoucher?.product != nil {
+            detailViewController = createDetailViewControllerIndexPath(vc: didSetPullUPWithoutSegue(storyBoardName: "ProductVoucher", isProduct: true),
+                                                                       indexPath: indexPath)
+        }else {
+            detailViewController = createDetailViewControllerIndexPath(vc: didSetPullUPWithoutSegue(storyBoardName: "Voucher", isProduct: false),
+                                                                       indexPath: indexPath)
+        }
+        
+        
+        
+        return detailViewController
+    }
+    
+    public func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
+        navigationController?.pushViewController(viewControllerToCommit, animated: true)
+    }
+    
+}
+
 extension UIViewController{
     
     func didSetPullUP(storyBoardName: String, segue: UIStoryboardSegue) -> CommonPullUpViewController {
@@ -127,4 +220,6 @@ extension UIViewController{
         
         return passVC
     }
+    
+    
 }

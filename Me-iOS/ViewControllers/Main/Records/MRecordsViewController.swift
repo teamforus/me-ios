@@ -8,9 +8,14 @@
 
 import UIKit
 import BWWalkthrough
+import KVSpinnerView
 
 class MRecordsViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
+    private let refreshControl = UIRefreshControl()
+    @IBOutlet weak var newRecordButton: ShadowButton!
+    @IBOutlet weak var topConstraint: NSLayoutConstraint!
+    
     
     lazy var recordViewModel: RecordsViewModel = {
         return RecordsViewModel()
@@ -19,14 +24,32 @@ class MRecordsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        #if ALPHA
+        newRecordButton.isHidden = false
+        topConstraint.constant = 207
+        
+        #else
+        topConstraint.constant = 140
+        newRecordButton.isHidden = true
+        #endif
+        
         NotificationCenter.default.addObserver(self, selector: #selector(walkthroughCloseButtonPressed), name: NotificationName.ClosePageControll, object: nil)
+        
+        if #available(iOS 10.0, *) {
+            tableView.refreshControl = refreshControl
+        } else {
+            tableView.addSubview(refreshControl)
+        }
+        
+        refreshControl.addTarget(self, action: #selector(refreshData(_:)), for: .valueChanged)
         
         recordViewModel.complete = { [weak self] (records) in
             
             DispatchQueue.main.async {
                 
                 self?.tableView.reloadData()
-                
+                KVSpinnerView.dismiss()
+                self?.refreshControl.endRefreshing()
             }
         }
     }
@@ -51,12 +74,15 @@ class MRecordsViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        initFetch()
         self.setStatusBarStyle(.default)
         self.tabBarController?.set(visible: true, animated: true)
-        
-        
+    }
+    
+    func initFetch() {
         if isReachable() {
-            
+            KVSpinnerView.show()
+            recordViewModel.vc = self
             recordViewModel.initFitch()
             
         }else {
@@ -64,6 +90,10 @@ class MRecordsViewController: UIViewController {
             showInternetUnable()
             
         }
+    }
+    
+    @objc func refreshData(_ sender: Any) {
+        initFetch()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -116,12 +146,22 @@ extension MRecordsViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
         
+        #if ALPHA
+        
         self.recordViewModel.userPressed(at: indexPath)
         if recordViewModel.isAllowSegue {
             return indexPath
         }else {
             return nil
         }
+        
+        #else
+        
+        return nil
+        
+        #endif
+        
+        
     }
 }
 

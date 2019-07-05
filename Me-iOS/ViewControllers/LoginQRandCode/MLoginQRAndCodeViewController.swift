@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import KVSpinnerView
 
 class MLoginQRAndCodeViewController: UIViewController {
     @IBOutlet var labels: [UILabel]!
@@ -20,20 +21,29 @@ class MLoginQRAndCodeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        loginQrViewModel.complete = { [weak self] (pinCode, token) in
+        loginQrViewModel.complete = { [weak self] (pinCode, token, statusCode) in
             
             DispatchQueue.main.async {
-                let stringCode: String = "\(pinCode)"
-                if stringCode.count == 6{
-                    var counter: Int = 0
-                    self?.labels.forEach({ (label) in
-                        label.text = String(stringCode[counter])
-                        counter += 1
-                    })
-                }
                 
-                self?.token = token
-                self?.timer = Timer.scheduledTimer(timeInterval: 10, target: self!, selector: #selector(self?.didCheckAuthorize), userInfo: nil, repeats: true)
+                if statusCode != 503 {
+                    
+                    KVSpinnerView.dismiss()
+                    let stringCode: String = "\(pinCode)"
+                    if stringCode.count == 6{
+                        var counter: Int = 0
+                        self?.labels.forEach({ (label) in
+                            label.text = String(stringCode[counter])
+                            counter += 1
+                        })
+                    }
+                    
+                    self?.token = token
+                    self?.timer = Timer.scheduledTimer(timeInterval: 10, target: self!, selector: #selector(self?.didCheckAuthorize), userInfo: nil, repeats: true)
+                }else {
+                    
+                    self?.showErrorServer()
+                    
+                }
             }
             
         }
@@ -44,8 +54,10 @@ class MLoginQRAndCodeViewController: UIViewController {
             DispatchQueue.main.async {
                 if message == "active"{
                     self?.timer.invalidate()
-                    UserDefaults.standard.set(self?.token, forKey: "TOKEN")
-                    UserDefaults.standard.set(true, forKey: "isLoged")
+                    UserDefaults.standard.set(self?.token, forKey: UserDefaultsName.Token)
+                    UserDefaults.standard.set(true, forKey: UserDefaultsName.UserIsLoged)
+                    CurrentSession.shared.token = self?.token
+                    self?.addShortcuts(application: UIApplication.shared)
                     UserDefaults.standard.synchronize()
                     self?.performSegue(withIdentifier: "goToMain", sender: self)
                 }
@@ -55,6 +67,7 @@ class MLoginQRAndCodeViewController: UIViewController {
         
         if isReachable() {
             
+            KVSpinnerView.show()
             loginQrViewModel.initFetchPinCode()
             
         }else {
@@ -79,6 +92,15 @@ class MLoginQRAndCodeViewController: UIViewController {
     @IBAction func loginWithQr(_ sender: Any) {
         
         NotificationCenter.default.post(name: NotificationName.TogleStateWindow, object: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToMain" {
+            let barVC = segue.destination as? UITabBarController
+            let nVC = barVC!.viewControllers![0] as? HiddenNavBarNavigationController
+            let vc = nVC?.topViewController as? MVouchersViewController
+            vc?.isFromLogin = true
+        }
     }
     
 }

@@ -105,8 +105,8 @@ class CommonBottomViewController: UIViewController {
             DispatchQueue.main.async {
                 if message == "active"{
                     self?.timer.invalidate()
-                    UserDefaults.standard.set(self?.token, forKey: "TOKEN")
-                    UserDefaults.standard.set(true, forKey: "isLoged")
+                    UserDefaults.standard.set(self?.token, forKey: UserDefaultsName.Token)
+                    UserDefaults.standard.set(true, forKey: UserDefaultsName.UserIsLoged)
                     CurrentSession.shared.token = self?.token
                     UserDefaults.standard.synchronize()
                      NotificationCenter.default.post(name: NotificationName.LoginQR, object: nil)

@@ -30,8 +30,10 @@ class MSuccessEmailViewController: UIViewController {
             
             DispatchQueue.main.async {
                 
-                UserDefaults.standard.set(token, forKey: "TOKEN")
-                UserDefaults.standard.set(true, forKey: "isLoged")
+                UserDefaults.standard.set(token, forKey: UserDefaultsName.Token)
+                UserDefaults.standard.set(true, forKey: UserDefaultsName.UserIsLoged)
+                CurrentSession.shared.token = token
+                self?.addShortcuts(application: UIApplication.shared)
                 UserDefaults.standard.synchronize()
                 self?.performSegue(withIdentifier: "goToMain", sender: self)
                 
@@ -59,6 +61,13 @@ class MSuccessEmailViewController: UIViewController {
     
     @IBAction func cancel(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let barVC = segue.destination as? UITabBarController
+        let nVC = barVC!.viewControllers![0] as? HiddenNavBarNavigationController
+        let vc = nVC?.topViewController as? MVouchersViewController
+        vc?.isFromLogin = true
     }
     
 }

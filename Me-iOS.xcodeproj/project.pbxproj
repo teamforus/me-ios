@@ -58,6 +58,8 @@
 		65139C7722803197003E0CDE /* CommonService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65139C7622803197003E0CDE /* CommonService.swift */; };
 		65139C7922803349003E0CDE /* CurrentSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65139C7822803349003E0CDE /* CurrentSession.swift */; };
 		65139C7B228034DA003E0CDE /* BaseURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65139C7A228034DA003E0CDE /* BaseURL.swift */; };
+		6520B58922C39D0B00B4407C /* MCrashConfirmViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6520B58422C39D0B00B4407C /* MCrashConfirmViewController.xib */; };
+		6520B58A22C39D0B00B4407C /* MCrashConfirmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6520B58622C39D0B00B4407C /* MCrashConfirmViewController.swift */; };
 		652E477B22ABD1F300893540 /* SuccessSendingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652E477A22ABD1F300893540 /* SuccessSendingViewController.swift */; };
 		654ACBA922A92A870052C9C2 /* PayTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654ACBA822A92A870052C9C2 /* PayTransaction.swift */; };
 		654ACBAC22A94D550052C9C2 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654ACBAB22A94D550052C9C2 /* ProfileViewModel.swift */; };
@@ -268,6 +270,10 @@
 		65139C7622803197003E0CDE /* CommonService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonService.swift; sourceTree = "<group>"; };
 		65139C7822803349003E0CDE /* CurrentSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentSession.swift; sourceTree = "<group>"; };
 		65139C7A228034DA003E0CDE /* BaseURL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseURL.swift; sourceTree = "<group>"; };
+		6520B58522C39D0B00B4407C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MCrashConfirmViewController.xib; sourceTree = "<group>"; };
+		6520B58622C39D0B00B4407C /* MCrashConfirmViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCrashConfirmViewController.swift; sourceTree = "<group>"; };
+		6520B58B22C39D1000B4407C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/MCrashConfirmViewController.strings; sourceTree = "<group>"; };
+		6520B58C22C39D1300B4407C /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/MCrashConfirmViewController.strings; sourceTree = "<group>"; };
 		652E477A22ABD1F300893540 /* SuccessSendingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessSendingViewController.swift; sourceTree = "<group>"; };
 		654ACBA822A92A870052C9C2 /* PayTransaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayTransaction.swift; sourceTree = "<group>"; };
 		654ACBAB22A94D550052C9C2 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
@@ -613,6 +619,16 @@
 				65B3784C22C241F50095A2EF /* Reachability.swift */,
 			);
 			path = Custom;
+			sourceTree = "<group>";
+		};
+		6520B58122C39D0B00B4407C /* ConfirmCrashClientAddress */ = {
+			isa = PBXGroup;
+			children = (
+				6520B58622C39D0B00B4407C /* MCrashConfirmViewController.swift */,
+				6520B58422C39D0B00B4407C /* MCrashConfirmViewController.xib */,
+			);
+			name = ConfirmCrashClientAddress;
+			path = "../../../me-ios/MeApp/PopUps/ConfirmCrashClientAddress";
 			sourceTree = "<group>";
 		};
 		654ACBAA22A92F7F0052C9C2 /* New Group */ = {
@@ -1173,6 +1189,7 @@
 		65D11B7D22A6ACE000756BE0 /* PopUp */ = {
 			isa = PBXGroup;
 			children = (
+				6520B58122C39D0B00B4407C /* ConfirmCrashClientAddress */,
 				65D11B7C22A6ACD300756BE0 /* Organization */,
 				65D11B8222A6B13700756BE0 /* ConfirmPayment */,
 				650FF63B22AD2EAB004C3A85 /* SuccessSendingByEmail */,
@@ -1401,6 +1418,7 @@
 				658B487322ABF40100B6236C /* About.storyboard in Resources */,
 				65139C51228029C0003E0CDE /* AppLocker.strings in Resources */,
 				658B488D22ABF9D000B6236C /* Voucher.storyboard in Resources */,
+				6520B58922C39D0B00B4407C /* MCrashConfirmViewController.xib in Resources */,
 				65139C55228029C0003E0CDE /* README.md in Resources */,
 				650FF5DF22AD192C004C3A85 /* ProductVoucher.storyboard in Resources */,
 				65100B08229D9146007892D1 /* Localizable.strings in Resources */,
@@ -1444,6 +1462,7 @@
 				"${BUILT_PRODUCTS_DIR}/BWWalkthrough/BWWalkthrough.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/ISHPullUp/ISHPullUp.framework",
+				"${BUILT_PRODUCTS_DIR}/KVSpinnerView/KVSpinnerView.framework",
 				"${BUILT_PRODUCTS_DIR}/MarqueeLabel/MarqueeLabel.framework",
 				"${BUILT_PRODUCTS_DIR}/SkyFloatingLabelTextField/SkyFloatingLabelTextField.framework",
 				"${BUILT_PRODUCTS_DIR}/UICheckbox.Swift/UICheckbox_Swift.framework",
@@ -1455,6 +1474,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BWWalkthrough.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ISHPullUp.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KVSpinnerView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MarqueeLabel.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SkyFloatingLabelTextField.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UICheckbox_Swift.framework",
@@ -1632,6 +1652,7 @@
 				65A8B7322282EBDC00B7DF05 /* VoucherViewModel.swift in Sources */,
 				652E477B22ABD1F300893540 /* SuccessSendingViewController.swift in Sources */,
 				657DBA512289973C00C67500 /* NotificationName.swift in Sources */,
+				6520B58A22C39D0B00B4407C /* MCrashConfirmViewController.swift in Sources */,
 				65A8B7432282EDDD00B7DF05 /* MEmailLoginViewController.swift in Sources */,
 				65CF407D228C0BBD0006F5DE /* Errors.swift in Sources */,
 				6568461722942E2900097E83 /* Extension+UITabBarController.swift in Sources */,
@@ -1849,6 +1870,16 @@
 				65139C48228029C0003E0CDE /* Base */,
 			);
 			name = AppLocker.xib;
+			sourceTree = "<group>";
+		};
+		6520B58422C39D0B00B4407C /* MCrashConfirmViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6520B58522C39D0B00B4407C /* Base */,
+				6520B58B22C39D1000B4407C /* en */,
+				6520B58C22C39D1300B4407C /* nl */,
+			);
+			name = MCrashConfirmViewController.xib;
 			sourceTree = "<group>";
 		};
 		658B487522ABF40100B6236C /* About.storyboard */ = {
@@ -2215,15 +2246,20 @@
 				CODE_SIGN_ENTITLEMENTS = "Me-iOS/Me-iOS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = FNTR3V85ZM;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_TESTABILITY = NO;
+				GCC_OPTIMIZATION_LEVEL = s;
 				INFOPLIST_FILE = "Me-iOS/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = io.forus.me.alpha;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = ALPHA;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

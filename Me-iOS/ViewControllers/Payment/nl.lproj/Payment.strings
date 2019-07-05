@@ -6,13 +6,13 @@
 "S9m-QT-RjO.placeholder" = "Vul hier het bedrag in.";
 
 /* Class = "UITextField"; placeholder = "Note"; ObjectID = "TCR-Or-O4P"; */
-"TCR-Or-O4P.placeholder" = "Note";
+"TCR-Or-O4P.placeholder" = "Notitie";
 
 /* Class = "UILabel"; text = "Product categories"; ObjectID = "Zrf-29-ozl"; */
 "Zrf-29-ozl.text" = "Product categories";
 
 /* Class = "UILabel"; text = " Redeem Voucher"; ObjectID = "eGE-du-sxe"; */
-"eGE-du-sxe.text" = " Redeem Voucher";
+"eGE-du-sxe.text" = "Betalingsverzoek";
 
 /* Class = "UILabel"; text = "NOT 2 DAGEN GELDIG VALID"; ObjectID = "kgf-iK-RAI"; */
 "kgf-iK-RAI.text" = "NOT 2 DAGEN GELDIG VALID";

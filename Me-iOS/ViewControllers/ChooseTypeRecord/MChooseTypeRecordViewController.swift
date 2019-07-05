@@ -8,6 +8,7 @@
 
 import UIKit
 import BWWalkthrough
+import KVSpinnerView
 
 class MChooseTypeRecordViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
@@ -24,12 +25,15 @@ class MChooseTypeRecordViewController: UIViewController {
         chooseTypeRecordVM.reloadDataTableView = { [weak self] in
             
             DispatchQueue.main.async {
+                
+                KVSpinnerView.dismiss()
                 self?.tableView.reloadData()
             }
         }
         
         if isReachable() {
             
+            KVSpinnerView.show()
             chooseTypeRecordVM.initFetch()
             
         }else {

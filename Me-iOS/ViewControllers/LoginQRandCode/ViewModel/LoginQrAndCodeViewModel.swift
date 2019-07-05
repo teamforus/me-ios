@@ -13,7 +13,7 @@ class LoginQrAndCodeViewModel{
     var commonService: CommonServiceProtocol!
     var statusService: StatusServiceProtocol!
     
-    var complete: ((Int, String)->())?
+    var complete: ((Int, String, Int)->())?
     var completeAuthorize: ((String, Int)->())!
     
     init(commonService: CommonServiceProtocol = CommonService(), statusService: StatusServiceProtocol = StatusService()) {
@@ -25,8 +25,8 @@ class LoginQrAndCodeViewModel{
     func initFetchPinCode(){
         
         self.commonService.post(request: "identity/proxy/code") { ( response: PinCode, statusCode) in
-            self.complete!(Int(response.exchange_token ?? "0")!, response.access_token ?? "")
-            print(response)
+            self.complete!(Int(response.exchange_token ?? "0")!, response.access_token ?? "", statusCode)
+            
         }
         
     }

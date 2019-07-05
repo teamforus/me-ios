@@ -11,6 +11,7 @@ import CoreData
 import UserNotifications
 import Fabric
 import Crashlytics
+import KVSpinnerView
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -20,6 +21,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
+        KVSpinnerView.settings.backgroundRectColor = .white
+        KVSpinnerView.settings.backgroundOpacity = 5.0
+        KVSpinnerView.settings.tintColor = #colorLiteral(red: 0.1918309331, green: 0.3696506619, blue: 0.9919955134, alpha: 1)
         application.applicationIconBadgeNumber = 0
         
         #if DEBUG
@@ -29,11 +33,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         #endif
         
         window?.makeKeyAndVisible()
-        CurrentSession.shared.token = UserDefaults.standard.string(forKey: "TOKEN")
+        CurrentSession.shared.token = UserDefaults.standard.string(forKey: UserDefaultsName.Token)
         
         if UserDefaults.standard.bool(forKey: UserDefaultsName.UserIsLoged){
             
-            
+            self.addShortcuts(application: application)
             if UserDefaults.standard.bool(forKey: UserDefaultsName.AddressIndentityCrash) {
                 
                 commonService.get(request: "identity", complete: { (response: Office, statusCode) in
@@ -64,6 +68,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         didCheckPasscode(vc: self.window!.rootViewController!)
         initPush(application)
         
+        
         return true
     }
     
@@ -82,6 +87,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         self.saveContext()
     }
+    
+    
+    
     
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
         if url.absoluteString.contains("meapp://identity-confirmation"){
@@ -109,6 +117,53 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         })
         return container
     }()
+    
+    
+    // MARK: - ShortCut Items
+    
+    func addShortcuts(application: UIApplication) {
+        let voucherItem = UIMutableApplicationShortcutItem(type: "Vouchers", localizedTitle: "Voucher", localizedSubtitle: "", icon: UIApplicationShortcutIcon(templateImageName: "wallet"), userInfo: nil)
+        
+        let qrItem = UIMutableApplicationShortcutItem(type: "QR", localizedTitle: "QR", localizedSubtitle: "", icon: UIApplicationShortcutIcon(templateImageName: "iconGrey"), userInfo: nil)
+        
+        let recordItem = UIMutableApplicationShortcutItem(type: "Profile", localizedTitle: "Profile".localized(), localizedSubtitle: "", icon: UIApplicationShortcutIcon(templateImageName: "activeBlue"), userInfo: nil)
+        
+        application.shortcutItems = [voucherItem, qrItem, recordItem]
+    }
+    
+    func application(_ application: UIApplication, performActionFor shortcutItem: UIApplicationShortcutItem, completionHandler: @escaping (Bool) -> Void) {
+        
+        let handleShortCutItem = handleShortcutItem(shortCutItem: shortcutItem)
+        
+        completionHandler(handleShortCutItem)
+    }
+    
+    func handleShortcutItem(shortCutItem: UIApplicationShortcutItem) -> Bool {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let initialViewController = storyboard.instantiateViewController(withIdentifier: "tabBar") as! UITabBarController
+        var handle = false
+        
+        guard let shortCutType = shortCutItem.type as String? else { return false }
+        
+        switch shortCutType {
+        case "Vouchers":
+            initialViewController.selectedIndex = 0
+            handle = true
+            break
+        case "QR" :
+            initialViewController.selectedIndex = 1
+            handle = true
+            break
+        case "Profile":
+            initialViewController.selectedIndex = 2
+            handle = true
+            break
+        default:
+            break
+        }
+         self.window?.rootViewController = initialViewController
+        return handle
+    }
     
     // MARK: - Core Data Saving support
     

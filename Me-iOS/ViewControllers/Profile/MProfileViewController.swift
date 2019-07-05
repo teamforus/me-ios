@@ -20,6 +20,8 @@ class MProfileViewController: UIViewController {
     @IBOutlet weak var useFaceIdView: CustomCornerUIView!
     @IBOutlet weak var faceIdVerticalSpacing: NSLayoutConstraint!
     @IBOutlet weak var changePasscodeLabel: UILabel!
+    @IBOutlet weak var useSensorIdLabel: UILabel!
+    @IBOutlet weak var useSensorIdIcon: UIImageView!
     @IBOutlet weak var crashButton: UIButton!
     @IBOutlet weak var startScannerSwitch: UISwitchCustom!
     @IBOutlet weak var userFaceIdSwitch: UISwitchCustom!
@@ -53,15 +55,7 @@ class MProfileViewController: UIViewController {
             
         }
         
-        if isReachable() {
-            
-            profileViewModel.initProfile()
-            
-        }else {
-            
-            showInternetUnable()
-            
-        }
+        
         
         if UserDefaults.standard.bool(forKey: UserDefaultsName.StartFromScanner) {
             
@@ -81,11 +75,32 @@ class MProfileViewController: UIViewController {
             
         }
         
+        if faceIDAvailable() {
+            
+            useSensorIdIcon.image = #imageLiteral(resourceName: "faceId-1")
+            useSensorIdLabel.text = "Turn on Face ID".localized()
+            
+        }else {
+            
+            useSensorIdIcon.image = #imageLiteral(resourceName: "touchId")
+            useSensorIdLabel.text = "Turn on Touch ID".localized()
+        }
+        
     }
     
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        if isReachable() {
+            
+            profileViewModel.initProfile()
+            
+        }else {
+            
+            showInternetUnable()
+            
+        }
         
         if passcodeIsSet() {
             changePasscodeLabel.text = "Change passcode".localized()
@@ -98,6 +113,8 @@ class MProfileViewController: UIViewController {
             self.didUpdateButtonStackView(isHiddeButtons: true, buttonHeightConstant: 130, verticalConstant: 10)
             
         }
+        
+        
         
     }
     

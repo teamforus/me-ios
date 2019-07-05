@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import KVSpinnerView
 
 class MRecordDetailViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
@@ -43,13 +44,14 @@ class MRecordDetailViewController: UIViewController {
                     self?.tableView.isHidden = false
                     
                 }
-                
+                KVSpinnerView.dismiss()
             }
         }
         
         
         if isReachable() {
             
+            KVSpinnerView.show()
             recordDetailViewModel.initFetchById(id: recordId)
             
         }else {
@@ -62,6 +64,7 @@ class MRecordDetailViewController: UIViewController {
             
             DispatchQueue.main.async {
                 
+                KVSpinnerView.dismiss()
                 self?.navigationController?.popViewController(animated: true)
             }
         }
@@ -78,6 +81,7 @@ class MRecordDetailViewController: UIViewController {
     }
     
     @IBAction func deleteRecord(_ sender: UIButton) {
+        KVSpinnerView.show()
         recordDetailViewModel.initDeleteById(id: recordId)
         
     }

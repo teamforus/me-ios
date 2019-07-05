@@ -40,6 +40,7 @@
 "Invalid Email address" = "E-mailadres is ongeldig";
 "This email does not exist" = "Dit e-mail adres bestaat niet";
 "Turn on Touch ID" = "Touch ID aanzetten";
+"Turn on Face ID" = "Face ID aanzetten";
 "Payment succeeded" = "Betaling geslaagd! De verwerking van de betaling kan maximaal 3 werkdagen duren.";
 "Please enter the amount" = "Voer het bedrag in";
 "Insufficient funds on the voucher" = "Onvoldoende budget op de voucher";
@@ -99,3 +100,6 @@
 "Insufficient funds on the voucher. Please, request extra payment of €%.02f" = "Onvoldoende budget op de voucher. Vraag de klant of hij een bedrag van €%.02f wilt bijbetalen.";
 "Are you sure you want to confirm this transaction" = "Weet u zeker dat u deze transactie wil bevestigen?";
 "Welcome to Me, " = "Welkom bij Me, ";
+"Currently maintenance is being done" = "Me - Forus is onbereikbaar voor gepland onderhoud.";
+"Records" = "Eigenschappen";
+"Profile" = "Profiel";

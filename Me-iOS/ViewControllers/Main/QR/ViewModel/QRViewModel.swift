@@ -7,14 +7,16 @@
 //
 
 import Foundation
-
+import UIKit
+import KVSpinnerView
 
 class QRViewModel{
     
     var commonService: CommonServiceProtocol!
-    var authorizeToken: (()->())!
+    var vc: MQRViewController!
+    var authorizeToken: ((Int)->())!
     
-    var validateRecord: ((RecordValidation)->())!
+    var validateRecord: ((RecordValidation, Int)->())!
     var validateApproveRecord: ((Int)->())!
     
     var getVoucher: ((Voucher, Int)->())!
@@ -28,8 +30,10 @@ class QRViewModel{
         let parameters = ["auth_token" : token]
         
         commonService.postWithParameters(request: "identity/proxy/authorize/token", parameters: parameters, complete: { (response: AuthorizationQRToken, statusCode) in
-            self.authorizeToken?()
+            self.authorizeToken?(statusCode)
         }) { (error) in
+            
+            
             
         }
         
@@ -40,8 +44,21 @@ class QRViewModel{
         
         commonService.get(request: "platform/vouchers/"+address+"/provider", complete: { (response: ResponseData<Voucher>, statusCode) in
             
-            self.getVoucher(response.data!, statusCode)
-            
+            if statusCode != 500 {
+                
+                self.getVoucher(response.data!, statusCode)
+                
+            }else {
+                DispatchQueue.main.async {
+                    
+                    KVSpinnerView.dismiss()
+                    self.vc.showSimpleAlertWithSingleAction(title: "Warning".localized(), message: "This voucher is expired.", okAction: UIAlertAction(title: "OK", style: .default, handler: { (action) in
+                        self.vc.scanWorker.start()
+                    }))
+                }
+                
+                
+            }
         }) { (error) in
             
         }
@@ -53,7 +70,7 @@ class QRViewModel{
         
         commonService.get(request: "identity/record-validations/" + code, complete: { (response: RecordValidation, statusCode) in
             
-            self.validateRecord(response)
+            self.validateRecord(response, statusCode)
             
         }) { (error) in
             

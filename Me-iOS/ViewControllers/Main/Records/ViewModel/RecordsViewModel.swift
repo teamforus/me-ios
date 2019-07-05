@@ -7,13 +7,14 @@
 //
 
 import Foundation
-
+import UIKit
 
 class RecordsViewModel{
     
     var commonService: CommonServiceProtocol!
     var selectedRecord: Record?
     var isAllowSegue: Bool = false
+    var vc: UIViewController!
     
     private var cellViewModels: [Record] = [Record]() {
         didSet {
@@ -30,8 +31,17 @@ class RecordsViewModel{
     func initFitch(){
         
         commonService.get(request: "identity/records", complete: { (response: [Record], statusCode) in
+            if statusCode != 503 {
+                
+                self.processFetchedLunche(records: response)
+                
+            }else {
+                
+                self.vc.showErrorServer()
+                
+            }
             
-            self.processFetchedLunche(records: response)
+            
             
         }) { (error) in
             

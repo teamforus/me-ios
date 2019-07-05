@@ -8,6 +8,7 @@
 
 import UIKit
 import IQKeyboardManagerSwift
+import KVSpinnerView
 
 class MTextRecordViewController: UIViewController {
     @IBOutlet weak var textUITextView: UITextView!
@@ -32,6 +33,7 @@ class MTextRecordViewController: UIViewController {
         textRecordViewModel.complete = { [weak self] (statusCode) in
             DispatchQueue.main.async {
                 
+                KVSpinnerView.dismiss()
                 if statusCode == 401 {
                     
                     self?.showSimpleAlert(title: "Warning", message: "Something goes wrong please try again!")
@@ -71,7 +73,7 @@ class MTextRecordViewController: UIViewController {
         if isReachable() {
             
             if textUITextView.text != "" {
-                
+                KVSpinnerView.show()
                 textRecordViewModel.initCreateRecord(type: recordType.key ?? "", value: textUITextView.text)
                 
             }else {

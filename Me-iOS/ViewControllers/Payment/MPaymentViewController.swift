@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import IQKeyboardManagerSwift
 
 class MPaymentViewController: UIViewController {
     @IBOutlet weak var voucherNameLabel: UILabel!
@@ -27,6 +28,9 @@ class MPaymentViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        IQKeyboardManager.shared.enable = true
+        IQKeyboardManager.shared.enableAutoToolbar = true
         
         initView()
         
@@ -110,6 +114,8 @@ extension MPaymentViewController: AllowedOrganizationsViewControllerDelegate {
     func didSelectAllowedOrganization(organization: AllowedOrganization) {
         
         selectedAllowerdOrganization = organization
+        allowedOriganizationLabel.text = organization.name ?? ""
+        organizationIcon.loadImageUsingUrlString(urlString: organization.logo?.sizes?.thumbnail ?? "", placeHolder: #imageLiteral(resourceName: "Resting"))
         
     }
     

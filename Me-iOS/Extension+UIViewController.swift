@@ -121,6 +121,15 @@ extension UIViewController{
         self.present(alert, animated: true)
     }
     
+    func showErrorServer(){
+        let alert: UIAlertController
+        alert = UIAlertController(title: "Warning".localized(), message: "Currently maintenance is being done".localized(), preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
+        }))
+        
+        self.present(alert, animated: true)
+    }
+    
     func showSimpleAlertWithSingleAction(title:String, message: String, okAction: UIAlertAction) {
         
         let allertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
@@ -178,6 +187,8 @@ extension UIViewController{
         UserDefaults.standard.setValue(false, forKey: UserDefaultsName.AddressIndentityCrash)
         UserDefaults.standard.setValue(false, forKey: UserDefaultsName.UseTouchID)
         UserDefaults.standard.setValue(false, forKey: UserDefaultsName.StartFromScanner)
+        UserDefaults.standard.setValue("", forKey: UserDefaultsName.Token)
+        removeShortcutItem(application: UIApplication.shared)
         UserDefaults.standard.set("", forKey: ALConstants.kPincode)
         UserDefaults.standard.setValue(false, forKey: UserDefaultsName.UserIsLoged)
         let storyboard:UIStoryboard = UIStoryboard(name: "First", bundle: nil)
@@ -248,6 +259,20 @@ extension UIViewController{
             return true
             
         }
+    }
+    
+    func addShortcuts(application: UIApplication) {
+        let voucherItem = UIMutableApplicationShortcutItem(type: "Vouchers", localizedTitle: "Voucher", localizedSubtitle: "", icon: UIApplicationShortcutIcon(templateImageName: "wallet"), userInfo: nil)
+        
+        let qrItem = UIMutableApplicationShortcutItem(type: "QR", localizedTitle: "QR", localizedSubtitle: "", icon: UIApplicationShortcutIcon(templateImageName: "iconGrey"), userInfo: nil)
+        
+        let recordItem = UIMutableApplicationShortcutItem(type: "Profile", localizedTitle: "Profile".localized(), localizedSubtitle: "", icon: UIApplicationShortcutIcon(templateImageName: "activeBlue"), userInfo: nil)
+        
+        application.shortcutItems = [voucherItem, qrItem, recordItem]
+    }
+    
+    func removeShortcutItem(application: UIApplication){
+        application.shortcutItems = []
     }
     
 }

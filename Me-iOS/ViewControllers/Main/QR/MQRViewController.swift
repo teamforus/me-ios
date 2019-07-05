@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import KVSpinnerView
 
 enum QRTypeScann: String {
     case authToken = "auth_token"
@@ -26,27 +27,45 @@ class MQRViewController: HSScanViewController {
         self.delegate = self
         self.scanCodeTypes  = [.qr]
         
-        qrViewModel.authorizeToken = { [weak self] in
+        qrViewModel.vc = self
+        
+        qrViewModel.authorizeToken = { [weak self] (statusCode) in
             DispatchQueue.main.async {
                 
-                self?.scanWorker.start()
+                if statusCode != 503 {
+                    
+                    
+                    self?.scanWorker.start()
+                    
+                }else {
+                    
+                    self?.showErrorServer()
+                }
                 
             }
         }
         
-        qrViewModel.validateRecord = { [weak self] (recordValidation) in
+        qrViewModel.validateRecord = { [weak self] (recordValidation, statusCode) in
             
             DispatchQueue.main.async {
                 
-                self?.showSimpleAlertWithAction(title: recordValidation.name ?? "", message: recordValidation.value ?? "",
-                                                okAction: UIAlertAction(title: "Validate".localized(), style: .default, handler: { (action) in
-                                                    
-                                                    self?.qrViewModel.initApproveValidationRecord(code: recordValidation.uuid ?? "")
-                                                    
-                                                }),
-                                                cancelAction: UIAlertAction(title: "Cancel".localized(), style: .cancel, handler: { (action) in
-                                                    self?.scanWorker.start()
-                                                }))
+                if statusCode != 503 {
+                    KVSpinnerView.dismiss()
+                    self?.showSimpleAlertWithAction(title: recordValidation.name ?? "", message: recordValidation.value ?? "",
+                                                    okAction: UIAlertAction(title: "Validate".localized(), style: .default, handler: { (action) in
+                                                        
+                                                        self?.qrViewModel.initApproveValidationRecord(code: recordValidation.uuid ?? "")
+                                                        
+                                                    }),
+                                                    cancelAction: UIAlertAction(title: "Cancel".localized(), style: .cancel, handler: { (action) in
+                                                        self?.scanWorker.start()
+                                                    }))
+                }else {
+                    
+                    self?.showErrorServer()
+                    
+                }
+                
             }
             
         }
@@ -55,15 +74,20 @@ class MQRViewController: HSScanViewController {
             
             DispatchQueue.main.async {
                 
-                if statusCode != 401 {
-                    
-                    self?.showSimpleAlertWithSingleAction(title: "Success".localized(), message: "A record has been validated!".localized(),
-                                                          okAction: UIAlertAction(title: "OK", style: .default, handler: { (action) in
-                                                            self?.scanWorker.start()
-                                                          }))
+                if statusCode != 503 {
+                    KVSpinnerView.dismiss()
+                    if statusCode != 401 {
+                        
+                        self?.showSimpleAlertWithSingleAction(title: "Success".localized(), message: "A record has been validated!".localized(),
+                                                              okAction: UIAlertAction(title: "OK", style: .default, handler: { (action) in
+                                                                self?.scanWorker.start()
+                                                              }))
+                    }else {
+                        self?.showErrorServer()
+                        
+                    }
                     
                 }
-                
             }
         }
         
@@ -71,31 +95,37 @@ class MQRViewController: HSScanViewController {
             
             DispatchQueue.main.async {
                 
-                if statusCode != 403 {
-                    
-                    if voucher.amount != "0.00" {
+                if statusCode != 503 {
+                    KVSpinnerView.dismiss()
+                    if statusCode != 403 {
                         
-                        self?.voucher = voucher
-                        
-                        if voucher.allowed_organizations?.count != 0 && voucher.allowed_organizations?.count  != nil {
+                        if voucher.amount != "0.00" {
                             
-                            self?.performSegue(withIdentifier: "goToVoucherPayment", sender: nil)
+                            self?.voucher = voucher
                             
+                            if voucher.allowed_organizations?.count != 0 && voucher.allowed_organizations?.count  != nil {
+                                
+                                self?.performSegue(withIdentifier: "goToVoucherPayment", sender: nil)
+                                
+                            }else {
+                                
+                                self?.showSimpleAlert(title: "Warning".localized(), message: "Sorry you do not meet the criteria for this voucher".localized())
+                            }
                         }else {
                             
-                            self?.showSimpleAlert(title: "Warning".localized(), message: "Sorry you do not meet the criteria for this voucher".localized())
+                            self?.showSimpleAlert(title: "Error!".localized(), message: "The voucher is empty! No transactions can be done.".localized())
                         }
                     }else {
                         
-                        self?.showSimpleAlert(title: "Error!".localized(), message: "The voucher is empty! No transactions can be done.".localized())
+                        self?.showSimpleAlert(title: "Error!".localized(), message: "You can't scan this voucher. You are not accepted as a provider for the fund that hands out these vouchers.".localized())
                     }
+                    
+//                    self?.scanWorker.start()
+                    
                 }else {
                     
-                    self?.showSimpleAlert(title: "Error!".localized(), message: "You can't scan this voucher. You are not accepted as a provider for the fund that hands out these vouchers.".localized())
+                    self?.showErrorServer()
                 }
-                
-                self?.scanWorker.start()
-                
             }
             
         }
@@ -105,6 +135,9 @@ class MQRViewController: HSScanViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.setStatusBarStyle(.lightContent)
+        if scanWorker != nil {
+            scanWorker.start()
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -124,6 +157,8 @@ extension MQRViewController: HSScanViewControllerDelegate{
     
     func scanFinished(scanResult: ScanResult, error: String?) {
         if isReachable() {
+            
+            
             if let data = scanResult.scanResultString?.data(using: .utf8) {
                 let jsonDecoder = JSONDecoder()
                 do {
@@ -137,7 +172,7 @@ extension MQRViewController: HSScanViewControllerDelegate{
                             self.showSimpleAlertWithAction(title: "Login QR",
                                                            message: "You sure you wan't to login this device?".localized(),
                                                            okAction: UIAlertAction(title: "YES", style: .default, handler: { (action) in
-                                                            
+                                                            KVSpinnerView.show()
                                                             self.qrViewModel.initAuthorizeToken(token: qr.value)
                                                             
                                                            }),
@@ -150,23 +185,26 @@ extension MQRViewController: HSScanViewControllerDelegate{
                         } else if qr.type == QRTypeScann.voucher.rawValue {
                             
                             self.scanWorker.stop()
-                            
+                            KVSpinnerView.show()
                             self.qrViewModel.initVoucherAddress(address: qr.value)
                             
                             
                         } else if qr.type == QRTypeScann.record.rawValue {
                             
                             self.scanWorker.stop()
-                            
+                            KVSpinnerView.show()
                             self.qrViewModel.initValidationRecord(code: qr.value)
                             
                         }
                     }
                 } catch {
+                    KVSpinnerView.dismiss()
                     showSimpleToast(message: "Unknown QR-code!")
                 }
             }
         }else {
+            
+            self.scanWorker.start()
             showInternetUnable()
         }
         

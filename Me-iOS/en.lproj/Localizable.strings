@@ -41,6 +41,7 @@
 "Invalid Email address" = "Invalid Email address";
 "This email does not exist" = "This email does not exist";
 "Turn on Touch ID" = "Turn on Touch ID";
+"Turn on Face ID" = "Turn on Face ID";
 "Payment succeeded" = "Payment succeeded! The processing can take up to 3 business days.";
 "Please enter the amount" = "Please enter the amount";
 "Insufficient funds on the voucher" = "Insufficient funds on the voucher";
@@ -99,3 +100,6 @@
 "Insufficient funds on the voucher. Please, request extra payment of €%.02f" = "Insufficient funds on the voucher. Please, request extra payment of €%.02f";
 "Are you sure you want to confirm this transaction" = "Are you sure you want to confirm this transaction.";
 "Welcome to Me, " = "Welcome to Me, ";
+"Currently maintenance is being done" = "Currently maintenance is being done.";
+"Records" = "Records";
+"Profile" = "Profile";

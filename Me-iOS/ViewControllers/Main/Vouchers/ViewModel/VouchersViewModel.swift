@@ -7,12 +7,14 @@
 //
 
 import Foundation
+import UIKit
 
 class VouchersViewModel{
     
     var commonService: CommonServiceProtocol!
     var selectedVoucher: Voucher?
     var isAllowSegue: Bool = false
+    var vc: UIViewController!
     
     private var cellViewModels: [Voucher] = [Voucher]() {
         didSet {
@@ -29,7 +31,16 @@ class VouchersViewModel{
     func initFetch(){
         
         commonService.get(request: "platform/vouchers", complete: { (response: ResponseDataArray<Voucher>, statusCode) in
-            self.processFetchedLunche(vouchers: response.data ?? [])
+            if statusCode != 503 {
+                
+                self.processFetchedLunche(vouchers: response.data ?? [])
+                
+            }else {
+                
+                self.vc.showErrorServer()
+                
+            }
+            
         }, failure: { (error) in
             
         })
@@ -54,10 +65,10 @@ class VouchersViewModel{
         for voucher in vouchers {
             if voucher.product != nil {
                 if voucher.transactions?.count == 0 {
-                     vms.append( createCellViewModel(voucher: voucher) )
+                    vms.append( createCellViewModel(voucher: voucher) )
                 }
             } else {
-                 vms.append( createCellViewModel(voucher: voucher) )
+                vms.append( createCellViewModel(voucher: voucher) )
             }
         }
         self.cellViewModels = vms

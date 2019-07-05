@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import KVSpinnerView
 
 class ConfirmPaymentPopUp: UIViewController {
     @IBOutlet weak var paymentLabel: UILabel!
@@ -55,9 +56,11 @@ class ConfirmPaymentPopUp: UIViewController {
         
         if isReachable() {
             
+            KVSpinnerView.show()
             let payTransaction = PayTransaction(organization_id: organizationId ?? 0, amount: amount ?? "", note: note ?? "")
             
             commonService.create(request: "platform/vouchers/"+voucher.address!+"/transactions", data: payTransaction) { (response: ResponseData<Transaction>, statusCode) in
+                
                 
                 if statusCode == 201 {
                     
@@ -67,8 +70,12 @@ class ConfirmPaymentPopUp: UIViewController {
                         self.presentingViewController?.presentingViewController?.dismiss(animated: true)
                     }))
                 }else {
-                    self.showSimpleAlert(title: "Warning".localized(), message: "Voucher not have enough funds".localized())
+                    self.showSimpleAlertWithSingleAction(title: "Warning".localized(), message: "Voucher not have enough funds".localized(), okAction: UIAlertAction(title: "OK", style: .default, handler: { (action) in
+                        
+                        KVSpinnerView.dismiss()
+                    }))
                 }
+                
             }
         }else {
             

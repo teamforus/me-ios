@@ -9,6 +9,7 @@
 import UIKit
 import SkyFloatingLabelTextField
 import IQKeyboardManagerSwift
+import KVSpinnerView
 
 class MEmailLoginViewController: UIViewController {
     @IBOutlet weak var emailField: SkyFloatingLabelTextField!
@@ -29,6 +30,7 @@ class MEmailLoginViewController: UIViewController {
             
             DispatchQueue.main.async {
                 
+                KVSpinnerView.dismiss()
                 if statusCode == 200 {
                     
                     self?.performSegue(withIdentifier: "goToSuccessMail", sender: self)
@@ -63,6 +65,7 @@ class MEmailLoginViewController: UIViewController {
     @IBAction func confirm(_ sender: Any) {
         if isReachable() {
             
+            KVSpinnerView.show()
             emailLoginViewModel.initLoginByEmail(email: emailField.text ?? "")
             
         }else {

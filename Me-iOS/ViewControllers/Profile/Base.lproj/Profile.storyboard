@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="eu3-EV-5Ar">
-    <device id="retina6_1" orientation="portrait">
+    <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -26,29 +26,29 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pYl-68-xkp">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="731"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="765"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WTi-eV-EKy">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="765"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mQt-Uv-ahd">
-                                                <rect key="frame" x="0.0" y="-15" width="375" height="193"/>
+                                                <rect key="frame" x="0.0" y="-15" width="375" height="179"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Uw Profiel" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ncj-5F-IHr">
-                                                        <rect key="frame" x="95" y="118" width="263" height="36"/>
+                                                        <rect key="frame" x="95" y="84" width="263" height="36"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <fontDescription key="fontDescription" name="GoogleSans-Regular" family="Google Sans" pointSize="28"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="mail@mail.com" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rkq-EJ-VPa">
-                                                        <rect key="frame" x="95" y="158" width="263" height="22"/>
+                                                        <rect key="frame" x="95" y="124" width="263" height="22"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <fontDescription key="fontDescription" name="GoogleSans-Regular" family="Google Sans" pointSize="15"/>
                                                         <color key="textColor" red="0.086274509799999996" green="0.4941176471" blue="0.98431372549999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hu1-sr-b6h">
+                                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hu1-sr-b6h">
                                                         <rect key="frame" x="17" y="53" width="47" height="30"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <fontDescription key="fontDescription" name="GoogleSans-Regular" family="Google Sans" pointSize="15"/>
@@ -64,30 +64,46 @@
                                                         <state key="normal" title="Edit"/>
                                                     </button>
                                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qpz-eR-AUn">
-                                                        <rect key="frame" x="0.0" y="193" width="375" height="1"/>
+                                                        <rect key="frame" x="0.0" y="182" width="375" height="1"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                                         <color key="backgroundColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </view>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ic_launcher_APP" translatesAutoresizingMaskIntoConstraints="NO" id="xSt-Fk-qAe" customClass="RoundImageView" customModule="Me_iOS" customModuleProvider="target">
-                                                        <rect key="frame" x="17" y="117" width="64" height="64"/>
+                                                        <rect key="frame" x="17" y="83" width="64" height="64"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     </imageView>
                                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uyU-tZ-kOJ">
-                                                        <rect key="frame" x="216" y="162" width="159" height="31"/>
+                                                        <rect key="frame" x="216" y="128" width="159" height="31"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <state key="normal" title="Press for crash the app"/>
                                                         <connections>
                                                             <action selector="crash:" destination="eu3-EV-5Ar" eventType="touchUpInside" id="Kmb-Fj-CiV"/>
                                                         </connections>
                                                     </button>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="userpick" translatesAutoresizingMaskIntoConstraints="NO" id="8Eh-bE-0VO" customClass="RoundImageView" customModule="Me_iOS" customModuleProvider="target">
+                                                        <rect key="frame" x="311" y="79" width="44" height="44"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                                    </imageView>
+                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lOL-oM-mIV" customClass="ShadowButton" customModule="Me_iOS" customModuleProvider="target">
+                                                        <rect key="frame" x="311" y="50" width="44" height="44"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                <real key="value" value="12"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <segue destination="cz6-ov-H3w" kind="presentation" id="aF3-rf-Q6O"/>
+                                                        </connections>
+                                                    </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="193" id="8VR-mG-XI6"/>
+                                                    <constraint firstAttribute="height" constant="179" id="8VR-mG-XI6"/>
                                                 </constraints>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZtQ-xg-yMS">
-                                                <rect key="frame" x="16" y="210" width="343" height="249"/>
+                                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZtQ-xg-yMS">
+                                                <rect key="frame" x="16" y="176" width="343" height="249"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6AQ-Ho-bqt" customClass="CustomCornerUIView" customModule="Me_iOS" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="342" height="56"/>
@@ -245,8 +261,8 @@
                                                     <constraint firstAttribute="trailing" secondItem="6AQ-Ho-bqt" secondAttribute="trailing" constant="1" id="z4U-2C-qiL"/>
                                                 </constraints>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UaK-7a-IlP" customClass="CustomCornerUIView" customModule="Me_iOS" customModuleProvider="target">
-                                                <rect key="frame" x="16" y="472" width="343" height="56"/>
+                                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UaK-7a-IlP" customClass="CustomCornerUIView" customModule="Me_iOS" customModuleProvider="target">
+                                                <rect key="frame" x="16" y="438" width="343" height="56"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Send crash reports" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pA8-VO-WKT">
                                                         <rect key="frame" x="8" y="18" width="249" height="22"/>
@@ -279,8 +295,8 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dmL-c8-BxS">
-                                                <rect key="frame" x="0.0" y="541" width="375" height="226"/>
+                                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dmL-c8-BxS">
+                                                <rect key="frame" x="0.0" y="507" width="375" height="226"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="App version" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="szP-vk-gG7">
                                                         <rect key="frame" x="24" y="16" width="173" height="21"/>
@@ -369,8 +385,8 @@
                                             <constraint firstAttribute="trailing" secondItem="AHo-7Q-nI7" secondAttribute="trailing" constant="16" id="Whe-3L-5UV"/>
                                             <constraint firstItem="AHo-7Q-nI7" firstAttribute="leading" secondItem="WTi-eV-EKy" secondAttribute="leading" constant="17" id="Wxh-r1-sMN"/>
                                             <constraint firstAttribute="trailing" secondItem="UaK-7a-IlP" secondAttribute="trailing" constant="16" id="bLl-0v-2pJ"/>
-                                            <constraint firstItem="ZtQ-xg-yMS" firstAttribute="top" secondItem="mQt-Uv-ahd" secondAttribute="bottom" constant="32" id="h1x-lE-JG3"/>
-                                            <constraint firstAttribute="bottom" secondItem="dmL-c8-BxS" secondAttribute="bottom" constant="-2" id="ieM-qL-3Xy"/>
+                                            <constraint firstItem="ZtQ-xg-yMS" firstAttribute="top" secondItem="mQt-Uv-ahd" secondAttribute="bottom" constant="30" id="h1x-lE-JG3"/>
+                                            <constraint firstAttribute="bottom" secondItem="dmL-c8-BxS" secondAttribute="bottom" constant="14" id="ieM-qL-3Xy"/>
                                             <constraint firstItem="UaK-7a-IlP" firstAttribute="leading" secondItem="WTi-eV-EKy" secondAttribute="leading" constant="16" id="ifE-Tn-IgC"/>
                                             <constraint firstItem="mQt-Uv-ahd" firstAttribute="top" secondItem="WTi-eV-EKy" secondAttribute="top" constant="-15" id="w8D-aj-LiZ"/>
                                             <constraint firstAttribute="trailing" secondItem="mQt-Uv-ahd" secondAttribute="trailing" id="zjL-OP-hSg"/>
@@ -411,6 +427,8 @@
                         <outlet property="startScannerSwitch" destination="mxb-o1-SKo" id="ia7-09-DbA"/>
                         <outlet property="turnOffPascodeView" destination="AHo-7Q-nI7" id="Yd2-fv-FH3"/>
                         <outlet property="useFaceIdView" destination="pLQ-IY-Xhm" id="oNj-HJ-xd8"/>
+                        <outlet property="useSensorIdIcon" destination="M9T-2N-Gxi" id="FR5-3f-JWL"/>
+                        <outlet property="useSensorIdLabel" destination="scn-SY-tGf" id="ofj-nq-Seo"/>
                         <outlet property="userFaceIdSwitch" destination="aF3-gf-gHS" id="o6r-6U-mBu"/>
                     </connections>
                 </viewController>
@@ -418,13 +436,21 @@
             </objects>
             <point key="canvasLocation" x="-87.200000000000003" y="249.62518740629687"/>
         </scene>
+        <!--record-->
+        <scene sceneID="HrR-Dl-RMc">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Main" referencedIdentifier="record" id="cz6-ov-H3w" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="g7m-0C-3oN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="494" y="220"/>
+        </scene>
         <!--About-->
         <scene sceneID="sWZ-wv-Wsq">
             <objects>
                 <viewControllerPlaceholder storyboardName="About" id="rSU-ff-RMe" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sIj-Vg-dyv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="462" y="249"/>
+            <point key="canvasLocation" x="481" y="278"/>
         </scene>
     </scenes>
     <resources>
@@ -432,5 +458,6 @@
         <image name="ic_launcher_APP" width="210" height="210"/>
         <image name="lock24Px-1" width="24" height="24"/>
         <image name="qrImage" width="62" height="62"/>
+        <image name="userpick" width="40" height="40"/>
     </resources>
 </document>

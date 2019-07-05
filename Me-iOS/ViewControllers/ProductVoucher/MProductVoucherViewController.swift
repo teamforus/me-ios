@@ -191,7 +191,7 @@ extension MProductVoucherViewController {
             if (UIApplication.shared.canOpenURL(URL(string:"comgooglemaps://")!))
             {
                 UIApplication.shared.open(URL(string:
-                    "comgooglemaps://?saddr=&daddr=\(self.latitude!),\(self.longitude!)")!, options: [:], completionHandler: { (succes) in
+                    "comgooglemaps://?q=\(self.latitude!),\(self.longitude!)")!, options: [:], completionHandler: { (succes) in
                 })
             } else if (UIApplication.shared.canOpenURL(URL(string:"https://maps.google.com")!))
             {

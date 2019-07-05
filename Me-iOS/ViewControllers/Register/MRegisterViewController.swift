@@ -8,6 +8,7 @@
 
 import UIKit
 import SkyFloatingLabelTextField
+import IQKeyboardManagerSwift
 
 class MRegisterViewController: UIViewController {
     @IBOutlet weak var primaryEmailField: SkyFloatingLabelTextField!
@@ -25,6 +26,9 @@ class MRegisterViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        IQKeyboardManager.shared.enable = true
+        IQKeyboardManager.shared.enableAutoToolbar = true
         
         registerViewModel.complete = { [weak self] (response, statusCode) in
             if statusCode == 422{
