@@ -41,6 +41,8 @@ class MPaymentViewController: UIViewController {
         
         if amountField.text != "" {
             
+            if amountField.text != "0.01"{
+            
             let vc = ConfirmPaymentPopUp()
             vc.voucher = voucher
             vc.organizationId = selectedAllowerdOrganization?.id ?? 0
@@ -50,6 +52,11 @@ class MPaymentViewController: UIViewController {
             vc.modalTransitionStyle = .crossDissolve
             vc.modalPresentationStyle = .overCurrentContext
             self.present(vc, animated: true)
+            }else {
+            
+                showSimpleAlert(title: "Warning".localized(), message: "A payment of € 0.01 is too low to be paid out, choose a higher amount.".localized())
+                
+            }
             
         }else {
             

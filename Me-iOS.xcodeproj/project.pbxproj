@@ -140,11 +140,11 @@
 		65CF4081228C0CAB0006F5DE /* RecordsIndentity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CF4080228C0CAB0006F5DE /* RecordsIndentity.swift */; };
 		65CF408B228C1CC90006F5DE /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CF408A228C1CC90006F5DE /* APIService.swift */; };
 		65D11B7022A69CE600756BE0 /* AllowedOrganizationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D11B6E22A69CE500756BE0 /* AllowedOrganizationsViewController.swift */; };
-		65D11B7122A69CE600756BE0 /* AllowedOrganizationsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65D11B6F22A69CE600756BE0 /* AllowedOrganizationsViewController.xib */; };
 		65D11B7922A69D5200756BE0 /* OrganizationTableViewCell.strings in Resources */ = {isa = PBXBuildFile; fileRef = 65D11B7322A69D5100756BE0 /* OrganizationTableViewCell.strings */; };
 		65D11B7A22A69D5200756BE0 /* OrganizationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65D11B7522A69D5100756BE0 /* OrganizationTableViewCell.xib */; };
 		65D11B7B22A69D5200756BE0 /* OrganizationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D11B7822A69D5200756BE0 /* OrganizationTableViewCell.swift */; };
 		65D11B8022A6ADF400756BE0 /* ConfirmPaymentPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D11B7E22A6ADF400756BE0 /* ConfirmPaymentPopUp.swift */; };
+		65D130D122D71760007F1378 /* AllowedOrganizationsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65D130D322D71760007F1378 /* AllowedOrganizationsViewController.xib */; };
 		65F1BB1A229EBCB5007D2C8A /* MChooseTypeRecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F1BB19229EBCB5007D2C8A /* MChooseTypeRecordViewController.swift */; };
 		65F1BB1D229EBF0A007D2C8A /* MChooseTypeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F1BB1C229EBF0A007D2C8A /* MChooseTypeTableViewCell.swift */; };
 		65F1BB22229EC0B6007D2C8A /* ChooseTypeRecordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F1BB21229EC0B6007D2C8A /* ChooseTypeRecordViewModel.swift */; };
@@ -364,12 +364,14 @@
 		65CF4080228C0CAB0006F5DE /* RecordsIndentity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordsIndentity.swift; sourceTree = "<group>"; };
 		65CF408A228C1CC90006F5DE /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		65D11B6E22A69CE500756BE0 /* AllowedOrganizationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllowedOrganizationsViewController.swift; sourceTree = "<group>"; };
-		65D11B6F22A69CE600756BE0 /* AllowedOrganizationsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AllowedOrganizationsViewController.xib; sourceTree = "<group>"; };
 		65D11B7422A69D5100756BE0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/OrganizationTableViewCell.strings; sourceTree = "<group>"; };
 		65D11B7622A69D5100756BE0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/OrganizationTableViewCell.xib; sourceTree = "<group>"; };
 		65D11B7722A69D5200756BE0 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/OrganizationTableViewCell.strings; sourceTree = "<group>"; };
 		65D11B7822A69D5200756BE0 /* OrganizationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrganizationTableViewCell.swift; sourceTree = "<group>"; };
 		65D11B7E22A6ADF400756BE0 /* ConfirmPaymentPopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmPaymentPopUp.swift; sourceTree = "<group>"; };
+		65D130D222D71760007F1378 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/AllowedOrganizationsViewController.xib; sourceTree = "<group>"; };
+		65D130D522D71763007F1378 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/AllowedOrganizationsViewController.strings; sourceTree = "<group>"; };
+		65D130D722D71766007F1378 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/AllowedOrganizationsViewController.strings; sourceTree = "<group>"; };
 		65F1BB19229EBCB5007D2C8A /* MChooseTypeRecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MChooseTypeRecordViewController.swift; sourceTree = "<group>"; };
 		65F1BB1C229EBF0A007D2C8A /* MChooseTypeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MChooseTypeTableViewCell.swift; sourceTree = "<group>"; };
 		65F1BB21229EC0B6007D2C8A /* ChooseTypeRecordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseTypeRecordViewModel.swift; sourceTree = "<group>"; };
@@ -1180,7 +1182,7 @@
 			isa = PBXGroup;
 			children = (
 				65D11B6E22A69CE500756BE0 /* AllowedOrganizationsViewController.swift */,
-				65D11B6F22A69CE600756BE0 /* AllowedOrganizationsViewController.xib */,
+				65D130D322D71760007F1378 /* AllowedOrganizationsViewController.xib */,
 				65D11B7222A69D5100756BE0 /* Cell */,
 			);
 			path = Organization;
@@ -1398,7 +1400,7 @@
 				650FF5ED22AD1D2A004C3A85 /* ConfirmRegister.storyboard in Resources */,
 				650FF61722AD2ACF004C3A85 /* RecordDetail.storyboard in Resources */,
 				65A8B7042282DD2C00B7DF05 /* GoogleSans-Medium.ttf in Resources */,
-				65D11B7122A69CE600756BE0 /* AllowedOrganizationsViewController.xib in Resources */,
+				65D130D122D71760007F1378 /* AllowedOrganizationsViewController.xib in Resources */,
 				65A8B7022282DD2C00B7DF05 /* GoogleSans-Regular.ttf in Resources */,
 				650FF63C22AD2EBA004C3A85 /* ConfirmPaymentPopUp.xib in Resources */,
 				65A8B7032282DD2C00B7DF05 /* GoogleSans-MediumItalic.ttf in Resources */,
@@ -1937,6 +1939,16 @@
 				65D11B7622A69D5100756BE0 /* Base */,
 			);
 			name = OrganizationTableViewCell.xib;
+			sourceTree = "<group>";
+		};
+		65D130D322D71760007F1378 /* AllowedOrganizationsViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				65D130D222D71760007F1378 /* Base */,
+				65D130D522D71763007F1378 /* en */,
+				65D130D722D71766007F1378 /* nl */,
+			);
+			name = AllowedOrganizationsViewController.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

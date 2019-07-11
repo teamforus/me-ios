@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import KVSpinnerView
 
 class VouchersViewModel{
     
@@ -36,7 +37,7 @@ class VouchersViewModel{
                 self.processFetchedLunche(vouchers: response.data ?? [])
                 
             }else {
-                
+                KVSpinnerView.dismiss()
                 self.vc.showErrorServer()
                 
             }

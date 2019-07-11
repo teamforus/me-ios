@@ -50,6 +50,13 @@ extension String{
         return date!
     }
     
+        func formatDate() -> Date  {
+        let dateFormater = DateFormatter()
+        dateFormater.dateFormat = "yyyy-MM-dd HH:mm:ss.SSSSSS"
+        let date = dateFormater.date(from: self)
+        return date!
+    }
+    
     func dateFormaterTime() -> String  {
         let dateFormater = DateFormatter()
         dateFormater.dateFormat = "yyyy-MM-dd HH:mm:ss"

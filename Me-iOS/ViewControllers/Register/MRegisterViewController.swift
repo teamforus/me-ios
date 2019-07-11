@@ -31,12 +31,18 @@ class MRegisterViewController: UIViewController {
         IQKeyboardManager.shared.enableAutoToolbar = true
         
         registerViewModel.complete = { [weak self] (response, statusCode) in
-            if statusCode == 422{
-                
-            }else {
-                
-                self?.performSegue(withIdentifier: "goToConfirm", sender: nil)
+            
+            DispatchQueue.main.async {
+                if statusCode == 422{
+                    
+                }else if statusCode == 500 {
+                    
+                    
+                }else {
+                    self?.performSegue(withIdentifier: "goToConfirm", sender: nil)
+                }
             }
+            
             
         }
     }
@@ -64,9 +70,11 @@ class MRegisterViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let successRegisterVC = segue.destination as? MConfirmRegisterViewController {
             
-            successRegisterVC.firstName = firstNameField.text
-            successRegisterVC.lastName = lastNameField.text
-            successRegisterVC.primaryEmail = primaryEmailField.text
+                successRegisterVC.firstName = firstNameField.text
+                successRegisterVC.lastName = lastNameField.text
+                successRegisterVC.primaryEmail = primaryEmailField.text
+            
+            
         }
     }
 

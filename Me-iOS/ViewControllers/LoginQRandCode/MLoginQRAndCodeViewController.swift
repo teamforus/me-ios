@@ -40,7 +40,7 @@ class MLoginQRAndCodeViewController: UIViewController {
                     self?.token = token
                     self?.timer = Timer.scheduledTimer(timeInterval: 10, target: self!, selector: #selector(self?.didCheckAuthorize), userInfo: nil, repeats: true)
                 }else {
-                    
+                    KVSpinnerView.dismiss()
                     self?.showErrorServer()
                     
                 }

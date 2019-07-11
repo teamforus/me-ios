@@ -31,7 +31,7 @@ class MQRViewController: HSScanViewController {
         
         qrViewModel.authorizeToken = { [weak self] (statusCode) in
             DispatchQueue.main.async {
-                
+                KVSpinnerView.dismiss()
                 if statusCode != 503 {
                     
                     
@@ -61,7 +61,7 @@ class MQRViewController: HSScanViewController {
                                                         self?.scanWorker.start()
                                                     }))
                 }else {
-                    
+                    KVSpinnerView.dismiss()
                     self?.showErrorServer()
                     
                 }
@@ -83,6 +83,7 @@ class MQRViewController: HSScanViewController {
                                                                 self?.scanWorker.start()
                                                               }))
                     }else {
+                        KVSpinnerView.dismiss()
                         self?.showErrorServer()
                         
                     }
@@ -123,7 +124,7 @@ class MQRViewController: HSScanViewController {
 //                    self?.scanWorker.start()
                     
                 }else {
-                    
+                    KVSpinnerView.dismiss()
                     self?.showErrorServer()
                 }
             }

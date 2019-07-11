@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import KVSpinnerView
 
 class RecordsViewModel{
     
@@ -32,11 +33,11 @@ class RecordsViewModel{
         
         commonService.get(request: "identity/records", complete: { (response: [Record], statusCode) in
             if statusCode != 503 {
-                
+                KVSpinnerView.dismiss()
                 self.processFetchedLunche(records: response)
                 
             }else {
-                
+                KVSpinnerView.dismiss()
                 self.vc.showErrorServer()
                 
             }

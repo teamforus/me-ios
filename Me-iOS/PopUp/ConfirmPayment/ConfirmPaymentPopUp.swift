@@ -61,7 +61,10 @@ class ConfirmPaymentPopUp: UIViewController {
             
             commonService.create(request: "platform/vouchers/"+voucher.address!+"/transactions", data: payTransaction) { (response: ResponseData<Transaction>, statusCode) in
                 
+                DispatchQueue.main.async {
+                    
                 
+                KVSpinnerView.dismiss()
                 if statusCode == 201 {
                     
                     self.showSimpleAlertWithSingleAction(title: "Success".localized(), message: "Payment succeeded".localized(), okAction: UIAlertAction(title: "OK", style: .default, handler: { (action) in
@@ -72,10 +75,10 @@ class ConfirmPaymentPopUp: UIViewController {
                 }else {
                     self.showSimpleAlertWithSingleAction(title: "Warning".localized(), message: "Voucher not have enough funds".localized(), okAction: UIAlertAction(title: "OK", style: .default, handler: { (action) in
                         
-                        KVSpinnerView.dismiss()
+                        
                     }))
                 }
-                
+                }
             }
         }else {
             

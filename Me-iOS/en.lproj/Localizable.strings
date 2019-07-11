@@ -103,3 +103,5 @@
 "Currently maintenance is being done" = "Currently maintenance is being done.";
 "Records" = "Records";
 "Profile" = "Profile";
+"Expired" = "Expired";
+"A payment of € 0.01 is too low to be paid out, choose a higher amount." = "A payment of € 0.01 is too low to be paid out, choose a higher amount.";

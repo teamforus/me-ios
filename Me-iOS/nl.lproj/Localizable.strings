@@ -103,3 +103,5 @@
 "Currently maintenance is being done" = "Me - Forus is onbereikbaar voor gepland onderhoud.";
 "Records" = "Eigenschappen";
 "Profile" = "Profiel";
+"Expired" = "Verlopen";
+"A payment of € 0.01 is too low to be paid out, choose a higher amount." = "Een betaling van €0,01 is te laag om uit betaald te worden, kies een hoger bedrag.";
