@@ -39,22 +39,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="userpick" translatesAutoresizingMaskIntoConstraints="NO" id="L7t-cx-94J" customClass="RoundImageView" customModule="Me_iOS" customModuleProvider="target">
-                                <rect key="frame" x="311" y="84" width="44" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eXL-Of-UmA" customClass="ShadowButton" customModule="Me_iOS" customModuleProvider="target">
-                                <rect key="frame" x="311" y="84" width="44" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="12"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <segue destination="LrU-jE-PNR" kind="presentation" id="FRb-XM-OSS"/>
-                                </connections>
-                            </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="130" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5yR-zH-dKR">
                                 <rect key="frame" x="0.0" y="158" width="375" height="509"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -444,7 +428,6 @@
         <image name="Resting" width="210" height="210"/>
         <image name="activeBlue" width="30" height="26"/>
         <image name="iconGrey" width="30" height="26"/>
-        <image name="userpick" width="40" height="40"/>
         <image name="wallet" width="30" height="26"/>
     </resources>
 </document>
