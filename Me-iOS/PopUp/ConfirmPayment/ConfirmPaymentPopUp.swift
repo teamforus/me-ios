@@ -57,7 +57,7 @@ class ConfirmPaymentPopUp: UIViewController {
         if isReachable() {
             
             KVSpinnerView.show()
-            let payTransaction = PayTransaction(organization_id: organizationId ?? 0, amount: amount ?? "", note: note ?? "")
+            let payTransaction = PayTransaction(organization_id: organizationId ?? 0, amount: amount.replacingOccurrences(of: ",", with: "."), note: note ?? "")
             
             commonService.create(request: "platform/vouchers/"+voucher.address!+"/transactions", data: payTransaction) { (response: ResponseData<Transaction>, statusCode) in
                 
