@@ -54,7 +54,7 @@
 "w5t-6W-ueq.text" = "NOT 2 DAGEN GELDIG VALID";
 
 /* Class = "UILabel"; text = "Dit is je persoonlijke QR-Code."; ObjectID = "xIx-dD-8s5"; */
-"xIx-dD-8s5.text" = "Dit is je persoonlijke QR-Code.";
+"xIx-dD-8s5.text" = "Dit is uw voucher in de vorm van een QR-code.";
 
 /* Class = "UITabBarItem"; title = "Item 2"; ObjectID = "yc3-wb-YF5"; */
 "yc3-wb-YF5.title" = "Item 2";

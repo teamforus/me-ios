@@ -129,7 +129,7 @@ extension MRegisterViewController{
                 
             }else {
                 
-                textField.errorMessage = "Field is requierd"
+                textField.errorMessage = "Field is requierd".localized()
                 
             }
         }

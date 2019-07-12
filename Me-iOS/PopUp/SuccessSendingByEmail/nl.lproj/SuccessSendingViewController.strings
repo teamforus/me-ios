@@ -3,7 +3,7 @@
 "0kv-OH-i2d.normalTitle" = "OK";
 
 /* Class = "UILabel"; text = "De voucher is verzonden naar email."; ObjectID = "6qn-GE-6zQ"; */
-"6qn-GE-6zQ.text" = "De voucher is verzonden naar email.";
+"6qn-GE-6zQ.text" = "De voucher is verzonden naar uw e-mail.";
 
 /* Class = "UILabel"; text = "Success!"; ObjectID = "euX-3z-eCa"; */
-"euX-3z-eCa.text" = "Success!";
+"euX-3z-eCa.text" = "Succes!";

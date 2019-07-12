@@ -31,7 +31,7 @@
 "Use Touch ID" = "Gebruik Touch ID";
 "Enter your login code to use Face ID" = "Vul je inlogcode om Face ID te gebruiken";
 "Confirm the code" = "Bevestig code";
-"Enter a new login code" = "Voer een nieuwe inlogcode in";
+"Enter a new login code" = "Bevestig de inlogcode door hem nogmaals in te voeren";
 "Cancel" = "Annuleer";
 "The scanner is not supported on this device" = "De scanner wordt niet ondersteund op dit apparaat";
 "This app is not authorized to use Back Camera" = "Deze app is niet geautoriseerd om een Camera te gebruiken.";
@@ -75,12 +75,12 @@
 "Would you like to send us your feedback by e-mail?" = "Wilt u ons verbeterpunten per mail versturen?";
 "Confirm" = "Bevestig";
 "My feedback about the Me app" = "Mijn feedback over Me";
-"Question from Me user" = "Vraag van Me-gebruiker";
+"Question from Me user" = "Bevestig om naar uw email-app te gaan om een bericht te sturen naar de aanbieder";
 "Mail services are not available" = "U heeft geen mail-app ingesteld op uw apparaat.";
 "Send the voucher to your email?" = "Wilt u de voucher naar uw e-mailadres sturen?";
 "No phone number" = "Geen telefoonnummer";
 "Please try to send email again." = "Probeer nogmaals e-mail te verzenden.";
-"E-mail to me" = "E-mail naar mij";
+"E-mail to me" = "Stuur een e-mail naar aanbieder";
 "This is your" = "Dit is uw";
 "voucher in the form of a QR-code" = "-voucher in de vorm van een QR-code";
 "Warning" = "Waarschuwing";
@@ -105,3 +105,6 @@
 "Profile" = "Profiel";
 "Expired" = "Verlopen";
 "A payment of € 0.01 is too low to be paid out, choose a higher amount." = "Een betaling van €0,01 is te laag om uit betaald te worden, kies een hoger bedrag.";
+"Field is requierd" = "Veld is verplicht";
+"YES" = "Ja";
+"NO" = "Nee";

@@ -105,3 +105,6 @@
 "Profile" = "Profile";
 "Expired" = "Expired";
 "A payment of € 0.01 is too low to be paid out, choose a higher amount." = "A payment of € 0.01 is too low to be paid out, choose a higher amount.";
+"Field is requierd" = "Field is requierd";
+"YES" = "YES";
+"NO" = "NO";

@@ -172,12 +172,12 @@ extension MQRViewController: HSScanViewControllerDelegate{
                             self.scanWorker.stop()
                             self.showSimpleAlertWithAction(title: "Login QR",
                                                            message: "You sure you wan't to login this device?".localized(),
-                                                           okAction: UIAlertAction(title: "YES", style: .default, handler: { (action) in
+                                                           okAction: UIAlertAction(title: "YES".localized(), style: .default, handler: { (action) in
                                                             KVSpinnerView.show()
                                                             self.qrViewModel.initAuthorizeToken(token: qr.value)
                                                             
                                                            }),
-                                                           cancelAction: UIAlertAction(title: "NO", style: .cancel, handler: { (action) in
+                                                           cancelAction: UIAlertAction(title: "NO".localized(), style: .cancel, handler: { (action) in
                                                             
                                                             self.scanWorker.start()
                                                            }))

@@ -33,11 +33,16 @@ class RecordsViewModel{
         
         commonService.get(request: "identity/records", complete: { (response: [Record], statusCode) in
             if statusCode != 503 {
-                KVSpinnerView.dismiss()
+                DispatchQueue.main.async {
+                 KVSpinnerView.dismiss()
+                }
+                
                 self.processFetchedLunche(records: response)
                 
             }else {
-                KVSpinnerView.dismiss()
+                DispatchQueue.main.async {
+                    KVSpinnerView.dismiss()
+                }
                 self.vc.showErrorServer()
                 
             }

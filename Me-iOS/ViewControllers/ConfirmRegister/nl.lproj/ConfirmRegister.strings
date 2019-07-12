@@ -3,7 +3,7 @@
 "264-fq-LFS.normalTitle" = "OPEN MAIL APP";
 
 /* Class = "UILabel"; text = "Verify \nyour account"; ObjectID = "b98-O9-xVd"; */
-"b98-O9-xVd.text" = "Verify \nyour account";
+"b98-O9-xVd.text" = "Activeer account";
 
 /* Class = "UILabel"; text = "Welcome to Me, *Name Surname ! \nBefore we get started, please confirm your email address."; ObjectID = "fKw-aI-bFp"; */
 "fKw-aI-bFp.text" = "Welcome to Me, *Name Surname ! \nBefore we get started, please confirm your email address.";
