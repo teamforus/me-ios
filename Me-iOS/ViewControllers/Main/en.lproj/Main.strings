@@ -33,7 +33,7 @@
 "ony-rh-yQc.title" = "Vouchers";
 
 /* Class = "UIButtone"; title = "Close"; ObjectID = "eqN-rw-ng8"; */
-"eqN-rw-ng8.title" = "Close"
+"eqN-rw-ng8.normalTitle" = "Close"
 
 /* Class = "UILabel"; text = "You have no vouchers yet"; ObjectID = "r3k-mS-eBG"; */
 "r3k-mS-eBG.text" = "You don't have any vouchers yet.";

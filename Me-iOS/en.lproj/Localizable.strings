@@ -79,8 +79,11 @@
 "Mail services are not available" = "Mail services are not available.";
 "Send the voucher to your email?" = "Send the voucher to your email?";
 "No phone number" = "No phone number";
+"Confirm the login code by entering it again." = "Confirm the login code by entering it again.";
 "Please try to send email again." = "Please try to send email again.";
 "E-mail to me" = "E-mail to me";
+"Confirm to go to your email app to send a message to the provider" = "Confirm to go to your email app to send a message to the provider";
+"Send an e-mail to the provider" = "Send an e-mail to the provider";
 "This is your" = "This is your";
 "voucher in the form of a QR-code" = "-voucher in the form of a QR-code";
 "Warning" = "Warning";

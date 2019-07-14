@@ -121,8 +121,8 @@ class MProductVoucherViewController: UIViewController {
             }
         }
         
-        showSimpleAlertWithAction(title: "E-mail to me".localized(),
-                                  message: "Send the voucher to your email?".localized(),
+        showSimpleAlertWithAction(title: "Send an e-mail to the provider".localized(),
+                                  message: "Confirm to go to your email app to send a message to the provider".localized(),
                                   okAction: UIAlertAction(title: "Confirm".localized(), style: .default, handler: { (action) in
                                     
                                     self.productViewModel.sendEmail(address: self.voucher.address ?? "")

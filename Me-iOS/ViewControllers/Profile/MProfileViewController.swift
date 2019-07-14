@@ -49,6 +49,11 @@ class MProfileViewController: UIViewController {
             
             DispatchQueue.main.async {
                 
+                if fullName == "" {
+                    self?.profileNameLabel.isHidden = true
+                }else {
+                    self?.profileNameLabel.isHidden = false
+                }
                 self?.profileNameLabel.text = fullName
                 self?.emailLabel.text = email
             }

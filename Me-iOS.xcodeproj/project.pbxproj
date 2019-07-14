@@ -188,7 +188,6 @@
 		650FF5E522AD1937004C3A85 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/ProductVoucher.strings; sourceTree = "<group>"; };
 		650FF5E722AD1AE3004C3A85 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		650FF5EA22AD1AE7004C3A85 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
-		650FF5EC22AD1AEA004C3A85 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Main.strings; sourceTree = "<group>"; };
 		650FF5EE22AD1D2A004C3A85 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/ConfirmRegister.storyboard; sourceTree = "<group>"; };
 		650FF5F122AD1D2F004C3A85 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ConfirmRegister.strings; sourceTree = "<group>"; };
 		650FF5F322AD1D32004C3A85 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/ConfirmRegister.strings; sourceTree = "<group>"; };
@@ -350,6 +349,7 @@
 		65A8B73D2282ED1D00B7DF05 /* MProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MProfileViewController.swift; sourceTree = "<group>"; };
 		65A8B7422282EDDD00B7DF05 /* MEmailLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MEmailLoginViewController.swift; sourceTree = "<group>"; };
 		65A8B7462282EE7B00B7DF05 /* MSuccessEmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSuccessEmailViewController.swift; sourceTree = "<group>"; };
+		65ABEF2622DB6C350049B23D /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Main.strings; sourceTree = "<group>"; };
 		65B3784C22C241F50095A2EF /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		65B4DE3D22A15F5C00AFC878 /* SuccessEmailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessEmailViewModel.swift; sourceTree = "<group>"; };
 		65B4DE4022A1682400AFC878 /* EmailLoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EmailLoginViewModel.swift; path = ../EmailLoginViewModel.swift; sourceTree = "<group>"; };
@@ -1714,7 +1714,7 @@
 			children = (
 				650FF5E722AD1AE3004C3A85 /* Base */,
 				650FF5EA22AD1AE7004C3A85 /* en */,
-				650FF5EC22AD1AEA004C3A85 /* nl */,
+				65ABEF2622DB6C350049B23D /* nl */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";

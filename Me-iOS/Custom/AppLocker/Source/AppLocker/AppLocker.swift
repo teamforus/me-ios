@@ -140,6 +140,7 @@ public class AppLocker: UIViewController {
             reservedPin = pin
             clearView()
             messageLabel.text = "Confirm the code".localized()
+            submessageLabel.text = "Confirm the login code by entering it again.".localized()
         } else {
             confirmPin()
         }

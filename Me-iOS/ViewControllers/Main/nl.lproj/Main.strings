@@ -2,7 +2,7 @@
 /* Class = "UILabel"; text = "Jamal"; ObjectID = "5fU-r2-fuI"; */
 "5fU-r2-fuI.text" = "Jamal";
 
-/* Class = "UITabBarItem"; title = "Records"; ObjectID = "Fxg-Vj-eeO"; */
+/* Class = "UITabBarItem"; title = "Profiel"; ObjectID = "Fxg-Vj-eeO"; */
 "Fxg-Vj-eeO.title" = "Profiel";
 
 /* Class = "UILabel"; text = "Used"; ObjectID = "Hup-YQ-NKc"; */
@@ -20,6 +20,9 @@
 /* Class = "UILabel"; text = "300 €"; ObjectID = "bD1-k9-0dm"; */
 "bD1-k9-0dm.text" = "300 €";
 
+/* Class = "UIButton"; normalTitle = "Close"; ObjectID = "eqN-rw-ng8"; */
+"eqN-rw-ng8.normalTitle" = "Sluit";
+
 /* Class = "UIButton"; normalTitle = "NIEUWE EIGENSCHAP"; ObjectID = "fxb-bV-R86"; */
 "fxb-bV-R86.normalTitle" = "NIEUWE EIGENSCHAP";
 
@@ -32,9 +35,6 @@
 /* Class = "UITabBarItem"; title = "Vouchers"; ObjectID = "ony-rh-yQc"; */
 "ony-rh-yQc.title" = "Vouchers";
 
-/* Class = "UIButtone"; title = "Close"; ObjectID = "eqN-rw-ng8"; */
-"eqN-rw-ng8.title" = "Sluit"
-
 /* Class = "UILabel"; text = "You have no vouchers yet"; ObjectID = "r3k-mS-eBG"; */
 "r3k-mS-eBG.text" = "Je hebt nog geen vouchers.";
 
@@ -46,3 +46,5 @@
 
 /* Class = "UILabel"; text = "Personal"; ObjectID = "uLp-89-Zk0"; */
 "uLp-89-Zk0.text" = "Persoonlijk";
+
+
