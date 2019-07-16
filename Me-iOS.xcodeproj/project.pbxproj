@@ -187,7 +187,6 @@
 		650FF5E322AD1933004C3A85 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ProductVoucher.strings; sourceTree = "<group>"; };
 		650FF5E522AD1937004C3A85 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/ProductVoucher.strings; sourceTree = "<group>"; };
 		650FF5E722AD1AE3004C3A85 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		650FF5EA22AD1AE7004C3A85 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		650FF5EE22AD1D2A004C3A85 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/ConfirmRegister.storyboard; sourceTree = "<group>"; };
 		650FF5F122AD1D2F004C3A85 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ConfirmRegister.strings; sourceTree = "<group>"; };
 		650FF5F322AD1D32004C3A85 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/ConfirmRegister.strings; sourceTree = "<group>"; };
@@ -356,6 +355,7 @@
 		65B4DE4322A17E7800AFC878 /* Me.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Me.entitlements; sourceTree = "<group>"; };
 		65B4DE4422A17E9000AFC878 /* Me-iOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Me-iOS.entitlements"; sourceTree = "<group>"; };
 		65B4DE4522A17F8600AFC878 /* Extension+Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Extension+Data.swift"; path = "../Extension+Data.swift"; sourceTree = "<group>"; };
+		65B8F64922DD03600046B09D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		65BDB8622292CFFC0016296C /* PausedMarqueLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PausedMarqueLabel.swift; sourceTree = "<group>"; };
 		65BDB8642292D5160016296C /* DownloadImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadImage.swift; sourceTree = "<group>"; };
 		65CF407A228C0B8F0006F5DE /* Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Register.swift; sourceTree = "<group>"; };
@@ -1713,8 +1713,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				650FF5E722AD1AE3004C3A85 /* Base */,
-				650FF5EA22AD1AE7004C3A85 /* en */,
 				65ABEF2622DB6C350049B23D /* nl */,
+				65B8F64922DD03600046B09D /* en */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -2271,7 +2271,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = io.forus.me.alpha;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = ALPHA;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -2381,6 +2381,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Me-iOS/Me-iOS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = FNTR3V85ZM;
+				GCC_OPTIMIZATION_LEVEL = s;
 				INFOPLIST_FILE = "Me-iOS/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -2390,6 +2391,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = io.forus.me.beta;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEMO;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

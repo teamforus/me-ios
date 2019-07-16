@@ -184,18 +184,29 @@ extension UIViewController{
     }
     
     @IBAction func logout(_ sender: UIButton) {
-        UserDefaults.standard.setValue(false, forKey: UserDefaultsName.AddressIndentityCrash)
-        UserDefaults.standard.setValue(false, forKey: UserDefaultsName.UseTouchID)
-        UserDefaults.standard.setValue(false, forKey: UserDefaultsName.StartFromScanner)
-        UserDefaults.standard.setValue("", forKey: UserDefaultsName.Token)
-        removeShortcutItem(application: UIApplication.shared)
-        UserDefaults.standard.set("", forKey: ALConstants.kPincode)
-        UserDefaults.standard.setValue(false, forKey: UserDefaultsName.UserIsLoged)
-        let storyboard:UIStoryboard = UIStoryboard(name: "First", bundle: nil)
-        let navigationController:HiddenNavBarNavigationController = storyboard.instantiateInitialViewController() as! HiddenNavBarNavigationController
-        let firstPageVC:UIViewController = storyboard.instantiateViewController(withIdentifier: "firstPage") as UIViewController
-        navigationController.viewControllers = [firstPageVC]
-        self.present(navigationController, animated: true, completion: nil)
+        
+        self.showSimpleAlertWithAction(title: "Log Out".localized(), message: "Are you sure you want to log out?".localized(),
+                                       okAction: UIAlertAction(title: "Confirm".localized(), style: .default, handler: { (action) in
+                                        
+                                        UserDefaults.standard.setValue(false, forKey: UserDefaultsName.AddressIndentityCrash)
+                                        UserDefaults.standard.setValue(false, forKey: UserDefaultsName.UseTouchID)
+                                        UserDefaults.standard.setValue(false, forKey: UserDefaultsName.StartFromScanner)
+                                        UserDefaults.standard.setValue("", forKey: UserDefaultsName.Token)
+                                        self.removeShortcutItem(application: UIApplication.shared)
+                                        UserDefaults.standard.set("", forKey: ALConstants.kPincode)
+                                        UserDefaults.standard.setValue(false, forKey: UserDefaultsName.UserIsLoged)
+                                        let storyboard:UIStoryboard = UIStoryboard(name: "First", bundle: nil)
+                                        let navigationController:HiddenNavBarNavigationController = storyboard.instantiateInitialViewController() as! HiddenNavBarNavigationController
+                                        let firstPageVC:UIViewController = storyboard.instantiateViewController(withIdentifier: "firstPage") as UIViewController
+                                        navigationController.viewControllers = [firstPageVC]
+                                        self.present(navigationController, animated: true, completion: nil)
+                                        
+                                       }),
+                                       cancelAction: UIAlertAction(title: "Cancel".localized(), style: .cancel, handler: { (action) in
+                                        
+                                       }))
+        
+        
         
     }
     

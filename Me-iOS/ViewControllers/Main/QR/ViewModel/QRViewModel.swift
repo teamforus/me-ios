@@ -44,11 +44,8 @@ class QRViewModel{
         
         commonService.get(request: "platform/vouchers/"+address+"/provider", complete: { (response: ResponseData<Voucher>, statusCode) in
             
-            if statusCode != 500 {
+            if statusCode == 500 {
                 
-                self.getVoucher(response.data!, statusCode)
-                
-            }else {
                 DispatchQueue.main.async {
                     
                     KVSpinnerView.dismiss()
@@ -57,6 +54,17 @@ class QRViewModel{
                     }))
                 }
                 
+            }else if statusCode == 403  {
+                DispatchQueue.main.async {
+                    
+                    KVSpinnerView.dismiss()
+                    self.vc.showSimpleAlertWithSingleAction(title: "Error!".localized(), message: "You can't scan this voucher. You are not accepted as a provider for the fund that hands out these vouchers.".localized(), okAction: UIAlertAction(title: "OK", style: .default, handler: { (action) in
+                        self.vc.scanWorker.start()
+                    }))
+                }
+            }else {
+                
+                self.getVoucher(response.data!, statusCode)
                 
             }
         }) { (error) in

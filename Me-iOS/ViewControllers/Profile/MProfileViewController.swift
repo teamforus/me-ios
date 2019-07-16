@@ -36,7 +36,7 @@ class MProfileViewController: UIViewController {
         
         let versionApp: AnyObject? = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as AnyObject
         let buildAppNumber: AnyObject? = Bundle.main.infoDictionary?["CFBundleVersion"] as AnyObject
-        #if (DEV || ALPHA || DEMO)
+        #if (DEV || ALPHA )
         self.appVersionLabel.text = (versionApp as? String)! + " (" + (buildAppNumber as? String)! + ")"
         crashButton.isHidden = false
         #else

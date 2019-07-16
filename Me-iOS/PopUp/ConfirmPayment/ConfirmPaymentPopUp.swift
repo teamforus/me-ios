@@ -28,8 +28,9 @@ class ConfirmPaymentPopUp: UIViewController {
         if voucher.product != nil {
             
             paymentLabel.text = "Are you sure you want to confirm this transaction".localized()
-            
+            amount = voucher.product?.price
             self.didChangeHeightView()
+            organizationId = voucher.product?.organization?.id
             
         }else {
             

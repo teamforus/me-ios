@@ -33,7 +33,6 @@
 "Enter your login code to use Face ID" = "Enter your login code to use Face ID";
 "Confirm the code" = "Confirm the code";
 "Enter a new login code" = "Enter a new login code";
-"Cancel" = "Cancel";
 "The scanner is not supported on this device" = "The scanner is not supported on this device";
 "This app is not authorized to use Back Camera" = "This app is not authorized to use Back Camera";
 "Sorry you do not meet the criteria for this voucher" = "Sorry you do not meet the criteria for this voucher";
@@ -73,7 +72,6 @@
 "Transaction" = "Transaction";
 "Product voucher" = "Product voucher";
 "Would you like to send us your feedback by e-mail?" = "Would you like to send us your feedback by e-mail?";
-"Confirm" = "Confirm";
 "My feedback about the Me app" = "My feedback about the Me app";
 "Question from Me user" = "Question from Me user";
 "Mail services are not available" = "Mail services are not available.";
@@ -111,3 +109,7 @@
 "Field is requierd" = "Field is requierd";
 "YES" = "YES";
 "NO" = "NO";
+"Are you sure you want to log out?" = "Are you sure you want to log out?";
+"Log Out" = "Log Out";
+"Confirm" = "Confirm";
+"Cancel" = "Cancel";

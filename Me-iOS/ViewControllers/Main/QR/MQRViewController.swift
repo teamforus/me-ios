@@ -108,20 +108,44 @@ class MQRViewController: HSScanViewController {
                                 
                                 self?.performSegue(withIdentifier: "goToVoucherPayment", sender: nil)
                                 
+                            }else if voucher.product != nil{
+                                
+                                if voucher.product?.price != "0.00"{
+                                    
+                                    self?.performSegue(withIdentifier: "goToVoucherPayment", sender: nil)
+                                }else{
+                                    
+                                    self?.showSimpleAlertWithSingleAction(title: "Error!".localized(),
+                                                                          message: "This product voucher is used!".localized(),
+                                                                          okAction: UIAlertAction(title: "OK", style: .default, handler: { (action) in
+                                                                            self?.scanWorker.start()
+                                                                          }))
+                                }
+                                
                             }else {
                                 
-                                self?.showSimpleAlert(title: "Warning".localized(), message: "Sorry you do not meet the criteria for this voucher".localized())
+                                self?.showSimpleAlertWithSingleAction(title: "Error!".localized(),
+                                                                      message: "Sorry you do not meet the criteria for this voucher".localized(),
+                                                                      okAction: UIAlertAction(title: "OK", style: .default, handler: { (action) in
+                                                                        self?.scanWorker.start()
+                                                                      }))
                             }
                         }else {
                             
-                            self?.showSimpleAlert(title: "Error!".localized(), message: "The voucher is empty! No transactions can be done.".localized())
+                            self?.showSimpleAlertWithSingleAction(title: "Error!".localized(),
+                                                                  message: "The voucher is empty! No transactions can be done.".localized(),
+                                                                  okAction: UIAlertAction(title: "OK", style: .default, handler: { (action) in
+                                self?.scanWorker.start()
+                            }))
                         }
                     }else {
                         
-                        self?.showSimpleAlert(title: "Error!".localized(), message: "You can't scan this voucher. You are not accepted as a provider for the fund that hands out these vouchers.".localized())
+                        self?.showSimpleAlertWithSingleAction(title: "Error!".localized(), message: "You can't scan this voucher. You are not accepted as a provider for the fund that hands out these vouchers.".localized(), okAction: UIAlertAction(title: "OK", style: .default, handler: { (action) in
+                            self?.scanWorker.start()
+                        }))
                     }
                     
-//                    self?.scanWorker.start()
+                    //                    self?.scanWorker.start()
                     
                 }else {
                     KVSpinnerView.dismiss()

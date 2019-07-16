@@ -32,7 +32,7 @@
 "Confirm the code" = "Bevestig inlogcode";
 "Enter a new login code" = "Stel een inlogcode in van vier cijfers.";
 "Confirm the login code by entering it again." = "Bevestig de inlogcode door hem nogmaals in te voeren.";
-"Cancel" = "Annuleer";
+
 "The scanner is not supported on this device" = "De scanner wordt niet ondersteund op dit apparaat";
 "This app is not authorized to use Back Camera" = "Deze app is niet geautoriseerd om een Camera te gebruiken.";
 "Sorry you do not meet the criteria for this voucher" = "Sorry je voldoet niet aan de voorwaarden voor deze voucher";
@@ -73,12 +73,11 @@
 "Transaction" = "Betaald";
 "Product voucher" = "Aanbieding";
 "Would you like to send us your feedback by e-mail?" = "Wilt u ons verbeterpunten per mail versturen?";
-"Confirm" = "Bevestig";
 "My feedback about the Me app" = "Mijn feedback over Me";
 "Question from Me user" = "Vraag van Me-gebruiker";
-"Confirm to go to your email app to send a message to the provider" = "Bevestig om naar uw email-app te gaan om een bericht te sturen naar de aanbieder";
+"Confirm to go to your email app to send a message to the provider" = "Bevestig om naar uw e-mail app te gaan om een bericht te sturen naar de aanbieder.";
 "Mail services are not available" = "U heeft geen mail-app ingesteld op uw apparaat.";
-"Send the voucher to your email?" = "Wilt u de voucher naar uw e-mailadres sturen?";
+"Send the voucher to your email?" = "Wilt u de voucher naar uw e-mail sturen?";
 "No phone number" = "Geen telefoonnummer";
 "Please try to send email again." = "Probeer nogmaals e-mail te verzenden.";
 "E-mail to me" = "E-Mail naar mij";
@@ -110,3 +109,7 @@
 "Field is requierd" = "Veld is verplicht";
 "YES" = "Ja";
 "NO" = "Nee";
+"Are you sure you want to log out?" = "Weet je zeker dat je wilt uitloggen?";
+"Log Out" = "Uitloggen";
+"Confirm" = "Bevestigen";
+"Cancel" = "Annuleren";

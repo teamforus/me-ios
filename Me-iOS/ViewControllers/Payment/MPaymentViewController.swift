@@ -39,9 +39,21 @@ class MPaymentViewController: UIViewController {
     
     @IBAction func send(_ sender: Any) {
         
-        if amountField.text != "" {
+        if voucher.product != nil {
             
-            if amountField.text != "0.01"{
+            let vc = ConfirmPaymentPopUp()
+            vc.voucher = voucher
+            vc.organizationId = selectedAllowerdOrganization?.id ?? 0
+            vc.note = notesField.text
+            vc.amount = amountField.text
+            vc.tabBar = tabBar
+            vc.modalTransitionStyle = .crossDissolve
+            vc.modalPresentationStyle = .overCurrentContext
+            self.present(vc, animated: true)
+            
+        }else if amountField.text != "" {
+            
+            if amountField.text != "0.01" && amountField.text != "0,01"{
             
             let vc = ConfirmPaymentPopUp()
             vc.voucher = voucher
@@ -58,7 +70,7 @@ class MPaymentViewController: UIViewController {
                 
             }
             
-        }else {
+        } else {
             
             showSimpleAlert(title: "Warning".localized(), message: "Please enter the amount".localized())
             
