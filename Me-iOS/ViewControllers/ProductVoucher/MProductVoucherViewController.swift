@@ -121,8 +121,8 @@ class MProductVoucherViewController: UIViewController {
             }
         }
         
-        showSimpleAlertWithAction(title: "Send an e-mail to the provider".localized(),
-                                  message: "Confirm to go to your email app to send a message to the provider".localized(),
+        showSimpleAlertWithAction(title: "E-mail to me".localized(),
+                                  message: "Send the voucher to your email?".localized(),
                                   okAction: UIAlertAction(title: "Confirm".localized(), style: .default, handler: { (action) in
                                     
                                     self.productViewModel.sendEmail(address: self.voucher.address ?? "")
@@ -150,8 +150,8 @@ extension MProductVoucherViewController {
     @objc func Tap() {
         
         
-        showSimpleAlertWithAction(title:  "E-mail to me".localized(),
-                                  message: "Question from Me user".localized(),
+        showSimpleAlertWithAction(title:  "Send an e-mail to the provider".localized(),
+                                  message: "Confirm to go to your email app to send a message to the provider".localized(),
                                   okAction: UIAlertAction(title: "Confirm".localized(), style: .default, handler: { (action) in
                                     
                                     if MFMailComposeViewController.canSendMail() {
@@ -166,7 +166,7 @@ extension MProductVoucherViewController {
                                     }
                                     
                                   }),
-                                  cancelAction: UIAlertAction(title: "Cancel".localized(), style: .default, handler: nil))
+                                  cancelAction: UIAlertAction(title: "Cancel".localized(), style: .cancel, handler: nil))
         
         
         

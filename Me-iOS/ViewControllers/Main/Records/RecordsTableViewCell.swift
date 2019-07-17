@@ -30,7 +30,7 @@ class RecordsTableViewCell: UITableViewCell {
                 
             }
             
-            cellTypeLabel.text = record.key?.replacingOccurrences(of: "_", with: " ").capitalized
+            cellTypeLabel.text = record.key?.localized()
             nameLabel.text = record.value
             
         }

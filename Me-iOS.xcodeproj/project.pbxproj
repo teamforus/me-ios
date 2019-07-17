@@ -282,6 +282,7 @@
 		654F97A7229BF5C5009C9FFA /* ValidatorTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidatorTableViewCell.swift; sourceTree = "<group>"; };
 		654F97A9229BF671009C9FFA /* MRecordDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MRecordDetailViewController.swift; sourceTree = "<group>"; };
 		654F97AD229C03D0009C9FFA /* RecordDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordDetailViewModel.swift; sourceTree = "<group>"; };
+		65529EB022DF682C00B8941B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		6568461622942E2900097E83 /* Extension+UITabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Extension+UITabBarController.swift"; path = "../Extension+UITabBarController.swift"; sourceTree = "<group>"; };
 		65684618229432CE00097E83 /* TransactionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionTableViewCell.swift; sourceTree = "<group>"; };
 		6568461B22944A1700097E83 /* SkeletonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkeletonView.swift; sourceTree = "<group>"; };
@@ -355,7 +356,6 @@
 		65B4DE4322A17E7800AFC878 /* Me.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Me.entitlements; sourceTree = "<group>"; };
 		65B4DE4422A17E9000AFC878 /* Me-iOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Me-iOS.entitlements"; sourceTree = "<group>"; };
 		65B4DE4522A17F8600AFC878 /* Extension+Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Extension+Data.swift"; path = "../Extension+Data.swift"; sourceTree = "<group>"; };
-		65B8F64922DD03600046B09D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		65BDB8622292CFFC0016296C /* PausedMarqueLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PausedMarqueLabel.swift; sourceTree = "<group>"; };
 		65BDB8642292D5160016296C /* DownloadImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadImage.swift; sourceTree = "<group>"; };
 		65CF407A228C0B8F0006F5DE /* Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Register.swift; sourceTree = "<group>"; };
@@ -1714,7 +1714,7 @@
 			children = (
 				650FF5E722AD1AE3004C3A85 /* Base */,
 				65ABEF2622DB6C350049B23D /* nl */,
-				65B8F64922DD03600046B09D /* en */,
+				65529EB022DF682C00B8941B /* en */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";

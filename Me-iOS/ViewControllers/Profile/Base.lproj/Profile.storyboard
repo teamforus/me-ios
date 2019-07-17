@@ -34,13 +34,6 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mQt-Uv-ahd">
                                                 <rect key="frame" x="0.0" y="-15" width="375" height="179"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nyY-eH-eFk">
-                                                        <rect key="frame" x="8" y="90" width="367" height="70"/>
-                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                                        <connections>
-                                                            <segue destination="cz6-ov-H3w" kind="presentation" id="0oA-uh-S2M"/>
-                                                        </connections>
-                                                    </button>
                                                     <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="6YL-vS-yZM">
                                                         <rect key="frame" x="95" y="88" width="180" height="54"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -99,6 +92,13 @@
                                                         <state key="normal" title="Press for crash the app"/>
                                                         <connections>
                                                             <action selector="crash:" destination="eu3-EV-5Ar" eventType="touchUpInside" id="Kmb-Fj-CiV"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nyY-eH-eFk">
+                                                        <rect key="frame" x="8" y="81" width="367" height="70"/>
+                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                                        <connections>
+                                                            <segue destination="cz6-ov-H3w" kind="presentation" id="0oA-uh-S2M"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>

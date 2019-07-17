@@ -36,13 +36,13 @@
 "bdu-eB-oGB.normalTitle" = "Voucher Info";
 
 /* Class = "UIButton"; normalTitle = "E-mail naar mij"; ObjectID = "d75-Qd-xat"; */
-"d75-Qd-xat.normalTitle" = "E-mail naar mij";
+"d75-Qd-xat.normalTitle" = "E-Mail naar mij";
 
 /* Class = "UILabel"; text = "Label"; ObjectID = "nGI-TP-rgs"; */
 "nGI-TP-rgs.text" = "Label";
 
 /* Class = "UILabel"; text = "Hier is je persoonlijke QR-Code"; ObjectID = "tYQ-aj-zEk"; */
-"tYQ-aj-zEk.text" = "Dit is je persoonlijke QR-Code.";
+"tYQ-aj-zEk.text" = "Dit is uw voucher in de vorm van een QR-code.";
 
 /* Class = "UILabel"; text = "NOT 2 DAGEN GELDIG VALID"; ObjectID = "wt9-Zp-qNM"; */
 "wt9-Zp-qNM.text" = "NOT 2 DAGEN GELDIG VALID";
