@@ -11,12 +11,11 @@ If you're coming from another platform, do take some time to familiarize yoursel
 
 ### Xcode
 
-[Xcode][xcode] is the IDE of choice for most iOS developers, and the only one officially supported by Apple. There are some alternatives, of which [AppCode][appcode] is arguably the most famous, but unless you're already a seasoned iOS person, go with Xcode. Despite its shortcomings, it's actually quite usable nowadays!
+[Xcode][xcode] is the IDE of choice for most iOS developers, and the only one officially supported by Apple. Despite its shortcomings, it's actually quite usable nowadays!
 
 To install, simply download [Xcode on the Mac App Store][xcode-app-store]. It comes with the newest SDK and simulators, and you can install more stuff under _Preferences > Downloads_.
 
 [xcode]: https://developer.apple.com/xcode/
-[appcode]: https://www.jetbrains.com/objc/
 [xcode-app-store]: https://itunes.apple.com/us/app/xcode/id497799835
 
 ### Project Setup
