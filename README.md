@@ -57,7 +57,7 @@ Making a new build for App store (Dev only)
 3. Select build variant 
 4. Select top bar menu Product->Archive
 5. Distribute App 
-56 Next step uncheck all three variants and just press next
+6. Next step uncheck all three variants and just press next
 
 
 <a href='https://apps.apple.com/nl/app/me-forus/id1422610676?l=en'><img alt='Get it on App Store' src='https://www.rbcwealthmanagement.com/_global/static/img/misc/download-on-the-app-store-badge.jpg' width='220px'/></a>
