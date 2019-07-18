@@ -31,7 +31,7 @@ class MRecordDetailViewController: UIViewController {
                 
                 self?.record = record
                 
-                self?.recordTypeLabel.text = record.key?.replacingOccurrences(of: "_", with: " ").capitalized
+                self?.recordTypeLabel.text = record.key?.localized()
                 self?.recordValue.text = record.value
                 self?.tableView.reloadData()
                 

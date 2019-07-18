@@ -134,8 +134,8 @@
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </imageView>
                                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Wc-78-48p">
-                                                        <rect key="frame" x="276" y="125" width="70" height="70"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                                        <rect key="frame" x="15" y="109" width="331" height="101"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <connections>
                                                             <action selector="opendQR:" destination="i5g-No-1l1" eventType="touchUpInside" id="OQb-jc-uux"/>
                                                         </connections>
@@ -341,7 +341,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fFv-sj-YYv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-508" y="1677"/>
+            <point key="canvasLocation" x="-509.4202898550725" y="1676.7857142857142"/>
         </scene>
         <!--Common Pull Up View Controller-->
         <scene sceneID="7nu-yb-y1Y">
