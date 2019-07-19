@@ -1,0 +1,24 @@
+
+/* Class = "UITextField"; placeholder = "Family Name"; ObjectID = "5L9-FS-NoH"; */
+"5L9-FS-NoH.placeholder" = "Achternaam";
+
+/* Class = "UILabel"; text = "Vul onderstaande gegevens in om een identiteit aan te maken, druk vervolgens op identiteit toevoegen"; ObjectID = "D2S-54-MhF"; */
+"D2S-54-MhF.text" = "Vul onderstaande gegevens in om een profiel aan te maken.";
+
+/* Class = "UILabel"; text = "Jouw identiteit"; ObjectID = "NY5-sn-AGu"; */
+"NY5-sn-AGu.text" = "Nieuw profiel";
+
+/* Class = "UIButton"; normalTitle = "IDENTITEIT TOEVOEGEN"; ObjectID = "pg8-Af-07x"; */
+"pg8-Af-07x.normalTitle" = "PROFIEL TOEVOEGEN";
+
+/* Class = "UITextField"; placeholder = "Confirm e-mail*"; ObjectID = "qPc-d9-Inn"; */
+"qPc-d9-Inn.placeholder" = "Herhaal email*";
+
+/* Class = "UITextField"; placeholder = "Primary e-mail*"; ObjectID = "qeS-nT-vlt"; */
+"qeS-nT-vlt.placeholder" = "E-mailadres*";
+
+/* Class = "UILabel"; text = "Me"; ObjectID = "rbq-Ie-Lnh"; */
+"rbq-Ie-Lnh.text" = "Me";
+
+/* Class = "UITextField"; placeholder = "Given Name"; ObjectID = "snF-AT-908"; */
+"snF-AT-908.placeholder" = "Voornaam";

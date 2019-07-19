@@ -79,7 +79,7 @@ public class ScanWorker: NSObject, AVCaptureMetadataOutputObjectsDelegate {
         
         let view = UIView(frame: CGRect(x: 44 , y: videoPreView.frame.height / 2.0 - scanFrame / 2.0 - 10, width: scanFrame, height: scanFrame))
         
-        videoPreView.bringSubview(toFront: view)
+        videoPreView.bringSubviewToFront(view)
         
         
         if captureDevice.isFocusPointOfInterestSupported && captureDevice.isFocusModeSupported(.continuousAutoFocus) {

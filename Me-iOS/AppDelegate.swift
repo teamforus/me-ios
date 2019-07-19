@@ -8,86 +8,312 @@
 
 import UIKit
 import CoreData
+import UserNotifications
+import Fabric
+import Crashlytics
+import KVSpinnerView
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+    
     var window: UIWindow?
-
-
+    var commonService: CommonServiceProtocol! = CommonService()
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        KVSpinnerView.settings.backgroundRectColor = .white
+        KVSpinnerView.settings.backgroundOpacity = 5.0
+        KVSpinnerView.settings.tintColor = #colorLiteral(red: 0.1918309331, green: 0.3696506619, blue: 0.9919955134, alpha: 1)
+        application.applicationIconBadgeNumber = 0
+        
+        #if DEBUG
+        #else
+        Fabric.with([Crashlytics.self])
+        
+        #endif
+        
+        window?.makeKeyAndVisible()
+        CurrentSession.shared.token = UserDefaults.standard.string(forKey: UserDefaultsName.Token)
+        
+        if UserDefaults.standard.bool(forKey: UserDefaultsName.UserIsLoged){
+            
+            self.addShortcuts(application: application)
+            if UserDefaults.standard.bool(forKey: UserDefaultsName.AddressIndentityCrash) {
+                
+                commonService.get(request: "identity", complete: { (response: Office, statusCode) in
+                    Crashlytics.sharedInstance().setUserIdentifier(response.address)
+                }) { (error) in
+                    
+                }
+            }
+            
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let initialViewController = storyboard.instantiateViewController(withIdentifier: "tabBar") as! UITabBarController
+            
+            if UserDefaults.standard.bool(forKey: UserDefaultsName.StartFromScanner){
+                
+                initialViewController.selectedIndex = 1
+                
+            }
+            
+            self.window?.rootViewController = initialViewController
+            
+        }else {
+            
+            let storyboard = UIStoryboard(name: "First", bundle: nil)
+            let initialViewController = storyboard.instantiateViewController(withIdentifier: "first") as! HiddenNavBarNavigationController
+            self.window?.rootViewController = initialViewController
+            
+        }
+        didCheckPasscode(vc: self.window!.rootViewController!)
+        initPush(application)
+        
+        
         return true
     }
-
+    
     func applicationWillResignActive(_ application: UIApplication) {
-        // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-        // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
     }
-
+    
     func applicationDidEnterBackground(_ application: UIApplication) {
-        // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-        // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
     }
-
+    
     func applicationWillEnterForeground(_ application: UIApplication) {
-        // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
     }
-
+    
     func applicationDidBecomeActive(_ application: UIApplication) {
-        // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
     }
-
+    
     func applicationWillTerminate(_ application: UIApplication) {
-        // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-        // Saves changes in the application's managed object context before the application terminates.
         self.saveContext()
     }
-
+    
+    
+    
+    
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+        if url.absoluteString.contains("meapp://identity-confirmation"){
+            
+            NotificationCenter.default.post(name: NotificationName.AuthorizeTokenSignUp, object: self, userInfo: ["authToken" : url.absoluteString.replacingOccurrences(of: "meapp://identity-confirmation?token=", with: "")])
+            
+        }else if url.absoluteString.contains("meapp://identity-restore"){
+            
+            NotificationCenter.default.post(name: NotificationName.AuthorizeTokenEmail, object: self, userInfo: ["authToken" : url.absoluteString.replacingOccurrences(of: "meapp://identity-restore?token=", with: "")])
+            
+        }
+        return true
+    }
+    
     // MARK: - Core Data stack
-
+    
     lazy var persistentContainer: NSPersistentContainer = {
-        /*
-         The persistent container for the application. This implementation
-         creates and returns a container, having loaded the store for the
-         application to it. This property is optional since there are legitimate
-         error conditions that could cause the creation of the store to fail.
-        */
+        
         let container = NSPersistentContainer(name: "Me_iOS")
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                 
-                /*
-                 Typical reasons for an error here include:
-                 * The parent directory does not exist, cannot be created, or disallows writing.
-                 * The persistent store is not accessible, due to permissions or data protection when the device is locked.
-                 * The device is out of space.
-                 * The store could not be migrated to the current model version.
-                 Check the error message to determine what the actual problem was.
-                 */
+                
                 fatalError("Unresolved error \(error), \(error.userInfo)")
             }
         })
         return container
     }()
-
+    
+    
+    // MARK: - ShortCut Items
+    
+    func addShortcuts(application: UIApplication) {
+        let voucherItem = UIMutableApplicationShortcutItem(type: "Vouchers", localizedTitle: "Voucher", localizedSubtitle: "", icon: UIApplicationShortcutIcon(templateImageName: "wallet"), userInfo: nil)
+        
+        let qrItem = UIMutableApplicationShortcutItem(type: "QR", localizedTitle: "QR", localizedSubtitle: "", icon: UIApplicationShortcutIcon(templateImageName: "iconGrey"), userInfo: nil)
+        
+        let recordItem = UIMutableApplicationShortcutItem(type: "Profile", localizedTitle: "Profile".localized(), localizedSubtitle: "", icon: UIApplicationShortcutIcon(templateImageName: "activeBlue"), userInfo: nil)
+        
+        application.shortcutItems = [voucherItem, qrItem, recordItem]
+    }
+    
+    func application(_ application: UIApplication, performActionFor shortcutItem: UIApplicationShortcutItem, completionHandler: @escaping (Bool) -> Void) {
+        
+        let handleShortCutItem = handleShortcutItem(shortCutItem: shortcutItem)
+        
+        completionHandler(handleShortCutItem)
+    }
+    
+    func handleShortcutItem(shortCutItem: UIApplicationShortcutItem) -> Bool {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let initialViewController = storyboard.instantiateViewController(withIdentifier: "tabBar") as! UITabBarController
+        var handle = false
+        
+        guard let shortCutType = shortCutItem.type as String? else { return false }
+        
+        switch shortCutType {
+        case "Vouchers":
+            initialViewController.selectedIndex = 0
+            handle = true
+            break
+        case "QR" :
+            initialViewController.selectedIndex = 1
+            handle = true
+            break
+        case "Profile":
+            initialViewController.selectedIndex = 2
+            handle = true
+            break
+        default:
+            break
+        }
+         self.window?.rootViewController = initialViewController
+        return handle
+    }
+    
     // MARK: - Core Data Saving support
-
+    
     func saveContext () {
         let context = persistentContainer.viewContext
         if context.hasChanges {
             do {
                 try context.save()
             } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
                 let nserror = error as NSError
                 fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
             }
         }
     }
+    
+    // TODO: Notification
+    
+    // [START receive_message]
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any]) {
+        // If you are receiving a notification message while your app is in the background,
+        // this callback will not be fired till the user taps on the notification launching the application.
+        // TODO: Handle data of notification
+        
+        // With swizzling disabled you must let Messaging know about the message, for Analytics
+        // Messaging.messaging().appDidReceiveMessage(userInfo)
+        
+        // Print message ID.
+        //        if let messageID = userInfo[gcmMessageIDKey] {
+        //            print("Message ID: \(messageID)")
+        //        }
+        
+        // Print full message.
+        print(userInfo)
+    }
+    
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any],
+                     fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        // If you are receiving a notification message while your app is in the background,
+        // this callback will not be fired till the user taps on the notification launching the application.
+        // TODO: Handle data of notification
+        
+        // With swizzling disabled you must let Messaging know about the message, for Analytics
+        // Messaging.messaging().appDidReceiveMessage(userInfo)
+        
+        // Print message ID.
+        //        if let messageID = userInfo[gcmMessageIDKey] {
+        //            print("Message ID: \(messageID)")
+        //        }
+        
+        // Print full message.
+        print(userInfo)
+        
+        completionHandler(UIBackgroundFetchResult.newData)
+    }
+    // [END receive_message]
+    
+    func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
+        print("Unable to register for remote notifications: \(error.localizedDescription)")
+    }
+    
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        let deviceTokenString = deviceToken.hexString
+        print("APNs token retrieved: \(deviceTokenString)")
+        let dataDict:[String: String] = ["token": deviceTokenString]
+        NotificationCenter.default.post(name: Notification.Name("FCMToken"), object: nil, userInfo: dataDict)
+        UserDefaults.standard.setValue(deviceTokenString, forKey: "TOKENPUSH")
+        UserDefaults.standard.synchronize()
+    }
+    
+}
 
+@available(iOS 10, *)
+extension AppDelegate : UNUserNotificationCenterDelegate {
+    
+    // Receive displayed notifications for iOS 10 devices.
+    func userNotificationCenter(_ center: UNUserNotificationCenter,
+                                willPresent notification: UNNotification,
+                                withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        let userInfo = notification.request.content.userInfo
+        
+        // With swizzling disabled you must let Messaging know about the message, for Analytics
+        // Messaging.messaging().appDidReceiveMessage(userInfo)
+        
+        // Print message ID.
+        //        if let messageID = userInfo[gcmMessageIDKey] {
+        //            print("Message ID: \(messageID)")
+        //        }
+        
+        // Print full message.
+        print(userInfo)
+        
+        // Change this to your preferred presentation option
+        completionHandler([])
+    }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter,
+                                didReceive response: UNNotificationResponse,
+                                withCompletionHandler completionHandler: @escaping () -> Void) {
+        let userInfo = response.notification.request.content.userInfo
+        // Print message ID.
+        
+        
+        // Print full message.
+        print(userInfo)
+        
+        completionHandler()
+    }
+}
+
+extension AppDelegate {
+    
+    func initPush(_ application: UIApplication){
+        if #available(iOS 10.0, *) {
+            // For iOS 10 display notification (sent via APNS)
+            UNUserNotificationCenter.current().delegate = self
+            
+            let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
+            UNUserNotificationCenter.current().requestAuthorization(
+                options: authOptions,
+                completionHandler: {_, _ in })
+        } else {
+            let settings: UIUserNotificationSettings =
+                UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
+            application.registerUserNotificationSettings(settings)
+        }
+        
+        application.registerForRemoteNotifications()
+    }
+    
+    func didCheckPasscode(vc: UIViewController){
+        if UserDefaults.standard.string(forKey: ALConstants.kPincode) != "" && UserDefaults.standard.string(forKey: ALConstants.kPincode) != nil {
+            var appearance = ALAppearance()
+            appearance.image = UIImage(named: "lock")!
+            appearance.title = "Enter login code".localized()
+            appearance.isSensorsEnabled = true
+            appearance.cancelIsVissible = false
+            appearance.delegate = self
+            
+            AppLocker.present(with: .validate, and: appearance, withController: vc)
+        }
+    }
+}
+
+extension AppDelegate: AppLockerDelegate{
+    
+    func closePinCodeView(typeClose: typeClose) {
+        if typeClose == .logout{
+            
+        }
+    }
+    
 }
 

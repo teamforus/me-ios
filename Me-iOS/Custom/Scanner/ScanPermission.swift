@@ -24,6 +24,8 @@ struct ScanPermission {
                     comletion(status == .authorized ? true : false)
                 }
             })
+        @unknown default:
+            fatalError()
         }
     }
     
@@ -40,11 +42,13 @@ struct ScanPermission {
                     comletion(status)
                 }
             })
+        @unknown default:
+            fatalError()
         }
     }
     
     static func goToSystemSetting() {
-        if let appSetting = URL(string: UIApplicationOpenSettingsURLString) {
+        if let appSetting = URL(string: UIApplication.openSettingsURLString) {
             if #available(iOS 10, *) {
                 UIApplication.shared.open(appSetting, options: [:], completionHandler: nil)
             } else {

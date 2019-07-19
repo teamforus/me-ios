@@ -1,0 +1,15 @@
+
+/* Class = "UIButton"; normalTitle = "REQUEST"; ObjectID = "69B-uJ-QCp"; */
+"69B-uJ-QCp.normalTitle" = "CONFIRM";
+
+/* Class = "UIButton"; normalTitle = "DECLINE"; ObjectID = "BuJ-fY-5Ys"; */
+"BuJ-fY-5Ys.normalTitle" = "DECLINE";
+
+/* Class = "UILabel"; text = "Insufficient funds on the voucher.  Please, request extra payment of € 20"; ObjectID = "SnK-yG-X66"; */
+"SnK-yG-X66.text" = "Insufficient funds on the voucher.  Please, request extra payment of € 20";
+
+/* Class = "UILabel"; text = "Confirm transaction"; ObjectID = "dBu-VI-fVr"; */
+"dBu-VI-fVr.text" = "Confirm transaction";
+
+/* Class = "UILabel"; text = "Are you sure you want to pay      €140?"; ObjectID = "yYR-Zq-Cf0"; */
+"yYR-Zq-Cf0.text" = "Are you sure you want to pay      €140?";

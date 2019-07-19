@@ -1,0 +1,9 @@
+
+/* Class = "UIButton"; normalTitle = "OPEN MAIL APP"; ObjectID = "Opf-SA-edo"; */
+"Opf-SA-edo.normalTitle" = "OPEN MAIL APP";
+
+/* Class = "UIButton"; normalTitle = "ANNULEER"; ObjectID = "pqB-sU-g6i"; */
+"pqB-sU-g6i.normalTitle" = "ANNULEER";
+
+/* Class = "UILabel"; text = "Er is een e-mail naar je verstuurd"; ObjectID = "zQC-jP-eMe"; */
+"zQC-jP-eMe.text" = "Er is een e-mail naar je toegestuurd.";

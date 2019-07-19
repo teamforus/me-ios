@@ -1,0 +1,30 @@
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "5SP-f3-BE5"; */
+"5SP-f3-BE5.text" = "Label";
+
+/* Class = "UILabel"; text = "Kies de categorie waaraan de nieuwe eigenschap toegevoegd wordt."; ObjectID = "9Xk-uh-uIn"; */
+"9Xk-uh-uIn.text" = "Kies de categorie waaraan de nieuwe eigenschap toegevoegd wordt.";
+
+/* Class = "UILabel"; text = "Kies Validator"; ObjectID = "TTq-NP-AvE"; */
+"TTq-NP-AvE.text" = "Kies Validator";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "UwA-hR-Rf8"; */
+"UwA-hR-Rf8.text" = "Label";
+
+/* Class = "UIButton"; normalTitle = "Voornaam"; ObjectID = "WEh-0j-F0h"; */
+"WEh-0j-F0h.normalTitle" = "Voornaam";
+
+/* Class = "UILabel"; text = "Nieuwe Eigenschap"; ObjectID = "XiY-ug-2dg"; */
+"XiY-ug-2dg.text" = "Nieuwe Eigenschap";
+
+/* Class = "UIButton"; normalTitle = "VALIDEER LATER"; ObjectID = "bpx-Ib-VVT"; */
+"bpx-Ib-VVT.normalTitle" = "VALIDEER LATER";
+
+/* Class = "UIButton"; normalTitle = "Jamal"; ObjectID = "e4s-Jt-G1E"; */
+"e4s-Jt-G1E.normalTitle" = "Jamal";
+
+/* Class = "UILabel"; text = "This record has no validations yet"; ObjectID = "gLj-o5-OVg"; */
+"gLj-o5-OVg.text" = "This record has no validations yet";
+
+/* Class = "UILabel"; text = "Given Name"; ObjectID = "y1J-AA-6Ci"; */
+"y1J-AA-6Ci.text" = "Given Name";

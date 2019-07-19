@@ -26,7 +26,7 @@ enum typeClose: Int {
 public enum ALConstants {
     static let nibName = "AppLocker"
     static let kPincode = "pinCode" // Key for saving pincode to UserDefaults
-    static let kLocalizedReason = "Unlock with sensor" // Your message when sensors must be shown
+    static var kLocalizedReason = "Unlock with sensor" // Your message when sensors must be shown
     static let duration = 0.3 // Duration of indicator filling
     static let maxPinLength = 4
     
@@ -140,6 +140,7 @@ public class AppLocker: UIViewController {
             reservedPin = pin
             clearView()
             messageLabel.text = "Confirm the code".localized()
+            submessageLabel.text = "Confirm the login code by entering it again.".localized()
         } else {
             confirmPin()
         }
@@ -154,13 +155,13 @@ public class AppLocker: UIViewController {
     }
     
     private func validateModeAction() {
-        UserDefaults.standard.set(true, forKey: "PINCODEENABLED")
+        UserDefaults.standard.set(true, forKey: UserDefaultsName.PinCodeEnabled)
         pin == savedPin ? dismiss(animated: true, completion: nil) : incorrectPinAnimation()
         delegate.closePinCodeView(typeClose: .validate)
     }
     
     private func removePin() {
-        UserDefaults.standard.set(false, forKey: "PINCODEENABLED")
+        UserDefaults.standard.set(false, forKey: UserDefaultsName.PinCodeEnabled)
         UserDefaults.standard.removeObject(forKey: ALConstants.kPincode)
         dismiss(animated: true, completion: nil)
         delegate.closePinCodeView(typeClose: .delete)
@@ -168,7 +169,7 @@ public class AppLocker: UIViewController {
     }
     
     private func confirmPin() {
-        UserDefaults.standard.set(true, forKey: "PINCODEENABLED")
+        UserDefaults.standard.set(true, forKey: UserDefaultsName.PinCodeEnabled)
         if pin == reservedPin {
             savedPin = pin
             dismiss(animated: true, completion: nil)
@@ -221,6 +222,17 @@ public class AppLocker: UIViewController {
         guard context.canEvaluatePolicy(policy, error: &err) else {return}
         
         // The user is able to use his/her Touch ID / Face ID 👍
+        
+        if faceIDAvailable() {
+            
+            ALConstants.kLocalizedReason = "Unlock with Face ID"
+            
+        }else {
+            
+            ALConstants.kLocalizedReason = "Unlock with Touch ID"
+            
+        }
+        
         context.evaluatePolicy(policy, localizedReason: ALConstants.kLocalizedReason, reply: {  success, error in
             if success {
                 self.dismiss(animated: true, completion: nil)
@@ -237,7 +249,7 @@ public class AppLocker: UIViewController {
         case ALConstants.button.cancel.rawValue:
             clearView()
             if isCancelButton == false{
-                logOutProfile()
+                self.logout(sender)
             }else{
             self.dismiss(animated: true)
                 delegate.closePinCodeView(typeClose: .cancel)
@@ -247,18 +259,6 @@ public class AppLocker: UIViewController {
         }
     }
     
-    func logOutProfile(){
-        UserDefaults.standard.set("", forKey: ALConstants.kPincode)
-            let storyboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-            let navigationController:HiddenNavBarNavigationController = storyboard.instantiateInitialViewController() as! HiddenNavBarNavigationController
-            let firstPageVC:UIViewController = storyboard.instantiateViewController(withIdentifier: "firstPage") as UIViewController
-            navigationController.viewControllers = [firstPageVC]
-        var vc = UIApplication.shared.keyWindow?.rootViewController
-        while ((vc?.presentedViewController) != nil) {
-            vc = vc?.presentedViewController
-        }
-            vc?.present(navigationController, animated: true, completion: nil)
-        }
 }
 
 // MARK: - CAAnimationDelegate
@@ -276,6 +276,8 @@ public extension AppLocker {
         guard let _ = UIApplication.shared.keyWindow?.rootViewController,
             
             let locker = Bundle(for: self.classForCoder()).loadNibNamed(ALConstants.nibName, owner: self, options: nil)?.first as? AppLocker else {
+                print()
+                
                 return
         }
         //    if mode == .validate {

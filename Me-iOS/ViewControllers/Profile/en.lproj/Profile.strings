@@ -1,0 +1,48 @@
+
+/* Class = "UIButton"; normalTitle = "About Me"; ObjectID = "0RT-Bm-Z42"; */
+"0RT-Bm-Z42.normalTitle" = "About Me";
+
+/* Class = "UIButton"; normalTitle = "feedback@forus.io"; ObjectID = "5cN-1Z-L4K"; */
+"5cN-1Z-L4K.normalTitle" = "feedback@forus.io";
+
+/* Class = "UILabel"; text = "1.0.4"; ObjectID = "6fM-yO-VsB"; */
+"6fM-yO-VsB.text" = "1.0.4";
+
+/* Class = "UILabel"; text = "Change 4-digit passcode"; ObjectID = "AbL-ew-Qz7"; */
+"AbL-ew-Qz7.text" = "Change 4-digit passcode";
+
+/* Class = "UILabel"; text = "Start from scanner"; ObjectID = "AiD-mk-0LQ"; */
+"AiD-mk-0LQ.text" = "Start from scanner";
+
+/* Class = "UILabel"; text = "Turn off passcode"; ObjectID = "Bq2-SX-GJZ"; */
+"Bq2-SX-GJZ.text" = "Turn off passcode";
+
+/* Class = "UILabel"; text = "Contact Support"; ObjectID = "G7d-5Z-MNy"; */
+"G7d-5Z-MNy.text" = "Contact Support";
+
+/* Class = "UIButton"; normalTitle = "LOG OUT"; ObjectID = "LCl-JE-4Rl"; */
+"LCl-JE-4Rl.normalTitle" = "LOG OUT";
+
+/* Class = "UILabel"; text = "Uw Profiel"; ObjectID = "Ncj-5F-IHr"; */
+"Ncj-5F-IHr.text" = "Uw Profiel";
+
+/* Class = "UILabel"; text = "mail@mail.com"; ObjectID = "Rkq-EJ-VPa"; */
+"Rkq-EJ-VPa.text" = "mail@mail.com";
+
+/* Class = "UIButton"; normalTitle = "Edit"; ObjectID = "Sqg-eG-8rA"; */
+"Sqg-eG-8rA.normalTitle" = "Edit";
+
+/* Class = "UIButton"; normalTitle = "Close"; ObjectID = "hu1-sr-b6h"; */
+"hu1-sr-b6h.normalTitle" = "Close";
+
+/* Class = "UILabel"; text = "Send crash reports"; ObjectID = "pA8-VO-WKT"; */
+"pA8-VO-WKT.text" = "Send crash reports";
+
+/* Class = "UILabel"; text = "Use Face ID for login"; ObjectID = "scn-SY-tGf"; */
+"scn-SY-tGf.text" = "Use Face ID for login";
+
+/* Class = "UILabel"; text = "App version"; ObjectID = "szP-vk-gG7"; */
+"szP-vk-gG7.text" = "App version";
+
+/* Class = "UIButton"; normalTitle = "Press for crash the app"; ObjectID = "uyU-tZ-kOJ"; */
+"uyU-tZ-kOJ.normalTitle" = "Press for crash the app";

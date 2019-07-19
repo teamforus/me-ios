@@ -1,0 +1,60 @@
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "05o-Ju-tDy"; */
+"05o-Ju-tDy.text" = "Label";
+
+/* Class = "UILabel"; text = "19 Mei, 14:08"; ObjectID = "0Up-HB-Bos"; */
+"0Up-HB-Bos.text" = "19 Mei, 14:08";
+
+/* Class = "UILabel"; text = "Er zijn nog geen transacties"; ObjectID = "8jn-dO-4Fn"; */
+"8jn-dO-4Fn.text" = "Er zijn nog geen transacties";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "Lad-bG-s6N"; */
+"Lad-bG-s6N.text" = "Label";
+
+/* Class = "UILabel"; text = "Laat iemanduw persoonlijke QR-code scannen om u valuta, bezit of vouchers te sturen"; ObjectID = "P7e-xQ-MR9"; */
+"P7e-xQ-MR9.text" = "Let the shopkeeper scan it to make a payment from your voucher.";
+
+/* Class = "UILabel"; text = "Transactie"; ObjectID = "PbV-1U-ztC"; */
+"PbV-1U-ztC.text" = "Transaction";
+
+/* Class = "UILabel"; text = "Geschiedenis"; ObjectID = "S5Y-Ui-yru"; */
+"S5Y-Ui-yru.text" = "History";
+
+/* Class = "UILabel"; text = "Kindpakket"; ObjectID = "Sdw-Cx-cza"; */
+"Sdw-Cx-cza.text" = "Kindpakket";
+
+/* Class = "UILabel"; text = "-2,76"; ObjectID = "Xmp-1y-dWX"; */
+"Xmp-1y-dWX.text" = "-2,76";
+
+/* Class = "UILabel"; text = "€ 122,50"; ObjectID = "ZIO-zS-LCB"; */
+"ZIO-zS-LCB.text" = "€ 122,50";
+
+/* Class = "UILabel"; text = "Rijwielhandel Kuis"; ObjectID = "c89-oH-FyY"; */
+"c89-oH-FyY.text" = "Rijwielhandel Kuis";
+
+/* Class = "UILabel"; text = "Activated"; ObjectID = "cc7-yH-a8B"; */
+"cc7-yH-a8B.text" = "Activated";
+
+/* Class = "UIButton"; normalTitle = "Voucher Info"; ObjectID = "kQA-2y-C8q"; */
+"kQA-2y-C8q.normalTitle" = "Voucher Info";
+
+/* Class = "UIButton"; normalTitle = "E-mail naar mij"; ObjectID = "mWI-n4-pEO"; */
+"mWI-n4-pEO.normalTitle" = "E-mail to me";
+
+/* Class = "UILabel"; text = "19 Mei, 14:08"; ObjectID = "qGC-Rd-vKi"; */
+"qGC-Rd-vKi.text" = "19 Mei, 14:08";
+
+/* Class = "UILabel"; text = "QR-CODE"; ObjectID = "sGx-Rg-q1L"; */
+"sGx-Rg-q1L.text" = "QR-CODE";
+
+/* Class = "UILabel"; text = "Voucher"; ObjectID = "vIm-8e-AeU"; */
+"vIm-8e-AeU.text" = "Voucher";
+
+/* Class = "UILabel"; text = "NOT 2 DAGEN GELDIG VALID"; ObjectID = "w5t-6W-ueq"; */
+"w5t-6W-ueq.text" = "NOT 2 DAGEN GELDIG VALID";
+
+/* Class = "UILabel"; text = "Hier is je persoonlijke QR-Code"; ObjectID = "xIx-dD-8s5"; */
+"xIx-dD-8s5.text" = "This is your Voucher’s QR-code.";
+
+/* Class = "UITabBarItem"; title = "Item 2"; ObjectID = "yc3-wb-YF5"; */
+"yc3-wb-YF5.title" = "Item 2";

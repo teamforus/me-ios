@@ -1,0 +1,50 @@
+
+/* Class = "UILabel"; text = "Jamal"; ObjectID = "5fU-r2-fuI"; */
+"5fU-r2-fuI.text" = "Jamal";
+
+/* Class = "UITabBarItem"; title = "Profiel"; ObjectID = "Fxg-Vj-eeO"; */
+"Fxg-Vj-eeO.title" = "Profiel";
+
+/* Class = "UILabel"; text = "Used"; ObjectID = "Hup-YQ-NKc"; */
+"Hup-YQ-NKc.text" = "Gebruikt";
+
+/* Class = "UILabel"; text = "validatie"; ObjectID = "McN-ut-AJt"; */
+"McN-ut-AJt.text" = "validatie";
+
+/* Class = "UITabBarItem"; title = "QR"; ObjectID = "ScF-cs-iUb"; */
+"ScF-cs-iUb.title" = "QR";
+
+/* Class = "UILabel"; text = "18 tagen geldig"; ObjectID = "ZDL-U6-1tp"; */
+"ZDL-U6-1tp.text" = "18 tagen geldig";
+
+/* Class = "UILabel"; text = "300 €"; ObjectID = "bD1-k9-0dm"; */
+"bD1-k9-0dm.text" = "300 €";
+
+/* Class = "UIButton"; normalTitle = "Close"; ObjectID = "eqN-rw-ng8"; */
+"eqN-rw-ng8.normalTitle" = "Sluit";
+
+/* Class = "UIButton"; normalTitle = "NIEUWE EIGENSCHAP"; ObjectID = "fxb-bV-R86"; */
+"fxb-bV-R86.normalTitle" = "NIEUWE EIGENSCHAP";
+
+/* Class = "UILabel"; text = "Kindpakket"; ObjectID = "hah-5r-kDN"; */
+"hah-5r-kDN.text" = "Kindpakket";
+
+/* Class = "UILabel"; text = "3"; ObjectID = "o4b-Rb-FmZ"; */
+"o4b-Rb-FmZ.text" = "3";
+
+/* Class = "UITabBarItem"; title = "Vouchers"; ObjectID = "ony-rh-yQc"; */
+"ony-rh-yQc.title" = "Vouchers";
+
+/* Class = "UILabel"; text = "You have no vouchers yet"; ObjectID = "r3k-mS-eBG"; */
+"r3k-mS-eBG.text" = "Je hebt nog geen vouchers.";
+
+/* Class = "UILabel"; text = "Voucher"; ObjectID = "rIR-n0-vK4"; */
+"rIR-n0-vK4.text" = "Vouchers";
+
+/* Class = "UILabel"; text = "First Name"; ObjectID = "rpK-Zw-ROm"; */
+"rpK-Zw-ROm.text" = "First Name";
+
+/* Class = "UILabel"; text = "Personal"; ObjectID = "uLp-89-Zk0"; */
+"uLp-89-Zk0.text" = "Persoonlijk";
+
+
