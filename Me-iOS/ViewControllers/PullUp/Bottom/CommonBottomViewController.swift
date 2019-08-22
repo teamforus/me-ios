@@ -45,6 +45,8 @@ class CommonBottomViewController: UIViewController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(toglePullUpView), name: NotificationName.TogleStateWindow, object: nil)
         
+        NotificationCenter.default.addObserver(self, selector: #selector(toglePullUpView), name: NotificationName.TogleStateWindowFormProduct, object: nil)
+        
         switch qrType {
         case .AuthToken?:
             

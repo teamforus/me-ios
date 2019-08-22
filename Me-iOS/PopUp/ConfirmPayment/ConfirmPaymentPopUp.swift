@@ -16,6 +16,7 @@ class ConfirmPaymentPopUp: UIViewController {
     
     
     var voucher: Voucher!
+    var voucherToken: Transaction!
     var amount: String!
     var tabBar: UITabBarController!
     var organizationId: Int!

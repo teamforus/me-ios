@@ -177,6 +177,7 @@
                     <tabBarItem key="tabBarItem" title="QR" image="iconGrey" id="ScF-cs-iUb"/>
                     <connections>
                         <segue destination="Xna-gt-1Ae" kind="presentation" identifier="goToVoucherPayment" id="b25-wn-f2v"/>
+                        <segue destination="vLS-8F-uQA" kind="presentation" identifier="goToChooseProduct" id="ycv-iA-d2p"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wmc-qW-yeP" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -190,6 +191,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aFl-SN-Lnf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2824" y="211"/>
+        </scene>
+        <!--ProductReservation-->
+        <scene sceneID="qnv-86-hAQ">
+            <objects>
+                <viewControllerPlaceholder storyboardName="ProductReservation" id="vLS-8F-uQA" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tBx-PJ-6S7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2877" y="299"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="4OI-eX-3Rd">
