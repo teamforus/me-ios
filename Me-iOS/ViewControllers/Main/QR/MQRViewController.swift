@@ -109,7 +109,12 @@ class MQRViewController: HSScanViewController {
                             if voucher.allowed_organizations?.count != 0 && voucher.allowed_organizations?.count  != nil {
                                 
                                 if voucher.product_vouchers?.count != 0 {
-                                    self?.productVoucher = voucher.product_vouchers
+                                    voucher.product_vouchers?.forEach({ (voucherToken) in
+                                        if voucherToken.product?.organization_id == voucher.allowed_organizations?.first?.id {
+                                            self?.productVoucher.append(voucherToken)
+                                        }
+                                    })
+                                    
                                     self?.performSegue(withIdentifier: "goToChooseProduct", sender: nil)
                                 }else {
                                     

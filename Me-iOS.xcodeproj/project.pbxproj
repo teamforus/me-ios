@@ -74,6 +74,11 @@
 		654F97A8229BF5C5009C9FFA /* ValidatorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654F97A7229BF5C5009C9FFA /* ValidatorTableViewCell.swift */; };
 		654F97AA229BF671009C9FFA /* MRecordDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654F97A9229BF671009C9FFA /* MRecordDetailViewController.swift */; };
 		654F97AE229C03D0009C9FFA /* RecordDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654F97AD229C03D0009C9FFA /* RecordDetailViewModel.swift */; };
+		655D64712315903900EABD57 /* HBSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655D64702315903900EABD57 /* HBSegmentedControl.swift */; };
+		655D64732315948900EABD57 /* ValuteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655D64722315948900EABD57 /* ValuteTableViewCell.swift */; };
+		655D6476231598D300EABD57 /* SendEtherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655D6474231598D300EABD57 /* SendEtherViewController.swift */; };
+		655D6477231598D300EABD57 /* SendEtherViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 655D6475231598D300EABD57 /* SendEtherViewController.xib */; };
+		655D64792315A04300EABD57 /* MAFirstPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655D64782315A04300EABD57 /* MAFirstPageViewController.swift */; };
 		6568461722942E2900097E83 /* Extension+UITabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6568461622942E2900097E83 /* Extension+UITabBarController.swift */; };
 		65684619229432CE00097E83 /* TransactionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65684618229432CE00097E83 /* TransactionTableViewCell.swift */; };
 		6568461E22944A1800097E83 /* SkeletonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6568461B22944A1700097E83 /* SkeletonView.swift */; };
@@ -293,6 +298,11 @@
 		654F97A9229BF671009C9FFA /* MRecordDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MRecordDetailViewController.swift; sourceTree = "<group>"; };
 		654F97AD229C03D0009C9FFA /* RecordDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordDetailViewModel.swift; sourceTree = "<group>"; };
 		65529EB022DF682C00B8941B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		655D64702315903900EABD57 /* HBSegmentedControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HBSegmentedControl.swift; sourceTree = "<group>"; };
+		655D64722315948900EABD57 /* ValuteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValuteTableViewCell.swift; sourceTree = "<group>"; };
+		655D6474231598D300EABD57 /* SendEtherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendEtherViewController.swift; sourceTree = "<group>"; };
+		655D6475231598D300EABD57 /* SendEtherViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SendEtherViewController.xib; sourceTree = "<group>"; };
+		655D64782315A04300EABD57 /* MAFirstPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MAFirstPageViewController.swift; path = ../MAFirstPageViewController.swift; sourceTree = "<group>"; };
 		6568461622942E2900097E83 /* Extension+UITabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Extension+UITabBarController.swift"; path = "../Extension+UITabBarController.swift"; sourceTree = "<group>"; };
 		65684618229432CE00097E83 /* TransactionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionTableViewCell.swift; sourceTree = "<group>"; };
 		6568461B22944A1700097E83 /* SkeletonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkeletonView.swift; sourceTree = "<group>"; };
@@ -620,6 +630,7 @@
 				65139C362280273E003E0CDE /* Scanner */,
 				65139C3F228029C0003E0CDE /* AppLocker */,
 				65139C5C228029EF003E0CDE /* CornerImageView.swift */,
+				655D64702315903900EABD57 /* HBSegmentedControl.swift */,
 				65A8B6F12282DB9500B7DF05 /* MANavicationController.swift */,
 				65139C5B228029EF003E0CDE /* CustomCornerUIView.swift */,
 				65139C59228029EF003E0CDE /* Formater.swift */,
@@ -687,6 +698,15 @@
 				654F97A7229BF5C5009C9FFA /* ValidatorTableViewCell.swift */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		655D647A2315A21600EABD57 /* FirstPage */ = {
+			isa = PBXGroup;
+			children = (
+				655D64782315A04300EABD57 /* MAFirstPageViewController.swift */,
+				650FF61222AD24A2004C3A85 /* First.storyboard */,
+			);
+			path = FirstPage;
 			sourceTree = "<group>";
 		};
 		6568461A22944A1700097E83 /* LoadAnimation */ = {
@@ -900,7 +920,7 @@
 		65A8B6E82282CBB000B7DF05 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				650FF61222AD24A2004C3A85 /* First.storyboard */,
+				655D647A2315A21600EABD57 /* FirstPage */,
 				657DBA47228986F900C67500 /* PullUp */,
 				65A8B6E72282CB9800B7DF05 /* LoginQRandCode */,
 				65A8B74B2282EEC500B7DF05 /* EmailLogin */,
@@ -958,6 +978,7 @@
 			children = (
 				65A8B70C2282E19400B7DF05 /* MVouchersViewController.swift */,
 				65911B45228D7DBC00EA30D6 /* VoucherTableViewCell.swift */,
+				655D64722315948900EABD57 /* ValuteTableViewCell.swift */,
 				65A8B7372282EBF900B7DF05 /* ViewModel */,
 			);
 			path = Vouchers;
@@ -1218,6 +1239,8 @@
 				65D11B7C22A6ACD300756BE0 /* Organization */,
 				65D11B8222A6B13700756BE0 /* ConfirmPayment */,
 				650FF63B22AD2EAB004C3A85 /* SuccessSendingByEmail */,
+				655D6474231598D300EABD57 /* SendEtherViewController.swift */,
+				655D6475231598D300EABD57 /* SendEtherViewController.xib */,
 			);
 			path = PopUp;
 			sourceTree = "<group>";
@@ -1422,6 +1445,7 @@
 				65139C4F228029C0003E0CDE /* backspaceBlue@2x.png in Resources */,
 				650FF5ED22AD1D2A004C3A85 /* ConfirmRegister.storyboard in Resources */,
 				650FF61722AD2ACF004C3A85 /* RecordDetail.storyboard in Resources */,
+				655D6477231598D300EABD57 /* SendEtherViewController.xib in Resources */,
 				65A8B7042282DD2C00B7DF05 /* GoogleSans-Medium.ttf in Resources */,
 				65D130D122D71760007F1378 /* AllowedOrganizationsViewController.xib in Resources */,
 				65A8B7022282DD2C00B7DF05 /* GoogleSans-Regular.ttf in Resources */,
@@ -1583,6 +1607,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				655D6476231598D300EABD57 /* SendEtherViewController.swift in Sources */,
 				65139C7322802EFF003E0CDE /* LoginService.swift in Sources */,
 				65A8B70F2282E19F00B7DF05 /* MQRViewController.swift in Sources */,
 				65911B4C228D8E4200EA30D6 /* Organization.swift in Sources */,
@@ -1593,6 +1618,7 @@
 				65A8B71E2282E6BF00B7DF05 /* MVoucherViewController.swift in Sources */,
 				65A8B7282282EB8D00B7DF05 /* RegisterViewModel.swift in Sources */,
 				65A8B7472282EE7B00B7DF05 /* MSuccessEmailViewController.swift in Sources */,
+				655D64732315948900EABD57 /* ValuteTableViewCell.swift in Sources */,
 				65A8B7062282DE3D00B7DF05 /* MConfirmRegisterViewController.swift in Sources */,
 				65139C0E22802546003E0CDE /* Me_iOS.xcdatamodeld in Sources */,
 				654F97A3229BE9A4009C9FFA /* RecordsTableViewCell.swift in Sources */,
@@ -1609,6 +1635,7 @@
 				65911B50228D8F2900EA30D6 /* ProductCategory.swift in Sources */,
 				65CF407B228C0B8F0006F5DE /* Register.swift in Sources */,
 				651B5C4822E881B500967148 /* ExchangeToken.swift in Sources */,
+				655D64792315A04300EABD57 /* MAFirstPageViewController.swift in Sources */,
 				65A8B7252282EADE00B7DF05 /* MPaymentViewController.swift in Sources */,
 				65F1BB2A229ECA8F007D2C8A /* MTextRecordViewController.swift in Sources */,
 				65A8B7302282EBD000B7DF05 /* ProductVoucherViewModel.swift in Sources */,
@@ -1667,6 +1694,7 @@
 				65B4DE3E22A15F5C00AFC878 /* SuccessEmailViewModel.swift in Sources */,
 				654F97A1229BE762009C9FFA /* Validator.swift in Sources */,
 				65A8B7112282E1A900B7DF05 /* MRecordsViewController.swift in Sources */,
+				655D64712315903900EABD57 /* HBSegmentedControl.swift in Sources */,
 				65139C7522802F25003E0CDE /* PinCode.swift in Sources */,
 				65911B48228D892800EA30D6 /* Voucher.swift in Sources */,
 				65A8B73B2282EC3800B7DF05 /* PaymentViewModel.swift in Sources */,

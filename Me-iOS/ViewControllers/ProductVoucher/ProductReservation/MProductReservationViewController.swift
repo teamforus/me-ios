@@ -24,7 +24,7 @@ class MProductReservationViewController: UIViewController {
         super.viewDidLoad()
         qrViewModel.vcAlert = self
         
-
+        
         qrViewModel.getVoucher = { [weak self] (voucher, statusCode) in
             DispatchQueue.main.async {
                 self?.selectedProduct = voucher
@@ -32,31 +32,33 @@ class MProductReservationViewController: UIViewController {
             }
             
         }
-           
+        
     }
     
     // MARK: - Navigation
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goToPaymentFromSelected" {
-        if let paymentVC = segue.destination as? MPaymentViewController {
-            
-            paymentVC.voucher = selectedProduct
-            paymentVC.tabBar = self.tabBarController
-            
-        }
+            if let paymentVC = segue.destination as? MPaymentViewController {
+                
+                paymentVC.voucher = selectedProduct
+                paymentVC.isFromReservation = true
+                paymentVC.tabBar = self.tabBar
+                
+            }
         }else if segue.identifier == "goToPaymentSimple" {
             if let paymentVC = segue.destination as? MPaymentViewController {
                 
+                paymentVC.isFromReservation = true
                 paymentVC.voucher = voucher
-                paymentVC.tabBar = self.tabBarController
+                paymentVC.tabBar = self.tabBar
                 
             }
         }
     }
- 
-
+    
+    
 }
 
 extension MProductReservationViewController: UITableViewDelegate, UITableViewDataSource {
@@ -71,8 +73,9 @@ extension MProductReservationViewController: UITableViewDelegate, UITableViewDat
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ProductReservationTableViewCell
+        let voucherToken = voucherTokens[indexPath.row]
         
-        cell.productReservation = voucherTokens[indexPath.row]
+        cell.productReservation = voucherToken
         
         return cell
     }
@@ -80,6 +83,6 @@ extension MProductReservationViewController: UITableViewDelegate, UITableViewDat
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         self.qrViewModel.initVoucherAddress(address: voucherTokens[indexPath.row].address ?? "")
-       
+        
     }
 }
