@@ -143,8 +143,10 @@ class MProductVoucherViewController: UIViewController {
     }
     
     @IBAction func callPhone(_ sender: Any) {
-        guard let number = URL(string: "tel://" + (voucher.offices?.first?.phone!)!) else { return }
+        if let phone = voucher.offices?.first?.phone {
+            guard let number = URL(string: "tel://" + (phone)) else { return }
         UIApplication.shared.open(number)
+        }
     }
     
 }

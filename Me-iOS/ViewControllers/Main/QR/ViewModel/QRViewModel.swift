@@ -63,14 +63,22 @@ class QRViewModel{
                         self.vc?.scanWorker.start()
                     }))
                 }
+            }else if statusCode == 404 {
+                 DispatchQueue.main.async {
+                KVSpinnerView.dismiss()
+                self.vcAlert.showSimpleAlertWithSingleAction(title: "Error!".localized(), message: response.message ?? "", okAction: UIAlertAction(title: "OK", style: .default, handler: { (action) in
+                    self.vc?.scanWorker.start()
+                }))
+                }
+                
             }else {
-                
                 self.getVoucher(response.data!, statusCode)
-                
             }
         }) { (error) in
+            DispatchQueue.main.async {
             KVSpinnerView.dismiss()
             self.vc.scanWorker.start()
+            }
         }
         
     }

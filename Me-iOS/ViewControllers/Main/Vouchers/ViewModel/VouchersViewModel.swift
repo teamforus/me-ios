@@ -17,6 +17,8 @@ class VouchersViewModel{
     var isAllowSegue: Bool = false
     var vc: UIViewController!
     
+     var completeIdentity: ((Office)->())!
+    
     private var cellViewModels: [Voucher] = [Voucher]() {
         didSet {
             complete(cellViewModels)
@@ -37,15 +39,28 @@ class VouchersViewModel{
                 self.processFetchedLunche(vouchers: response.data ?? [])
                 
             }else {
-                KVSpinnerView.dismiss()
-                self.vc.showErrorServer()
+                DispatchQueue.main.async {
+                    KVSpinnerView.dismiss()
+                    self.vc.showErrorServer()
+                }
+                
                 
             }
             
         }, failure: { (error) in
-            
+             DispatchQueue.main.async {
+            KVSpinnerView.dismiss()
+            }
         })
         
+    }
+    
+    func getIndentity(){
+        commonService.get(request: "identity", complete: { (response: Office, statusCode) in
+            self.completeIdentity?(response)
+        }) { (error) in
+            
+        }
     }
     
     var numberOfCells: Int {

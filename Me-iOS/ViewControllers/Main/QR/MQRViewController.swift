@@ -114,8 +114,11 @@ class MQRViewController: HSScanViewController {
                                             self?.productVoucher.append(voucherToken)
                                         }
                                     })
-                                    
-                                    self?.performSegue(withIdentifier: "goToChooseProduct", sender: nil)
+                                    if self?.productVoucher.count != 0 {
+                                        self?.performSegue(withIdentifier: "goToChooseProduct", sender: nil)
+                                    }else {
+                                        self?.performSegue(withIdentifier: "goToVoucherPayment", sender: nil)
+                                    }
                                 }else {
                                     
                                     self?.performSegue(withIdentifier: "goToVoucherPayment", sender: nil)

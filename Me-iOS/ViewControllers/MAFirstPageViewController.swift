@@ -6,20 +6,70 @@
 //  Copyright © 2019 Tcacenco Daniel. All rights reserved.
 //
 
+enum EnvironmentType: Int {
+    case production = 0
+    case alpha = 1
+    case demo = 2
+    case dev = 3
+}
+
 import UIKit
 
 class MAFirstPageViewController: UIViewController {
-
+    @IBOutlet weak var environmnetView: UIStackView!
+    @IBOutlet weak var chooseEnvironmentButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        if UserDefaults.standard.string(forKey: UserDefaultsName.EnvironmentURL) == nil{
+            UserDefaults.standard.setValue("https://dev.api.forus.io/api/v1/", forKey: UserDefaultsName.EnvironmentURL)
+            chooseEnvironmentButton.setTitle("Dev", for: .normal)
+            UserDefaults.standard.setValue("Dev", forKey: UserDefaultsName.EnvironmentName)
+        }else {
+            chooseEnvironmentButton.setTitle(UserDefaults.standard.string(forKey: UserDefaultsName.EnvironmentName), for: .normal)
+        }
     }
     
-
+    
+    @IBAction func chooseEnvironment(_ sender: UIButton) {
+        environmnetView.isHidden = true
+        switch sender.tag {
+        case EnvironmentType.production.rawValue:
+            UserDefaults.standard.setValue("https://api.forus.link/api/v1/", forKey: UserDefaultsName.EnvironmentURL)
+            UserDefaults.standard.setValue("Production", forKey: UserDefaultsName.EnvironmentName)
+            chooseEnvironmentButton.setTitle("Production", for: .normal)
+            break
+        case EnvironmentType.alpha.rawValue:
+            UserDefaults.standard.setValue("https://staging.api.forus.io/api/v1/", forKey: UserDefaultsName.EnvironmentURL)
+            UserDefaults.standard.setValue("Alpha", forKey: UserDefaultsName.EnvironmentName)
+            chooseEnvironmentButton.setTitle("Alpha", for: .normal)
+            break
+        case EnvironmentType.demo.rawValue:
+            UserDefaults.standard.setValue("https://demo.api.forus.io/api/v1/", forKey: UserDefaultsName.EnvironmentURL)
+            UserDefaults.standard.setValue("Demo", forKey: UserDefaultsName.EnvironmentName)
+            chooseEnvironmentButton.setTitle("Demo", for: .normal)
+            break
+        case EnvironmentType.dev.rawValue:
+            UserDefaults.standard.setValue("https://dev.api.forus.io/api/v1/", forKey: UserDefaultsName.EnvironmentURL)
+            UserDefaults.standard.setValue("Dev", forKey: UserDefaultsName.EnvironmentName)
+            chooseEnvironmentButton.setTitle("Dev", for: .normal)
+            break
+        default:
+            break
+        }
+        
+    }
+    
+    @IBAction func showEnvironment(_ sender: Any) {
+        environmnetView.isHidden = !environmnetView.isHidden
+    }
+    
+    
+    
     
     // MARK: - Navigation
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goToLoginQR" {
@@ -28,5 +78,5 @@ class MAFirstPageViewController: UIViewController {
         }
     }
     
-
+    
 }
