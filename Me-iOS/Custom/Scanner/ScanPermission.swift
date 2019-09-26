@@ -8,6 +8,7 @@
 import Foundation
 import AssetsLibrary
 import Photos
+import UIKit
 
 struct ScanPermission {
     
@@ -48,12 +49,12 @@ struct ScanPermission {
     }
     
     static func goToSystemSetting() {
-        if let appSetting = URL(string: UIApplication.openSettingsURLString) {
-            if #available(iOS 10, *) {
-                UIApplication.shared.open(appSetting, options: [:], completionHandler: nil)
-            } else {
-                UIApplication.shared.openURL(appSetting)
-            }
-        }
+        //if let appSetting = URL(string: UIApplication.openSettingsURLString) {
+            //if #available(iOS 10, *) {
+            //    UIApplication.shared.open(appSetting, options: [:], completionHandler: nil)
+            //} else {
+           //     UIApplication.shared.openURL(appSetting)
+           // }
+        //}
     }
 }
