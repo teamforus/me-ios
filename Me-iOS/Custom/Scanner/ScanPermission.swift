@@ -8,6 +8,7 @@
 import Foundation
 import AssetsLibrary
 import Photos
+import UIKit
 
 struct ScanPermission {
     

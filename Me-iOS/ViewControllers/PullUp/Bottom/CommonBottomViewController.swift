@@ -44,11 +44,11 @@ class CommonBottomViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        if qrType != .Profile {
-//            handleView.isHidden = true
+        //        if qrType != .Profile {
+        //            handleView.isHidden = true
         
-//        }
-//        self.view.isHidden = true
+        //        }
+        //        self.view.isHidden = true
         NotificationCenter.default.addObserver(self, selector: #selector(toglePullUpView), name: NotificationName.TogleStateWindow, object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(toglePullUpView), name: NotificationName.TogleStateWindowFormProduct, object: nil)
@@ -72,20 +72,20 @@ class CommonBottomViewController: UIViewController {
             break
         case .Voucher?:
             
-                self.qrCodeImageView.generateQRCode(from: "{ \"type\": \"voucher\",\"value\": \"\(self.voucher.address ?? "")\" }")
+            self.qrCodeImageView.generateQRCode(from: "{ \"type\": \"voucher\",\"value\": \"\(self.voucher.address ?? "")\" }")
+            
+            if voucher.product != nil {
                 
-                if voucher.product != nil {
-                    
-                  titleQrLabel.text = voucher.product?.name ?? ""
-                    
-                }else {
-                  
-                    titleQrLabel.text = voucher.fund?.name ?? ""
-                    
-                }
+                titleQrLabel.text = voucher.product?.name ?? ""
                 
-                expiredLabel.text = "This voucher expires on ".localized() + (voucher.expire_at?.date?.dateFormaterExpireDate())!
+            }else {
                 
+                titleQrLabel.text = voucher.fund?.name ?? ""
+                
+            }
+            
+            expiredLabel.text = "This voucher expires on ".localized() + (voucher.expire_at?.date?.dateFormaterExpireDate())!
+            
             break
         case .Record?:
             
@@ -93,7 +93,7 @@ class CommonBottomViewController: UIViewController {
                 
                 DispatchQueue.main.async {
                     
-                self?.qrCodeImageView.generateQRCode(from: "{ \"type\": \"record\",\"value\": \"\(record.uuid ?? "")\" }")
+                    self?.qrCodeImageView.generateQRCode(from: "{ \"type\": \"record\",\"value\": \"\(record.uuid ?? "")\" }")
                     
                 }
             }
@@ -110,7 +110,7 @@ class CommonBottomViewController: UIViewController {
                     
                 }
             }
-         
+            
             bottomQRViewModel.getIndentity()
             
             break
@@ -130,7 +130,7 @@ class CommonBottomViewController: UIViewController {
                     UserDefaults.standard.set(true, forKey: UserDefaultsName.UserIsLoged)
                     CurrentSession.shared.token = self?.token
                     UserDefaults.standard.synchronize()
-                     NotificationCenter.default.post(name: NotificationName.LoginQR, object: nil)
+                    NotificationCenter.default.post(name: NotificationName.LoginQR, object: nil)
                 }
             }
             
@@ -141,15 +141,21 @@ class CommonBottomViewController: UIViewController {
     
     @objc func toglePullUpView(){
         if pullUpController?.state == .expanded{
-            self.setStatusBarStyle(.default)
-//            if qrType != .Profile {
+            if #available(iOS 13, *) {
+            }else {
+                self.setStatusBarStyle(.default)
+            }
+            //            if qrType != .Profile {
             self.view.isHidden = true
-//            }
+            //            }
         }else{
-            self.setStatusBarStyle(.lightContent)
-//            if qrType != .Profile {
-//
-//            }
+            if #available(iOS 13, *) {
+            }else {
+                self.setStatusBarStyle(.lightContent)
+            }
+            //            if qrType != .Profile {
+            //
+            //            }
             self.view.isHidden = false
         }
         pullUpController?.toggleState(animated: true)
@@ -158,10 +164,13 @@ class CommonBottomViewController: UIViewController {
     @IBAction func close(_ sender: Any) {
         if pullUpController.state == .expanded || pullUpController.state == .intermediate{
             pullUpController.toggleState(animated: true)
-            self.setStatusBarStyle(.default)
-//            if qrType != .Profile {
-//            self.view.isHidden = true
-//            }
+            if #available(iOS 13, *) {
+            }else {
+                self.setStatusBarStyle(.default)
+            }
+            //            if qrType != .Profile {
+            //            self.view.isHidden = true
+            //            }
             
             self.view.isHidden = true
         }
@@ -199,11 +208,14 @@ extension CommonBottomViewController: ISHPullUpStateDelegate, ISHPullUpSizingDel
     func pullUpViewController(_ pullUpViewController: ISHPullUpViewController, didChangeTo state: ISHPullUpState) {
         handleView.setState(ISHPullUpHandleView.handleState(for: state), animated: firstAppearanceCompleted)
         if state == .collapsed {
-//            if qrType != .Profile {
-//            self.view.isHidden = true
-//            }
+            //            if qrType != .Profile {
+            //            self.view.isHidden = true
+            //            }
             self.view.isHidden = true
-            self.setStatusBarStyle(.default)
+            if #available(iOS 13, *) {
+            }else {
+                self.setStatusBarStyle(.default)
+            }
         }else if state == .intermediate {
             pullUpController.toggleState(animated: true)
         }
