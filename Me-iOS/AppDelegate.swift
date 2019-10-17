@@ -26,6 +26,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         KVSpinnerView.settings.tintColor = #colorLiteral(red: 0.1918309331, green: 0.3696506619, blue: 0.9919955134, alpha: 1)
         application.applicationIconBadgeNumber = 0
         
+        #if ALPHA
+        CheckWebSiteReacheble.checkWebsite(url: "https://staging.test.api.forus.io") { (isReacheble) in
+            if isReacheble {
+                UserDefaults.standard.setValue("https://staging.test.api.forus.io/api/v1/", forKey: UserDefaultsName.ALPHAURL)
+            }else {
+                UserDefaults.standard.setValue("https://staging.api.forus.io/api/v1/", forKey: UserDefaultsName.ALPHAURL)
+            }
+        }
+        #endif
+        
         #if DEBUG
         #else
         Fabric.with([Crashlytics.self])

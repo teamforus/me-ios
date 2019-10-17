@@ -14,7 +14,8 @@ class BaseURL {
         #if DEV
         return "\(UserDefaults.standard.string(forKey: UserDefaultsName.EnvironmentURL)!)\(url)"
         #elseif ALPHA
-        return "https://staging.api.forus.io/api/v1/\(url)"
+        return "\(UserDefaults.standard.string(forKey: UserDefaultsName.ALPHAURL)!)\(url)"
+        
         #elseif DEMO
         return "https://demo.api.forus.io/api/v1/\(url)"
         #else
@@ -27,7 +28,7 @@ class BaseURL {
         #if DEV
         return "dev.api.forus.io"
         #elseif ALPHA
-        return "staging.api.forus.io"
+        return "staging.test.api.forus.io"
         #elseif DEMO
         return "demo.api.forus.link"
         #else

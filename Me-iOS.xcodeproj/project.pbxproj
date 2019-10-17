@@ -135,6 +135,7 @@
 		65A8B73E2282ED1D00B7DF05 /* MProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A8B73D2282ED1D00B7DF05 /* MProfileViewController.swift */; };
 		65A8B7432282EDDD00B7DF05 /* MEmailLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A8B7422282EDDD00B7DF05 /* MEmailLoginViewController.swift */; };
 		65A8B7472282EE7B00B7DF05 /* MSuccessEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A8B7462282EE7B00B7DF05 /* MSuccessEmailViewController.swift */; };
+		65B10DAF23589DF500F0F34D /* CheckWebsiteReacheble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B10DAE23589DF500F0F34D /* CheckWebsiteReacheble.swift */; };
 		65B3784D22C241F50095A2EF /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B3784C22C241F50095A2EF /* Reachability.swift */; };
 		65B4DE3E22A15F5C00AFC878 /* SuccessEmailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B4DE3D22A15F5C00AFC878 /* SuccessEmailViewModel.swift */; };
 		65B4DE4122A1682400AFC878 /* EmailLoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B4DE4022A1682400AFC878 /* EmailLoginViewModel.swift */; };
@@ -367,6 +368,7 @@
 		65A8B7422282EDDD00B7DF05 /* MEmailLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MEmailLoginViewController.swift; sourceTree = "<group>"; };
 		65A8B7462282EE7B00B7DF05 /* MSuccessEmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSuccessEmailViewController.swift; sourceTree = "<group>"; };
 		65ABEF2622DB6C350049B23D /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Main.strings; sourceTree = "<group>"; };
+		65B10DAE23589DF500F0F34D /* CheckWebsiteReacheble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckWebsiteReacheble.swift; sourceTree = "<group>"; };
 		65B3784C22C241F50095A2EF /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		65B4DE3D22A15F5C00AFC878 /* SuccessEmailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessEmailViewModel.swift; sourceTree = "<group>"; };
 		65B4DE4022A1682400AFC878 /* EmailLoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EmailLoginViewModel.swift; path = ../EmailLoginViewModel.swift; sourceTree = "<group>"; };
@@ -749,6 +751,7 @@
 				65CF4082228C0FDC0006F5DE /* LoginService */,
 				65CF4083228C0FE40006F5DE /* StatusService */,
 				65CF408A228C1CC90006F5DE /* APIService.swift */,
+				65B10DAE23589DF500F0F34D /* CheckWebsiteReacheble.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -1649,6 +1652,7 @@
 				657DBA46228983CB00C67500 /* Extension+UIImageView.swift in Sources */,
 				65139C64228029EF003E0CDE /* CornerImageView.swift in Sources */,
 				65911B4E228D8EAE00EA30D6 /* Logo.swift in Sources */,
+				65B10DAF23589DF500F0F34D /* CheckWebsiteReacheble.swift in Sources */,
 				65100AFD229D65A9007892D1 /* Extension+Array.swift in Sources */,
 				65139C61228029EF003E0CDE /* Formater.swift in Sources */,
 				65911B46228D7DBC00EA30D6 /* VoucherTableViewCell.swift in Sources */,
@@ -2145,6 +2149,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon.Dev;
 				CODE_SIGN_ENTITLEMENTS = "Me-iOS/Me-iOS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 38;
 				DEVELOPMENT_TEAM = FNTR3V85ZM;
 				INFOPLIST_FILE = "Me-iOS/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -2152,7 +2157,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = io.forus.me.develop;
+				PRODUCT_BUNDLE_IDENTIFIER = io.forus.me.test;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEV;
 				SWIFT_VERSION = 5.0;
@@ -2167,6 +2172,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Me-iOS/Me-iOS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 38;
 				DEVELOPMENT_TEAM = FNTR3V85ZM;
 				INFOPLIST_FILE = "Me-iOS/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -2325,6 +2331,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon.Alpha;
 				CODE_SIGN_ENTITLEMENTS = "Me-iOS/Me-iOS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 38;
 				DEVELOPMENT_TEAM = FNTR3V85ZM;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_TESTABILITY = NO;
@@ -2336,7 +2343,7 @@
 					"@executable_path/Frameworks",
 				);
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = io.forus.me.alpha;
+				PRODUCT_BUNDLE_IDENTIFIER = io.forus.me.lab;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = ALPHA;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -2448,6 +2455,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon.Demo;
 				CODE_SIGN_ENTITLEMENTS = "Me-iOS/Me-iOS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 38;
 				DEVELOPMENT_TEAM = FNTR3V85ZM;
 				GCC_OPTIMIZATION_LEVEL = s;
 				INFOPLIST_FILE = "Me-iOS/Info.plist";
@@ -2456,7 +2464,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = io.forus.me.beta;
+				PRODUCT_BUNDLE_IDENTIFIER = io.forus.me.demo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEMO;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";

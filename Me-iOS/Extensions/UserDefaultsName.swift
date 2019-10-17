@@ -17,5 +17,6 @@ struct UserDefaultsName {
     public static let AddressIndentityCrash = "UseAddressIdentityForCrash"
     public static let Token = "TOKEN"
     public static let EnvironmentURL = "EnvironmentURL"
+    public static let ALPHAURL = "ALPHAURL"
     public static let EnvironmentName = "EnvironmentName"
 }

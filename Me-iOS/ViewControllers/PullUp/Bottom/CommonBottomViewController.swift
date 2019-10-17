@@ -43,80 +43,81 @@ class CommonBottomViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //        if qrType != .Profile {
-        //            handleView.isHidden = true
-        
-        //        }
-        //        self.view.isHidden = true
         NotificationCenter.default.addObserver(self, selector: #selector(toglePullUpView), name: NotificationName.TogleStateWindow, object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(toglePullUpView), name: NotificationName.TogleStateWindowFormProduct, object: nil)
         
-        switch qrType {
-        case .AuthToken?:
-            
-            bottomQRViewModel.completeToken = { [weak self] (token, accessToken) in
-                
-                DispatchQueue.main.async {
-                    
-                    self?.qrCodeImageView.generateQRCode(from: "{ \"type\": \"auth_token\",\"value\": \"\(token)\" }")
-                    self?.timer = Timer.scheduledTimer(timeInterval: 7, target: self!, selector: #selector(self?.checkAuthorizeToken), userInfo: nil, repeats: true)
-                    self?.token = accessToken
-                    
-                }
-            }
-            
-            bottomQRViewModel.initFetchQrToken()
-            
-            break
-        case .Voucher?:
-            
-            self.qrCodeImageView.generateQRCode(from: "{ \"type\": \"voucher\",\"value\": \"\(self.voucher.address ?? "")\" }")
-            
-            if voucher.product != nil {
-                
-                titleQrLabel.text = voucher.product?.name ?? ""
-                
-            }else {
-                
-                titleQrLabel.text = voucher.fund?.name ?? ""
-                
-            }
-            
-            expiredLabel.text = "This voucher expires on ".localized() + (voucher.expire_at?.date?.dateFormaterExpireDate())!
-            
-            break
-        case .Record?:
-            
-            bottomQRViewModel.completeRecord = { [weak self] (record) in
-                
-                DispatchQueue.main.async {
-                    
-                    self?.qrCodeImageView.generateQRCode(from: "{ \"type\": \"record\",\"value\": \"\(record.uuid ?? "")\" }")
-                    
-                }
-            }
-            
-            bottomQRViewModel.initFetchRecordToken(idRecords: idRecord)
-            
-            break
-        case .Profile?:
-            bottomQRViewModel.completeIdentity = { [weak self] (identityAddress) in
-                
-                DispatchQueue.main.async {
-                    
-                    self?.qrCodeImageView.generateQRCode(from: "{ \"type\": \"identity\",\"value\": \"\(identityAddress)\" }")
-                    
-                }
-            }
-            
-            bottomQRViewModel.getIndentity()
-            
-            break
-        default:
-            break
-        }
+        NotificationCenter.default.addObserver(self, selector: #selector(toglePullUpView), name: NotificationName.TogleStateWindowFormProfile, object: nil)
+        
+     
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+           switch qrType {
+             case .AuthToken?:
+                 
+                 bottomQRViewModel.completeToken = { [weak self] (token, accessToken) in
+                     
+                     DispatchQueue.main.async {
+                         
+                         self?.qrCodeImageView.generateQRCode(from: "{ \"type\": \"auth_token\",\"value\": \"\(token)\" }")
+                         self?.timer = Timer.scheduledTimer(timeInterval: 7, target: self!, selector: #selector(self?.checkAuthorizeToken), userInfo: nil, repeats: true)
+                         self?.token = accessToken
+                         
+                     }
+                 }
+                 
+                 bottomQRViewModel.initFetchQrToken()
+                 
+                 break
+             case .Voucher?:
+                 
+                 self.qrCodeImageView.generateQRCode(from: "{ \"type\": \"voucher\",\"value\": \"\(self.voucher.address ?? "")\" }")
+                 
+                 if voucher.product != nil {
+                     
+                     titleQrLabel.text = voucher.product?.name ?? ""
+                     
+                 }else {
+                     
+                     titleQrLabel.text = voucher.fund?.name ?? ""
+                     
+                 }
+                 
+                 expiredLabel.text = "This voucher expires on ".localized() + (voucher.expire_at?.date?.dateFormaterExpireDate())!
+                 
+                 break
+             case .Record?:
+                 
+                 bottomQRViewModel.completeRecord = { [weak self] (record) in
+                     
+                     DispatchQueue.main.async {
+                         
+                         self?.qrCodeImageView.generateQRCode(from: "{ \"type\": \"record\",\"value\": \"\(record.uuid ?? "")\" }")
+                         
+                     }
+                 }
+                 
+                 bottomQRViewModel.initFetchRecordToken(idRecords: idRecord)
+                 
+                 break
+             case .Profile?:
+                self.view.isHidden = true
+                 bottomQRViewModel.completeIdentity = { [weak self] (identityAddress) in
+                     
+                     DispatchQueue.main.async {
+                         
+                         self?.qrCodeImageView.generateQRCode(from: "{ \"type\": \"identity\",\"value\": \"\(identityAddress)\" }")
+                         
+                     }
+                 }
+                 bottomQRViewModel.getIndentity()
+                 
+                 break
+             default:
+                 break
+             }
     }
     
     @objc func checkAuthorizeToken(){

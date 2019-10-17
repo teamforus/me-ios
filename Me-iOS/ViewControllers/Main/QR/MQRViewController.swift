@@ -25,6 +25,7 @@ class MQRViewController: HSScanViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.delegate = self
         self.scanCodeTypes  = [.qr]
         
