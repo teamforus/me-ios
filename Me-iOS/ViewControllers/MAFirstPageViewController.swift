@@ -27,16 +27,16 @@ class MAFirstPageViewController: UIViewController {
         if UserDefaults.standard.string(forKey: UserDefaultsName.EnvironmentURL) == nil{
             
             CheckWebSiteReacheble.checkWebsite(url: "https://develop.test.api.forus.io") { (isReacheble) in
-                if isReacheble {
-                    UserDefaults.standard.setValue("https://develop.test.api.forus.io/api/v1/", forKey: UserDefaultsName.EnvironmentName)
+                if isReacheble { UserDefaults.standard.setValue("https://develop.test.api.forus.io/api/v1/", forKey: UserDefaultsName.EnvironmentURL)
                 }else {
-                    UserDefaults.standard.setValue("https://dev.api.forus.io/api/v1/", forKey: UserDefaultsName.EnvironmentName)
+                    UserDefaults.standard.setValue("https://dev.api.forus.io/api/v1/", forKey: UserDefaultsName.EnvironmentURL)
                 }
             }
             
             chooseEnvironmentButton.setTitle("Dev", for: .normal)
             UserDefaults.standard.setValue("Dev", forKey: UserDefaultsName.EnvironmentName)
         }else {
+            
             chooseEnvironmentButton.setTitle(UserDefaults.standard.string(forKey: UserDefaultsName.EnvironmentName), for: .normal)
         }
         #endif
@@ -54,9 +54,9 @@ class MAFirstPageViewController: UIViewController {
         case EnvironmentType.alpha.rawValue:
             
             CheckWebSiteReacheble.checkWebsite(url: "https://staging.test.api.forus.io") { (isReacheble) in
-                if isReacheble { UserDefaults.standard.setValue("https://staging.test.api.forus.io/api/v1/", forKey: UserDefaultsName.EnvironmentName)
+                if isReacheble { UserDefaults.standard.setValue("https://staging.test.api.forus.io/api/v1/", forKey: UserDefaultsName.ALPHAURL)
                 }else {
-                    UserDefaults.standard.setValue("https://staging.api.forus.io/api/v1/", forKey: UserDefaultsName.EnvironmentName)
+                    UserDefaults.standard.setValue("https://staging.api.forus.io/api/v1/", forKey: UserDefaultsName.ALPHAURL)
                 }
             }
             
@@ -71,9 +71,9 @@ class MAFirstPageViewController: UIViewController {
         case EnvironmentType.dev.rawValue:
             CheckWebSiteReacheble.checkWebsite(url: "https://develop.test.api.forus.io") { (isReacheble) in
                 if isReacheble {
-                    UserDefaults.standard.setValue("https://develop.test.api.forus.io/api/v1/", forKey: UserDefaultsName.EnvironmentName)
+                    UserDefaults.standard.setValue("https://develop.test.api.forus.io/api/v1/", forKey: UserDefaultsName.EnvironmentURL)
                 }else {
-                    UserDefaults.standard.setValue("https://dev.api.forus.io/api/v1/", forKey: UserDefaultsName.EnvironmentName)
+                    UserDefaults.standard.setValue("https://dev.api.forus.io/api/v1/", forKey: UserDefaultsName.EnvironmentURL)
                 }
             }
             UserDefaults.standard.setValue("Dev", forKey: UserDefaultsName.EnvironmentName)

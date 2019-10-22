@@ -14,6 +14,8 @@ class MRecordDetailViewController: UIViewController {
     @IBOutlet weak var recordTypeLabel: UILabel!
     @IBOutlet weak var recordValue: UILabel!
     @IBOutlet weak var borderView: CustomCornerUIView!
+    @IBOutlet weak var validationCount: UILabel!
+    @IBOutlet weak var validationsLabel: UILabel!
     
     var recordId: String!
     var record: Record!
@@ -25,6 +27,8 @@ class MRecordDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        
         recordDetailViewModel.complete = { [weak self] (record) in
             
             DispatchQueue.main.async {
@@ -33,6 +37,14 @@ class MRecordDetailViewController: UIViewController {
                 
                 self?.recordTypeLabel.text = record.name ?? ""
                 self?.recordValue.text = record.value
+                if record.validations?.count != 0 {
+                    self?.validationCount.text = "\(record.validations!.count)"
+                    self?.validationCount.isHidden = false
+                    self?.validationsLabel.isHidden = false
+                }else {
+                    self?.validationCount.isHidden = true
+                    self?.validationsLabel.isHidden = true
+                }
                 self?.tableView.reloadData()
                 
                 if self?.recordDetailViewModel.numberOfCells == 0{
@@ -102,10 +114,6 @@ extension MRecordDetailViewController: UITableViewDataSource, UITableViewDelegat
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return recordDetailViewModel.numberOfCells
-    }
-    
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Validations".localized()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

@@ -10,6 +10,7 @@ import UIKit
 
 class ValidatorTableViewCell: UITableViewCell {
     
+    @IBOutlet weak var organizationName: UILabel!
     @IBOutlet weak var nameValidator: UILabel!
     @IBOutlet weak var descriptionValidator: UILabel!
     @IBOutlet weak var iconValidator: UIImageView!

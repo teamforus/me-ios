@@ -83,6 +83,10 @@
 		6568461F22944A1800097E83 /* SkeletonUIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6568461C22944A1700097E83 /* SkeletonUIImageView.swift */; };
 		6568462022944A1800097E83 /* UIViewMasking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6568461D22944A1700097E83 /* UIViewMasking.swift */; };
 		6568BAB722A52D24001C722C /* QRText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6568BAB622A52D24001C722C /* QRText.swift */; };
+		656FDDB6235DF046002422B2 /* OrganizationValidatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656FDDB4235DF046002422B2 /* OrganizationValidatorViewController.swift */; };
+		656FDDB7235DF046002422B2 /* OrganizationValidatorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 656FDDB5235DF046002422B2 /* OrganizationValidatorViewController.xib */; };
+		656FDDBC235DF3DB002422B2 /* OrganizationValidatorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656FDDBA235DF3DB002422B2 /* OrganizationValidatorTableViewCell.swift */; };
+		656FDDBD235DF3DB002422B2 /* OrganizationValidatorTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 656FDDBB235DF3DB002422B2 /* OrganizationValidatorTableViewCell.xib */; };
 		657DBA4022897C3500C67500 /* ResponseDataArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657DBA3E22897C3500C67500 /* ResponseDataArray.swift */; };
 		657DBA4122897C3500C67500 /* ResponseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657DBA3F22897C3500C67500 /* ResponseData.swift */; };
 		657DBA46228983CB00C67500 /* Extension+UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657DBA45228983CB00C67500 /* Extension+UIImageView.swift */; };
@@ -106,6 +110,7 @@
 		65911B56228D904C00EA30D6 /* AllowedOrganization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65911B55228D904C00EA30D6 /* AllowedOrganization.swift */; };
 		65911B58228D912900EA30D6 /* AllowedProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65911B57228D912900EA30D6 /* AllowedProduct.swift */; };
 		65911B5A228D91BC00EA30D6 /* Office.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65911B59228D91BC00EA30D6 /* Office.swift */; };
+		659859712359B66600D08289 /* EmployeesOrganization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659859702359B66600D08289 /* EmployeesOrganization.swift */; };
 		65A8B6EA2282CBDC00B7DF05 /* CommonPullUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A8B6E92282CBDC00B7DF05 /* CommonPullUpViewController.swift */; };
 		65A8B6EC2282CD7E00B7DF05 /* String+Substring.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A8B6EB2282CD7E00B7DF05 /* String+Substring.swift */; };
 		65A8B6EE2282CE4500B7DF05 /* CommonBottomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A8B6ED2282CE4500B7DF05 /* CommonBottomViewController.swift */; };
@@ -307,6 +312,10 @@
 		6568461C22944A1700097E83 /* SkeletonUIImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkeletonUIImageView.swift; sourceTree = "<group>"; };
 		6568461D22944A1700097E83 /* UIViewMasking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewMasking.swift; sourceTree = "<group>"; };
 		6568BAB622A52D24001C722C /* QRText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRText.swift; sourceTree = "<group>"; };
+		656FDDB4235DF046002422B2 /* OrganizationValidatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationValidatorViewController.swift; sourceTree = "<group>"; };
+		656FDDB5235DF046002422B2 /* OrganizationValidatorViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrganizationValidatorViewController.xib; sourceTree = "<group>"; };
+		656FDDBA235DF3DB002422B2 /* OrganizationValidatorTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationValidatorTableViewCell.swift; sourceTree = "<group>"; };
+		656FDDBB235DF3DB002422B2 /* OrganizationValidatorTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrganizationValidatorTableViewCell.xib; sourceTree = "<group>"; };
 		657DBA3E22897C3500C67500 /* ResponseDataArray.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseDataArray.swift; sourceTree = "<group>"; };
 		657DBA3F22897C3500C67500 /* ResponseData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseData.swift; sourceTree = "<group>"; };
 		657DBA45228983CB00C67500 /* Extension+UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Extension+UIImageView.swift"; path = "../Extension+UIImageView.swift"; sourceTree = "<group>"; };
@@ -338,6 +347,7 @@
 		65911B55228D904C00EA30D6 /* AllowedOrganization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllowedOrganization.swift; sourceTree = "<group>"; };
 		65911B57228D912900EA30D6 /* AllowedProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllowedProduct.swift; sourceTree = "<group>"; };
 		65911B59228D91BC00EA30D6 /* Office.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Office.swift; sourceTree = "<group>"; };
+		659859702359B66600D08289 /* EmployeesOrganization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeesOrganization.swift; sourceTree = "<group>"; };
 		65A8B6E92282CBDC00B7DF05 /* CommonPullUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonPullUpViewController.swift; sourceTree = "<group>"; };
 		65A8B6EB2282CD7E00B7DF05 /* String+Substring.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "String+Substring.swift"; path = "../String+Substring.swift"; sourceTree = "<group>"; };
 		65A8B6ED2282CE4500B7DF05 /* CommonBottomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonBottomViewController.swift; sourceTree = "<group>"; };
@@ -744,6 +754,26 @@
 			path = QRText;
 			sourceTree = "<group>";
 		};
+		656FDDB8235DF04E002422B2 /* OrganizationValidator */ = {
+			isa = PBXGroup;
+			children = (
+				656FDDB4235DF046002422B2 /* OrganizationValidatorViewController.swift */,
+				656FDDB5235DF046002422B2 /* OrganizationValidatorViewController.xib */,
+				656FDDBA235DF3DB002422B2 /* OrganizationValidatorTableViewCell.swift */,
+				656FDDBB235DF3DB002422B2 /* OrganizationValidatorTableViewCell.xib */,
+			);
+			path = OrganizationValidator;
+			sourceTree = "<group>";
+		};
+		656FDDB9235DF057002422B2 /* SendEther */ = {
+			isa = PBXGroup;
+			children = (
+				655D6474231598D300EABD57 /* SendEtherViewController.swift */,
+				655D6475231598D300EABD57 /* SendEtherViewController.xib */,
+			);
+			path = SendEther;
+			sourceTree = "<group>";
+		};
 		657DBA422289821B00C67500 /* Services */ = {
 			isa = PBXGroup;
 			children = (
@@ -785,6 +815,7 @@
 				654ACBAA22A92F7F0052C9C2 /* PayTransaction */,
 				651B5C4722E881B500967148 /* ExchangeToken.swift */,
 				65F52E4923167E0D00B9D229 /* Wallet.swift */,
+				659859702359B66600D08289 /* EmployeesOrganization.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1235,8 +1266,8 @@
 				65D11B7C22A6ACD300756BE0 /* Organization */,
 				65D11B8222A6B13700756BE0 /* ConfirmPayment */,
 				650FF63B22AD2EAB004C3A85 /* SuccessSendingByEmail */,
-				655D6474231598D300EABD57 /* SendEtherViewController.swift */,
-				655D6475231598D300EABD57 /* SendEtherViewController.xib */,
+				656FDDB9235DF057002422B2 /* SendEther */,
+				656FDDB8235DF04E002422B2 /* OrganizationValidator */,
 			);
 			path = PopUp;
 			sourceTree = "<group>";
@@ -1449,6 +1480,7 @@
 				650FF60922AD237A004C3A85 /* LoginQRAndCodeViewController.storyboard in Resources */,
 				65139C4F228029C0003E0CDE /* backspaceBlue@2x.png in Resources */,
 				650FF5ED22AD1D2A004C3A85 /* ConfirmRegister.storyboard in Resources */,
+				656FDDB7235DF046002422B2 /* OrganizationValidatorViewController.xib in Resources */,
 				650FF61722AD2ACF004C3A85 /* RecordDetail.storyboard in Resources */,
 				655D6477231598D300EABD57 /* SendEtherViewController.xib in Resources */,
 				65A8B7042282DD2C00B7DF05 /* GoogleSans-Medium.ttf in Resources */,
@@ -1479,6 +1511,7 @@
 				65100B08229D9146007892D1 /* Localizable.strings in Resources */,
 				658B487F22ABF79100B6236C /* Profile.storyboard in Resources */,
 				65139C4E228029C0003E0CDE /* backspaceBlue@3x.png in Resources */,
+				656FDDBD235DF3DB002422B2 /* OrganizationValidatorTableViewCell.xib in Resources */,
 				65D11B7A22A69D5200756BE0 /* OrganizationTableViewCell.xib in Resources */,
 				65139C52228029C0003E0CDE /* AppLocker.xib in Resources */,
 				650FF61022AD24A2004C3A85 /* First.storyboard in Resources */,
@@ -1623,6 +1656,7 @@
 				65911B54228D900500EA30D6 /* Product.swift in Sources */,
 				65A8B6F02282DB0200B7DF05 /* Extension+UIViewController.swift in Sources */,
 				65A8B71E2282E6BF00B7DF05 /* MVoucherViewController.swift in Sources */,
+				656FDDBC235DF3DB002422B2 /* OrganizationValidatorTableViewCell.swift in Sources */,
 				65A8B7282282EB8D00B7DF05 /* RegisterViewModel.swift in Sources */,
 				65A8B7472282EE7B00B7DF05 /* MSuccessEmailViewController.swift in Sources */,
 				655D64732315948900EABD57 /* ValuteTableViewCell.swift in Sources */,
@@ -1634,6 +1668,7 @@
 				654F97AA229BF671009C9FFA /* MRecordDetailViewController.swift in Sources */,
 				65A8B7192282E52D00B7DF05 /* MProductVoucherViewController.swift in Sources */,
 				65D11B8022A6ADF400756BE0 /* ConfirmPaymentPopUp.swift in Sources */,
+				656FDDB6235DF046002422B2 /* OrganizationValidatorViewController.swift in Sources */,
 				65CF407F228C0C6A0006F5DE /* Identity.swift in Sources */,
 				65139C7922803349003E0CDE /* CurrentSession.swift in Sources */,
 				65139C63228029EF003E0CDE /* CustomCornerUIView.swift in Sources */,
@@ -1684,6 +1719,7 @@
 				65139C3D2280273E003E0CDE /* HSScanViewController.swift in Sources */,
 				65139C3E2280273E003E0CDE /* HSDefaultScanView.swift in Sources */,
 				65911B4A228D899700EA30D6 /* Fund.swift in Sources */,
+				659859712359B66600D08289 /* EmployeesOrganization.swift in Sources */,
 				65A8B70D2282E19400B7DF05 /* MVouchersViewController.swift in Sources */,
 				65CF4081228C0CAB0006F5DE /* RecordsIndentity.swift in Sources */,
 				65139C3B2280273E003E0CDE /* ScanPermission.swift in Sources */,
@@ -2149,7 +2185,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon.Dev;
 				CODE_SIGN_ENTITLEMENTS = "Me-iOS/Me-iOS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 38;
+				CURRENT_PROJECT_VERSION = 40;
 				DEVELOPMENT_TEAM = FNTR3V85ZM;
 				INFOPLIST_FILE = "Me-iOS/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -2172,7 +2208,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Me-iOS/Me-iOS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 38;
+				CURRENT_PROJECT_VERSION = 40;
 				DEVELOPMENT_TEAM = FNTR3V85ZM;
 				INFOPLIST_FILE = "Me-iOS/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -2331,7 +2367,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon.Alpha;
 				CODE_SIGN_ENTITLEMENTS = "Me-iOS/Me-iOS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 38;
+				CURRENT_PROJECT_VERSION = 40;
 				DEVELOPMENT_TEAM = FNTR3V85ZM;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_TESTABILITY = NO;
@@ -2455,7 +2491,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon.Demo;
 				CODE_SIGN_ENTITLEMENTS = "Me-iOS/Me-iOS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 38;
+				CURRENT_PROJECT_VERSION = 40;
 				DEVELOPMENT_TEAM = FNTR3V85ZM;
 				GCC_OPTIMIZATION_LEVEL = s;
 				INFOPLIST_FILE = "Me-iOS/Info.plist";

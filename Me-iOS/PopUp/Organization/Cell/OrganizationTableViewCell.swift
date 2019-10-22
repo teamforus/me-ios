@@ -21,7 +21,7 @@ class OrganizationTableViewCell: UITableViewCell {
     var allowedOrganization: AllowedOrganization? {
         didSet{
             
-                self.organizationImageView.loadImageUsingUrlString(urlString: allowedOrganization?.logo?.sizes?.thumbnail ?? "", placeHolder: #imageLiteral(resourceName: "Resting"))
+            self.organizationImageView.loadImageUsingUrlString(urlString: allowedOrganization?.logo?.sizes?.thumbnail ?? "", placeHolder: #imageLiteral(resourceName: "Resting"))
             
             self.organizationNameLabel.text = allowedOrganization?.name
         }
@@ -36,8 +36,7 @@ class OrganizationTableViewCell: UITableViewCell {
     }
     
     @IBAction func selectOrganization(_ sender: Any) {
-            delegate.didSelectAllowedOrganization(organization: allowedOrganization!)
-        
+        delegate.didSelectAllowedOrganization(organization: allowedOrganization!)
     }
     
 }

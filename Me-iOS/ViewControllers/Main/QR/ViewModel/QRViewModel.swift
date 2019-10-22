@@ -20,6 +20,8 @@ class QRViewModel{
     var validateRecord: ((RecordValidation, Int)->())!
     var validateApproveRecord: ((Int)->())!
     
+    var completeOrganization: (([EmployeesOrganization]) -> ())?
+    
     var getVoucher: ((Voucher, Int)->())!
     
     init(commonService: CommonServiceProtocol = CommonService()) {
@@ -96,14 +98,20 @@ class QRViewModel{
         
     }
     
-    func initApproveValidationRecord(code: String) {
-        
-        commonService.get(request: "identity/record-validations/" + code + "/approve", complete: { (response: AuthorizationQRToken, statusCode) in
+    func getOrganizations(){
+        commonService.get(request: "platform/employees?role=validation", complete: { (response: ResponseDataArray<EmployeesOrganization>, statusCode) in
             
-            self.validateApproveRecord(statusCode)
+            self.completeOrganization?(response.data ?? [])
             
         }) { (error) in
             
+        }
+    }
+    
+    func initApproveValidationRecord(code: String, organization: OrganizationRecord) {
+        
+        commonService.patch(request: "identity/record-validations/" + code + "/approve", data: organization) { (response: AuthorizationQRToken, statusCode) in
+            self.validateApproveRecord(statusCode)
         }
     }
 }

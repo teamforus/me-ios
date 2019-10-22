@@ -133,7 +133,7 @@ extension MPaymentViewController {
     @IBAction func showOrganizations(_ sender: UIButton) {
         
         let popOverVC = AllowedOrganizationsViewController(nibName: "AllowedOrganizationsViewController", bundle: nil)
-        popOverVC.allowedOrganizations = self.voucher.allowed_organizations
+        popOverVC.allowedOrganizations = self.voucher.allowed_organizations!
         popOverVC.delegate = self
         popOverVC.selectedOrganizations = selectedAllowerdOrganization
         self.addChild(popOverVC)
@@ -146,6 +146,9 @@ extension MPaymentViewController {
 }
 
 extension MPaymentViewController: AllowedOrganizationsViewControllerDelegate {
+    func didSelectEmployeeOrganization(organization: EmployeesOrganization) {
+        
+    }
     
     func didSelectAllowedOrganization(organization: AllowedOrganization) {
         

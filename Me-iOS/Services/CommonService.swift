@@ -19,6 +19,8 @@ protocol CommonServiceProtocol {
     
     func createById<T: Decodable, E: Encodable>(request:String, id: String, data: E ,complete: @escaping (_ response: T,_ statusCode: Int)->() )
     
+    func patch<T: Decodable, E: Encodable>(request:String, data: E ,complete: @escaping (_ response: T,_ statusCode: Int)->() )
+    
     func create<T: Decodable, E: Encodable>(request:String, data: E,complete: @escaping (_ response: T,_ statusCode: Int)->() )
     
     func post<T: Decodable>(request:String, complete: @escaping (_ response: T,_ statusCode: Int)->() )
@@ -285,6 +287,38 @@ class CommonService: CommonServiceProtocol {
     func createById<T, E>(request: String, id: String, data: E, complete: @escaping (T, Int) -> ()) where T : Decodable, E : Encodable {
         
         let url = URL(string: BaseURL.baseURL(url: request + id))!
+        var request = URLRequest(url: url)
+        request.httpMethod = "PATCH"
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("Bearer " + CurrentSession.shared.token, forHTTPHeaderField: "Authorization")
+        
+        do {
+            let encodePost = try JSONEncoder().encode(data)
+            request.httpBody = encodePost
+        } catch{}
+        
+        let session = URLSession.shared
+        
+        let task = session.dataTask(with: request) { (data, response, error) in
+            guard let data = data else { return }
+            let decoder = JSONDecoder()
+            do {
+                
+                let responseData = try decoder.decode(T.self, from: data)
+                let httpResponse = response as? HTTPURLResponse
+                
+                complete(responseData, httpResponse!.statusCode)
+            } catch {}
+        }
+        
+        task.resume()
+        
+    }
+    
+    func patch<T, E>(request: String, data: E, complete: @escaping (T, Int) -> ()) where T : Decodable, E : Encodable {
+        
+        let url = URL(string: BaseURL.baseURL(url: request))!
         var request = URLRequest(url: url)
         request.httpMethod = "PATCH"
         request.addValue("application/json", forHTTPHeaderField: "Accept")
