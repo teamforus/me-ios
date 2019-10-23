@@ -306,7 +306,7 @@ public extension AppLocker {
         } else {
             locker.photoImageView.isHidden = true
         }
-        
+        withController.modalPresentationStyle = .fullScreen
         withController.present(locker, animated: true, completion: nil)
     }
 }

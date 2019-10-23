@@ -38,9 +38,7 @@ class MVoucherViewController: UIViewController {
         voucherViewModel.reloadDataVoucher = { [weak self] (voucher) in
             
             DispatchQueue.main.async {
-                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.3, execute: {
-                    NotificationCenter.default.post(name: NotificationName.TogleStateWindow, object: nil)
-                })
+                
                 self?.voucherName.text = voucher.fund?.name ?? ""
                 self?.organizationName.text = voucher.fund?.organization?.name ?? ""
                 if let price = voucher.amount {
