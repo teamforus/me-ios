@@ -89,7 +89,10 @@ class MRecordDetailViewController: UIViewController {
     
     
     @IBAction func showQRCode(_ sender: Any) {
-        NotificationCenter.default.post(name: NotificationName.TogleStateWindow, object: nil)
+        let popOverVC = PullUpQRViewController(nibName: "PullUpQRViewController", bundle: nil)
+        popOverVC.idRecord = Int(recordId)
+        popOverVC.qrType = .Record
+        showPopUPWithAnimation(vc: popOverVC)
     }
     
     @IBAction func deleteRecord(_ sender: UIButton) {

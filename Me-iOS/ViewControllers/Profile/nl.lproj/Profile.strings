@@ -15,7 +15,7 @@
 "AiD-mk-0LQ.text" = "Start met scanner";
 
 /* Class = "UILabel"; text = "Turn off passcode"; ObjectID = "Bq2-SX-GJZ"; */
-"Bq2-SX-GJZ.text" = "Inlogcode uitschakelen";
+"Bq2-SX-GJZ.text" = "Inlogcode uitzetten";
 
 /* Class = "UILabel"; text = "Contact Support"; ObjectID = "G7d-5Z-MNy"; */
 "G7d-5Z-MNy.text" = "Contact Support";
@@ -36,7 +36,7 @@
 "hu1-sr-b6h.normalTitle" = "Sluit";
 
 /* Class = "UILabel"; text = "Send crash reports"; ObjectID = "pA8-VO-WKT"; */
-"pA8-VO-WKT.text" = "Stuur foutrapport";
+"pA8-VO-WKT.text" = "Stuur fout rapportages";
 
 /* Class = "UILabel"; text = "Use Face ID for login"; ObjectID = "scn-SY-tGf"; */
 "scn-SY-tGf.text" = "Gebruik Face ID";
@@ -48,7 +48,7 @@
 "uyU-tZ-kOJ.normalTitle" = "Press for crash the app";
 
 /* Class = "UILabel"; text = "This is your personal QR code"; ObjectID = "NFR-Ik-UtF.text"; */
-"NFR-Ik-UtF.text" = "Dit is je persoonlijke QR-Code"";
+"NFR-Ik-UtF.text" = "Dit is je persoonlijke QR-Code";
 
 /* Class = "UILabel"; text = "Let someone scan your personal QR code to send your currency, property or vouchers"; ObjectID = "MxW-qZ-33f.text"; */
 "MxW-qZ-33f.text" = "Scan deze QR-Code op een apparaat waar je al op ingelogd bent.";

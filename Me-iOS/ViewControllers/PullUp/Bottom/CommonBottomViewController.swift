@@ -9,12 +9,6 @@
 import UIKit
 import ISHPullUp
 
-public enum QRType{
-    case AuthToken
-    case Voucher
-    case Record
-    case Profile
-}
 
 class CommonBottomViewController: UIViewController {
     

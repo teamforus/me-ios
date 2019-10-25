@@ -199,6 +199,7 @@ extension UIViewController{
                                         let navigationController:HiddenNavBarNavigationController = storyboard.instantiateInitialViewController() as! HiddenNavBarNavigationController
                                         let firstPageVC:UIViewController = storyboard.instantiateViewController(withIdentifier: "firstPage") as UIViewController
                                         navigationController.viewControllers = [firstPageVC]
+                                        navigationController.modalPresentationStyle = .fullScreen
                                         self.present(navigationController, animated: true, completion: nil)
                                         
                                        }),

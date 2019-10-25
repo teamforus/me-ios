@@ -108,7 +108,10 @@ class MProductVoucherViewController: UIViewController {
     }
     
     @IBAction func opendQR(_ sender: UIButton) {
-        NotificationCenter.default.post(name: NotificationName.TogleStateWindowFormProduct, object: nil)
+        let popOverVC = PullUpQRViewController(nibName: "PullUpQRViewController", bundle: nil)
+        popOverVC.voucher = voucher
+        popOverVC.qrType = .Voucher
+        showPopUPWithAnimation(vc: popOverVC)
     }
     
     @IBAction func sendByEmail(_ sender: Any) {
@@ -142,7 +145,7 @@ class MProductVoucherViewController: UIViewController {
     @IBAction func callPhone(_ sender: Any) {
         if let phone = voucher.offices?.first?.phone {
             guard let number = URL(string: "tel://" + (phone)) else { return }
-        UIApplication.shared.open(number)
+            UIApplication.shared.open(number)
         }
     }
     

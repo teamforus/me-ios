@@ -36,6 +36,30 @@ class CustomCornerUIView: UIView {
         }
     }
     
+    @IBInspectable var topRightCorner: CGFloat = 0 {
+        didSet{
+            
+        }
+    }
+    
+    @IBInspectable var topLeftCorner: CGFloat = 0 {
+        didSet{
+            
+        }
+    }
+    
+    @IBInspectable var bottomRightCorner: CGFloat = 0 {
+        didSet{
+            
+        }
+    }
+    
+    @IBInspectable var bottomLeftCorner: CGFloat = 0 {
+        didSet{
+            
+        }
+    }
+    
     @IBInspectable var shadowRadius : CGFloat = 0 {
         didSet {
             setShadowRadius()

@@ -25,6 +25,8 @@
 		65100AFF229D7102007892D1 /* MRecordValidatorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65100AFE229D7102007892D1 /* MRecordValidatorsViewController.swift */; };
 		65100B03229D7167007892D1 /* RecordValidatorsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65100B02229D7167007892D1 /* RecordValidatorsViewModel.swift */; };
 		65100B08229D9146007892D1 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 65100B0A229D9146007892D1 /* Localizable.strings */; };
+		6511CB182362FCFC00863E85 /* PullUpQRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6511CB162362FCFC00863E85 /* PullUpQRViewController.swift */; };
+		6511CB192362FCFC00863E85 /* PullUpQRViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6511CB172362FCFC00863E85 /* PullUpQRViewController.xib */; };
 		65139C0622802545003E0CDE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65139C0522802545003E0CDE /* AppDelegate.swift */; };
 		65139C0E22802546003E0CDE /* Me_iOS.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 65139C0C22802545003E0CDE /* Me_iOS.xcdatamodeld */; };
 		65139C1022802548003E0CDE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 65139C0F22802548003E0CDE /* Assets.xcassets */; };
@@ -244,6 +246,10 @@
 		65100B02229D7167007892D1 /* RecordValidatorsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordValidatorsViewModel.swift; sourceTree = "<group>"; };
 		65100B09229D9146007892D1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		65100B0B229D9149007892D1 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Localizable.strings; sourceTree = "<group>"; };
+		6511CB112362F9C500863E85 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Profile.strings; sourceTree = "<group>"; };
+		6511CB152362FAC200863E85 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Profile.strings; sourceTree = "<group>"; };
+		6511CB162362FCFC00863E85 /* PullUpQRViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullUpQRViewController.swift; sourceTree = "<group>"; };
+		6511CB172362FCFC00863E85 /* PullUpQRViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PullUpQRViewController.xib; sourceTree = "<group>"; };
 		65139C0222802545003E0CDE /* Me-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Me-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		65139C0522802545003E0CDE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		65139C0D22802545003E0CDE /* Me_iOS.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Me_iOS.xcdatamodel; sourceTree = "<group>"; };
@@ -328,8 +334,6 @@
 		658B487722ABF40400B6236C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/About.strings; sourceTree = "<group>"; };
 		658B487922ABF40A00B6236C /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/About.strings; sourceTree = "<group>"; };
 		658B488022ABF79100B6236C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Profile.storyboard; sourceTree = "<group>"; };
-		658B488322ABF79700B6236C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Profile.strings; sourceTree = "<group>"; };
-		658B488522ABF79C00B6236C /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Profile.strings; sourceTree = "<group>"; };
 		658B488722ABF8B700B6236C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Payment.storyboard; sourceTree = "<group>"; };
 		658B488A22ABF8C000B6236C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Payment.strings; sourceTree = "<group>"; };
 		658B488C22ABF8C500B6236C /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Payment.strings; sourceTree = "<group>"; };
@@ -1268,6 +1272,7 @@
 				650FF63B22AD2EAB004C3A85 /* SuccessSendingByEmail */,
 				656FDDB9235DF057002422B2 /* SendEther */,
 				656FDDB8235DF04E002422B2 /* OrganizationValidator */,
+				65F9742C236313C20008BDB0 /* BottomQR */,
 			);
 			path = PopUp;
 			sourceTree = "<group>";
@@ -1357,6 +1362,15 @@
 				65F52E402316797900B9D229 /* MCrashConfirmViewController.xib */,
 			);
 			path = ConfirmCrashClientAddress;
+			sourceTree = "<group>";
+		};
+		65F9742C236313C20008BDB0 /* BottomQR */ = {
+			isa = PBXGroup;
+			children = (
+				6511CB162362FCFC00863E85 /* PullUpQRViewController.swift */,
+				6511CB172362FCFC00863E85 /* PullUpQRViewController.xib */,
+			);
+			path = BottomQR;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1464,8 +1478,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				65139C0122802545003E0CDE /* Me-iOS */,
 				65139C1822802548003E0CDE /* Me-iOSTests */,
+				65139C0122802545003E0CDE /* Me-iOS */,
 				65139C2322802548003E0CDE /* Me-iOSUITests */,
 			);
 		};
@@ -1476,6 +1490,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6511CB192362FCFC00863E85 /* PullUpQRViewController.xib in Resources */,
 				65139C50228029C0003E0CDE /* LICENSE in Resources */,
 				650FF60922AD237A004C3A85 /* LoginQRAndCodeViewController.storyboard in Resources */,
 				65139C4F228029C0003E0CDE /* backspaceBlue@2x.png in Resources */,
@@ -1692,6 +1707,7 @@
 				65139C61228029EF003E0CDE /* Formater.swift in Sources */,
 				65911B46228D7DBC00EA30D6 /* VoucherTableViewCell.swift in Sources */,
 				65139C54228029C0003E0CDE /* UI.swift in Sources */,
+				6511CB182362FCFC00863E85 /* PullUpQRViewController.swift in Sources */,
 				65FE8E02229FF16A00BB1596 /* RecordValidation.swift in Sources */,
 				65B3784D22C241F50095A2EF /* Reachability.swift in Sources */,
 				65B4DE4122A1682400AFC878 /* EmailLoginViewModel.swift in Sources */,
@@ -1996,8 +2012,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				658B488022ABF79100B6236C /* Base */,
-				658B488322ABF79700B6236C /* en */,
-				658B488522ABF79C00B6236C /* nl */,
+				6511CB112362F9C500863E85 /* en */,
+				6511CB152362FAC200863E85 /* nl */,
 			);
 			name = Profile.storyboard;
 			sourceTree = "<group>";
@@ -2185,7 +2201,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon.Dev;
 				CODE_SIGN_ENTITLEMENTS = "Me-iOS/Me-iOS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 40;
+				CURRENT_PROJECT_VERSION = 43;
 				DEVELOPMENT_TEAM = FNTR3V85ZM;
 				INFOPLIST_FILE = "Me-iOS/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -2208,7 +2224,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Me-iOS/Me-iOS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 40;
+				CURRENT_PROJECT_VERSION = 43;
 				DEVELOPMENT_TEAM = FNTR3V85ZM;
 				INFOPLIST_FILE = "Me-iOS/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -2367,7 +2383,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon.Alpha;
 				CODE_SIGN_ENTITLEMENTS = "Me-iOS/Me-iOS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 40;
+				CURRENT_PROJECT_VERSION = 43;
 				DEVELOPMENT_TEAM = FNTR3V85ZM;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_TESTABILITY = NO;
@@ -2491,7 +2507,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon.Demo;
 				CODE_SIGN_ENTITLEMENTS = "Me-iOS/Me-iOS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 40;
+				CURRENT_PROJECT_VERSION = 43;
 				DEVELOPMENT_TEAM = FNTR3V85ZM;
 				GCC_OPTIMIZATION_LEVEL = s;
 				INFOPLIST_FILE = "Me-iOS/Info.plist";
