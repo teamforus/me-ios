@@ -12,7 +12,7 @@
 "NZh-dx-KQ4.text" = "Label";
 
 /* Class = "UILabel"; text = "This record has no validations yet"; ObjectID = "TMm-Mn-V3X"; */
-"TMm-Mn-V3X.text" = "Deze eigenscshap heeft geen validaties";
+"TMm-Mn-V3X.text" = "Deze eigenschap heeft geen validaties";
 
 /* Class = "UIButton"; normalTitle = "LAAT QR-CODE ZIEN"; ObjectID = "XXm-PG-izE"; */
 "XXm-PG-izE.normalTitle" = "LAAT QR-CODE ZIEN";
@@ -30,3 +30,5 @@
 "owV-nu-EIT.normalTitle" = "Verwijder eigenschap";
 
 "eQw-as-eSG.text" = "validaties";
+
+"eLc-rs-IT8.text" = "Validaties";
