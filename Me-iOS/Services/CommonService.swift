@@ -21,6 +21,8 @@ protocol CommonServiceProtocol {
     
     func patch<T: Decodable, E: Encodable>(request:String, data: E ,complete: @escaping (_ response: T,_ statusCode: Int)->() )
     
+    func patchWithoutParam(request:String, complete: @escaping (_ statusCode: Int)->() )
+    
     func create<T: Decodable, E: Encodable>(request:String, data: E,complete: @escaping (_ response: T,_ statusCode: Int)->() )
     
     func post<T: Decodable>(request:String, complete: @escaping (_ response: T,_ statusCode: Int)->() )
@@ -39,6 +41,8 @@ protocol CommonServiceProtocol {
 }
 
 class CommonService: CommonServiceProtocol {
+    
+    
     
     
     func postWithoutParamtersAndResponse(request: String, complete: @escaping (Int) -> (), failure: @escaping (Error) -> ()) {
@@ -346,6 +350,27 @@ class CommonService: CommonServiceProtocol {
         
         task.resume()
         
+    }
+    
+    func patchWithoutParam(request: String, complete: @escaping (Int) -> ()) {
+        
+        let url = URL(string: BaseURL.baseURL(url: request))!
+        var request = URLRequest(url: url)
+        request.httpMethod = "PATCH"
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("Bearer " + CurrentSession.shared.token, forHTTPHeaderField: "Authorization")
+        
+        
+        let session = URLSession.shared
+        
+        let task = session.dataTask(with: request) { (data, response, error) in
+                let httpResponse = response as? HTTPURLResponse
+                
+                complete(httpResponse!.statusCode)
+        }
+        
+        task.resume()
     }
     
     func create<T, E>(request: String, data: E, complete: @escaping (T, Int) -> ()) where T : Decodable, E : Encodable {

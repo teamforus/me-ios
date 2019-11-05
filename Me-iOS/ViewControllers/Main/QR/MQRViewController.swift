@@ -13,17 +13,19 @@ enum QRTypeScann: String {
     case authToken = "auth_token"
     case voucher = "voucher"
     case record = "record"
+    case testTransaction = "demo_voucher"
 }
 
 class MQRViewController: HSScanViewController {
     
-    lazy var qrViewModel: QRViewModel = {
+    private lazy var qrViewModel: QRViewModel = {
         return QRViewModel()
     }()
-    var voucher: Voucher!
-    var productVoucher: [Transaction]! = []
+    private var voucher: Voucher!
+    private var testToken: String!
+    private var productVoucher: [Transaction]! = []
     
-    var recordValidateResponse: RecordValidation!
+    private var recordValidateResponse: RecordValidation!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -193,7 +195,7 @@ class MQRViewController: HSScanViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goToVoucherPayment" {
             if let paymentVC = segue.destination as? MPaymentViewController {
-                
+                paymentVC.testToken = testToken
                 paymentVC.voucher = voucher
                 paymentVC.tabBar = self.tabBarController
                 
@@ -254,6 +256,10 @@ extension MQRViewController: HSScanViewControllerDelegate{
                             KVSpinnerView.show()
                             self.qrViewModel.initValidationRecord(code: qr.value)
                             
+                        } else if qr.type == QRTypeScann.testTransaction.rawValue {
+                            self.scanWorker.stop()
+                            self.testToken = qr.value
+                            self.performSegue(withIdentifier: "goToVoucherPayment", sender: nil)
                         }
                     }
                 } catch {

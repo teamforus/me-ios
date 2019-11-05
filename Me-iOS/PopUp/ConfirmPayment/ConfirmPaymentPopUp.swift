@@ -17,6 +17,7 @@ class ConfirmPaymentPopUp: UIViewController {
     
     var voucher: Voucher!
     var voucherToken: Transaction!
+    var testToken: String!
     var amount: String!
     var tabBar: UITabBarController!
     var organizationId: Int!
@@ -26,6 +27,16 @@ class ConfirmPaymentPopUp: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if voucher != nil {
+            initView()
+        }else {
+            paymentLabel.text = String(format: NSLocalizedString("Please confirm the transaction of %@", comment: ""), amount)
+            self.didChangeHeightView()
+        }
+    }
+    
+    private func initView() {
         
         if voucher.product != nil {
             
@@ -43,11 +54,11 @@ class ConfirmPaymentPopUp: UIViewController {
             
             
             if Double(amount!.replacingOccurrences(of: ",", with: "."))! > amountVoucher {
-//                if voucher.fund?.currency == "eur" {
+                //                if voucher.fund?.currency == "eur" {
                 insuficientLabel.text = String(format: NSLocalizedString("Insufficient funds on the voucher. Please, request extra payment of €%.02f", comment: ""), aditionalAmount)
-//                }else {
-//                insuficientLabel.text = String(format: NSLocalizedString("Insufficient funds on the voucher. Please, request extra payment of ETH%.02f", comment: ""), aditionalAmount)
-//                }
+                //                }else {
+                //                insuficientLabel.text = String(format: NSLocalizedString("Insufficient funds on the voucher. Please, request extra payment of ETH%.02f", comment: ""), aditionalAmount)
+                //                }
                 
             }else{
                 
@@ -63,33 +74,58 @@ class ConfirmPaymentPopUp: UIViewController {
         if isReachable() {
             
             KVSpinnerView.show()
-            let payTransaction = PayTransaction(organization_id: organizationId ?? 0, amount: amount.replacingOccurrences(of: ",", with: "."), note: note ?? "")
             
-            commonService.create(request: "platform/vouchers/"+voucher.address!+"/transactions", data: payTransaction) { (response: ResponseData<Transaction>, statusCode) in
+            if voucher != nil {
+                let payTransaction = PayTransaction(organization_id: organizationId ?? 0, amount: amount.replacingOccurrences(of: ",", with: "."), note: note ?? "")
                 
-                DispatchQueue.main.async {
+                commonService.create(request: "platform/vouchers/"+voucher.address!+"/transactions", data: payTransaction) { (response: ResponseData<Transaction>, statusCode) in
                     
-                    
-                    KVSpinnerView.dismiss()
-                    if statusCode == 201 {
-                        
-                        self.showSimpleAlertWithSingleAction(title: "Success".localized(), message: "Payment succeeded".localized(), okAction: UIAlertAction(title: "OK", style: .default, handler: { (action) in
+                    DispatchQueue.main.async {
+                        KVSpinnerView.dismiss()
+                        if statusCode == 201 {
                             
-                            self.tabBar.selectedIndex = 0
-                            if self.isFromReservation != nil {
-                                self.presentingViewController?.presentingViewController?.presentingViewController?.dismiss(animated: true)
-                            }else {
-                                self.presentingViewController?.presentingViewController?.dismiss(animated: true)
-                            }
-                        }))
-                    }else {
-                        sender.isEnabled = true
-                        self.showSimpleAlertWithSingleAction(title: "Warning".localized(), message: "Voucher not have enough funds".localized(), okAction: UIAlertAction(title: "OK", style: .default, handler: { (action) in
-                            
-                            
-                        }))
+                            self.showSimpleAlertWithSingleAction(title: "Success".localized(), message: "Payment succeeded".localized(), okAction: UIAlertAction(title: "OK", style: .default, handler: { (action) in
+                                
+                                self.tabBar.selectedIndex = 0
+                                if self.isFromReservation != nil {
+                                    self.presentingViewController?.presentingViewController?.presentingViewController?.dismiss(animated: true)
+                                }else {
+                                    self.presentingViewController?.presentingViewController?.dismiss(animated: true)
+                                }
+                            }))
+                        }else {
+                            sender.isEnabled = true
+                            self.showSimpleAlertWithSingleAction(title: "Warning".localized(), message: "Voucher not have enough funds".localized(), okAction: UIAlertAction(title: "OK", style: .default, handler: { (action) in
+                                
+                                
+                            }))
+                        }
                     }
                 }
+            }else {
+                
+                commonService.patchWithoutParam(request: "platform/demo/transactions/" + testToken) { ( statusCode) in
+                    DispatchQueue.main.async {
+                        if statusCode == 200 {
+                            
+                            self.showSimpleAlertWithSingleAction(title: "Success".localized(), message: "Payment succeeded".localized(), okAction: UIAlertAction(title: "OK", style: .default, handler: { (action) in
+                                
+                                self.tabBar.selectedIndex = 0
+                                if self.isFromReservation != nil {
+                                    self.presentingViewController?.presentingViewController?.presentingViewController?.dismiss(animated: true)
+                                }else {
+                                    self.presentingViewController?.presentingViewController?.dismiss(animated: true)
+                                }
+                            }))
+                        }else {
+                            KVSpinnerView.dismiss()
+                            self.showSimpleAlertWithSingleAction(title: "Error!".localized(), message: "This token is not valid!", okAction: UIAlertAction(title: "OK", style: .default, handler: { (action) in
+                                
+                            }))
+                        }
+                    }
+                }
+                
             }
         }else {
             sender.isEnabled = true

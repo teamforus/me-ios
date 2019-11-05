@@ -1478,8 +1478,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				65139C1822802548003E0CDE /* Me-iOSTests */,
 				65139C0122802545003E0CDE /* Me-iOS */,
+				65139C1822802548003E0CDE /* Me-iOSTests */,
 				65139C2322802548003E0CDE /* Me-iOSUITests */,
 			);
 		};

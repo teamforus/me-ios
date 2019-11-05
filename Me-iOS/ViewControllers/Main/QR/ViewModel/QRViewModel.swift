@@ -19,6 +19,7 @@ class QRViewModel{
     
     var validateRecord: ((RecordValidation, Int)->())!
     var validateApproveRecord: ((Int)->())!
+    var completeTestToken: (()->())?
     
     var completeOrganization: (([EmployeesOrganization]) -> ())?
     
@@ -112,6 +113,17 @@ class QRViewModel{
         
         commonService.patch(request: "identity/record-validations/" + code + "/approve", data: organization) { (response: AuthorizationQRToken, statusCode) in
             self.validateApproveRecord(statusCode)
+        }
+    }
+    
+    func initTestTransaction() {
+        
+        commonService.get(request: "platform/demo/transactions/" +  CurrentSession.shared.token, complete: { (response: ResponseDataArray<EmployeesOrganization>, statusCode) in
+            
+            self.completeTestToken?()
+            
+        }) { (error) in
+            
         }
     }
 }
