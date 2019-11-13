@@ -138,6 +138,11 @@ class PullUpQRViewController: UIViewController {
         
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        timer.invalidate()
+    }
+    
     @IBAction func closeQR(_ sender: Any) {
         closeQRAction()
     }

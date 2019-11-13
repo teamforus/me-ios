@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="40b-lJ-usN">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="40b-lJ-usN">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -157,7 +157,7 @@
                         <outlet property="confirmButton" destination="9F9-1e-TZn" id="qwR-ah-ooD"/>
                         <outlet property="emailField" destination="9Bi-Ec-fhu" id="vx2-el-dOx"/>
                         <outlet property="validationIcon" destination="hEp-xJ-ret" id="cDE-kM-VHm"/>
-                        <segue destination="olI-FO-co4" kind="presentation" identifier="goToSuccessMail" id="ge3-Bh-RWq"/>
+                        <segue destination="olI-FO-co4" kind="presentation" identifier="goToSuccessMail" modalPresentationStyle="fullScreen" id="ge3-Bh-RWq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aCS-eX-QAR" userLabel="First Responder" sceneMemberID="firstResponder"/>
