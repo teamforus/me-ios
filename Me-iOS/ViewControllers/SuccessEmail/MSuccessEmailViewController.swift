@@ -49,6 +49,11 @@ class MSuccessEmailViewController: UIViewController {
         
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        NotificationCenter.default.removeObserver(self)
+    }
+    
     @IBAction func openMailApp(_ sender: Any) {
         if let mailURL = NSURL(string: "message://") {
             if UIApplication.shared.canOpenURL(mailURL as URL) {

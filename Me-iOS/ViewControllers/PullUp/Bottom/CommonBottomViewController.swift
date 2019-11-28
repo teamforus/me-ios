@@ -134,6 +134,11 @@ class CommonBottomViewController: UIViewController {
         
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        timer.invalidate()
+    }
+    
     @objc func toglePullUpView(){
         if pullUpController?.state == .expanded{
             if #available(iOS 13, *) {

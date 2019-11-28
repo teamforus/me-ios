@@ -88,6 +88,11 @@ class MLoginQRAndCodeViewController: UIViewController {
         }
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        timer.invalidate()
+    }
+    
     @objc func logIn(){
         performSegue(withIdentifier: "goToMain", sender: self)
     }

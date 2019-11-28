@@ -412,7 +412,7 @@ class CommonService: CommonServiceProtocol {
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        
+        request.addValue("Bearer " + CurrentSession.shared.token, forHTTPHeaderField: "Authorization")
         
         let session = URLSession.shared
         
