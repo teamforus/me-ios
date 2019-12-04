@@ -87,11 +87,6 @@ class MVoucherViewController: UIViewController {
         }
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.tabBarController?.set(visible: false, animated: true)
-    }
-    
     @IBAction func opendQR(_ sender: UIButton) {
         let popOverVC = PullUpQRViewController(nibName: "PullUpQRViewController", bundle: nil)
         popOverVC.voucher = voucher

@@ -32,6 +32,7 @@ class PullUpQRViewController: UIViewController {
         return CommonBottomViewModel()
     }()
     var voucher: Voucher!
+    var record: Record!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -87,7 +88,8 @@ class PullUpQRViewController: UIViewController {
             self.voucherNameLabel.isHidden = true
             self.dateExpireLabel.isHidden = true
             self.titleDescriptionLabel.text = "This is your personal QR code.".localized()
-            self.descriptionLabel.text = "Let the shopkeeper scan it to make a validtion to your record.".localized()
+            self.descriptionLabel.text = String(format: NSLocalizedString("Let the shopkeeper scan it to make a validtion to your record %@.", comment: ""), self.record.name ?? "")
+            
             
             bottomQRViewModel.completeRecord = { [weak self] (record) in
                 
@@ -140,7 +142,7 @@ class PullUpQRViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        timer.invalidate()
+        timer?.invalidate()
     }
     
     @IBAction func closeQR(_ sender: Any) {

@@ -82,15 +82,11 @@ class MRecordDetailViewController: UIViewController {
         }
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.tabBarController?.set(visible: false, animated: true)
-    }
-    
     
     @IBAction func showQRCode(_ sender: Any) {
         let popOverVC = PullUpQRViewController(nibName: "PullUpQRViewController", bundle: nil)
         popOverVC.idRecord = Int(recordId)
+        popOverVC.record = record
         popOverVC.qrType = .Record
         showPopUPWithAnimation(vc: popOverVC)
     }

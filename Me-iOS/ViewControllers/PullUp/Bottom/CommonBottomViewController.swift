@@ -136,7 +136,7 @@ class CommonBottomViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        timer.invalidate()
+        timer?.invalidate()
     }
     
     @objc func toglePullUpView(){

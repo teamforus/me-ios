@@ -140,4 +140,4 @@
 "This is your Voucher’s QR-code." = "This is your Voucher’s QR-code.";
 "Let the shopkeeper scan it to make a payment from your voucher." = "Let the shopkeeper scan it to make a payment from your voucher.";
 "This is your personal QR code." = "This is your personal QR code.";
-"Let the shopkeeper scan it to make a validtion to your record." = "Let the shopkeeper scan it to make a validtion to your record.";
+"Let the shopkeeper scan it to make a validtion to your record %@." = "Let the shopkeeper scan it to make a validtion to your record %@.";
