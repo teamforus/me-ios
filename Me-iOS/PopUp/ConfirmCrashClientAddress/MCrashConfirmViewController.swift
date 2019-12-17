@@ -16,9 +16,17 @@ class MCrashConfirmViewController: UIViewController {
     }
     
     @IBAction func confirmCrashAddress(_ sender: Any) {
-        UserDefaults.standard.set(true, forKey: UserDefaultsName.AddressIndentityCrash)
         removeAnimate()
     }
+    
+    @IBAction func switchCrashAddressOn(_ sender: UISwitch) {
+        if sender.isOn {
+            UserDefaults.standard.set(true, forKey: UserDefaultsName.AddressIndentityCrash)
+        }else {
+            UserDefaults.standard.set(false, forKey: UserDefaultsName.AddressIndentityCrash)
+        }
+    }
+    
     
     @IBAction func cancel(_ sender: Any) {
         removeAnimate()
