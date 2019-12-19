@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="DE0-y8-cjP">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="DE0-y8-cjP">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -45,7 +44,7 @@
                                     <action selector="dismiss:" destination="DE0-y8-cjP" eventType="touchUpInside" id="hJn-14-uCw"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="D4r-5y-DST">
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="D4r-5y-DST">
                                 <rect key="frame" x="0.0" y="73" width="375" height="63"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Onderstaande aanbiedingen zijn door de klant gereserveerd" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8tz-MG-HUF">
@@ -61,7 +60,7 @@
                                     <constraint firstAttribute="height" constant="63" id="joX-ja-sed"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="140" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ulm-Fy-ecA">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="140" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ulm-Fy-ecA">
                                 <rect key="frame" x="0.0" y="151" width="375" height="436"/>
                                 <color key="backgroundColor" red="0.96852236986160278" green="0.96868795156478882" blue="0.96851199865341187" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
@@ -128,7 +127,7 @@
                                     <outlet property="delegate" destination="DE0-y8-cjP" id="Rq5-0G-CqA"/>
                                 </connections>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uzM-Me-hi0" customClass="ShadowButton" customModule="Me_iOS" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uzM-Me-hi0" customClass="ShadowButton" customModule="Me_iOS" customModuleProvider="target">
                                 <rect key="frame" x="15" y="607" width="345" height="40"/>
                                 <color key="backgroundColor" red="0.26662361621856689" green="0.42916452884674072" blue="0.99131852388381958" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -144,7 +143,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="Thw-SZ-3ni" kind="presentation" identifier="goToPaymentSimple" id="gov-EU-MQ4"/>
+                                    <segue destination="Thw-SZ-3ni" kind="presentation" identifier="goToPaymentSimple" modalPresentationStyle="fullScreen" id="gov-EU-MQ4"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -165,7 +164,7 @@
                     </view>
                     <connections>
                         <outlet property="tableView" destination="ulm-Fy-ecA" id="Bw0-xw-w7O"/>
-                        <segue destination="Thw-SZ-3ni" kind="presentation" identifier="goToPaymentFromSelected" id="n7a-Va-rEj"/>
+                        <segue destination="Thw-SZ-3ni" kind="presentation" identifier="goToPaymentFromSelected" modalPresentationStyle="fullScreen" id="n7a-Va-rEj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pKC-sr-0pd" userLabel="First Responder" sceneMemberID="firstResponder"/>

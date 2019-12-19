@@ -58,7 +58,7 @@
 "Wrong passcode, please try again" = "Verkeerde inlogcode, probeer het opnieuw";
 "Codes don't match. Please try again" = "Inlogcodes komen niet overeen. Probeer het opnieuw";
 "Enter your login code" = "Voer je inlogcode in";
-"The voucher is empty! No transactions can be done." = "Zagolovok: Let op! Text: De voucher is op! Geen transacties kunnen gedaan worden.";
+"The voucher is empty! No transactions can be done." = "De voucher is op! Geen transacties kunnen gedaan worden.";
 "This product voucher is used!" = "Aanbiedingvoucher is al gebruikt!";
 "Error!" = "Mislukt!";
 "Unknown QR-code!" = "Onbekende QR-code!";

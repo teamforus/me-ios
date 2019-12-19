@@ -204,7 +204,7 @@ class MQRViewController: HSScanViewController {
             if let productReservation = segue.destination as? MProductReservationViewController {
                 
                 productReservation.voucher = voucher
-                productReservation.voucherTokens = productVoucher
+                productReservation.voucherTokens = productVoucher.filter({$0.amount != "0.0"})
                 productReservation.vc = self
                 productReservation.tabBar = self.tabBarController
                 
