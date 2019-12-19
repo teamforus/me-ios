@@ -79,7 +79,6 @@ class MRecordsViewController: UIViewController {
         }else {
             self.setStatusBarStyle(.default)
         }
-        self.tabBarController?.set(visible: true, animated: true)
     }
     
     func initFetch() {

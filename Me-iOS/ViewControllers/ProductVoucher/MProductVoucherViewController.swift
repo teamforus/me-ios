@@ -71,13 +71,13 @@ class MProductVoucherViewController: UIViewController {
                 }
                 
                 self?.mapView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self?.goToMap)))
-                let viewRegion = MKCoordinateRegion( center: CLLocationCoordinate2D(latitude: self!.latitude , longitude: self!.longitude), latitudinalMeters: 10000, longitudinalMeters: 10000)
+                let viewRegion = MKCoordinateRegion( center: CLLocationCoordinate2D(latitude: self?.latitude ?? 0.0 , longitude: self?.longitude ?? 0.0), latitudinalMeters: 10000, longitudinalMeters: 10000)
                 self?.mapView.setRegion(viewRegion, animated: false)
                 self?.mapView.region = viewRegion
                 
                 voucher.offices?.forEach({ (office) in
                     
-                    self?.mapView.addAnnotation((self?.setAnnotation(lattitude: self!.latitude, longitude: self!.longitude))!)
+                    self?.mapView.addAnnotation((self?.setAnnotation(lattitude: self?.latitude ?? 0.0, longitude: self?.longitude ?? 0.0))!)
                 })
                 
                 self?.labeles.forEach { (view) in
@@ -100,11 +100,6 @@ class MProductVoucherViewController: UIViewController {
             showInternetUnable()
             
         }
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.tabBarController?.set(visible: false, animated: true)
     }
     
     @IBAction func opendQR(_ sender: UIButton) {
@@ -189,7 +184,7 @@ extension MProductVoucherViewController {
         //open apple maps
         actionSheet.addAction(UIAlertAction.init(title: "Open in Apple Maps", style: UIAlertAction.Style.default, handler: { (action) in
             
-            self.openMapForPlace(lattitude: self.latitude, longitude: self.longitude)
+            self.openMapForPlace(lattitude: self.latitude ?? 0.0, longitude: self.longitude ?? 0.0)
         }))
         
         //open google maps
@@ -197,12 +192,12 @@ extension MProductVoucherViewController {
             if (UIApplication.shared.canOpenURL(URL(string:"comgooglemaps://")!))
             {
                 UIApplication.shared.open(URL(string:
-                    "comgooglemaps://?q=\(self.latitude!),\(self.longitude!)")!, options: [:], completionHandler: { (succes) in
+                    "comgooglemaps://?q=\(self.latitude ?? 0.0),\(self.longitude ?? 0.0)")!, options: [:], completionHandler: { (succes) in
                 })
             } else if (UIApplication.shared.canOpenURL(URL(string:"https://maps.google.com")!))
             {
                 UIApplication.shared.open(URL(string:
-                    "https://maps.google.com/?q=\(self.latitude!),\(self.longitude!)")!, options: [:], completionHandler: { (succes) in
+                    "https://maps.google.com/?q=\(self.latitude ?? 0.0),\(self.longitude ?? 0.0)")!, options: [:], completionHandler: { (succes) in
                 })
             }
         }))
