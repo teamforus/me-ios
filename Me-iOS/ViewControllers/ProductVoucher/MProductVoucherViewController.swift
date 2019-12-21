@@ -131,9 +131,16 @@ class MProductVoucherViewController: UIViewController {
     }
     
     @IBAction func info(_ sender: Any) {
-        if let url = URL(string: "\(voucher.fund?.url_webshop ?? "")product/\(voucher.product?.id ?? 0)") {
-            let safariVC = SFSafariViewController(url: url)
-            self.present(safariVC, animated: true, completion: nil)
+        if voucher.fund?.url_webshop != nil {
+            if let url = URL(string: "\(voucher.fund?.url_webshop ?? "")product/\(voucher.product?.id ?? 0)") {
+                let safariVC = SFSafariViewController(url: url)
+                self.present(safariVC, animated: true, completion: nil)
+            }
+        }else {
+            if let url = URL(string: "https://kerstpakket.forus.io") {
+                let safariVC = SFSafariViewController(url: url)
+                self.present(safariVC, animated: true, completion: nil)
+            }
         }
     }
     
@@ -168,8 +175,6 @@ extension MProductVoucherViewController {
                                     
                                   }),
                                   cancelAction: UIAlertAction(title: "Cancel".localized(), style: .cancel, handler: nil))
-        
-        
         
     }
     
