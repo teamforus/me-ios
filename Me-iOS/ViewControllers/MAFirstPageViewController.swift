@@ -11,6 +11,7 @@ enum EnvironmentType: Int {
     case alpha = 1
     case demo = 2
     case dev = 3
+    case custom = 4
 }
 
 import UIKit
@@ -54,47 +55,69 @@ class MAFirstPageViewController: UIViewController {
         case EnvironmentType.alpha.rawValue:
             
             UserDefaults.standard.setValue("https://staging.api.forus.io/api/v1/", forKey: UserDefaultsName.EnvironmentURL)
-        UserDefaults.standard.setValue("Alpha", forKey: UserDefaultsName.EnvironmentName)
-        chooseEnvironmentButton.setTitle("Alpha", for: .normal)
-        break
+            UserDefaults.standard.setValue("Alpha", forKey: UserDefaultsName.EnvironmentName)
+            chooseEnvironmentButton.setTitle("Alpha", for: .normal)
+            break
         case EnvironmentType.demo.rawValue:
-        UserDefaults.standard.setValue("https://demo.api.forus.io/api/v1/", forKey: UserDefaultsName.EnvironmentURL)
-        UserDefaults.standard.setValue("Demo", forKey: UserDefaultsName.EnvironmentName)
-        chooseEnvironmentButton.setTitle("Demo", for: .normal)
-        break
+            UserDefaults.standard.setValue("https://demo.api.forus.io/api/v1/", forKey: UserDefaultsName.EnvironmentURL)
+            UserDefaults.standard.setValue("Demo", forKey: UserDefaultsName.EnvironmentName)
+            chooseEnvironmentButton.setTitle("Demo", for: .normal)
+            break
         case EnvironmentType.dev.rawValue:
-        CheckWebSiteReacheble.checkWebsite(url: "https://develop.test.api.forus.io") { (isReacheble) in
-            if isReacheble {
-                UserDefaults.standard.setValue("https://develop.test.api.forus.io/api/v1/", forKey: UserDefaultsName.EnvironmentURL)
-            }else {
-                UserDefaults.standard.setValue("https://dev.api.forus.io/api/v1/", forKey: UserDefaultsName.EnvironmentURL)
+            CheckWebSiteReacheble.checkWebsite(url: "https://develop.test.api.forus.io") { (isReacheble) in
+                if isReacheble {
+                    UserDefaults.standard.setValue("https://develop.test.api.forus.io/api/v1/", forKey: UserDefaultsName.EnvironmentURL)
+                }else {
+                    UserDefaults.standard.setValue("https://dev.api.forus.io/api/v1/", forKey: UserDefaultsName.EnvironmentURL)
+                }
             }
-        }
-        UserDefaults.standard.setValue("Dev", forKey: UserDefaultsName.EnvironmentName)
-        chooseEnvironmentButton.setTitle("Dev", for: .normal)
-        break
+            UserDefaults.standard.setValue("Dev", forKey: UserDefaultsName.EnvironmentName)
+            chooseEnvironmentButton.setTitle("Dev", for: .normal)
+            break
+            
+        case EnvironmentType.custom.rawValue:
+            let alertController = UIAlertController(title: "Add custom URL", message: "", preferredStyle: .alert)
+            alertController.addTextField { (textField : UITextField!) -> Void in
+                textField.placeholder = "Enter Base URL"
+                if self.chooseEnvironmentButton.titleLabel?.text == "Custom" {
+                    textField.text = UserDefaults.standard.string(forKey: UserDefaultsName.EnvironmentURL)
+                }
+            }
+            let saveAction = UIAlertAction(title: "Save", style: .default, handler: { alert -> Void in
+                let firstTextField = alertController.textFields![0] as UITextField
+                UserDefaults.standard.setValue(firstTextField.text ?? "", forKey: UserDefaultsName.EnvironmentURL)
+                UserDefaults.standard.setValue("Custom", forKey: UserDefaultsName.EnvironmentName)
+                self.chooseEnvironmentButton.setTitle("Custom", for: .normal)
+            })
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: { (action : UIAlertAction!) -> Void in })
+            
+            alertController.addAction(cancelAction)
+            alertController.addAction(saveAction)
+            
+            self.present(alertController, animated: true, completion: nil)
+            break
         default:
-        break
+            break
+        }
+        
     }
     
-}
-
-@IBAction func showEnvironment(_ sender: Any) {
-    environmnetView.isHidden = !environmnetView.isHidden
-}
-
-
-
-
-// MARK: - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    if segue.identifier == "goToLoginQR" {
-        let generalVC = didSetPullUP(storyBoardName: "LoginQRAndCodeViewController", segue: segue)
-        (generalVC.bottomViewController as! CommonBottomViewController).qrType = .AuthToken
+    @IBAction func showEnvironment(_ sender: Any) {
+        environmnetView.isHidden = !environmnetView.isHidden
     }
-}
-
-
+    
+    
+    
+    
+    // MARK: - Navigation
+    
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToLoginQR" {
+            let generalVC = didSetPullUP(storyBoardName: "LoginQRAndCodeViewController", segue: segue)
+            (generalVC.bottomViewController as! CommonBottomViewController).qrType = .AuthToken
+        }
+    }
+    
+    
 }
