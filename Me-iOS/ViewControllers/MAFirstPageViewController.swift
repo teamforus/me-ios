@@ -48,7 +48,7 @@ class MAFirstPageViewController: UIViewController {
         environmnetView.isHidden = true
         switch sender.tag {
         case EnvironmentType.production.rawValue:
-            UserDefaults.standard.setValue("https://api.forus.link/api/v1/", forKey: UserDefaultsName.EnvironmentURL)
+            UserDefaults.standard.setValue("https://api.forus.io/api/v1/", forKey: UserDefaultsName.EnvironmentURL)
             UserDefaults.standard.setValue("Production", forKey: UserDefaultsName.EnvironmentName)
             chooseEnvironmentButton.setTitle("Production", for: .normal)
             break

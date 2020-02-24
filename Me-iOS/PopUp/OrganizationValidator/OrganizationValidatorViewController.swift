@@ -10,7 +10,7 @@ import UIKit
 
 protocol OrganizationValidatorViewControllerDelegate: class {
     func close()
-    func selectOrganization(organization: EmployeesOrganization)
+    func selectOrganization(organization: EmployeesOrganization, vc: UIViewController)
 }
 
 class OrganizationValidatorViewController: UIViewController {
@@ -71,7 +71,7 @@ extension OrganizationValidatorViewController: UITableViewDelegate, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        delegate.selectOrganization(organization: recordEmployeesOrganizations[indexPath.row])
+        delegate.selectOrganization(organization: recordEmployeesOrganizations[indexPath.row], vc: self)
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {

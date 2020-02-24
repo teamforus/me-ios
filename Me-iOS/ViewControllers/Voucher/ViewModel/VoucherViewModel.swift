@@ -32,18 +32,25 @@ class VoucherViewModel{
         
         commonService.getById(request: "platform/vouchers/", id: address, complete: { (response: ResponseData<Voucher>, statusCode) in
             
-            if statusCode != 503 {
-            
-            var array = response.data?.transactions ?? []
-            array.append(contentsOf: response.data?.product_vouchers ?? [])
-            
-            self.processFetchedLunche(transactions: array.sorted(by: { $0.created_at?.compare($1.created_at ?? "") == .orderedDescending}))
-            self.reloadDataVoucher?(response.data!)
+            if statusCode == 503 {
+                DispatchQueue.main.async {
+                    KVSpinnerView.dismiss()
+                    self.vc.showErrorServer()
+                }
                 
+            }else if statusCode == 401 {
+                DispatchQueue.main.async {
+                    KVSpinnerView.dismiss()
+                    self.vc.showSimpleAlertWithSingleAction(title: "Expired session".localized(), message: "Your session has expired. You are being logged out.".localized() , okAction: UIAlertAction(title: "Log out".localized(), style: .default, handler: { (action) in
+                        self.vc.logoutOptions()
+                    }))
+                }
             }else {
+                var array = response.data?.transactions ?? []
+                array.append(contentsOf: response.data?.product_vouchers ?? [])
                 
-                KVSpinnerView.dismiss()
-                self.vc.showErrorServer()
+                self.processFetchedLunche(transactions: array.sorted(by: { $0.created_at?.compare($1.created_at ?? "") == .orderedDescending}))
+                self.reloadDataVoucher?(response.data!)
                 
             }
             
@@ -57,7 +64,16 @@ class VoucherViewModel{
         
         
         commonService.postWithoutParamtersAndResponse(request: "platform/vouchers/"+address+"/send-email", complete: { (statusCode) in
-            self.completeSendEmail?(statusCode)
+            if statusCode == 401 {
+                DispatchQueue.main.async {
+                    KVSpinnerView.dismiss()
+                    self.vc.showSimpleAlertWithSingleAction(title: "Expired session".localized(), message: "Your session has expired. You are being logged out.".localized() , okAction: UIAlertAction(title: "Log out".localized(), style: .default, handler: { (action) in
+                        self.vc.logoutOptions()
+                    }))
+                }
+            }else {
+                self.completeSendEmail?(statusCode)
+            }
         }) { (error) in
             
         }
@@ -68,11 +84,21 @@ class VoucherViewModel{
         
         commonService.post(request: "identity/proxy/short-token") { (response: ExchangeToken, statusCode) in
             
-            if statusCode != 503 {
-                self.completeExchangeToken?(response.exchange_token ?? "")
+            if statusCode == 503 {
+                DispatchQueue.main.async {
+                    KVSpinnerView.dismiss()
+                    self.vc.showErrorServer()
+                }
+                
+            }else if statusCode == 401 {
+                DispatchQueue.main.async {
+                    KVSpinnerView.dismiss()
+                    self.vc.showSimpleAlertWithSingleAction(title: "Expired session".localized(), message: "Your session has expired. You are being logged out.".localized() , okAction: UIAlertAction(title: "Log out".localized(), style: .default, handler: { (action) in
+                        self.vc.logoutOptions()
+                    }))
+                }
             }else {
-                KVSpinnerView.dismiss()
-                self.vc.showErrorServer()
+                self.completeExchangeToken?(response.exchange_token ?? "")
             }
             
         }

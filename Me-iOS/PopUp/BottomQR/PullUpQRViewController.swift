@@ -36,6 +36,7 @@ class PullUpQRViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        bottomQRViewModel.vc = self
         bodyView.roundCorners(corners: [.layerMaxXMinYCorner, .layerMinXMinYCorner], radius: 9)
         DispatchQueue.main.asyncAfter(deadline: .now()) {
             self.bottomConstraint.constant = 0

@@ -52,6 +52,7 @@ class CommonService: CommonServiceProtocol {
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Accept")
+        request.addValue("me_app-ios", forHTTPHeaderField: "Client-Type")
         request.addValue("Bearer " + CurrentSession.shared.token, forHTTPHeaderField: "Authorization")
         
         
@@ -85,6 +86,7 @@ class CommonService: CommonServiceProtocol {
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Accept")
+        request.addValue("me_app-ios", forHTTPHeaderField: "Client-Type")
         
         do {
             let encodePost = try JSONEncoder().encode(e)
@@ -121,7 +123,7 @@ class CommonService: CommonServiceProtocol {
         var request = URLRequest(url: url)
         request.httpMethod = "DELETE"
         request.addValue("application/json", forHTTPHeaderField: "Accept")
-        request.addValue("app-me_app", forHTTPHeaderField: "Client-Type")
+        request.addValue("me_app-ios", forHTTPHeaderField: "Client-Type")
         request.addValue("Bearer " + CurrentSession.shared.token, forHTTPHeaderField: "Authorization")
         
         let session = URLSession.shared
@@ -144,7 +146,7 @@ class CommonService: CommonServiceProtocol {
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Accept")
-        request.addValue("app-me_app", forHTTPHeaderField: "Client-Type")
+        request.addValue("me_app-ios", forHTTPHeaderField: "Client-Type")
         request.addValue("Bearer " + CurrentSession.shared.token, forHTTPHeaderField: "Authorization")
         
         request.httpBody = ApiService.getPostString(params: parameters).data(using: .utf8)
@@ -176,6 +178,7 @@ class CommonService: CommonServiceProtocol {
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Accept")
+        request.addValue("me_app-ios", forHTTPHeaderField: "Client-Type")
         
         request.httpBody = ApiService.getPostString(params: parameters).data(using: .utf8)
         
@@ -208,6 +211,7 @@ class CommonService: CommonServiceProtocol {
         request.httpMethod = "GET"
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("me_app-ios", forHTTPHeaderField: "Client-Type")
         request.addValue(getLanguageISO(), forHTTPHeaderField: "Accept-Language")
         if let token = CurrentSession.shared.token {
         request.addValue("Bearer " + token , forHTTPHeaderField: "Authorization")
@@ -238,6 +242,7 @@ class CommonService: CommonServiceProtocol {
         request.httpMethod = "GET"
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("me_app-ios", forHTTPHeaderField: "Client-Type")
         
         let session = URLSession.shared
         
@@ -266,6 +271,7 @@ class CommonService: CommonServiceProtocol {
         request.httpMethod = "GET"
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("me_app-ios", forHTTPHeaderField: "Client-Type")
         request.addValue("Bearer " + CurrentSession.shared.token, forHTTPHeaderField: "Authorization")
         
         let session = URLSession.shared
@@ -295,6 +301,7 @@ class CommonService: CommonServiceProtocol {
         request.httpMethod = "PATCH"
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("me_app-ios", forHTTPHeaderField: "Client-Type")
         request.addValue("Bearer " + CurrentSession.shared.token, forHTTPHeaderField: "Authorization")
         
         do {
@@ -327,6 +334,7 @@ class CommonService: CommonServiceProtocol {
         request.httpMethod = "PATCH"
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("me_app-ios", forHTTPHeaderField: "Client-Type")
         request.addValue("Bearer " + CurrentSession.shared.token, forHTTPHeaderField: "Authorization")
         
         do {
@@ -359,14 +367,22 @@ class CommonService: CommonServiceProtocol {
         request.httpMethod = "PATCH"
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("me_app-ios", forHTTPHeaderField: "Client-Type")
         request.addValue("Bearer " + CurrentSession.shared.token, forHTTPHeaderField: "Authorization")
+        
+        let data = ["state" : "accepted"]
+        
+        do {
+            let encodePost = try JSONEncoder().encode(data)
+            request.httpBody = encodePost
+        } catch{}
         
         
         let session = URLSession.shared
         
         let task = session.dataTask(with: request) { (data, response, error) in
                 let httpResponse = response as? HTTPURLResponse
-                
+         
                 complete(httpResponse!.statusCode)
         }
         
@@ -380,6 +396,7 @@ class CommonService: CommonServiceProtocol {
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("me_app-ios", forHTTPHeaderField: "Client-Type")
         request.addValue("Bearer " + CurrentSession.shared.token, forHTTPHeaderField: "Authorization")
         
         do {
@@ -412,6 +429,7 @@ class CommonService: CommonServiceProtocol {
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("me_app-ios", forHTTPHeaderField: "Client-Type")
         if CurrentSession.shared.token != nil {
         request.addValue("Bearer " + CurrentSession.shared.token , forHTTPHeaderField: "Authorization")
         }
@@ -446,6 +464,7 @@ class CommonService: CommonServiceProtocol {
         request.httpMethod = "GET"
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("me_app-ios", forHTTPHeaderField: "Client-Type")
         request.addValue("Bearer " + CurrentSession.shared.token, forHTTPHeaderField: "Authorization")
         
         let session = URLSession.shared

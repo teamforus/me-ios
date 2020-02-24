@@ -25,7 +25,7 @@ class LoginService: LoginServiceProtocol{
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Accept")
-        request.addValue("app-me_app", forHTTPHeaderField: "Client-Type")
+        request.addValue("me_app-ios", forHTTPHeaderField: "Client-Type")
         
         let parameters = ["pin_code" : "1111",
                           "records[primary_email]" : indentity.records.primary_email,

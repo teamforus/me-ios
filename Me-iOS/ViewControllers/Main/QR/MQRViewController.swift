@@ -69,17 +69,26 @@ class MQRViewController: HSScanViewController {
         
         qrViewModel.completeOrganization = { [unowned self] (organizations) in
             DispatchQueue.main.async {
-                if organizations.count != 0 {
-                    let popOverVC = OrganizationValidatorViewController(nibName: "OrganizationValidatorViewController", bundle: nil)
-                    popOverVC.recordEmployeesOrganizations = organizations
-                    popOverVC.delegate = self
-                    self.tabBarController?.addChild(popOverVC)
-                    popOverVC.view.frame = CGRect(x: 0, y: 0, width: (self.tabBarController?.view.frame.size.width)!, height: (self.tabBarController?.view.frame.size.height)!)
-                    self.tabBarController?.view.addSubview(popOverVC.view)
-                }else {
-                    self.qrViewModel.initApproveValidationRecord(code: self.recordValidateResponse.uuid ?? "", organization:  OrganizationRecord(organization_id:  0))
-                }
                 
+                if organizations.count != 0 {
+                    
+                    if organizations.count == 1 {
+                        self.qrViewModel.initApproveValidationRecord(code: self.recordValidateResponse.uuid ?? "", organization:  OrganizationRecord(organization_id: organizations.first?.organization_id ?? 0))
+                    }else {
+                        
+                        let popOverVC = OrganizationValidatorViewController(nibName: "OrganizationValidatorViewController", bundle: nil)
+                        popOverVC.recordEmployeesOrganizations = organizations
+                        popOverVC.delegate = self
+                        self.tabBarController?.addChild(popOverVC)
+                        popOverVC.view.frame = CGRect(x: 0, y: 0, width: (self.tabBarController?.view.frame.size.width)!, height: (self.tabBarController?.view.frame.size.height)!)
+                        self.tabBarController?.view.addSubview(popOverVC.view)
+                    }
+                    
+                }else {
+                    
+                    self.qrViewModel.initApproveValidationRecord(code: self.recordValidateResponse.uuid ?? "", organization:  OrganizationRecord(organization_id:  0))
+                    
+                }
             }
         }
         
@@ -107,7 +116,7 @@ class MQRViewController: HSScanViewController {
         qrViewModel.getVoucher = { [weak self] (voucher, statusCode) in
             
             DispatchQueue.main.async {
-                
+                self?.productVoucher.removeAll()
                 if statusCode != 503 {
                     KVSpinnerView.dismiss()
                     if statusCode != 403 {
@@ -119,6 +128,7 @@ class MQRViewController: HSScanViewController {
                             if voucher.allowed_organizations?.count != 0 && voucher.allowed_organizations?.count  != nil {
                                 
                                 if voucher.product_vouchers?.count != 0 {
+                                    
                                     voucher.product_vouchers?.forEach({ (voucherToken) in
                                         if voucherToken.product?.organization_id == voucher.allowed_organizations?.first?.id {
                                             self?.productVoucher.append(voucherToken)
@@ -211,14 +221,12 @@ class MQRViewController: HSScanViewController {
             }
         }
     }
-    
 }
 
 extension MQRViewController: HSScanViewControllerDelegate{
     
     func scanFinished(scanResult: ScanResult, error: String?) {
         if isReachable() {
-            
             
             if let data = scanResult.scanResultString?.data(using: .utf8) {
                 let jsonDecoder = JSONDecoder()
@@ -283,14 +291,13 @@ extension MQRViewController: OrganizationValidatorViewControllerDelegate {
         self.scanWorker.start()
     }
     
-    func selectOrganization(organization: EmployeesOrganization) {
+    func selectOrganization(organization: EmployeesOrganization, vc: UIViewController) {
         self.showSimpleAlertWithAction(title: self.recordValidateResponse.name ?? "", message: self.recordValidateResponse.value ?? "",
                                        okAction: UIAlertAction(title: "Validate".localized(), style: .default, handler: { (action) in
-                                        
+                                        (vc as! OrganizationValidatorViewController).close(UIButton())
                                         self.qrViewModel.initApproveValidationRecord(code: self.recordValidateResponse.uuid ?? "", organization:  OrganizationRecord(organization_id: organization.organization_id ?? 0))
                                        }),
                                        cancelAction: UIAlertAction(title: "Cancel".localized(), style: .cancel, handler: { (action) in
-                                        self.scanWorker.start()
                                        }))
     }
 }
