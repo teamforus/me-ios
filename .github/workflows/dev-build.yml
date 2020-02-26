@@ -13,4 +13,4 @@ jobs:
       - name: Force XCode 11.3
         run: sudo xcode-select -switch /Applications/Xcode_11.3.app
       - name: Build iOS app
-        run: exec .github/scripts/build_app.sh
+        run: exec ../.github/scripts/build_app.sh
