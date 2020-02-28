@@ -18,6 +18,8 @@ class VouchersViewModel{
     var vc: UIViewController!
     
     var completeIdentity: ((Office)->())!
+    var completeDeleteToken: ((Int)->())!
+    
     
     private var cellViewModels: [Voucher] = [Voucher]() {
         didSet {
@@ -57,6 +59,22 @@ class VouchersViewModel{
                 KVSpinnerView.dismiss()
             }
         })
+        
+    }
+    
+    func sendPushToken(token: String){
+        commonService.postWithoutResponse(request: "platform/devices/register-push", body: BodyId(id: token), complete: { (statusCode) in
+            print("Push Notification status code: \(statusCode)")
+        }) { (error) in
+        }
+    }
+    
+    func deletePushToken(token: String){
+        commonService.deleteWithoutResponse(request: "platform/devices/delete-push", body: BodyId(id: token), complete: { (statusCode) in
+            print("Push Notification delete status code: \(statusCode)")
+            self.completeDeleteToken?(statusCode)
+        }) { (error) in
+        }
         
     }
     

@@ -13,6 +13,8 @@ import CoreData
 
 extension UIViewController{
     
+    
+    
     @IBAction func back(_ sender: UIButton){
         self.navigationController?.popViewController(animated: true)
     }
@@ -201,23 +203,44 @@ extension UIViewController{
     }
     
     func logoutOptions() {
-        UserDefaults.standard.setValue(false, forKey: UserDefaultsName.AddressIndentityCrash)
-        UserDefaults.standard.setValue(false, forKey: UserDefaultsName.UseTouchID)
-        UserDefaults.standard.setValue(false, forKey: UserDefaultsName.StartFromScanner)
-        self.deleteEntity(entityName: "User")
-        UserDefaults.standard.setValue("", forKey: UserDefaultsName.Token)
-        self.removeShortcutItem(application: UIApplication.shared)
-        UserDefaults.standard.set("", forKey: ALConstants.kPincode)
-        UserDefaults.standard.setValue(false, forKey: UserDefaultsName.UserIsLoged)
-        let storyboard:UIStoryboard = UIStoryboard(name: "First", bundle: nil)
-        let navigationController:HiddenNavBarNavigationController = storyboard.instantiateInitialViewController() as! HiddenNavBarNavigationController
-        let firstPageVC:UIViewController = storyboard.instantiateViewController(withIdentifier: "firstPage") as UIViewController
-        navigationController.viewControllers = [firstPageVC]
-        navigationController.modalPresentationStyle = .fullScreen
-        self.present(navigationController, animated: true, completion: nil)
+        let voucherViewModel: VouchersViewModel = {
+            return VouchersViewModel()
+        }()
+        
+        voucherViewModel.deletePushToken(token: UserDefaults.standard.string(forKey: "TOKENPUSH") ?? "")
+        
+        voucherViewModel.completeDeleteToken = { [unowned self] (statusCode) in
+            DispatchQueue.main.async {
+                if statusCode == 200 {
+                    UserDefaults.standard.setValue(false, forKey: UserDefaultsName.AddressIndentityCrash)
+                    UserDefaults.standard.setValue(false, forKey: UserDefaultsName.UseTouchID)
+                    UserDefaults.standard.setValue(false, forKey: UserDefaultsName.StartFromScanner)
+                    self.deleteEntity(entityName: "User")
+                    UserDefaults.standard.setValue("", forKey: UserDefaultsName.Token)
+                    self.removeShortcutItem(application: UIApplication.shared)
+                    UserDefaults.standard.set("", forKey: ALConstants.kPincode)
+                    UserDefaults.standard.setValue(false, forKey: UserDefaultsName.UserIsLoged)
+                    let storyboard:UIStoryboard = UIStoryboard(name: "First", bundle: nil)
+                    let navigationController:HiddenNavBarNavigationController = storyboard.instantiateInitialViewController() as! HiddenNavBarNavigationController
+                    let firstPageVC:UIViewController = storyboard.instantiateViewController(withIdentifier: "firstPage") as UIViewController
+                    navigationController.viewControllers = [firstPageVC]
+                    navigationController.modalPresentationStyle = .fullScreen
+                    self.present(navigationController, animated: true, completion: nil)
+                }else if statusCode == 422 {
+                    self.showSimpleAlertWithSingleAction(title: "Error!".localized(), message: "", okAction: UIAlertAction(title: "OK", style: .default, handler: { (action) in
+                    }))
+                }else if statusCode == 404 {
+                    self.showSimpleAlertWithSingleAction(title: "Error!".localized(), message: "", okAction: UIAlertAction(title: "OK", style: .default, handler: { (action) in
+                    }))
+                }else if statusCode == 500 {
+                    self.showSimpleAlertWithSingleAction(title: "Error!".localized(), message: "", okAction: UIAlertAction(title: "OK", style: .default, handler: { (action) in
+                    }))
+                }
+            }
+        }
     }
     
-     func deleteEntity(entityName: String) {
+    func deleteEntity(entityName: String) {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
             fatalError()
         }
@@ -291,7 +314,7 @@ extension UIViewController{
             
             return false
             
-         }else {
+        }else {
             
             return true
             
@@ -313,42 +336,42 @@ extension UIViewController{
     }
     
     func saveNewIdentity( accessToken: String){
-           
-           let appDelegate = UIApplication.shared.delegate as? AppDelegate
-           let context = appDelegate!.persistentContainer.viewContext
-           let entity = NSEntityDescription.entity(forEntityName: "User", in: context)
-           let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
-           
-           do{
-                   let newUser = NSManagedObject(entity: entity!, insertInto: context)
-                   newUser.setValue(true, forKey: "currentUser")
-                   newUser.setValue("", forKey: "pinCode")
-                   newUser.setValue(accessToken, forKey: "accessToken")
-                   
-                   do {
-                       try context.save()
-                   } catch {
-                       print("Failed saving")
-                   }
-               
-           } catch{
-               
-           }
-       }
+        
+        let appDelegate = UIApplication.shared.delegate as? AppDelegate
+        let context = appDelegate!.persistentContainer.viewContext
+        let entity = NSEntityDescription.entity(forEntityName: "User", in: context)
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
+        
+        do{
+            let newUser = NSManagedObject(entity: entity!, insertInto: context)
+            newUser.setValue(true, forKey: "currentUser")
+            newUser.setValue("", forKey: "pinCode")
+            newUser.setValue(accessToken, forKey: "accessToken")
+            
+            do {
+                try context.save()
+            } catch {
+                print("Failed saving")
+            }
+            
+        } catch{
+            
+        }
+    }
     
     func getCurrentUser() -> User{
-           let appDelegate = UIApplication.shared.delegate as! AppDelegate
-           let context = appDelegate.persistentContainer.viewContext
-           let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
-           fetchRequest.predicate = NSPredicate(format: "currentUser == YES")
-           do {
-               let results = try context.fetch(fetchRequest) as? [User]
-               if results?.count != 0 {
-                   return results![0]
-               }
-           } catch {}
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
+        fetchRequest.predicate = NSPredicate(format: "currentUser == YES")
+        do {
+            let results = try context.fetch(fetchRequest) as? [User]
+            if results?.count != 0 {
+                return results![0]
+            }
+        } catch {}
         return User()
-       }
+    }
 }
 
 

@@ -35,6 +35,10 @@ protocol CommonServiceProtocol {
     
     func postWithoutParamtersAndResponse(request: String, complete: @escaping ( _ statusCode: Int)->(), failure: @escaping(_ error: Error)->())
     
+    func postWithoutResponse<E: Encodable>(request: String, body: E,  complete: @escaping ( _ statusCode: Int)->(), failure: @escaping(_ error: Error)->())
+    
+    func deleteWithoutResponse<E: Encodable>(request: String, body: E,  complete: @escaping ( _ statusCode: Int)->(), failure: @escaping(_ error: Error)->())
+    
     func postWithParametersWithoutToken<T: Decodable>(request: String, parameters: [String : Any], complete: @escaping (_ response: T, _ statusCode: Int)->(), failure: @escaping(_ error: Error)->())
     
     func deleteById(request: String, id: String, complete: @escaping ( _ statusCode: Int)->(), failure: @escaping(_ error: Error)->())
@@ -42,7 +46,75 @@ protocol CommonServiceProtocol {
 
 class CommonService: CommonServiceProtocol {
     
+    func deleteWithoutResponse<E>(request: String, body: E, complete: @escaping (Int) -> (), failure: @escaping (Error) -> ()) where E : Encodable {
+        
+        let url = URL(string: BaseURL.baseURL(url: request))!
+        var request = URLRequest(url: url)
+        request.httpMethod = "DELETE"
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        request.addValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+        request.addValue("me_app-ios", forHTTPHeaderField: "Client-Type")
+        request.addValue("Bearer " + CurrentSession.shared.token, forHTTPHeaderField: "Authorization")
+        
+        do {
+            let encodePost = ApiService.getPostString(params: ["id" : (body as! BodyId).id!]).data(using: .utf8)
+            request.httpBody = encodePost
+        } catch{}
+        
+        let session = URLSession.shared
+        
+        let task = session.dataTask(with: request) { (data, response, error) in
+            guard let data = data else { return }
+            let decoder = JSONDecoder()
+            do {
+                
+                let httpResponse = response as? HTTPURLResponse
+                
+                complete( httpResponse!.statusCode)
+            } catch let error {
+                
+                failure(error)
+                
+            }
+        }
+        
+        task.resume()
+    }
     
+    
+    func postWithoutResponse<E>(request: String, body: E, complete: @escaping (Int) -> (), failure: @escaping (Error) -> ()) where E : Encodable {
+        
+        let url = URL(string: BaseURL.baseURL(url: request))!
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        request.addValue("me_app-ios", forHTTPHeaderField: "Client-Type")
+        request.addValue("Bearer " + CurrentSession.shared.token, forHTTPHeaderField: "Authorization")
+        
+        do {
+            let encodePost = ApiService.getPostString(params: ["id" : (body as! BodyId).id!]).data(using: .utf8)
+            request.httpBody = encodePost
+        } catch{}
+        
+        let session = URLSession.shared
+        
+        let task = session.dataTask(with: request) { (data, response, error) in
+            guard let data = data else { return }
+            let decoder = JSONDecoder()
+            do {
+                
+                let httpResponse = response as? HTTPURLResponse
+                
+                complete( httpResponse!.statusCode)
+            } catch let error {
+                
+                failure(error)
+                
+            }
+        }
+        
+        task.resume()
+    }
     
     
     func postWithoutParamtersAndResponse(request: String, complete: @escaping (Int) -> (), failure: @escaping (Error) -> ()) {
@@ -54,6 +126,7 @@ class CommonService: CommonServiceProtocol {
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         request.addValue("me_app-ios", forHTTPHeaderField: "Client-Type")
         request.addValue("Bearer " + CurrentSession.shared.token, forHTTPHeaderField: "Authorization")
+        
         
         
         let session = URLSession.shared

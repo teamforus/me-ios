@@ -60,6 +60,8 @@ class MVouchersViewController: UIViewController {
         voucherViewModel.complete = { [weak self] (vouchers) in
             
             DispatchQueue.main.async {
+                
+                self?.voucherViewModel.sendPushToken(token: UserDefaults.standard.string(forKey: "TOKENPUSH") ?? "")
                 self?.tableView.reloadData()
                 if vouchers.count == 0 {
                     
@@ -72,6 +74,8 @@ class MVouchersViewController: UIViewController {
                 self?.refreshControl.endRefreshing()
             }
         }
+        
+        
         
         voucherViewModel.completeIdentity = { [unowned self] (response) in
             DispatchQueue.main.async {
