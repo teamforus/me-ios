@@ -11,8 +11,8 @@ import Foundation
 
 struct RecordsIndenty: Encodable {
     
-    var primary_email: String
-    var family_name: String
-    var given_name: String
+    var primary_email: String?
+    var family_name: String?
+    var given_name: String?
     
 }

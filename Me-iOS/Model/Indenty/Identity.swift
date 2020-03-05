@@ -11,6 +11,6 @@ import Foundation
 struct Identity: Encodable{
     
     var pin_code: String?
-    var records: RecordsIndenty
+    var records: RecordsIndenty?
     
 }

@@ -9,6 +9,9 @@
 import UIKit
 
 class MSuccessEmailViewController: UIViewController {
+    @IBOutlet weak var textLabel: UILabel!
+    
+    var email: String!
     
     lazy var successEmailViewModel: SuccessEmailViewModel = {
         return SuccessEmailViewModel()
@@ -16,6 +19,14 @@ class MSuccessEmailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let mainString = "Klik op de link in de email die u heeft ontvangen op \(email ?? "") om uw aanmelding af te maken"
+        let range = (mainString as NSString).range(of: email)
+        
+        let attributedString = NSMutableAttributedString(string:mainString)
+        attributedString.addAttribute(NSAttributedString.Key.foregroundColor, value: #colorLiteral(red: 0.2078431373, green: 0.3921568627, blue: 0.9764705882, alpha: 1) , range: range)
+        
+        textLabel.attributedText = attributedString
         
         NotificationCenter.default.addObserver(
             self,
@@ -68,11 +79,5 @@ class MSuccessEmailViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let barVC = segue.destination as? UITabBarController
-        let nVC = barVC!.viewControllers![0] as? HiddenNavBarNavigationController
-        let vc = nVC?.topViewController as? MVouchersViewController
-        vc?.isFromLogin = true
-    }
     
 }
