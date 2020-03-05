@@ -104,6 +104,9 @@
                                                 <color key="value" red="0.84653598070000002" green="0.85825008150000004" blue="0.89555484060000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="enableSendIndenity:" destination="m0o-iy-LOr" eventType="valueChanged" id="b2Q-wA-w0w"/>
+                                        </connections>
                                     </switch>
                                 </subviews>
                                 <color key="backgroundColor" red="0.96460121870000004" green="0.96476620440000005" blue="0.96459084750000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

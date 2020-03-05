@@ -39,7 +39,7 @@ class MAFirstPageViewController: UIViewController {
         IQKeyboardManager.shared.enable = true
         IQKeyboardManager.shared.enableAutoToolbar = true
         
-        NotificationCenter.default.addObserver(self, selector: #selector(logIn), name: NotificationName.LoginQR, object: nil)
+        
         
         #if DEV
         chooseEnvironmentButton.isHidden = false
@@ -61,6 +61,17 @@ class MAFirstPageViewController: UIViewController {
         #endif
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(logIn), name: NotificationName.LoginQR, object: nil)
+    }
+    
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        NotificationCenter.default.removeObserver(self, name: NotificationName.LoginQR, object: nil)
+    }
     
     @IBAction func chooseEnvironment(_ sender: UIButton) {
         environmnetView.isHidden = true
@@ -131,7 +142,7 @@ class MAFirstPageViewController: UIViewController {
     }
     
     @objc func logIn(){
-        performSegue(withIdentifier: "goToMain", sender: self)
+        performSegue(withIdentifier: "goToSuccessRegister", sender: self)
     }
     
     @IBAction func validateEmail(_ sender: SkyFloatingLabelTextField) {
@@ -165,12 +176,9 @@ class MAFirstPageViewController: UIViewController {
             
             DispatchQueue.main.async {
                 if statusCode == 422{
-                    self?.showSimpleAlertWithAction(title: "Do you want to login instead?".localized(), message: "Your e-mail address is already used, do you instead want to login using this e-mail address?".localized(), okAction: UIAlertAction(title: "Confirm".localized(), style: .default, handler: { (action) in
                         
                         self?.emailLoginViewModel.initLoginByEmail(email: self?.emailField.text ?? "")
-                    }), cancelAction: UIAlertAction(title: "Cancel".localized(), style: .cancel, handler: { (action) in
-                        
-                    }))
+                  
                 }else if statusCode == 500 {
                     
                     

@@ -31,14 +31,14 @@
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fill1Copy" translatesAutoresizingMaskIntoConstraints="NO" id="NiA-kM-LZe">
-                                                <rect key="frame" x="157" y="154" width="100" height="85"/>
+                                                <rect key="frame" x="157" y="154.33333333333334" width="100" height="85"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="100" id="5Yt-Il-TuS"/>
                                                     <constraint firstAttribute="height" constant="85" id="MWD-ni-Kqo"/>
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welkom bij Me" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yyn-hr-0CS">
-                                                <rect key="frame" x="20" y="275" width="374" height="46"/>
+                                                <rect key="frame" x="20" y="275.33333333333331" width="374" height="46"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="46" id="boX-7H-4nd"/>
                                                 </constraints>
@@ -47,7 +47,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0ZO-XA-PbT" customClass="ShadowButton" customModule="Me_iOS" customModuleProvider="target">
-                                                <rect key="frame" x="33" y="459" width="348" height="51"/>
+                                                <rect key="frame" x="33" y="459.33333333333331" width="348" height="51"/>
                                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="51" id="JU2-3f-4ff"/>
@@ -109,19 +109,19 @@
                                                 </connections>
                                             </button>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rectangle2" translatesAutoresizingMaskIntoConstraints="NO" id="0OZ-Bu-YDO">
-                                                <rect key="frame" x="96" y="502" width="220" height="24"/>
+                                                <rect key="frame" x="96" y="502.33333333333326" width="220" height="24"/>
                                             </imageView>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rectangle2" translatesAutoresizingMaskIntoConstraints="NO" id="Nvy-Wb-UaQ">
                                                 <rect key="frame" x="96" y="638" width="220" height="24"/>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Inloggen vanaf een ander apparat" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aoI-oj-U12">
-                                                <rect key="frame" x="59" y="566" width="293" height="17"/>
+                                                <rect key="frame" x="59" y="566.33333333333337" width="293" height="16.666666666666629"/>
                                                 <fontDescription key="fontDescription" name="GoogleSans-Regular" family="Google Sans" pointSize="13"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YwF-T9-4XR" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
-                                                <rect key="frame" x="33" y="375" width="348" height="44"/>
+                                                <rect key="frame" x="33" y="375.33333333333331" width="348" height="44"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="44" id="2Xx-bo-8ez"/>
                                                 </constraints>
@@ -147,7 +147,7 @@
                                                 </connections>
                                             </textField>
                                             <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="proper" translatesAutoresizingMaskIntoConstraints="NO" id="jsG-Jq-whr">
-                                                <rect key="frame" x="367" y="401" width="14" height="14"/>
+                                                <rect key="frame" x="367" y="401.33333333333331" width="14" height="14"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="14" id="h08-KN-IsE"/>
                                                     <constraint firstAttribute="height" constant="14" id="x8p-WV-C2C"/>
@@ -269,6 +269,7 @@
                         <outlet property="validationImage" destination="jsG-Jq-whr" id="zgw-Bu-pwU"/>
                         <segue destination="qzn-JB-q2a" kind="presentation" identifier="goToMain" modalPresentationStyle="fullScreen" id="6TI-WM-ZPC"/>
                         <segue destination="gNt-Ag-nUJ" kind="presentation" identifier="goToSuccessMail" modalPresentationStyle="fullScreen" id="VVl-cZ-D9m"/>
+                        <segue destination="vfJ-1R-B22" kind="presentation" identifier="goToSuccessRegister" modalPresentationStyle="fullScreen" id="9AB-69-nTQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FEL-Tp-bOB" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -295,6 +296,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5I1-Pz-BTL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1433" y="279"/>
+        </scene>
+        <!--SuccessRegister-->
+        <scene sceneID="C4R-lE-mpc">
+            <objects>
+                <viewControllerPlaceholder storyboardName="SuccessRegister" id="vfJ-1R-B22" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TIh-0q-UkU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1420" y="360"/>
         </scene>
         <!--Hidden Nav Bar Navigation Controller-->
         <scene sceneID="1tB-IA-WG2">

@@ -21,4 +21,12 @@ class EnablePersonalInformationViewController: UIViewController {
         vc?.isFromLogin = true
     }
 
+    @IBAction func enableSendIndenity(_ sender: UISwitch) {
+        
+        if sender.isOn {
+                   UserDefaults.standard.set(true, forKey: UserDefaultsName.AddressIndentityCrash)
+               }else {
+                   UserDefaults.standard.set(false, forKey: UserDefaultsName.AddressIndentityCrash)
+               }
+    }
 }

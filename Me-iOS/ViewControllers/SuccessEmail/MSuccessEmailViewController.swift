@@ -20,8 +20,10 @@ class MSuccessEmailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        NotificationCenter.default.addObserver(self, selector: #selector(logIn), name: NotificationName.LoginQR, object: nil)
+        
         let mainString = "Klik op de link in de email die u heeft ontvangen op \(email ?? "") om uw aanmelding af te maken"
-        let range = (mainString as NSString).range(of: email)
+        let range = (mainString as NSString).range(of: email ?? "")
         
         let attributedString = NSMutableAttributedString(string:mainString)
         attributedString.addAttribute(NSAttributedString.Key.foregroundColor, value: #colorLiteral(red: 0.2078431373, green: 0.3921568627, blue: 0.9764705882, alpha: 1) , range: range)
@@ -46,14 +48,14 @@ class MSuccessEmailViewController: UIViewController {
                 CurrentSession.shared.token = token
                 self?.addShortcuts(application: UIApplication.shared)
                 UserDefaults.standard.synchronize()
-                self?.performSegue(withIdentifier: "goToMain", sender: self)
+                self?.performSegue(withIdentifier: "goToSuccessRegister", sender: self)
                 
             }
         }
         
         if let token = notifcation.userInfo?["authToken"] as? String {
             
-          successEmailViewModel.initCheckAuthorize(token: token)
+            successEmailViewModel.initCheckAuthorize(token: token)
             
         }
         
@@ -75,9 +77,17 @@ class MSuccessEmailViewController: UIViewController {
         }
     }
     
+    @objc func logIn(){
+        performSegue(withIdentifier: "goToSuccessRegister", sender: self)
+    }
+    
     @IBAction func cancel(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
     
     
+    @IBAction func showQrWithPin(_ sender: Any) {
+        let popOverVC = BottomQrWithPinViewController(nibName: "BottomQrWithPinViewController", bundle: nil)
+        showPopUPWithAnimation(vc: popOverVC)
+    }
 }

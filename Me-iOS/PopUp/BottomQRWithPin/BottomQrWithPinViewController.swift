@@ -25,6 +25,7 @@ class BottomQrWithPinViewController: UIViewController {
     var timer: Timer! = Timer()
     var timerQR: Timer! = Timer()
     var token: String!
+    var tokenQr: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +37,22 @@ class BottomQrWithPinViewController: UIViewController {
             UIView.animate(withDuration: 0.3) {
                 self.view.layoutIfNeeded()
             }
+        }
+        
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if isReachable() {
+            
+            loginQrViewModel.initFetchPinCode()
+            
+        }else {
+            
+            showInternetUnable()
+            
         }
         
         loginQrViewModel.complete = { [weak self] (pinCode, token, statusCode) in
@@ -54,7 +71,7 @@ class BottomQrWithPinViewController: UIViewController {
                     }
                     
                     self?.token = token
-                    self?.timer = Timer.scheduledTimer(timeInterval: 10, target: self!, selector: #selector(self?.didCheckAuthorize), userInfo: nil, repeats: true)
+                    self?.timer = Timer.scheduledTimer(timeInterval: 10, target: self!, selector: #selector(self?.checkAuthorizeToken), userInfo: nil, repeats: true)
                     
                     
                     
@@ -72,8 +89,8 @@ class BottomQrWithPinViewController: UIViewController {
             DispatchQueue.main.async {
                 
                 self?.qrCode.generateQRCode(from: "{ \"type\": \"auth_token\",\"value\": \"\(token)\" }")
-                self?.timerQR = Timer.scheduledTimer(timeInterval: 7, target: self!, selector: #selector(self?.checkAuthorizeToken), userInfo: nil, repeats: true)
-                self?.token = accessToken
+                self?.timerQR = Timer.scheduledTimer(timeInterval: 7, target: self!, selector: #selector(self?.didCheckAuthorize), userInfo: nil, repeats: true)
+                self?.tokenQr = accessToken
                 
             }
         }
@@ -96,28 +113,30 @@ class BottomQrWithPinViewController: UIViewController {
         }
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        if isReachable() {
-            
-            loginQrViewModel.initFetchPinCode()
-            
-        }else {
-            
-            showInternetUnable()
-            
-        }
-    }
-    
     
     @objc func didCheckAuthorize() {
-        loginQrViewModel.initAuthorizeToken(token: token)
+        bottomQRViewModel.initAuthorizeToken(token: tokenQr)
+        
+        bottomQRViewModel.completeAuthorize = { [weak self] (message) in
+            
+            DispatchQueue.main.async {
+                if message == "active"{
+                    self?.timer.invalidate()
+                    self?.saveNewIdentity(accessToken: self!.tokenQr)
+                    UserDefaults.standard.set(self?.getCurrentUser().accessToken!, forKey: UserDefaultsName.Token)
+                    UserDefaults.standard.set(true, forKey: UserDefaultsName.UserIsLoged)
+                    CurrentSession.shared.token = self?.tokenQr
+                    UserDefaults.standard.synchronize()
+                    NotificationCenter.default.post(name: NotificationName.LoginQR, object: nil)
+                    
+                }
+            }
+        }
     }
     
     @objc func checkAuthorizeToken(){
         
-        bottomQRViewModel.completeAuthorize = { [weak self] (message) in
+        loginQrViewModel.completeAuthorize = { [weak self] (message, statusCode) in
             
             DispatchQueue.main.async {
                 if message == "active"{
@@ -128,13 +147,15 @@ class BottomQrWithPinViewController: UIViewController {
                     CurrentSession.shared.token = self?.token
                     UserDefaults.standard.synchronize()
                     NotificationCenter.default.post(name: NotificationName.LoginQR, object: nil)
+                    
                 }
             }
-            
         }
-        bottomQRViewModel.initAuthorizeToken(token: token)
+        loginQrViewModel.initAuthorizeToken(token: token)
         
     }
+    
+    
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
