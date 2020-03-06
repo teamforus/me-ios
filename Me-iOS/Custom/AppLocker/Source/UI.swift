@@ -17,7 +17,11 @@ extension UIView {
     
     func roundCorners(corners: CACornerMask, radius: CGFloat) {
           layer.cornerRadius = radius
-          layer.maskedCorners = corners
+        if #available(iOS 11.0, *) {
+            layer.maskedCorners = corners
+        } else {
+            // Fallback on earlier versions
+        }
       }
   // MARK: - Animation
   func shake(delegate: CAAnimationDelegate) {

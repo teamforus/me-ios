@@ -20,6 +20,7 @@ class StatusService: StatusServiceProtocol{
         request.httpMethod = "GET"
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("me_app-ios", forHTTPHeaderField: "Client-Type")
         
         let session = URLSession.shared
         

@@ -17,7 +17,9 @@ class VouchersViewModel{
     var isAllowSegue: Bool = false
     var vc: UIViewController!
     
-     var completeIdentity: ((Office)->())!
+    var completeIdentity: ((Office)->())!
+    var completeDeleteToken: ((Int)->())!
+    
     
     private var cellViewModels: [Voucher] = [Voucher]() {
         didSet {
@@ -34,30 +36,60 @@ class VouchersViewModel{
     func initFetch(){
         
         commonService.get(request: "platform/vouchers", complete: { (response: ResponseDataArray<Voucher>, statusCode) in
-            if statusCode != 503 {
-                
-                self.processFetchedLunche(vouchers: response.data ?? [])
-                
-            }else {
+            if statusCode == 503 {
                 DispatchQueue.main.async {
                     KVSpinnerView.dismiss()
                     self.vc.showErrorServer()
                 }
                 
+            }else if statusCode == 401 {
+                DispatchQueue.main.async {
+                    KVSpinnerView.dismiss()
+                    self.vc.showSimpleAlertWithSingleAction(title: "Expired session".localized(), message: "Your session has expired. You are being logged out.".localized() , okAction: UIAlertAction(title: "Log out".localized(), style: .default, handler: { (action) in
+                        self.vc.logoutOptions()
+                    }))
+                }
+            } else {
                 
+                self.processFetchedLunche(vouchers: response.data ?? [])
             }
             
         }, failure: { (error) in
-             DispatchQueue.main.async {
-            KVSpinnerView.dismiss()
+            DispatchQueue.main.async {
+                KVSpinnerView.dismiss()
             }
         })
         
     }
     
+    func sendPushToken(token: String){
+        commonService.postWithoutResponse(request: "platform/devices/register-push", body: BodyId(id: token), complete: { (statusCode) in
+            print("Push Notification status code: \(statusCode)")
+        }) { (error) in
+        }
+    }
+    
+    func deletePushToken(token: String){
+        commonService.deleteWithoutResponse(request: "platform/devices/delete-push", body: BodyId(id: token), complete: { (statusCode) in
+            print("Push Notification delete status code: \(statusCode)")
+            self.completeDeleteToken?(statusCode)
+        }) { (error) in
+        }
+        
+    }
+    
     func getIndentity(){
         commonService.get(request: "identity", complete: { (response: Office, statusCode) in
-            self.completeIdentity?(response)
+            if statusCode == 401 {
+                DispatchQueue.main.async {
+                    KVSpinnerView.dismiss()
+                    self.vc.showSimpleAlertWithSingleAction(title: "Expired session".localized(), message: "Your session has expired. You are being logged out.".localized() , okAction: UIAlertAction(title: "Log out".localized(), style: .default, handler: { (action) in
+                        self.vc.logoutOptions()
+                    }))
+                }
+            }else {
+                self.completeIdentity?(response)
+            }
         }) { (error) in
             
         }

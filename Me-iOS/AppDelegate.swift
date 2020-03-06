@@ -44,10 +44,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         #endif
         
         window?.makeKeyAndVisible()
-        CurrentSession.shared.token = UserDefaults.standard.string(forKey: UserDefaultsName.Token)
         
-        if UserDefaults.standard.bool(forKey: UserDefaultsName.UserIsLoged){
+        
+        if existCurrentUser() {
             
+            CurrentSession.shared.token = getCurrentUser().accessToken ?? ""
             self.addShortcuts(application: application)
             if UserDefaults.standard.bool(forKey: UserDefaultsName.AddressIndentityCrash) {
                 
@@ -83,6 +84,35 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
+    func getCurrentUser() -> User{
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
+        fetchRequest.predicate = NSPredicate(format: "currentUser == YES")
+        do {
+            let results = try context.fetch(fetchRequest) as? [User]
+            if results?.count != 0 {
+                return results![0]
+            }
+        } catch {}
+     return User()
+    }
+    
+    func existCurrentUser() -> Bool{
+           let appDelegate = UIApplication.shared.delegate as! AppDelegate
+           let context = appDelegate.persistentContainer.viewContext
+           let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
+           fetchRequest.predicate = NSPredicate(format:"currentUser == YES")
+           do{
+               let results = try context.fetch(fetchRequest) as? [User]
+               if results?.count != 0 {
+                  
+                   return true
+               }
+           } catch{}
+           return false
+       }
+    
     func applicationWillResignActive(_ application: UIApplication) {
     }
     
@@ -117,17 +147,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     // MARK: - Core Data stack
     
-    lazy var persistentContainer: NSPersistentContainer = {
-        
-        let container = NSPersistentContainer(name: "Me_iOS")
-        container.loadPersistentStores(completionHandler: { (storeDescription, error) in
-            if let error = error as NSError? {
-                
-                fatalError("Unresolved error \(error), \(error.userInfo)")
-            }
-        })
-        return container
-    }()
+     lazy var persistentContainer: NSPersistentContainer = {
+           let container = NSPersistentContainer(name: "MeApp")
+           container.viewContext.automaticallyMergesChangesFromParent = true
+           let description = container.persistentStoreDescriptions
+           container.loadPersistentStores(completionHandler: { (storeDescription, error) in
+               if let error = error as NSError? {
+                   fatalError("Unresolved error \(error), \(error.userInfo)")
+               }
+           })
+           return container
+       }()
     
     
     // MARK: - ShortCut Items
