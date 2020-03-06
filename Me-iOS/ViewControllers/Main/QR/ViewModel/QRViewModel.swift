@@ -15,9 +15,13 @@ class QRViewModel{
     var commonService: CommonServiceProtocol!
     var vc: MQRViewController!
     var authorizeToken: ((Int)->())!
+    var vcAlert: UIViewController!
     
     var validateRecord: ((RecordValidation, Int)->())!
     var validateApproveRecord: ((Int)->())!
+    var completeTestToken: (()->())?
+    
+    var completeOrganization: (([EmployeesOrganization]) -> ())?
     
     var getVoucher: ((Voucher, Int)->())!
     
@@ -49,8 +53,8 @@ class QRViewModel{
                 DispatchQueue.main.async {
                     
                     KVSpinnerView.dismiss()
-                    self.vc.showSimpleAlertWithSingleAction(title: "Warning".localized(), message: "This voucher is expired.", okAction: UIAlertAction(title: "OK", style: .default, handler: { (action) in
-                        self.vc.scanWorker.start()
+                    self.vcAlert.showSimpleAlertWithSingleAction(title: "Warning".localized(), message: "This voucher is expired.", okAction: UIAlertAction(title: "OK", style: .default, handler: { (action) in
+                        self.vc?.scanWorker.start()
                     }))
                 }
                 
@@ -58,17 +62,26 @@ class QRViewModel{
                 DispatchQueue.main.async {
                     
                     KVSpinnerView.dismiss()
-                    self.vc.showSimpleAlertWithSingleAction(title: "Error!".localized(), message: "You can't scan this voucher. You are not accepted as a provider for the fund that hands out these vouchers.".localized(), okAction: UIAlertAction(title: "OK", style: .default, handler: { (action) in
-                        self.vc.scanWorker.start()
+                    self.vcAlert.showSimpleAlertWithSingleAction(title: "Error!".localized(), message: response.message ?? "", okAction: UIAlertAction(title: "OK", style: .default, handler: { (action) in
+                        self.vc?.scanWorker.start()
                     }))
                 }
+            }else if statusCode == 404 {
+                 DispatchQueue.main.async {
+                KVSpinnerView.dismiss()
+                self.vcAlert.showSimpleAlertWithSingleAction(title: "Error!".localized(), message: response.message ?? "", okAction: UIAlertAction(title: "OK", style: .default, handler: { (action) in
+                    self.vc?.scanWorker.start()
+                }))
+                }
+                
             }else {
-                
                 self.getVoucher(response.data!, statusCode)
-                
             }
         }) { (error) in
-            
+            DispatchQueue.main.async {
+            KVSpinnerView.dismiss()
+            self.vc.scanWorker.start()
+            }
         }
         
     }
@@ -86,11 +99,28 @@ class QRViewModel{
         
     }
     
-    func initApproveValidationRecord(code: String) {
-        
-        commonService.get(request: "identity/record-validations/" + code + "/approve", complete: { (response: AuthorizationQRToken, statusCode) in
+    func getOrganizations(){
+        commonService.get(request: "platform/employees?role=validation", complete: { (response: ResponseDataArray<EmployeesOrganization>, statusCode) in
             
+            self.completeOrganization?(response.data ?? [])
+            
+        }) { (error) in
+            
+        }
+    }
+    
+    func initApproveValidationRecord(code: String, organization: OrganizationRecord) {
+        
+        commonService.patch(request: "identity/record-validations/" + code + "/approve", data: organization) { (response: AuthorizationQRToken, statusCode) in
             self.validateApproveRecord(statusCode)
+        }
+    }
+    
+    func initTestTransaction() {
+        
+        commonService.get(request: "platform/demo/transactions/" +  CurrentSession.shared.token, complete: { (response: ResponseDataArray<EmployeesOrganization>, statusCode) in
+            
+            self.completeTestToken?()
             
         }) { (error) in
             

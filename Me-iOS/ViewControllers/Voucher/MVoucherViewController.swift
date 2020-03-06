@@ -42,8 +42,11 @@ class MVoucherViewController: UIViewController {
                 self?.voucherName.text = voucher.fund?.name ?? ""
                 self?.organizationName.text = voucher.fund?.organization?.name ?? ""
                 if let price = voucher.amount {
-                    
+                    //                    if voucher.fund?.currency == "eur" {
                     self?.priceLabel.attributedText = "€ \(price.substringLeftPart()).{\(price.substringRightPart())}".customText(fontBigSize: 20, minFontSize: 14)
+                    //                    }else {
+                    //                        self?.priceLabel.attributedText = "ETH \(price.substringLeftPart()).{\(price.substringRightPart())}".customText(fontBigSize: 20, minFontSize: 14)
+                    //                    }
                 }else {
                     
                     self?.priceLabel.attributedText = "0.{0}".customText(fontBigSize: 20, minFontSize: 14)
@@ -74,6 +77,7 @@ class MVoucherViewController: UIViewController {
         
         if isReachable() {
             
+            voucherViewModel.vc = self
             voucherViewModel.initFetchById(address: address)
             
         }else {
@@ -83,13 +87,11 @@ class MVoucherViewController: UIViewController {
         }
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.tabBarController?.set(visible: false, animated: true)
-    }
-    
     @IBAction func opendQR(_ sender: UIButton) {
-        NotificationCenter.default.post(name: NotificationName.TogleStateWindow, object: nil)
+        let popOverVC = PullUpQRViewController(nibName: "PullUpQRViewController", bundle: nil)
+        popOverVC.voucher = voucher
+        popOverVC.qrType = .Voucher
+        showPopUPWithAnimation(vc: popOverVC)
     }
     
     @IBAction func sendEmail(_ sender: Any) {
@@ -115,9 +117,17 @@ class MVoucherViewController: UIViewController {
     }
     
     @IBAction func info(_ sender: Any) {
-        if let url = URL(string: voucher.fund?.url_webshop ?? "") {
-            let safariVC = SFSafariViewController(url: url)
-            self.present(safariVC, animated: true, completion: nil)
+        voucherViewModel.openVoucher()
+        
+        voucherViewModel.completeExchangeToken = { [weak self] (token) in
+            
+            DispatchQueue.main.async {
+                
+                if let url = URL(string: (self?.voucher.fund!.url_webshop)! + "auth-link?token=" + token) {
+                    let safariVC = SFSafariViewController(url: url)
+                    self?.present(safariVC, animated: true, completion: nil)
+                }
+            }
         }
     }
 }

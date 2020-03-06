@@ -14,6 +14,11 @@ extension UIView {
     layer.borderWidth = 1
     layer.borderColor = UIColor.lightGray.cgColor
   }
+    
+    func roundCorners(corners: CACornerMask, radius: CGFloat) {
+          layer.cornerRadius = radius
+          layer.maskedCorners = corners
+      }
   // MARK: - Animation
   func shake(delegate: CAAnimationDelegate) {
     let animationKeyPath = "transform.translation.x"

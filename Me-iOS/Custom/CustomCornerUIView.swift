@@ -36,9 +36,45 @@ class CustomCornerUIView: UIView {
         }
     }
     
+    @IBInspectable var topRightCorner: CGFloat = 0 {
+        didSet{
+            
+        }
+    }
+    
+    @IBInspectable var topLeftCorner: CGFloat = 0 {
+        didSet{
+            
+        }
+    }
+    
+    @IBInspectable var bottomRightCorner: CGFloat = 0 {
+        didSet{
+            
+        }
+    }
+    
+    @IBInspectable var bottomLeftCorner: CGFloat = 0 {
+        didSet{
+            
+        }
+    }
+    
     @IBInspectable var shadowRadius : CGFloat = 0 {
         didSet {
             setShadowRadius()
+        }
+    }
+    
+    @IBInspectable var borderColor :UIColor = UIColor.black {
+        didSet {
+            setSelectBorderColor()
+        }
+    }
+    
+    @IBInspectable var borderWidth : CGFloat = 0 {
+        didSet {
+            setBorderWidth()
         }
     }
     
@@ -72,5 +108,12 @@ class CustomCornerUIView: UIView {
         self.layer.shadowRadius = shadowRadius
     }
 
+    func setBorderWidth(){
+        self.layer.borderWidth = borderWidth
+    }
+    
+    func setSelectBorderColor(){
+        self.layer.borderColor = borderColor.cgColor
+    }
 
 }

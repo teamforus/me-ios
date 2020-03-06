@@ -58,7 +58,7 @@
 "Wrong passcode, please try again" = "Verkeerde inlogcode, probeer het opnieuw";
 "Codes don't match. Please try again" = "Inlogcodes komen niet overeen. Probeer het opnieuw";
 "Enter your login code" = "Voer je inlogcode in";
-"The voucher is empty! No transactions can be done." = "Zagolovok: Let op! Text: De voucher is op! Geen transacties kunnen gedaan worden.";
+"The voucher is empty! No transactions can be done." = "De voucher is op! Geen transacties kunnen gedaan worden.";
 "This product voucher is used!" = "Aanbiedingvoucher is al gebruikt!";
 "Error!" = "Mislukt!";
 "Unknown QR-code!" = "Onbekende QR-code!";
@@ -134,3 +134,10 @@
 "kindpakket_2019_eligible" = "Recht op Kindpakket 2019";
 "meedoenregeling_2018_eligible" = "Recht op Meedoenregeling 2018";
 "klantnummer" = "Klantnummer";
+"Vouchers" = "Eigendom";
+"Do you want to login instead?" = "E-mailadres ingebruik! Wilt u inloggen?";
+"Your e-mail address is already used, do you instead want to login using this e-mail address?" = "Dit e-mail adres is al gebruikt. Wilt u inloggen met dit e-mailadres?";
+"This is your Voucher’s QR-code." = "Dit is uw voucher in de vorm van een QR-code.";
+"Let the shopkeeper scan it to make a payment from your voucher." = "Laat de aanbieder deze QR-Code scannen om een betaling te kunnen doen.";
+"This is your personal QR code." = "Uw eigenschap in vorm van een QR-code";
+"Let the shopkeeper scan it to make a validtion to your record %@." = "Laat deze QR-code scannen om uw eigenschap %@ te valideren.";

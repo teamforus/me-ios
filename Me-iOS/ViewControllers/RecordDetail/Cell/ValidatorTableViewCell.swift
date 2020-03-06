@@ -10,13 +10,15 @@ import UIKit
 
 class ValidatorTableViewCell: UITableViewCell {
     
+    @IBOutlet weak var organizationName: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var nameValidator: UILabel!
     @IBOutlet weak var descriptionValidator: UILabel!
     @IBOutlet weak var iconValidator: UIImageView!
     var validator: Validator!{
         didSet{
             if descriptionValidator != nil {
-                
+                self.dateLabel.text = validator.created_at?.dateFormaterNormalDate() ?? ""
                 self.nameValidator.text = validator.organization?.name ?? ""
                 self.descriptionValidator.text = validator.identity_address ?? ""
                 

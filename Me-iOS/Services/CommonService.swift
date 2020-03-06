@@ -19,6 +19,10 @@ protocol CommonServiceProtocol {
     
     func createById<T: Decodable, E: Encodable>(request:String, id: String, data: E ,complete: @escaping (_ response: T,_ statusCode: Int)->() )
     
+    func patch<T: Decodable, E: Encodable>(request:String, data: E ,complete: @escaping (_ response: T,_ statusCode: Int)->() )
+    
+    func patchWithoutParam(request:String, complete: @escaping (_ statusCode: Int)->() )
+    
     func create<T: Decodable, E: Encodable>(request:String, data: E,complete: @escaping (_ response: T,_ statusCode: Int)->() )
     
     func post<T: Decodable>(request:String, complete: @escaping (_ response: T,_ statusCode: Int)->() )
@@ -37,6 +41,8 @@ protocol CommonServiceProtocol {
 }
 
 class CommonService: CommonServiceProtocol {
+    
+    
     
     
     func postWithoutParamtersAndResponse(request: String, complete: @escaping (Int) -> (), failure: @escaping (Error) -> ()) {
@@ -195,13 +201,17 @@ class CommonService: CommonServiceProtocol {
     }
     
     
+    
     func get<T>(request: String, complete: @escaping (T, Int) -> (), failure: @escaping (Error) -> ()) where T : Decodable {
         
         var request = URLRequest(url: URL(string: BaseURL.baseURL(url: request))!)
         request.httpMethod = "GET"
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.addValue("Bearer " + CurrentSession.shared.token, forHTTPHeaderField: "Authorization")
+        request.addValue(getLanguageISO(), forHTTPHeaderField: "Accept-Language")
+        if let token = CurrentSession.shared.token {
+        request.addValue("Bearer " + token , forHTTPHeaderField: "Authorization")
+        }
         
         let session = URLSession.shared
         
@@ -310,6 +320,59 @@ class CommonService: CommonServiceProtocol {
         
     }
     
+    func patch<T, E>(request: String, data: E, complete: @escaping (T, Int) -> ()) where T : Decodable, E : Encodable {
+        
+        let url = URL(string: BaseURL.baseURL(url: request))!
+        var request = URLRequest(url: url)
+        request.httpMethod = "PATCH"
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("Bearer " + CurrentSession.shared.token, forHTTPHeaderField: "Authorization")
+        
+        do {
+            let encodePost = try JSONEncoder().encode(data)
+            request.httpBody = encodePost
+        } catch{}
+        
+        let session = URLSession.shared
+        
+        let task = session.dataTask(with: request) { (data, response, error) in
+            guard let data = data else { return }
+            let decoder = JSONDecoder()
+            do {
+                
+                let responseData = try decoder.decode(T.self, from: data)
+                let httpResponse = response as? HTTPURLResponse
+                
+                complete(responseData, httpResponse!.statusCode)
+            } catch {}
+        }
+        
+        task.resume()
+        
+    }
+    
+    func patchWithoutParam(request: String, complete: @escaping (Int) -> ()) {
+        
+        let url = URL(string: BaseURL.baseURL(url: request))!
+        var request = URLRequest(url: url)
+        request.httpMethod = "PATCH"
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("Bearer " + CurrentSession.shared.token, forHTTPHeaderField: "Authorization")
+        
+        
+        let session = URLSession.shared
+        
+        let task = session.dataTask(with: request) { (data, response, error) in
+                let httpResponse = response as? HTTPURLResponse
+                
+                complete(httpResponse!.statusCode)
+        }
+        
+        task.resume()
+    }
+    
     func create<T, E>(request: String, data: E, complete: @escaping (T, Int) -> ()) where T : Decodable, E : Encodable {
         
         let url = URL(string: BaseURL.baseURL(url: request))!
@@ -349,7 +412,9 @@ class CommonService: CommonServiceProtocol {
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        
+        if CurrentSession.shared.token != nil {
+        request.addValue("Bearer " + CurrentSession.shared.token , forHTTPHeaderField: "Authorization")
+        }
         
         let session = URLSession.shared
         
@@ -403,3 +468,10 @@ class CommonService: CommonServiceProtocol {
 }
 
 
+extension CommonService {
+    
+    func getLanguageISO() -> String {
+        return Locale.current.languageCode!
+    }
+    
+}

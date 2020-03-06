@@ -10,10 +10,11 @@ import UIKit
 
 protocol AllowedOrganizationsViewControllerDelegate: class {
     func didSelectAllowedOrganization(organization: AllowedOrganization)
+    func didSelectEmployeeOrganization(organization: EmployeesOrganization)
 }
 
 class AllowedOrganizationsViewController: UIViewController {
-    var allowedOrganizations: [AllowedOrganization]!
+    var allowedOrganizations: [AllowedOrganization] = []
     @IBOutlet weak var tableView: UITableView!
     weak var delegate: AllowedOrganizationsViewControllerDelegate!
     var selectedOrganizations: AllowedOrganization?
@@ -34,7 +35,7 @@ class AllowedOrganizationsViewController: UIViewController {
     @IBAction func close(_ sender: Any) {
         self.removeAnimate()
     }
-
+    
 }
 
 extension AllowedOrganizationsViewController{
@@ -42,6 +43,7 @@ extension AllowedOrganizationsViewController{
     func didCalculateTableViewHeight(){
         var frameTableView = tableView.frame
         frameTableView.size.height = CGFloat(91 * allowedOrganizations.count)
+        
         tableView.frame = frameTableView
     }
 }
@@ -58,6 +60,7 @@ extension AllowedOrganizationsViewController: UITableViewDelegate, UITableViewDa
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "OrganizationTableViewCell", for: indexPath) as! OrganizationTableViewCell
+        
         cell.allowedOrganization = allowedOrganizations[indexPath.row]
         cell.delegate = self
         

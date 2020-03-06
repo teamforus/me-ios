@@ -12,6 +12,8 @@ import Foundation
 struct NotificationName{
     
     public static let TogleStateWindow = Notification.Name("TogleStateWindowBottom")
+    public static let TogleStateWindowFormProduct = Notification.Name("TogleStateWindowFormProduct")
+    public static let TogleStateWindowFormProfile = Notification.Name("TogleStateWindowFormProfile")
     public static let LoginQR = Notification.Name("LoginWithQrCode")
     public static let EnableNextButton = Notification.Name("EnableNextButton")
     public static let SelectedCategoryType = Notification.Name("SETSELECTEDCATEGORYTYPE")

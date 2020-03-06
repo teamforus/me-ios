@@ -9,11 +9,6 @@
 import UIKit
 import ISHPullUp
 
-public enum QRType{
-    case AuthToken
-    case Voucher
-    case Record
-}
 
 class CommonBottomViewController: UIViewController {
     
@@ -32,7 +27,7 @@ class CommonBottomViewController: UIViewController {
     var idRecord: Int!
     weak var pullUpController: ISHPullUpViewController!
     private var halfWayPoint = CGFloat(0)
-    var qrType: QRType! = QRType.AuthToken
+    var qrType: QRType! = QRType.Profile
     lazy var bottomQRViewModel: CommonBottomViewModel! = {
         return CommonBottomViewModel()
     }()
@@ -42,60 +37,81 @@ class CommonBottomViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         NotificationCenter.default.addObserver(self, selector: #selector(toglePullUpView), name: NotificationName.TogleStateWindow, object: nil)
         
-        switch qrType {
-        case .AuthToken?:
-            
-            bottomQRViewModel.completeToken = { [weak self] (token, accessToken) in
-                
-                DispatchQueue.main.async {
-                    
-                    self?.qrCodeImageView.generateQRCode(from: "{ \"type\": \"auth_token\",\"value\": \"\(token)\" }")
-                    self?.timer = Timer.scheduledTimer(timeInterval: 7, target: self!, selector: #selector(self?.checkAuthorizeToken), userInfo: nil, repeats: true)
-                    self?.token = accessToken
-                    
-                }
-            }
-            
-            bottomQRViewModel.initFetchQrToken()
-            
-            break
-        case .Voucher?:
-            
-                self.qrCodeImageView.generateQRCode(from: "{ \"type\": \"voucher\",\"value\": \"\(self.voucher.address ?? "")\" }")
-                
-                if voucher.product != nil {
-                    
-                  titleQrLabel.text = voucher.product?.name ?? ""
-                    
-                }else {
-                  
-                    titleQrLabel.text = voucher.fund?.name ?? ""
-                    
-                }
-                
-                expiredLabel.text = "This voucher expires on ".localized() + (voucher.expire_at?.date?.dateFormaterExpireDate())!
-                
-            break
-        case .Record?:
-            
-            bottomQRViewModel.completeRecord = { [weak self] (record) in
-                
-                DispatchQueue.main.async {
-                    
-                self?.qrCodeImageView.generateQRCode(from: "{ \"type\": \"record\",\"value\": \"\(record.uuid ?? "")\" }")
-                    
-                }
-            }
-            
-            bottomQRViewModel.initFetchRecordToken(idRecords: idRecord)
-            
-            break
-        default:
-            break
-        }
+        NotificationCenter.default.addObserver(self, selector: #selector(toglePullUpView), name: NotificationName.TogleStateWindowFormProduct, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(toglePullUpView), name: NotificationName.TogleStateWindowFormProfile, object: nil)
+        
+     
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+           switch qrType {
+             case .AuthToken?:
+                 
+                 bottomQRViewModel.completeToken = { [weak self] (token, accessToken) in
+                     
+                     DispatchQueue.main.async {
+                         
+                         self?.qrCodeImageView.generateQRCode(from: "{ \"type\": \"auth_token\",\"value\": \"\(token)\" }")
+                         self?.timer = Timer.scheduledTimer(timeInterval: 7, target: self!, selector: #selector(self?.checkAuthorizeToken), userInfo: nil, repeats: true)
+                         self?.token = accessToken
+                         
+                     }
+                 }
+                 
+                 bottomQRViewModel.initFetchQrToken()
+                 
+                 break
+             case .Voucher?:
+                 
+                 self.qrCodeImageView.generateQRCode(from: "{ \"type\": \"voucher\",\"value\": \"\(self.voucher.address ?? "")\" }")
+                 
+                 if voucher.product != nil {
+                     
+                     titleQrLabel.text = voucher.product?.name ?? ""
+                     
+                 }else {
+                     
+                     titleQrLabel.text = voucher.fund?.name ?? ""
+                     
+                 }
+                 
+                 expiredLabel.text = "This voucher expires on ".localized() + (voucher.expire_at?.date?.dateFormaterExpireDate())!
+                 
+                 break
+             case .Record?:
+                 
+                 bottomQRViewModel.completeRecord = { [weak self] (record) in
+                     
+                     DispatchQueue.main.async {
+                         
+                         self?.qrCodeImageView.generateQRCode(from: "{ \"type\": \"record\",\"value\": \"\(record.uuid ?? "")\" }")
+                         
+                     }
+                 }
+                 
+                 bottomQRViewModel.initFetchRecordToken(idRecords: idRecord)
+                 
+                 break
+             case .Profile?:
+                self.view.isHidden = true
+                 bottomQRViewModel.completeIdentity = { [weak self] (identityAddress) in
+                     
+                     DispatchQueue.main.async {
+                         
+                         self?.qrCodeImageView.generateQRCode(from: "{ \"type\": \"identity\",\"value\": \"\(identityAddress)\" }")
+                         
+                     }
+                 }
+                 bottomQRViewModel.getIndentity()
+                 
+                 break
+             default:
+                 break
+             }
     }
     
     @objc func checkAuthorizeToken(){
@@ -109,7 +125,7 @@ class CommonBottomViewController: UIViewController {
                     UserDefaults.standard.set(true, forKey: UserDefaultsName.UserIsLoged)
                     CurrentSession.shared.token = self?.token
                     UserDefaults.standard.synchronize()
-                     NotificationCenter.default.post(name: NotificationName.LoginQR, object: nil)
+                    NotificationCenter.default.post(name: NotificationName.LoginQR, object: nil)
                 }
             }
             
@@ -118,21 +134,44 @@ class CommonBottomViewController: UIViewController {
         
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        timer?.invalidate()
+    }
+    
     @objc func toglePullUpView(){
-        if pullUpController.state == .expanded{
-            self.setStatusBarStyle(.default)
+        if pullUpController?.state == .expanded{
+            if #available(iOS 13, *) {
+            }else {
+                self.setStatusBarStyle(.default)
+            }
+            //            if qrType != .Profile {
             self.view.isHidden = true
+            //            }
         }else{
-            self.setStatusBarStyle(.lightContent)
+            if #available(iOS 13, *) {
+            }else {
+                self.setStatusBarStyle(.lightContent)
+            }
+            //            if qrType != .Profile {
+            //
+            //            }
             self.view.isHidden = false
         }
-        pullUpController.toggleState(animated: true)
+        pullUpController?.toggleState(animated: true)
     }
     
     @IBAction func close(_ sender: Any) {
         if pullUpController.state == .expanded || pullUpController.state == .intermediate{
             pullUpController.toggleState(animated: true)
-            self.setStatusBarStyle(.default)
+            if #available(iOS 13, *) {
+            }else {
+                self.setStatusBarStyle(.default)
+            }
+            //            if qrType != .Profile {
+            //            self.view.isHidden = true
+            //            }
+            
             self.view.isHidden = true
         }
     }
@@ -169,8 +208,14 @@ extension CommonBottomViewController: ISHPullUpStateDelegate, ISHPullUpSizingDel
     func pullUpViewController(_ pullUpViewController: ISHPullUpViewController, didChangeTo state: ISHPullUpState) {
         handleView.setState(ISHPullUpHandleView.handleState(for: state), animated: firstAppearanceCompleted)
         if state == .collapsed {
+            //            if qrType != .Profile {
+            //            self.view.isHidden = true
+            //            }
             self.view.isHidden = true
-            self.setStatusBarStyle(.default)
+            if #available(iOS 13, *) {
+            }else {
+                self.setStatusBarStyle(.default)
+            }
         }else if state == .intermediate {
             pullUpController.toggleState(animated: true)
         }

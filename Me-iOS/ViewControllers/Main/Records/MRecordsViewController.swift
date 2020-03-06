@@ -75,8 +75,10 @@ class MRecordsViewController: UIViewController {
         super.viewWillAppear(animated)
         
         initFetch()
-        self.setStatusBarStyle(.default)
-        self.tabBarController?.set(visible: true, animated: true)
+        if #available(iOS 13, *) {
+        }else {
+            self.setStatusBarStyle(.default)
+        }
     }
     
     func initFetch() {
@@ -146,22 +148,12 @@ extension MRecordsViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
         
-        #if ALPHA
-        
         self.recordViewModel.userPressed(at: indexPath)
         if recordViewModel.isAllowSegue {
             return indexPath
         }else {
             return nil
         }
-        
-        #else
-        
-        return nil
-        
-        #endif
-        
-        
     }
 }
 

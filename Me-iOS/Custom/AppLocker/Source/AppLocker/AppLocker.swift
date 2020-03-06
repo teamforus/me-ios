@@ -235,8 +235,11 @@ public class AppLocker: UIViewController {
         
         context.evaluatePolicy(policy, localizedReason: ALConstants.kLocalizedReason, reply: {  success, error in
             if success {
-                self.dismiss(animated: true, completion: nil)
-                self.delegate.closePinCodeView(typeClose: .validate)
+                DispatchQueue.main.async {
+                    self.dismiss(animated: true, completion: nil)
+                    self.delegate.closePinCodeView(typeClose: .validate)
+                }
+                
             }
         })
     }
@@ -251,7 +254,7 @@ public class AppLocker: UIViewController {
             if isCancelButton == false{
                 self.logout(sender)
             }else{
-            self.dismiss(animated: true)
+                self.dismiss(animated: true)
                 delegate.closePinCodeView(typeClose: .cancel)
             }
         default:
@@ -306,7 +309,7 @@ public extension AppLocker {
         } else {
             locker.photoImageView.isHidden = true
         }
-        
+        locker.modalPresentationStyle = .fullScreen
         withController.present(locker, animated: true, completion: nil)
     }
 }
