@@ -51,9 +51,7 @@ class MVouchersViewController: UIViewController {
         segmentController.borderColor = .clear
         segmentView.layer.cornerRadius = 8.0
         
-        if isFromLogin != nil {
-            self.showPopUPWithAnimation(vc: MCrashConfirmViewController(nibName: "MCrashConfirmViewController", bundle: nil))
-        }
+      
         
         refreshControl.addTarget(self, action: #selector(refreshData(_:)), for: .valueChanged)
         

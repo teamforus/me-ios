@@ -28,9 +28,7 @@ class LoginService: LoginServiceProtocol{
         request.addValue("me_app-ios", forHTTPHeaderField: "Client-Type")
         
         let parameters = ["pin_code" : "1111",
-                          "records[primary_email]" : indentity.records.primary_email,
-                          "records[given_name]" : indentity.records.given_name,
-                          "records[family_name]" : indentity.records.family_name] as [String : Any]
+                          "records[primary_email]" : indentity.records?.primary_email ?? ""] as [String : Any]
         
         request.httpBody = ApiService.getPostString(params: parameters).data(using: .utf8)
         
