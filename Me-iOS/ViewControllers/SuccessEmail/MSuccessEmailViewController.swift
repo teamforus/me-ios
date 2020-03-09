@@ -43,6 +43,7 @@ class MSuccessEmailViewController: UIViewController {
             
             DispatchQueue.main.async {
                 
+                self?.saveNewIdentity(accessToken: token)
                 UserDefaults.standard.set(token, forKey: UserDefaultsName.Token)
                 UserDefaults.standard.set(true, forKey: UserDefaultsName.UserIsLoged)
                 CurrentSession.shared.token = token

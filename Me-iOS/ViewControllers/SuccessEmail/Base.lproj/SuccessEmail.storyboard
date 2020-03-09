@@ -37,7 +37,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Shadow" translatesAutoresizingMaskIntoConstraints="NO" id="HG3-3t-EIN">
-                                <rect key="frame" x="96" y="415" width="222.00000000000006" height="66"/>
+                                <rect key="frame" x="96" y="415" width="222" height="66"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="66" id="oUV-VO-zVT"/>
                                 </constraints>
@@ -46,7 +46,7 @@
                                 <rect key="frame" x="0.0" y="205" width="414" height="332"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1" translatesAutoresizingMaskIntoConstraints="NO" id="8qP-2Y-8Mk">
-                                <rect key="frame" x="0.0" y="205" width="414.00000000000006" height="350"/>
+                                <rect key="frame" x="0.0" y="205" width="414" height="350"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Opf-SA-edo" customClass="ShadowButton" customModule="Me_iOS" customModuleProvider="target">
                                 <rect key="frame" x="33" y="657" width="348" height="51"/>

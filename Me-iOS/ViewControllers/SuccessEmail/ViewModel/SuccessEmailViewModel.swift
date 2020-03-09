@@ -21,7 +21,7 @@ class SuccessEmailViewModel {
     
     func initCheckAuthorize(token: String) {
         
-        commonService.getWithoutToken(request: "identity/proxy/authorize/email/app-me_app/" + token, complete: { (response: AuthorizationQRToken, statusCode) in
+        commonService.getWithoutToken(request: "identity/proxy/confirmation/exchange/" + token, complete: { (response: AuthorizationQRToken, statusCode) in
             self.complete?(response.access_token ?? "")
         }) { (error) in
             
