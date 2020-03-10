@@ -31,14 +31,14 @@
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fill1Copy" translatesAutoresizingMaskIntoConstraints="NO" id="NiA-kM-LZe">
-                                                <rect key="frame" x="157" y="154.33333333333334" width="100" height="85"/>
+                                                <rect key="frame" x="157" y="183.33333333333334" width="100" height="85.000000000000028"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="100" id="5Yt-Il-TuS"/>
                                                     <constraint firstAttribute="height" constant="85" id="MWD-ni-Kqo"/>
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welkom bij Me" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yyn-hr-0CS">
-                                                <rect key="frame" x="20" y="275.33333333333331" width="374" height="46"/>
+                                                <rect key="frame" x="20" y="294.33333333333331" width="374" height="46"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="46" id="boX-7H-4nd"/>
                                                 </constraints>
@@ -108,22 +108,16 @@
                                                     <action selector="showQrWithPin:" destination="iO8-Qc-gee" eventType="touchUpInside" id="EJg-Wc-a3L"/>
                                                 </connections>
                                             </button>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rectangle2" translatesAutoresizingMaskIntoConstraints="NO" id="0OZ-Bu-YDO">
-                                                <rect key="frame" x="96" y="502.33333333333326" width="220" height="24"/>
-                                            </imageView>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rectangle2" translatesAutoresizingMaskIntoConstraints="NO" id="Nvy-Wb-UaQ">
-                                                <rect key="frame" x="96" y="638" width="220" height="24"/>
-                                            </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Inloggen vanaf een ander apparat" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aoI-oj-U12">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Inloggen vanaf een ander apparaat" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aoI-oj-U12">
                                                 <rect key="frame" x="59" y="566.33333333333337" width="293" height="16.666666666666629"/>
                                                 <fontDescription key="fontDescription" name="GoogleSans-Regular" family="Google Sans" pointSize="13"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YwF-T9-4XR" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
-                                                <rect key="frame" x="33" y="375.33333333333331" width="348" height="44"/>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Uw email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YwF-T9-4XR" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
+                                                <rect key="frame" x="33" y="373.33333333333331" width="348" height="62"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="44" id="2Xx-bo-8ez"/>
+                                                    <constraint firstAttribute="height" constant="62" id="2Xx-bo-8ez"/>
                                                 </constraints>
                                                 <color key="textColor" red="0.70196078429999997" green="0.72941176470000002" blue="0.76470588240000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" name="GoogleSans-Regular" family="Google Sans" pointSize="13"/>
@@ -141,13 +135,19 @@
                                                     <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
                                                         <color key="value" red="0.76851850749999995" green="0.76852935550000001" blue="0.77669745680000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="lineColor">
+                                                        <color key="value" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="titleColor">
+                                                        <color key="value" red="0.19183093309999999" green="0.36965066190000001" blue="0.99199551340000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="validateEmail:" destination="iO8-Qc-gee" eventType="editingChanged" id="Swi-Nk-NJM"/>
                                                 </connections>
                                             </textField>
                                             <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="proper" translatesAutoresizingMaskIntoConstraints="NO" id="jsG-Jq-whr">
-                                                <rect key="frame" x="367" y="401.33333333333331" width="14" height="14"/>
+                                                <rect key="frame" x="367" y="406.33333333333331" width="14" height="14"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="14" id="h08-KN-IsE"/>
                                                     <constraint firstAttribute="height" constant="14" id="x8p-WV-C2C"/>
@@ -157,34 +157,26 @@
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <gestureRecognizers/>
                                         <constraints>
-                                            <constraint firstItem="Nvy-Wb-UaQ" firstAttribute="leading" secondItem="Pgv-1O-Hc6" secondAttribute="leading" constant="96" id="2MD-8C-G9b"/>
                                             <constraint firstItem="EPp-cx-awG" firstAttribute="leading" secondItem="Pgv-1O-Hc6" secondAttribute="leading" constant="33" id="66X-o4-I4y"/>
-                                            <constraint firstItem="0OZ-Bu-YDO" firstAttribute="leading" secondItem="Pgv-1O-Hc6" secondAttribute="leading" constant="96" id="96d-pg-IEv"/>
-                                            <constraint firstItem="jsG-Jq-whr" firstAttribute="top" secondItem="yyn-hr-0CS" secondAttribute="bottom" constant="80" id="AZu-j7-Ilv"/>
-                                            <constraint firstItem="yyn-hr-0CS" firstAttribute="top" secondItem="NiA-kM-LZe" secondAttribute="bottom" constant="36" id="Bqz-te-8Bd"/>
+                                            <constraint firstItem="jsG-Jq-whr" firstAttribute="top" secondItem="yyn-hr-0CS" secondAttribute="bottom" constant="66" id="AZu-j7-Ilv"/>
+                                            <constraint firstItem="yyn-hr-0CS" firstAttribute="top" secondItem="NiA-kM-LZe" secondAttribute="bottom" constant="26" id="Bqz-te-8Bd"/>
                                             <constraint firstItem="NiA-kM-LZe" firstAttribute="centerX" secondItem="Pgv-1O-Hc6" secondAttribute="centerX" id="CR2-DL-To7"/>
                                             <constraint firstAttribute="bottom" secondItem="EPp-cx-awG" secondAttribute="bottom" constant="90" id="DPv-Oj-CWp"/>
                                             <constraint firstItem="EPp-cx-awG" firstAttribute="top" secondItem="aoI-oj-U12" secondAttribute="bottom" constant="13" id="DWd-7B-H26"/>
-                                            <constraint firstItem="Nvy-Wb-UaQ" firstAttribute="top" secondItem="EPp-cx-awG" secondAttribute="bottom" constant="-8" id="Fdn-t4-X8w"/>
                                             <constraint firstItem="yyn-hr-0CS" firstAttribute="leading" secondItem="Pgv-1O-Hc6" secondAttribute="leading" constant="20" symbolic="YES" id="IR4-cB-rdL"/>
                                             <constraint firstAttribute="trailing" secondItem="EPp-cx-awG" secondAttribute="trailing" constant="33" id="IVS-aU-7AM"/>
                                             <constraint firstItem="0ZO-XA-PbT" firstAttribute="leading" secondItem="Pgv-1O-Hc6" secondAttribute="leading" constant="33" id="Nwu-2v-iai"/>
                                             <constraint firstAttribute="trailing" secondItem="aoI-oj-U12" secondAttribute="trailing" constant="62" id="OTJ-5o-nbX"/>
-                                            <constraint firstAttribute="trailing" secondItem="0OZ-Bu-YDO" secondAttribute="trailing" constant="98" id="TuN-W9-n5e"/>
-                                            <constraint firstItem="0OZ-Bu-YDO" firstAttribute="top" secondItem="0ZO-XA-PbT" secondAttribute="bottom" constant="-8" id="WLV-Vk-hwd"/>
-                                            <constraint firstItem="0ZO-XA-PbT" firstAttribute="top" secondItem="YwF-T9-4XR" secondAttribute="bottom" constant="40" id="Yit-dE-5L9"/>
+                                            <constraint firstItem="0ZO-XA-PbT" firstAttribute="top" secondItem="YwF-T9-4XR" secondAttribute="bottom" constant="24" id="Yit-dE-5L9"/>
                                             <constraint firstAttribute="trailing" secondItem="YwF-T9-4XR" secondAttribute="trailing" constant="33" id="ZyO-lX-1zm"/>
-                                            <constraint firstItem="YwF-T9-4XR" firstAttribute="top" secondItem="yyn-hr-0CS" secondAttribute="bottom" constant="54" id="bmb-nb-0xf"/>
+                                            <constraint firstItem="YwF-T9-4XR" firstAttribute="top" secondItem="yyn-hr-0CS" secondAttribute="bottom" constant="33" id="bmb-nb-0xf"/>
                                             <constraint firstItem="jsG-Jq-whr" firstAttribute="leading" secondItem="YwF-T9-4XR" secondAttribute="trailing" constant="-14" id="bp5-Cn-QvM"/>
                                             <constraint firstAttribute="trailing" secondItem="jsG-Jq-whr" secondAttribute="trailing" constant="33" id="bxu-BD-YZ4"/>
                                             <constraint firstItem="aoI-oj-U12" firstAttribute="top" secondItem="0ZO-XA-PbT" secondAttribute="bottom" constant="56" id="f4y-xx-b65"/>
                                             <constraint firstAttribute="trailing" secondItem="yyn-hr-0CS" secondAttribute="trailing" constant="20" symbolic="YES" id="mTy-cn-85Q"/>
-                                            <constraint firstAttribute="trailing" secondItem="Nvy-Wb-UaQ" secondAttribute="trailing" constant="98" id="nxi-iP-hPA"/>
-                                            <constraint firstItem="aoI-oj-U12" firstAttribute="top" secondItem="0OZ-Bu-YDO" secondAttribute="bottom" constant="40" id="q5Y-N0-0Ij"/>
                                             <constraint firstAttribute="trailing" secondItem="0ZO-XA-PbT" secondAttribute="trailing" constant="33" id="rtb-Vg-glI"/>
                                             <constraint firstItem="aoI-oj-U12" firstAttribute="leading" secondItem="Pgv-1O-Hc6" secondAttribute="leading" constant="59" id="suY-3A-CwT"/>
                                             <constraint firstItem="YwF-T9-4XR" firstAttribute="leading" secondItem="Pgv-1O-Hc6" secondAttribute="leading" constant="33" id="uVu-lr-fhV"/>
-                                            <constraint firstAttribute="bottom" secondItem="Nvy-Wb-UaQ" secondAttribute="bottom" constant="74" id="xVg-30-KGf"/>
                                         </constraints>
                                         <connections>
                                             <outletCollection property="gestureRecognizers" destination="ACa-Xq-lNJ" appends="YES" id="CGv-Zj-0Ml"/>
@@ -326,6 +318,5 @@
     <resources>
         <image name="fill1Copy" width="100" height="85"/>
         <image name="proper" width="14" height="14"/>
-        <image name="rectangle2" width="316" height="144"/>
     </resources>
 </document>
