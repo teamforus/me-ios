@@ -147,7 +147,7 @@
                                                 </connections>
                                             </textField>
                                             <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="proper" translatesAutoresizingMaskIntoConstraints="NO" id="jsG-Jq-whr">
-                                                <rect key="frame" x="367" y="406.33333333333331" width="14" height="14"/>
+                                                <rect key="frame" x="367" y="403.33333333333331" width="14" height="14"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="14" id="h08-KN-IsE"/>
                                                     <constraint firstAttribute="height" constant="14" id="x8p-WV-C2C"/>
@@ -158,7 +158,7 @@
                                         <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstItem="EPp-cx-awG" firstAttribute="leading" secondItem="Pgv-1O-Hc6" secondAttribute="leading" constant="33" id="66X-o4-I4y"/>
-                                            <constraint firstItem="jsG-Jq-whr" firstAttribute="top" secondItem="yyn-hr-0CS" secondAttribute="bottom" constant="66" id="AZu-j7-Ilv"/>
+                                            <constraint firstItem="jsG-Jq-whr" firstAttribute="top" secondItem="yyn-hr-0CS" secondAttribute="bottom" constant="63" id="AZu-j7-Ilv"/>
                                             <constraint firstItem="yyn-hr-0CS" firstAttribute="top" secondItem="NiA-kM-LZe" secondAttribute="bottom" constant="26" id="Bqz-te-8Bd"/>
                                             <constraint firstItem="NiA-kM-LZe" firstAttribute="centerX" secondItem="Pgv-1O-Hc6" secondAttribute="centerX" id="CR2-DL-To7"/>
                                             <constraint firstAttribute="bottom" secondItem="EPp-cx-awG" secondAttribute="bottom" constant="90" id="DPv-Oj-CWp"/>
