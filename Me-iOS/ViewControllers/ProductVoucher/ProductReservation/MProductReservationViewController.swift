@@ -19,11 +19,12 @@ class MProductReservationViewController: UIViewController {
     var vc: MQRViewController!
     var selectedProduct: Voucher!
     var tabBar: UITabBarController!
+    @IBOutlet weak var goToVoucherButton: ShadowButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         qrViewModel.vcAlert = self
-        
+        goToVoucherButton.isHidden = voucher.amount == "0.00"
         
         qrViewModel.getVoucher = { [weak self] (voucher, statusCode) in
             DispatchQueue.main.async {
