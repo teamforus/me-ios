@@ -25,17 +25,25 @@ class ProductVoucherViewModel{
     func initFetchById(address: String){
         
         commonServices.getById(request: "platform/vouchers/", id: address, complete: { (response: ResponseData<Voucher>, statusCode) in
-
-            if statusCode != 503 {
+            
+            if statusCode == 503 {
+                DispatchQueue.main.async {
+                    KVSpinnerView.dismiss()
+                    self.vc.showErrorServer()
+                }
                 
-            self.complete!(response.data!)
-                
+            }else if statusCode == 401 {
+                DispatchQueue.main.async {
+                    KVSpinnerView.dismiss()
+                    self.vc.showSimpleAlertWithSingleAction(title: "Expired session".localized(), message: "Your session has expired. You are being logged out.".localized() , okAction: UIAlertAction(title: "Log out".localized(), style: .default, handler: { (action) in
+                        self.vc.logoutOptions()
+                    }))
+                }
             }else {
+                self.complete!(response.data!)
                 
-                KVSpinnerView.dismiss()
-                self.vc.showErrorServer()
             }
-
+            
         }, failure: { (error) in
             print(error)
         })
@@ -45,7 +53,16 @@ class ProductVoucherViewModel{
     func sendEmail(address: String) {
         
         commonServices.postWithoutParamtersAndResponse(request: "platform/vouchers/"+address+"/send-email", complete: { (statusCode) in
-            self.completeSendEmail?(statusCode)
+            if statusCode == 401 {
+                DispatchQueue.main.async {
+                    KVSpinnerView.dismiss()
+                    self.vc.showSimpleAlertWithSingleAction(title: "Expired session".localized(), message: "Your session has expired. You are being logged out.".localized() , okAction: UIAlertAction(title: "Log out".localized(), style: .default, handler: { (action) in
+                        self.vc.logoutOptions()
+                    }))
+                }
+            }else {
+                self.completeSendEmail?(statusCode)
+            }
         }) { (error) in
             
         }
@@ -56,14 +73,21 @@ class ProductVoucherViewModel{
         
         commonServices.post(request: "identity/proxy/short-token") { (response: ExchangeToken, statusCode) in
             
-            if statusCode != 503 {
+            if statusCode == 503 {
                 
-                self.completeExchangeToken?(response.exchange_token ?? "")
-                
+                DispatchQueue.main.async {
+                    KVSpinnerView.dismiss()
+                    self.vc.showErrorServer()
+                }
+            }else if statusCode == 401 {
+                DispatchQueue.main.async {
+                    KVSpinnerView.dismiss()
+                    self.vc.showSimpleAlertWithSingleAction(title: "Expired session".localized(), message: "Your session has expired. You are being logged out.".localized() , okAction: UIAlertAction(title: "Log out".localized(), style: .default, handler: { (action) in
+                        self.vc.logoutOptions()
+                    }))
+                }
             }else {
-                
-                KVSpinnerView.dismiss()
-                self.vc.showErrorServer()
+                self.completeExchangeToken?(response.exchange_token ?? "")
                 
             }
         }

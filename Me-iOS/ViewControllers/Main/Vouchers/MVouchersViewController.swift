@@ -51,15 +51,15 @@ class MVouchersViewController: UIViewController {
         segmentController.borderColor = .clear
         segmentView.layer.cornerRadius = 8.0
         
-        if isFromLogin != nil {
-            self.showPopUPWithAnimation(vc: MCrashConfirmViewController(nibName: "MCrashConfirmViewController", bundle: nil))
-        }
+      
         
         refreshControl.addTarget(self, action: #selector(refreshData(_:)), for: .valueChanged)
         
         voucherViewModel.complete = { [weak self] (vouchers) in
             
             DispatchQueue.main.async {
+                
+                self?.voucherViewModel.sendPushToken(token: UserDefaults.standard.string(forKey: "TOKENPUSH") ?? "")
                 self?.tableView.reloadData()
                 if vouchers.count == 0 {
                     
@@ -73,11 +73,12 @@ class MVouchersViewController: UIViewController {
             }
         }
         
+        
+        
         voucherViewModel.completeIdentity = { [unowned self] (response) in
             DispatchQueue.main.async {
                 self.wallet = response
             }
-            
         }
         
         voucherViewModel.getIndentity()
@@ -113,7 +114,6 @@ class MVouchersViewController: UIViewController {
     }
     
     @objc func segmentSelected(sender:HBSegmentedControl) {
-        
         
         switch sender.selectedIndex {
         case VoucherType.valute.rawValue:
@@ -200,7 +200,6 @@ extension MVouchersViewController: UITableViewDelegate, UITableViewDataSource{
         default:
             return 0
         }
-        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -228,12 +227,10 @@ extension MVouchersViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
         
-        
         switch voucherType {
         case .vouchers?:
             
             self.voucherViewModel.userPressed(at: indexPath)
-            
             
             if voucherViewModel.isAllowSegue {
                 if voucherViewModel.selectedVoucher?.product != nil {
@@ -245,7 +242,6 @@ extension MVouchersViewController: UITableViewDelegate, UITableViewDataSource{
             }else {
                 return nil
             }
-            
             
         default:
             return nil
@@ -282,20 +278,15 @@ extension MVouchersViewController: UIViewControllerPreviewingDelegate{
                                                                            indexPath: indexPath)
             }
             
-            
-            
             return detailViewController
         default:
             return nil
         }
-        
-        
     }
     
     public func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
         navigationController?.pushViewController(viewControllerToCommit, animated: true)
     }
-    
 }
 
 extension UIViewController{
@@ -315,6 +306,5 @@ extension UIViewController{
         
         return passVC
     }
-    
     
 }

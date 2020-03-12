@@ -11,16 +11,35 @@ enum EnvironmentType: Int {
     case alpha = 1
     case demo = 2
     case dev = 3
+    case custom = 4
 }
 
 import UIKit
+import SkyFloatingLabelTextField
+import IQKeyboardManagerSwift
 
 class MAFirstPageViewController: UIViewController {
     @IBOutlet weak var environmnetView: UIStackView!
     @IBOutlet weak var chooseEnvironmentButton: UIButton!
+    @IBOutlet weak var emailField: SkyFloatingLabelTextField!
+    @IBOutlet weak var validationImage: UIImageView!
+    @IBOutlet weak var confirmButton: ShadowButton!
+    
+    lazy var emailLoginViewModel: EmailLoginViewModel = {
+        return EmailLoginViewModel()
+    }()
+    
+    lazy var registerViewModel: RegisterViewModel = {
+        return RegisterViewModel()
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        IQKeyboardManager.shared.enable = true
+        IQKeyboardManager.shared.enableAutoToolbar = true
+        
+        
         
         #if DEV
         chooseEnvironmentButton.isHidden = false
@@ -42,59 +61,153 @@ class MAFirstPageViewController: UIViewController {
         #endif
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(logIn), name: NotificationName.LoginQR, object: nil)
+    }
+    
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        NotificationCenter.default.removeObserver(self, name: NotificationName.LoginQR, object: nil)
+    }
     
     @IBAction func chooseEnvironment(_ sender: UIButton) {
         environmnetView.isHidden = true
         switch sender.tag {
         case EnvironmentType.production.rawValue:
-            UserDefaults.standard.setValue("https://api.forus.link/api/v1/", forKey: UserDefaultsName.EnvironmentURL)
+            UserDefaults.standard.setValue("https://api.forus.io/api/v1/", forKey: UserDefaultsName.EnvironmentURL)
             UserDefaults.standard.setValue("Production", forKey: UserDefaultsName.EnvironmentName)
             chooseEnvironmentButton.setTitle("Production", for: .normal)
             break
         case EnvironmentType.alpha.rawValue:
             
             UserDefaults.standard.setValue("https://staging.api.forus.io/api/v1/", forKey: UserDefaultsName.EnvironmentURL)
-        UserDefaults.standard.setValue("Alpha", forKey: UserDefaultsName.EnvironmentName)
-        chooseEnvironmentButton.setTitle("Alpha", for: .normal)
-        break
+            UserDefaults.standard.setValue("Alpha", forKey: UserDefaultsName.EnvironmentName)
+            chooseEnvironmentButton.setTitle("Alpha", for: .normal)
+            break
         case EnvironmentType.demo.rawValue:
-        UserDefaults.standard.setValue("https://demo.api.forus.io/api/v1/", forKey: UserDefaultsName.EnvironmentURL)
-        UserDefaults.standard.setValue("Demo", forKey: UserDefaultsName.EnvironmentName)
-        chooseEnvironmentButton.setTitle("Demo", for: .normal)
-        break
+            UserDefaults.standard.setValue("https://demo.api.forus.io/api/v1/", forKey: UserDefaultsName.EnvironmentURL)
+            UserDefaults.standard.setValue("Demo", forKey: UserDefaultsName.EnvironmentName)
+            chooseEnvironmentButton.setTitle("Demo", for: .normal)
+            break
         case EnvironmentType.dev.rawValue:
-        CheckWebSiteReacheble.checkWebsite(url: "https://develop.test.api.forus.io") { (isReacheble) in
-            if isReacheble {
-                UserDefaults.standard.setValue("https://develop.test.api.forus.io/api/v1/", forKey: UserDefaultsName.EnvironmentURL)
-            }else {
-                UserDefaults.standard.setValue("https://dev.api.forus.io/api/v1/", forKey: UserDefaultsName.EnvironmentURL)
+            CheckWebSiteReacheble.checkWebsite(url: "https://develop.test.api.forus.io") { (isReacheble) in
+                if isReacheble {
+                    UserDefaults.standard.setValue("https://develop.test.api.forus.io/api/v1/", forKey: UserDefaultsName.EnvironmentURL)
+                }else {
+                    UserDefaults.standard.setValue("https://dev.api.forus.io/api/v1/", forKey: UserDefaultsName.EnvironmentURL)
+                }
             }
-        }
-        UserDefaults.standard.setValue("Dev", forKey: UserDefaultsName.EnvironmentName)
-        chooseEnvironmentButton.setTitle("Dev", for: .normal)
-        break
+            UserDefaults.standard.setValue("Dev", forKey: UserDefaultsName.EnvironmentName)
+            chooseEnvironmentButton.setTitle("Dev", for: .normal)
+            break
+            
+        case EnvironmentType.custom.rawValue:
+            let alertController = UIAlertController(title: "Add custom URL", message: "", preferredStyle: .alert)
+            alertController.addTextField { (textField : UITextField!) -> Void in
+                textField.placeholder = "Enter Base URL"
+                if self.chooseEnvironmentButton.titleLabel?.text == "Custom" {
+                    textField.text = UserDefaults.standard.string(forKey: UserDefaultsName.EnvironmentURL)
+                }
+            }
+            let saveAction = UIAlertAction(title: "Save", style: .default, handler: { alert -> Void in
+                let firstTextField = alertController.textFields![0] as UITextField
+                UserDefaults.standard.setValue(firstTextField.text ?? "", forKey: UserDefaultsName.EnvironmentURL)
+                UserDefaults.standard.setValue("Custom", forKey: UserDefaultsName.EnvironmentName)
+                self.chooseEnvironmentButton.setTitle("Custom", for: .normal)
+            })
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: { (action : UIAlertAction!) -> Void in })
+            
+            alertController.addAction(cancelAction)
+            alertController.addAction(saveAction)
+            
+            self.present(alertController, animated: true, completion: nil)
+            break
         default:
-        break
+            break
+        }
+        
     }
     
-}
-
-@IBAction func showEnvironment(_ sender: Any) {
-    environmnetView.isHidden = !environmnetView.isHidden
-}
-
-
-
-
-// MARK: - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    if segue.identifier == "goToLoginQR" {
-        let generalVC = didSetPullUP(storyBoardName: "LoginQRAndCodeViewController", segue: segue)
-        (generalVC.bottomViewController as! CommonBottomViewController).qrType = .AuthToken
+    @IBAction func showEnvironment(_ sender: Any) {
+        environmnetView.isHidden = !environmnetView.isHidden
     }
-}
-
-
+    
+    @IBAction func showQrWithPin(_ sender: UIButton) {
+        
+        let popOverVC = BottomQrWithPinViewController(nibName: "BottomQrWithPinViewController", bundle: nil)
+        showPopUPWithAnimation(vc: popOverVC)
+    }
+    
+    @objc func logIn(){
+        performSegue(withIdentifier: "goToSuccessRegister", sender: self)
+    }
+    
+    @IBAction func validateEmail(_ sender: SkyFloatingLabelTextField) {
+        if validateEmail(emailField.text!){
+            
+            validationImage.isHidden = false
+            confirmButton.backgroundColor = #colorLiteral(red: 0.2078431373, green: 0.3921568627, blue: 0.9764705882, alpha: 1)
+            confirmButton.isEnabled = true
+            
+        }else{
+            
+            validationImage.isHidden = true
+            confirmButton.backgroundColor = #colorLiteral(red: 0.7647058824, green: 0.7647058824, blue: 0.7647058824, alpha: 1)
+            confirmButton.isEnabled = false
+        }
+    }
+    
+    @IBAction func logInOrSignUp(_ sender: Any) {
+        
+        if isReachable() {
+            
+            registerViewModel.initRegister(identity: Identity(pin_code: "1111",
+                                                              records: RecordsIndenty(primary_email: emailField.text ?? "")))
+        }else {
+            
+            showInternetUnable()
+            
+        }
+        
+        registerViewModel.complete = { [weak self] (response, statusCode) in
+            
+            DispatchQueue.main.async {
+                if statusCode == 422{
+                        
+                        self?.emailLoginViewModel.initLoginByEmail(email: self?.emailField.text ?? "")
+                  
+                }else if statusCode == 500 {
+                    
+                    
+                }else {
+                    self?.performSegue(withIdentifier: "goToSuccessMail", sender: nil)
+                }
+            }
+        }
+        
+        emailLoginViewModel.complete = { [weak self] (statusCode) in
+            
+            DispatchQueue.main.async {
+                
+                if statusCode == 200 {
+                    
+                    self?.performSegue(withIdentifier: "goToSuccessMail", sender: self)
+                    
+                }
+            }
+        }
+    }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToSuccessMail" {
+            let vc = segue.destination as! MSuccessEmailViewController
+            vc.email = emailField.text ?? ""
+        }
+    }
+    
+    
 }

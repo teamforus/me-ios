@@ -15,6 +15,7 @@ class LoginQrAndCodeViewModel{
     
     var complete: ((Int, String, Int)->())?
     var completeAuthorize: ((String, Int)->())!
+    var completeAuthorizeQR: ((String, Int)->())!
     
     init(commonService: CommonServiceProtocol = CommonService(), statusService: StatusServiceProtocol = StatusService()) {
         self.commonService = commonService
@@ -35,6 +36,16 @@ class LoginQrAndCodeViewModel{
         self.statusService.checkStatus(request: token, complete: { [weak self] (response, statusCode) in
             
             self?.completeAuthorize(response.message ?? "", statusCode)
+            
+        }) { (error) in
+            
+        }
+    }
+    
+    func initAuthorizeTokenQR(token: String){
+        self.statusService.checkStatus(request: token, complete: { [weak self] (response, statusCode) in
+            
+            self?.completeAuthorizeQR(response.message ?? "", statusCode)
             
         }) { (error) in
             

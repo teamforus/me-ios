@@ -36,6 +36,7 @@ class PullUpQRViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        bottomQRViewModel.vc = self
         bodyView.roundCorners(corners: [.layerMaxXMinYCorner, .layerMinXMinYCorner], radius: 9)
         DispatchQueue.main.asyncAfter(deadline: .now()) {
             self.bottomConstraint.constant = 0
@@ -127,7 +128,8 @@ class PullUpQRViewController: UIViewController {
             DispatchQueue.main.async {
                 if message == "active"{
                     self?.timer.invalidate()
-                    UserDefaults.standard.set(self?.token, forKey: UserDefaultsName.Token)
+                    self?.saveNewIdentity(accessToken: self!.token)
+                    UserDefaults.standard.set(self?.getCurrentUser().accessToken!, forKey: UserDefaultsName.Token)
                     UserDefaults.standard.set(true, forKey: UserDefaultsName.UserIsLoged)
                     CurrentSession.shared.token = self?.token
                     UserDefaults.standard.synchronize()

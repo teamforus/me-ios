@@ -40,7 +40,7 @@ class ConfirmPaymentPopUp: UIViewController {
         
         if voucher.product != nil {
             
-            paymentLabel.text = "Are you sure you want to confirm this transaction".localized()
+            paymentLabel.text = String(format: NSLocalizedString("Please confirm the transaction of %@", comment: ""), voucher.product?.price ?? "0.00")
             amount = voucher.product?.price
             self.didChangeHeightView()
             organizationId = voucher.product?.organization?.id
@@ -93,6 +93,13 @@ class ConfirmPaymentPopUp: UIViewController {
                                     self.presentingViewController?.presentingViewController?.dismiss(animated: true)
                                 }
                             }))
+                        }else if statusCode == 401 {
+                            DispatchQueue.main.async {
+                                KVSpinnerView.dismiss()
+                                self.showSimpleAlertWithSingleAction(title: "Expired session".localized(), message: "Your session has expired. You are being logged out.".localized() , okAction: UIAlertAction(title: "Log out".localized(), style: .default, handler: { (action) in
+                                    self.logoutOptions()
+                                }))
+                            }
                         }else {
                             sender.isEnabled = true
                             self.showSimpleAlertWithSingleAction(title: "Warning".localized(), message: "Voucher not have enough funds".localized(), okAction: UIAlertAction(title: "OK", style: .default, handler: { (action) in
@@ -107,7 +114,7 @@ class ConfirmPaymentPopUp: UIViewController {
                 commonService.patchWithoutParam(request: "platform/demo/transactions/" + testToken) { ( statusCode) in
                     DispatchQueue.main.async {
                         if statusCode == 200 {
-                            
+                            KVSpinnerView.dismiss()
                             self.showSimpleAlertWithSingleAction(title: "Success".localized(), message: "Payment succeeded".localized(), okAction: UIAlertAction(title: "OK", style: .default, handler: { (action) in
                                 
                                 self.tabBar.selectedIndex = 0
@@ -117,6 +124,13 @@ class ConfirmPaymentPopUp: UIViewController {
                                     self.presentingViewController?.presentingViewController?.dismiss(animated: true)
                                 }
                             }))
+                        }else if statusCode == 401 {
+                            DispatchQueue.main.async {
+                                KVSpinnerView.dismiss()
+                                self.showSimpleAlertWithSingleAction(title: "Expired session".localized(), message: "Your session has expired. You are being logged out.".localized() , okAction: UIAlertAction(title: "Log out".localized(), style: .default, handler: { (action) in
+                                    self.logoutOptions()
+                                }))
+                            }
                         }else {
                             KVSpinnerView.dismiss()
                             self.showSimpleAlertWithSingleAction(title: "Error!".localized(), message: "This token is not valid!", okAction: UIAlertAction(title: "OK", style: .default, handler: { (action) in

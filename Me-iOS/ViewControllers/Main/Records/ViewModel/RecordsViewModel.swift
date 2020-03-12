@@ -32,19 +32,25 @@ class RecordsViewModel{
     func initFitch(){
         
         commonService.get(request: "identity/records", complete: { (response: [Record], statusCode) in
-            if statusCode != 503 {
-                DispatchQueue.main.async {
-                 KVSpinnerView.dismiss()
-                }
-                
-                self.processFetchedLunche(records: response)
-                
-            }else {
+            if statusCode == 503 {
                 DispatchQueue.main.async {
                     KVSpinnerView.dismiss()
                 }
                 self.vc.showErrorServer()
                 
+            }else if statusCode == 401 {
+                DispatchQueue.main.async {
+                    KVSpinnerView.dismiss()
+                    self.vc.showSimpleAlertWithSingleAction(title: "Expired session".localized(), message: "Your session has expired. You are being logged out.".localized() , okAction: UIAlertAction(title: "Log out".localized(), style: .default, handler: { (action) in
+                        self.vc.logoutOptions()
+                    }))
+                }
+            }else {
+                DispatchQueue.main.async {
+                    KVSpinnerView.dismiss()
+                }
+                
+                self.processFetchedLunche(records: response)
             }
             
             

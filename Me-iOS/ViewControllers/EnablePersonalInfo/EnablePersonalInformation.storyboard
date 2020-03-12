@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="m0o-iy-LOr">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="GoogleSans-Bold.ttf">
+            <string>GoogleSans-Bold</string>
+        </array>
+        <array key="GoogleSans-Medium.ttf">
+            <string>GoogleSans-Medium</string>
+        </array>
+        <array key="GoogleSans-Regular.ttf">
+            <string>GoogleSans-Regular</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Enable Personal Information View Controller-->
+        <scene sceneID="uBU-KZ-reP">
+            <objects>
+                <viewController id="m0o-iy-LOr" customClass="EnablePersonalInformationViewController" customModule="Me_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="uMr-92-hIe">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Informatie delen" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Pp9-oV-vYl">
+                                <rect key="frame" x="17" y="92" width="380" height="41"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="41" id="32g-kU-fV0"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="GoogleSans-Medium" family="Google Sans" pointSize="36"/>
+                                <color key="textColor" red="0.18039215689999999" green="0.1960784314" blue="0.25490196079999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Me app" translatesAutoresizingMaskIntoConstraints="NO" id="nPy-mT-oak">
+                                <rect key="frame" x="0.0" y="202" width="414" height="201"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aCw-B0-HvF" customClass="ShadowButton" customModule="Me_iOS" customModuleProvider="target">
+                                <rect key="frame" x="33" y="628.5" width="348" height="51"/>
+                                <color key="backgroundColor" red="0.20392156859999999" green="0.38431372549999998" blue="0.96470588239999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="51" id="p4p-QF-EgB"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="GoogleSans-Bold" family="Google Sans" pointSize="14"/>
+                                <state key="normal" title="VOLGENDE">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                        <size key="value" width="0.0" height="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="selectedShadowColor">
+                                        <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="9"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                        <real key="value" value="0.20000000000000001"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="DVW-t5-MuU" kind="presentation" identifier="goToMain" modalPresentationStyle="fullScreen" id="DLI-9H-UnZ"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="bOk-mY-Yl9">
+                                <rect key="frame" x="21" y="442" width="372" height="81.5"/>
+                                <string key="text">Door uw identificatie nummer te delen, kunnen problemen beter en sneller worden opgelost, en kunnen de ontwikkelaars eventueel contact met u opnemen.</string>
+                                <fontDescription key="fontDescription" name="GoogleSans-Regular" family="Google Sans" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yhx-Cq-Cbu">
+                                <rect key="frame" x="14" y="54" width="24" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="back"/>
+                                <connections>
+                                    <action selector="dismiss:" destination="m0o-iy-LOr" eventType="touchUpInside" id="P5u-Ri-oD1"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Lk-fx-WDO" customClass="CustomCornerUIView" customModule="Me_iOS" customModuleProvider="target">
+                                <rect key="frame" x="33" y="549.5" width="348" height="58"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Deel identificatienummer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mgT-1R-Aax">
+                                        <rect key="frame" x="18" y="18" width="247" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="GoogleSans-Regular" family="Google Sans" pointSize="16"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="B6I-FH-DWW" customClass="UISwitchCustom" customModule="Me_iOS" customModuleProvider="target">
+                                        <rect key="frame" x="289" y="15" width="49" height="31"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                        <color key="onTintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="OffTint">
+                                                <color key="value" red="0.84653598070000002" green="0.85825008150000004" blue="0.89555484060000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="enableSendIndenity:" destination="m0o-iy-LOr" eventType="valueChanged" id="b2Q-wA-w0w"/>
+                                        </connections>
+                                    </switch>
+                                </subviews>
+                                <color key="backgroundColor" red="0.96460121870000004" green="0.96476620440000005" blue="0.96459084750000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="58" id="PSy-2E-20C"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="v4Y-9y-d00" firstAttribute="trailing" secondItem="Pp9-oV-vYl" secondAttribute="trailing" constant="17" id="4Q7-oZ-IE7"/>
+                            <constraint firstItem="nPy-mT-oak" firstAttribute="leading" secondItem="v4Y-9y-d00" secondAttribute="leading" id="G9W-4B-r4P"/>
+                            <constraint firstItem="0Lk-fx-WDO" firstAttribute="top" secondItem="bOk-mY-Yl9" secondAttribute="bottom" constant="26" id="Jbv-Nq-cjE"/>
+                            <constraint firstItem="Pp9-oV-vYl" firstAttribute="top" secondItem="v4Y-9y-d00" secondAttribute="top" constant="48" id="Kn4-l1-bTz"/>
+                            <constraint firstItem="0Lk-fx-WDO" firstAttribute="leading" secondItem="v4Y-9y-d00" secondAttribute="leading" constant="33" id="Qgy-Q5-IvQ"/>
+                            <constraint firstItem="v4Y-9y-d00" firstAttribute="trailing" secondItem="0Lk-fx-WDO" secondAttribute="trailing" constant="33" id="Taf-vL-sf9"/>
+                            <constraint firstItem="bOk-mY-Yl9" firstAttribute="top" secondItem="nPy-mT-oak" secondAttribute="bottom" constant="39" id="TpA-oX-BbG"/>
+                            <constraint firstItem="nPy-mT-oak" firstAttribute="trailing" secondItem="v4Y-9y-d00" secondAttribute="trailing" id="VRg-xc-chj"/>
+                            <constraint firstItem="aCw-B0-HvF" firstAttribute="top" secondItem="0Lk-fx-WDO" secondAttribute="bottom" constant="21" id="bdY-nd-nTu"/>
+                            <constraint firstItem="v4Y-9y-d00" firstAttribute="trailing" secondItem="aCw-B0-HvF" secondAttribute="trailing" constant="33" id="bsF-Mf-gkT"/>
+                            <constraint firstItem="Pp9-oV-vYl" firstAttribute="leading" secondItem="v4Y-9y-d00" secondAttribute="leading" constant="17" id="dyf-vz-j83"/>
+                            <constraint firstItem="nPy-mT-oak" firstAttribute="top" secondItem="Pp9-oV-vYl" secondAttribute="bottom" constant="69" id="hin-L2-eIc"/>
+                            <constraint firstItem="v4Y-9y-d00" firstAttribute="trailing" secondItem="bOk-mY-Yl9" secondAttribute="trailing" constant="21" id="m6J-Cu-adI"/>
+                            <constraint firstItem="aCw-B0-HvF" firstAttribute="leading" secondItem="v4Y-9y-d00" secondAttribute="leading" constant="33" id="v6e-yH-v2V"/>
+                            <constraint firstItem="bOk-mY-Yl9" firstAttribute="leading" secondItem="v4Y-9y-d00" secondAttribute="leading" constant="21" id="zzf-Jy-NDp"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="v4Y-9y-d00"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2O4-mk-yrq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1213.0434782608697" y="207.58928571428569"/>
+        </scene>
+        <!--Main-->
+        <scene sceneID="0RG-Fg-KSm">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Main" id="DVW-t5-MuU" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="v1d-T1-kZA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1871" y="208"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Me app" width="200" height="201"/>
+        <image name="back" width="24" height="24"/>
+    </resources>
+</document>
