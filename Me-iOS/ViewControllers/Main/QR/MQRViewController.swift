@@ -121,7 +121,7 @@ class MQRViewController: HSScanViewController {
                     KVSpinnerView.dismiss()
                     if statusCode != 403 {
                         
-                        if voucher.amount != "0.00" && voucher.product_vouchers?.count != 0 {
+                        if voucher.amount != "0.00" || voucher.product_vouchers?.count != 0 {
                             
                             self?.voucher = voucher
                             
