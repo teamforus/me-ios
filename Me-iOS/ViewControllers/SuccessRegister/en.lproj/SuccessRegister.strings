@@ -1,0 +1,6 @@
+
+/* Class = "UIButton"; normalTitle = "VOLGENDE"; ObjectID = "DBn-Ec-KcU"; */
+"DBn-Ec-KcU.normalTitle" = "NEXT";
+
+/* Class = "UILabel"; text = "Aanmelding \ngeslaagd!"; ObjectID = "Xpe-pk-sDU"; */
+"Xpe-pk-sDU.text" = "Successfully \nlogged in!";
