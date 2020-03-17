@@ -3,10 +3,10 @@
 "DeM-7T-ARD.text" = "Me";
 
 /* Class = "UILabel"; text = "Forus, 2018"; ObjectID = "EcD-I1-itv"; */
-"EcD-I1-itv.text" = "Forus, 2018";
+"EcD-I1-itv.text" = "Forus, 2018-2020";
 
 /* Class = "UILabel"; text = "     • \tinloggen op applicaties;\n     • \tvouchers beheren;\n     • \tprofiel beheren;"; ObjectID = "SGf-5C-9HH"; */
-"SGf-5C-9HH.text" = "     • \tde Westerkwartier webshop;\n     • \tde Nijmegen webshop;\n     • \tde Winterswijk webshop;\n     • \tde Oost Gelre webshop;\n     • \tde Berkelland webshop;\n     • \tde Noordoostpolder webshop\n     • \tde Kerstpakket webshop;";
+"SGf-5C-9HH.text" = "     • \tDe Westerkwartier webshop;\n     • \tDe Nijmegen webshop;\n     • \tDe Winterswijk webshop;\n     • \tDe Oost Gelre webshop;\n     • \tDe Berkelland webshop;\n     • \tDe Noordoostpolder webshop\n     • \tDe Kerstpakket webshop;";
 
 /* Class = "UILabel"; text = "Later on several shops and applications will be added."; ObjectID = "T8Z-5V-grC"; */
 "T8Z-5V-grC.text" = "Later zullen meerdere shops en andere applicaties worden toegevoegd.";

@@ -29,7 +29,6 @@ class LoginQrAndCodeViewModel{
             self.complete!(Int(response.exchange_token ?? "0")!, response.access_token ?? "", statusCode)
             
         }
-        
     }
     
     func initAuthorizeToken(token: String){
@@ -37,9 +36,7 @@ class LoginQrAndCodeViewModel{
             
             self?.completeAuthorize(response.message ?? "", statusCode)
             
-        }) { (error) in
-            
-        }
+        }) { (error) in }
     }
     
     func initAuthorizeTokenQR(token: String){

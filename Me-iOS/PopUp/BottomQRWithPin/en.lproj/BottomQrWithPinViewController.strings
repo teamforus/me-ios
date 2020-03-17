@@ -1,0 +1,24 @@
+
+/* Class = "UILabel"; text = "Scan deze QR-Code met een ander apparaat waar u al op aangemeld bent"; ObjectID = "DA1-v9-PIh"; */
+"DA1-v9-PIh.text" = "Scan this QR-Code with a device you are already logged in";
+
+/* Class = "UILabel"; text = "Dit is uw persoonlijke koppelcode"; ObjectID = "Jr0-D7-9x9"; */
+"Jr0-D7-9x9.text" = "This is your pairing code";
+
+/* Class = "UILabel"; text = "• "; ObjectID = "MXf-TD-C8T"; */
+"MXf-TD-C8T.text" = "• ";
+
+/* Class = "UILabel"; text = "• "; ObjectID = "NnD-lK-HwH"; */
+"NnD-lK-HwH.text" = "• ";
+
+/* Class = "UILabel"; text = "• "; ObjectID = "XP1-7m-w8D"; */
+"XP1-7m-w8D.text" = "• ";
+
+/* Class = "UILabel"; text = "• "; ObjectID = "ip2-RH-2r5"; */
+"ip2-RH-2r5.text" = "• ";
+
+/* Class = "UILabel"; text = "APPARAAT KOPPELEN"; ObjectID = "mrZ-rG-zPC"; */
+"mrZ-rG-zPC.text" = "CONNECT DEVICE";
+
+/* Class = "UILabel"; text = "• "; ObjectID = "xHh-up-Off"; */
+"xHh-up-Off.text" = "• ";

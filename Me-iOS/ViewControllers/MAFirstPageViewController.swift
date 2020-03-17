@@ -175,13 +175,12 @@ class MAFirstPageViewController: UIViewController {
         registerViewModel.complete = { [weak self] (response, statusCode) in
             
             DispatchQueue.main.async {
-                if statusCode == 422{
+                if statusCode == 422 {
                         
                         self?.emailLoginViewModel.initLoginByEmail(email: self?.emailField.text ?? "")
                   
                 }else if statusCode == 500 {
-                    
-                    
+
                 }else {
                     self?.performSegue(withIdentifier: "goToSuccessMail", sender: nil)
                 }
