@@ -11,8 +11,8 @@
 /* Class = "UIButton"; normalTitle = "KOPPELEN"; ObjectID = "EPp-cx-awG"; */
 "EPp-cx-awG.normalTitle" = "Pairing";
 
-/* Class = "UIButton"; normalTitle = "Choose Environmnet"; ObjectID = "IrT-93-1Nw"; */
-"IrT-93-1Nw.normalTitle" = "Choose Environmnet";
+/* Class = "UIButton"; normalTitle = "Choose Environment"; ObjectID = "IrT-93-1Nw"; */
+"IrT-93-1Nw.normalTitle" = "Choose Environment";
 
 /* Class = "UITextField"; placeholder = "Uw email"; ObjectID = "YwF-T9-4XR"; */
 "YwF-T9-4XR.placeholder" = "Your email";

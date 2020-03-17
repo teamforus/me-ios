@@ -18,7 +18,7 @@
 "ip2-RH-2r5.text" = "• ";
 
 /* Class = "UILabel"; text = "APPARAAT KOPPELEN"; ObjectID = "mrZ-rG-zPC"; */
-"mrZ-rG-zPC.text" = "CONEECT DEVICE";
+"mrZ-rG-zPC.text" = "CONNECT DEVICE";
 
 /* Class = "UILabel"; text = "• "; ObjectID = "xHh-up-Off"; */
 "xHh-up-Off.text" = "• ";
