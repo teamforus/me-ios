@@ -22,7 +22,7 @@ class MSuccessEmailViewController: UIViewController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(logIn), name: NotificationName.LoginQR, object: nil)
         
-        let mainString = "Klik op de link in de email die u heeft ontvangen op \(email ?? "") om uw aanmelding af te maken"
+        let mainString = String(format: NSLocalizedString("Click on the link you received on %@ to continue", comment: ""), email) 
         let range = (mainString as NSString).range(of: email ?? "")
         
         let attributedString = NSMutableAttributedString(string:mainString)
@@ -89,6 +89,8 @@ class MSuccessEmailViewController: UIViewController {
     
     @IBAction func showQrWithPin(_ sender: Any) {
         let popOverVC = BottomQrWithPinViewController(nibName: "BottomQrWithPinViewController", bundle: nil)
+    
         showPopUPWithAnimation(vc: popOverVC)
+        
     }
 }
