@@ -22,7 +22,7 @@ class MSuccessEmailViewController: UIViewController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(logIn), name: NotificationName.LoginQR, object: nil)
         
-        let mainString = String(format: NSLocalizedString("Click on the link you received on %@ to continue", comment: ""), email) 
+        let mainString = String(format: NSLocalizedString("Click on the link you received on %@ to continue", comment: ""), email)
         let range = (mainString as NSString).range(of: email ?? "")
         
         let attributedString = NSMutableAttributedString(string:mainString)
@@ -35,6 +35,12 @@ class MSuccessEmailViewController: UIViewController {
             selector: #selector(authorizeToken(notifcation:)),
             name: NotificationName.AuthorizeTokenEmail,
             object: nil)
+        
+        NotificationCenter.default.addObserver(
+        self,
+        selector: #selector(authorizeRegistrationToken(notifcation:)),
+        name: NotificationName.AuthorizeRegistrationTokenEmail,
+        object: nil)
     }
     
     @objc func authorizeToken(notifcation: Notification){
@@ -59,8 +65,30 @@ class MSuccessEmailViewController: UIViewController {
             successEmailViewModel.initCheckAuthorize(token: token)
             
         }
+    }
+    
+    @objc func authorizeRegistrationToken(notifcation: Notification){
         
+        successEmailViewModel.completeRegistration = { [weak self] (token) in
+            
+            DispatchQueue.main.async {
+                
+                self?.saveNewIdentity(accessToken: token)
+                UserDefaults.standard.set(token, forKey: UserDefaultsName.Token)
+                UserDefaults.standard.set(true, forKey: UserDefaultsName.UserIsLoged)
+                CurrentSession.shared.token = token
+                self?.addShortcuts(application: UIApplication.shared)
+                UserDefaults.standard.synchronize()
+                self?.performSegue(withIdentifier: "goToSuccessRegister", sender: self)
+                
+            }
+        }
         
+        if let token = notifcation.userInfo?["authToken"] as? String {
+            
+            successEmailViewModel.initSignUp(token: token)
+            
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {

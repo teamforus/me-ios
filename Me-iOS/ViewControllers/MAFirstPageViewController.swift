@@ -191,7 +191,7 @@ class MAFirstPageViewController: UIViewController {
             
             DispatchQueue.main.async {
                 
-                if statusCode == 200 {
+                if statusCode == 201 {
                     
                     self?.performSegue(withIdentifier: "goToSuccessMail", sender: self)
                     

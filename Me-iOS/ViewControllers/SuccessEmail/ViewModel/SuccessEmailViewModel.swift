@@ -18,6 +18,7 @@ class SuccessEmailViewModel {
     }
     
     var complete: ((String)->())?
+    var completeRegistration: ((String)->())?
     
     func initCheckAuthorize(token: String) {
         
@@ -31,7 +32,7 @@ class SuccessEmailViewModel {
     func initSignUp(token: String) {
         
         commonService.getWithoutToken(request: "identity/proxy/confirmation/exchange/" + token, complete: { (response: AuthorizationQRToken, statusCode) in
-            self.complete?(response.access_token ?? "")
+            self.completeRegistration?(response.access_token ?? "")
         }) { (error) in
             
         }

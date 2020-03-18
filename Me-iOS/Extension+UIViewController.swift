@@ -212,32 +212,39 @@ extension UIViewController{
         voucherViewModel.completeDeleteToken = { [unowned self] (statusCode) in
             DispatchQueue.main.async {
                 if statusCode == 200 {
-                    UserDefaults.standard.setValue(false, forKey: UserDefaultsName.AddressIndentityCrash)
-                    UserDefaults.standard.setValue(false, forKey: UserDefaultsName.UseTouchID)
-                    UserDefaults.standard.setValue(false, forKey: UserDefaultsName.StartFromScanner)
-                    self.deleteEntity(entityName: "User")
-                    UserDefaults.standard.setValue("", forKey: UserDefaultsName.Token)
-                    self.removeShortcutItem(application: UIApplication.shared)
-                    UserDefaults.standard.set("", forKey: ALConstants.kPincode)
-                    UserDefaults.standard.setValue(false, forKey: UserDefaultsName.UserIsLoged)
-                    let storyboard:UIStoryboard = UIStoryboard(name: "First", bundle: nil)
-                    let navigationController:HiddenNavBarNavigationController = storyboard.instantiateInitialViewController() as! HiddenNavBarNavigationController
-                    let firstPageVC:UIViewController = storyboard.instantiateViewController(withIdentifier: "firstPage") as UIViewController
-                    navigationController.viewControllers = [firstPageVC]
-                    navigationController.modalPresentationStyle = .fullScreen
-                    self.present(navigationController, animated: true, completion: nil)
+                   self.logoutAction()
                 }else if statusCode == 422 {
-                    self.showSimpleAlertWithSingleAction(title: "Error!".localized(), message: "", okAction: UIAlertAction(title: "OK", style: .default, handler: { (action) in
-                    }))
+//                    self.showSimpleAlertWithSingleAction(title: "Error!".localized(), message: "", okAction: UIAlertAction(title: "OK", style: .default, handler: { (action) in
+//                    }))
+                    self.logoutAction()
                 }else if statusCode == 404 {
                     self.showSimpleAlertWithSingleAction(title: "Error!".localized(), message: "", okAction: UIAlertAction(title: "OK", style: .default, handler: { (action) in
                     }))
                 }else if statusCode == 500 {
                     self.showSimpleAlertWithSingleAction(title: "Error!".localized(), message: "", okAction: UIAlertAction(title: "OK", style: .default, handler: { (action) in
                     }))
+                }else if statusCode == 401 {
+                    self.logoutAction()
                 }
             }
         }
+    }
+    
+    func logoutAction(){
+        UserDefaults.standard.setValue(false, forKey: UserDefaultsName.AddressIndentityCrash)
+                           UserDefaults.standard.setValue(false, forKey: UserDefaultsName.UseTouchID)
+                           UserDefaults.standard.setValue(false, forKey: UserDefaultsName.StartFromScanner)
+                           self.deleteEntity(entityName: "User")
+                           UserDefaults.standard.setValue("", forKey: UserDefaultsName.Token)
+                           self.removeShortcutItem(application: UIApplication.shared)
+                           UserDefaults.standard.set("", forKey: ALConstants.kPincode)
+                           UserDefaults.standard.setValue(false, forKey: UserDefaultsName.UserIsLoged)
+                           let storyboard:UIStoryboard = UIStoryboard(name: "First", bundle: nil)
+                           let navigationController:HiddenNavBarNavigationController = storyboard.instantiateInitialViewController() as! HiddenNavBarNavigationController
+                           let firstPageVC:UIViewController = storyboard.instantiateViewController(withIdentifier: "firstPage") as UIViewController
+                           navigationController.viewControllers = [firstPageVC]
+                           navigationController.modalPresentationStyle = .fullScreen
+                           self.present(navigationController, animated: true, completion: nil)
     }
     
     func deleteEntity(entityName: String) {

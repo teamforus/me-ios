@@ -60,7 +60,7 @@ class CommonBottomViewModel{
     }
     
     func initAuthorizeToken(token: String){
-        self.statusService.checkStatus(request: token, complete: {  (response, statusCOde) in
+        self.statusService.checkStatus(token: token, complete: {  (response, statusCOde) in
             
             self.completeAuthorize?(response.message ?? "")
             
