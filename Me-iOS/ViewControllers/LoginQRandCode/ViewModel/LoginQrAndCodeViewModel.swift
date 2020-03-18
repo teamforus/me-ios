@@ -47,7 +47,5 @@ class LoginQrAndCodeViewModel{
         }) { (error) in
             
         }
-    }
-    
-    
+    } 
 }
