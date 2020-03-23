@@ -180,7 +180,12 @@ class MAFirstPageViewController: UIViewController {
                         self?.emailLoginViewModel.initLoginByEmail(email: self?.emailField.text ?? "")
                   
                 }else if statusCode == 500 {
+<<<<<<< HEAD
+                    self?.showSimpleAlertWithSingleAction(title: "Error!".localized(), message: "", okAction: UIAlertAction(title: "OK", style: .default, handler: { (action) in
+                    }))
+=======
 
+>>>>>>> origin/release/v0.3.0
                 }else {
                     self?.performSegue(withIdentifier: "goToSuccessMail", sender: nil)
                 }
@@ -191,10 +196,13 @@ class MAFirstPageViewController: UIViewController {
             
             DispatchQueue.main.async {
                 
-                if statusCode == 200 {
+                if statusCode != 500 {
                     
                     self?.performSegue(withIdentifier: "goToSuccessMail", sender: self)
                     
+                }else {
+                    self?.showSimpleAlertWithSingleAction(title: "Error!".localized(), message: "", okAction: UIAlertAction(title: "OK", style: .default, handler: { (action) in
+                    }))
                 }
             }
         }
