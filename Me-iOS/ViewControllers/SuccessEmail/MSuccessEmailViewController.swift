@@ -22,11 +22,7 @@ class MSuccessEmailViewController: UIViewController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(logIn), name: NotificationName.LoginQR, object: nil)
         
-<<<<<<< HEAD
         let mainString = String(format: NSLocalizedString("Click on the link you received on %@ to continue", comment: ""), email)
-=======
-        let mainString = String(format: NSLocalizedString("Click on the link you received on %@ to continue", comment: ""), email) 
->>>>>>> origin/release/v0.3.0
         let range = (mainString as NSString).range(of: email ?? "")
         
         let attributedString = NSMutableAttributedString(string:mainString)
