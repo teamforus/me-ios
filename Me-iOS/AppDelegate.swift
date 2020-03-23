@@ -55,7 +55,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //                commonService.get(request: "identity", complete: { (response: Office, statusCode) in
 //                    Crashlytics.sharedInstance().setUserIdentifier(response.address)
 //                }) { (error) in
-//                    
+//
 //                }
             }
             
@@ -135,7 +135,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
         if url.absoluteString.contains("meapp://identity-confirmation"){
             
-            NotificationCenter.default.post(name: NotificationName.AuthorizeTokenEmail, object: self, userInfo: ["authToken" : url.absoluteString.replacingOccurrences(of: "meapp://identity-confirmation?token=", with: "")])
+            NotificationCenter.default.post(name: NotificationName.AuthorizeRegistrationTokenEmail, object: self, userInfo: ["authToken" : url.absoluteString.replacingOccurrences(of: "meapp://identity-confirmation?token=", with: "")])
             
         }else if url.absoluteString.contains("meapp://identity-restore"){
             

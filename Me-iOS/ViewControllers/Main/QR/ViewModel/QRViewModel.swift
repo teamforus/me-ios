@@ -24,6 +24,7 @@ class QRViewModel{
     var completeOrganization: (([EmployeesOrganization]) -> ())?
     
     var getVoucher: ((Voucher, Int)->())!
+    var getProducts: (([Transaction])->())?
     
     init(commonService: CommonServiceProtocol = CommonService()) {
         self.commonService = commonService
@@ -53,7 +54,7 @@ class QRViewModel{
     
     func initVoucherAddress(address: String) {
         
-        commonService.get(request: "platform/vouchers/"+address+"/provider", complete: { (response: ResponseData<Voucher>, statusCode) in
+        commonService.get(request: "platform/provider/vouchers/"+address, complete: { (response: ResponseData<Voucher>, statusCode) in
             
             if statusCode == 500 {
                 
@@ -100,6 +101,30 @@ class QRViewModel{
         
     }
     
+    
+    func iniProductsFromVoucher(address: String) {
+        commonService.get(request: "platform/provider/vouchers/"+address+"/product-vouchers", complete: { (response: ResponseDataArray<Transaction>, statusCode) in
+            
+            if statusCode == 500 {
+                
+                
+            }else if statusCode == 403  {
+               
+            }else if statusCode == 404 {
+              
+                
+            }else if statusCode == 401 {
+              
+            }else {
+                self.getProducts?(response.data ?? [])
+            }
+        }) { (error) in
+            DispatchQueue.main.async {
+                KVSpinnerView.dismiss()
+                self.vc.scanWorker.start()
+            }
+        }
+    }
     
     func initValidationRecord(code: String) {
         
