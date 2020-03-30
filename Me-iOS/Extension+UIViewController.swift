@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import LocalAuthentication
+import CoreData
 
 extension UIViewController{
     
@@ -191,6 +192,7 @@ extension UIViewController{
                                         UserDefaults.standard.setValue(false, forKey: UserDefaultsName.AddressIndentityCrash)
                                         UserDefaults.standard.setValue(false, forKey: UserDefaultsName.UseTouchID)
                                         UserDefaults.standard.setValue(false, forKey: UserDefaultsName.StartFromScanner)
+                                        self.deleteEntity(entityName: "User")
                                         UserDefaults.standard.setValue("", forKey: UserDefaultsName.Token)
                                         self.removeShortcutItem(application: UIApplication.shared)
                                         UserDefaults.standard.set("", forKey: ALConstants.kPincode)
@@ -208,6 +210,25 @@ extension UIViewController{
                                        }))
         
         
+        
+    }
+    
+     func deleteEntity(entityName: String) {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            fatalError()
+        }
+        
+        let context = appDelegate.persistentContainer.viewContext
+        
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entityName)
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+        
+        do {
+            try context.execute(deleteRequest)
+            appDelegate.saveContext()
+        } catch _ as NSError {
+            
+        }
         
     }
     
@@ -287,6 +308,43 @@ extension UIViewController{
         application.shortcutItems = []
     }
     
+    func saveNewIdentity( accessToken: String){
+           
+           let appDelegate = UIApplication.shared.delegate as? AppDelegate
+           let context = appDelegate!.persistentContainer.viewContext
+           let entity = NSEntityDescription.entity(forEntityName: "User", in: context)
+           let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
+           
+           do{
+                   let newUser = NSManagedObject(entity: entity!, insertInto: context)
+                   newUser.setValue(true, forKey: "currentUser")
+                   newUser.setValue("", forKey: "pinCode")
+                   newUser.setValue(accessToken, forKey: "accessToken")
+                   
+                   do {
+                       try context.save()
+                   } catch {
+                       print("Failed saving")
+                   }
+               
+           } catch{
+               
+           }
+       }
+    
+    func getCurrentUser() -> User{
+           let appDelegate = UIApplication.shared.delegate as! AppDelegate
+           let context = appDelegate.persistentContainer.viewContext
+           let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
+           fetchRequest.predicate = NSPredicate(format: "currentUser == YES")
+           do {
+               let results = try context.fetch(fetchRequest) as? [User]
+               if results?.count != 0 {
+                   return results![0]
+               }
+           } catch {}
+        return User()
+       }
 }
 
 

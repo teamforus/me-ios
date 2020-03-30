@@ -122,10 +122,16 @@ class MVoucherViewController: UIViewController {
         voucherViewModel.completeExchangeToken = { [weak self] (token) in
             
             DispatchQueue.main.async {
-                
-                if let url = URL(string: (self?.voucher.fund!.url_webshop)! + "auth-link?token=" + token) {
-                    let safariVC = SFSafariViewController(url: url)
-                    self?.present(safariVC, animated: true, completion: nil)
+                if self?.voucher.fund!.url_webshop != nil {
+                    if let url = URL(string: (self?.voucher.fund!.url_webshop)! + "auth-link?token=" + token) {
+                        let safariVC = SFSafariViewController(url: url)
+                        self?.present(safariVC, animated: true, completion: nil)
+                    }
+                }else {
+                    if let url = URL(string: "https://kerstpakket.forus.io") {
+                        let safariVC = SFSafariViewController(url: url)
+                        self?.present(safariVC, animated: true, completion: nil)
+                    }
                 }
             }
         }

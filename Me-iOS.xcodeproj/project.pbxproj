@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5B42874523AD0EBE00FEABE7 /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B42874323AD0EBE00FEABE7 /* User+CoreDataClass.swift */; };
+		5B42874623AD0EBE00FEABE7 /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B42874423AD0EBE00FEABE7 /* User+CoreDataProperties.swift */; };
 		650FF5DF22AD192C004C3A85 /* ProductVoucher.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 650FF5E122AD192C004C3A85 /* ProductVoucher.storyboard */; };
 		650FF5E622AD1AE3004C3A85 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 650FF5E822AD1AE3004C3A85 /* Main.storyboard */; };
 		650FF5ED22AD1D2A004C3A85 /* ConfirmRegister.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 650FF5EF22AD1D2A004C3A85 /* ConfirmRegister.storyboard */; };
@@ -28,7 +30,7 @@
 		6511CB182362FCFC00863E85 /* PullUpQRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6511CB162362FCFC00863E85 /* PullUpQRViewController.swift */; };
 		6511CB192362FCFC00863E85 /* PullUpQRViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6511CB172362FCFC00863E85 /* PullUpQRViewController.xib */; };
 		65139C0622802545003E0CDE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65139C0522802545003E0CDE /* AppDelegate.swift */; };
-		65139C0E22802546003E0CDE /* Me_iOS.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 65139C0C22802545003E0CDE /* Me_iOS.xcdatamodeld */; };
+		65139C0E22802546003E0CDE /* MeApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 65139C0C22802545003E0CDE /* MeApp.xcdatamodeld */; };
 		65139C1022802548003E0CDE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 65139C0F22802548003E0CDE /* Assets.xcassets */; };
 		65139C1322802548003E0CDE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65139C1122802548003E0CDE /* LaunchScreen.storyboard */; };
 		65139C1E22802548003E0CDE /* Me_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65139C1D22802548003E0CDE /* Me_iOSTests.swift */; };
@@ -200,6 +202,8 @@
 		27C5698FBEA4D2ECE5592544 /* Pods-Me-iOSTests.alpha.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Me-iOSTests.alpha.xcconfig"; path = "Target Support Files/Pods-Me-iOSTests/Pods-Me-iOSTests.alpha.xcconfig"; sourceTree = "<group>"; };
 		419E6D0E1450A2994CF709CB /* Pods-Me-iOSUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Me-iOSUITests.debug.xcconfig"; path = "Target Support Files/Pods-Me-iOSUITests/Pods-Me-iOSUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		43960597C5DD3C7D7D6E0BF0 /* Pods_Me_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Me_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5B42874323AD0EBE00FEABE7 /* User+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		5B42874423AD0EBE00FEABE7 /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		644A1B68834DF814F70203BA /* Pods-Me-iOS.demo.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Me-iOS.demo.xcconfig"; path = "Target Support Files/Pods-Me-iOS/Pods-Me-iOS.demo.xcconfig"; sourceTree = "<group>"; };
 		650FF5E022AD192C004C3A85 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/ProductVoucher.storyboard; sourceTree = "<group>"; };
 		650FF5E322AD1933004C3A85 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ProductVoucher.strings; sourceTree = "<group>"; };
@@ -559,6 +563,8 @@
 		65139C0422802545003E0CDE /* Me-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				5B42874323AD0EBE00FEABE7 /* User+CoreDataClass.swift */,
+				5B42874423AD0EBE00FEABE7 /* User+CoreDataProperties.swift */,
 				65B4DE4422A17E9000AFC878 /* Me-iOS.entitlements */,
 				65139C0522802545003E0CDE /* AppDelegate.swift */,
 				6568BAB822A55541001C722C /* Extensions */,
@@ -575,7 +581,7 @@
 				65D11B7D22A6ACE000756BE0 /* PopUp */,
 				65100B0A229D9146007892D1 /* Localizable.strings */,
 				65139C1422802548003E0CDE /* Info.plist */,
-				65139C0C22802545003E0CDE /* Me_iOS.xcdatamodeld */,
+				65139C0C22802545003E0CDE /* MeApp.xcdatamodeld */,
 			);
 			path = "Me-iOS";
 			sourceTree = "<group>";
@@ -1676,7 +1682,7 @@
 				65A8B7472282EE7B00B7DF05 /* MSuccessEmailViewController.swift in Sources */,
 				655D64732315948900EABD57 /* ValuteTableViewCell.swift in Sources */,
 				65A8B7062282DE3D00B7DF05 /* MConfirmRegisterViewController.swift in Sources */,
-				65139C0E22802546003E0CDE /* Me_iOS.xcdatamodeld in Sources */,
+				65139C0E22802546003E0CDE /* MeApp.xcdatamodeld in Sources */,
 				654F97A3229BE9A4009C9FFA /* RecordsTableViewCell.swift in Sources */,
 				65684619229432CE00097E83 /* TransactionTableViewCell.swift in Sources */,
 				654ACBAC22A94D550052C9C2 /* ProfileViewModel.swift in Sources */,
@@ -1736,6 +1742,7 @@
 				65139C3E2280273E003E0CDE /* HSDefaultScanView.swift in Sources */,
 				65911B4A228D899700EA30D6 /* Fund.swift in Sources */,
 				659859712359B66600D08289 /* EmployeesOrganization.swift in Sources */,
+				5B42874523AD0EBE00FEABE7 /* User+CoreDataClass.swift in Sources */,
 				65A8B70D2282E19400B7DF05 /* MVouchersViewController.swift in Sources */,
 				65CF4081228C0CAB0006F5DE /* RecordsIndentity.swift in Sources */,
 				65139C3B2280273E003E0CDE /* ScanPermission.swift in Sources */,
@@ -1757,6 +1764,7 @@
 				655D64712315903900EABD57 /* HBSegmentedControl.swift in Sources */,
 				65139C7522802F25003E0CDE /* PinCode.swift in Sources */,
 				65911B48228D892800EA30D6 /* Voucher.swift in Sources */,
+				5B42874623AD0EBE00FEABE7 /* User+CoreDataProperties.swift in Sources */,
 				65A8B73B2282EC3800B7DF05 /* PaymentViewModel.swift in Sources */,
 				65BDB8652292D5170016296C /* DownloadImage.swift in Sources */,
 				654ACBA922A92A870052C9C2 /* PayTransaction.swift in Sources */,
@@ -2201,7 +2209,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon.Dev;
 				CODE_SIGN_ENTITLEMENTS = "Me-iOS/Me-iOS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 62;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = FNTR3V85ZM;
 				INFOPLIST_FILE = "Me-iOS/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -2209,6 +2217,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 0.2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = io.forus.me.test;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEV;
@@ -2224,7 +2233,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Me-iOS/Me-iOS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 62;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = FNTR3V85ZM;
 				INFOPLIST_FILE = "Me-iOS/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -2232,8 +2241,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 0.2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = io.forus.me;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -2383,7 +2394,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon.Alpha;
 				CODE_SIGN_ENTITLEMENTS = "Me-iOS/Me-iOS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 62;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = FNTR3V85ZM;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_TESTABILITY = NO;
@@ -2394,6 +2405,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 0.2.0;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = io.forus.me.lab;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -2507,7 +2519,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon.Demo;
 				CODE_SIGN_ENTITLEMENTS = "Me-iOS/Me-iOS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 62;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = FNTR3V85ZM;
 				GCC_OPTIMIZATION_LEVEL = s;
 				INFOPLIST_FILE = "Me-iOS/Info.plist";
@@ -2516,6 +2528,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 0.2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = io.forus.me.demo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEMO;
@@ -2616,13 +2629,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		65139C0C22802545003E0CDE /* Me_iOS.xcdatamodeld */ = {
+		65139C0C22802545003E0CDE /* MeApp.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
 				65139C0D22802545003E0CDE /* Me_iOS.xcdatamodel */,
 			);
 			currentVersion = 65139C0D22802545003E0CDE /* Me_iOS.xcdatamodel */;
-			path = Me_iOS.xcdatamodeld;
+			path = MeApp.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

@@ -54,7 +54,8 @@ class MLoginQRAndCodeViewController: UIViewController {
             DispatchQueue.main.async {
                 if message == "active"{
                     self?.timer.invalidate()
-                    UserDefaults.standard.set(self?.token, forKey: UserDefaultsName.Token)
+                    self?.saveNewIdentity(accessToken: self!.token)
+                    UserDefaults.standard.set(self?.getCurrentUser().accessToken!, forKey: UserDefaultsName.Token)
                     UserDefaults.standard.set(true, forKey: UserDefaultsName.UserIsLoged)
                     CurrentSession.shared.token = self?.token
                     self?.addShortcuts(application: UIApplication.shared)
