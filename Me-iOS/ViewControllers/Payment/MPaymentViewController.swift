@@ -126,7 +126,7 @@ extension MPaymentViewController {
         }
         if voucher?.product != nil {
             if let price = voucher?.product?.price {
-                priceUILabel.text = price
+                priceUILabel.text = "€ " + price
             }
             arrowIcon.isHidden = true
             chooseOrganizationButton.isHidden = true
@@ -143,7 +143,7 @@ extension MPaymentViewController {
             
         }else {
             if let price = voucher?.amount {
-                priceUILabel.text = price
+                priceUILabel.text = "€ " + price
             }
             voucherNameLabel.text = voucher.fund?.name ?? ""
             voucherIcon.loadImageUsingUrlString(urlString: voucher.fund?.organization?.logo?.sizes?.thumbnail ?? "", placeHolder: #imageLiteral(resourceName: "Resting"))
