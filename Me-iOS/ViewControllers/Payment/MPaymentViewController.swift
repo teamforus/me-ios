@@ -21,6 +21,7 @@ class MPaymentViewController: UIViewController {
     @IBOutlet weak var chooseOrganizationButton: UIButton!
     @IBOutlet weak var heightFieldsConstraint: NSLayoutConstraint!
     @IBOutlet weak var arrowIcon: UIImageView!
+    @IBOutlet weak var priceUILabel: UILabel!
     
     var isFromReservation: Bool!
     var testToken: String!
@@ -124,7 +125,9 @@ extension MPaymentViewController {
             self.setStatusBarStyle(.default)
         }
         if voucher?.product != nil {
-            
+            if let price = voucher?.product?.price {
+                priceUILabel.text = price
+            }
             arrowIcon.isHidden = true
             chooseOrganizationButton.isHidden = true
             voucherNameLabel.text = voucher.product?.name ?? ""
@@ -139,7 +142,9 @@ extension MPaymentViewController {
             heightFieldsConstraint.constant = 160
             
         }else {
-            
+            if let price = voucher?.amount {
+                priceUILabel.text = price
+            }
             voucherNameLabel.text = voucher.fund?.name ?? ""
             voucherIcon.loadImageUsingUrlString(urlString: voucher.fund?.organization?.logo?.sizes?.thumbnail ?? "", placeHolder: #imageLiteral(resourceName: "Resting"))
             organizationLabel.text = voucher.fund?.organization?.name ?? ""
