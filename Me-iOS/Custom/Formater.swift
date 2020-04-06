@@ -9,9 +9,9 @@
 import UIKit
 
 extension Date {
-
     
-     func dateFormaterFromDate() -> String  {
+    
+    func dateFormaterFromDate() -> String  {
         let dateFormater = DateFormatter()
         dateFormater.dateFormat = "dd.MM.yyyy HH:mm"
         let dateString = dateFormater.string(from: self)
@@ -25,7 +25,7 @@ extension Date {
         return date!
     }
     
-     func dateFormaterFromDateShort() -> String  {
+    func dateFormaterFromDateShort() -> String  {
         let dateFormater = DateFormatter()
         dateFormater.dateFormat = "dd.MM.yyyy"
         let dateString = dateFormater.string(from: self)
@@ -57,9 +57,10 @@ extension String{
         return date!
     }
     
-        func formatDate() -> Date  {
+    func formatDate() -> Date  {
         let dateFormater = DateFormatter()
-        dateFormater.dateFormat = "yyyy-MM-dd HH:mm:ss.SSSSS"
+        //        dateFormater.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSSSS'Z'"
+        dateFormater.dateFormat = "yyyy-MM-ddHH:mm:ss.SSSSSS"
         let date = dateFormater.date(from: self)
         return date!
     }
@@ -93,7 +94,8 @@ extension String{
     
     func dateFormaterExpireDate() -> String  {
         let dateFormater = DateFormatter()
-        dateFormater.dateFormat = "yyyy-MM-dd HH:mm:ss.SSSSS"
+//        dateFormater.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSSSS'Z'"
+        dateFormater.dateFormat = "yyyy-MM-ddHH:mm:ss.SSSSSS"
         let date = dateFormater.date(from: self)
         dateFormater.dateFormat = "d MMMM yyyy"
         let dateString = dateFormater.string(from: date!)

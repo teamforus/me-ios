@@ -27,7 +27,7 @@ class MRecordDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        recordDetailViewModel.vc = self
         
         recordDetailViewModel.complete = { [weak self] (record) in
             

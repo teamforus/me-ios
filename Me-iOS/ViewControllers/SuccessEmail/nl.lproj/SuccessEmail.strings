@@ -3,7 +3,7 @@
 "Opf-SA-edo.normalTitle" = "OPEN MAIL APP";
 
 /* Class = "UIButton"; normalTitle = "ANNULEER"; ObjectID = "pqB-sU-g6i"; */
-"pqB-sU-g6i.normalTitle" = "ANNULEER";
+"pqB-sU-g6i.normalTitle" = "KOPPELEN";
 
 /* Class = "UILabel"; text = "Er is een e-mail naar je verstuurd"; ObjectID = "zQC-jP-eMe"; */
 "zQC-jP-eMe.text" = "Er is een e-mail naar je toegestuurd.";

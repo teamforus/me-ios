@@ -6,12 +6,14 @@
 //  Copyright © 2019 Tcacenco Daniel. All rights reserved.
 //
 
-import Foundation
+import UIKit
+import KVSpinnerView
 
 class CommonBottomViewModel{
     
     var commonService: CommonServiceProtocol!
     var statusService: StatusServiceProtocol!
+    var vc: UIViewController!
     
     var completeToken: ((String, String)->())!
     var completeVoucher: ((String)->())!
@@ -27,9 +29,9 @@ class CommonBottomViewModel{
     func initFetchQrToken(){
         
         self.commonService.post(request: "identity/proxy/token") { (response: AuthorizationQRToken, statusCode) in
+            
             self.completeToken(response.auth_token ?? "", response.access_token ?? "")
         }
-        
     }
     
     func initFetchVoucherToken(){
@@ -42,15 +44,23 @@ class CommonBottomViewModel{
         let parameters = ["record_id" : idRecords]
         
         self.commonService.postWithParameters(request: "identity/record-validations", parameters: parameters, complete: { (response: RecordValidation, statusCode) in
-            
-            self.completeRecord?(response)
+            if statusCode == 401 {
+                DispatchQueue.main.async {
+                    KVSpinnerView.dismiss()
+                    self.vc.showSimpleAlertWithSingleAction(title: "Expired session".localized(), message: "Your session has expired. You are being logged out.".localized() , okAction: UIAlertAction(title: "Log out".localized(), style: .default, handler: { (action) in
+                        self.vc.logoutOptions()
+                    }))
+                }
+            } else {
+                self.completeRecord?(response)
+            }
         }) { (error) in
             
         }
     }
     
     func initAuthorizeToken(token: String){
-        self.statusService.checkStatus(request: token, complete: {  (response, statusCOde) in
+        self.statusService.checkStatus(token: token, complete: {  (response, statusCOde) in
             
             self.completeAuthorize?(response.message ?? "")
             
@@ -61,7 +71,16 @@ class CommonBottomViewModel{
     
     func getIndentity(){
         commonService.get(request: "identity", complete: { (response: Office, statusCode) in
-            self.completeIdentity?(response.address ?? "")
+            if statusCode == 401 {
+                DispatchQueue.main.async {
+                    KVSpinnerView.dismiss()
+                    self.vc.showSimpleAlertWithSingleAction(title: "Expired session".localized(), message: "Your session has expired. You are being logged out.".localized() , okAction: UIAlertAction(title: "Log out".localized(), style: .default, handler: { (action) in
+                        self.vc.logoutOptions()
+                    }))
+                }
+            }else {
+                self.completeIdentity?(response.address ?? "")
+            }
         }) { (error) in
             
         }

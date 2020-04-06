@@ -24,6 +24,7 @@ class QRViewModel{
     var completeOrganization: (([EmployeesOrganization]) -> ())?
     
     var getVoucher: ((Voucher, Int)->())!
+    var getProducts: (([Transaction])->())?
     
     init(commonService: CommonServiceProtocol = CommonService()) {
         self.commonService = commonService
@@ -34,19 +35,26 @@ class QRViewModel{
         let parameters = ["auth_token" : token]
         
         commonService.postWithParameters(request: "identity/proxy/authorize/token", parameters: parameters, complete: { (response: AuthorizationQRToken, statusCode) in
-            self.authorizeToken?(statusCode)
-        }) { (error) in
             
-            
-            
-        }
+            if statusCode == 401 {
+                DispatchQueue.main.async {
+                    KVSpinnerView.dismiss()
+                    self.vc.showSimpleAlertWithSingleAction(title: "Expired session".localized(), message: "Your session has expired. You are being logged out.".localized() , okAction: UIAlertAction(title: "Log out".localized(), style: .default, handler: { (action) in
+                        self.vc.logoutOptions()
+                    }))
+                }
+            }else {
+                
+                self.authorizeToken?(statusCode)
+            }
+        }) { (error) in }
         
     }
     
     
     func initVoucherAddress(address: String) {
         
-        commonService.get(request: "platform/vouchers/"+address+"/provider", complete: { (response: ResponseData<Voucher>, statusCode) in
+        commonService.get(request: "platform/provider/vouchers/"+address, complete: { (response: ResponseData<Voucher>, statusCode) in
             
             if statusCode == 500 {
                 
@@ -67,32 +75,70 @@ class QRViewModel{
                     }))
                 }
             }else if statusCode == 404 {
-                 DispatchQueue.main.async {
-                KVSpinnerView.dismiss()
-                self.vcAlert.showSimpleAlertWithSingleAction(title: "Error!".localized(), message: response.message ?? "", okAction: UIAlertAction(title: "OK", style: .default, handler: { (action) in
-                    self.vc?.scanWorker.start()
-                }))
+                DispatchQueue.main.async {
+                    KVSpinnerView.dismiss()
+                    self.vcAlert.showSimpleAlertWithSingleAction(title: "Error!".localized(), message: response.message ?? "", okAction: UIAlertAction(title: "OK", style: .default, handler: { (action) in
+                        self.vc?.scanWorker.start()
+                    }))
                 }
                 
+            }else if statusCode == 401 {
+                DispatchQueue.main.async {
+                    KVSpinnerView.dismiss()
+                    self.vc.showSimpleAlertWithSingleAction(title: "Expired session".localized(), message: "Your session has expired. You are being logged out.".localized() , okAction: UIAlertAction(title: "Log out".localized(), style: .default, handler: { (action) in
+                        self.vc.logoutOptions()
+                    }))
+                }
             }else {
                 self.getVoucher(response.data!, statusCode)
             }
         }) { (error) in
             DispatchQueue.main.async {
-            KVSpinnerView.dismiss()
-            self.vc.scanWorker.start()
+                KVSpinnerView.dismiss()
+                self.vc.scanWorker.start()
             }
         }
         
     }
     
     
+    func iniProductsFromVoucher(address: String) {
+        commonService.get(request: "platform/provider/vouchers/"+address+"/product-vouchers", complete: { (response: ResponseDataArray<Transaction>, statusCode) in
+            
+            if statusCode == 500 {
+                
+                
+            }else if statusCode == 403  {
+               
+            }else if statusCode == 404 {
+              
+                
+            }else if statusCode == 401 {
+              
+            }else {
+                self.getProducts?(response.data ?? [])
+            }
+        }) { (error) in
+            DispatchQueue.main.async {
+                KVSpinnerView.dismiss()
+                self.vc.scanWorker.start()
+            }
+        }
+    }
+    
     func initValidationRecord(code: String) {
         
         commonService.get(request: "identity/record-validations/" + code, complete: { (response: RecordValidation, statusCode) in
-            
-            self.validateRecord(response, statusCode)
-            
+            if statusCode == 401 {
+                DispatchQueue.main.async {
+                    KVSpinnerView.dismiss()
+                    self.vc.showSimpleAlertWithSingleAction(title: "Expired session".localized(), message: "Your session has expired. You are being logged out.".localized() , okAction: UIAlertAction(title: "Log out".localized(), style: .default, handler: { (action) in
+                        self.vc.logoutOptions()
+                    }))
+                }
+            } else {
+                self.validateRecord(response, statusCode)
+            }
         }) { (error) in
             
         }
@@ -101,9 +147,16 @@ class QRViewModel{
     
     func getOrganizations(){
         commonService.get(request: "platform/employees?role=validation", complete: { (response: ResponseDataArray<EmployeesOrganization>, statusCode) in
-            
-            self.completeOrganization?(response.data ?? [])
-            
+             if statusCode == 401 {
+                DispatchQueue.main.async {
+                    KVSpinnerView.dismiss()
+                    self.vc.showSimpleAlertWithSingleAction(title: "Expired session".localized(), message: "Your session has expired. You are being logged out.".localized() , okAction: UIAlertAction(title: "Log out".localized(), style: .default, handler: { (action) in
+                        self.vc.logoutOptions()
+                    }))
+                }
+            }else {
+                self.completeOrganization?(response.data ?? [])
+            }
         }) { (error) in
             
         }
@@ -112,16 +165,32 @@ class QRViewModel{
     func initApproveValidationRecord(code: String, organization: OrganizationRecord) {
         
         commonService.patch(request: "identity/record-validations/" + code + "/approve", data: organization) { (response: AuthorizationQRToken, statusCode) in
-            self.validateApproveRecord(statusCode)
+            if statusCode == 401 {
+                DispatchQueue.main.async {
+                    KVSpinnerView.dismiss()
+                    self.vc.showSimpleAlertWithSingleAction(title: "Expired session".localized(), message: "Your session has expired. You are being logged out.".localized() , okAction: UIAlertAction(title: "Log out".localized(), style: .default, handler: { (action) in
+                        self.vc.logoutOptions()
+                    }))
+                }
+            }else {
+                self.validateApproveRecord(statusCode)
+            }
         }
     }
     
     func initTestTransaction() {
         
         commonService.get(request: "platform/demo/transactions/" +  CurrentSession.shared.token, complete: { (response: ResponseDataArray<EmployeesOrganization>, statusCode) in
-            
-            self.completeTestToken?()
-            
+            if statusCode == 401 {
+                DispatchQueue.main.async {
+                    KVSpinnerView.dismiss()
+                    self.vc.showSimpleAlertWithSingleAction(title: "Expired session".localized(), message: "Your session has expired. You are being logged out.".localized() , okAction: UIAlertAction(title: "Log out".localized(), style: .default, handler: { (action) in
+                        self.vc.logoutOptions()
+                    }))
+                }
+            }else {
+                self.completeTestToken?()
+            }
         }) { (error) in
             
         }

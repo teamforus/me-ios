@@ -6,12 +6,14 @@
 //  Copyright © 2019 Tcacenco Daniel. All rights reserved.
 //
 
-import Foundation
+import UIKit
+import KVSpinnerView
 
 
 class RecordDetailViewModel {
     
     var commonService: CommonServiceProtocol!
+    var vc: UIViewController!
     
     private var cellViewModels: [Validator] = [Validator]()
     
@@ -26,8 +28,17 @@ class RecordDetailViewModel {
     func initFetchById(id: String) {
         
         commonService.getById(request: "identity/records/", id: id, complete: { (response: Record, statusCode) in
-            self.processFetchedLunche(validators: response.validations ?? [])
-            self.complete?(response)
+            if statusCode == 401 {
+                DispatchQueue.main.async {
+                    KVSpinnerView.dismiss()
+                    self.vc.showSimpleAlertWithSingleAction(title: "Expired session".localized(), message: "Your session has expired. You are being logged out.".localized() , okAction: UIAlertAction(title: "Log out".localized(), style: .default, handler: { (action) in
+                        self.vc.logoutOptions()
+                    }))
+                }
+            }else {
+                self.processFetchedLunche(validators: response.validations ?? [])
+                self.complete?(response)
+            }
             
         }) { (error) in
             
@@ -38,7 +49,16 @@ class RecordDetailViewModel {
     func initDeleteById(id: String) {
         
         commonService.deleteById(request: "identity/records/", id: id, complete: { (statusCode) in
-            self.completeDelete?(statusCode)
+            if statusCode == 401 {
+                DispatchQueue.main.async {
+                    KVSpinnerView.dismiss()
+                    self.vc.showSimpleAlertWithSingleAction(title: "Expired session".localized(), message: "Your session has expired. You are being logged out.".localized() , okAction: UIAlertAction(title: "Log out".localized(), style: .default, handler: { (action) in
+                        self.vc.logoutOptions()
+                    }))
+                }
+            }else {
+                self.completeDelete?(statusCode)
+            }
         }) { (error) in
             
         }

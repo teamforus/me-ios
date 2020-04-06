@@ -2,7 +2,7 @@
 //  BaseURL.swift
 //  MeApp
 //
-//  Created by Tcacenco Daniel on 6/1/18.
+//  Created by Tcacenco Daniel on 6/1/18. 
 //  Copyright © 2018 Tcacenco Daniel. All rights reserved.
 //
 
@@ -19,7 +19,7 @@ class BaseURL {
         #elseif DEMO
         return "https://demo.api.forus.io/api/v1/\(url)"
         #else
-        return "https://api.forus.link/api/v1/\(url)"
+        return "https://api.forus.io/api/v1/\(url)"
         #endif
         
     }
@@ -32,7 +32,7 @@ class BaseURL {
         #elseif DEMO
         return "demo.api.forus.link"
         #else
-        return "api.forus.link"
+        return "api.forus.io"
         #endif
     }
 }
