@@ -36,7 +36,7 @@
 "ony-rh-yQc.title" = "Vouchers";
 
 /* Class = "UITabBarItem"; title = "Records"; ObjectID = "S2m-RV-PJB"; */
-"S2m-RV-PJB.title" = "Eigenschaps";
+"S2m-RV-PJB.title" = "Eigenschappen";
 
 /* Class = "UILabel"; text = "You have no vouchers yet"; ObjectID = "r3k-mS-eBG"; */
 "r3k-mS-eBG.text" = "Je hebt nog geen vouchers.";
