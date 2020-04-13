@@ -9,9 +9,8 @@
 import Foundation
 
 
-struct RecordsIndenty: Encodable {
+struct RecordsIndenty: Codable {
     
-    var primary_email: String?
     var family_name: String?
     var given_name: String?
     

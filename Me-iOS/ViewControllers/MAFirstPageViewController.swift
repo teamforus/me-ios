@@ -93,13 +93,7 @@ class MAFirstPageViewController: UIViewController {
             chooseEnvironmentButton.setTitle("Demo", for: .normal)
             break
         case EnvironmentType.dev.rawValue:
-            CheckWebSiteReacheble.checkWebsite(url: "https://develop.test.api.forus.io") { (isReacheble) in
-                if isReacheble {
-                    UserDefaults.standard.setValue("https://develop.test.api.forus.io/api/v1/", forKey: UserDefaultsName.EnvironmentURL)
-                }else {
-                    UserDefaults.standard.setValue("https://dev.api.forus.io/api/v1/", forKey: UserDefaultsName.EnvironmentURL)
-                }
-            }
+            UserDefaults.standard.setValue("https://dev.api.forus.io/api/v1/", forKey: UserDefaultsName.EnvironmentURL)
             UserDefaults.standard.setValue("Dev", forKey: UserDefaultsName.EnvironmentName)
             chooseEnvironmentButton.setTitle("Dev", for: .normal)
             break
@@ -164,8 +158,7 @@ class MAFirstPageViewController: UIViewController {
         
         if isReachable() {
             
-            registerViewModel.initRegister(identity: Identity(pin_code: "1111",
-                                                              records: RecordsIndenty(primary_email: emailField.text ?? "")))
+            registerViewModel.initRegister(identity: Identity(email: emailField.text ?? ""))
         }else {
             
             showInternetUnable()
