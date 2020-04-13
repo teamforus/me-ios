@@ -95,7 +95,6 @@
 		6568462022944A1800097E83 /* UIViewMasking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6568461D22944A1700097E83 /* UIViewMasking.swift */; };
 		6568BAB722A52D24001C722C /* QRText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6568BAB622A52D24001C722C /* QRText.swift */; };
 		656FDDB6235DF046002422B2 /* OrganizationValidatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656FDDB4235DF046002422B2 /* OrganizationValidatorViewController.swift */; };
-		656FDDB7235DF046002422B2 /* OrganizationValidatorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 656FDDB5235DF046002422B2 /* OrganizationValidatorViewController.xib */; };
 		656FDDBC235DF3DB002422B2 /* OrganizationValidatorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656FDDBA235DF3DB002422B2 /* OrganizationValidatorTableViewCell.swift */; };
 		656FDDBD235DF3DB002422B2 /* OrganizationValidatorTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 656FDDBB235DF3DB002422B2 /* OrganizationValidatorTableViewCell.xib */; };
 		657DBA4022897C3500C67500 /* ResponseDataArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657DBA3E22897C3500C67500 /* ResponseDataArray.swift */; };
@@ -178,6 +177,7 @@
 		CECB06D5C049466A525F37E6 /* Pods_Me_iOSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A89BE88EEB1A6C3C9A22BE7 /* Pods_Me_iOSUITests.framework */; };
 		CF22307B8167F520952552BE /* Pods_Me_iOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1ABB0BB041DF2B085D794CD5 /* Pods_Me_iOSTests.framework */; };
 		E234190710AA58EB6F4C206A /* Pods_Me_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43960597C5DD3C7D7D6E0BF0 /* Pods_Me_iOS.framework */; };
+		FF3B1418243722EE003FDDD9 /* OrganizationValidatorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF3B141A243722EE003FDDD9 /* OrganizationValidatorViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -335,7 +335,6 @@
 		6568461D22944A1700097E83 /* UIViewMasking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewMasking.swift; sourceTree = "<group>"; };
 		6568BAB622A52D24001C722C /* QRText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRText.swift; sourceTree = "<group>"; };
 		656FDDB4235DF046002422B2 /* OrganizationValidatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationValidatorViewController.swift; sourceTree = "<group>"; };
-		656FDDB5235DF046002422B2 /* OrganizationValidatorViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrganizationValidatorViewController.xib; sourceTree = "<group>"; };
 		656FDDBA235DF3DB002422B2 /* OrganizationValidatorTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationValidatorTableViewCell.swift; sourceTree = "<group>"; };
 		656FDDBB235DF3DB002422B2 /* OrganizationValidatorTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrganizationValidatorTableViewCell.xib; sourceTree = "<group>"; };
 		657DBA3E22897C3500C67500 /* ResponseDataArray.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseDataArray.swift; sourceTree = "<group>"; };
@@ -439,6 +438,9 @@
 		D4DAE6D5AF45B3C9784E971D /* Pods-Me-iOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Me-iOSTests.release.xcconfig"; path = "Target Support Files/Pods-Me-iOSTests/Pods-Me-iOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		DD33B298743ED6923528A696 /* Pods-Me-iOSUITests.alpha.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Me-iOSUITests.alpha.xcconfig"; path = "Target Support Files/Pods-Me-iOSUITests/Pods-Me-iOSUITests.alpha.xcconfig"; sourceTree = "<group>"; };
 		F3E9ECB144534F67E9BA608D /* Pods-Me-iOSUITests.demo.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Me-iOSUITests.demo.xcconfig"; path = "Target Support Files/Pods-Me-iOSUITests/Pods-Me-iOSUITests.demo.xcconfig"; sourceTree = "<group>"; };
+		FF3B1419243722EE003FDDD9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/OrganizationValidatorViewController.xib; sourceTree = "<group>"; };
+		FF3B141E243722F6003FDDD9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/OrganizationValidatorViewController.strings; sourceTree = "<group>"; };
+		FF3B1422243722F8003FDDD9 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/OrganizationValidatorViewController.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -803,7 +805,7 @@
 			isa = PBXGroup;
 			children = (
 				656FDDB4235DF046002422B2 /* OrganizationValidatorViewController.swift */,
-				656FDDB5235DF046002422B2 /* OrganizationValidatorViewController.xib */,
+				FF3B141A243722EE003FDDD9 /* OrganizationValidatorViewController.xib */,
 				656FDDBA235DF3DB002422B2 /* OrganizationValidatorTableViewCell.swift */,
 				656FDDBB235DF3DB002422B2 /* OrganizationValidatorTableViewCell.xib */,
 			);
@@ -1511,6 +1513,7 @@
 				65139C50228029C0003E0CDE /* LICENSE in Resources */,
 				650FF60922AD237A004C3A85 /* LoginQRAndCodeViewController.storyboard in Resources */,
 				65139C4F228029C0003E0CDE /* backspaceBlue@2x.png in Resources */,
+				650FF5ED22AD1D2A004C3A85 /* ConfirmRegister.storyboard in Resources */,
 				656FDDB7235DF046002422B2 /* OrganizationValidatorViewController.xib in Resources */,
 				650FF61722AD2ACF004C3A85 /* RecordDetail.storyboard in Resources */,
 				655D6477231598D300EABD57 /* SendEtherViewController.xib in Resources */,
@@ -2105,6 +2108,16 @@
 				65F52E482316798900B9D229 /* nl */,
 			);
 			name = MCrashConfirmViewController.xib;
+			sourceTree = "<group>";
+		};
+		FF3B141A243722EE003FDDD9 /* OrganizationValidatorViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FF3B1419243722EE003FDDD9 /* Base */,
+				FF3B141E243722F6003FDDD9 /* en */,
+				FF3B1422243722F8003FDDD9 /* nl */,
+			);
+			name = OrganizationValidatorViewController.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
