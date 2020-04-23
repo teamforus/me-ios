@@ -44,12 +44,12 @@
 "Payment succeeded" = "Betaling geslaagd! De verwerking van de betaling kan maximaal 3 werkdagen duren.";
 "Please enter the amount" = "Voer het bedrag in";
 "Insufficient funds on the voucher" = "Onvoldoende budget op de voucher";
-"Success" = "Succes!";
-"Success!" = "Geslaagd!";
+"success" = "Succes!";
+"success_exclamation" = "Geslaagd!";
 "Insufficient funds on the voucher. Please, request extra payment of" = "Onvoldoende budget op de voucher. Verzoek de klant of hij een bedrag van %@ wilt bijbetalen";
 "REQUEST" = "VRAAG";
 "Validate" = "Valideer";
-"Error" = "Error";
+"error" = "Error";
 "This device in not authorize" = "Dit apparaat is niet geautoriseerd";
 "About Me" = "Over Me";
 "With the Me you can create an identity, receive and use your vouchers. For more information please visit our website — https://zuidhorn.forus.io" = "Met Me kan je een profiel aanmaken, vouchers beheren en de QR-code scanner gebruiken om in te loggen op de gebruikersomgeving.";
@@ -60,14 +60,13 @@
 "Enter your login code" = "Voer je inlogcode in";
 "The voucher is empty! No transactions can be done." = "De voucher is op! Geen transacties kunnen gedaan worden.";
 "This product voucher is used!" = "Aanbiedingvoucher is al gebruikt!";
-"Error!" = "Mislukt!";
+"error_exclamation" = "Mislukt!";
 "Unknown QR-code!" = "Onbekende QR-code!";
 "You can't scan this voucher. You are not accepted as a provider for the fund that hands out these vouchers." = "U kunt deze voucher niet scannen. Het fonds dat deze voucher uitgegeven heeft, heeft u niet geaccepteerd als aanbieder.";
 "Camera permission request was denied." = "Verzoek om cameratoestemming is geweigerd.";
 "Press settings to give an access or cancel to close this window." = "Druk op instellingen om toegang te geven of druk op annuleren om dit venster te sluiten.";
 "Settings" = "Instellingen";
 "Scanning successfully!" = "Het scannen van de QR-code is gelukt";
-"Address" = "Adres";
 "Copy address" = "Adres kopiëren";
 "Copied to clipboard" = "Gekopieerd";
 "Transaction" = "Betaald";
@@ -112,7 +111,7 @@
 "Are you sure you want to log out?" = "Weet je zeker dat je wilt uitloggen?";
 "Log Out" = "Uitloggen";
 "Confirm" = "Bevestigen";
-"Cancel" = "Annuleren";
+"cancel" = "Annuleren";
 "Validations" = "Validaties";
 "primary_email" = "Hoofd e-mail";
 "email" = "Tweede e-mail";
@@ -144,3 +143,4 @@
 "Your session has expired. You are being logged out." = "Deze sessie is verlopen. Je wordt nu uitgelogd.";
 "Expired session" = "Verlopen sessie";
 "Click on the link you received on %@ to continue" = "Klik op de link in de email die u heeft ontvangen op %@ om uw aanmelding af te maken";
+"ok" = "OK";

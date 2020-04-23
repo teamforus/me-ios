@@ -33,6 +33,88 @@ class MProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupView()
+        fetchUserData()
+        setupUserDefaults()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setupSecurity()
+    }
+}
+
+// MARK: - IBActions
+
+extension MProfileViewController {
+    
+    @IBAction func switchStartFromScanner(_ sender: UISwitch) {
+        if sender.isOn {
+            UserDefaults.standard.setValue(true, forKey: UserDefaultsName.StartFromScanner)
+        }else {
+            UserDefaults.standard.setValue(false, forKey: UserDefaultsName.StartFromScanner)
+        }
+    }
+    
+    @IBAction func useFaceId(_ sender: UISwitch) {
+        if sender.isOn {
+            UserDefaults.standard.setValue(true, forKey: UserDefaultsName.UseTouchID)
+        }else {
+            UserDefaults.standard.setValue(false, forKey: UserDefaultsName.UseTouchID)
+        }
+    }
+    
+    @IBAction func sendCrashReports(_ sender: UISwitch) {
+        if sender.isOn {
+            UserDefaults.standard.setValue(true, forKey: UserDefaultsName.AddressIndentityCrash)
+        }else {
+            UserDefaults.standard.setValue(false, forKey: UserDefaultsName.AddressIndentityCrash)
+        }
+    }
+    
+    @IBAction func feedback(_ sender: Any) {
+        
+        showSimpleAlertWithAction(title: "Support", message: Localize.wouldYouLikeToSendUsYourFeedbackByEMail(),
+                                  okAction: UIAlertAction(title: Localize.cancel(), style: .cancel, handler: { (action) in
+                                  }),
+                                  cancelAction: UIAlertAction(title: Localize.confirm(), style: .default, handler: { (action) in
+                                    if MFMailComposeViewController.canSendMail() {
+                                        let composeVC = MFMailComposeViewController()
+                                        composeVC.mailComposeDelegate = self
+                                        composeVC.setToRecipients(["feedback@forus.io"])
+                                        composeVC.setSubject(Localize.myFeedbackAboutTheMeApp())
+                                        composeVC.setMessageBody("", isHTML: false)
+                                        self.present(composeVC, animated: true, completion: nil)
+                                    }else{
+                                        self.showSimpleAlert(title: Localize.warning(), message: Localize.mailServicesAreNotAvailable())
+                                    }
+                                  }))
+    }
+    
+    @IBAction func crash(_ sender: Any) {
+        Crashlytics.sharedInstance().crash()
+    }
+    
+    @IBAction func creatEditPasscode(_ sender: Any) {
+        
+        if passcodeIsSet() {
+            didChooseAppLocker(title: Localize.changePasscode(), subTitle: Localize.enterYourOldCode(), cancelButtonIsVissible: true, mode: .change)
+        }else {
+            didChooseAppLocker(title: Localize.loginCode(), subTitle: Localize.enterANewLoginCode(), cancelButtonIsVissible: true, mode: .create)
+        }
+    }
+    
+    @IBAction func deletePasscode(_ sender: Any) {
+        
+        didChooseAppLocker(title: Localize.turnOffLoginCode(), subTitle: Localize.enterANewLoginCode(), cancelButtonIsVissible: true, mode: .deactive)
+    }
+}
+
+// MARK: - SetupView
+
+extension MProfileViewController {
+    
+    private func setupView() {
         profileViewModel.vc = self
         let versionApp: AnyObject? = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as AnyObject
         let buildAppNumber: AnyObject? = Bundle.main.infoDictionary?["CFBundleVersion"] as AnyObject
@@ -43,7 +125,14 @@ class MProfileViewController: UIViewController {
         self.appVersionLabel.text = (versionApp as? String)!
         crashButton.isHidden = true
         #endif
-        
+    }
+    
+    private func fetchUserData() {
+        if isReachable() {
+            profileViewModel.initProfile()
+        }else {
+            showInternetUnable()
+        }
         
         profileViewModel.complete = { [weak self] (email, address) in
             
@@ -51,163 +140,43 @@ class MProfileViewController: UIViewController {
                 self?.profileNameLabel.isHidden = true
                 self?.emailLabel.text = email
             }
-            
         }
-        
-        
-        
+    }
+    
+    private func setupUserDefaults() {
         if UserDefaults.standard.bool(forKey: UserDefaultsName.StartFromScanner) {
-            
             startScannerSwitch.isOn = true
-            
         }
         
         if UserDefaults.standard.bool(forKey: UserDefaultsName.UseTouchID) {
-            
             userFaceIdSwitch.isOn = true
-            
         }
         
         if UserDefaults.standard.bool(forKey: UserDefaultsName.AddressIndentityCrash) {
-            
             crashReportSwitch.isOn = true
-            
         }
-        
+    }
+    
+    private func setupSecurity() {
         if faceIDAvailable() {
-            
             useSensorIdIcon.image = #imageLiteral(resourceName: "faceId-1")
-            useSensorIdLabel.text = "Turn on Face ID".localized()
-            
+            useSensorIdLabel.text = Localize.turnOnFaceID()
         }else {
-            
             useSensorIdIcon.image = #imageLiteral(resourceName: "touchId")
-            useSensorIdLabel.text = "Turn on Touch ID".localized()
-        }
-        
-    }
-    
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        if isReachable() {
-            
-            profileViewModel.initProfile()
-            
-        }else {
-            
-            showInternetUnable()
-            
+            useSensorIdLabel.text = Localize.turnOnTouchID()
         }
         
         if passcodeIsSet() {
-            changePasscodeLabel.text = "Change passcode".localized()
+            changePasscodeLabel.text = Localize.changePasscode()
             self.didUpdateButtonStackView(isHiddeButtons: false, buttonHeightConstant: 249, verticalConstant: 66)
-            
-            
         }else{
-            
-            changePasscodeLabel.text = "Create passcode".localized()
+            changePasscodeLabel.text = Localize.createPasscode()
             self.didUpdateButtonStackView(isHiddeButtons: true, buttonHeightConstant: 130, verticalConstant: 10)
-            
-        }
-        
-        
-        
-    }
-    
-    @IBAction func switchStartFromScanner(_ sender: UISwitch) {
-        if sender.isOn {
-            
-            UserDefaults.standard.setValue(true, forKey: UserDefaultsName.StartFromScanner)
-            
-        }else {
-            
-            UserDefaults.standard.setValue(false, forKey: UserDefaultsName.StartFromScanner)
-            
         }
     }
-    
-    @IBAction func useFaceId(_ sender: UISwitch) {
-        
-        if sender.isOn {
-            
-            UserDefaults.standard.setValue(true, forKey: UserDefaultsName.UseTouchID)
-            
-        }else {
-            
-            UserDefaults.standard.setValue(false, forKey: UserDefaultsName.UseTouchID)
-            
-        }
-        
-    }
-    
-    @IBAction func sendCrashReports(_ sender: UISwitch) {
-        
-        if sender.isOn {
-            
-            UserDefaults.standard.setValue(true, forKey: UserDefaultsName.AddressIndentityCrash)
-            
-        }else {
-            
-            UserDefaults.standard.setValue(false, forKey: UserDefaultsName.AddressIndentityCrash)
-            
-        }
-        
-    }
-    
-    @IBAction func feedback(_ sender: Any) {
-        
-        showSimpleAlertWithAction(title: "Support", message: "Would you like to send us your feedback by e-mail?".localized(),
-                                  okAction: UIAlertAction(title: "Cancel".localized(), style: .cancel, handler: { (action) in
-                                  }),
-                                  cancelAction: UIAlertAction(title: "Confirm".localized(), style: .default, handler: { (action) in
-                                    if MFMailComposeViewController.canSendMail() {
-                                        
-                                        let composeVC = MFMailComposeViewController()
-                                        composeVC.mailComposeDelegate = self
-                                        composeVC.setToRecipients(["feedback@forus.io"])
-                                        composeVC.setSubject("My feedback about the Me app".localized())
-                                        composeVC.setMessageBody("", isHTML: false)
-                                        self.present(composeVC, animated: true, completion: nil)
-                                        
-                                    }else{
-                                        
-                                        self.showSimpleAlert(title: "Warning".localized(), message: "Mail services are not available".localized())
-                                        
-                                    }
-                                  }))
-        
-    }
-    
-    @IBAction func crash(_ sender: Any) {
-        Crashlytics.sharedInstance().crash()
-    }
-    
-    @IBAction func creatEditPasscode(_ sender: Any) {
-        
-        
-        if passcodeIsSet() {
-            
-            didChooseAppLocker(title: "Change passcode".localized(), subTitle: "Enter your old code".localized(), cancelButtonIsVissible: true, mode: .change)
-            
-        }else {
-            
-            didChooseAppLocker(title: "Login code".localized(), subTitle: "Enter a new login code".localized(), cancelButtonIsVissible: true, mode: .create)
-            
-        }
-        
-    }
-    
-    @IBAction func deletePasscode(_ sender: Any) {
-        
-        didChooseAppLocker(title: "Turn off login code".localized(), subTitle: "Enter login code".localized(), cancelButtonIsVissible: true, mode: .deactive)
-    }
-    
-    
-    
 }
+
+// MARK: - UpdateButtons
 
 extension MProfileViewController {
     
@@ -219,6 +188,8 @@ extension MProfileViewController {
     }
     
 }
+
+// MARK: - Mail Delegate
 
 extension MProfileViewController: MFMailComposeViewControllerDelegate{
     

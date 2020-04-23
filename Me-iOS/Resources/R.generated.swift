@@ -2581,7 +2581,7 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
 
-    /// This `R.string.localizable` struct is generated, and contains static references to 128 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 134 localization keys.
     struct localizable {
       /// en translation: -voucher in the form of a QR-code
       ///
@@ -2599,6 +2599,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en, nl
       static let aboutMe = Rswift.StringResource(key: "About Me", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
+      /// en translation: Address
+      ///
+      /// Locales: en, nl
+      static let address = Rswift.StringResource(key: "address", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
       /// en translation: Amount of children
       ///
       /// Locales: en, nl
@@ -2630,7 +2634,7 @@ struct R: Rswift.Validatable {
       /// en translation: Cancel
       ///
       /// Locales: en, nl
-      static let cancel = Rswift.StringResource(key: "Cancel", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
+      static let cancel = Rswift.StringResource(key: "cancel", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
       /// en translation: Certificates
       ///
       /// Locales: en, nl
@@ -2735,6 +2739,14 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en, nl
       static let enterYourOldCode = Rswift.StringResource(key: "Enter your old code", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
+      /// en translation: Error
+      ///
+      /// Locales: en, nl
+      static let error = Rswift.StringResource(key: "error", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
+      /// en translation: Error!
+      ///
+      /// Locales: en, nl
+      static let error_exclamation = Rswift.StringResource(key: "error_exclamation", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
       /// en translation: Expired
       ///
       /// Locales: en, nl
@@ -2839,6 +2851,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en, nl
       static let noPhoneNumber = Rswift.StringResource(key: "No phone number", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
+      /// en translation: OK
+      ///
+      /// Locales: en, nl
+      static let ok = Rswift.StringResource(key: "ok", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
       /// en translation: Others
       ///
       /// Locales: en, nl
@@ -2955,6 +2971,14 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en, nl
       static let spouse = Rswift.StringResource(key: "spouse", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
+      /// en translation: Success
+      ///
+      /// Locales: en, nl
+      static let success = Rswift.StringResource(key: "success", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
+      /// en translation: Success!
+      ///
+      /// Locales: en, nl
+      static let success_exclamation = Rswift.StringResource(key: "success_exclamation", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
       /// en translation: Tax ID
       ///
       /// Locales: en, nl
@@ -3156,6 +3180,21 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("About Me", bundle: bundle, comment: "")
       }
 
+      /// en translation: Address
+      ///
+      /// Locales: en, nl
+      static func address(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("address", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "address"
+        }
+
+        return NSLocalizedString("address", bundle: bundle, comment: "")
+      }
+
       /// en translation: Amount of children
       ///
       /// Locales: en, nl
@@ -3266,14 +3305,14 @@ struct R: Rswift.Validatable {
       /// Locales: en, nl
       static func cancel(preferredLanguages: [String]? = nil) -> String {
         guard let preferredLanguages = preferredLanguages else {
-          return NSLocalizedString("Cancel", bundle: hostingBundle, comment: "")
+          return NSLocalizedString("cancel", bundle: hostingBundle, comment: "")
         }
 
         guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
-          return "Cancel"
+          return "cancel"
         }
 
-        return NSLocalizedString("Cancel", bundle: bundle, comment: "")
+        return NSLocalizedString("cancel", bundle: bundle, comment: "")
       }
 
       /// en translation: Certificates
@@ -3666,6 +3705,36 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("Enter your old code", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Error
+      ///
+      /// Locales: en, nl
+      static func error(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("error", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "error"
+        }
+
+        return NSLocalizedString("error", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Error!
+      ///
+      /// Locales: en, nl
+      static func error_exclamation(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("error_exclamation", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "error_exclamation"
+        }
+
+        return NSLocalizedString("error_exclamation", bundle: bundle, comment: "")
       }
 
       /// en translation: Expired
@@ -4062,6 +4131,21 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("No phone number", bundle: bundle, comment: "")
+      }
+
+      /// en translation: OK
+      ///
+      /// Locales: en, nl
+      static func ok(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("ok", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "ok"
+        }
+
+        return NSLocalizedString("ok", bundle: bundle, comment: "")
       }
 
       /// en translation: Others
@@ -4499,6 +4583,36 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("spouse", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Success
+      ///
+      /// Locales: en, nl
+      static func success(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("success", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "success"
+        }
+
+        return NSLocalizedString("success", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Success!
+      ///
+      /// Locales: en, nl
+      static func success_exclamation(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("success_exclamation", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "success_exclamation"
+        }
+
+        return NSLocalizedString("success_exclamation", bundle: bundle, comment: "")
       }
 
       /// en translation: Tax ID

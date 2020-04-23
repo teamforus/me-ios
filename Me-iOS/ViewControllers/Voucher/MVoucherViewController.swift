@@ -88,7 +88,7 @@ class MVoucherViewController: UIViewController {
     }
     
     @IBAction func opendQR(_ sender: UIButton) {
-        let popOverVC = PullUpQRViewController(nibName: "PullUpQRViewController", bundle: nil)
+        let popOverVC = PullUpQRViewController(nib: R.nib.pullUpQRViewController)
         popOverVC.voucher = voucher
         popOverVC.qrType = .Voucher
         showPopUPWithAnimation(vc: popOverVC)
@@ -100,19 +100,19 @@ class MVoucherViewController: UIViewController {
             
             DispatchQueue.main.async {
                 
-                self?.showPopUPWithAnimation(vc: SuccessSendingViewController(nibName: "SuccessSendingViewController", bundle: nil))
+                self?.showPopUPWithAnimation(vc: SuccessSendingViewController(nib: R.nib.successSendingViewController))
                 
             }
         }
         
-        showSimpleAlertWithAction(title: "E-mail to me".localized(),
-                                  message: "Send the voucher to your email?".localized(),
-                                  okAction: UIAlertAction(title: "Confirm".localized(), style: .default, handler: { (action) in
+        showSimpleAlertWithAction(title: Localize.eMailToMe(),
+                                  message: Localize.sendTheVoucherToYourEmail(),
+                                  okAction: UIAlertAction(title: Localize.confirm(), style: .default, handler: { (action) in
                                     
                                     self.voucherViewModel.sendEmail(address: self.voucher.address ?? "")
                                     
                                   }),
-                                  cancelAction: UIAlertAction(title: "Cancel".localized(), style: .cancel, handler: nil))
+                                  cancelAction: UIAlertAction(title: Localize.cancel(), style: .cancel, handler: nil))
         
     }
     
