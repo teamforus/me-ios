@@ -45,16 +45,10 @@ class MProfileViewController: UIViewController {
         #endif
         
         
-        profileViewModel.complete = { [weak self] (fullName, email) in
+        profileViewModel.complete = { [weak self] (email, address) in
             
             DispatchQueue.main.async {
-                
-                if fullName == "" {
-                    self?.profileNameLabel.isHidden = true
-                }else {
-                    self?.profileNameLabel.isHidden = false
-                }
-                self?.profileNameLabel.text = fullName
+                self?.profileNameLabel.isHidden = true
                 self?.emailLabel.text = email
             }
             
