@@ -12,27 +12,10 @@ class RecordsTableViewCell: UITableViewCell {
 
     @IBOutlet weak var cellTypeLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var validationNumber: UILabel!
-    @IBOutlet weak var validateText: UILabel!
     var record: Record! {
         didSet{
-            
-            if record.validations?.count != 0 {
-                
-                validateText.isHidden = false
-                validationNumber.isHidden = false
-                validationNumber.text = String(describing: record.validations!.count)
-                
-            }else {
-                
-                validateText.isHidden = true
-                validationNumber.isHidden = true
-                
-            }
-            
             cellTypeLabel.text = record.name ?? ""
             nameLabel.text = record.value
-            
         }
     }
     

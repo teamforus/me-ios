@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="eu3-EV-5Ar">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="eu3-EV-5Ar">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -21,7 +21,7 @@
             <objects>
                 <viewController storyboardIdentifier="content" id="eu3-EV-5Ar" customClass="MProfileViewController" customModule="Me_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="erS-Sv-h0v">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="765"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pYl-68-xkp">
@@ -34,10 +34,10 @@
                                                 <rect key="frame" x="0.0" y="-15" width="375" height="179"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="6YL-vS-yZM">
-                                                        <rect key="frame" x="95" y="88" width="180" height="49"/>
+                                                        <rect key="frame" x="95" y="88" width="180" height="54"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Uw Profiel" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Ncj-5F-IHr">
-                                                                <rect key="frame" x="0.0" y="0.0" width="180" height="31.5"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="180" height="34.5"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="180" id="aXr-PV-Eyy"/>
                                                                 </constraints>
@@ -46,7 +46,7 @@
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="mail@mail.com" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Rkq-EJ-VPa">
-                                                                <rect key="frame" x="0.0" y="31.5" width="180" height="17.5"/>
+                                                                <rect key="frame" x="0.0" y="34.5" width="180" height="19.5"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="180" id="nx2-12-LKm"/>
                                                                 </constraints>
@@ -84,14 +84,6 @@
                                                         <rect key="frame" x="352" y="104" width="9" height="21"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                                     </imageView>
-                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uyU-tZ-kOJ">
-                                                        <rect key="frame" x="216" y="149" width="159" height="31"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <state key="normal" title="Press for crash the app"/>
-                                                        <connections>
-                                                            <action selector="crash:" destination="eu3-EV-5Ar" eventType="touchUpInside" id="Kmb-Fj-CiV"/>
-                                                        </connections>
-                                                    </button>
                                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nyY-eH-eFk">
                                                         <rect key="frame" x="8" y="81" width="367" height="70"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
@@ -300,8 +292,8 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dmL-c8-BxS">
-                                                <rect key="frame" x="0.0" y="507" width="375" height="226"/>
+                                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dmL-c8-BxS">
+                                                <rect key="frame" x="0.0" y="507" width="375" height="250"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="App version" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="szP-vk-gG7">
                                                         <rect key="frame" x="24" y="16" width="173" height="21"/>
@@ -350,7 +342,7 @@
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </view>
                                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zcj-Zs-YTi">
-                                                        <rect key="frame" x="0.0" y="153" width="375" height="77"/>
+                                                        <rect key="frame" x="0.0" y="153" width="375" height="102"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </view>
@@ -371,10 +363,18 @@
                                                             <action selector="logout:" destination="eu3-EV-5Ar" eventType="touchUpInside" id="6RN-6P-vb2"/>
                                                         </connections>
                                                     </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u8j-ZQ-ypq">
+                                                        <rect key="frame" x="108" y="217" width="159" height="31"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <state key="normal" title="Press for crash the app"/>
+                                                        <connections>
+                                                            <action selector="crash:" destination="eu3-EV-5Ar" eventType="touchUpInside" id="gaK-OI-BYD"/>
+                                                        </connections>
+                                                    </button>
                                                 </subviews>
                                                 <color key="backgroundColor" red="0.96470588239999999" green="0.96470588239999999" blue="0.96470588239999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="226" id="Baf-1S-jzb"/>
+                                                    <constraint firstAttribute="height" constant="250" id="Baf-1S-jzb"/>
                                                 </constraints>
                                             </view>
                                         </subviews>
@@ -391,7 +391,7 @@
                                             <constraint firstItem="AHo-7Q-nI7" firstAttribute="leading" secondItem="WTi-eV-EKy" secondAttribute="leading" constant="17" id="Wxh-r1-sMN"/>
                                             <constraint firstAttribute="trailing" secondItem="UaK-7a-IlP" secondAttribute="trailing" constant="16" id="bLl-0v-2pJ"/>
                                             <constraint firstItem="ZtQ-xg-yMS" firstAttribute="top" secondItem="mQt-Uv-ahd" secondAttribute="bottom" constant="12" id="h1x-lE-JG3"/>
-                                            <constraint firstAttribute="bottom" secondItem="dmL-c8-BxS" secondAttribute="bottom" constant="32" id="ieM-qL-3Xy"/>
+                                            <constraint firstAttribute="bottom" secondItem="dmL-c8-BxS" secondAttribute="bottom" constant="8" id="ieM-qL-3Xy"/>
                                             <constraint firstItem="UaK-7a-IlP" firstAttribute="leading" secondItem="WTi-eV-EKy" secondAttribute="leading" constant="16" id="ifE-Tn-IgC"/>
                                             <constraint firstItem="mQt-Uv-ahd" firstAttribute="top" secondItem="WTi-eV-EKy" secondAttribute="top" constant="-15" id="w8D-aj-LiZ"/>
                                             <constraint firstAttribute="trailing" secondItem="mQt-Uv-ahd" secondAttribute="trailing" id="zjL-OP-hSg"/>
@@ -424,7 +424,6 @@
                         <outlet property="buttonConstraingHeight" destination="mmG-cv-HBd" id="cMy-C3-s00"/>
                         <outlet property="changePassCodeView" destination="wNw-9x-l3y" id="aNg-kj-CA3"/>
                         <outlet property="changePasscodeLabel" destination="AbL-ew-Qz7" id="qLV-7E-3zc"/>
-                        <outlet property="crashButton" destination="uyU-tZ-kOJ" id="jQh-8M-CgW"/>
                         <outlet property="crashReportSwitch" destination="629-dg-gyi" id="Mvs-fw-hT4"/>
                         <outlet property="emailLabel" destination="Rkq-EJ-VPa" id="bSD-h1-S3j"/>
                         <outlet property="faceIdVerticalSpacing" destination="JHA-Sf-Y0d" id="vHg-rG-MEw"/>
