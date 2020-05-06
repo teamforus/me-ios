@@ -79,7 +79,6 @@
 		654ACBAE22A9523B0052C9C2 /* UserDefaultsName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654ACBAD22A9523B0052C9C2 /* UserDefaultsName.swift */; };
 		654F979F229BE71F009C9FFA /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654F979E229BE71F009C9FFA /* Record.swift */; };
 		654F97A1229BE762009C9FFA /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654F97A0229BE762009C9FFA /* Validator.swift */; };
-		654F97A3229BE9A4009C9FFA /* RecordsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654F97A2229BE9A4009C9FFA /* RecordsTableViewCell.swift */; };
 		654F97A8229BF5C5009C9FFA /* ValidatorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654F97A7229BF5C5009C9FFA /* ValidatorTableViewCell.swift */; };
 		654F97AA229BF671009C9FFA /* MRecordDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654F97A9229BF671009C9FFA /* MRecordDetailViewController.swift */; };
 		654F97AE229C03D0009C9FFA /* RecordDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654F97AD229C03D0009C9FFA /* RecordDetailViewModel.swift */; };
@@ -177,6 +176,7 @@
 		CECB06D5C049466A525F37E6 /* Pods_Me_iOSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A89BE88EEB1A6C3C9A22BE7 /* Pods_Me_iOSUITests.framework */; };
 		CF22307B8167F520952552BE /* Pods_Me_iOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1ABB0BB041DF2B085D794CD5 /* Pods_Me_iOSTests.framework */; };
 		E234190710AA58EB6F4C206A /* Pods_Me_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43960597C5DD3C7D7D6E0BF0 /* Pods_Me_iOS.framework */; };
+		FF48062924632AA70055E346 /* RecordsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF48062824632AA70055E346 /* RecordsTableViewCell.swift */; };
 		FFFF8AAC2450CAA2001673DB /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFFF8AAB2450CAA2001673DB /* R.generated.swift */; };
 /* End PBXBuildFile section */
 
@@ -318,7 +318,6 @@
 		654ACBAD22A9523B0052C9C2 /* UserDefaultsName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsName.swift; sourceTree = "<group>"; };
 		654F979E229BE71F009C9FFA /* Record.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Record.swift; sourceTree = "<group>"; };
 		654F97A0229BE762009C9FFA /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
-		654F97A2229BE9A4009C9FFA /* RecordsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RecordsTableViewCell.swift; path = ../RecordsTableViewCell.swift; sourceTree = "<group>"; };
 		654F97A7229BF5C5009C9FFA /* ValidatorTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidatorTableViewCell.swift; sourceTree = "<group>"; };
 		654F97A9229BF671009C9FFA /* MRecordDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MRecordDetailViewController.swift; sourceTree = "<group>"; };
 		654F97AD229C03D0009C9FFA /* RecordDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordDetailViewModel.swift; sourceTree = "<group>"; };
@@ -441,6 +440,7 @@
 		FF3B1419243722EE003FDDD9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/OrganizationValidatorViewController.xib; sourceTree = "<group>"; };
 		FF3B141E243722F6003FDDD9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/OrganizationValidatorViewController.strings; sourceTree = "<group>"; };
 		FF3B1422243722F8003FDDD9 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/OrganizationValidatorViewController.strings; sourceTree = "<group>"; };
+		FF48062824632AA70055E346 /* RecordsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordsTableViewCell.swift; sourceTree = "<group>"; };
 		FFFF8AAB2450CAA2001673DB /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -727,7 +727,7 @@
 		654F97A4229BEA43009C9FFA /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				654F97A2229BE9A4009C9FFA /* RecordsTableViewCell.swift */,
+				FF48062824632AA70055E346 /* RecordsTableViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -1709,7 +1709,6 @@
 				655D64732315948900EABD57 /* ValuteTableViewCell.swift in Sources */,
 				5B9E8F3423C8B3F000F0E90B /* EmailLoginViewModel.swift in Sources */,
 				65139C0E22802546003E0CDE /* MeApp.xcdatamodeld in Sources */,
-				654F97A3229BE9A4009C9FFA /* RecordsTableViewCell.swift in Sources */,
 				65684619229432CE00097E83 /* TransactionTableViewCell.swift in Sources */,
 				5B10CCAC240D021C00199C28 /* BottomQrWithPinViewController.swift in Sources */,
 				654ACBAC22A94D550052C9C2 /* ProfileViewModel.swift in Sources */,
@@ -1759,6 +1758,7 @@
 				657DBA4122897C3500C67500 /* ResponseData.swift in Sources */,
 				65139C3C2280273E003E0CDE /* ScanWorker.swift in Sources */,
 				657DBA4C2289880A00C67500 /* AuthorizationQRToken.swift in Sources */,
+				FF48062924632AA70055E346 /* RecordsTableViewCell.swift in Sources */,
 				65911B58228D912900EA30D6 /* AllowedProduct.swift in Sources */,
 				65139C62228029EF003E0CDE /* SwitchCustom.swift in Sources */,
 				65A8B6EC2282CD7E00B7DF05 /* String+Substring.swift in Sources */,
