@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -177,7 +177,7 @@
 		CECB06D5C049466A525F37E6 /* Pods_Me_iOSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A89BE88EEB1A6C3C9A22BE7 /* Pods_Me_iOSUITests.framework */; };
 		CF22307B8167F520952552BE /* Pods_Me_iOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1ABB0BB041DF2B085D794CD5 /* Pods_Me_iOSTests.framework */; };
 		E234190710AA58EB6F4C206A /* Pods_Me_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43960597C5DD3C7D7D6E0BF0 /* Pods_Me_iOS.framework */; };
-		FF3B1418243722EE003FDDD9 /* OrganizationValidatorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF3B141A243722EE003FDDD9 /* OrganizationValidatorViewController.xib */; };
+		FFFF8AAC2450CAA2001673DB /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFFF8AAB2450CAA2001673DB /* R.generated.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -441,6 +441,7 @@
 		FF3B1419243722EE003FDDD9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/OrganizationValidatorViewController.xib; sourceTree = "<group>"; };
 		FF3B141E243722F6003FDDD9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/OrganizationValidatorViewController.strings; sourceTree = "<group>"; };
 		FF3B1422243722F8003FDDD9 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/OrganizationValidatorViewController.strings; sourceTree = "<group>"; };
+		FFFF8AAB2450CAA2001673DB /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -616,9 +617,8 @@
 				65A8B6F82282DD2C00B7DF05 /* Google-Sans-Font */,
 				65139C1122802548003E0CDE /* LaunchScreen.storyboard */,
 				65D11B7D22A6ACE000756BE0 /* PopUp */,
-				65100B0A229D9146007892D1 /* Localizable.strings */,
 				65139C1422802548003E0CDE /* Info.plist */,
-				65139C0C22802545003E0CDE /* MeApp.xcdatamodeld */,
+				FFFF8AAA2450C8B9001673DB /* Resources */,
 			);
 			path = "Me-iOS";
 			sourceTree = "<group>";
@@ -1392,6 +1392,16 @@
 			path = BottomQR;
 			sourceTree = "<group>";
 		};
+		FFFF8AAA2450C8B9001673DB /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				FFFF8AAB2450CAA2001673DB /* R.generated.swift */,
+				65100B0A229D9146007892D1 /* Localizable.strings */,
+				65139C0C22802545003E0CDE /* MeApp.xcdatamodeld */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1400,6 +1410,7 @@
 			buildConfigurationList = 65139C2D22802548003E0CDE /* Build configuration list for PBXNativeTarget "Me-iOS" */;
 			buildPhases = (
 				DE8B090FE01A9AC1808D35D8 /* [CP] Check Pods Manifest.lock */,
+				FFFF8AA92450C87C001673DB /* R.Swift */,
 				65139BFE22802545003E0CDE /* Sources */,
 				65139BFF22802545003E0CDE /* Frameworks */,
 				65139C0022802545003E0CDE /* Resources */,
@@ -1513,8 +1524,6 @@
 				65139C50228029C0003E0CDE /* LICENSE in Resources */,
 				650FF60922AD237A004C3A85 /* LoginQRAndCodeViewController.storyboard in Resources */,
 				65139C4F228029C0003E0CDE /* backspaceBlue@2x.png in Resources */,
-				650FF5ED22AD1D2A004C3A85 /* ConfirmRegister.storyboard in Resources */,
-				656FDDB7235DF046002422B2 /* OrganizationValidatorViewController.xib in Resources */,
 				650FF61722AD2ACF004C3A85 /* RecordDetail.storyboard in Resources */,
 				655D6477231598D300EABD57 /* SendEtherViewController.xib in Resources */,
 				5BF8461F241FA60100B0BAAD /* BottomQrWithPinViewController.xib in Resources */,
@@ -1580,28 +1589,11 @@
 			files = (
 			);
 			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Me-iOS/Pods-Me-iOS-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/BWWalkthrough/BWWalkthrough.framework",
-				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/ISHPullUp/ISHPullUp.framework",
-				"${BUILT_PRODUCTS_DIR}/KVSpinnerView/KVSpinnerView.framework",
-				"${BUILT_PRODUCTS_DIR}/MarqueeLabel/MarqueeLabel.framework",
-				"${BUILT_PRODUCTS_DIR}/SkyFloatingLabelTextField/SkyFloatingLabelTextField.framework",
-				"${BUILT_PRODUCTS_DIR}/UICheckbox.Swift/UICheckbox_Swift.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-Me-iOS/Pods-Me-iOS-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BWWalkthrough.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ISHPullUp.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KVSpinnerView.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MarqueeLabel.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SkyFloatingLabelTextField.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UICheckbox_Swift.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-Me-iOS/Pods-Me-iOS-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1674,6 +1666,26 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		FFFF8AA92450C87C001673DB /* R.Swift */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$TEMP_DIR/rswift-lastrun",
+			);
+			name = R.Swift;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$SRCROOT/Me-iOS/Resources/R.generated.swift",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#\"${PODS_ROOT}/R.swift/rswift\" generate \"$SRCROOT/Me-iOS/Resources/R.generated.swift\"\n";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -1722,6 +1734,7 @@
 				65139C5F228029EF003E0CDE /* ShadowButton.swift in Sources */,
 				657DBA46228983CB00C67500 /* Extension+UIImageView.swift in Sources */,
 				65139C64228029EF003E0CDE /* CornerImageView.swift in Sources */,
+				FFFF8AAC2450CAA2001673DB /* R.generated.swift in Sources */,
 				65911B4E228D8EAE00EA30D6 /* Logo.swift in Sources */,
 				65B10DAF23589DF500F0F34D /* CheckWebsiteReacheble.swift in Sources */,
 				65100AFD229D65A9007892D1 /* Extension+Array.swift in Sources */,

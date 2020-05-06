@@ -112,7 +112,7 @@ class MAFirstPageViewController: UIViewController {
                 UserDefaults.standard.setValue("Custom", forKey: UserDefaultsName.EnvironmentName)
                 self.chooseEnvironmentButton.setTitle("Custom", for: .normal)
             })
-            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: { (action : UIAlertAction!) -> Void in })
+            let cancelAction = UIAlertAction(title: Localize.cancel(), style: .cancel, handler: { (action : UIAlertAction!) -> Void in })
             
             alertController.addAction(cancelAction)
             alertController.addAction(saveAction)
@@ -173,7 +173,7 @@ class MAFirstPageViewController: UIViewController {
                         self?.emailLoginViewModel.initLoginByEmail(email: self?.emailField.text ?? "")
                   
                 }else if statusCode == 500 {
-                    self?.showSimpleAlertWithSingleAction(title: "Error!".localized(), message: "", okAction: UIAlertAction(title: "OK", style: .default, handler: { (action) in
+                    self?.showSimpleAlertWithSingleAction(title: Localize.error_exclamation(), message: "", okAction: UIAlertAction(title: "OK", style: .default, handler: { (action) in
                     }))
                 }else {
                     self?.performSegue(withIdentifier: "goToSuccessMail", sender: nil)
@@ -190,7 +190,7 @@ class MAFirstPageViewController: UIViewController {
                     self?.performSegue(withIdentifier: "goToSuccessMail", sender: self)
                     
                 }else {
-                    self?.showSimpleAlertWithSingleAction(title: "Error!".localized(), message: "", okAction: UIAlertAction(title: "OK", style: .default, handler: { (action) in
+                    self?.showSimpleAlertWithSingleAction(title: Localize.error_exclamation(), message: "", okAction: UIAlertAction(title: "OK", style: .default, handler: { (action) in
                     }))
                 }
             }

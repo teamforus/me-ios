@@ -84,7 +84,7 @@ class MRecordDetailViewController: UIViewController {
     
     
     @IBAction func showQRCode(_ sender: Any) {
-        let popOverVC = PullUpQRViewController(nibName: "PullUpQRViewController", bundle: nil)
+        let popOverVC = PullUpQRViewController(nib: R.nib.pullUpQRViewController)
         popOverVC.idRecord = Int(recordId)
         popOverVC.record = record
         popOverVC.qrType = .Record
