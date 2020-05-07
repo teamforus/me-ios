@@ -14,8 +14,6 @@ class MRecordDetailViewController: UIViewController {
     @IBOutlet weak var recordTypeLabel: UILabel!
     @IBOutlet weak var recordValue: UILabel!
     @IBOutlet weak var borderView: CustomCornerUIView!
-    @IBOutlet weak var validationCount: UILabel!
-    @IBOutlet weak var validationsLabel: UILabel!
     
     var recordId: String!
     var record: Record!
@@ -37,14 +35,6 @@ class MRecordDetailViewController: UIViewController {
                 
                 self?.recordTypeLabel.text = record.name ?? ""
                 self?.recordValue.text = record.value
-                if record.validations?.count != 0 {
-                    self?.validationCount.text = "\(record.validations!.count)"
-                    self?.validationCount.isHidden = false
-                    self?.validationsLabel.isHidden = false
-                }else {
-                    self?.validationCount.isHidden = true
-                    self?.validationsLabel.isHidden = true
-                }
                 self?.tableView.reloadData()
                 
                 if self?.recordDetailViewModel.numberOfCells == 0{
