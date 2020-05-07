@@ -122,8 +122,8 @@ class MVoucherViewController: UIViewController {
         voucherViewModel.completeExchangeToken = { [weak self] (token) in
             
             DispatchQueue.main.async {
-                if let urlWebShop = self?.voucher.fund!.url_webshop, let address =  self?.voucher.address {
-                    if let url = URL(string: urlWebShop + "voucher/" + address) {
+                if let urlWebShop = self?.voucher.fund!.url_webshop, let address = self?.voucher.address {
+                    if let url = URL(string: urlWebShop + "auth-link?token=" + token + "&target=voucher-" + address) {
                         let safariVC = SFSafariViewController(url: url)
                         self?.present(safariVC, animated: true, completion: nil)
                     }
