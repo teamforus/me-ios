@@ -57,7 +57,7 @@ class MRecordDetailViewController: UIViewController {
                 
                 if statusCode != 503 {
                     if recordValidation.state == "approved" {
-                        self?.showSimpleAlert(title: Localize.success(), message: "You has been validated successfully.")
+                        self?.showSimpleAlert(title: Localize.success(), message: Localize.validation_approved())
                     }
                 }else {
                 }
