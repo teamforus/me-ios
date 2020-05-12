@@ -11,6 +11,7 @@ import Foundation
 struct UserDefaultsName {
     
     public static let StartFromScanner = "isStartFromScanner"
+    public static let CurrentRecordUUID = "CurrentRecordUUID"
     public static let UserIsLoged = "isLoged"
     public static let PinCodeEnabled = "PINCODEENABLED"
     public static let UseTouchID = "isWithTouchID"
