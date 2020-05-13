@@ -143,3 +143,4 @@
 "Expired session" = "Verlopen sessie";
 "Click on the link you received on %@ to continue" = "Klik op de link in de email die u heeft ontvangen op %@ om uw aanmelding af te maken";
 "ok" = "OK";
+"validation_approved" = "Validatie goedgekeurd.";

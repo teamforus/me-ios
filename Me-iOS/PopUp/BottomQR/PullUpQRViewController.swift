@@ -97,7 +97,7 @@ class PullUpQRViewController: UIViewController {
             bottomQRViewModel.completeRecord = { [weak self] (record) in
                 
                 DispatchQueue.main.async {
-                    
+                    UserDefaults.standard.set(record.uuid ?? "", forKey: UserDefaultsName.CurrentRecordUUID)
                     self?.qrImage.generateQRCode(from: "{ \"type\": \"record\",\"value\": \"\(record.uuid ?? "")\" }")
                     
                 }

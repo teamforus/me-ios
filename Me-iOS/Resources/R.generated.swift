@@ -1246,7 +1246,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.nib` struct is generated, and contains static references to 10 nibs.
+  /// This `R.nib` struct is generated, and contains static references to 11 nibs.
   struct nib {
     /// Nib `AllowedOrganizationsViewController`.
     static let allowedOrganizationsViewController = _R.nib._AllowedOrganizationsViewController()
@@ -1262,6 +1262,8 @@ struct R: Rswift.Validatable {
     static let organizationTableViewCell = _R.nib._OrganizationTableViewCell()
     /// Nib `OrganizationValidatorTableViewCell`.
     static let organizationValidatorTableViewCell = _R.nib._OrganizationValidatorTableViewCell()
+    /// Nib `OrganizationValidatorViewController`.
+    static let organizationValidatorViewController = _R.nib._OrganizationValidatorViewController()
     /// Nib `PullUpQRViewController`.
     static let pullUpQRViewController = _R.nib._PullUpQRViewController()
     /// Nib `SendEtherViewController`.
@@ -1326,6 +1328,14 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
+    /// `UINib(name: "OrganizationValidatorViewController", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.organizationValidatorViewController) instead")
+    static func organizationValidatorViewController(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.organizationValidatorViewController)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
     /// `UINib(name: "PullUpQRViewController", in: bundle)`
     @available(*, deprecated, message: "Use UINib(resource: R.nib.pullUpQRViewController) instead")
     static func pullUpQRViewController(_: Void = ()) -> UIKit.UINib {
@@ -1377,6 +1387,10 @@ struct R: Rswift.Validatable {
       return R.nib.organizationValidatorTableViewCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? OrganizationValidatorTableViewCell
     }
 
+    static func organizationValidatorViewController(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+      return R.nib.organizationValidatorViewController.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+    }
+
     static func pullUpQRViewController(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
       return R.nib.pullUpQRViewController.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
     }
@@ -1404,7 +1418,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.string` struct is generated, and contains static references to 25 localization tables.
+  /// This `R.string` struct is generated, and contains static references to 26 localization tables.
   struct string {
     /// This `R.string.about` struct is generated, and contains static references to 7 localization keys.
     struct about {
@@ -2581,7 +2595,7 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
 
-    /// This `R.string.localizable` struct is generated, and contains static references to 135 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 136 localization keys.
     struct localizable {
       /// en translation: -voucher in the form of a QR-code
       ///
@@ -3075,6 +3089,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en, nl
       static let validate = Rswift.StringResource(key: "Validate", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
+      /// en translation: Validation approved.
+      ///
+      /// Locales: en, nl
+      static let validation_approved = Rswift.StringResource(key: "validation_approved", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
       /// en translation: Validations
       ///
       /// Locales: en, nl
@@ -4979,6 +4997,21 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("Validate", bundle: bundle, comment: "")
       }
 
+      /// en translation: Validation approved.
+      ///
+      /// Locales: en, nl
+      static func validation_approved(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("validation_approved", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "validation_approved"
+        }
+
+        return NSLocalizedString("validation_approved", bundle: bundle, comment: "")
+      }
+
       /// en translation: Validations
       ///
       /// Locales: en, nl
@@ -5827,6 +5860,31 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("YUG-aS-ZgZ.text", tableName: "OrganizationTableViewCell", bundle: bundle, comment: "")
+      }
+
+      fileprivate init() {}
+    }
+
+    /// This `R.string.organizationValidatorViewController` struct is generated, and contains static references to 1 localization keys.
+    struct organizationValidatorViewController {
+      /// en translation: Choose a validator
+      ///
+      /// Locales: en, nl
+      static let axgVL5dNText = Rswift.StringResource(key: "axg-vL-5dN.text", tableName: "OrganizationValidatorViewController", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
+
+      /// en translation: Choose a validator
+      ///
+      /// Locales: en, nl
+      static func axgVL5dNText(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("axg-vL-5dN.text", tableName: "OrganizationValidatorViewController", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "OrganizationValidatorViewController", preferredLanguages: preferredLanguages) else {
+          return "axg-vL-5dN.text"
+        }
+
+        return NSLocalizedString("axg-vL-5dN.text", tableName: "OrganizationValidatorViewController", bundle: bundle, comment: "")
       }
 
       fileprivate init() {}
@@ -7964,6 +8022,7 @@ struct _R: Rswift.Validatable {
       try _BottomQrWithPinViewController.validate()
       try _OrganizationTableViewCell.validate()
       try _OrganizationValidatorTableViewCell.validate()
+      try _OrganizationValidatorViewController.validate()
       try _PullUpQRViewController.validate()
       try _SendEtherViewController.validate()
       try _SuccessSendingViewController.validate()
@@ -8083,6 +8142,23 @@ struct _R: Rswift.Validatable {
 
       static func validate() throws {
         if UIKit.UIImage(named: "fill1Copy", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'fill1Copy' is used in nib 'OrganizationValidatorTableViewCell', but couldn't be loaded.") }
+        if #available(iOS 11.0, tvOS 11.0, *) {
+        }
+      }
+
+      fileprivate init() {}
+    }
+
+    struct _OrganizationValidatorViewController: Rswift.NibResourceType, Rswift.Validatable {
+      let bundle = R.hostingBundle
+      let name = "OrganizationValidatorViewController"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+      }
+
+      static func validate() throws {
+        if UIKit.UIImage(named: "closeIcon", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'closeIcon' is used in nib 'OrganizationValidatorViewController', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
       }

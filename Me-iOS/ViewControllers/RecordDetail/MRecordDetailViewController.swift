@@ -16,17 +16,56 @@ class MRecordDetailViewController: UIViewController {
     @IBOutlet weak var borderView: CustomCornerUIView!
     
     var recordId: String!
+    var timer : Timer! = Timer()
     var record: Record!
     lazy var recordDetailViewModel: RecordDetailViewModel = {
         return RecordDetailViewModel()
     }()
-    
+    private lazy var qrViewModel: QRViewModel = {
+        return QRViewModel()
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         recordDetailViewModel.vc = self
+        fetchRecordDetail()
+        completeDelete()
+        setupTimer()
+    }
+    
+    deinit {
+        self.timer.invalidate()
+        self.timer = nil
+    }
+    
+    func setupTimer() {
+        self.timer = Timer.scheduledTimer(timeInterval: 7, target: self, selector: #selector(self.checkRecordValidateState), userInfo: nil, repeats: true)
+    }
+    
+    @objc func checkRecordValidateState() {
+        fetchRecordValidationState()
+    }
+    
+    func fetchRecordValidationState() {
+        if let recordValue = UserDefaults.standard.string(forKey: UserDefaultsName.CurrentRecordUUID) {
+            self.qrViewModel.initValidationRecord(code: recordValue)
+        }
         
+        qrViewModel.validateRecord = { [weak self] (recordValidation, statusCode) in
+            
+            DispatchQueue.main.async {
+                
+                if statusCode != 503 {
+                    if recordValidation.state == "approved" {
+                        self?.showSimpleAlert(title: Localize.success(), message: Localize.validation_approved())
+                    }
+                }else {
+                }
+            }
+        }
+    }
+    
+    func fetchRecordDetail() {
         recordDetailViewModel.complete = { [weak self] (record) in
             
             DispatchQueue.main.async {
@@ -61,7 +100,9 @@ class MRecordDetailViewController: UIViewController {
             showInternetUnable()
             
         }
-        
+    }
+    
+    func completeDelete() {
         recordDetailViewModel.completeDelete = { [weak self] (statusCode) in
             
             DispatchQueue.main.async {
