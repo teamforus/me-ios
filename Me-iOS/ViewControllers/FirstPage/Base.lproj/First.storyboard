@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Gmy-wc-PUf">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Gmy-wc-PUf">
     <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -108,7 +108,7 @@
                                                     <action selector="showQrWithPin:" destination="iO8-Qc-gee" eventType="touchUpInside" id="EJg-Wc-a3L"/>
                                                 </connections>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Inloggen vanaf een ander apparaat" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aoI-oj-U12">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Inloggen vanaf een ander apparaat" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aoI-oj-U12" customClass="DynamicLabel" customModule="Me_iOS" customModuleProvider="target">
                                                 <rect key="frame" x="59" y="566.33333333333337" width="293" height="16.666666666666629"/>
                                                 <fontDescription key="fontDescription" name="GoogleSans-Regular" family="Google Sans" pointSize="13"/>
                                                 <nil key="textColor"/>
@@ -258,6 +258,7 @@
                         <outlet property="confirmButton" destination="0ZO-XA-PbT" id="DPA-VO-Pdw"/>
                         <outlet property="emailField" destination="YwF-T9-4XR" id="mes-bj-uYr"/>
                         <outlet property="environmnetView" destination="OI7-pa-CMz" id="Mck-WT-pYG"/>
+                        <outlet property="showQRCodeButton" destination="EPp-cx-awG" id="Rbz-In-gzL"/>
                         <outlet property="validationImage" destination="jsG-Jq-whr" id="zgw-Bu-pwU"/>
                         <segue destination="qzn-JB-q2a" kind="presentation" identifier="goToMain" modalPresentationStyle="fullScreen" id="6TI-WM-ZPC"/>
                         <segue destination="gNt-Ag-nUJ" kind="presentation" identifier="goToSuccessMail" modalPresentationStyle="fullScreen" id="VVl-cZ-D9m"/>

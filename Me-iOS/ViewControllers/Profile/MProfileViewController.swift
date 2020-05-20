@@ -26,6 +26,12 @@ class MProfileViewController: UIViewController {
     @IBOutlet weak var startScannerSwitch: UISwitchCustom!
     @IBOutlet weak var userFaceIdSwitch: UISwitchCustom!
     @IBOutlet weak var crashReportSwitch: UISwitchCustom!
+    @IBOutlet weak var startFromScannerView: CustomCornerUIView!
+    @IBOutlet weak var sendCrashReportView: CustomCornerUIView!
+    @IBOutlet weak var aboutMeButton: UIButton!
+    @IBOutlet weak var feedBackButton: UIButton!
+    @IBOutlet weak var logoutButton: ShadowButton!
+    @IBOutlet weak var openRecordsButton: UIButton!
     
     lazy var profileViewModel: ProfileViewModel = {
         return ProfileViewModel()
@@ -36,6 +42,7 @@ class MProfileViewController: UIViewController {
         setupView()
         fetchUserData()
         setupUserDefaults()
+        setupAccessibility()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -187,6 +194,25 @@ extension MProfileViewController {
         useFaceIdView.isHidden = isHiddeButtons
     }
     
+}
+
+// MARK: - Accessibility Protocol
+
+extension MProfileViewController: AccessibilityProtocol {
+    func setupAccessibility() {
+        openRecordsButton.setupAccesibility(description: "Open record list", accessibilityTraits: .button)
+        startFromScannerView.setupAccesibility(description: "Start from scanner view, on right side you can enable this option.", accessibilityTraits: .none)
+        startScannerSwitch.setupAccesibility(description: "Turn on/off start from scanner", accessibilityTraits: .none)
+        changePassCodeView.setupAccesibility(description: "Change set passcode", accessibilityTraits: .button)
+        turnOffPascodeView.setupAccesibility(description: "Turn off passcode", accessibilityTraits: .button)
+        useFaceIdView.setupAccesibility(description: "Use sensor ID for login, on right side you can enable this option.", accessibilityTraits: .none)
+        userFaceIdSwitch.setupAccesibility(description: "Turn on/off sensor ID", accessibilityTraits: .none)
+        sendCrashReportView.setupAccesibility(description: "Send crash reports, on right side you can enable this option.", accessibilityTraits: .none)
+        crashReportSwitch.setupAccesibility(description: "Turn on/off crash reports", accessibilityTraits: .none)
+        aboutMeButton.setupAccesibility(description: "Open About Me App", accessibilityTraits: .button)
+        feedBackButton.setupAccesibility(description: "Send feedback by email", accessibilityTraits: .button)
+        logoutButton.setupAccesibility(description: Localize.logOut(), accessibilityTraits: .button)
+    }
 }
 
 // MARK: - Mail Delegate

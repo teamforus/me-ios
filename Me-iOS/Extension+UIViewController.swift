@@ -13,8 +13,6 @@ import CoreData
 
 extension UIViewController{
     
-    
-    
     @IBAction func back(_ sender: UIButton){
         self.navigationController?.popViewController(animated: true)
     }
@@ -188,13 +186,13 @@ extension UIViewController{
     
     @IBAction func logout(_ sender: UIButton) {
         
-        self.showSimpleAlertWithAction(title: "Log Out".localized(), message: "Are you sure you want to log out?".localized(),
-                                       okAction: UIAlertAction(title: "Confirm".localized(), style: .default, handler: { (action) in
+        self.showSimpleAlertWithAction(title: Localize.logOut(), message: Localize.areYouSureYouWantToLogOut(),
+                                       okAction: UIAlertAction(title: Localize.confirm(), style: .default, handler: { (action) in
                                         
                                         self.logoutOptions()
                                         
                                        }),
-                                       cancelAction: UIAlertAction(title: "Cancel".localized(), style: .cancel, handler: { (action) in
+                                       cancelAction: UIAlertAction(title: Localize.cancel(), style: .cancel, handler: { (action) in
                                         
                                        }))
         
@@ -212,10 +210,8 @@ extension UIViewController{
         voucherViewModel.completeDeleteToken = { [unowned self] (statusCode) in
             DispatchQueue.main.async {
                 if statusCode == 200 {
-                   self.logoutAction()
+                    self.logoutAction()
                 }else if statusCode == 422 {
-//                    self.showSimpleAlertWithSingleAction(title: "Error!".localized(), message: "", okAction: UIAlertAction(title: "OK", style: .default, handler: { (action) in
-//                    }))
                     self.logoutAction()
                 }else if statusCode == 404 {
                     self.showSimpleAlertWithSingleAction(title: "Error!".localized(), message: "", okAction: UIAlertAction(title: "OK", style: .default, handler: { (action) in
@@ -232,19 +228,19 @@ extension UIViewController{
     
     func logoutAction(){
         UserDefaults.standard.setValue(false, forKey: UserDefaultsName.AddressIndentityCrash)
-                           UserDefaults.standard.setValue(false, forKey: UserDefaultsName.UseTouchID)
-                           UserDefaults.standard.setValue(false, forKey: UserDefaultsName.StartFromScanner)
-                           self.deleteEntity(entityName: "User")
-                           UserDefaults.standard.setValue("", forKey: UserDefaultsName.Token)
-                           self.removeShortcutItem(application: UIApplication.shared)
-                           UserDefaults.standard.set("", forKey: ALConstants.kPincode)
-                           UserDefaults.standard.setValue(false, forKey: UserDefaultsName.UserIsLoged)
-                           let storyboard:UIStoryboard = UIStoryboard(name: "First", bundle: nil)
-                           let navigationController:HiddenNavBarNavigationController = storyboard.instantiateInitialViewController() as! HiddenNavBarNavigationController
-                           let firstPageVC:UIViewController = storyboard.instantiateViewController(withIdentifier: "firstPage") as UIViewController
-                           navigationController.viewControllers = [firstPageVC]
-                           navigationController.modalPresentationStyle = .fullScreen
-                           self.present(navigationController, animated: true, completion: nil)
+        UserDefaults.standard.setValue(false, forKey: UserDefaultsName.UseTouchID)
+        UserDefaults.standard.setValue(false, forKey: UserDefaultsName.StartFromScanner)
+        self.deleteEntity(entityName: "User")
+        UserDefaults.standard.setValue("", forKey: UserDefaultsName.Token)
+        self.removeShortcutItem(application: UIApplication.shared)
+        UserDefaults.standard.set("", forKey: ALConstants.kPincode)
+        UserDefaults.standard.setValue(false, forKey: UserDefaultsName.UserIsLoged)
+        let storyboard:UIStoryboard = UIStoryboard(name: "First", bundle: nil)
+        let navigationController:HiddenNavBarNavigationController = storyboard.instantiateInitialViewController() as! HiddenNavBarNavigationController
+        let firstPageVC:UIViewController = storyboard.instantiateViewController(withIdentifier: "firstPage") as UIViewController
+        navigationController.viewControllers = [firstPageVC]
+        navigationController.modalPresentationStyle = .fullScreen
+        self.present(navigationController, animated: true, completion: nil)
     }
     
     func deleteEntity(entityName: String) {
@@ -347,22 +343,17 @@ extension UIViewController{
         let appDelegate = UIApplication.shared.delegate as? AppDelegate
         let context = appDelegate!.persistentContainer.viewContext
         let entity = NSEntityDescription.entity(forEntityName: "User", in: context)
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
+        _ = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
         
-        do{
-            let newUser = NSManagedObject(entity: entity!, insertInto: context)
-            newUser.setValue(true, forKey: "currentUser")
-            newUser.setValue("", forKey: "pinCode")
-            newUser.setValue(accessToken, forKey: "accessToken")
-            
-            do {
-                try context.save()
-            } catch {
-                print("Failed saving")
-            }
-            
-        } catch{
-            
+        let newUser = NSManagedObject(entity: entity!, insertInto: context)
+        newUser.setValue(true, forKey: "currentUser")
+        newUser.setValue("", forKey: "pinCode")
+        newUser.setValue(accessToken, forKey: "accessToken")
+        
+        do {
+            try context.save()
+        } catch {
+            print("Failed saving")
         }
     }
     

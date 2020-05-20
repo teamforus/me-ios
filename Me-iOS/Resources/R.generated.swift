@@ -2595,7 +2595,7 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
 
-    /// This `R.string.localizable` struct is generated, and contains static references to 136 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 138 localization keys.
     struct localizable {
       /// en translation: -voucher in the form of a QR-code
       ///
@@ -2641,6 +2641,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en, nl
       static let business = Rswift.StringResource(key: "Business", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
+      /// en translation: COMPLETE AN AMOUNT
+      ///
+      /// Locales: en, nl
+      static let complete_amount = Rswift.StringResource(key: "complete_amount", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
       /// en translation: Camera permission request was denied.
       ///
       /// Locales: en, nl
@@ -2705,6 +2709,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en, nl
       static let currentlyMaintenanceIsBeingDone = Rswift.StringResource(key: "Currently maintenance is being done", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
+      /// en translation: DECLINE
+      ///
+      /// Locales: en, nl
+      static let decline = Rswift.StringResource(key: "decline", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
       /// en translation: Date of birth
       ///
       /// Locales: en, nl
@@ -3307,6 +3315,21 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("Business", bundle: bundle, comment: "")
       }
 
+      /// en translation: COMPLETE AN AMOUNT
+      ///
+      /// Locales: en, nl
+      static func complete_amount(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("complete_amount", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "complete_amount"
+        }
+
+        return NSLocalizedString("complete_amount", bundle: bundle, comment: "")
+      }
+
       /// en translation: Camera permission request was denied.
       ///
       /// Locales: en, nl
@@ -3547,6 +3570,21 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("Currently maintenance is being done", bundle: bundle, comment: "")
+      }
+
+      /// en translation: DECLINE
+      ///
+      /// Locales: en, nl
+      static func decline(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("decline", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "decline"
+        }
+
+        return NSLocalizedString("decline", bundle: bundle, comment: "")
       }
 
       /// en translation: Date of birth
@@ -8292,7 +8330,7 @@ struct _R: Rswift.Validatable {
 
     #if os(iOS) || os(tvOS)
     struct about: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
-      typealias InitialController = UIKit.UIViewController
+      typealias InitialController = MAboutViewController
 
       let bundle = R.hostingBundle
       let name = "About"

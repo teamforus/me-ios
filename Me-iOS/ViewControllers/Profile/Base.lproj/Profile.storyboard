@@ -420,6 +420,7 @@
                     </view>
                     <size key="freeformSize" width="375" height="765"/>
                     <connections>
+                        <outlet property="aboutMeButton" destination="0RT-Bm-Z42" id="Dfp-Z6-U45"/>
                         <outlet property="appVersionLabel" destination="6fM-yO-VsB" id="gjH-Q5-kdv"/>
                         <outlet property="buttonConstraingHeight" destination="mmG-cv-HBd" id="cMy-C3-s00"/>
                         <outlet property="changePassCodeView" destination="wNw-9x-l3y" id="aNg-kj-CA3"/>
@@ -428,7 +429,12 @@
                         <outlet property="crashReportSwitch" destination="629-dg-gyi" id="Mvs-fw-hT4"/>
                         <outlet property="emailLabel" destination="Rkq-EJ-VPa" id="bSD-h1-S3j"/>
                         <outlet property="faceIdVerticalSpacing" destination="JHA-Sf-Y0d" id="vHg-rG-MEw"/>
+                        <outlet property="feedBackButton" destination="5cN-1Z-L4K" id="Pqp-U8-180"/>
+                        <outlet property="logoutButton" destination="LCl-JE-4Rl" id="TQl-Ok-sus"/>
+                        <outlet property="openRecordsButton" destination="nyY-eH-eFk" id="daO-m3-iUe"/>
                         <outlet property="profileNameLabel" destination="Ncj-5F-IHr" id="eaq-jQ-EM2"/>
+                        <outlet property="sendCrashReportView" destination="UaK-7a-IlP" id="DqP-s9-vZU"/>
+                        <outlet property="startFromScannerView" destination="6AQ-Ho-bqt" id="I9v-yb-vfs"/>
                         <outlet property="startScannerSwitch" destination="mxb-o1-SKo" id="ia7-09-DbA"/>
                         <outlet property="turnOffPascodeView" destination="AHo-7Q-nI7" id="Yd2-fv-FH3"/>
                         <outlet property="useFaceIdView" destination="pLQ-IY-Xhm" id="oNj-HJ-xd8"/>

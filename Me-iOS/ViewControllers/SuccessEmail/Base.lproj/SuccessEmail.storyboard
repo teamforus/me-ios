@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Dvo-As-KDQ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Dvo-As-KDQ">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -110,7 +110,7 @@
                                     <action selector="showQrWithPin:" destination="Dvo-As-KDQ" eventType="touchUpInside" id="QAH-R5-Fb4"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Klik op de link in de email die u heeft ontvangen op youremailaddress@forus.io om uw aanmelding af te maken" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YLd-Ch-JFi">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Klik op de link in de email die u heeft ontvangen op youremailaddress@forus.io om uw aanmelding af te maken" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YLd-Ch-JFi" customClass="DynamicLabel" customModule="Me_iOS" customModuleProvider="target">
                                 <rect key="frame" x="21" y="563" width="372" height="72"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="72" id="kKk-gB-71R"/>
@@ -162,6 +162,8 @@
                         <viewLayoutGuide key="safeArea" id="I8I-x3-gVB"/>
                     </view>
                     <connections>
+                        <outlet property="openMailButton" destination="Opf-SA-edo" id="biI-Fx-6ar"/>
+                        <outlet property="showQRCodeButton" destination="pqB-sU-g6i" id="fXe-Me-1le"/>
                         <outlet property="textLabel" destination="YLd-Ch-JFi" id="uwg-rh-T64"/>
                         <segue destination="MJz-0w-Aaw" kind="presentation" identifier="goToSuccessRegister" modalPresentationStyle="fullScreen" id="qao-pc-Zzq"/>
                     </connections>

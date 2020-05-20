@@ -32,7 +32,7 @@ class MQRViewController: HSScanViewController {
         
         self.delegate = self
         self.scanCodeTypes  = [.qr]
-        
+        setupAccessibility()
         qrViewModel.vc = self
         qrViewModel.vcAlert = self
         
@@ -293,5 +293,15 @@ extension MQRViewController: OrganizationValidatorViewControllerDelegate {
                                        }),
                                        cancelAction: UIAlertAction(title: Localize.cancel(), style: .cancel, handler: { (action) in
                                        }))
+    }
+}
+
+// MARK: - Accessibility Protocol
+
+extension MQRViewController: AccessibilityProtocol {
+    func setupAccessibility() {
+        self.scanWorker.isAccessibilityElement = true
+        self.scanWorker.accessibilityLabel = "Scan any me qr code"
+        self.scanWorker.accessibilityTraits = .none
     }
 }

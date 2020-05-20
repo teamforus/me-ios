@@ -24,6 +24,7 @@ class MAFirstPageViewController: UIViewController {
     @IBOutlet weak var emailField: SkyFloatingLabelTextField!
     @IBOutlet weak var validationImage: UIImageView!
     @IBOutlet weak var confirmButton: ShadowButton!
+    @IBOutlet weak var showQRCodeButton: ShadowButton!
     
     lazy var emailLoginViewModel: EmailLoginViewModel = {
         return EmailLoginViewModel()
@@ -39,7 +40,7 @@ class MAFirstPageViewController: UIViewController {
         IQKeyboardManager.shared.enable = true
         IQKeyboardManager.shared.enableAutoToolbar = true
         
-        
+        setupAccessibility()
         
         #if DEV
         chooseEnvironmentButton.isHidden = false
@@ -206,4 +207,15 @@ class MAFirstPageViewController: UIViewController {
     }
     
     
+}
+
+// MARK: - Accessibility Protocol
+
+extension MAFirstPageViewController: AccessibilityProtocol {
+    func setupAccessibility() {
+        emailField.setupAccesibility(description: "Enter your email", accessibilityTraits: .none)
+        confirmButton.setupAccesibility(description: Localize.confirm(), accessibilityTraits: .button)
+        showQRCodeButton.setupAccesibility(description: "Show Qr Code and Pin Code", accessibilityTraits: .button)
+        validationImage.setupAccesibility(description: "Email is valid", accessibilityTraits: .image)
+    }
 }

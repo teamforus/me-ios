@@ -13,6 +13,8 @@ class ConfirmPaymentPopUp: UIViewController {
     @IBOutlet weak var paymentLabel: UILabel!
     @IBOutlet weak var insuficientLabel: UILabel!
     @IBOutlet weak var bodyView: CustomCornerUIView!
+    @IBOutlet weak var declineButton: ShadowButton!
+    @IBOutlet weak var confirmButton: ShadowButton!
     
     
     var voucher: Voucher!
@@ -27,7 +29,7 @@ class ConfirmPaymentPopUp: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        setupAccessibility()
         if voucher != nil {
             initView()
         }else {
@@ -160,6 +162,15 @@ class ConfirmPaymentPopUp: UIViewController {
         }
     }
     
+}
+
+// MARK: - Accessibility Protocol
+
+extension ConfirmPaymentPopUp: AccessibilityProtocol {
+    func setupAccessibility() {
+        declineButton.setupAccesibility(description: Localize.decline(), accessibilityTraits: .button)
+        confirmButton.setupAccesibility(description: Localize.confirm(), accessibilityTraits: .button)
+    }
 }
 
 extension ConfirmPaymentPopUp {
