@@ -144,3 +144,5 @@
 "Click on the link you received on %@ to continue" = "Click on the link you received on %@ to continue";
 "ok" = "OK";
 "validation_approved" = "Validation approved.";
+"test_transaction" = "Test transaction";
+"test_organization" = "Test organisation";
