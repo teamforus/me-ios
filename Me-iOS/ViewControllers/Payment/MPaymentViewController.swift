@@ -22,6 +22,7 @@ class MPaymentViewController: UIViewController {
     @IBOutlet weak var heightFieldsConstraint: NSLayoutConstraint!
     @IBOutlet weak var arrowIcon: UIImageView!
     @IBOutlet weak var priceUILabel: UILabel!
+    @IBOutlet weak var titleLabel: UILabel!
     
     var isFromReservation: Bool!
     var testToken: String!
@@ -37,6 +38,9 @@ class MPaymentViewController: UIViewController {
         
         if voucher != nil {
             initView()
+        }else {
+            titleLabel.text = Localize.test_transaction()
+            allowedOriganizationLabel.text = Localize.test_organization()
         }
         
     }

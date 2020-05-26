@@ -2595,7 +2595,7 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
 
-    /// This `R.string.localizable` struct is generated, and contains static references to 136 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 138 localization keys.
     struct localizable {
       /// en translation: -voucher in the form of a QR-code
       ///
@@ -3005,6 +3005,14 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en, nl
       static let telephone = Rswift.StringResource(key: "telephone", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
+      /// en translation: Test organisation
+      ///
+      /// Locales: en, nl
+      static let test_organization = Rswift.StringResource(key: "test_organization", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
+      /// en translation: Test transaction
+      ///
+      /// Locales: en, nl
+      static let test_transaction = Rswift.StringResource(key: "test_transaction", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
       /// en translation: The scanner is not supported on this device
       ///
       /// Locales: en, nl
@@ -4680,6 +4688,36 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("telephone", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Test organisation
+      ///
+      /// Locales: en, nl
+      static func test_organization(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("test_organization", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "test_organization"
+        }
+
+        return NSLocalizedString("test_organization", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Test transaction
+      ///
+      /// Locales: en, nl
+      static func test_transaction(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("test_transaction", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "test_transaction"
+        }
+
+        return NSLocalizedString("test_transaction", bundle: bundle, comment: "")
       }
 
       /// en translation: The scanner is not supported on this device
