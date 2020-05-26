@@ -42,7 +42,7 @@ class MVouchersViewController: UIViewController {
         
         voucherType = .vouchers
         
-        segmentController.items = ["Valute", "Vouchers".localized()]
+        segmentController.items = ["Valute", Localize.vouchers()]
         segmentController.selectedIndex = 1
         segmentController.font = UIFont(name: "GoogleSans-Medium", size: 14)
         segmentController.unselectedLabelColor = #colorLiteral(red: 0.631372549, green: 0.6509803922, blue: 0.6784313725, alpha: 1)
@@ -141,14 +141,14 @@ class MVouchersViewController: UIViewController {
         
         if segue.identifier == "goToProduct" {
             
-            let generalVC = didSetPullUP(storyBoardName: "ProductVoucher", segue: segue)
+            let generalVC = didSetPullUP(storyboard: R.storyboard.productVoucher(), segue: segue)
             (generalVC.contentViewController as! MProductVoucherViewController).address = self.voucherViewModel.selectedVoucher?.address ?? ""
             (generalVC.bottomViewController as! CommonBottomViewController).voucher = self.voucherViewModel.selectedVoucher
             (generalVC.bottomViewController as! CommonBottomViewController).qrType = .Voucher
             
         }else if segue.identifier == "goToVoucher" {
             
-            let generalVC = didSetPullUP(storyBoardName: "Voucher", segue: segue)
+            let generalVC = didSetPullUP(storyboard: R.storyboard.voucher(), segue: segue)
             (generalVC.contentViewController as! MVoucherViewController).address = self.voucherViewModel.selectedVoucher?.address ?? ""
             (generalVC.bottomViewController as! CommonBottomViewController).voucher = self.voucherViewModel.selectedVoucher
             (generalVC.bottomViewController as! CommonBottomViewController).qrType = .Voucher
@@ -156,14 +156,13 @@ class MVouchersViewController: UIViewController {
         }
     }
     
-    func didSetPullUPWithoutSegue(storyBoardName: String, isProduct: Bool) -> CommonPullUpViewController {
+    func didSetPullUPWithoutSegue(storyboard: UIStoryboard, isProduct: Bool) -> CommonPullUpViewController {
         
-        let storyBoard = UIStoryboard(name: storyBoardName , bundle: nil)
-        let passVC = storyBoard.instantiateViewController(withIdentifier: "general") as! CommonPullUpViewController
+        let passVC = storyboard.instantiateViewController(withIdentifier: "general") as! CommonPullUpViewController
         
-        passVC.contentViewController = storyBoard.instantiateViewController(withIdentifier: "content")
+        passVC.contentViewController = storyboard.instantiateViewController(withIdentifier: "content")
         
-        passVC.bottomViewController = storyBoard.instantiateViewController(withIdentifier: "bottom")
+        passVC.bottomViewController = storyboard.instantiateViewController(withIdentifier: "bottom")
         
         (passVC.bottomViewController as! CommonBottomViewController).pullUpController = passVC
         passVC.sizingDelegate = (passVC.bottomViewController as! CommonBottomViewController)
@@ -271,10 +270,10 @@ extension MVouchersViewController: UIViewControllerPreviewingDelegate{
             self.voucherViewModel.userPressed(at: indexPath)
             var detailViewController = UIViewController()
             if voucherViewModel.selectedVoucher?.product != nil {
-                detailViewController = createDetailViewControllerIndexPath(vc: didSetPullUPWithoutSegue(storyBoardName: "ProductVoucher", isProduct: true),
+                detailViewController = createDetailViewControllerIndexPath(vc: didSetPullUPWithoutSegue(storyboard: R.storyboard.productVoucher(), isProduct: true),
                                                                            indexPath: indexPath)
             }else {
-                detailViewController = createDetailViewControllerIndexPath(vc: didSetPullUPWithoutSegue(storyBoardName: "Voucher", isProduct: false),
+                detailViewController = createDetailViewControllerIndexPath(vc: didSetPullUPWithoutSegue(storyboard: R.storyboard.voucher(), isProduct: false),
                                                                            indexPath: indexPath)
             }
             
@@ -291,14 +290,13 @@ extension MVouchersViewController: UIViewControllerPreviewingDelegate{
 
 extension UIViewController{
     
-    func didSetPullUP(storyBoardName: String, segue: UIStoryboardSegue) -> CommonPullUpViewController {
+    func didSetPullUP(storyboard: UIStoryboard, segue: UIStoryboardSegue) -> CommonPullUpViewController {
         
-        let storyBoard = UIStoryboard(name: storyBoardName , bundle: nil)
         let passVC = segue.destination as! CommonPullUpViewController
         
-        passVC.contentViewController = storyBoard.instantiateViewController(withIdentifier: "content")
+        passVC.contentViewController = storyboard.instantiateViewController(withIdentifier: "content")
         
-        passVC.bottomViewController = storyBoard.instantiateViewController(withIdentifier: "bottom")
+        passVC.bottomViewController = storyboard.instantiateViewController(withIdentifier: "bottom")
         
         (passVC.bottomViewController as! CommonBottomViewController).pullUpController = passVC
         passVC.sizingDelegate = (passVC.bottomViewController as! CommonBottomViewController)

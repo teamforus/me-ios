@@ -88,7 +88,7 @@ class MVoucherViewController: UIViewController {
     }
     
     @IBAction func opendQR(_ sender: UIButton) {
-        let popOverVC = PullUpQRViewController(nibName: "PullUpQRViewController", bundle: nil)
+        let popOverVC = PullUpQRViewController(nib: R.nib.pullUpQRViewController)
         popOverVC.voucher = voucher
         popOverVC.qrType = .Voucher
         showPopUPWithAnimation(vc: popOverVC)
@@ -100,19 +100,19 @@ class MVoucherViewController: UIViewController {
             
             DispatchQueue.main.async {
                 
-                self?.showPopUPWithAnimation(vc: SuccessSendingViewController(nibName: "SuccessSendingViewController", bundle: nil))
+                self?.showPopUPWithAnimation(vc: SuccessSendingViewController(nib: R.nib.successSendingViewController))
                 
             }
         }
         
-        showSimpleAlertWithAction(title: "E-mail to me".localized(),
-                                  message: "Send the voucher to your email?".localized(),
-                                  okAction: UIAlertAction(title: "Confirm".localized(), style: .default, handler: { (action) in
+        showSimpleAlertWithAction(title: Localize.eMailToMe(),
+                                  message: Localize.sendTheVoucherToYourEmail(),
+                                  okAction: UIAlertAction(title: Localize.confirm(), style: .default, handler: { (action) in
                                     
                                     self.voucherViewModel.sendEmail(address: self.voucher.address ?? "")
                                     
                                   }),
-                                  cancelAction: UIAlertAction(title: "Cancel".localized(), style: .cancel, handler: nil))
+                                  cancelAction: UIAlertAction(title: Localize.cancel(), style: .cancel, handler: nil))
         
     }
     
@@ -122,8 +122,8 @@ class MVoucherViewController: UIViewController {
         voucherViewModel.completeExchangeToken = { [weak self] (token) in
             
             DispatchQueue.main.async {
-                if self?.voucher.fund!.url_webshop != nil {
-                    if let url = URL(string: (self?.voucher.fund!.url_webshop)! + "auth-link?token=" + token) {
+                if let urlWebShop = self?.voucher.fund!.url_webshop, let address = self?.voucher.address {
+                    if let url = URL(string: urlWebShop + "auth-link?token=" + token + "&target=voucher-" + address) {
                         let safariVC = SFSafariViewController(url: url)
                         self?.present(safariVC, animated: true, completion: nil)
                     }

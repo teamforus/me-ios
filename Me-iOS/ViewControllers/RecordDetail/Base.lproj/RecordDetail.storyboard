@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="FuP-Ck-Gui">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="FuP-Ck-Gui">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -102,20 +102,6 @@
                                                             <action selector="showQRCode:" destination="KwI-hr-Xm2" eventType="touchUpInside" id="B65-qA-Ymx"/>
                                                         </connections>
                                                     </button>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sgX-uP-CfF">
-                                                        <rect key="frame" x="295" y="17" width="45" height="21"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
-                                                        <fontDescription key="fontDescription" name="GoogleSans-Bold" family="Google Sans" pointSize="17"/>
-                                                        <color key="textColor" red="0.12941176469999999" green="0.81960784310000001" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="validatie" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eQw-as-eSG">
-                                                        <rect key="frame" x="283" y="42" width="69" height="17"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
-                                                        <fontDescription key="fontDescription" name="GoogleSans-Regular" family="Google Sans" pointSize="13"/>
-                                                        <color key="textColor" red="0.12941176469999999" green="0.81960784310000001" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
@@ -139,7 +125,6 @@
                                                     </label>
                                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="116" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="K6L-y0-eG7">
                                                         <rect key="frame" x="0.0" y="74" width="375" height="172"/>
-                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <prototypes>
                                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="116" id="bJ4-SO-Fpc" customClass="ValidatorTableViewCell" customModule="Me_iOS" customModuleProvider="target">
@@ -196,7 +181,6 @@
                                                     </tableView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Validations" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eLc-rs-IT8">
                                                         <rect key="frame" x="20" y="34" width="194" height="30"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <fontDescription key="fontDescription" name="GoogleSans-Medium" family="Google Sans" pointSize="24"/>
                                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
@@ -209,7 +193,12 @@
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="245" id="yiK-dG-m4T"/>
+                                                    <constraint firstAttribute="trailing" secondItem="K6L-y0-eG7" secondAttribute="trailing" id="V64-0H-LMn"/>
+                                                    <constraint firstItem="K6L-y0-eG7" firstAttribute="leading" secondItem="p8d-0D-h6c" secondAttribute="leading" id="cqv-yc-MN3"/>
+                                                    <constraint firstItem="K6L-y0-eG7" firstAttribute="top" secondItem="eLc-rs-IT8" secondAttribute="bottom" constant="10" id="hhq-6r-WBX"/>
+                                                    <constraint firstItem="eLc-rs-IT8" firstAttribute="top" secondItem="p8d-0D-h6c" secondAttribute="top" constant="34" id="lkm-Wy-9Xn"/>
+                                                    <constraint firstItem="eLc-rs-IT8" firstAttribute="leading" secondItem="p8d-0D-h6c" secondAttribute="leading" constant="20" id="obg-G7-gz8"/>
+                                                    <constraint firstAttribute="bottom" secondItem="K6L-y0-eG7" secondAttribute="bottom" id="put-HX-C2m"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wkF-nC-4b3">
@@ -246,13 +235,13 @@
                                             <constraint firstItem="p8d-0D-h6c" firstAttribute="leading" secondItem="X5u-H2-PWb" secondAttribute="leading" id="JfG-0t-59h"/>
                                             <constraint firstItem="owV-nu-EIT" firstAttribute="leading" secondItem="X5u-H2-PWb" secondAttribute="leading" constant="31" id="Qsy-uP-99B"/>
                                             <constraint firstAttribute="bottom" secondItem="owV-nu-EIT" secondAttribute="bottom" constant="43" id="Zak-p6-W8y"/>
+                                            <constraint firstAttribute="bottom" secondItem="p8d-0D-h6c" secondAttribute="bottom" id="eil-FP-4M7"/>
                                             <constraint firstItem="QIh-w6-1ts" firstAttribute="top" secondItem="wkF-nC-4b3" secondAttribute="bottom" constant="14" id="gxc-89-jDa"/>
                                             <constraint firstAttribute="trailing" secondItem="owV-nu-EIT" secondAttribute="trailing" constant="30" id="ikQ-DQ-a65"/>
                                             <constraint firstItem="QIh-w6-1ts" firstAttribute="leading" secondItem="X5u-H2-PWb" secondAttribute="leading" constant="10" id="kTM-3g-hV3"/>
                                             <constraint firstAttribute="trailing" secondItem="p8d-0D-h6c" secondAttribute="trailing" id="rSy-gF-LEM"/>
                                             <constraint firstAttribute="trailing" secondItem="wkF-nC-4b3" secondAttribute="trailing" id="s2k-o5-yv5"/>
                                             <constraint firstItem="wkF-nC-4b3" firstAttribute="leading" secondItem="X5u-H2-PWb" secondAttribute="leading" id="sbB-X6-U5G"/>
-                                            <constraint firstItem="owV-nu-EIT" firstAttribute="top" secondItem="p8d-0D-h6c" secondAttribute="bottom" constant="26" id="ttn-DH-aRL"/>
                                             <constraint firstItem="p8d-0D-h6c" firstAttribute="top" secondItem="QIh-w6-1ts" secondAttribute="bottom" constant="21" id="vqy-aE-bfa"/>
                                             <constraint firstItem="wkF-nC-4b3" firstAttribute="top" secondItem="X5u-H2-PWb" secondAttribute="top" id="ymA-ft-f8M"/>
                                         </constraints>
@@ -289,8 +278,6 @@
                         <outlet property="recordTypeLabel" destination="fAd-C3-1pq" id="zhi-jW-U2v"/>
                         <outlet property="recordValue" destination="GD3-0S-rSM" id="ixe-J0-86v"/>
                         <outlet property="tableView" destination="K6L-y0-eG7" id="YZb-gI-ZWj"/>
-                        <outlet property="validationCount" destination="sgX-uP-CfF" id="5WY-Jq-KsB"/>
-                        <outlet property="validationsLabel" destination="eQw-as-eSG" id="Qot-dk-1tD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WHz-N7-iRV" userLabel="First Responder" sceneMemberID="firstResponder"/>

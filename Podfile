@@ -15,6 +15,7 @@ pod 'Fabric'
 pod 'Crashlytics'
 pod 'IQKeyboardManagerSwift'
 pod 'KVSpinnerView'
+pod 'R.swift'
 
   target 'Me-iOSTests' do
     inherit! :search_paths

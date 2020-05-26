@@ -56,18 +56,20 @@ class MRecordsViewController: UIViewController {
     
     @IBAction func createRecord(_ sender: UIButton) {
         
-        var stb = UIStoryboard(name: "ChooseTypeRecord", bundle: nil)
-        let walkthrough = stb.instantiateViewController(withIdentifier: "walk") as! BWWalkthroughViewController
-        let pageOne = stb.instantiateViewController(withIdentifier: "types")
-        stb = UIStoryboard(name: "TextRecord", bundle: nil)
-        let pageTwo = stb.instantiateViewController(withIdentifier: "text")
-        
-        walkthrough.delegate = self
-        walkthrough.scrollview.isScrollEnabled = false
-        walkthrough.add(viewController:pageOne)
-        walkthrough.add(viewController:pageTwo)
-        
-        self.present(walkthrough, animated: true, completion: nil)
+        if let walkthrough = R.storyboard.chooseTypeRecord.walk() {
+            walkthrough.delegate = self
+            walkthrough.scrollview.isScrollEnabled = false
+            
+            if let pageOne = R.storyboard.chooseTypeRecord.types() {
+                walkthrough.add(viewController:pageOne)
+            }
+            
+            if let pageTwo = R.storyboard.textRecord.text() {
+                walkthrough.add(viewController:pageTwo)
+            }
+            
+            self.present(walkthrough, animated: true, completion: nil)
+        }
         
     }
     
@@ -99,19 +101,14 @@ class MRecordsViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        if segue.identifier == "goToRecordDetail" {
-            
+        if let _ = R.segue.mRecordsViewController.goToRecordDetail(segue: segue) {
             let record = recordViewModel.selectedRecord
-            let generalVC = didSetPullUP(storyBoardName: "RecordDetail", segue: segue)
+            let generalVC = didSetPullUP(storyboard: R.storyboard.recordDetail(), segue: segue)
             (generalVC.contentViewController as! MRecordDetailViewController).recordId =  String(record?.id ?? 0)
             (generalVC.bottomViewController as! CommonBottomViewController).qrType = .Record
             (generalVC.bottomViewController as! CommonBottomViewController).idRecord = record?.id ?? 0
-            
         }
-        
     }
-    
 }
 
 extension MRecordsViewController: BWWalkthroughViewControllerDelegate{
