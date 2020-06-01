@@ -18,6 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
     var commonService: CommonServiceProtocol! = CommonService()
+    var appnotifier = AppVersionUpdateNotifier()
+    var timer = Timer()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
@@ -80,6 +82,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         didCheckPasscode(vc: self.window!.rootViewController!)
         initPush(application)
         
+        appnotifier.initNotifier(self)
         
         return true
     }
@@ -117,19 +120,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func applicationDidEnterBackground(_ application: UIApplication) {
+        timer.invalidate()
     }
     
     func applicationWillEnterForeground(_ application: UIApplication) {
+        setupTimer()
     }
     
     func applicationDidBecomeActive(_ application: UIApplication) {
+        setupTimer()
     }
     
     func applicationWillTerminate(_ application: UIApplication) {
         self.saveContext()
     }
-    
-    
     
     
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
@@ -358,3 +362,36 @@ extension AppDelegate: AppLockerDelegate{
     
 }
 
+extension AppDelegate {
+    
+    func setupTimer() {
+        timer.invalidate()
+        timer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(checkForUpdate), userInfo: nil, repeats: true)
+    }
+    
+    @objc func checkForUpdate() {
+        appnotifier.isUpdateAvailable()
+    }
+}
+
+extension AppDelegate: AppUpdateNotifier {
+    func hasNewVersion(shouldBeUpdated: Bool) {
+        if shouldBeUpdated {
+            if let vc = window?.rootViewController as? HiddenNavBarNavigationController {
+                vc.topViewController?.view.addSubview(appnotifier.showUpdateView())
+                appnotifier.vc = vc.topViewController
+                appnotifier.setupView()
+            }else if let vc = window?.rootViewController as? MMainTabBarController {
+                if let navVC = vc.selectedViewController as? HiddenNavBarNavigationController {
+                    navVC.topViewController?.view.addSubview(appnotifier.showUpdateView())
+                    appnotifier.vc = navVC.topViewController
+                    appnotifier.setupView()
+                }else {
+                    vc.selectedViewController?.view.addSubview(appnotifier.showUpdateView())
+                    appnotifier.vc = vc.selectedViewController
+                    appnotifier.setupView()
+                }
+            }
+        }
+    }
+}

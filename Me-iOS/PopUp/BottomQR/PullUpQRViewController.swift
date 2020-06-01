@@ -55,7 +55,7 @@ class PullUpQRViewController: UIViewController {
                 
                 DispatchQueue.main.async {
                     
-                    self?.qrImage.generateQRCode(from: "{ \"type\": \"auth_token\",\"value\": \"\(token)\" }")
+                    self?.qrImage.generateQRCode(from: "{ \"type\": \"auth_token\",\"value\": \"\(token)\", \"imgUrl\" : \"https://media.forus.io/assets/me-logo.png\" }")
                     self?.timer = Timer.scheduledTimer(timeInterval: 7, target: self!, selector: #selector(self?.checkAuthorizeToken), userInfo: nil, repeats: true)
                     self?.token = accessToken
                     
@@ -70,7 +70,7 @@ class PullUpQRViewController: UIViewController {
             self.titleDescriptionLabel.text = Localize.thisIsYourVoucherSQRCode()
             self.descriptionLabel.text = Localize.letTheShopkeeperScanItToMakeAPaymentFromYourVoucher()
             
-            self.qrImage.generateQRCode(from: "{ \"type\": \"voucher\",\"value\": \"\(self.voucher.address ?? "")\" }")
+            self.qrImage.generateQRCode(from: "{ \"type\": \"voucher\",\"value\": \"\(self.voucher.address ?? "")\", \"imgUrl\" : \"https://media.forus.io/assets/me-logo.png\" }")
             
             if voucher.product != nil {
                 
@@ -98,7 +98,7 @@ class PullUpQRViewController: UIViewController {
                 
                 DispatchQueue.main.async {
                     UserDefaults.standard.set(record.uuid ?? "", forKey: UserDefaultsName.CurrentRecordUUID)
-                    self?.qrImage.generateQRCode(from: "{ \"type\": \"record\",\"value\": \"\(record.uuid ?? "")\" }")
+                    self?.qrImage.generateQRCode(from: "{ \"type\": \"record\",\"value\": \"\(record.uuid ?? "")\", \"imgUrl\" : \"https://media.forus.io/assets/me-logo.png\" }")
                     
                 }
             }
@@ -111,7 +111,7 @@ class PullUpQRViewController: UIViewController {
                 
                 DispatchQueue.main.async {
                     
-                    self?.qrImage.generateQRCode(from: "{ \"type\": \"identity\",\"value\": \"\(identityAddress)\" }")
+                    self?.qrImage.generateQRCode(from: "{ \"type\": \"identity\",\"value\": \"\(identityAddress)\", \"imgUrl\" : \"https://media.forus.io/assets/me-logo.png\" }")
                     
                 }
             }

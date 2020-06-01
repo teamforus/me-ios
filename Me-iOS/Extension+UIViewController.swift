@@ -10,10 +10,9 @@ import Foundation
 import UIKit
 import LocalAuthentication
 import CoreData
+import StoreKit
 
 extension UIViewController{
-    
-    
     
     @IBAction func back(_ sender: UIButton){
         self.navigationController?.popViewController(animated: true)
@@ -386,6 +385,32 @@ extension UIViewController: AppLockerDelegate {
     
     func closePinCodeView(typeClose: typeClose) {
         
+    }
+}
+
+// MARK: - SKStore for update app
+
+extension UIViewController {
+    @objc func updateApp(){
+        openStoreProductWithiTunesItemIdentifier(identifier: "1422610676")
+    }
+    
+    func openStoreProductWithiTunesItemIdentifier(identifier: String) {
+        let storeViewController = SKStoreProductViewController()
+        storeViewController.delegate = self
+
+        let parameters = [ SKStoreProductParameterITunesItemIdentifier : identifier]
+        storeViewController.loadProduct(withParameters: parameters) { [weak self] (loaded, error) -> Void in
+            if loaded {
+                self?.present(storeViewController, animated: true, completion: nil)
+            }
+        }
+    }
+}
+
+extension UIViewController: SKStoreProductViewControllerDelegate {
+    public func productViewControllerDidFinish(_ viewController: SKStoreProductViewController) {
+        self.dismiss(animated: true, completion: nil)
     }
 }
 

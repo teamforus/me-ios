@@ -88,7 +88,7 @@ class BottomQrWithPinViewController: UIViewController {
             
             DispatchQueue.main.async {
                 
-                self?.qrCode.generateQRCode(from: "{ \"type\": \"auth_token\",\"value\": \"\(token)\" }")
+                self?.qrCode.generateQRCode(from: "{ \"type\": \"auth_token\",\"value\": \"\(token)\", \"imgUrl\" : \"https://media.forus.io/assets/me-logo.png\"}")
                 self?.timerQR = Timer.scheduledTimer(timeInterval: 7, target: self!, selector: #selector(self?.didCheckAuthorize), userInfo: nil, repeats: true)
                 self?.tokenQr = accessToken
                 
