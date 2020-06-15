@@ -13,8 +13,6 @@ import CoreData
 
 extension UIViewController{
     
-    
-    
     @IBAction func back(_ sender: UIButton){
         self.navigationController?.popViewController(animated: true)
     }
@@ -347,7 +345,7 @@ extension UIViewController{
         let appDelegate = UIApplication.shared.delegate as? AppDelegate
         let context = appDelegate!.persistentContainer.viewContext
         let entity = NSEntityDescription.entity(forEntityName: "User", in: context)
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
+        _ = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
         
         do{
             let newUser = NSManagedObject(entity: entity!, insertInto: context)
@@ -381,6 +379,23 @@ extension UIViewController{
     }
 }
 
+extension UIViewController{
+    
+    func didSetPullUP(storyboard: UIStoryboard, segue: UIStoryboardSegue) -> CommonPullUpViewController {
+        
+        let passVC = segue.destination as! CommonPullUpViewController
+        
+        passVC.contentViewController = storyboard.instantiateViewController(withIdentifier: "content")
+        
+        passVC.bottomViewController = storyboard.instantiateViewController(withIdentifier: "bottom")
+        
+        (passVC.bottomViewController as! CommonBottomViewController).pullUpController = passVC
+        passVC.sizingDelegate = (passVC.bottomViewController as! CommonBottomViewController)
+        passVC.stateDelegate = (passVC.bottomViewController as! CommonBottomViewController)
+        
+        return passVC
+    }
+}
 
 extension UIViewController: AppLockerDelegate {
     
@@ -388,4 +403,3 @@ extension UIViewController: AppLockerDelegate {
         
     }
 }
-
