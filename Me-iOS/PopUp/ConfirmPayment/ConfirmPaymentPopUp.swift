@@ -14,7 +14,6 @@ class ConfirmPaymentPopUp: UIViewController {
     @IBOutlet weak var insuficientLabel: UILabel!
     @IBOutlet weak var bodyView: CustomCornerUIView!
     
-    
     var voucher: Voucher!
     var voucherToken: Transaction!
     var testToken: String!
