@@ -48,7 +48,7 @@ class MProductVoucherViewController: UIViewController {
                 
                 
                 self?.productNameLabel.text = voucher.product?.name ?? ""
-                self?.organizationNameLabel.text = voucher.fund?.organization?.name ?? ""
+                self?.organizationNameLabel.text = voucher.product?.organization?.name ?? ""
                 self?.organizationProductName.text = voucher.product?.organization?.name ?? ""
                 self?.addressLabel.text = voucher.offices?.first?.address ?? ""
                 self?.phoneNumberLabel.text = voucher.offices?.first?.phone ?? ""
