@@ -288,23 +288,3 @@ extension MVouchersViewController: UIViewControllerPreviewingDelegate{
         navigationController?.pushViewController(viewControllerToCommit, animated: true)
     }
 }
-
-extension UIViewController{
-    
-    func didSetPullUP(storyboard: UIStoryboard, segue: UIStoryboardSegue) -> CommonPullUpViewController {
-        
-        let passVC = segue.destination as! CommonPullUpViewController
-        
-        passVC.contentViewController = storyboard.instantiateViewController(withIdentifier: "content")
-        
-        passVC.bottomViewController = storyboard.instantiateViewController(withIdentifier: "bottom")
-        
-        (passVC.bottomViewController as! CommonBottomViewController).pullUpController = passVC
-        passVC.sizingDelegate = (passVC.bottomViewController as! CommonBottomViewController)
-        passVC.stateDelegate = (passVC.bottomViewController as! CommonBottomViewController)
-        
-        return passVC
-    }
-    
-}
-
