@@ -146,3 +146,6 @@
 "validation_approved" = "Validatie goedgekeurd.";
 "complete_amount" = "VUL ZELF EEN BEDRAG IN";
 "decline" = "ANNULEREN";
+"test_transaction" = "Test transactie";
+"test_organization" = "Test bedrijf";
+
