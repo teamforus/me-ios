@@ -16,7 +16,7 @@ class ProductReservationTableViewCell: UITableViewCell {
     var productReservation: Transaction! {
         didSet{
             titleVoucher.text = productReservation.product?.name ?? ""
-            priceVoucher.text = productReservation.product?.price ?? "0€"
+            priceVoucher.text = String(productReservation.product?.price ?? "0") + "€"
             self.iconVoucher.loadImageUsingUrlString(urlString: productReservation?.product?.photo?.sizes?.thumbnail ?? "", placeHolder: #imageLiteral(resourceName: "Resting"))
         }
     }

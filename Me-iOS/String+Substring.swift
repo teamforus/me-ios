@@ -9,6 +9,10 @@
 import Foundation
 import UIKit
 
+var Localize: R.string.localizable.Type {
+    return R.string.localizable.self
+}
+
 extension String {
     
     func substringLeftPart() -> String{

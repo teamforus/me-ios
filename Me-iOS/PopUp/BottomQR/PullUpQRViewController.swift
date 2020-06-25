@@ -67,8 +67,8 @@ class PullUpQRViewController: UIViewController {
             break
         case .Voucher?:
             
-            self.titleDescriptionLabel.text = "This is your Voucher’s QR-code.".localized()
-            self.descriptionLabel.text = "Let the shopkeeper scan it to make a payment from your voucher.".localized()
+            self.titleDescriptionLabel.text = Localize.thisIsYourVoucherSQRCode()
+            self.descriptionLabel.text = Localize.letTheShopkeeperScanItToMakeAPaymentFromYourVoucher()
             
             self.qrImage.generateQRCode(from: "{ \"type\": \"voucher\",\"value\": \"\(self.voucher.address ?? "")\" }")
             
@@ -82,20 +82,22 @@ class PullUpQRViewController: UIViewController {
                 
             }
             
-            dateExpireLabel.text = "This voucher expires on ".localized() + (voucher.expire_at?.date?.dateFormaterExpireDate())!
+            dateExpireLabel.text = Localize.thisVoucherExpiresOn() + (voucher.expire_at?.date?.dateFormaterExpireDate())!
             
             break
         case .Record?:
             self.voucherNameLabel.isHidden = true
             self.dateExpireLabel.isHidden = true
-            self.titleDescriptionLabel.text = "This is your personal QR code.".localized()
-            self.descriptionLabel.text = String(format: NSLocalizedString("Let the shopkeeper scan it to make a validtion to your record %@.", comment: ""), self.record.name ?? "")
+            self.titleDescriptionLabel.text = Localize.thisIsYourVoucherSQRCode()
+            if let name = self.record.name {
+                self.descriptionLabel.text = Localize.letTheShopkeeperScanItToMakeAValidtionToYourRecord(name)
+            }
             
             
             bottomQRViewModel.completeRecord = { [weak self] (record) in
                 
                 DispatchQueue.main.async {
-                    
+                    UserDefaults.standard.set(record.uuid ?? "", forKey: UserDefaultsName.CurrentRecordUUID)
                     self?.qrImage.generateQRCode(from: "{ \"type\": \"record\",\"value\": \"\(record.uuid ?? "")\" }")
                     
                 }

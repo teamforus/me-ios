@@ -100,8 +100,8 @@ class MQRViewController: HSScanViewController {
                     KVSpinnerView.dismiss()
                     if statusCode != 401 {
                         
-                        self?.showSimpleAlertWithSingleAction(title: "Success".localized(), message: "A record has been validated!".localized(),
-                                                              okAction: UIAlertAction(title: "OK", style: .default, handler: { (action) in
+                        self?.showSimpleAlertWithSingleAction(title: Localize.success(), message: Localize.aRecordHasBeenValidated(),
+                                                              okAction: UIAlertAction(title: Localize.ok(), style: .default, handler: { (action) in
                                                                 self?.scanWorker.start()
                                                               }))
                     }else {
@@ -130,27 +130,27 @@ class MQRViewController: HSScanViewController {
                                 
                                 if voucher.product?.price != "0.00"{
                                     
-                                    self?.performSegue(withIdentifier: "goToVoucherPayment", sender: nil)
+                                    self?.performSegue(withIdentifier: R.segue.mqrViewController.goToVoucherPayment, sender: nil)
                                 }else{
                                     
-                                    self?.showSimpleAlertWithSingleAction(title: "Error!".localized(),
-                                                                          message: "This product voucher is used!".localized(),
-                                                                          okAction: UIAlertAction(title: "OK", style: .default, handler: { (action) in
+                                    self?.showSimpleAlertWithSingleAction(title: Localize.error_exclamation(),
+                                                                          message: Localize.thisProductVoucherIsUsed(),
+                                                                          okAction: UIAlertAction(title: Localize.ok(), style: .default, handler: { (action) in
                                                                             self?.scanWorker.start()
                                                                           }))
                                 }
                                 
                             }else {
                                 
-                                self?.showSimpleAlertWithSingleAction(title: "Error!".localized(),
-                                                                      message: "Sorry you do not meet the criteria for this voucher".localized(),
-                                                                      okAction: UIAlertAction(title: "OK", style: .default, handler: { (action) in
+                                self?.showSimpleAlertWithSingleAction(title: Localize.error_exclamation(),
+                                                                      message: Localize.sorryYouDoNotMeetTheCriteriaForThisVoucher(),
+                                                                      okAction: UIAlertAction(title: Localize.ok(), style: .default, handler: { (action) in
                                                                         self?.scanWorker.start()
                                                                       }))
                             }
                     }else {
                         
-                        self?.showSimpleAlertWithSingleAction(title: "Error!".localized(), message: "You can't scan this voucher. You are not accepted as a provider for the fund that hands out these vouchers.".localized(), okAction: UIAlertAction(title: "OK", style: .default, handler: { (action) in
+                        self?.showSimpleAlertWithSingleAction(title: Localize.error_exclamation(), message: Localize.youCanTScanThisVoucherYouAreNotAcceptedAsAProviderForTheFundThatHandsOutTheseVouchers(), okAction: UIAlertAction(title: Localize.ok(), style: .default, handler: { (action) in
                             self?.scanWorker.start()
                         }))
                     }
@@ -175,15 +175,15 @@ class MQRViewController: HSScanViewController {
                         }
                     })
                     if self.productVoucher.count != 0 {
-                        self.performSegue(withIdentifier: "goToChooseProduct", sender: nil)
+                        self.performSegue(withIdentifier: R.segue.mqrViewController.goToChooseProduct, sender: nil)
                     }else {
-                        self.performSegue(withIdentifier: "goToVoucherPayment", sender: nil)
+                        self.performSegue(withIdentifier: R.segue.mqrViewController.goToVoucherPayment, sender: nil)
                     }
                 }else {
                 
-                self.showSimpleAlertWithSingleAction(title: "Error!".localized(),
-                                                                                 message: "The voucher is empty! No transactions can be done.".localized(),
-                                                                                 okAction: UIAlertAction(title: "OK", style: .default, handler: { (action) in
+                    self.showSimpleAlertWithSingleAction(title: Localize.error_exclamation(),
+                                                     message: Localize.theVoucherIsEmptyNoTransactionsCanBeDone(),
+                                                     okAction: UIAlertAction(title: Localize.ok(), style: .default, handler: { (action) in
                                                                                    self.scanWorker.start()
                                                                                  }))
                 }
@@ -203,22 +203,16 @@ class MQRViewController: HSScanViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "goToVoucherPayment" {
-            if let paymentVC = segue.destination as? MPaymentViewController {
-                paymentVC.testToken = testToken
-                paymentVC.voucher = voucher
-                paymentVC.tabBar = self.tabBarController
-                
-            }
-        }else if segue.identifier == "goToChooseProduct" {
-            if let productReservation = segue.destination as? MProductReservationViewController {
-                
-                productReservation.voucher = voucher
-                productReservation.voucherTokens = productVoucher.filter({$0.amount != "0.0"})
-                productReservation.vc = self
-                productReservation.tabBar = self.tabBarController
-                
-            }
+        if let paymentVC = R.segue.mqrViewController.goToVoucherPayment(segue: segue) {
+            paymentVC.destination.testToken = testToken
+            paymentVC.destination.voucher = voucher
+            paymentVC.destination.tabBar = self.tabBarController
+            
+        }else if let productReservation =  R.segue.mqrViewController.goToChooseProduct(segue: segue) {
+            productReservation.destination.voucher = voucher
+            productReservation.destination.voucherTokens = productVoucher.filter({$0.amount != "0.0"})
+            productReservation.destination.vc = self
+            productReservation.destination.tabBar = self.tabBarController
         }
     }
 }
@@ -239,13 +233,13 @@ extension MQRViewController: HSScanViewControllerDelegate{
                         if qr.type == QRTypeScann.authToken.rawValue {
                             self.scanWorker.stop()
                             self.showSimpleAlertWithAction(title: "Login QR",
-                                                           message: "You sure you wan't to login this device?".localized(),
-                                                           okAction: UIAlertAction(title: "YES".localized(), style: .default, handler: { (action) in
+                                                           message: Localize.youSureYouWanTToLoginThisDevice(),
+                                                           okAction: UIAlertAction(title: Localize.yeS(), style: .default, handler: { (action) in
                                                             KVSpinnerView.show()
                                                             self.qrViewModel.initAuthorizeToken(token: qr.value)
                                                             
                                                            }),
-                                                           cancelAction: UIAlertAction(title: "NO".localized(), style: .cancel, handler: { (action) in
+                                                           cancelAction: UIAlertAction(title: Localize.nO(), style: .cancel, handler: { (action) in
                                                             
                                                             self.scanWorker.start()
                                                            }))
@@ -267,7 +261,7 @@ extension MQRViewController: HSScanViewControllerDelegate{
                         } else if qr.type == QRTypeScann.testTransaction.rawValue {
                             self.scanWorker.stop()
                             self.testToken = qr.value
-                            self.performSegue(withIdentifier: "goToVoucherPayment", sender: nil)
+                            self.performSegue(withIdentifier: R.segue.mqrViewController.goToVoucherPayment, sender: nil)
                         }
                     }
                 } catch {
@@ -293,11 +287,11 @@ extension MQRViewController: OrganizationValidatorViewControllerDelegate {
     
     func selectOrganization(organization: EmployeesOrganization, vc: UIViewController) {
         self.showSimpleAlertWithAction(title: self.recordValidateResponse.name ?? "", message: self.recordValidateResponse.value ?? "",
-                                       okAction: UIAlertAction(title: "Validate".localized(), style: .default, handler: { (action) in
+                                       okAction: UIAlertAction(title: Localize.validate(), style: .default, handler: { (action) in
                                         (vc as! OrganizationValidatorViewController).close(UIButton())
                                         self.qrViewModel.initApproveValidationRecord(code: self.recordValidateResponse.uuid ?? "", organization:  OrganizationRecord(organization_id: organization.organization_id ?? 0))
                                        }),
-                                       cancelAction: UIAlertAction(title: "Cancel".localized(), style: .cancel, handler: { (action) in
+                                       cancelAction: UIAlertAction(title: Localize.cancel(), style: .cancel, handler: { (action) in
                                        }))
     }
 }

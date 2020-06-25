@@ -23,7 +23,7 @@ class MRecordValidatorsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.categoryRecordLabel.text = "Personal".localized()
+        self.categoryRecordLabel.text = Localize.personal()
         self.typeRecordLabel.setTitle(record.name ?? "", for: .normal)
         self.recordValueLabel.setTitle(record.value, for: .normal)
         

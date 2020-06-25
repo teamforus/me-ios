@@ -93,13 +93,7 @@ class MAFirstPageViewController: UIViewController {
             chooseEnvironmentButton.setTitle("Demo", for: .normal)
             break
         case EnvironmentType.dev.rawValue:
-            CheckWebSiteReacheble.checkWebsite(url: "https://develop.test.api.forus.io") { (isReacheble) in
-                if isReacheble {
-                    UserDefaults.standard.setValue("https://develop.test.api.forus.io/api/v1/", forKey: UserDefaultsName.EnvironmentURL)
-                }else {
-                    UserDefaults.standard.setValue("https://dev.api.forus.io/api/v1/", forKey: UserDefaultsName.EnvironmentURL)
-                }
-            }
+            UserDefaults.standard.setValue("https://dev.api.forus.io/api/v1/", forKey: UserDefaultsName.EnvironmentURL)
             UserDefaults.standard.setValue("Dev", forKey: UserDefaultsName.EnvironmentName)
             chooseEnvironmentButton.setTitle("Dev", for: .normal)
             break
@@ -118,7 +112,7 @@ class MAFirstPageViewController: UIViewController {
                 UserDefaults.standard.setValue("Custom", forKey: UserDefaultsName.EnvironmentName)
                 self.chooseEnvironmentButton.setTitle("Custom", for: .normal)
             })
-            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: { (action : UIAlertAction!) -> Void in })
+            let cancelAction = UIAlertAction(title: Localize.cancel(), style: .cancel, handler: { (action : UIAlertAction!) -> Void in })
             
             alertController.addAction(cancelAction)
             alertController.addAction(saveAction)
@@ -164,8 +158,7 @@ class MAFirstPageViewController: UIViewController {
         
         if isReachable() {
             
-            registerViewModel.initRegister(identity: Identity(pin_code: "1111",
-                                                              records: RecordsIndenty(primary_email: emailField.text ?? "")))
+            registerViewModel.initRegister(identity: Identity(email: emailField.text ?? ""))
         }else {
             
             showInternetUnable()
@@ -180,7 +173,7 @@ class MAFirstPageViewController: UIViewController {
                         self?.emailLoginViewModel.initLoginByEmail(email: self?.emailField.text ?? "")
                   
                 }else if statusCode == 500 {
-                    self?.showSimpleAlertWithSingleAction(title: "Error!".localized(), message: "", okAction: UIAlertAction(title: "OK", style: .default, handler: { (action) in
+                    self?.showSimpleAlertWithSingleAction(title: Localize.error_exclamation(), message: "", okAction: UIAlertAction(title: "OK", style: .default, handler: { (action) in
                     }))
                 }else {
                     self?.performSegue(withIdentifier: "goToSuccessMail", sender: nil)
@@ -197,7 +190,7 @@ class MAFirstPageViewController: UIViewController {
                     self?.performSegue(withIdentifier: "goToSuccessMail", sender: self)
                     
                 }else {
-                    self?.showSimpleAlertWithSingleAction(title: "Error!".localized(), message: "", okAction: UIAlertAction(title: "OK", style: .default, handler: { (action) in
+                    self?.showSimpleAlertWithSingleAction(title: Localize.error_exclamation(), message: "", okAction: UIAlertAction(title: "OK", style: .default, handler: { (action) in
                     }))
                 }
             }
