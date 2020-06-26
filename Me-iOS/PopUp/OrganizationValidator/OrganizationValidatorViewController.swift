@@ -18,12 +18,14 @@ class OrganizationValidatorViewController: UIViewController {
     @IBOutlet weak var bodyView: CustomCornerUIView!
     @IBOutlet weak var bottomConstraintView: NSLayoutConstraint!
     @IBOutlet weak var heightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var closeButton: UIButton!
     
     weak var delegate: OrganizationValidatorViewControllerDelegate!
     var recordEmployeesOrganizations: [EmployeesOrganization] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupAccessibility()
         tableView.register(UINib(nibName: "OrganizationValidatorTableViewCell", bundle: nil), forCellReuseIdentifier: "OrganizationValidatorTableViewCell")
         self.bottomConstraintView.constant = -600
         DispatchQueue.main.asyncAfter(deadline: .now()) {
@@ -81,6 +83,14 @@ extension OrganizationValidatorViewController: UITableViewDelegate, UITableViewD
         UIView.animate(withDuration: 0.5) {
             self.view.layoutIfNeeded()
         }
+    }
+}
+
+// MARK: - Accessibility Protocol
+
+extension OrganizationValidatorViewController: AccessibilityProtocol {
+    func setupAccessibility() {
+        closeButton.setupAccesibility(description: "Close", accessibilityTraits: .button)
     }
 }
 

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="AiY-WO-VwH">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="AiY-WO-VwH">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -300,8 +300,11 @@
                         <outlet property="heightConstraint" destination="Suv-fe-koy" id="ZxH-xR-kT3"/>
                         <outlet property="organizationName" destination="w5t-6W-ueq" id="Eko-y9-lft"/>
                         <outlet property="priceLabel" destination="ZIO-zS-LCB" id="Wz1-KM-jEs"/>
+                        <outlet property="qrCodeButton" destination="vfb-3A-tZe" id="dpl-Sr-ArW"/>
                         <outlet property="qrImage" destination="yUw-RD-mDo" id="m2N-kP-S2Q"/>
+                        <outlet property="sendEmailButton" destination="mWI-n4-pEO" id="NSq-dI-FsV"/>
                         <outlet property="tableView" destination="hIb-0R-ybB" id="4ja-2f-URW"/>
+                        <outlet property="voucherInfoButton" destination="kQA-2y-C8q" id="5cw-XE-6vr"/>
                         <outlet property="voucherName" destination="Sdw-Cx-cza" id="iNZ-rT-caU"/>
                         <outletCollection property="images" destination="yUw-RD-mDo" collectionClass="NSMutableArray" id="T7X-Ge-Vae"/>
                         <outletCollection property="labeles" destination="Sdw-Cx-cza" collectionClass="NSMutableArray" id="eiB-pc-Yu5"/>

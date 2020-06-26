@@ -9,9 +9,12 @@
 import UIKit
 
 class EnablePersonalInformationViewController: UIViewController {
-
+    @IBOutlet weak var identificationView: CustomCornerUIView!
+    @IBOutlet weak var identificationSwitch: UISwitchCustom!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupAccessibility()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -20,13 +23,22 @@ class EnablePersonalInformationViewController: UIViewController {
         let vc = nVC?.topViewController as? MVouchersViewController
         vc?.isFromLogin = true
     }
-
+    
     @IBAction func enableSendIndenity(_ sender: UISwitch) {
         
         if sender.isOn {
-                   UserDefaults.standard.set(true, forKey: UserDefaultsName.AddressIndentityCrash)
-               }else {
-                   UserDefaults.standard.set(false, forKey: UserDefaultsName.AddressIndentityCrash)
-               }
+            UserDefaults.standard.set(true, forKey: UserDefaultsName.AddressIndentityCrash)
+        }else {
+            UserDefaults.standard.set(false, forKey: UserDefaultsName.AddressIndentityCrash)
+        }
+    }
+}
+
+// MARK: - Accessibility Protocol
+
+extension EnablePersonalInformationViewController: AccessibilityProtocol {
+    func setupAccessibility() {
+        identificationView.setupAccesibility(description: "Turn on/off to send indentification number in crash report, on right side you can enable this option. ", accessibilityTraits: .none)
+        identificationSwitch.setupAccesibility(description: "Turn on/off indentification number", accessibilityTraits: .none)
     }
 }

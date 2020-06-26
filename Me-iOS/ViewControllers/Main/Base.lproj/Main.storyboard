@@ -183,7 +183,7 @@
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </view>
                                                         <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6xv-v1-ZBt">
-                                                            <rect key="frame" x="307" y="8" width="68" height="74"/>
+                                                            <rect key="frame" x="294" y="8" width="68" height="74"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Vraag" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aV4-ZM-bmn">

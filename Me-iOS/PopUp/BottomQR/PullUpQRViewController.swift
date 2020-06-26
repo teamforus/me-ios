@@ -23,6 +23,7 @@ class PullUpQRViewController: UIViewController {
     @IBOutlet weak var bodyView: CustomCornerUIView!
     @IBOutlet weak var titleDescriptionLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var closeButton: UIButton!
     
     var timer : Timer! = Timer()
     var token: String!
@@ -44,6 +45,7 @@ class PullUpQRViewController: UIViewController {
                 self.view.layoutIfNeeded()
             }
         }
+        setupAccessibility()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -167,4 +169,13 @@ class PullUpQRViewController: UIViewController {
         })
     }
     
+}
+
+// MARK: - Accessibility Protocol
+
+extension PullUpQRViewController: AccessibilityProtocol {
+    func setupAccessibility() {
+        qrImage.setupAccesibility(description: "QR Code", accessibilityTraits: .image)
+        closeButton.setupAccesibility(description: "Close", accessibilityTraits: .button)
+    }
 }
