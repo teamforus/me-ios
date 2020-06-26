@@ -84,6 +84,7 @@ class MVouchersViewController: UIViewController {
         voucherViewModel.getIndentity()
         
         initFetch()
+        setupAccessibility()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -285,5 +286,19 @@ extension MVouchersViewController: UIViewControllerPreviewingDelegate{
     
     public func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
         navigationController?.pushViewController(viewControllerToCommit, animated: true)
+    }
+}
+// MARK: - Accessibility Protocol
+
+extension MVouchersViewController: AccessibilityProtocol {
+    
+    func setupAccessibility() {
+        if let valute = segmentController.accessibilityElement(at: 0) as? UIView {
+            valute.setupAccesibility(description: "Choose to show all valute", accessibilityTraits: .causesPageTurn)
+        }
+        
+        if let vouchers = segmentController.accessibilityElement(at: 1) as? UIView {
+            vouchers.setupAccesibility(description: "Choose to show all vouchers", accessibilityTraits: .causesPageTurn)
+        }
     }
 }

@@ -144,5 +144,8 @@
 "Click on the link you received on %@ to continue" = "Click on the link you received on %@ to continue";
 "ok" = "OK";
 "validation_approved" = "Validation approved.";
+"complete_amount" = "COMPLETE AN AMOUNT";
+"decline" = "DECLINE";
 "test_transaction" = "Test transaction";
 "test_organization" = "Test organisation";
+

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="GHb-Mw-jlE">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="GHb-Mw-jlE">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -325,14 +325,18 @@
                     <size key="freeformSize" width="375" height="800"/>
                     <connections>
                         <outlet property="addressLabel" destination="CHH-ru-snt" id="HPt-C9-lkK"/>
-                        <outlet property="emailButton" destination="xfb-su-vwf" id="b7s-VU-T5L"/>
+                        <outlet property="callPhoneButton" destination="w85-tX-oGK" id="7sI-ZF-hhL"/>
+                        <outlet property="emailButton" destination="xfb-su-vwf" id="o63-of-tO2"/>
                         <outlet property="mapView" destination="vrm-km-75b" id="CyY-rb-02D"/>
                         <outlet property="organizationIcon" destination="VkW-KL-tSs" id="j2D-yq-5hS"/>
                         <outlet property="organizationNameLabel" destination="wt9-Zp-qNM" id="5m1-vD-CzF"/>
                         <outlet property="organizationProductName" destination="TTK-vD-7c6" id="eoD-c8-2Xj"/>
                         <outlet property="phoneNumberLabel" destination="yYD-ZY-nUL" id="MWP-Ak-dGF"/>
                         <outlet property="productNameLabel" destination="yli-HN-EQC" id="c63-0O-qF7"/>
+                        <outlet property="qrCodeButton" destination="0Wc-78-48p" id="gPr-c3-oaW"/>
                         <outlet property="qrCodeImage" destination="iMx-UP-m5T" id="2m9-om-sta"/>
+                        <outlet property="sendEmailButton" destination="d75-Qd-xat" id="yjq-aF-1Xh"/>
+                        <outlet property="voucherInfoButton" destination="bdu-eB-oGB" id="6Ju-dw-4it"/>
                         <outletCollection property="labeles" destination="yli-HN-EQC" collectionClass="NSMutableArray" id="Yvn-TO-0Sp"/>
                         <outletCollection property="labeles" destination="wt9-Zp-qNM" collectionClass="NSMutableArray" id="cQ3-Dk-Mar"/>
                         <outletCollection property="labeles" destination="TTK-vD-7c6" collectionClass="NSMutableArray" id="1uR-3c-F7T"/>
