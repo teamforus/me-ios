@@ -181,6 +181,7 @@
 		FFFF25252475125F0043E459 /* DynamicLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFFF25242475125F0043E459 /* DynamicLabel.swift */; };
 		FFFF2527247513510043E459 /* AccessibilityProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFFF2526247513510043E459 /* AccessibilityProtocol.swift */; };
 		FFFF8AAC2450CAA2001673DB /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFFF8AAB2450CAA2001673DB /* R.generated.swift */; };
+
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -201,13 +202,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0A89BE88EEB1A6C3C9A22BE7 /* Pods_Me_iOSUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Me_iOSUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0BA3C002535BEC0C09894BC7 /* Pods-Me-iOSUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Me-iOSUITests.release.xcconfig"; path = "Target Support Files/Pods-Me-iOSUITests/Pods-Me-iOSUITests.release.xcconfig"; sourceTree = "<group>"; };
-		1ABB0BB041DF2B085D794CD5 /* Pods_Me_iOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Me_iOSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F4F14FBEF270B54FA6F330B /* Pods-Me-iOS.alpha.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Me-iOS.alpha.xcconfig"; path = "Target Support Files/Pods-Me-iOS/Pods-Me-iOS.alpha.xcconfig"; sourceTree = "<group>"; };
 		27C5698FBEA4D2ECE5592544 /* Pods-Me-iOSTests.alpha.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Me-iOSTests.alpha.xcconfig"; path = "Target Support Files/Pods-Me-iOSTests/Pods-Me-iOSTests.alpha.xcconfig"; sourceTree = "<group>"; };
 		419E6D0E1450A2994CF709CB /* Pods-Me-iOSUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Me-iOSUITests.debug.xcconfig"; path = "Target Support Files/Pods-Me-iOSUITests/Pods-Me-iOSUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		43960597C5DD3C7D7D6E0BF0 /* Pods_Me_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Me_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B10CCAA240D021C00199C28 /* BottomQrWithPinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomQrWithPinViewController.swift; sourceTree = "<group>"; };
 		5B10CCAF240D1FD900199C28 /* EnablePersonalInformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnablePersonalInformationViewController.swift; sourceTree = "<group>"; };
 		5B10CCB3240D292000199C28 /* MSuccessRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSuccessRegisterViewController.swift; sourceTree = "<group>"; };
@@ -454,7 +452,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E234190710AA58EB6F4C206A /* Pods_Me_iOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -462,7 +459,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CF22307B8167F520952552BE /* Pods_Me_iOSTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -470,7 +466,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CECB06D5C049466A525F37E6 /* Pods_Me_iOSUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -502,9 +497,6 @@
 		32CD4EE748A941E16A0DF051 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				43960597C5DD3C7D7D6E0BF0 /* Pods_Me_iOS.framework */,
-				1ABB0BB041DF2B085D794CD5 /* Pods_Me_iOSTests.framework */,
-				0A89BE88EEB1A6C3C9A22BE7 /* Pods_Me_iOSUITests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";

@@ -47,3 +47,5 @@
 /* Class = "UILabel"; text = "Personal"; ObjectID = "uLp-89-Zk0"; */
 "uLp-89-Zk0.text" = "Personal";
 
+/* Class = "UITabBarItem"; title = "Records"; ObjectID = "S2m-RV-PJB"; */
+"S2m-RV-PJB.title" = "Records";
