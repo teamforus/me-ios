@@ -14,6 +14,8 @@ class BottomQrWithPinViewController: UIViewController {
     @IBOutlet var labels: [UILabel]!
     @IBOutlet weak var qrCode: UIImageView!
     @IBOutlet weak var bodyView: CustomCornerUIView!
+    @IBOutlet weak var pinCodeView: CustomCornerUIView!
+    @IBOutlet weak var closeButton: UIButton!
     
     lazy var loginQrViewModel: LoginQrAndCodeViewModel = {
         return LoginQrAndCodeViewModel()
@@ -29,7 +31,7 @@ class BottomQrWithPinViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        setupAccessibility()
         bottomQRViewModel.vc = self
         bodyView.roundCorners(corners: [.layerMaxXMinYCorner, .layerMinXMinYCorner], radius: 9)
         DispatchQueue.main.asyncAfter(deadline: .now()) {
@@ -181,4 +183,14 @@ class BottomQrWithPinViewController: UIViewController {
         })
     }
     
+}
+
+// MARK: - Accessibility Protocol
+
+extension BottomQrWithPinViewController: AccessibilityProtocol {
+    func setupAccessibility() {
+        qrCode.setupAccesibility(description: "Qr Code", accessibilityTraits: .image)
+        pinCodeView.setupAccesibility(description: "This is your pin code", accessibilityTraits: .none)
+        closeButton.setupAccesibility(description: "Close", accessibilityTraits: .button)
+    }
 }

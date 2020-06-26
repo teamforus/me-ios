@@ -171,7 +171,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let qrItem = UIMutableApplicationShortcutItem(type: "QR", localizedTitle: "QR", localizedSubtitle: "", icon: UIApplicationShortcutIcon(templateImageName: "iconGrey"), userInfo: nil)
         
-        let recordItem = UIMutableApplicationShortcutItem(type: "Profile", localizedTitle: "Profile".localized(), localizedSubtitle: "", icon: UIApplicationShortcutIcon(templateImageName: "activeBlue"), userInfo: nil)
+        let recordItem = UIMutableApplicationShortcutItem(type: "Records", localizedTitle: "Records".localized(), localizedSubtitle: "", icon: UIApplicationShortcutIcon(templateImageName: "records"), userInfo: nil)
         
         application.shortcutItems = [voucherItem, qrItem, recordItem]
     }
@@ -199,7 +199,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             initialViewController.selectedIndex = 1
             handle = true
             break
-        case "Profile":
+        case "Records":
             initialViewController.selectedIndex = 2
             handle = true
             break

@@ -21,6 +21,11 @@ class MProductVoucherViewController: UIViewController {
     @IBOutlet weak var emailButton: UIButton!
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var organizationIcon: CornerImageView!
+    @IBOutlet weak var qrCodeButton: UIButton!
+    @IBOutlet weak var sendEmailButton: ShadowButton!
+    @IBOutlet weak var voucherInfoButton: ShadowButton!
+    @IBOutlet weak var callPhoneButton: UIButton!
+    
     
     @IBOutlet var labeles: [SkeletonView]!
     @IBOutlet var images: [SkeletonUIImageView]!
@@ -34,7 +39,7 @@ class MProductVoucherViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        setupAccessibility()
         labeles.forEach { (view) in
             view.startAnimating()
         }
@@ -278,6 +283,20 @@ extension MProductVoucherViewController: MKMapViewDelegate{
         circle.fillColor = #colorLiteral(red: 0.746714294, green: 0.8004079461, blue: 0.9871394038, alpha: 0.7)
         circle.lineWidth = 1
         return circle
+    }
+}
+
+// MARK: - Accessiblity Protocol
+
+extension MProductVoucherViewController: AccessibilityProtocol {
+    func setupAccessibility() {
+        qrCodeImage.setupAccesibility(description: "Voucher QR Code", accessibilityTraits: .image)
+        qrCodeButton.setupAccesibility(description: "Tap to open qr code modal", accessibilityTraits: .button)
+        sendEmailButton.setupAccesibility(description: "Send voucher by email", accessibilityTraits: .button)
+        voucherInfoButton.setupAccesibility(description: "Open voucher info", accessibilityTraits: .button)
+        mapView.setupAccesibility(description: "Tap to select map options", accessibilityTraits: .button)
+        callPhoneButton.setupAccesibility(description: "Tap to call", accessibilityTraits: .button)
+        emailButton.setupAccesibility(description: "Tap to send email", accessibilityTraits: .button)
     }
 }
 

@@ -17,6 +17,9 @@ class MVoucherViewController: UIViewController {
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var qrImage: UIImageView!
     @IBOutlet weak var heightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var sendEmailButton: ShadowButton!
+    @IBOutlet weak var voucherInfoButton: ShadowButton!
+    @IBOutlet weak var qrCodeButton: UIButton!
     
     lazy var voucherViewModel: VoucherViewModel = {
         return VoucherViewModel()
@@ -28,6 +31,7 @@ class MVoucherViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupAccessibility()
         labeles.forEach { (view) in
             view.startAnimating()
         }
@@ -161,6 +165,16 @@ extension MVoucherViewController: UITableViewDelegate, UITableViewDataSource{
         didAnimateTransactioList()
     }
     
+}
+
+// MARK: - Accessibility Protocol
+
+extension MVoucherViewController: AccessibilityProtocol {
+    func setupAccessibility() {
+        sendEmailButton.setupAccesibility(description: "Send voucher on email", accessibilityTraits: .button)
+        voucherInfoButton.setupAccesibility(description: "Go to voucher info", accessibilityTraits: .button)
+        qrCodeButton.setupAccesibility(description: "Tap to open qr code modal", accessibilityTraits: .button)
+    }
 }
 
 extension MVoucherViewController{

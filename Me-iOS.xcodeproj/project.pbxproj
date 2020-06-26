@@ -177,7 +177,10 @@
 		FF48062924632AA70055E346 /* RecordsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF48062824632AA70055E346 /* RecordsTableViewCell.swift */; };
 		FF9B7157248503F100BBCAA3 /* MMainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9B7156248503F100BBCAA3 /* MMainTabBarController.swift */; };
 		FF9B715924851A5900BBCAA3 /* AppVersionUpdateNotifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9B715824851A5900BBCAA3 /* AppVersionUpdateNotifier.swift */; };
+		FFFF25252475125F0043E459 /* DynamicLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFFF25242475125F0043E459 /* DynamicLabel.swift */; };
+		FFFF2527247513510043E459 /* AccessibilityProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFFF2526247513510043E459 /* AccessibilityProtocol.swift */; };
 		FFFF8AAC2450CAA2001673DB /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFFF8AAB2450CAA2001673DB /* R.generated.swift */; };
+
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -440,6 +443,8 @@
 		FF48062824632AA70055E346 /* RecordsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordsTableViewCell.swift; sourceTree = "<group>"; };
 		FF9B7156248503F100BBCAA3 /* MMainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMainTabBarController.swift; sourceTree = "<group>"; };
 		FF9B715824851A5900BBCAA3 /* AppVersionUpdateNotifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppVersionUpdateNotifier.swift; sourceTree = "<group>"; };
+		FFFF25242475125F0043E459 /* DynamicLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicLabel.swift; sourceTree = "<group>"; };
+		FFFF2526247513510043E459 /* AccessibilityProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessibilityProtocol.swift; sourceTree = "<group>"; };
 		FFFF8AAB2450CAA2001673DB /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -694,6 +699,8 @@
 				65BDB8642292D5160016296C /* DownloadImage.swift */,
 				65139C5A228029EF003E0CDE /* SwitchCustom.swift */,
 				65B3784C22C241F50095A2EF /* Reachability.swift */,
+				FFFF25242475125F0043E459 /* DynamicLabel.swift */,
+				FFFF2526247513510043E459 /* AccessibilityProtocol.swift */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -1688,7 +1695,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "#\"${PODS_ROOT}/R.swift/rswift\" generate \"$SRCROOT/Me-iOS/Resources/R.generated.swift\"\n";
+			shellScript = "\"${PODS_ROOT}/R.swift/rswift\" generate \"$SRCROOT/Me-iOS/Resources/R.generated.swift\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -1697,6 +1704,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FFFF2527247513510043E459 /* AccessibilityProtocol.swift in Sources */,
 				655D6476231598D300EABD57 /* SendEtherViewController.swift in Sources */,
 				65139C7322802EFF003E0CDE /* LoginService.swift in Sources */,
 				65A8B70F2282E19F00B7DF05 /* MQRViewController.swift in Sources */,
@@ -1773,6 +1781,7 @@
 				65F1BB2E229ED06C007D2C8A /* TextRecordViewModel.swift in Sources */,
 				65139C53228029C0003E0CDE /* AppLocker.swift in Sources */,
 				65139C3D2280273E003E0CDE /* HSScanViewController.swift in Sources */,
+				FFFF25252475125F0043E459 /* DynamicLabel.swift in Sources */,
 				65139C3E2280273E003E0CDE /* HSDefaultScanView.swift in Sources */,
 				65911B4A228D899700EA30D6 /* Fund.swift in Sources */,
 				659859712359B66600D08289 /* EmployeesOrganization.swift in Sources */,

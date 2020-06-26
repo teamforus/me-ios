@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="DE0-y8-cjP">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="DE0-y8-cjP">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -47,7 +47,7 @@
                             <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="D4r-5y-DST">
                                 <rect key="frame" x="0.0" y="73" width="375" height="63"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Onderstaande aanbiedingen zijn door de klant gereserveerd" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8tz-MG-HUF">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Onderstaande aanbiedingen zijn door de klant gereserveerd" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8tz-MG-HUF" customClass="DynamicLabel" customModule="Me_iOS" customModuleProvider="target">
                                         <rect key="frame" x="14" y="8" width="347" height="47"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -163,6 +163,7 @@
                         <viewLayoutGuide key="safeArea" id="Jjn-yc-EIQ"/>
                     </view>
                     <connections>
+                        <outlet property="completeAnAmountButton" destination="uzM-Me-hi0" id="QLF-ht-P4D"/>
                         <outlet property="goToVoucherButton" destination="uzM-Me-hi0" id="ijR-3Q-gIn"/>
                         <outlet property="tableView" destination="ulm-Fy-ecA" id="Bw0-xw-w7O"/>
                         <segue destination="Thw-SZ-3ni" kind="presentation" identifier="goToPaymentFromSelected" modalPresentationStyle="fullScreen" id="n7a-Va-rEj"/>
@@ -181,12 +182,12 @@
             <point key="canvasLocation" x="638" y="70"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="n7a-Va-rEj"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="5XVoucherSurface" width="345" height="120"/>
         <image name="Resting" width="210" height="210"/>
         <image name="back" width="24" height="24"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="n7a-Va-rEj"/>
-    </inferredMetricsTieBreakers>
 </document>
