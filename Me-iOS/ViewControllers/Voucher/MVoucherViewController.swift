@@ -15,7 +15,7 @@ class MVoucherViewController: UIViewController {
     @IBOutlet weak var voucherName: UILabel!
     @IBOutlet weak var organizationName: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
-    @IBOutlet weak var qrImage: UIImageView!
+    @IBOutlet weak var qrCodeImage: UIImageView!
     @IBOutlet weak var heightConstraint: NSLayoutConstraint!
     @IBOutlet weak var sendEmailButton: ShadowButton!
     @IBOutlet weak var voucherInfoButton: ShadowButton!
@@ -56,7 +56,13 @@ class MVoucherViewController: UIViewController {
                     self?.priceLabel.attributedText = "0.{0}".customText(fontBigSize: 20, minFontSize: 14)
                 }
                 
-                self?.qrImage.generateQRCode(from: "{\"type\": \"voucher\",\"value\": \"\(voucher.address ?? "")\" }")
+                if voucher.expire_at?.date?.formatDate() ?? Date() < Date() {
+                    self?.qrCodeImage.isHidden = false
+                    self?.sendEmailButton.isHidden = false
+                    self?.voucherInfoButton.isHidden = false
+                }
+                
+                self?.qrCodeImage.generateQRCode(from: "{\"type\": \"voucher\",\"value\": \"\(voucher.address ?? "")\" }")
                 self?.dateCreated.text = voucher.created_at?.dateFormaterNormalDate()
                 self?.voucher = voucher
                 

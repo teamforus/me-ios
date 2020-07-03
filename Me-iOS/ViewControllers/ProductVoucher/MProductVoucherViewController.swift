@@ -62,6 +62,12 @@ class MProductVoucherViewController: UIViewController {
                 self?.qrCodeImage.generateQRCode(from: "{\"type\": \"voucher\",\"value\": \"\(voucher.address ?? "")\" }")
                 self?.voucher = voucher
                 
+                if voucher.expire_at?.date?.formatDate() ?? Date() < Date() {
+                    self?.qrCodeImage.isHidden = false
+                    self?.sendEmailButton.isHidden = false
+                    self?.voucherInfoButton.isHidden = false
+                }
+                
                 //organizationLabel gesture
                 self?.emailButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self?.Tap)))
                 self?.emailButton.addGestureRecognizer(UILongPressGestureRecognizer(target: self, action: #selector(self?.Long)))

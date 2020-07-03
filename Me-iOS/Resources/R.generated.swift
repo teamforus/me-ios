@@ -673,7 +673,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.image` struct is generated, and contains static references to 63 images.
+  /// This `R.image` struct is generated, and contains static references to 64 images.
   struct image {
     /// Image `5XVoucherContainerWElevation`.
     static let xVoucherContainerWElevation = Rswift.ImageResource(bundle: R.hostingBundle, name: "5XVoucherContainerWElevation")
@@ -691,6 +691,8 @@ struct R: Rswift.Validatable {
     static let ilustrationCheckmark = Rswift.ImageResource(bundle: R.hostingBundle, name: "IlustrationCheckmark")
     /// Image `Me app`.
     static let meApp = Rswift.ImageResource(bundle: R.hostingBundle, name: "Me app")
+    /// Image `Oval 2 Copy`.
+    static let oval2Copy = Rswift.ImageResource(bundle: R.hostingBundle, name: "Oval 2 Copy")
     /// Image `Resting`.
     static let resting = Rswift.ImageResource(bundle: R.hostingBundle, name: "Resting")
     /// Image `Shadow`.
@@ -855,6 +857,13 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "Me app", bundle: ..., traitCollection: ...)`
     static func meApp(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.meApp, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "Oval 2 Copy", bundle: ..., traitCollection: ...)`
+    static func oval2Copy(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.oval2Copy, compatibleWith: traitCollection)
     }
     #endif
 
@@ -2595,7 +2604,7 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
 
-    /// This `R.string.localizable` struct is generated, and contains static references to 138 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 140 localization keys.
     struct localizable {
       /// en translation: -voucher in the form of a QR-code
       ///
@@ -5606,7 +5615,7 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
 
-    /// This `R.string.main` struct is generated, and contains static references to 16 localization keys.
+    /// This `R.string.main` struct is generated, and contains static references to 17 localization keys.
     struct main {
       /// en translation: 18 tagen geldig
       ///
@@ -5652,6 +5661,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: nl, en
       static let scFCsIUbTitle = Rswift.StringResource(key: "ScF-cs-iUb.title", tableName: "Main", bundle: R.hostingBundle, locales: ["nl", "en"], comment: nil)
+      /// en translation: Records
+      ///
+      /// Locales: nl, en
+      static let s2mRVPJBTitle = Rswift.StringResource(key: "S2m-RV-PJB.title", tableName: "Main", bundle: R.hostingBundle, locales: ["nl", "en"], comment: nil)
       /// en translation: Used
       ///
       /// Locales: nl, en
@@ -5836,6 +5849,21 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("ScF-cs-iUb.title", tableName: "Main", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Records
+      ///
+      /// Locales: nl, en
+      static func s2mRVPJBTitle(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("S2m-RV-PJB.title", tableName: "Main", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Main", preferredLanguages: preferredLanguages) else {
+          return "S2m-RV-PJB.title"
+        }
+
+        return NSLocalizedString("S2m-RV-PJB.title", tableName: "Main", bundle: bundle, comment: "")
       }
 
       /// en translation: Used
@@ -8559,10 +8587,12 @@ struct _R: Rswift.Validatable {
       }
 
       static func validate() throws {
+        if UIKit.UIImage(named: "Oval 2 Copy", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Oval 2 Copy' is used in storyboard 'Main', but couldn't be loaded.") }
         if UIKit.UIImage(named: "Resting", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Resting' is used in storyboard 'Main', but couldn't be loaded.") }
         if UIKit.UIImage(named: "activeBlue", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'activeBlue' is used in storyboard 'Main', but couldn't be loaded.") }
         if UIKit.UIImage(named: "eth", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'eth' is used in storyboard 'Main', but couldn't be loaded.") }
         if UIKit.UIImage(named: "iconGrey", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'iconGrey' is used in storyboard 'Main', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "records", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'records' is used in storyboard 'Main', but couldn't be loaded.") }
         if UIKit.UIImage(named: "rectangle", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'rectangle' is used in storyboard 'Main', but couldn't be loaded.") }
         if UIKit.UIImage(named: "rectangleRed", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'rectangleRed' is used in storyboard 'Main', but couldn't be loaded.") }
         if UIKit.UIImage(named: "wallet", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'wallet' is used in storyboard 'Main', but couldn't be loaded.") }
@@ -8692,6 +8722,7 @@ struct _R: Rswift.Validatable {
       static func validate() throws {
         if UIKit.UIImage(named: "arrow", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'arrow' is used in storyboard 'Profile', but couldn't be loaded.") }
         if UIKit.UIImage(named: "closeIcon", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'closeIcon' is used in storyboard 'Profile', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "closeLines", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'closeLines' is used in storyboard 'Profile', but couldn't be loaded.") }
         if UIKit.UIImage(named: "faceId-1", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'faceId-1' is used in storyboard 'Profile', but couldn't be loaded.") }
         if UIKit.UIImage(named: "ic_launcher_APP", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ic_launcher_APP' is used in storyboard 'Profile', but couldn't be loaded.") }
         if UIKit.UIImage(named: "lock24Px-1", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'lock24Px-1' is used in storyboard 'Profile', but couldn't be loaded.") }
