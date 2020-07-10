@@ -38,6 +38,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        }
          UserDefaults.standard.setValue("https://staging.api.forus.io/api/v1/", forKey: UserDefaultsName.ALPHAURL)
         #endif
+        NotificationCenter.default.addObserver(self, selector: #selector(closeAppNotifierView), name: NotificationName.CloseAppNotifier, object: nil)
         
         #if DEBUG
         #else
@@ -370,13 +371,15 @@ extension AppDelegate {
     }
     
     @objc func checkForUpdate() {
-        appnotifier.isUpdateAvailable()
+        if !AppVersionUpdateNotifier.shared.userHasCloseUpdateNotifier{
+            appnotifier.isUpdateAvailable()
+        }
     }
 }
 
 extension AppDelegate: AppUpdateNotifier {
     func hasNewVersion(shouldBeUpdated: Bool) {
-        if shouldBeUpdated {
+        if shouldBeUpdated && !appnotifier.viewIsShoun {
             if let vc = window?.rootViewController as? HiddenNavBarNavigationController {
                 vc.topViewController?.view.addSubview(appnotifier.showUpdateView())
                 appnotifier.vc = vc.topViewController
@@ -393,5 +396,9 @@ extension AppDelegate: AppUpdateNotifier {
                 }
             }
         }
+    }
+    
+   @objc func closeAppNotifierView() {
+        appnotifier.closeBodyView()
     }
 }

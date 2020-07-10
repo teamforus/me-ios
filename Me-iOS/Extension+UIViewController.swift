@@ -397,6 +397,15 @@ extension UIViewController: AppLockerDelegate {
         
     }
 }
+
+ // MARK: - Close Update Notifier
+
+extension UIViewController {
+    @objc func closeUpdateNotifier() {
+        NotificationCenter.default.post(name: NotificationName.CloseAppNotifier, object: nil)
+    }
+}
+
 // MARK: - SKStore for update app
 
 extension UIViewController {

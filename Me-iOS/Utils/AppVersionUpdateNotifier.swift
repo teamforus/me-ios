@@ -12,6 +12,8 @@ import StoreKit
 class AppVersionUpdateNotifier {
       static let KEY_APP_VERSION = "key_app_version"
       static let shared = AppVersionUpdateNotifier()
+    var userHasCloseUpdateNotifier: Bool = false
+    var viewIsShoun: Bool = false
     var vc: UIViewController!
     var bottonLayoutConstraint: NSLayoutConstraint!
     
@@ -37,10 +39,19 @@ class AppVersionUpdateNotifier {
     private var updateButton: UIButton = {
         let button = UIButton(frame: .zero)
         button.setTitle("UPDATE", for: .normal)
-        button.setTitleColor(#colorLiteral(red: 0.03921568627, green: 0.5176470588, blue: 1, alpha: 1), for: .normal)
+        button.setTitleColor(.white, for: .normal)
+        button.layer.masksToBounds = true
+        button.layer.cornerRadius =  8
+        button.backgroundColor = #colorLiteral(red: 0.03921568627, green: 0.5176470588, blue: 1, alpha: 1)
         return button
     }()
     
+    private var closeButton: UIButton = {
+        let button = UIButton(frame: .zero)
+        button.setTitle("CLOSE", for: .normal)
+        button.setTitleColor(#colorLiteral(red: 0.03921568627, green: 0.5176470588, blue: 1, alpha: 1), for: .normal)
+        return button
+    }()
     
     private lazy var messageLabel: UILabel = {
         let label = UILabel(frame: .zero)
@@ -109,19 +120,20 @@ extension AppVersionUpdateNotifier {
         setupViewForConstraints()
         setupConstraints()
         updateButton.addTarget(vc, action: #selector(vc.updateApp), for: .touchUpInside)
-        UIView.animate(withDuration: 0.3) {
-            self.bodyView.layoutIfNeeded()
-        }
+        closeButton.addTarget(vc, action: #selector(vc.closeUpdateNotifier), for: .touchUpInside)
+        viewIsShoun = true
+        self.bodyView.showAnimate()
     }
     
     func setupViewForConstraints() {
-        let views = [bodyView, logoImageView, updateButton, messageLabel]
+        let views = [bodyView, logoImageView, updateButton, messageLabel, closeButton]
         views.forEach { (view) in
             view.translatesAutoresizingMaskIntoConstraints = false
         }
         bodyView.addSubview(logoImageView)
         bodyView.addSubview(updateButton)
         bodyView.addSubview(messageLabel)
+        bodyView.addSubview(closeButton)
     }
     
     func setupConstraints() {
@@ -140,15 +152,29 @@ extension AppVersionUpdateNotifier {
         ])
         
         NSLayoutConstraint.activate([
-            messageLabel.centerYAnchor.constraint(equalTo: bodyView.centerYAnchor, constant: 0),
-            messageLabel.leadingAnchor.constraint(equalTo: logoImageView.trailingAnchor, constant: 20)
+            messageLabel.centerYAnchor.constraint(equalTo: bodyView.centerYAnchor, constant: -20),
+            messageLabel.leadingAnchor.constraint(equalTo: logoImageView.trailingAnchor, constant: 20),
+            messageLabel.trailingAnchor.constraint(equalTo: bodyView.trailingAnchor, constant: -10)
         ])
         
         NSLayoutConstraint.activate([
-            updateButton.centerYAnchor.constraint(equalTo: bodyView.centerYAnchor, constant: 0),
-            updateButton.widthAnchor.constraint(equalToConstant: 70),
-            updateButton.trailingAnchor.constraint(equalTo: bodyView.trailingAnchor, constant: -16),
-            updateButton.leadingAnchor.constraint(equalTo: messageLabel.trailingAnchor, constant: 20)
+            closeButton.widthAnchor.constraint(equalToConstant: 100),
+            closeButton.bottomAnchor.constraint(equalTo: bodyView.bottomAnchor, constant: -10),
+            closeButton.leadingAnchor.constraint(equalTo: logoImageView.trailingAnchor, constant: 20)
         ])
+        
+        NSLayoutConstraint.activate([
+            updateButton.widthAnchor.constraint(equalToConstant: 100),
+            updateButton.bottomAnchor.constraint(equalTo: bodyView.bottomAnchor, constant: -10),
+            updateButton.leadingAnchor.constraint(equalTo: closeButton.trailingAnchor, constant: 20)
+        ])
+    }
+}
+
+extension AppVersionUpdateNotifier {
+    func closeBodyView() {
+        viewIsShoun = false
+        self.userHasCloseUpdateNotifier = true
+        self.bodyView.removeAnimate()
     }
 }
