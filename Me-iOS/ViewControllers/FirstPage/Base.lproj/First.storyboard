@@ -20,14 +20,14 @@
         <scene sceneID="8b1-Dg-LLj">
             <objects>
                 <viewController storyboardIdentifier="firstPage" id="iO8-Qc-gee" customClass="MAFirstPageViewController" customModule="Me_iOS" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="jdV-Sd-I0k">
+                    <view key="view" contentMode="scaleToFill" id="jdV-Sd-I0k" customClass="Background_DarkMode" customModule="Me_iOS" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vjj-JE-iF2">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pgv-1O-Hc6">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pgv-1O-Hc6" customClass="Background_DarkMode" customModule="Me_iOS" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fill1Copy" translatesAutoresizingMaskIntoConstraints="NO" id="NiA-kM-LZe">
@@ -37,7 +37,7 @@
                                                     <constraint firstAttribute="height" constant="85" id="MWD-ni-Kqo"/>
                                                 </constraints>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welkom bij Me" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yyn-hr-0CS">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welkom bij Me" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yyn-hr-0CS" customClass="UILabel_DarkMode" customModule="Me_iOS" customModuleProvider="target">
                                                 <rect key="frame" x="20" y="294.33333333333331" width="374" height="46"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="46" id="boX-7H-4nd"/>
@@ -182,6 +182,7 @@
                                         </connections>
                                     </view>
                                 </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="Pgv-1O-Hc6" secondAttribute="trailing" id="1kO-6f-iOv"/>
                                     <constraint firstItem="Pgv-1O-Hc6" firstAttribute="leading" secondItem="vjj-JE-iF2" secondAttribute="leading" id="7W0-On-2Uy"/>

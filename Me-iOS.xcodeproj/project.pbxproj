@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0408C85D24BF2A4E009B8A2E /* Background_DarkMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0408C85C24BF2A4E009B8A2E /* Background_DarkMode.swift */; };
 		0437CED724BDF49B00FA7C24 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0437CED624BDF49B00FA7C24 /* Colors.xcassets */; };
 		0437CED924BDFC9F00FA7C24 /* BackButton_DarkMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0437CED824BDFC9F00FA7C24 /* BackButton_DarkMode.swift */; };
+		0483DBC124BF3F250074BBA9 /* UILabel_DarkMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0483DBC024BF3F250074BBA9 /* UILabel_DarkMode.swift */; };
 		5B10CCAC240D021C00199C28 /* BottomQrWithPinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B10CCAA240D021C00199C28 /* BottomQrWithPinViewController.swift */; };
 		5B10CCB0240D1FD900199C28 /* EnablePersonalInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B10CCAF240D1FD900199C28 /* EnablePersonalInformationViewController.swift */; };
 		5B10CCB4240D292000199C28 /* MSuccessRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B10CCB3240D292000199C28 /* MSuccessRegisterViewController.swift */; };
@@ -200,8 +202,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0408C85C24BF2A4E009B8A2E /* Background_DarkMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Background_DarkMode.swift; sourceTree = "<group>"; };
 		0437CED624BDF49B00FA7C24 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		0437CED824BDFC9F00FA7C24 /* BackButton_DarkMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackButton_DarkMode.swift; sourceTree = "<group>"; };
+		0483DBC024BF3F250074BBA9 /* UILabel_DarkMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabel_DarkMode.swift; sourceTree = "<group>"; };
 		0BA3C002535BEC0C09894BC7 /* Pods-Me-iOSUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Me-iOSUITests.release.xcconfig"; path = "Target Support Files/Pods-Me-iOSUITests/Pods-Me-iOSUITests.release.xcconfig"; sourceTree = "<group>"; };
 		1F4F14FBEF270B54FA6F330B /* Pods-Me-iOS.alpha.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Me-iOS.alpha.xcconfig"; path = "Target Support Files/Pods-Me-iOS/Pods-Me-iOS.alpha.xcconfig"; sourceTree = "<group>"; };
 		27C5698FBEA4D2ECE5592544 /* Pods-Me-iOSTests.alpha.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Me-iOSTests.alpha.xcconfig"; path = "Target Support Files/Pods-Me-iOSTests/Pods-Me-iOSTests.alpha.xcconfig"; sourceTree = "<group>"; };
@@ -690,6 +694,8 @@
 				65139C3F228029C0003E0CDE /* AppLocker */,
 				65139C5C228029EF003E0CDE /* CornerImageView.swift */,
 				0437CED824BDFC9F00FA7C24 /* BackButton_DarkMode.swift */,
+				0408C85C24BF2A4E009B8A2E /* Background_DarkMode.swift */,
+				0483DBC024BF3F250074BBA9 /* UILabel_DarkMode.swift */,
 				655D64702315903900EABD57 /* HBSegmentedControl.swift */,
 				65A8B6F12282DB9500B7DF05 /* MANavicationController.swift */,
 				65139C5B228029EF003E0CDE /* CustomCornerUIView.swift */,
@@ -1718,6 +1724,7 @@
 				654ACBAC22A94D550052C9C2 /* ProfileViewModel.swift in Sources */,
 				654F97AA229BF671009C9FFA /* MRecordDetailViewController.swift in Sources */,
 				65A8B7192282E52D00B7DF05 /* MProductVoucherViewController.swift in Sources */,
+				0408C85D24BF2A4E009B8A2E /* Background_DarkMode.swift in Sources */,
 				65D11B8022A6ADF400756BE0 /* ConfirmPaymentPopUp.swift in Sources */,
 				656FDDB6235DF046002422B2 /* OrganizationValidatorViewController.swift in Sources */,
 				65CF407F228C0C6A0006F5DE /* Identity.swift in Sources */,
@@ -1780,6 +1787,7 @@
 				65CF4081228C0CAB0006F5DE /* RecordsIndentity.swift in Sources */,
 				65139C3B2280273E003E0CDE /* ScanPermission.swift in Sources */,
 				65911B52228D8FC800EA30D6 /* Transaction.swift in Sources */,
+				0483DBC124BF3F250074BBA9 /* UILabel_DarkMode.swift in Sources */,
 				6568462022944A1800097E83 /* UIViewMasking.swift in Sources */,
 				6568461F22944A1800097E83 /* SkeletonUIImageView.swift in Sources */,
 				657DBA4E228993E200C67500 /* StatusService.swift in Sources */,
