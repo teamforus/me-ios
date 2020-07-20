@@ -458,12 +458,16 @@ struct R: Rswift.Validatable {
   }
   #endif
 
-  /// This `R.color` struct is generated, and contains static references to 3 colors.
+  /// This `R.color` struct is generated, and contains static references to 5 colors.
   struct color {
     /// Color `Background_DarkTheme`.
     static let background_DarkTheme = Rswift.ColorResource(bundle: R.hostingBundle, name: "Background_DarkTheme")
+    /// Color `Background_Voucher_DarkTheme`.
+    static let background_Voucher_DarkTheme = Rswift.ColorResource(bundle: R.hostingBundle, name: "Background_Voucher_DarkTheme")
     /// Color `Black_Light_DarkTheme`.
     static let black_Light_DarkTheme = Rswift.ColorResource(bundle: R.hostingBundle, name: "Black_Light_DarkTheme")
+    /// Color `Gray_Light_DarkTheme`.
+    static let gray_Light_DarkTheme = Rswift.ColorResource(bundle: R.hostingBundle, name: "Gray_Light_DarkTheme")
     /// Color `MainBodyColor`.
     static let mainBodyColor = Rswift.ColorResource(bundle: R.hostingBundle, name: "MainBodyColor")
 
@@ -477,11 +481,29 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
+    /// `UIColor(named: "Background_Voucher_DarkTheme", bundle: ..., traitCollection: ...)`
+    @available(tvOS 11.0, *)
+    @available(iOS 11.0, *)
+    static func background_Voucher_DarkTheme(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
+      return UIKit.UIColor(resource: R.color.background_Voucher_DarkTheme, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
     /// `UIColor(named: "Black_Light_DarkTheme", bundle: ..., traitCollection: ...)`
     @available(tvOS 11.0, *)
     @available(iOS 11.0, *)
     static func black_Light_DarkTheme(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
       return UIKit.UIColor(resource: R.color.black_Light_DarkTheme, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIColor(named: "Gray_Light_DarkTheme", bundle: ..., traitCollection: ...)`
+    @available(tvOS 11.0, *)
+    @available(iOS 11.0, *)
+    static func gray_Light_DarkTheme(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
+      return UIKit.UIColor(resource: R.color.gray_Light_DarkTheme, compatibleWith: traitCollection)
     }
     #endif
 

@@ -9,10 +9,36 @@
 import UIKit
 
 class Background_DarkMode: UIView {
+    
+    @IBInspectable var colorName :String = "Background_DarkTheme" {
+        didSet {
+            setSelectedColorName()
+        }
+    }
 
    override init(frame: CGRect) {
       super.init(frame: frame)
-      setDarkModeBackground()
+    }
+    
+    required init(coder: NSCoder) {
+      super.init(coder: coder)!
+    }
+    
+    func setSelectedColorName() {
+        if #available(iOS 11.0, *) {
+          self.backgroundColor = UIColor(named: colorName)
+        } else {
+          // Fallback on earlier versions
+        }
+    }
+
+}
+
+class TableView_Background_DarkMode: UITableView {
+
+    override init(frame: CGRect, style: UITableView.Style) {
+        super.init(frame: frame, style: style)
+        setDarkModeBackground()
     }
     
     required init(coder: NSCoder) {
