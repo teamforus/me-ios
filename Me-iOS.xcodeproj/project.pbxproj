@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0408C85D24BF2A4E009B8A2E /* Background_DarkMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0408C85C24BF2A4E009B8A2E /* Background_DarkMode.swift */; };
+		042D7DA924C58213004AD8C7 /* TextField_DarkMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042D7DA824C58213004AD8C7 /* TextField_DarkMode.swift */; };
+		042D7DAA24C58A9D004AD8C7 /* MQRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A8B70E2282E19F00B7DF05 /* MQRViewController.swift */; };
 		0437CED724BDF49B00FA7C24 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0437CED624BDF49B00FA7C24 /* Colors.xcassets */; };
 		0437CED924BDFC9F00FA7C24 /* BackButton_DarkMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0437CED824BDFC9F00FA7C24 /* BackButton_DarkMode.swift */; };
 		0483DBC124BF3F250074BBA9 /* UILabel_DarkMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0483DBC024BF3F250074BBA9 /* UILabel_DarkMode.swift */; };
@@ -203,6 +205,7 @@
 
 /* Begin PBXFileReference section */
 		0408C85C24BF2A4E009B8A2E /* Background_DarkMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Background_DarkMode.swift; sourceTree = "<group>"; };
+		042D7DA824C58213004AD8C7 /* TextField_DarkMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField_DarkMode.swift; sourceTree = "<group>"; };
 		0437CED624BDF49B00FA7C24 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		0437CED824BDFC9F00FA7C24 /* BackButton_DarkMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackButton_DarkMode.swift; sourceTree = "<group>"; };
 		0483DBC024BF3F250074BBA9 /* UILabel_DarkMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabel_DarkMode.swift; sourceTree = "<group>"; };
@@ -695,6 +698,7 @@
 				65139C5C228029EF003E0CDE /* CornerImageView.swift */,
 				0437CED824BDFC9F00FA7C24 /* BackButton_DarkMode.swift */,
 				0408C85C24BF2A4E009B8A2E /* Background_DarkMode.swift */,
+				042D7DA824C58213004AD8C7 /* TextField_DarkMode.swift */,
 				0483DBC024BF3F250074BBA9 /* UILabel_DarkMode.swift */,
 				655D64702315903900EABD57 /* HBSegmentedControl.swift */,
 				65A8B6F12282DB9500B7DF05 /* MANavicationController.swift */,
@@ -1817,6 +1821,7 @@
 				65D11B7B22A69D5200756BE0 /* OrganizationTableViewCell.swift in Sources */,
 				65F1BB25229EC1C4007D2C8A /* RecordType.swift in Sources */,
 				65A8B73E2282ED1D00B7DF05 /* MProfileViewController.swift in Sources */,
+				042D7DA924C58213004AD8C7 /* TextField_DarkMode.swift in Sources */,
 				65A8B7322282EBDC00B7DF05 /* VoucherViewModel.swift in Sources */,
 				652E477B22ABD1F300893540 /* SuccessSendingViewController.swift in Sources */,
 				657DBA512289973C00C67500 /* NotificationName.swift in Sources */,
@@ -1838,6 +1843,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				65139C1E22802548003E0CDE /* Me_iOSTests.swift in Sources */,
+				042D7DAA24C58A9D004AD8C7 /* MQRViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

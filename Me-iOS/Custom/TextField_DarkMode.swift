@@ -1,14 +1,15 @@
 //
-//  UILabel_DarkMode.swift
+//  TextField_DarkMode.swift
 //  Me-iOS
 //
-//  Created by mac on 7/15/20.
+//  Created by mac on 7/20/20.
 //  Copyright © 2020 Tcacenco Daniel. All rights reserved.
 //
 
 import UIKit
+import SkyFloatingLabelTextField
 
-class UILabel_DarkMode: UILabel {
+class TextField_DarkMode:SkyFloatingLabelTextField  {
 
   override init(frame: CGRect) {
       super.init(frame: frame)
@@ -27,5 +28,5 @@ class UILabel_DarkMode: UILabel {
         // Fallback on earlier versions
       }
     }
-}
 
+}
