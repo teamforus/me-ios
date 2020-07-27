@@ -186,13 +186,13 @@ extension UIViewController{
     
     @IBAction func logout(_ sender: UIButton) {
         
-        self.showSimpleAlertWithAction(title: "Log Out".localized(), message: "Are you sure you want to log out?".localized(),
-                                       okAction: UIAlertAction(title: "Confirm".localized(), style: .default, handler: { (action) in
+        self.showSimpleAlertWithAction(title: Localize.logOut(), message: Localize.areYouSureYouWantToLogOut(),
+                                       okAction: UIAlertAction(title: Localize.confirm(), style: .default, handler: { (action) in
                                         
                                         self.logoutOptions()
                                         
                                        }),
-                                       cancelAction: UIAlertAction(title: "Cancel".localized(), style: .cancel, handler: { (action) in
+                                       cancelAction: UIAlertAction(title: Localize.cancel(), style: .cancel, handler: { (action) in
                                         
                                        }))
         
