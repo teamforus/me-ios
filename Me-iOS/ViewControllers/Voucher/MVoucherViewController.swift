@@ -32,9 +32,7 @@ class MVoucherViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupAccessibility()
-        labeles.forEach { (view) in
-            view.startAnimating()
-        }
+       
         
         images.forEach { (view) in
             view.startAnimating()
@@ -60,9 +58,6 @@ class MVoucherViewController: UIViewController {
                 self?.dateCreated.text = voucher.created_at?.dateFormaterNormalDate()
                 self?.voucher = voucher
                 
-                self?.labeles.forEach { (view) in
-                    view.stopAnimating()
-                }
                 self?.images.forEach { (view) in
                     view.stopAnimating()
                 }

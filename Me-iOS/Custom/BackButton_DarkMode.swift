@@ -24,7 +24,7 @@ class BackButton_DarkMode: UIButton {
     let image = UIImage(named: "back")?.withRenderingMode(.alwaysTemplate)
     self.setImage(image, for: .normal)
     if #available(iOS 11.0, *) {
-      self.tintColor = UIColor(named: "Background_DarkTheme")
+      self.tintColor = UIColor(named: "Black_Light_DarkTheme")
     } else {
       // Fallback on earlier versions
     }

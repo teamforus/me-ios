@@ -29,3 +29,24 @@ class UILabel_DarkMode: UILabel {
     }
 }
 
+class UIButton_DarkMode: UIButton {
+
+  override init(frame: CGRect) {
+      super.init(frame: frame)
+      setDarkModeBackground()
+    }
+    
+    required init(coder: NSCoder) {
+      super.init(coder: coder)!
+      setDarkModeBackground()
+    }
+    
+    func setDarkModeBackground(){
+      if #available(iOS 11.0, *) {
+        self.setTitleColor(UIColor(named: "Black_Light_DarkTheme"), for: .normal)
+      } else {
+        // Fallback on earlier versions
+      }
+    }
+}
+
