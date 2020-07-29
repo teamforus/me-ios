@@ -61,7 +61,7 @@ class QRViewModel{
                 DispatchQueue.main.async {
                     
                     KVSpinnerView.dismiss()
-                    self.vcAlert.showSimpleAlertWithSingleAction(title: "Warning".localized(), message: "This voucher is expired.", okAction: UIAlertAction(title: "OK", style: .default, handler: { (action) in
+                    self.vcAlert.showSimpleAlertWithSingleAction(title: Localize.warning(), message: "This voucher is expired.", okAction: UIAlertAction(title: "OK", style: .default, handler: { (action) in
                         self.vc?.scanWorker.start()
                     }))
                 }
@@ -70,14 +70,14 @@ class QRViewModel{
                 DispatchQueue.main.async {
                     
                     KVSpinnerView.dismiss()
-                    self.vcAlert.showSimpleAlertWithSingleAction(title: "Error!".localized(), message: response.message ?? "", okAction: UIAlertAction(title: "OK", style: .default, handler: { (action) in
+                    self.vcAlert.showSimpleAlertWithSingleAction(title:  Localize.error(), message: response.message ?? "", okAction: UIAlertAction(title: "OK", style: .default, handler: { (action) in
                         self.vc?.scanWorker.start()
                     }))
                 }
             }else if statusCode == 404 {
                 DispatchQueue.main.async {
                     KVSpinnerView.dismiss()
-                    self.vcAlert.showSimpleAlertWithSingleAction(title: "Error!".localized(), message: response.message ?? "", okAction: UIAlertAction(title: "OK", style: .default, handler: { (action) in
+                    self.vcAlert.showSimpleAlertWithSingleAction(title: Localize.error(), message: response.message ?? "", okAction: UIAlertAction(title: "OK", style: .default, handler: { (action) in
                         self.vc?.scanWorker.start()
                     }))
                 }
