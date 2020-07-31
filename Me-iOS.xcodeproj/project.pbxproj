@@ -10,6 +10,7 @@
 		0408C85D24BF2A4E009B8A2E /* Background_DarkMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0408C85C24BF2A4E009B8A2E /* Background_DarkMode.swift */; };
 		042D7DA924C58213004AD8C7 /* TextField_DarkMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042D7DA824C58213004AD8C7 /* TextField_DarkMode.swift */; };
 		042D7DAA24C58A9D004AD8C7 /* MQRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A8B70E2282E19F00B7DF05 /* MQRViewController.swift */; };
+		042D7DAC24C74575004AD8C7 /* UIButton_DarkMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042D7DAB24C74575004AD8C7 /* UIButton_DarkMode.swift */; };
 		0437CED724BDF49B00FA7C24 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0437CED624BDF49B00FA7C24 /* Colors.xcassets */; };
 		0437CED924BDFC9F00FA7C24 /* BackButton_DarkMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0437CED824BDFC9F00FA7C24 /* BackButton_DarkMode.swift */; };
 		0483DBC124BF3F250074BBA9 /* UILabel_DarkMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0483DBC024BF3F250074BBA9 /* UILabel_DarkMode.swift */; };
@@ -206,6 +207,7 @@
 /* Begin PBXFileReference section */
 		0408C85C24BF2A4E009B8A2E /* Background_DarkMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Background_DarkMode.swift; sourceTree = "<group>"; };
 		042D7DA824C58213004AD8C7 /* TextField_DarkMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField_DarkMode.swift; sourceTree = "<group>"; };
+		042D7DAB24C74575004AD8C7 /* UIButton_DarkMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton_DarkMode.swift; sourceTree = "<group>"; };
 		0437CED624BDF49B00FA7C24 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		0437CED824BDFC9F00FA7C24 /* BackButton_DarkMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackButton_DarkMode.swift; sourceTree = "<group>"; };
 		0483DBC024BF3F250074BBA9 /* UILabel_DarkMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabel_DarkMode.swift; sourceTree = "<group>"; };
@@ -698,6 +700,7 @@
 				65139C5C228029EF003E0CDE /* CornerImageView.swift */,
 				0437CED824BDFC9F00FA7C24 /* BackButton_DarkMode.swift */,
 				0408C85C24BF2A4E009B8A2E /* Background_DarkMode.swift */,
+				042D7DAB24C74575004AD8C7 /* UIButton_DarkMode.swift */,
 				042D7DA824C58213004AD8C7 /* TextField_DarkMode.swift */,
 				0483DBC024BF3F250074BBA9 /* UILabel_DarkMode.swift */,
 				655D64702315903900EABD57 /* HBSegmentedControl.swift */,
@@ -1742,6 +1745,7 @@
 				655D64792315A04300EABD57 /* MAFirstPageViewController.swift in Sources */,
 				65A8B7252282EADE00B7DF05 /* MPaymentViewController.swift in Sources */,
 				65F1BB2A229ECA8F007D2C8A /* MTextRecordViewController.swift in Sources */,
+				042D7DAC24C74575004AD8C7 /* UIButton_DarkMode.swift in Sources */,
 				65A8B7302282EBD000B7DF05 /* ProductVoucherViewModel.swift in Sources */,
 				65A8B6EE2282CE4500B7DF05 /* CommonBottomViewController.swift in Sources */,
 				65BDB8632292CFFC0016296C /* PausedMarqueLabel.swift in Sources */,
