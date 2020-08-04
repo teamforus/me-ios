@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 import LocalAuthentication
 import CoreData
+import StoreKit
 
 extension UIViewController{
     
@@ -394,5 +395,39 @@ extension UIViewController: AppLockerDelegate {
     
     func closePinCodeView(typeClose: typeClose) {
         
+    }
+}
+
+ // MARK: - Close Update Notifier
+
+extension UIViewController {
+    @objc func closeUpdateNotifier() {
+        NotificationCenter.default.post(name: NotificationName.CloseAppNotifier, object: nil)
+    }
+}
+
+// MARK: - SKStore for update app
+
+extension UIViewController {
+    @objc func updateApp(){
+        openStoreProductWithiTunesItemIdentifier(identifier: "1422610676")
+    }
+    
+    func openStoreProductWithiTunesItemIdentifier(identifier: String) {
+        let storeViewController = SKStoreProductViewController()
+        storeViewController.delegate = self
+
+        let parameters = [ SKStoreProductParameterITunesItemIdentifier : identifier]
+        storeViewController.loadProduct(withParameters: parameters) { [weak self] (loaded, error) -> Void in
+            if loaded {
+                self?.present(storeViewController, animated: true, completion: nil)
+            }
+        }
+    }
+}
+
+extension UIViewController: SKStoreProductViewControllerDelegate {
+    public func productViewControllerDidFinish(_ viewController: SKStoreProductViewController) {
+        self.dismiss(animated: true, completion: nil)
     }
 }
