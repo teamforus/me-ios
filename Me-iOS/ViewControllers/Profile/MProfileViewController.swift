@@ -40,6 +40,7 @@ class MProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
+        setupAboutMeAappButton()
         fetchUserData()
         setupUserDefaults()
         setupAccessibility()
@@ -132,6 +133,12 @@ extension MProfileViewController {
         self.appVersionLabel.text = (versionApp as? String)!
         crashButton.isHidden = true
         #endif
+    }
+    
+    func setupAboutMeAappButton() {
+        if #available(iOS 11.0, *) {
+            self.aboutMeButton.setTitleColor(UIColor(named: "Black_Light_DarkTheme"), for: .normal)
+        } else { }
     }
     
     private func fetchUserData() {

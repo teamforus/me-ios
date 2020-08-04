@@ -2,7 +2,7 @@
 //  BackgroundScrollView_DarkMode.swift
 //  Me-iOS
 //
-//  Created by Inga Codreanu on 27.07.20.
+//  Created by Tcacenco Daniel on 27.07.20.
 //  Copyright © 2020 Tcacenco Daniel. All rights reserved.
 //
 

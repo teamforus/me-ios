@@ -327,8 +327,8 @@
                                                             <action selector="feedback:" destination="eu3-EV-5Ar" eventType="touchUpInside" id="b0D-R4-aP2"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0RT-Bm-Z42" customClass="UIButton_DarkMode" customModule="Me_iOS" customModuleProvider="target">
-                                                        <rect key="frame" x="24" y="67" width="211" height="21"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0RT-Bm-Z42">
+                                                        <rect key="frame" x="24" y="51" width="343" height="44"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <fontDescription key="fontDescription" name="GoogleSans-Regular" family="Google Sans" pointSize="15"/>
                                                         <state key="normal" title="About Me">

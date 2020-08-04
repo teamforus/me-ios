@@ -181,6 +181,7 @@
 		65F52E4A23167E0D00B9D229 /* Wallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F52E4923167E0D00B9D229 /* Wallet.swift */; };
 		65FE8E02229FF16A00BB1596 /* RecordValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65FE8E01229FF16A00BB1596 /* RecordValidation.swift */; };
 		FF0DACBE246AD0A80034E3E4 /* OrganizationValidatorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF3B141A243722EE003FDDD9 /* OrganizationValidatorViewController.xib */; };
+		FF45B3B224D9DC7C00D258E1 /* Extension+UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45B3B124D9DC7C00D258E1 /* Extension+UITextField.swift */; };
 		FF48062924632AA70055E346 /* RecordsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF48062824632AA70055E346 /* RecordsTableViewCell.swift */; };
 		FFE731C224CEEB760064C7D5 /* BackgroundScrollView_DarkMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE731C124CEEB760064C7D5 /* BackgroundScrollView_DarkMode.swift */; };
 		FFE731C424CEEFED0064C7D5 /* CloseButton_DarkMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE731C324CEEFED0064C7D5 /* CloseButton_DarkMode.swift */; };
@@ -452,6 +453,7 @@
 		FF3B1419243722EE003FDDD9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/OrganizationValidatorViewController.xib; sourceTree = "<group>"; };
 		FF3B141E243722F6003FDDD9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/OrganizationValidatorViewController.strings; sourceTree = "<group>"; };
 		FF3B1422243722F8003FDDD9 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/OrganizationValidatorViewController.strings; sourceTree = "<group>"; };
+		FF45B3B124D9DC7C00D258E1 /* Extension+UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UITextField.swift"; sourceTree = "<group>"; };
 		FF48062824632AA70055E346 /* RecordsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordsTableViewCell.swift; sourceTree = "<group>"; };
 		FFE731C124CEEB760064C7D5 /* BackgroundScrollView_DarkMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundScrollView_DarkMode.swift; sourceTree = "<group>"; };
 		FFE731C324CEEFED0064C7D5 /* CloseButton_DarkMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloseButton_DarkMode.swift; sourceTree = "<group>"; };
@@ -809,6 +811,7 @@
 				65100AFC229D65A9007892D1 /* Extension+Array.swift */,
 				657DBA502289973C00C67500 /* NotificationName.swift */,
 				654ACBAD22A9523B0052C9C2 /* UserDefaultsName.swift */,
+				FF45B3B124D9DC7C00D258E1 /* Extension+UITextField.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1020,6 +1023,8 @@
 				65A8B6E72282CB9800B7DF05 /* LoginQRandCode */,
 				65A8B74B2282EEC500B7DF05 /* EmailLogin */,
 				65A8B74A2282EEB600B7DF05 /* SuccessEmail */,
+				5B87BFDD24113408007C24DA /* EnablePersonalInfo */,
+				5B87BFDE24113413007C24DA /* SuccessRegister */,
 				65A8B7172282E1F700B7DF05 /* Main */,
 				65A8B71C2282E6AD00B7DF05 /* ProductVoucher */,
 				65A8B7212282E6E700B7DF05 /* Voucher */,
@@ -1030,8 +1035,6 @@
 				65F1BB20229EBF6F007D2C8A /* ChooseTypeRecord */,
 				65F1BB2F229EDD90007D2C8A /* TextAreaRecord */,
 				650FF63322AD2E14004C3A85 /* About */,
-				5B87BFDD24113408007C24DA /* EnablePersonalInfo */,
-				5B87BFDE24113413007C24DA /* SuccessRegister */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -1758,6 +1761,7 @@
 				65139C5F228029EF003E0CDE /* ShadowButton.swift in Sources */,
 				657DBA46228983CB00C67500 /* Extension+UIImageView.swift in Sources */,
 				65139C64228029EF003E0CDE /* CornerImageView.swift in Sources */,
+				FF45B3B224D9DC7C00D258E1 /* Extension+UITextField.swift in Sources */,
 				FFFF8AAC2450CAA2001673DB /* R.generated.swift in Sources */,
 				65911B4E228D8EAE00EA30D6 /* Logo.swift in Sources */,
 				65B10DAF23589DF500F0F34D /* CheckWebsiteReacheble.swift in Sources */,

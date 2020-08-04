@@ -2659,7 +2659,7 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
 
-    /// This `R.string.localizable` struct is generated, and contains static references to 140 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 142 localization keys.
     struct localizable {
       /// en translation: -voucher in the form of a QR-code
       ///
@@ -2813,6 +2813,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en, nl
       static let enterLoginCode = Rswift.StringResource(key: "Enter login code", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
+      /// en translation: Enter the price here.
+      ///
+      /// Locales: en, nl
+      static let enter_the_price_here = Rswift.StringResource(key: "enter_the_price_here", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
       /// en translation: Enter your login code
       ///
       /// Locales: en, nl
@@ -2941,6 +2945,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en, nl
       static let noPhoneNumber = Rswift.StringResource(key: "No phone number", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
+      /// en translation: Note
+      ///
+      /// Locales: en, nl
+      static let note = Rswift.StringResource(key: "note", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
       /// en translation: OK
       ///
       /// Locales: en, nl
@@ -3794,6 +3802,21 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("Enter login code", bundle: bundle, comment: "")
       }
 
+      /// en translation: Enter the price here.
+      ///
+      /// Locales: en, nl
+      static func enter_the_price_here(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("enter_the_price_here", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "enter_the_price_here"
+        }
+
+        return NSLocalizedString("enter_the_price_here", bundle: bundle, comment: "")
+      }
+
       /// en translation: Enter your login code
       ///
       /// Locales: en, nl
@@ -4278,6 +4301,21 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("No phone number", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Note
+      ///
+      /// Locales: en, nl
+      static func note(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("note", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "note"
+        }
+
+        return NSLocalizedString("note", bundle: bundle, comment: "")
       }
 
       /// en translation: OK
