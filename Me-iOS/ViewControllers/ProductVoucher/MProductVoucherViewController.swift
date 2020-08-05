@@ -21,6 +21,9 @@ class MProductVoucherViewController: UIViewController {
     @IBOutlet weak var emailButton: UIButton!
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var organizationIcon: CornerImageView!
+    @IBOutlet weak var buttonsInfoView: UIView!
+    @IBOutlet weak var qrCodeActionButton: UIButton!
+    @IBOutlet weak var heightTopViewConstraint: NSLayoutConstraint!
     
     @IBOutlet var labeles: [SkeletonView]!
     @IBOutlet var images: [SkeletonUIImageView]!
@@ -56,6 +59,13 @@ class MProductVoucherViewController: UIViewController {
                 self?.organizationIcon.loadImageUsingUrlString(urlString: voucher.product?.organization?.logo?.sizes?.thumbnail ?? "", placeHolder: #imageLiteral(resourceName: "Resting"))
                 self?.qrCodeImage.generateQRCode(from: "{\"type\": \"voucher\",\"value\": \"\(voucher.address ?? "")\" }")
                 self?.voucher = voucher
+                
+                if voucher.expire_at?.date?.formatDate() ?? Date() < Date() {
+                    self?.buttonsInfoView.isHidden = true
+                    self?.heightTopViewConstraint.constant = 232
+                    self?.qrCodeImage.isHidden = true
+                    self?.qrCodeActionButton.isEnabled = false
+                }
                 
                 //organizationLabel gesture
                 self?.emailButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self?.Tap)))
