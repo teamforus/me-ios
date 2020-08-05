@@ -266,7 +266,15 @@ extension MQRViewController: HSScanViewControllerDelegate{
                     }
                 } catch {
                     KVSpinnerView.dismiss()
-                    showSimpleToast(message: "Unknown QR-code!")
+                    self.scanWorker.start()
+                    if let qrValue = Int(scanResult.scanResultString!), String(qrValue).count == 12  {
+                        let qrStringValue = String(qrValue)
+                        self.scanWorker.stop()
+                        KVSpinnerView.show()
+                        self.qrViewModel.initVoucherAddress(address: qrStringValue)
+                    }else {
+                        showSimpleToast(message: "Unknown QR-code!")
+                    }
                 }
             }
         }else {
