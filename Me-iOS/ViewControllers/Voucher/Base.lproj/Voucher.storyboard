@@ -301,6 +301,7 @@
                         <outlet property="heightConstraint" destination="Suv-fe-koy" id="ZxH-xR-kT3"/>
                         <outlet property="organizationName" destination="w5t-6W-ueq" id="Eko-y9-lft"/>
                         <outlet property="priceLabel" destination="ZIO-zS-LCB" id="Wz1-KM-jEs"/>
+                        <outlet property="qrCodeActionButton" destination="vfb-3A-tZe" id="cus-MR-sei"/>
                         <outlet property="qrImage" destination="yUw-RD-mDo" id="m2N-kP-S2Q"/>
                         <outlet property="tableView" destination="hIb-0R-ybB" id="4ja-2f-URW"/>
                         <outlet property="voucherName" destination="Sdw-Cx-cza" id="iNZ-rT-caU"/>

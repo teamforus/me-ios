@@ -18,6 +18,7 @@ class MVoucherViewController: UIViewController {
     @IBOutlet weak var qrImage: UIImageView!
     @IBOutlet weak var heightConstraint: NSLayoutConstraint!
     @IBOutlet weak var buttonsInfoView: UIView!
+    @IBOutlet weak var qrCodeActionButton: UIButton!
     
     lazy var voucherViewModel: VoucherViewModel = {
         return VoucherViewModel()
@@ -59,6 +60,8 @@ class MVoucherViewController: UIViewController {
                 if voucher.expire_at?.date?.formatDate() ?? Date() < Date() {
                     self?.buttonsInfoView.isHidden = true
                     self?.heightConstraint.constant = 232
+                    self?.qrImage.isHidden = true
+                    self?.qrCodeActionButton.isEnabled = false
                 }
                 self?.labeles.forEach { (view) in
                     view.stopAnimating()

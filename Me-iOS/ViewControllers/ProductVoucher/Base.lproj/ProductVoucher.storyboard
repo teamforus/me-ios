@@ -334,6 +334,7 @@
                         <outlet property="organizationProductName" destination="TTK-vD-7c6" id="eoD-c8-2Xj"/>
                         <outlet property="phoneNumberLabel" destination="yYD-ZY-nUL" id="MWP-Ak-dGF"/>
                         <outlet property="productNameLabel" destination="yli-HN-EQC" id="c63-0O-qF7"/>
+                        <outlet property="qrCodeActionButton" destination="0Wc-78-48p" id="GXN-qq-oC5"/>
                         <outlet property="qrCodeImage" destination="iMx-UP-m5T" id="2m9-om-sta"/>
                         <outletCollection property="labeles" destination="yli-HN-EQC" collectionClass="NSMutableArray" id="Yvn-TO-0Sp"/>
                         <outletCollection property="labeles" destination="wt9-Zp-qNM" collectionClass="NSMutableArray" id="cQ3-Dk-Mar"/>
