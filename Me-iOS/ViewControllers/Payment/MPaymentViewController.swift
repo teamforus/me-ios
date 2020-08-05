@@ -156,7 +156,15 @@ extension MPaymentViewController {
             organizationIcon.loadImageUsingUrlString(urlString: voucher.allowed_organizations?.first?.logo?.sizes?.thumbnail ?? "", placeHolder: #imageLiteral(resourceName: "Resting"))
             selectedAllowerdOrganization = voucher.allowed_organizations?.first
         }
-        
+        amountField.setPlaceholderColor(with: Localize.enter_the_price_here(), and: .lightGray)
+        notesField.setPlaceholderColor(with: Localize.note(), and: .lightGray)
+       let image = UIImage(named: "roundedRight")?.withRenderingMode(.alwaysTemplate)
+        self.arrowIcon.image = image
+        if #available(iOS 11.0, *) {
+            self.arrowIcon.tintColor = UIColor(named: "Black_Light_DarkTheme")
+        } else {
+          // Fallback on earlier versions
+        }
     }
     
     @IBAction func showOrganizations(_ sender: UIButton) {

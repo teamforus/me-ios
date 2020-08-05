@@ -14,6 +14,7 @@ class VoucherTableViewCell: UITableViewCell {
     @IBOutlet weak var voucherImage: RoundImageView!
     @IBOutlet weak var organizationNameLabel: UILabel!
     @IBOutlet weak var usedVoucherLabel: UILabel!
+    @IBOutlet weak var bodyView: CustomCornerUIView!
     var voucher: Voucher? {
         didSet{
             self.voucherTitleLabel.text = voucher?.product != nil ? voucher?.product?.name : voucher?.fund?.name
@@ -62,6 +63,19 @@ class VoucherTableViewCell: UITableViewCell {
         super.awakeFromNib()
         self.usedVoucherLabel.isHidden = true
         self.selectionStyle = .none
+        if #available(iOS 11.0, *) {
+            self.bodyView.layer.shadowColor = UIColor(named: "Black_Light_DarkTheme")?.cgColor
+        } else {
+            // Fallback on earlier versions
+        }
+    }
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        if #available(iOS 11.0, *) {
+            self.bodyView.layer.shadowColor = UIColor(named: "Black_Light_DarkTheme")?.cgColor
+        } else {
+            // Fallback on earlier versions
+        }
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {

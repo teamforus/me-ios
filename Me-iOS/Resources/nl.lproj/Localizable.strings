@@ -148,4 +148,5 @@
 "decline" = "ANNULEREN";
 "test_transaction" = "Test transactie";
 "test_organization" = "Test bedrijf";
-
+"enter_the_price_here" = "Vul hier het bedrag in.";
+"note" = "Notitie";

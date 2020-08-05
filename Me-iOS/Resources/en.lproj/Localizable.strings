@@ -148,4 +148,5 @@
 "decline" = "DECLINE";
 "test_transaction" = "Test transaction";
 "test_organization" = "Test organisation";
-
+"enter_the_price_here" = "Enter the price here.";
+"note" = "Note";

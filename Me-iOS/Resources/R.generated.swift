@@ -458,10 +458,56 @@ struct R: Rswift.Validatable {
   }
   #endif
 
-  /// This `R.color` struct is generated, and contains static references to 1 colors.
+  /// This `R.color` struct is generated, and contains static references to 6 colors.
   struct color {
+    /// Color `Background_DarkTheme`.
+    static let background_DarkTheme = Rswift.ColorResource(bundle: R.hostingBundle, name: "Background_DarkTheme")
+    /// Color `Background_Voucher_DarkTheme`.
+    static let background_Voucher_DarkTheme = Rswift.ColorResource(bundle: R.hostingBundle, name: "Background_Voucher_DarkTheme")
+    /// Color `Black_Light_DarkTheme`.
+    static let black_Light_DarkTheme = Rswift.ColorResource(bundle: R.hostingBundle, name: "Black_Light_DarkTheme")
+    /// Color `Gray_Light_DarkTheme`.
+    static let gray_Light_DarkTheme = Rswift.ColorResource(bundle: R.hostingBundle, name: "Gray_Light_DarkTheme")
     /// Color `MainBodyColor`.
     static let mainBodyColor = Rswift.ColorResource(bundle: R.hostingBundle, name: "MainBodyColor")
+    /// Color `Thin_Light_Gray_DarkTheme`.
+    static let thin_Light_Gray_DarkTheme = Rswift.ColorResource(bundle: R.hostingBundle, name: "Thin_Light_Gray_DarkTheme")
+
+    #if os(iOS) || os(tvOS)
+    /// `UIColor(named: "Background_DarkTheme", bundle: ..., traitCollection: ...)`
+    @available(tvOS 11.0, *)
+    @available(iOS 11.0, *)
+    static func background_DarkTheme(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
+      return UIKit.UIColor(resource: R.color.background_DarkTheme, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIColor(named: "Background_Voucher_DarkTheme", bundle: ..., traitCollection: ...)`
+    @available(tvOS 11.0, *)
+    @available(iOS 11.0, *)
+    static func background_Voucher_DarkTheme(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
+      return UIKit.UIColor(resource: R.color.background_Voucher_DarkTheme, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIColor(named: "Black_Light_DarkTheme", bundle: ..., traitCollection: ...)`
+    @available(tvOS 11.0, *)
+    @available(iOS 11.0, *)
+    static func black_Light_DarkTheme(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
+      return UIKit.UIColor(resource: R.color.black_Light_DarkTheme, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIColor(named: "Gray_Light_DarkTheme", bundle: ..., traitCollection: ...)`
+    @available(tvOS 11.0, *)
+    @available(iOS 11.0, *)
+    static func gray_Light_DarkTheme(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
+      return UIKit.UIColor(resource: R.color.gray_Light_DarkTheme, compatibleWith: traitCollection)
+    }
+    #endif
 
     #if os(iOS) || os(tvOS)
     /// `UIColor(named: "MainBodyColor", bundle: ..., traitCollection: ...)`
@@ -469,6 +515,15 @@ struct R: Rswift.Validatable {
     @available(iOS 11.0, *)
     static func mainBodyColor(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
       return UIKit.UIColor(resource: R.color.mainBodyColor, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIColor(named: "Thin_Light_Gray_DarkTheme", bundle: ..., traitCollection: ...)`
+    @available(tvOS 11.0, *)
+    @available(iOS 11.0, *)
+    static func thin_Light_Gray_DarkTheme(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
+      return UIKit.UIColor(resource: R.color.thin_Light_Gray_DarkTheme, compatibleWith: traitCollection)
     }
     #endif
 
@@ -2604,7 +2659,7 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
 
-    /// This `R.string.localizable` struct is generated, and contains static references to 140 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 142 localization keys.
     struct localizable {
       /// en translation: -voucher in the form of a QR-code
       ///
@@ -2758,6 +2813,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en, nl
       static let enterLoginCode = Rswift.StringResource(key: "Enter login code", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
+      /// en translation: Enter the price here.
+      ///
+      /// Locales: en, nl
+      static let enter_the_price_here = Rswift.StringResource(key: "enter_the_price_here", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
       /// en translation: Enter your login code
       ///
       /// Locales: en, nl
@@ -2886,6 +2945,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en, nl
       static let noPhoneNumber = Rswift.StringResource(key: "No phone number", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
+      /// en translation: Note
+      ///
+      /// Locales: en, nl
+      static let note = Rswift.StringResource(key: "note", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
       /// en translation: OK
       ///
       /// Locales: en, nl
@@ -3739,6 +3802,21 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("Enter login code", bundle: bundle, comment: "")
       }
 
+      /// en translation: Enter the price here.
+      ///
+      /// Locales: en, nl
+      static func enter_the_price_here(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("enter_the_price_here", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "enter_the_price_here"
+        }
+
+        return NSLocalizedString("enter_the_price_here", bundle: bundle, comment: "")
+      }
+
       /// en translation: Enter your login code
       ///
       /// Locales: en, nl
@@ -4223,6 +4301,21 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("No phone number", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Note
+      ///
+      /// Locales: en, nl
+      static func note(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("note", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "note"
+        }
+
+        return NSLocalizedString("note", bundle: bundle, comment: "")
       }
 
       /// en translation: OK

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Gmy-wc-PUf">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Gmy-wc-PUf">
     <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -20,14 +20,14 @@
         <scene sceneID="8b1-Dg-LLj">
             <objects>
                 <viewController storyboardIdentifier="firstPage" id="iO8-Qc-gee" customClass="MAFirstPageViewController" customModule="Me_iOS" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="jdV-Sd-I0k">
+                    <view key="view" contentMode="scaleToFill" id="jdV-Sd-I0k" customClass="Background_DarkMode" customModule="Me_iOS" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vjj-JE-iF2">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vjj-JE-iF2" customClass="BackgroundScrollView_DarkMode" customModule="Me_iOS" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pgv-1O-Hc6">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pgv-1O-Hc6" customClass="Background_DarkMode" customModule="Me_iOS" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fill1Copy" translatesAutoresizingMaskIntoConstraints="NO" id="NiA-kM-LZe">
@@ -37,7 +37,7 @@
                                                     <constraint firstAttribute="height" constant="85" id="MWD-ni-Kqo"/>
                                                 </constraints>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welkom bij Me" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yyn-hr-0CS">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welkom bij Me" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yyn-hr-0CS" customClass="UILabel_DarkMode" customModule="Me_iOS" customModuleProvider="target">
                                                 <rect key="frame" x="20" y="294.33333333333331" width="374" height="46"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="46" id="boX-7H-4nd"/>
@@ -114,7 +114,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Uw email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YwF-T9-4XR" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Uw email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YwF-T9-4XR" customClass="TextField_DarkMode" customModule="Me_iOS" customModuleProvider="target">
                                                 <rect key="frame" x="33" y="373.33333333333331" width="348" height="62"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="62" id="2Xx-bo-8ez"/>
@@ -127,10 +127,7 @@
                                                         <color key="value" red="0.58823529409999997" green="0.61568627450000002" blue="0.64313725489999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </userDefinedRuntimeAttribute>
                                                     <userDefinedRuntimeAttribute type="color" keyPath="selectedLineColor">
-                                                        <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="textColor">
-                                                        <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <color key="value" cocoaTouchSystemColor="darkTextColor"/>
                                                     </userDefinedRuntimeAttribute>
                                                     <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
                                                         <color key="value" red="0.76851850749999995" green="0.76852935550000001" blue="0.77669745680000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -154,7 +151,6 @@
                                                 </constraints>
                                             </imageView>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstItem="EPp-cx-awG" firstAttribute="leading" secondItem="Pgv-1O-Hc6" secondAttribute="leading" constant="33" id="66X-o4-I4y"/>
@@ -178,11 +174,15 @@
                                             <constraint firstItem="aoI-oj-U12" firstAttribute="leading" secondItem="Pgv-1O-Hc6" secondAttribute="leading" constant="59" id="suY-3A-CwT"/>
                                             <constraint firstItem="YwF-T9-4XR" firstAttribute="leading" secondItem="Pgv-1O-Hc6" secondAttribute="leading" constant="33" id="uVu-lr-fhV"/>
                                         </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="colorName" value="Background_DarkTheme"/>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <outletCollection property="gestureRecognizers" destination="ACa-Xq-lNJ" appends="YES" id="CGv-Zj-0Ml"/>
                                         </connections>
                                     </view>
                                 </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="Pgv-1O-Hc6" secondAttribute="trailing" id="1kO-6f-iOv"/>
                                     <constraint firstItem="Pgv-1O-Hc6" firstAttribute="leading" secondItem="vjj-JE-iF2" secondAttribute="leading" id="7W0-On-2Uy"/>
@@ -191,6 +191,9 @@
                                     <constraint firstItem="Pgv-1O-Hc6" firstAttribute="top" secondItem="vjj-JE-iF2" secondAttribute="top" id="qDz-AP-GOQ"/>
                                     <constraint firstItem="Pgv-1O-Hc6" firstAttribute="width" secondItem="vjj-JE-iF2" secondAttribute="width" id="rrQ-am-Fbg"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="colorName" value="Background_DarkTheme"/>
+                                </userDefinedRuntimeAttributes>
                             </scrollView>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IrT-93-1Nw">
                                 <rect key="frame" x="32" y="63" width="142" height="30"/>
@@ -251,6 +254,9 @@
                             <constraint firstItem="OI7-pa-CMz" firstAttribute="top" secondItem="Wa1-50-gJm" secondAttribute="top" constant="88" id="xMn-or-TQs"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Wa1-50-gJm"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="string" keyPath="colorName" value="Background_DarkTheme"/>
+                        </userDefinedRuntimeAttributes>
                     </view>
                     <navigationItem key="navigationItem" id="G7f-GB-5DU"/>
                     <connections>

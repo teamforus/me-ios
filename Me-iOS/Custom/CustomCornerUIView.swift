@@ -10,7 +10,7 @@ import UIKit
 
 
 @IBDesignable
-class CustomCornerUIView: UIView {
+class CustomCornerUIView: Background_DarkMode {
 
     @IBInspectable var selectedShadowColor : UIColor = UIColor.black {
         didSet {
@@ -84,7 +84,7 @@ class CustomCornerUIView: UIView {
     }
     
     required init(coder: NSCoder) {
-        super.init(coder: coder)!
+        super.init(coder: coder)
         self.layer.masksToBounds = false
     }
     
