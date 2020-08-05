@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="GHb-Mw-jlE">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="GHb-Mw-jlE">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -325,7 +325,9 @@
                     <size key="freeformSize" width="375" height="800"/>
                     <connections>
                         <outlet property="addressLabel" destination="CHH-ru-snt" id="HPt-C9-lkK"/>
+                        <outlet property="buttonsInfoView" destination="lxg-ue-C9O" id="eJQ-No-S0C"/>
                         <outlet property="emailButton" destination="xfb-su-vwf" id="b7s-VU-T5L"/>
+                        <outlet property="heightTopViewConstraint" destination="Q1V-wC-Hg4" id="fcq-ES-TAN"/>
                         <outlet property="mapView" destination="vrm-km-75b" id="CyY-rb-02D"/>
                         <outlet property="organizationIcon" destination="VkW-KL-tSs" id="j2D-yq-5hS"/>
                         <outlet property="organizationNameLabel" destination="wt9-Zp-qNM" id="5m1-vD-CzF"/>
