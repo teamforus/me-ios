@@ -2,7 +2,7 @@
 //  ConfirmPaymentActionPopUp.swift
 //  Me-iOS
 //
-//  Created by Inga Codreanu on 06.08.20.
+//  Created by Tcacenco Daniel on 06.08.20.
 //  Copyright © 2020 Tcacenco Daniel. All rights reserved.
 //
 
