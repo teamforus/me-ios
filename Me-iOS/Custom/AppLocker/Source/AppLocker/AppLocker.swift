@@ -209,20 +209,6 @@ public class AppLocker: UIViewController {
     fileprivate func checkSensors() {
         guard mode == .validate else {return}
         
-        var policy: LAPolicy = .deviceOwnerAuthenticationWithBiometrics // iOS 8+ users with Biometric and Custom (Fallback button) verification
-        
-        // Depending the iOS version we'll need to choose the policy we are able to use
-        if #available(iOS 9.0, *) {
-            // iOS 9+ users with Biometric and Passcode verification
-            policy = .deviceOwnerAuthentication
-        }
-        
-        var err: NSError?
-        // Check if the user is able to use the policy we've selected previously
-        guard context.canEvaluatePolicy(policy, error: &err) else {return}
-        
-        // The user is able to use his/her Touch ID / Face ID 👍
-        
         if faceIDAvailable() {
             
             ALConstants.kLocalizedReason = "Unlock with Face ID"
@@ -232,16 +218,49 @@ public class AppLocker: UIViewController {
             ALConstants.kLocalizedReason = "Unlock with Touch ID"
             
         }
+        //Create a context
+        let authenticationContext = LAContext()
+        var error:NSError?
         
-        context.evaluatePolicy(policy, localizedReason: ALConstants.kLocalizedReason, reply: {  success, error in
-            if success {
+        //Check if device have Biometric sensor
+        let isValidSensor : Bool = authenticationContext.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error)
+        
+        if isValidSensor {
+            //Device have BiometricSensor
+            //It Supports TouchID
+            
+            authenticationContext.evaluatePolicy(
+                .deviceOwnerAuthenticationWithBiometrics,
+                localizedReason: ALConstants.kLocalizedReason,
+                reply: { [unowned self] (success, error) -> Void in
+                    
+                    if(success) {
+                        // Touch / Face ID recognized success here
+                        DispatchQueue.main.async {
+                            self.dismiss(animated: true, completion: nil)
+                            self.delegate.closePinCodeView(typeClose: .validate)
+                        }
+                    } else {
+                        //If not recognized then
+                        if let error = error {
+                            let strMessage = self.errorMessage(errorCode: error._code)
+                            if strMessage != ""{
+                                DispatchQueue.main.async {
+                                    self.showAlertWithTitle(title: Localize.error(), message: strMessage)
+                                }
+                            }
+                        }
+                    }
+            })
+        } else {
+            
+            let strMessage = self.errorMessage(errorCode: (error?._code)!)
+            if strMessage != ""{
                 DispatchQueue.main.async {
-                    self.dismiss(animated: true, completion: nil)
-                    self.delegate.closePinCodeView(typeClose: .validate)
+                    self.showAlertWithTitle(title: Localize.error(), message: strMessage)
                 }
-                
             }
-        })
+        }
     }
     
     // MARK: - Keyboard
@@ -311,5 +330,57 @@ public extension AppLocker {
         }
         locker.modalPresentationStyle = .fullScreen
         withController.present(locker, animated: true, completion: nil)
+    }
+}
+
+extension AppLocker {
+    //MARK: TouchID error
+    func errorMessage(errorCode:Int) -> String{
+        
+        var strMessage = ""
+        
+        switch errorCode {
+            
+        case LAError.Code.authenticationFailed.rawValue:
+            strMessage = "Authentication Failed"
+            
+        case LAError.Code.userCancel.rawValue:
+            strMessage = "User Cancel"
+            
+        case LAError.Code.systemCancel.rawValue:
+            strMessage = "System Cancel"
+            
+        case LAError.Code.passcodeNotSet.rawValue:
+            strMessage = "Please goto the Settings & Turn On Passcode"
+            
+        case LAError.Code.touchIDNotAvailable.rawValue:
+            strMessage = "TouchI or FaceID DNot Available"
+            
+        case LAError.Code.touchIDNotEnrolled.rawValue:
+            strMessage = "TouchID or FaceID Not Enrolled"
+            
+        case LAError.Code.touchIDLockout.rawValue:
+            strMessage = "TouchID or FaceID Lockout Please goto the Settings & Turn On Passcode"
+            
+        case LAError.Code.appCancel.rawValue:
+            strMessage = "App Cancel"
+            
+        case LAError.Code.invalidContext.rawValue:
+            strMessage = "Invalid Context"
+            
+        default:
+            strMessage = ""
+            
+        }
+        return strMessage
+    }
+    
+    //MARK: Show Alert
+    func showAlertWithTitle( title:String, message:String ) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        let actionOk = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alert.addAction(actionOk)
+        self.present(alert, animated: true, completion: nil)
     }
 }
