@@ -351,10 +351,10 @@ extension AppLocker {
             strMessage = "System Cancel"
             
         case LAError.Code.passcodeNotSet.rawValue:
-            strMessage = "Please goto the Settings & Turn On Passcode"
+            strMessage = "Please go to the Settings & Turn On Passcode"
             
         case LAError.Code.touchIDNotAvailable.rawValue:
-            strMessage = "TouchI or FaceID DNot Available"
+            strMessage = "TouchI or FaceID Dont Available"
             
         case LAError.Code.touchIDNotEnrolled.rawValue:
             strMessage = "TouchID or FaceID Not Enrolled"
