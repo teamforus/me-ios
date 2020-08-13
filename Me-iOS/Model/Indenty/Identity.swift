@@ -8,9 +8,10 @@
 
 import Foundation
 
-struct Identity: Encodable{
+struct Identity: Codable{
     
-    var pin_code: String?
+    var email: String?
+    var address: String?
     var records: RecordsIndenty?
     
 }

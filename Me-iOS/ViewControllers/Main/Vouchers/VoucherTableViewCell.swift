@@ -17,7 +17,7 @@ class VoucherTableViewCell: UITableViewCell {
     var voucher: Voucher? {
         didSet{
             self.voucherTitleLabel.text = voucher?.product != nil ? voucher?.product?.name : voucher?.fund?.name
-            self.organizationNameLabel.text = voucher?.fund?.organization?.name ?? ""
+            self.organizationNameLabel.text = voucher?.product != nil ? voucher?.product?.organization?.name  : voucher?.fund?.organization?.name
             
             //            if voucher?.transactions != nil{
             //                
@@ -32,7 +32,7 @@ class VoucherTableViewCell: UITableViewCell {
             if voucher?.expire_at?.date?.formatDate() ?? Date() < Date() {
                 self.usedVoucherLabel.isHidden = false
                 self.usedVoucherLabel.textColor = .red
-                self.usedVoucherLabel.text = "Expired".localized()
+                self.usedVoucherLabel.text = Localize.expired()
             }
             
             if voucher?.product != nil{

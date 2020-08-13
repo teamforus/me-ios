@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -22,26 +22,55 @@
                 <rect key="frame" x="0.0" y="0.0" width="375" height="91"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Resting" translatesAutoresizingMaskIntoConstraints="NO" id="aBF-3T-Jde" customClass="RoundImageView" customModule="Me_iOS" customModuleProvider="target">
-                        <rect key="frame" x="17" y="21" width="44" height="44"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Belga Fietsen Groningen Megastore" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YUG-aS-ZgZ">
-                        <rect key="frame" x="75" y="32" width="285" height="21"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <fontDescription key="fontDescription" name="GoogleSans-Regular" family="Google Sans" pointSize="17"/>
-                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0LV-g8-QTp">
-                        <rect key="frame" x="0.0" y="-4" width="375" height="96"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <connections>
-                            <action selector="selectOrganization:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="huT-SH-WQM"/>
-                        </connections>
-                    </button>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UCl-ES-uVu" customClass="CustomCornerUIView" customModule="Me_iOS" customModuleProvider="target">
+                        <rect key="frame" x="10" y="7" width="355" height="73"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Resting" translatesAutoresizingMaskIntoConstraints="NO" id="aBF-3T-Jde" customClass="RoundImageView" customModule="Me_iOS" customModuleProvider="target">
+                                <rect key="frame" x="16" y="15" width="44" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="44" id="Nzf-cz-kti"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Belga Fietsen Groningen Megastore" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YUG-aS-ZgZ">
+                                <rect key="frame" x="80" y="26" width="275" height="21"/>
+                                <fontDescription key="fontDescription" name="GoogleSans-Regular" family="Google Sans" pointSize="16"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0LV-g8-QTp">
+                                <rect key="frame" x="0.0" y="0.0" width="355" height="73"/>
+                                <connections>
+                                    <action selector="selectOrganization:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="huT-SH-WQM"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.96471232179999999" green="0.96469432119999998" blue="0.96470648049999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="YUG-aS-ZgZ" firstAttribute="leading" secondItem="aBF-3T-Jde" secondAttribute="trailing" constant="20" id="8EB-tB-Nya"/>
+                            <constraint firstItem="YUG-aS-ZgZ" firstAttribute="centerY" secondItem="UCl-ES-uVu" secondAttribute="centerY" id="DRS-G5-ceK"/>
+                            <constraint firstAttribute="bottom" secondItem="0LV-g8-QTp" secondAttribute="bottom" id="HMj-Sn-S0S"/>
+                            <constraint firstItem="0LV-g8-QTp" firstAttribute="leading" secondItem="UCl-ES-uVu" secondAttribute="leading" id="Qi0-HI-1d8"/>
+                            <constraint firstItem="aBF-3T-Jde" firstAttribute="top" secondItem="UCl-ES-uVu" secondAttribute="top" constant="15" id="TQJ-lf-Ti3"/>
+                            <constraint firstAttribute="trailing" secondItem="YUG-aS-ZgZ" secondAttribute="trailing" id="UD5-c2-G6D"/>
+                            <constraint firstAttribute="bottom" secondItem="aBF-3T-Jde" secondAttribute="bottom" constant="14" id="Xnm-q2-4xt"/>
+                            <constraint firstItem="0LV-g8-QTp" firstAttribute="top" secondItem="UCl-ES-uVu" secondAttribute="top" id="bL5-s4-FgL"/>
+                            <constraint firstItem="aBF-3T-Jde" firstAttribute="leading" secondItem="UCl-ES-uVu" secondAttribute="leading" constant="16" id="dV9-RO-b2S"/>
+                            <constraint firstAttribute="trailing" secondItem="0LV-g8-QTp" secondAttribute="trailing" id="fWQ-vU-cOu"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="10"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
                 </subviews>
-                <color key="backgroundColor" red="0.96460121870040894" green="0.96476620435714722" blue="0.96459084749221802" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <constraints>
+                    <constraint firstItem="UCl-ES-uVu" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="7" id="7ma-IR-c4H"/>
+                    <constraint firstAttribute="trailing" secondItem="UCl-ES-uVu" secondAttribute="trailing" constant="10" id="EdT-tF-loH"/>
+                    <constraint firstAttribute="bottom" secondItem="UCl-ES-uVu" secondAttribute="bottom" constant="11" id="aHS-34-uoe"/>
+                    <constraint firstItem="UCl-ES-uVu" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="xOo-1V-mgk"/>
+                </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" red="0.96460121870000004" green="0.96476620440000005" blue="0.96459084750000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>

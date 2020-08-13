@@ -16,15 +16,14 @@ class EmailLoginViewModel {
         self.commonService = commonService
     }
     
-    var complete: ((Int)->())?
+    var complete: ((String,Int)->())?
     
     func initLoginByEmail(email: String) {
         
-        let parameters = ["primary_email" : email,
-                          "source" : "me_app-ios"]
+        let parameters = ["primary_email" : email, "source": "app-me_app"]
         
         commonService.postWithParametersWithoutToken(request: "identity/proxy/email", parameters: parameters, complete: { (response: AuthorizationQRToken, statusCode) in
-            self.complete?(statusCode)
+            self.complete?(response.message ?? "" ,statusCode)
         }) { (error) in
             
         }

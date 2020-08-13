@@ -21,6 +21,9 @@ class MProductVoucherViewController: UIViewController {
     @IBOutlet weak var emailButton: UIButton!
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var organizationIcon: CornerImageView!
+    @IBOutlet weak var buttonsInfoView: UIView!
+    @IBOutlet weak var qrCodeActionButton: UIButton!
+    @IBOutlet weak var heightTopViewConstraint: NSLayoutConstraint!
     
     @IBOutlet var labeles: [SkeletonView]!
     @IBOutlet var images: [SkeletonUIImageView]!
@@ -48,7 +51,7 @@ class MProductVoucherViewController: UIViewController {
                 
                 
                 self?.productNameLabel.text = voucher.product?.name ?? ""
-                self?.organizationNameLabel.text = voucher.fund?.organization?.name ?? ""
+                self?.organizationNameLabel.text = voucher.product?.organization?.name ?? ""
                 self?.organizationProductName.text = voucher.product?.organization?.name ?? ""
                 self?.addressLabel.text = voucher.offices?.first?.address ?? ""
                 self?.phoneNumberLabel.text = voucher.offices?.first?.phone ?? ""
@@ -56,6 +59,13 @@ class MProductVoucherViewController: UIViewController {
                 self?.organizationIcon.loadImageUsingUrlString(urlString: voucher.product?.organization?.logo?.sizes?.thumbnail ?? "", placeHolder: #imageLiteral(resourceName: "Resting"))
                 self?.qrCodeImage.generateQRCode(from: "{\"type\": \"voucher\",\"value\": \"\(voucher.address ?? "")\" }")
                 self?.voucher = voucher
+                
+                if voucher.expire_at?.date?.formatDate() ?? Date() < Date() {
+                    self?.buttonsInfoView.isHidden = true
+                    self?.heightTopViewConstraint.constant = 232
+                    self?.qrCodeImage.isHidden = true
+                    self?.qrCodeActionButton.isEnabled = false
+                }
                 
                 //organizationLabel gesture
                 self?.emailButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self?.Tap)))
@@ -103,7 +113,7 @@ class MProductVoucherViewController: UIViewController {
     }
     
     @IBAction func opendQR(_ sender: UIButton) {
-        let popOverVC = PullUpQRViewController(nibName: "PullUpQRViewController", bundle: nil)
+        let popOverVC = PullUpQRViewController(nib: R.nib.pullUpQRViewController)
         popOverVC.voucher = voucher
         popOverVC.qrType = .Voucher
         showPopUPWithAnimation(vc: popOverVC)
@@ -115,19 +125,19 @@ class MProductVoucherViewController: UIViewController {
             
             DispatchQueue.main.async {
                 
-                self?.showPopUPWithAnimation(vc: SuccessSendingViewController(nibName: "SuccessSendingViewController", bundle: nil))
+                self?.showPopUPWithAnimation(vc: SuccessSendingViewController(nib: R.nib.successSendingViewController))
                 
             }
         }
         
-        showSimpleAlertWithAction(title: "E-mail to me".localized(),
-                                  message: "Send the voucher to your email?".localized(),
-                                  okAction: UIAlertAction(title: "Confirm".localized(), style: .default, handler: { (action) in
+        showSimpleAlertWithAction(title: Localize.eMailToMe(),
+                                  message: Localize.sendAnEMailToTheProvider(),
+                                  okAction: UIAlertAction(title: Localize.confirm(), style: .default, handler: { (action) in
                                     
                                     self.productViewModel.sendEmail(address: self.voucher.address ?? "")
                                     
                                   }),
-                                  cancelAction: UIAlertAction(title: "Cancel".localized(), style: .cancel, handler: nil))
+                                  cancelAction: UIAlertAction(title: Localize.cancel(), style: .cancel, handler: nil))
     }
     
     @IBAction func info(_ sender: Any) {
@@ -158,33 +168,33 @@ extension MProductVoucherViewController {
     @objc func Tap() {
         
         
-        showSimpleAlertWithAction(title:  "Send an e-mail to the provider".localized(),
-                                  message: "Confirm to go to your email app to send a message to the provider".localized(),
-                                  okAction: UIAlertAction(title: "Confirm".localized(), style: .default, handler: { (action) in
+        showSimpleAlertWithAction(title:  Localize.sendAnEMailToTheProvider(),
+                                  message: Localize.confirmToGoToYourEmailAppToSendAMessageToTheProvider(),
+                                  okAction: UIAlertAction(title: Localize.confirm(), style: .default, handler: { (action) in
                                     
                                     if MFMailComposeViewController.canSendMail() {
                                         let composeVC = MFMailComposeViewController()
                                         composeVC.mailComposeDelegate = self
                                         composeVC.setToRecipients([(self.voucher.offices?.first?.organization?.email)!])
-                                        composeVC.setSubject("Question from Me user".localized())
+                                        composeVC.setSubject(Localize.questionFromMeUser())
                                         composeVC.setMessageBody("", isHTML: false)
                                         self.present(composeVC, animated: true, completion: nil)
                                     }else{
-                                        self.showSimpleAlert(title: "Warning".localized(), message: "Mail services are not available".localized())
+                                        self.showSimpleAlert(title: Localize.warning(), message: Localize.mailServicesAreNotAvailable())
                                     }
                                     
                                   }),
-                                  cancelAction: UIAlertAction(title: "Cancel".localized(), style: .cancel, handler: nil))
+                                  cancelAction: UIAlertAction(title: Localize.cancel(), style: .cancel, handler: nil))
         
     }
     
     @objc func Long() {
         UIPasteboard.general.string = self.voucher.offices?.first?.organization?.email
-        self.showSimpleToast(message: "Copied to clipboard".localized())
+        self.showSimpleToast(message: Localize.copiedToClipboard())
     }
     
     @objc func goToMap(){
-        let actionSheet = UIAlertController.init(title: "Address".localized(), message: nil, preferredStyle: .actionSheet)
+        let actionSheet = UIAlertController.init(title: Localize.address(), message: nil, preferredStyle: .actionSheet)
         
         //open apple maps
         actionSheet.addAction(UIAlertAction.init(title: "Open in Apple Maps", style: UIAlertAction.Style.default, handler: { (action) in
@@ -208,11 +218,11 @@ extension MProductVoucherViewController {
         }))
         
         //copy to clipboard
-        actionSheet.addAction(UIAlertAction.init(title: "Copy address".localized(), style: UIAlertAction.Style.default, handler: { (action) in
+        actionSheet.addAction(UIAlertAction.init(title: Localize.copyAddress(), style: UIAlertAction.Style.default, handler: { (action) in
             UIPasteboard.general.string = self.voucher.offices?.first?.address
-            self.showSimpleToast(message: "Copied to clipboard".localized())
+            self.showSimpleToast(message: Localize.copiedToClipboard())
         }))
-        actionSheet.addAction(UIAlertAction.init(title: "Cancel".localized(), style: UIAlertAction.Style.cancel, handler: { (action) in
+        actionSheet.addAction(UIAlertAction.init(title: Localize.cancel(), style: UIAlertAction.Style.cancel, handler: { (action) in
         }))
         //Present the controller
         self.present(actionSheet, animated: true, completion: nil)

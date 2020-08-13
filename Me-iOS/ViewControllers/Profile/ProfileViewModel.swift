@@ -23,7 +23,7 @@ class ProfileViewModel {
     
     func initProfile(){
         
-        commonService.get(request: "identity/records", complete: { (response: [Record], statusCode) in
+        commonService.get(request: "identity", complete: { (response: Identity, statusCode) in
             if statusCode == 401 {
                 DispatchQueue.main.async {
                     KVSpinnerView.dismiss()
@@ -32,19 +32,9 @@ class ProfileViewModel {
                     }))
                 }
             } else {
-                let mutableString = NSMutableString()
-                var email: String!
-                for record in response{
-                    if record.key == "given_name"{
-                        mutableString.append(record.value ?? "")
-                    }else if record.key == "primary_email" {
-                        email = record.value
-                    }else if record.key == "family_name" {
-                        mutableString.append(" \(record.value ?? "")")
-                    }
-                }
+               
                 
-                self.complete?(mutableString as String, email)
+                self.complete?(response.email ?? "", response.address ?? "")
             }
             
         }) { (error) in

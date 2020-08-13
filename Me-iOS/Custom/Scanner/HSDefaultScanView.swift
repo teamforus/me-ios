@@ -65,12 +65,6 @@ public class HSDefaultScanView: UIView, HSScanViewProtocol {
         label.font = UIFont(name: "GoogleSans-Medium", size: 36)
         
         self.addSubview(label)
-        
-        let button = UIButton.init(frame: CGRect(x: self.frame.width - 40, y: 65, width: 16, height: 36))
-        button.setImage(#imageLiteral(resourceName: "FlashlightOff"), for: .normal)
-        button.autoresizingMask = [.flexibleRightMargin, .flexibleLeftMargin, .flexibleBottomMargin]
-        button.addTarget(self, action: #selector(toggleFlash(sender:)), for: .touchUpInside)
-        self.addSubview(button)
     }
     
     public init(frame: CGRect, style: HSDefaultScanViewStyle) {
@@ -89,33 +83,6 @@ public class HSDefaultScanView: UIView, HSScanViewProtocol {
 }
 
 extension HSDefaultScanView {
-    
-    @objc func toggleFlash(sender: UIButton) {
-        guard let device = AVCaptureDevice.default(for: AVMediaType.video) else { return }
-        guard device.hasTorch else { return }
-        
-        do {
-            try device.lockForConfiguration()
-            
-            if (device.torchMode == AVCaptureDevice.TorchMode.on) {
-                device.torchMode = AVCaptureDevice.TorchMode.off
-                sender.setImage(#imageLiteral(resourceName: "FlashlightOff"), for: .normal)
-            } else {
-                do {
-                    try device.setTorchModeOn(level: 1.0)
-                    sender.setImage(#imageLiteral(resourceName: "FlashlightOn"), for: .normal)
-                } catch {
-                    print(error)
-                }
-            }
-            
-            device.unlockForConfiguration()
-        } catch {
-            print(error)
-        }
-        
-        
-    }
     
     func drawDefaultRect(_ rect: CGRect) {
         let scanRectangleOffsetX = viewStyle.scanRectOffsetX
