@@ -209,15 +209,6 @@ public class AppLocker: UIViewController {
     fileprivate func checkSensors() {
         guard mode == .validate else {return}
         
-        if faceIDAvailable() {
-            
-            ALConstants.kLocalizedReason = "Unlock with Face ID"
-            
-        }else {
-            
-            ALConstants.kLocalizedReason = "Unlock with Touch ID"
-            
-        }
         //Create a context
         let authenticationContext = LAContext()
         var error:NSError?
@@ -231,7 +222,7 @@ public class AppLocker: UIViewController {
             
             authenticationContext.evaluatePolicy(
                 .deviceOwnerAuthenticationWithBiometrics,
-                localizedReason: ALConstants.kLocalizedReason,
+                localizedReason: Localize.unlock_with(deviceAuthentification),
                 reply: { [unowned self] (success, error) -> Void in
                     
                     if(success) {
@@ -308,7 +299,7 @@ public extension AppLocker {
         //        }
         //    }
         if (config?.cancelIsVissible)! == false{
-            locker.cancelButton.setTitle("Log out".localized(), for: .normal)
+            locker.cancelButton.setTitle(Localize.logOut(), for: .normal)
         }
         locker.messageLabel.text = config?.title ?? ""
         locker.vc = withController
@@ -342,31 +333,31 @@ extension AppLocker {
         switch errorCode {
             
         case LAError.Code.authenticationFailed.rawValue:
-            strMessage = "Authentication Failed"
+            strMessage = Localize.authentification_failed()
             
         case LAError.Code.userCancel.rawValue:
-            strMessage = "User Cancel"
+            strMessage = Localize.user_cancel()
             
         case LAError.Code.systemCancel.rawValue:
-            strMessage = "System Cancel"
+            strMessage = Localize.system_cancel()
             
         case LAError.Code.passcodeNotSet.rawValue:
-            strMessage = "Please go to the Settings & Turn On Passcode"
+            strMessage = Localize.please_go_to_settings_turn_on_passcode()
             
         case LAError.Code.touchIDNotAvailable.rawValue:
-            strMessage = "TouchI or FaceID Dont Available"
+            strMessage = Localize.dont_available(deviceAuthentification)
             
         case LAError.Code.touchIDNotEnrolled.rawValue:
-            strMessage = "TouchID or FaceID Not Enrolled"
+            strMessage = Localize.not_enrolled(deviceAuthentification)
             
         case LAError.Code.touchIDLockout.rawValue:
-            strMessage = "TouchID or FaceID Lockout Please goto the Settings & Turn On Passcode"
+            strMessage = Localize.lockout_please_go_to_settings_turn_on_passcode(deviceAuthentification)
             
         case LAError.Code.appCancel.rawValue:
-            strMessage = "App Cancel"
+            strMessage = Localize.app_cancel()
             
         case LAError.Code.invalidContext.rawValue:
-            strMessage = "Invalid Context"
+            strMessage = Localize.invalid_context()
             
         default:
             strMessage = ""
@@ -379,7 +370,7 @@ extension AppLocker {
     func showAlertWithTitle( title:String, message:String ) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         
-        let actionOk = UIAlertAction(title: "OK", style: .default, handler: nil)
+        let actionOk = UIAlertAction(title: Localize.ok(), style: .default, handler: nil)
         alert.addAction(actionOk)
         self.present(alert, animated: true, completion: nil)
     }

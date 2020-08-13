@@ -150,3 +150,13 @@
 "test_organization" = "Test organisation";
 "enter_the_price_here" = "Enter the price here.";
 "note" = "Note";
+"unlock_with" = "Unlock with %@";
+"authentification_failed" = "Authentication Failed";
+"user_cancel" = "User Cancel";
+"system_cancel" = "System Cancel";
+"please_go_to_settings_turn_on_passcode" = "Please go to the Settings & Turn On Passcode";
+"dont_available" = "%@ Don't Available";
+"not_enrolled" = "%@ Not Enrolled";
+"lockout_please_go_to_settings_turn_on_passcode" = "%@ Lockout Please go to the Settings & Turn On Passcode";
+"app_cancel" = "App Cancel";
+"invalid_context" = "Invalid context";
