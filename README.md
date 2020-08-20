@@ -59,10 +59,10 @@ A good first step when putting a project under version control is to have a dece
 Project uses [R.swift more details here](https://github.com/mac-cain13/R.swift).
 
 #### Generate localizations key to variables
-After `Localizable.string` is generated we need to run script for **EdConnect Target** in **Build Phase** script are in `R.Swift`.
+After `Localizable.string` is generated we need to run script for **Me-iOS Target** in **Build Phase** script are in `R.Swift`.
 
-To generate `R.generated.swift` file, uncomment `"${PODS_ROOT}/R.swift/rswift" generate "$SRCROOT/Say/Resources/R.generated.swift"`, after better to comment back to optimize the building time.
-File will be generated to `../Say/Resources/`
+To generate `R.generated.swift` file, uncomment `"${PODS_ROOT}/R.swift/rswift" generate "$SRCROOT/me-ios/Resources/R.generated.swift"`, after better to comment back to optimize the building time.
+File will be generated to `../me-ios/Resources/`
 
 #### Why use this?
 
