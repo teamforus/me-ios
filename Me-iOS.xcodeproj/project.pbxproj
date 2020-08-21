@@ -183,11 +183,12 @@
 		FF0DACBE246AD0A80034E3E4 /* OrganizationValidatorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF3B141A243722EE003FDDD9 /* OrganizationValidatorViewController.xib */; };
 		FF45B3B224D9DC7C00D258E1 /* Extension+UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45B3B124D9DC7C00D258E1 /* Extension+UITextField.swift */; };
 		FF48062924632AA70055E346 /* RecordsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF48062824632AA70055E346 /* RecordsTableViewCell.swift */; };
-		FFE731C224CEEB760064C7D5 /* BackgroundScrollView_DarkMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE731C124CEEB760064C7D5 /* BackgroundScrollView_DarkMode.swift */; };
-		FFE731C424CEEFED0064C7D5 /* CloseButton_DarkMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE731C324CEEFED0064C7D5 /* CloseButton_DarkMode.swift */; };
+		FF53516924EA86C300A95287 /* Extension+UIWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF53516824EA86C300A95287 /* Extension+UIWindow.swift */; };
 		FF9B7157248503F100BBCAA3 /* MMainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9B7156248503F100BBCAA3 /* MMainTabBarController.swift */; };
 		FF9B715924851A5900BBCAA3 /* AppVersionUpdateNotifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9B715824851A5900BBCAA3 /* AppVersionUpdateNotifier.swift */; };
 		FFCE835B24B881B1001082B1 /* Extension+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCE835A24B881B1001082B1 /* Extension+UIView.swift */; };
+		FFE731C224CEEB760064C7D5 /* BackgroundScrollView_DarkMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE731C124CEEB760064C7D5 /* BackgroundScrollView_DarkMode.swift */; };
+		FFE731C424CEEFED0064C7D5 /* CloseButton_DarkMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE731C324CEEFED0064C7D5 /* CloseButton_DarkMode.swift */; };
 		FFFF25252475125F0043E459 /* DynamicLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFFF25242475125F0043E459 /* DynamicLabel.swift */; };
 		FFFF2527247513510043E459 /* AccessibilityProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFFF2526247513510043E459 /* AccessibilityProtocol.swift */; };
 		FFFF8AAC2450CAA2001673DB /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFFF8AAB2450CAA2001673DB /* R.generated.swift */; };
@@ -458,11 +459,12 @@
 		FF3B1422243722F8003FDDD9 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/OrganizationValidatorViewController.strings; sourceTree = "<group>"; };
 		FF45B3B124D9DC7C00D258E1 /* Extension+UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UITextField.swift"; sourceTree = "<group>"; };
 		FF48062824632AA70055E346 /* RecordsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordsTableViewCell.swift; sourceTree = "<group>"; };
-		FFE731C124CEEB760064C7D5 /* BackgroundScrollView_DarkMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundScrollView_DarkMode.swift; sourceTree = "<group>"; };
-		FFE731C324CEEFED0064C7D5 /* CloseButton_DarkMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloseButton_DarkMode.swift; sourceTree = "<group>"; };
+		FF53516824EA86C300A95287 /* Extension+UIWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIWindow.swift"; sourceTree = "<group>"; };
 		FF9B7156248503F100BBCAA3 /* MMainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMainTabBarController.swift; sourceTree = "<group>"; };
 		FF9B715824851A5900BBCAA3 /* AppVersionUpdateNotifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppVersionUpdateNotifier.swift; sourceTree = "<group>"; };
 		FFCE835A24B881B1001082B1 /* Extension+UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIView.swift"; sourceTree = "<group>"; };
+		FFE731C124CEEB760064C7D5 /* BackgroundScrollView_DarkMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundScrollView_DarkMode.swift; sourceTree = "<group>"; };
+		FFE731C324CEEFED0064C7D5 /* CloseButton_DarkMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloseButton_DarkMode.swift; sourceTree = "<group>"; };
 		FFFF25242475125F0043E459 /* DynamicLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicLabel.swift; sourceTree = "<group>"; };
 		FFFF2526247513510043E459 /* AccessibilityProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessibilityProtocol.swift; sourceTree = "<group>"; };
 		FFFF8AAB2450CAA2001673DB /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
@@ -821,6 +823,7 @@
 				657DBA502289973C00C67500 /* NotificationName.swift */,
 				654ACBAD22A9523B0052C9C2 /* UserDefaultsName.swift */,
 				FF45B3B124D9DC7C00D258E1 /* Extension+UITextField.swift */,
+				FF53516824EA86C300A95287 /* Extension+UIWindow.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1427,8 +1430,6 @@
 		FF9B715B248542DC00BBCAA3 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				65139C7A228034DA003E0CDE /* BaseURL.swift */,
-				65139C7822803349003E0CDE /* CurrentSession.swift */,
 				FF9B715824851A5900BBCAA3 /* AppVersionUpdateNotifier.swift */,
 			);
 			path = Utils;
@@ -1812,6 +1813,7 @@
 				FFE731C424CEEFED0064C7D5 /* CloseButton_DarkMode.swift in Sources */,
 				FF48062924632AA70055E346 /* RecordsTableViewCell.swift in Sources */,
 				65911B58228D912900EA30D6 /* AllowedProduct.swift in Sources */,
+				FF53516924EA86C300A95287 /* Extension+UIWindow.swift in Sources */,
 				65139C62228029EF003E0CDE /* SwitchCustom.swift in Sources */,
 				65A8B6EC2282CD7E00B7DF05 /* String+Substring.swift in Sources */,
 				65100AFF229D7102007892D1 /* MRecordValidatorsViewController.swift in Sources */,
