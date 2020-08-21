@@ -220,7 +220,9 @@ extension MProductVoucherViewController {
         actionSheet.addAction(UIAlertAction.init(title: Localize.cancel(), style: UIAlertAction.Style.cancel, handler: { (action) in
         }))
         //Present the controller
-        self.present(actionSheet, animated: true, completion: nil)
+        actionSheet.popoverPresentationController?.sourceView = mapView
+        actionSheet.popoverPresentationController?.sourceRect = mapView.frame
+        self.present(actionSheet, animated: true)
     }
     
     func setAnnotation(lattitude: Double, longitude: Double) -> CustomPointAnnotation{
