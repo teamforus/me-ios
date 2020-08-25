@@ -187,7 +187,7 @@ extension UIViewController{
     
     @IBAction func logout(_ sender: UIButton) {
         
-        self.showSimpleAlertWithAction(title: Localize.logOut(), message: Localize.areYouSureYouWantToLogOut(),
+        self.showSimpleAlertWithAction(title: Localize.log_out(), message: Localize.are_you_sure_you_want_log_out(),
                                        okAction: UIAlertAction(title: Localize.confirm(), style: .default, handler: { (action) in
                                         
                                         self.logoutOptions()
@@ -215,10 +215,10 @@ extension UIViewController{
                 }else if statusCode == 422 {
                     self.logoutAction()
                 }else if statusCode == 404 {
-                    self.showSimpleAlertWithSingleAction(title: "Error!".localized(), message: "", okAction: UIAlertAction(title: "OK", style: .default, handler: { (action) in
+                    self.showSimpleAlertWithSingleAction(title: "Error!".localized(), message: "", okAction: UIAlertAction(title: Localize.ok(), style: .default, handler: { (action) in
                     }))
                 }else if statusCode == 500 {
-                    self.showSimpleAlertWithSingleAction(title: "Error!".localized(), message: "", okAction: UIAlertAction(title: "OK", style: .default, handler: { (action) in
+                    self.showSimpleAlertWithSingleAction(title: "Error!".localized(), message: "", okAction: UIAlertAction(title: Localize.ok(), style: .default, handler: { (action) in
                     }))
                 }else if statusCode == 401 {
                     self.logoutAction()

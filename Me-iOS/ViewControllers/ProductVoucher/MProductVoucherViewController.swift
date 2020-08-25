@@ -125,8 +125,8 @@ class MProductVoucherViewController: UIViewController {
             }
         }
         
-        showSimpleAlertWithAction(title: Localize.eMailToMe(),
-                                  message: Localize.sendAnEMailToTheProvider(),
+        showSimpleAlertWithAction(title: Localize.email_to_me(),
+                                  message: Localize.send_an_email_to_the_provider(),
                                   okAction: UIAlertAction(title: Localize.confirm(), style: .default, handler: { (action) in
                                     
                                     self.productViewModel.sendEmail(address: self.voucher.address ?? "")
@@ -163,19 +163,19 @@ extension MProductVoucherViewController {
     @objc func Tap() {
         
         
-        showSimpleAlertWithAction(title:  Localize.sendAnEMailToTheProvider(),
-                                  message: Localize.confirmToGoToYourEmailAppToSendAMessageToTheProvider(),
+        showSimpleAlertWithAction(title: Localize.send_an_email_to_the_provider(),
+                                  message: Localize.confirm_to_go_your_email_app_to_send_message_to_provider(),
                                   okAction: UIAlertAction(title: Localize.confirm(), style: .default, handler: { (action) in
                                     
                                     if MFMailComposeViewController.canSendMail() {
                                         let composeVC = MFMailComposeViewController()
                                         composeVC.mailComposeDelegate = self
                                         composeVC.setToRecipients([(self.voucher.offices?.first?.organization?.email)!])
-                                        composeVC.setSubject(Localize.questionFromMeUser())
+                                        composeVC.setSubject(Localize.question_from_me_user())
                                         composeVC.setMessageBody("", isHTML: false)
                                         self.present(composeVC, animated: true, completion: nil)
                                     }else{
-                                        self.showSimpleAlert(title: Localize.warning(), message: Localize.mailServicesAreNotAvailable())
+                                        self.showSimpleAlert(title: Localize.warning(), message: Localize.mail_services_are_not_available())
                                     }
                                     
                                   }),
@@ -185,7 +185,7 @@ extension MProductVoucherViewController {
     
     @objc func Long() {
         UIPasteboard.general.string = self.voucher.offices?.first?.organization?.email
-        self.showSimpleToast(message: Localize.copiedToClipboard())
+        self.showSimpleToast(message: Localize.copied_to_clipboard())
     }
     
     @objc func goToMap(){
@@ -213,9 +213,9 @@ extension MProductVoucherViewController {
         }))
         
         //copy to clipboard
-        actionSheet.addAction(UIAlertAction.init(title: Localize.copyAddress(), style: UIAlertAction.Style.default, handler: { (action) in
+        actionSheet.addAction(UIAlertAction.init(title: Localize.copy_address(), style: UIAlertAction.Style.default, handler: { (action) in
             UIPasteboard.general.string = self.voucher.offices?.first?.address
-            self.showSimpleToast(message: Localize.copiedToClipboard())
+            self.showSimpleToast(message: Localize.copied_to_clipboard())
         }))
         actionSheet.addAction(UIAlertAction.init(title: Localize.cancel(), style: UIAlertAction.Style.cancel, handler: { (action) in
         }))

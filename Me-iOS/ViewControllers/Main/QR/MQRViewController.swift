@@ -100,7 +100,7 @@ class MQRViewController: HSScanViewController {
                     KVSpinnerView.dismiss()
                     if statusCode != 401 {
                         
-                        self?.showSimpleAlertWithSingleAction(title: Localize.success(), message: Localize.aRecordHasBeenValidated(),
+                        self?.showSimpleAlertWithSingleAction(title: Localize.success(), message: Localize.a_record_has_been_validated(),
                                                               okAction: UIAlertAction(title: Localize.ok(), style: .default, handler: { (action) in
                                                                 self?.scanWorker.start()
                                                               }))
@@ -134,7 +134,7 @@ class MQRViewController: HSScanViewController {
                                 }else{
                                     
                                     self?.showSimpleAlertWithSingleAction(title: Localize.error_exclamation(),
-                                                                          message: Localize.thisProductVoucherIsUsed(),
+                                                                          message: Localize.this_product_voucher_is_used(),
                                                                           okAction: UIAlertAction(title: Localize.ok(), style: .default, handler: { (action) in
                                                                             self?.scanWorker.start()
                                                                           }))
@@ -143,14 +143,14 @@ class MQRViewController: HSScanViewController {
                             }else {
                                 
                                 self?.showSimpleAlertWithSingleAction(title: Localize.error_exclamation(),
-                                                                      message: Localize.sorryYouDoNotMeetTheCriteriaForThisVoucher(),
+                                                                      message: Localize.sorry_you_do_not_meet_the_criteria_for_this_voucher(),
                                                                       okAction: UIAlertAction(title: Localize.ok(), style: .default, handler: { (action) in
                                                                         self?.scanWorker.start()
                                                                       }))
                             }
                     }else {
                         
-                        self?.showSimpleAlertWithSingleAction(title: Localize.error_exclamation(), message: Localize.youCanTScanThisVoucherYouAreNotAcceptedAsAProviderForTheFundThatHandsOutTheseVouchers(), okAction: UIAlertAction(title: Localize.ok(), style: .default, handler: { (action) in
+                        self?.showSimpleAlertWithSingleAction(title: Localize.error_exclamation(), message: Localize.you_cant_scan_this_voucher_you_are_not_accepted_as_provider_for_fund(), okAction: UIAlertAction(title: Localize.ok(), style: .default, handler: { (action) in
                             self?.scanWorker.start()
                         }))
                     }
@@ -182,7 +182,7 @@ class MQRViewController: HSScanViewController {
                 }else {
                 
                     self.showSimpleAlertWithSingleAction(title: Localize.error_exclamation(),
-                                                     message: Localize.theVoucherIsEmptyNoTransactionsCanBeDone(),
+                                                         message: Localize.the_voucher_is_empty(),
                                                      okAction: UIAlertAction(title: Localize.ok(), style: .default, handler: { (action) in
                                                                                    self.scanWorker.start()
                                                                                  }))
@@ -233,13 +233,13 @@ extension MQRViewController: HSScanViewControllerDelegate{
                         if qr.type == QRTypeScann.authToken.rawValue {
                             self.scanWorker.stop()
                             self.showSimpleAlertWithAction(title: "Login QR",
-                                                           message: Localize.youSureYouWanTToLoginThisDevice(),
-                                                           okAction: UIAlertAction(title: Localize.yeS(), style: .default, handler: { (action) in
+                                                           message: Localize.you_sure_you_want_to_login_device(),
+                                                           okAction: UIAlertAction(title: Localize.yes(), style: .default, handler: { (action) in
                                                             KVSpinnerView.show()
                                                             self.qrViewModel.initAuthorizeToken(token: qr.value)
                                                             
                                                            }),
-                                                           cancelAction: UIAlertAction(title: Localize.nO(), style: .cancel, handler: { (action) in
+                                                           cancelAction: UIAlertAction(title: Localize.no(), style: .cancel, handler: { (action) in
                                                             
                                                             self.scanWorker.start()
                                                            }))

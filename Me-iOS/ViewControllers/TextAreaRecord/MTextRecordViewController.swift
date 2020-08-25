@@ -77,7 +77,7 @@ class MTextRecordViewController: UIViewController {
                 textRecordViewModel.initCreateRecord(type: recordType.key ?? "", value: textUITextView.text)
                 
             }else {
-                showSimpleAlert(title: "Warning", message: "Please fill textarea.")
+                showSimpleAlert(title: Localize.warning(), message: "Please fill textarea.")
             }
             
         }else {
