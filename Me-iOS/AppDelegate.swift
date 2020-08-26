@@ -168,11 +168,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // MARK: - ShortCut Items
     
     func addShortcuts(application: UIApplication) {
-        let voucherItem = UIMutableApplicationShortcutItem(type: "Vouchers", localizedTitle: "Voucher", localizedSubtitle: "", icon: UIApplicationShortcutIcon(templateImageName: "wallet"), userInfo: nil)
+        let voucherItem = UIMutableApplicationShortcutItem(type: "Vouchers", localizedTitle: Localize.vouchers(), localizedSubtitle: "", icon: UIApplicationShortcutIcon(templateImageName: "wallet"), userInfo: nil)
         
         let qrItem = UIMutableApplicationShortcutItem(type: "QR", localizedTitle: "QR", localizedSubtitle: "", icon: UIApplicationShortcutIcon(templateImageName: "iconGrey"), userInfo: nil)
         
-        let recordItem = UIMutableApplicationShortcutItem(type: "Records", localizedTitle: "Records".localized(), localizedSubtitle: "", icon: UIApplicationShortcutIcon(templateImageName: "records"), userInfo: nil)
+        let recordItem = UIMutableApplicationShortcutItem(type: "Records", localizedTitle: Localize.records(), localizedSubtitle: "", icon: UIApplicationShortcutIcon(templateImageName: "records"), userInfo: nil)
         
         application.shortcutItems = [voucherItem, qrItem, recordItem]
     }

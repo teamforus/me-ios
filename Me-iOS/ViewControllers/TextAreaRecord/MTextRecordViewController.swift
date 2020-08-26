@@ -36,7 +36,7 @@ class MTextRecordViewController: UIViewController {
                 KVSpinnerView.dismiss()
                 if statusCode == 401 {
                     
-                    self?.showSimpleAlert(title: "Warning", message: "Something goes wrong please try again!")
+                    self?.showSimpleAlert(title: Localize.warning(), message: "Something goes wrong please try again!")
                     
                 }else {
                     

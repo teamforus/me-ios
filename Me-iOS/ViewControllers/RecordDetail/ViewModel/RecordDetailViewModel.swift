@@ -31,7 +31,7 @@ class RecordDetailViewModel {
             if statusCode == 401 {
                 DispatchQueue.main.async {
                     KVSpinnerView.dismiss()
-                    self.vc.showSimpleAlertWithSingleAction(title: "Expired session".localized(), message: "Your session has expired. You are being logged out.".localized() , okAction: UIAlertAction(title: "Log out".localized(), style: .default, handler: { (action) in
+                    self.vc.showSimpleAlertWithSingleAction(title: Localize.expired_session(), message: Localize.your_session_has_expired() , okAction: UIAlertAction(title: Localize.log_out(), style: .default, handler: { (action) in
                         self.vc.logoutOptions()
                     }))
                 }
@@ -52,7 +52,7 @@ class RecordDetailViewModel {
             if statusCode == 401 {
                 DispatchQueue.main.async {
                     KVSpinnerView.dismiss()
-                    self.vc.showSimpleAlertWithSingleAction(title: "Expired session".localized(), message: "Your session has expired. You are being logged out.".localized() , okAction: UIAlertAction(title: "Log out".localized(), style: .default, handler: { (action) in
+                    self.vc.showSimpleAlertWithSingleAction(title: Localize.expired_session(), message: Localize.your_session_has_expired() , okAction: UIAlertAction(title: Localize.log_out(), style: .default, handler: { (action) in
                         self.vc.logoutOptions()
                     }))
                 }

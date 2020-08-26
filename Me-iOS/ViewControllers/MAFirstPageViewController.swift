@@ -174,7 +174,7 @@ class MAFirstPageViewController: UIViewController {
                         self?.emailLoginViewModel.initLoginByEmail(email: self?.emailField.text ?? "")
                   
                 }else if statusCode == 500 {
-                    self?.showSimpleAlertWithSingleAction(title: Localize.error_exclamation(), message: "", okAction: UIAlertAction(title: "OK", style: .default, handler: { (action) in
+                    self?.showSimpleAlertWithSingleAction(title: Localize.error_exclamation(), message: "", okAction: UIAlertAction(title: Localize.ok(), style: .default, handler: { (action) in
                     }))
                 }else {
                     self?.performSegue(withIdentifier: "goToSuccessMail", sender: nil)
@@ -191,7 +191,7 @@ class MAFirstPageViewController: UIViewController {
                     self?.performSegue(withIdentifier: "goToSuccessMail", sender: self)
                     
                 }else {
-                    self?.showSimpleAlertWithSingleAction(title: Localize.error_exclamation(), message: "", okAction: UIAlertAction(title: "OK", style: .default, handler: { (action) in
+                    self?.showSimpleAlertWithSingleAction(title: Localize.error_exclamation(), message: "", okAction: UIAlertAction(title: Localize.ok(), style: .default, handler: { (action) in
                     }))
                 }
             }
