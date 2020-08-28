@@ -222,7 +222,7 @@
                                                     <constraint firstAttribute="height" constant="226" id="uLh-Au-GIs"/>
                                                 </constraints>
                                                 <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="string" keyPath="colorName" value="Background_DarkTheme"/>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="colorName" value="WhiteBackground_DarkTheme"/>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Product categories" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zrf-29-ozl">

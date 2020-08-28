@@ -98,7 +98,7 @@ geslaagd!</string>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Mix-md-ges"/>
                         <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="string" keyPath="colorName" value="Background_DarkTheme"/>
+                            <userDefinedRuntimeAttribute type="string" keyPath="colorName" value="WhiteBackground_DarkTheme"/>
                         </userDefinedRuntimeAttributes>
                     </view>
                     <navigationItem key="navigationItem" id="oYK-5L-Xfo"/>

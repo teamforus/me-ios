@@ -140,7 +140,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="v4Y-9y-d00"/>
                         <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="string" keyPath="colorName" value="Background_DarkTheme"/>
+                            <userDefinedRuntimeAttribute type="string" keyPath="colorName" value="WhiteBackground_DarkTheme"/>
                         </userDefinedRuntimeAttributes>
                     </view>
                     <connections>

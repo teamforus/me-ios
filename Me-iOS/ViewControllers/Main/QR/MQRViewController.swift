@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import KVSpinnerView
 
 enum QRTypeScann: String {
     case authToken = "auth_token"

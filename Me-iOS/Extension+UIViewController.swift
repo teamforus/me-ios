@@ -308,6 +308,14 @@ extension UIViewController{
         return false
     }
     
+    var deviceAuthentification: String {
+            if faceIDAvailable() {
+                return "Face ID"
+            }else {
+                return "Touch ID"
+            }
+    }
+    
     @IBAction func dismissKeyboard(_ sender: Any) {
         self.view.endEditing(true)
     }

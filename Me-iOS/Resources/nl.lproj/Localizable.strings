@@ -149,3 +149,13 @@
 "test_organization" = "Test bedrijf";
 "enter_the_price_here" = "Vul hier het bedrag in.";
 "note" = "Notitie";
+"unlock_with" = "Ontgrendelen met %@";
+"authentification_failed" = "Authenticatie mislukt";
+"user_cancel" = "Gebruiker annuleren";
+"system_cancel" = "Systeem annuleren";
+"please_go_to_settings_turn_on_passcode" = "Ga naar instellingen en schakel toegangscode in";
+"dont_available" = "%@ Niet beschikbaar";
+"not_enrolled" = "%@ Niet ingeschreven";
+"lockout_please_go_to_settings_turn_on_passcode" = "%@ Vergrendeld. Ga naar instellingen en schakel de toegangscode in";
+"app_cancel" = "App annuleren";
+"invalid_context" = "Ongeldige context";

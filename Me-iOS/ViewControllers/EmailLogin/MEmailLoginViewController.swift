@@ -9,7 +9,6 @@
 import UIKit
 import SkyFloatingLabelTextField
 import IQKeyboardManagerSwift
-import KVSpinnerView
 
 class MEmailLoginViewController: UIViewController {
     @IBOutlet weak var emailField: SkyFloatingLabelTextField!

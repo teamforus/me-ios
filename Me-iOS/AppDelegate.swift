@@ -11,7 +11,6 @@ import CoreData
 import UserNotifications
 import Fabric
 import Crashlytics
-import KVSpinnerView
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
