@@ -175,7 +175,7 @@
                                             <constraint firstItem="YwF-T9-4XR" firstAttribute="leading" secondItem="Pgv-1O-Hc6" secondAttribute="leading" constant="33" id="uVu-lr-fhV"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="colorName" value="Background_DarkTheme"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="colorName" value="WhiteBackground_DarkTheme"/>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
                                             <outletCollection property="gestureRecognizers" destination="ACa-Xq-lNJ" appends="YES" id="CGv-Zj-0Ml"/>

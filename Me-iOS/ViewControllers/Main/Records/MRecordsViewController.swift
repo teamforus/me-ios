@@ -8,8 +8,6 @@
 
 import UIKit
 import BWWalkthrough
-import KVSpinnerView
-
 class MRecordsViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     private let refreshControl = UIRefreshControl()

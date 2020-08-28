@@ -458,7 +458,7 @@ struct R: Rswift.Validatable {
   }
   #endif
 
-  /// This `R.color` struct is generated, and contains static references to 6 colors.
+  /// This `R.color` struct is generated, and contains static references to 8 colors.
   struct color {
     /// Color `Background_DarkTheme`.
     static let background_DarkTheme = Rswift.ColorResource(bundle: R.hostingBundle, name: "Background_DarkTheme")
@@ -470,8 +470,12 @@ struct R: Rswift.Validatable {
     static let gray_Light_DarkTheme = Rswift.ColorResource(bundle: R.hostingBundle, name: "Gray_Light_DarkTheme")
     /// Color `MainBodyColor`.
     static let mainBodyColor = Rswift.ColorResource(bundle: R.hostingBundle, name: "MainBodyColor")
+    /// Color `RecordBackgroundDetail_DarkTheme`.
+    static let recordBackgroundDetail_DarkTheme = Rswift.ColorResource(bundle: R.hostingBundle, name: "RecordBackgroundDetail_DarkTheme")
     /// Color `Thin_Light_Gray_DarkTheme`.
     static let thin_Light_Gray_DarkTheme = Rswift.ColorResource(bundle: R.hostingBundle, name: "Thin_Light_Gray_DarkTheme")
+    /// Color `WhiteBackground_DarkTheme`.
+    static let whiteBackground_DarkTheme = Rswift.ColorResource(bundle: R.hostingBundle, name: "WhiteBackground_DarkTheme")
 
     #if os(iOS) || os(tvOS)
     /// `UIColor(named: "Background_DarkTheme", bundle: ..., traitCollection: ...)`
@@ -519,11 +523,29 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
+    /// `UIColor(named: "RecordBackgroundDetail_DarkTheme", bundle: ..., traitCollection: ...)`
+    @available(tvOS 11.0, *)
+    @available(iOS 11.0, *)
+    static func recordBackgroundDetail_DarkTheme(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
+      return UIKit.UIColor(resource: R.color.recordBackgroundDetail_DarkTheme, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
     /// `UIColor(named: "Thin_Light_Gray_DarkTheme", bundle: ..., traitCollection: ...)`
     @available(tvOS 11.0, *)
     @available(iOS 11.0, *)
     static func thin_Light_Gray_DarkTheme(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
       return UIKit.UIColor(resource: R.color.thin_Light_Gray_DarkTheme, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIColor(named: "WhiteBackground_DarkTheme", bundle: ..., traitCollection: ...)`
+    @available(tvOS 11.0, *)
+    @available(iOS 11.0, *)
+    static func whiteBackground_DarkTheme(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
+      return UIKit.UIColor(resource: R.color.whiteBackground_DarkTheme, compatibleWith: traitCollection)
     }
     #endif
 
@@ -537,7 +559,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.file` struct is generated, and contains static references to 11 files.
+  /// This `R.file` struct is generated, and contains static references to 12 files.
   struct file {
     /// Resource file `GoogleSans-Bold.ttf`.
     static let googleSansBoldTtf = Rswift.FileResource(bundle: R.hostingBundle, name: "GoogleSans-Bold", pathExtension: "ttf")
@@ -561,6 +583,8 @@ struct R: Rswift.Validatable {
     static let backspaceBlue2xPng = Rswift.FileResource(bundle: R.hostingBundle, name: "backspaceBlue@2x", pathExtension: "png")
     /// Resource file `backspaceBlue@3x.png`.
     static let backspaceBlue3xPng = Rswift.FileResource(bundle: R.hostingBundle, name: "backspaceBlue@3x", pathExtension: "png")
+    /// Resource file `ic_check_3x.png`.
+    static let ic_check_3xPng = Rswift.FileResource(bundle: R.hostingBundle, name: "ic_check_3x", pathExtension: "png")
 
     /// `bundle.url(forResource: "GoogleSans-Bold", withExtension: "ttf")`
     static func googleSansBoldTtf(_: Void = ()) -> Foundation.URL? {
@@ -625,6 +649,12 @@ struct R: Rswift.Validatable {
     /// `bundle.url(forResource: "backspaceBlue@3x", withExtension: "png")`
     static func backspaceBlue3xPng(_: Void = ()) -> Foundation.URL? {
       let fileResource = R.file.backspaceBlue3xPng
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
+    /// `bundle.url(forResource: "ic_check_3x", withExtension: "png")`
+    static func ic_check_3xPng(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.ic_check_3xPng
       return fileResource.bundle.url(forResource: fileResource)
     }
 
@@ -728,7 +758,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.image` struct is generated, and contains static references to 64 images.
+  /// This `R.image` struct is generated, and contains static references to 65 images.
   struct image {
     /// Image `5XVoucherContainerWElevation`.
     static let xVoucherContainerWElevation = Rswift.ImageResource(bundle: R.hostingBundle, name: "5XVoucherContainerWElevation")
@@ -802,6 +832,8 @@ struct R: Rswift.Validatable {
     static let headings = Rswift.ImageResource(bundle: R.hostingBundle, name: "headings")
     /// Image `homeIcon`.
     static let homeIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "homeIcon")
+    /// Image `ic_check_3x`.
+    static let ic_check_3x = Rswift.ImageResource(bundle: R.hostingBundle, name: "ic_check_3x")
     /// Image `ic_launcher_APP`.
     static let ic_launcher_APP = Rswift.ImageResource(bundle: R.hostingBundle, name: "ic_launcher_APP")
     /// Image `iconDigiD`.
@@ -1108,6 +1140,13 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "homeIcon", bundle: ..., traitCollection: ...)`
     static func homeIcon(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.homeIcon, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "ic_check_3x", bundle: ..., traitCollection: ...)`
+    static func ic_check_3x(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.ic_check_3x, compatibleWith: traitCollection)
     }
     #endif
 

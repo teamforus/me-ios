@@ -6,8 +6,7 @@
 //  Copyright © 2019 Tcacenco Daniel. All rights reserved.
 //
 
-import Foundation
-import KVSpinnerView
+import UIKit
 
 class VoucherViewModel{
     

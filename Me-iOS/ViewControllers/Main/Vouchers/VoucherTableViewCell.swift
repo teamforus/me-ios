@@ -46,12 +46,12 @@ class VoucherTableViewCell: UITableViewCell {
                 
                 if let price = voucher?.amount {
 //                    if voucher?.fund?.currency == "eur" {
-                        self.priceLabel.attributedText = "€ \(price.substringLeftPart()).{\(price.substringRightPart())}".customText(fontBigSize: 20, minFontSize: 14)
+                        self.priceLabel.text = "€ \(price.substringLeftPart()),\(price.substringRightPart())"
 //                    }else {
 //                        self.priceLabel.attributedText = "ETH \(price.substringLeftPart()).{\(price.substringRightPart())}".customText(fontBigSize: 20, minFontSize: 14)
 //                    }
                 }else {
-                    self.priceLabel.attributedText = "0.{0}".customText(fontBigSize: 20, minFontSize: 14)
+                    self.priceLabel.text = "0,0"
                 }
                 
                 self.voucherImage.loadImageUsingUrlString(urlString: voucher?.fund?.organization?.logo?.sizes?.thumbnail ?? "", placeHolder: #imageLiteral(resourceName: "Resting"))
@@ -62,24 +62,29 @@ class VoucherTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         self.usedVoucherLabel.isHidden = true
+        setupIcon()
         self.selectionStyle = .none
         if #available(iOS 11.0, *) {
             self.bodyView.layer.shadowColor = UIColor(named: "Black_Light_DarkTheme")?.cgColor
-        } else {
-            // Fallback on earlier versions
-        }
+        } else {}
     }
     
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         if #available(iOS 11.0, *) {
             self.bodyView.layer.shadowColor = UIColor(named: "Black_Light_DarkTheme")?.cgColor
-        } else {
-            // Fallback on earlier versions
-        }
+        } else {}
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
+    }
+    
+    func setupIcon() {
+        self.voucherImage.layer.masksToBounds = false
+        self.voucherImage.clipsToBounds = true
+        self.voucherImage.layer.cornerRadius = 13.0
+        self.voucherImage.layer.borderColor = #colorLiteral(red: 0.9646214843, green: 0.9647600055, blue: 0.9645912051, alpha: 1)
+        self.voucherImage.layer.borderWidth = 1
     }
     
 }
