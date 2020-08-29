@@ -160,3 +160,8 @@
 "lockout_please_go_to_settings_turn_on_passcode" = "%@ Lockout Please go to the Settings & Turn On Passcode";
 "app_cancel" = "App Cancel";
 "invalid_context" = "Invalid context";
+"welcome_to_me" = "Welcome to Me";
+"bevestig_uw_emailadres" = "Bevestig uw emailadres";
+"informatie_delen" = "Informatie delen";
+"personal" = "Personal";
+"record" = "Record";

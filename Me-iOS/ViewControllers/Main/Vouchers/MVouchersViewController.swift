@@ -22,7 +22,8 @@ class MVouchersViewController: UIViewController {
     @IBOutlet weak var segmentController: HBSegmentedControl!
     @IBOutlet weak var segmentView: UIView!
     
-    var voucherType: VoucherType!
+  @IBOutlet weak var titleLabel: UILabel_DarkMode!
+  var voucherType: VoucherType!
     lazy var voucherViewModel: VouchersViewModel = {
         return VouchersViewModel()
     }()
@@ -300,5 +301,6 @@ extension MVouchersViewController: AccessibilityProtocol {
         if let vouchers = segmentController.accessibilityElement(at: 1) as? UIView {
             vouchers.setupAccesibility(description: "Choose to show all vouchers", accessibilityTraits: .causesPageTurn)
         }
+      titleLabel.setupAccesibility(description: Localize.vouchers(), accessibilityTraits: .header)
     }
 }

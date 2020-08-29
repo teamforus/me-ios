@@ -25,7 +25,8 @@ class MAFirstPageViewController: UIViewController {
     @IBOutlet weak var validationImage: UIImageView!
     @IBOutlet weak var confirmButton: ShadowButton!
     @IBOutlet weak var showQRCodeButton: ShadowButton!
-    
+    @IBOutlet weak var welcomeLabel: UILabel_DarkMode!
+  
     lazy var emailLoginViewModel: EmailLoginViewModel = {
         return EmailLoginViewModel()
     }()
@@ -217,5 +218,6 @@ extension MAFirstPageViewController: AccessibilityProtocol {
         confirmButton.setupAccesibility(description: Localize.confirm(), accessibilityTraits: .button)
         showQRCodeButton.setupAccesibility(description: "Show Qr Code and Pin Code", accessibilityTraits: .button)
         validationImage.setupAccesibility(description: "Email is valid", accessibilityTraits: .image)
+      welcomeLabel.setupAccesibility(description: Localize.welcome_to_me(), accessibilityTraits: .header)
     }
 }

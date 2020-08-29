@@ -299,9 +299,9 @@ extension MProductVoucherViewController: AccessibilityProtocol {
         mapView.setupAccesibility(description: "Tap to select map options", accessibilityTraits: .button)
         callPhoneButton.setupAccesibility(description: "Tap to call", accessibilityTraits: .button)
         emailButton.setupAccesibility(description: "Tap to send email", accessibilityTraits: .button)
+      
     }
 }
-
 
 class CustomPointAnnotation: MKPointAnnotation {
     var imageName: String!

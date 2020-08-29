@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Tng-OZ-lXd">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Tng-OZ-lXd">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -272,6 +272,7 @@
                         <outlet property="segmentController" destination="oKA-aH-qQQ" id="LVJ-qV-QeT"/>
                         <outlet property="segmentView" destination="Lm7-ui-J0c" id="CiD-lV-xoz"/>
                         <outlet property="tableView" destination="5yR-zH-dKR" id="Hve-CW-lin"/>
+                        <outlet property="titleLabel" destination="JOr-Qw-UNr" id="4B4-W3-BOk"/>
                         <segue destination="yXS-8F-HEa" kind="show" identifier="goToVoucher" id="o6s-gf-Hnr"/>
                         <segue destination="oem-tR-Bhz" kind="show" identifier="goToProduct" id="tzZ-Ns-oe3"/>
                     </connections>
@@ -528,6 +529,7 @@
                     <connections>
                         <outlet property="newRecordButton" destination="fxb-bV-R86" id="b9a-RU-YPd"/>
                         <outlet property="tableView" destination="QFd-Zz-7yk" id="YBe-Oq-XqT"/>
+                        <outlet property="titileLabel" destination="uLp-89-Zk0" id="mbt-yo-Pe8"/>
                         <outlet property="topConstraint" destination="dgF-MP-XOH" id="Qok-L6-fWN"/>
                     </connections>
                 </viewController>
