@@ -135,6 +135,12 @@ class MVouchersViewController: UIViewController {
         }
     }
     
+    @IBAction func openTransaction(_ sender: UIButton) {
+        let transactionVC = MTransactionsViewController()
+        transactionVC.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(transactionVC, animated: true)
+    }
+    
     
     // MARK: - Navigation
     
