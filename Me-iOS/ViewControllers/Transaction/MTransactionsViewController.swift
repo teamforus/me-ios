@@ -72,6 +72,13 @@ class MTransactionsViewController: UIViewController {
         return view
     }()
     
+    var transactionOverview: TransactionOverview = {
+        let view = TransactionOverview()
+        view.isHidden = true
+        view.backgroundColor = .clear
+        return view
+    }()
+    
     lazy var voucherViewModel: VouchersViewModel = {
         return VouchersViewModel()
     }()
@@ -103,7 +110,7 @@ extension MTransactionsViewController {
     }
     
     func addSubviews() {
-        let views = [headerView, tableView, bottomView, totalPriceView,]
+        let views = [headerView, tableView, bottomView, totalPriceView, transactionOverview]
         views.forEach { (view) in
             view.translatesAutoresizingMaskIntoConstraints = false
             self.view.addSubview(view)
@@ -164,13 +171,19 @@ extension MTransactionsViewController {
             bottomView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
             bottomView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0),
             bottomView.topAnchor.constraint(equalTo: tableView.bottomAnchor, constant: 0)])
+        
+        NSLayoutConstraint.activate([
+            transactionOverview.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
+            transactionOverview.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
+            transactionOverview.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0),
+            transactionOverview.topAnchor.constraint(equalTo: view.topAnchor, constant: 0)])
     }
     
     func setupConstraintsHeaderView() {
         NSLayoutConstraint.activate([
             backButton.heightAnchor.constraint(equalToConstant: 44),
             backButton.widthAnchor.constraint(equalToConstant: 44),
-            backButton.leadingAnchor.constraint(equalTo: headerView.leadingAnchor, constant: 10),
+            backButton.leadingAnchor.constraint(equalTo: headerView.leadingAnchor, constant: 8),
             backButton.topAnchor.constraint(equalTo: headerView.topAnchor, constant: 40)
         ])
         
