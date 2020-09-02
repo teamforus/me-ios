@@ -79,6 +79,8 @@
 	</array>
 	<key>UIRequiresFullScreen</key>
 	<true/>
+	<key>NSFaceIDUsageDescription</key>
+	<string>The Me app want to access your FaceID.</string>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>

@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import KVSpinnerView
 
 class ConfirmPaymentPopUp: UIViewController {
     @IBOutlet weak var paymentLabel: UILabel!

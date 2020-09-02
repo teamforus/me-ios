@@ -209,39 +209,49 @@ public class AppLocker: UIViewController {
     fileprivate func checkSensors() {
         guard mode == .validate else {return}
         
-        var policy: LAPolicy = .deviceOwnerAuthenticationWithBiometrics // iOS 8+ users with Biometric and Custom (Fallback button) verification
+        //Create a context
+        let authenticationContext = LAContext()
+        var error:NSError?
         
-        // Depending the iOS version we'll need to choose the policy we are able to use
-        if #available(iOS 9.0, *) {
-            // iOS 9+ users with Biometric and Passcode verification
-            policy = .deviceOwnerAuthentication
-        }
+        //Check if device have Biometric sensor
+        let isValidSensor : Bool = authenticationContext.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error)
         
-        var err: NSError?
-        // Check if the user is able to use the policy we've selected previously
-        guard context.canEvaluatePolicy(policy, error: &err) else {return}
-        
-        // The user is able to use his/her Touch ID / Face ID 👍
-        
-        if faceIDAvailable() {
+        if isValidSensor {
+            //Device have BiometricSensor
+            //It Supports TouchID
             
-            ALConstants.kLocalizedReason = "Unlock with Face ID"
+            authenticationContext.evaluatePolicy(
+                .deviceOwnerAuthenticationWithBiometrics,
+                localizedReason: Localize.unlock_with(deviceAuthentification),
+                reply: { [unowned self] (success, error) -> Void in
+                    
+                    if(success) {
+                        // Touch / Face ID recognized success here
+                        DispatchQueue.main.async {
+                            self.dismiss(animated: true, completion: nil)
+                            self.delegate.closePinCodeView(typeClose: .validate)
+                        }
+                    } else {
+                        //If not recognized then
+                        if let error = error {
+                            let strMessage = self.errorMessage(errorCode: error._code)
+                            if strMessage != ""{
+                                DispatchQueue.main.async {
+                                    self.showAlertWithTitle(title: Localize.error(), message: strMessage)
+                                }
+                            }
+                        }
+                    }
+            })
+        } else {
             
-        }else {
-            
-            ALConstants.kLocalizedReason = "Unlock with Touch ID"
-            
-        }
-        
-        context.evaluatePolicy(policy, localizedReason: ALConstants.kLocalizedReason, reply: {  success, error in
-            if success {
+            let strMessage = self.errorMessage(errorCode: (error?._code)!)
+            if strMessage != ""{
                 DispatchQueue.main.async {
-                    self.dismiss(animated: true, completion: nil)
-                    self.delegate.closePinCodeView(typeClose: .validate)
+                    self.showAlertWithTitle(title: Localize.error(), message: strMessage)
                 }
-                
             }
-        })
+        }
     }
     
     // MARK: - Keyboard
@@ -289,7 +299,7 @@ public extension AppLocker {
         //        }
         //    }
         if (config?.cancelIsVissible)! == false{
-            locker.cancelButton.setTitle("Log out".localized(), for: .normal)
+            locker.cancelButton.setTitle(Localize.logOut(), for: .normal)
         }
         locker.messageLabel.text = config?.title ?? ""
         locker.vc = withController
@@ -311,5 +321,57 @@ public extension AppLocker {
         }
         locker.modalPresentationStyle = .fullScreen
         withController.present(locker, animated: true, completion: nil)
+    }
+}
+
+extension AppLocker {
+    //MARK: TouchID error
+    func errorMessage(errorCode:Int) -> String{
+        
+        var strMessage = ""
+        
+        switch errorCode {
+            
+        case LAError.Code.authenticationFailed.rawValue:
+            strMessage = Localize.authentification_failed()
+            
+        case LAError.Code.userCancel.rawValue:
+            strMessage = Localize.user_cancel()
+            
+        case LAError.Code.systemCancel.rawValue:
+            strMessage = Localize.system_cancel()
+            
+        case LAError.Code.passcodeNotSet.rawValue:
+            strMessage = Localize.please_go_to_settings_turn_on_passcode()
+            
+        case LAError.Code.touchIDNotAvailable.rawValue:
+            strMessage = Localize.dont_available(deviceAuthentification)
+            
+        case LAError.Code.touchIDNotEnrolled.rawValue:
+            strMessage = Localize.not_enrolled(deviceAuthentification)
+            
+        case LAError.Code.touchIDLockout.rawValue:
+            strMessage = Localize.lockout_please_go_to_settings_turn_on_passcode(deviceAuthentification)
+            
+        case LAError.Code.appCancel.rawValue:
+            strMessage = Localize.app_cancel()
+            
+        case LAError.Code.invalidContext.rawValue:
+            strMessage = Localize.invalid_context()
+            
+        default:
+            strMessage = ""
+            
+        }
+        return strMessage
+    }
+    
+    //MARK: Show Alert
+    func showAlertWithTitle( title:String, message:String ) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        let actionOk = UIAlertAction(title: Localize.ok(), style: .default, handler: nil)
+        alert.addAction(actionOk)
+        self.present(alert, animated: true, completion: nil)
     }
 }
