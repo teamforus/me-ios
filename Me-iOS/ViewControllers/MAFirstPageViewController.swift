@@ -25,6 +25,7 @@ class MAFirstPageViewController: UIViewController {
     @IBOutlet weak var validationImage: UIImageView!
     @IBOutlet weak var confirmButton: ShadowButton!
     @IBOutlet weak var showQRCodeButton: ShadowButton!
+    @IBOutlet weak var welcomeLabel: UILabel_DarkMode!
     
     lazy var emailLoginViewModel: EmailLoginViewModel = {
         return EmailLoginViewModel()

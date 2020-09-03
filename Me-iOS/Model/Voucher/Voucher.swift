@@ -25,7 +25,7 @@ struct Voucher: Decodable {
     var offices: [Office]?
     var created_at_locale: String?
     var created_at: String?
-//    var expire_at: String!
+    var expire_at_locale: String!
     var expire_at: ExpireAt?
     
 }

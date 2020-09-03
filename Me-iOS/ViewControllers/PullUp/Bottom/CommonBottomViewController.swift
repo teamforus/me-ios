@@ -79,7 +79,7 @@ class CommonBottomViewController: UIViewController {
                      
                  }
                  
-                 expiredLabel.text = "This voucher expires on ".localized() + (voucher.expire_at?.date?.dateFormaterExpireDate())!
+                 expiredLabel.text = "This voucher expires on ".localized() + (voucher.expire_at_locale ?? "")!
                  
                  break
              case .Record?:
