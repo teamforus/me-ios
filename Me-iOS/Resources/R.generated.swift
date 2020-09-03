@@ -458,7 +458,7 @@ struct R: Rswift.Validatable {
   }
   #endif
 
-  /// This `R.color` struct is generated, and contains static references to 8 colors.
+  /// This `R.color` struct is generated, and contains static references to 9 colors.
   struct color {
     /// Color `Background_DarkTheme`.
     static let background_DarkTheme = Rswift.ColorResource(bundle: R.hostingBundle, name: "Background_DarkTheme")
@@ -472,6 +472,8 @@ struct R: Rswift.Validatable {
     static let mainBodyColor = Rswift.ColorResource(bundle: R.hostingBundle, name: "MainBodyColor")
     /// Color `RecordBackgroundDetail_DarkTheme`.
     static let recordBackgroundDetail_DarkTheme = Rswift.ColorResource(bundle: R.hostingBundle, name: "RecordBackgroundDetail_DarkTheme")
+    /// Color `Thin_Gray_DarkTheme`.
+    static let thin_Gray_DarkTheme = Rswift.ColorResource(bundle: R.hostingBundle, name: "Thin_Gray_DarkTheme")
     /// Color `Thin_Light_Gray_DarkTheme`.
     static let thin_Light_Gray_DarkTheme = Rswift.ColorResource(bundle: R.hostingBundle, name: "Thin_Light_Gray_DarkTheme")
     /// Color `WhiteBackground_DarkTheme`.
@@ -528,6 +530,15 @@ struct R: Rswift.Validatable {
     @available(iOS 11.0, *)
     static func recordBackgroundDetail_DarkTheme(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
       return UIKit.UIColor(resource: R.color.recordBackgroundDetail_DarkTheme, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIColor(named: "Thin_Gray_DarkTheme", bundle: ..., traitCollection: ...)`
+    @available(tvOS 11.0, *)
+    @available(iOS 11.0, *)
+    static func thin_Gray_DarkTheme(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
+      return UIKit.UIColor(resource: R.color.thin_Gray_DarkTheme, compatibleWith: traitCollection)
     }
     #endif
 
@@ -2698,7 +2709,7 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
 
-    /// This `R.string.localizable` struct is generated, and contains static references to 152 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 153 localization keys.
     struct localizable {
       /// en translation: %@ Don't Available
       ///
@@ -3020,6 +3031,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en, nl
       static let others = Rswift.StringResource(key: "Others", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
+      /// en translation: PAYMENT
+      ///
+      /// Locales: en, nl
+      static let payment = Rswift.StringResource(key: "payment", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
       /// en translation: Paid
       ///
       /// Locales: en, nl
@@ -4521,6 +4536,21 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("Others", bundle: bundle, comment: "")
+      }
+
+      /// en translation: PAYMENT
+      ///
+      /// Locales: en, nl
+      static func payment(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("payment", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "payment"
+        }
+
+        return NSLocalizedString("payment", bundle: bundle, comment: "")
       }
 
       /// en translation: Paid

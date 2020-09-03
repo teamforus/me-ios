@@ -55,7 +55,7 @@ class MVoucherViewController: UIViewController {
                 }
                 
                 self?.qrImage.generateQRCode(from: "{\"type\": \"voucher\",\"value\": \"\(voucher.address ?? "")\" }")
-                self?.dateCreated.text = voucher.created_at?.dateFormaterNormalDate()
+                self?.dateCreated.text = voucher.created_at_locale
                 self?.voucher = voucher
                 
                 self?.images.forEach { (view) in

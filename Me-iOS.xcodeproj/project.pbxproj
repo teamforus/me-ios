@@ -186,6 +186,8 @@
 		65FE8E02229FF16A00BB1596 /* RecordValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65FE8E01229FF16A00BB1596 /* RecordValidation.swift */; };
 		A814206C8B175CC687405860 /* Pods_Me_iOSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60302FD09395FFFBF3FE2A2A /* Pods_Me_iOSUITests.framework */; };
 		EBA8A6DE91260768B5722478 /* Pods_Me_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8797D7DA4E65B3CDD1B8B11 /* Pods_Me_iOS.framework */; };
+		FF07D2AD25016CA300F1532D /* Subsidies.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF07D2AC25016CA300F1532D /* Subsidies.swift */; };
+		FF07D2AF2501702A00F1532D /* MActionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF07D2AE2501702A00F1532D /* MActionsViewController.swift */; };
 		FF0DACBE246AD0A80034E3E4 /* OrganizationValidatorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF3B141A243722EE003FDDD9 /* OrganizationValidatorViewController.xib */; };
 		FF45B3B224D9DC7C00D258E1 /* Extension+UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45B3B124D9DC7C00D258E1 /* Extension+UITextField.swift */; };
 		FF48062924632AA70055E346 /* RecordsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF48062824632AA70055E346 /* RecordsTableViewCell.swift */; };
@@ -475,6 +477,8 @@
 		DD33B298743ED6923528A696 /* Pods-Me-iOSUITests.alpha.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Me-iOSUITests.alpha.xcconfig"; path = "Target Support Files/Pods-Me-iOSUITests/Pods-Me-iOSUITests.alpha.xcconfig"; sourceTree = "<group>"; };
 		E8797D7DA4E65B3CDD1B8B11 /* Pods_Me_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Me_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3E9ECB144534F67E9BA608D /* Pods-Me-iOSUITests.demo.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Me-iOSUITests.demo.xcconfig"; path = "Target Support Files/Pods-Me-iOSUITests/Pods-Me-iOSUITests.demo.xcconfig"; sourceTree = "<group>"; };
+		FF07D2AC25016CA300F1532D /* Subsidies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subsidies.swift; sourceTree = "<group>"; };
+		FF07D2AE2501702A00F1532D /* MActionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MActionsViewController.swift; sourceTree = "<group>"; };
 		FF3B1419243722EE003FDDD9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/OrganizationValidatorViewController.xib; sourceTree = "<group>"; };
 		FF3B141E243722F6003FDDD9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/OrganizationValidatorViewController.strings; sourceTree = "<group>"; };
 		FF3B1422243722F8003FDDD9 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/OrganizationValidatorViewController.strings; sourceTree = "<group>"; };
@@ -945,6 +949,7 @@
 				65F52E4923167E0D00B9D229 /* Wallet.swift */,
 				659859702359B66600D08289 /* EmployeesOrganization.swift */,
 				5B5871AD240571AF004C3AF7 /* BodyId.swift */,
+				FF07D2AC25016CA300F1532D /* Subsidies.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1128,6 +1133,7 @@
 				65A8B70E2282E19F00B7DF05 /* MQRViewController.swift */,
 				65A8B7362282EBF500B7DF05 /* ViewModel */,
 				6546256C230E891F007B812E /* ProductReservation */,
+				FF07D2AE2501702A00F1532D /* MActionsViewController.swift */,
 			);
 			path = QR;
 			sourceTree = "<group>";
@@ -1837,6 +1843,7 @@
 				657DBA4A2289871400C67500 /* CommonBottomViewModel.swift in Sources */,
 				65911B54228D900500EA30D6 /* Product.swift in Sources */,
 				65A8B6F02282DB0200B7DF05 /* Extension+UIViewController.swift in Sources */,
+				FF07D2AD25016CA300F1532D /* Subsidies.swift in Sources */,
 				65A8B71E2282E6BF00B7DF05 /* MVoucherViewController.swift in Sources */,
 				656FDDBC235DF3DB002422B2 /* OrganizationValidatorTableViewCell.swift in Sources */,
 				65A8B7472282EE7B00B7DF05 /* MSuccessEmailViewController.swift in Sources */,
@@ -1916,6 +1923,7 @@
 				65139C53228029C0003E0CDE /* AppLocker.swift in Sources */,
 				65139C3D2280273E003E0CDE /* HSScanViewController.swift in Sources */,
 				FFFF25252475125F0043E459 /* DynamicLabel.swift in Sources */,
+				FF07D2AF2501702A00F1532D /* MActionsViewController.swift in Sources */,
 				65139C3E2280273E003E0CDE /* HSDefaultScanView.swift in Sources */,
 				FFB76E1324E94AC200CFB195 /* ProgressLayer.swift in Sources */,
 				65911B4A228D899700EA30D6 /* Fund.swift in Sources */,
