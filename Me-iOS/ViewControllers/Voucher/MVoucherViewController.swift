@@ -19,7 +19,8 @@ class MVoucherViewController: UIViewController {
     @IBOutlet weak var heightConstraint: NSLayoutConstraint!
     @IBOutlet weak var sendEmailButton: ShadowButton!
     @IBOutlet weak var voucherInfoButton: ShadowButton!
-    @IBOutlet weak var qrCodeButton: UIButton!
+    @IBOutlet weak var buttonsInfoView: UIView!
+    @IBOutlet weak var qrCodeActionButton: UIButton!
     
     lazy var voucherViewModel: VoucherViewModel = {
         return VoucherViewModel()
@@ -58,6 +59,15 @@ class MVoucherViewController: UIViewController {
                 self?.dateCreated.text = voucher.created_at?.dateFormaterNormalDate()
                 self?.voucher = voucher
                 
+                if voucher.expire_at?.date?.formatDate() ?? Date() < Date() {
+                    self?.buttonsInfoView.isHidden = true
+                    self?.heightConstraint.constant = 232
+                    self?.qrImage.isHidden = true
+                    self?.qrCodeActionButton.isEnabled = false
+                }
+                self?.labeles.forEach { (view) in
+                    view.stopAnimating()
+                }
                 self?.images.forEach { (view) in
                     view.stopAnimating()
                 }
@@ -168,7 +178,7 @@ extension MVoucherViewController: AccessibilityProtocol {
     func setupAccessibility() {
         sendEmailButton.setupAccesibility(description: "Send voucher on email", accessibilityTraits: .button)
         voucherInfoButton.setupAccesibility(description: "Go to voucher info", accessibilityTraits: .button)
-        qrCodeButton.setupAccesibility(description: "Tap to open qr code modal", accessibilityTraits: .button)
+        qrCodeActionButton.setupAccesibility(description: "Tap to open qr code modal", accessibilityTraits: .button)
     }
 }
 

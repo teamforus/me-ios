@@ -316,11 +316,12 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Item 2" id="yc3-wb-YF5"/>
                     <connections>
+                        <outlet property="buttonsInfoView" destination="kcP-fI-Tg7" id="kFM-jw-FJ9"/>
                         <outlet property="dateCreated" destination="qGC-Rd-vKi" id="20k-X8-P5P"/>
                         <outlet property="heightConstraint" destination="Suv-fe-koy" id="ZxH-xR-kT3"/>
                         <outlet property="organizationName" destination="w5t-6W-ueq" id="Eko-y9-lft"/>
                         <outlet property="priceLabel" destination="ZIO-zS-LCB" id="Wz1-KM-jEs"/>
-                        <outlet property="qrCodeButton" destination="vfb-3A-tZe" id="dpl-Sr-ArW"/>
+                        <outlet property="qrCodeActionButton" destination="vfb-3A-tZe" id="cus-MR-sei"/>
                         <outlet property="qrImage" destination="yUw-RD-mDo" id="m2N-kP-S2Q"/>
                         <outlet property="sendEmailButton" destination="mWI-n4-pEO" id="NSq-dI-FsV"/>
                         <outlet property="tableView" destination="hIb-0R-ybB" id="4ja-2f-URW"/>
