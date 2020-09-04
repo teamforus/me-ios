@@ -2709,7 +2709,7 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
 
-    /// This `R.string.localizable` struct is generated, and contains static references to 153 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 155 localization keys.
     struct localizable {
       /// en translation: %@ Don't Available
       ///
@@ -2799,6 +2799,14 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en, nl
       static let children = Rswift.StringResource(key: "children", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
+      /// en translation: Choose organization
+      ///
+      /// Locales: en, nl
+      static let choose_organization = Rswift.StringResource(key: "choose_organization", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
+      /// en translation: Choose validator
+      ///
+      /// Locales: en, nl
+      static let choose_validator = Rswift.StringResource(key: "choose_validator", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
       /// en translation: Click on the link you received on %@ to continue
       ///
       /// Locales: en, nl
@@ -3658,6 +3666,36 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("children", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Choose organization
+      ///
+      /// Locales: en, nl
+      static func choose_organization(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("choose_organization", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "choose_organization"
+        }
+
+        return NSLocalizedString("choose_organization", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Choose validator
+      ///
+      /// Locales: en, nl
+      static func choose_validator(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("choose_validator", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "choose_validator"
+        }
+
+        return NSLocalizedString("choose_validator", bundle: bundle, comment: "")
       }
 
       /// en translation: Click on the link you received on %@ to continue

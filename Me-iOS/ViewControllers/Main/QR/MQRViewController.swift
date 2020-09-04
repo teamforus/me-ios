@@ -292,6 +292,10 @@ extension MQRViewController: HSScanViewControllerDelegate{
 }
 
 extension MQRViewController: OrganizationValidatorViewControllerDelegate {
+    func selectOrganizationVoucher(organization: AllowedOrganization, vc: UIViewController) {
+        
+    }
+    
     
     func close() {
         self.scanWorker.start()
@@ -312,6 +316,7 @@ extension MQRViewController {
     func openSubsidies() {
         let actionsVC = MActionsViewController()
         actionsVC.modalPresentationStyle = .fullScreen
+        actionsVC.voucher = voucher
         self.present(actionsVC, animated: true)
     }
 }

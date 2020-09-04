@@ -10,6 +10,12 @@ import UIKit
 
 class MActionsViewController: UIViewController {
     
+    var voucher: Voucher?
+    private lazy var viewModel: ActionViewModel = {
+        return ActionViewModel()
+    }()
+    var organization: AllowedOrganization?
+    
     let bodyView: Background_DarkMode = {
         let view = Background_DarkMode(frame: .zero)
         view.colorName = "Background_DarkTheme"
@@ -48,7 +54,7 @@ class MActionsViewController: UIViewController {
         return view
     }()
     
-    private let nameVoucherLabel: UILabel = {
+    private let fundNameLabel: UILabel = {
         let label = UILabel(frame: .zero)
         label.text = "adasdsa"
         label.textColor = .black
@@ -56,7 +62,7 @@ class MActionsViewController: UIViewController {
         return label
     }()
     
-    private let fundNameLabel: UILabel = {
+    private let organizationVoucherLabel: UILabel = {
         let label = UILabel(frame: .zero)
         label.text = "adasdsa"
         label.textColor = .black
@@ -108,13 +114,13 @@ class MActionsViewController: UIViewController {
     private let organizationNameLabel: UILabel_DarkMode = {
         let label = UILabel_DarkMode(frame: .zero)
         label.font = UIFont(name: "GoogleSans-Medium", size: 18)
-        label.text = "adasdsa"
         return label
     }()
     
     private let arrowImageView: UIImageView = {
         let imageView = UIImageView(frame: .zero)
         imageView.image = R.image.roundedRight()
+        imageView.contentMode = .scaleAspectFit
         return imageView
     }()
     
@@ -130,13 +136,15 @@ class MActionsViewController: UIViewController {
         addOranizationViewSubviews()
         addOranizationViewConstraints()
         setupVoucherImageView()
+        setupView()
+        fetchActions()
     }
     
     func setupTableView() {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.separatorStyle = .none
-        tableView.register(VoucherTableViewCell.self, forCellReuseIdentifier: VoucherTableViewCell.identifier)
+        tableView.register(ActionTableViewCell.self, forCellReuseIdentifier: ActionTableViewCell.identifier)
     }
     
     func setupVoucherImageView() {
@@ -150,6 +158,32 @@ class MActionsViewController: UIViewController {
         voucherImageView.layer.shouldRasterize = false
     }
     
+    func setVoucher() {
+        guard let voucher = self.voucher else {
+            return
+        }
+        
+        fundNameLabel.text = voucher.fund?.name
+        organizationVoucherLabel.text = voucher.fund?.organization?.name ?? ""
+        self.imageViewVoucher.loadImageUsingUrlString(urlString: voucher.fund?.organization?.logo?.sizes?.thumbnail ?? "", placeHolder: #imageLiteral(resourceName: "Resting"))
+    }
+    
+    func setupView() {
+        setVoucher()
+        self.organizationView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(openOrganization)))
+        self.organizationNameLabel.text = voucher?.allowed_organizations?.first?.name ?? ""
+        organization = voucher?.allowed_organizations?.first
+    }
+    
+    func fetchActions() {
+        viewModel.fetchSubsidies(voucherAddress: voucher?.address ?? "")
+        
+        viewModel.complete = { [weak self] (subsidies) in
+            DispatchQueue.main.async {
+                self?.tableView.reloadData()
+            }
+        }
+    }
 }
 
 // MARK: - UITableViewDelegate
@@ -160,15 +194,22 @@ extension MActionsViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return viewModel.numberOfCells
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: VoucherTableViewCell.identifier, for: indexPath) as? VoucherTableViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: ActionTableViewCell.identifier, for: indexPath) as? ActionTableViewCell else {
             return UITableViewCell()
         }
+        let subsidie = viewModel.getCellViewModel(at: indexPath)
+        cell.setupActions(subsidie: subsidie)
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let subsidie = viewModel.getCellViewModel(at: indexPath)
+        openSubsidiePayment(subsidie: subsidie, organization: organization)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -198,7 +239,7 @@ extension MActionsViewController {
     }
     
     func addBodyvoucherViewSubviews() {
-        let views = [voucherImageView, nameVoucherLabel, fundNameLabel, imageViewVoucher, lineView]
+        let views = [voucherImageView, fundNameLabel, organizationVoucherLabel, imageViewVoucher, lineView]
         views.forEach { (view) in
             view.translatesAutoresizingMaskIntoConstraints = false
             self.bodyvoucherView.addSubview(view)
@@ -289,15 +330,15 @@ extension MActionsViewController {
         ])
         
         NSLayoutConstraint.activate([
-            nameVoucherLabel.topAnchor.constraint(equalTo: bodyvoucherView.topAnchor, constant: 39),
-            nameVoucherLabel.leadingAnchor.constraint(equalTo: bodyvoucherView.leadingAnchor, constant: 32),
-            nameVoucherLabel.trailingAnchor.constraint(equalTo: imageViewVoucher.leadingAnchor, constant: -10)
+            fundNameLabel.topAnchor.constraint(equalTo: bodyvoucherView.topAnchor, constant: 39),
+            fundNameLabel.leadingAnchor.constraint(equalTo: bodyvoucherView.leadingAnchor, constant: 32),
+            fundNameLabel.trailingAnchor.constraint(equalTo: imageViewVoucher.leadingAnchor, constant: -10)
         ])
         
         NSLayoutConstraint.activate([
-            fundNameLabel.topAnchor.constraint(equalTo: nameVoucherLabel.bottomAnchor, constant: 4),
-            fundNameLabel.leadingAnchor.constraint(equalTo: bodyvoucherView.leadingAnchor, constant: 32),
-            fundNameLabel.trailingAnchor.constraint(equalTo: imageViewVoucher.leadingAnchor, constant: -10)
+            organizationVoucherLabel.topAnchor.constraint(equalTo: fundNameLabel.bottomAnchor, constant: 4),
+            organizationVoucherLabel.leadingAnchor.constraint(equalTo: bodyvoucherView.leadingAnchor, constant: 32),
+            organizationVoucherLabel.trailingAnchor.constraint(equalTo: imageViewVoucher.leadingAnchor, constant: -10)
         ])
         
         NSLayoutConstraint.activate([
@@ -318,17 +359,55 @@ extension MActionsViewController {
     func addOranizationViewConstraints() {
         NSLayoutConstraint.activate([
             organizationNameLabel.topAnchor.constraint(equalTo: organizationView.topAnchor),
-            organizationNameLabel.leadingAnchor.constraint(equalTo: organizationView.leadingAnchor, constant: 15),
+            organizationNameLabel.leadingAnchor.constraint(equalTo: organizationView.leadingAnchor, constant: 10),
             organizationNameLabel.bottomAnchor.constraint(equalTo: organizationView.bottomAnchor),
             organizationNameLabel.trailingAnchor.constraint(equalTo: arrowImageView.leadingAnchor, constant: 15)
         ])
         
         NSLayoutConstraint.activate([
             arrowImageView.centerYAnchor.constraint(equalTo: organizationView.centerYAnchor),
-            arrowImageView.trailingAnchor.constraint(equalTo: organizationView.trailingAnchor, constant: 15),
-            arrowImageView.bottomAnchor.constraint(equalTo: organizationView.bottomAnchor),
+            arrowImageView.trailingAnchor.constraint(equalTo: organizationView.trailingAnchor, constant: -15),
             arrowImageView.heightAnchor.constraint(equalToConstant: 30),
-            arrowImageView.widthAnchor.constraint(equalToConstant: 35)
+            arrowImageView.widthAnchor.constraint(equalToConstant: 30)
         ])
+    }
+}
+
+
+extension MActionsViewController: OrganizationValidatorViewControllerDelegate {
+    func selectOrganizationVoucher(organization: AllowedOrganization, vc: UIViewController) {
+        self.organization = organization
+        organizationNameLabel.text = organization.name ?? ""
+    }
+    
+    func close() {
+        
+    }
+    
+    func selectOrganization(organization: EmployeesOrganization, vc: UIViewController) {
+        
+    }
+}
+
+// MARK: - Actions
+
+extension MActionsViewController {
+    @objc func openOrganization() {
+        let popOverVC = OrganizationValidatorViewController(nibName: "OrganizationValidatorViewController", bundle: nil)
+        popOverVC.organizationType = .subsidieOrganization
+        popOverVC.allowedOrganization = voucher?.allowed_organizations ?? []
+        popOverVC.delegate = self
+        self.addChild(popOverVC)
+        popOverVC.view.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height)
+        self.view.addSubview(popOverVC.view)
+    }
+    
+    func openSubsidiePayment(subsidie: Subsidie, organization: AllowedOrganization?) {
+        let paymentVC = MPaymentActionViewController()
+        paymentVC.subsidie = subsidie
+        paymentVC.organization = organization
+        paymentVC.address = voucher?.address ?? ""
+        paymentVC.modalPresentationStyle = .fullScreen
+        self.present(paymentVC, animated: true)
     }
 }
