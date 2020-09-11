@@ -25,7 +25,9 @@ class MProductVoucherViewController: UIViewController {
     @IBOutlet weak var sendEmailButton: ShadowButton!
     @IBOutlet weak var voucherInfoButton: ShadowButton!
     @IBOutlet weak var callPhoneButton: UIButton!
-    
+    @IBOutlet weak var buttonsInfoView: UIView!
+    @IBOutlet weak var qrCodeActionButton: UIButton!
+    @IBOutlet weak var heightTopViewConstraint: NSLayoutConstraint!
     
     @IBOutlet var labeles: [SkeletonView]!
     @IBOutlet var images: [SkeletonUIImageView]!
@@ -53,7 +55,7 @@ class MProductVoucherViewController: UIViewController {
                 
                 
                 self?.productNameLabel.text = voucher.product?.name ?? ""
-                self?.organizationNameLabel.text = voucher.fund?.organization?.name ?? ""
+                self?.organizationNameLabel.text = voucher.product?.organization?.name ?? ""
                 self?.organizationProductName.text = voucher.product?.organization?.name ?? ""
                 self?.addressLabel.text = voucher.offices?.first?.address ?? ""
                 self?.phoneNumberLabel.text = voucher.offices?.first?.phone ?? ""
@@ -61,6 +63,13 @@ class MProductVoucherViewController: UIViewController {
                 self?.organizationIcon.loadImageUsingUrlString(urlString: voucher.product?.organization?.logo?.sizes?.thumbnail ?? "", placeHolder: #imageLiteral(resourceName: "Resting"))
                 self?.qrCodeImage.generateQRCode(from: "{\"type\": \"voucher\",\"value\": \"\(voucher.address ?? "")\" }")
                 self?.voucher = voucher
+                
+                if voucher.expire_at?.date?.formatDate() ?? Date() < Date() {
+                    self?.buttonsInfoView.isHidden = true
+                    self?.heightTopViewConstraint.constant = 232
+                    self?.qrCodeImage.isHidden = true
+                    self?.qrCodeActionButton.isEnabled = false
+                }
                 
                 //organizationLabel gesture
                 self?.emailButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self?.Tap)))

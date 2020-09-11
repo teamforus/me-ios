@@ -84,7 +84,7 @@ class PullUpQRViewController: UIViewController {
                 
             }
             
-            dateExpireLabel.text = Localize.thisVoucherExpiresOn() + (voucher.expire_at?.date?.dateFormaterExpireDate())!
+            dateExpireLabel.text = Localize.thisVoucherExpiresOn() + (voucher.expire_at_locale ?? "")!
             
             break
         case .Record?:

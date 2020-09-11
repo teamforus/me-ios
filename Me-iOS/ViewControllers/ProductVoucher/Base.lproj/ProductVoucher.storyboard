@@ -350,7 +350,10 @@
                     <connections>
                         <outlet property="addressLabel" destination="CHH-ru-snt" id="HPt-C9-lkK"/>
                         <outlet property="callPhoneButton" destination="w85-tX-oGK" id="7sI-ZF-hhL"/>
-                        <outlet property="emailButton" destination="xfb-su-vwf" id="o63-of-tO2"/>
+
+                        <outlet property="buttonsInfoView" destination="lxg-ue-C9O" id="eJQ-No-S0C"/>
+                        <outlet property="emailButton" destination="xfb-su-vwf" id="b7s-VU-T5L"/>
+                        <outlet property="heightTopViewConstraint" destination="Q1V-wC-Hg4" id="fcq-ES-TAN"/>
                         <outlet property="mapView" destination="vrm-km-75b" id="CyY-rb-02D"/>
                         <outlet property="organizationIcon" destination="VkW-KL-tSs" id="j2D-yq-5hS"/>
                         <outlet property="organizationNameLabel" destination="wt9-Zp-qNM" id="5m1-vD-CzF"/>
@@ -358,6 +361,7 @@
                         <outlet property="phoneNumberLabel" destination="yYD-ZY-nUL" id="MWP-Ak-dGF"/>
                         <outlet property="productNameLabel" destination="yli-HN-EQC" id="c63-0O-qF7"/>
                         <outlet property="qrCodeButton" destination="0Wc-78-48p" id="gPr-c3-oaW"/>
+                        <outlet property="qrCodeActionButton" destination="0Wc-78-48p" id="GXN-qq-oC5"/>
                         <outlet property="qrCodeImage" destination="iMx-UP-m5T" id="2m9-om-sta"/>
                         <outlet property="sendEmailButton" destination="d75-Qd-xat" id="yjq-aF-1Xh"/>
                         <outlet property="voucherInfoButton" destination="bdu-eB-oGB" id="6Ju-dw-4it"/>

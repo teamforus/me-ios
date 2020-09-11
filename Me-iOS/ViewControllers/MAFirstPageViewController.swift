@@ -25,6 +25,7 @@ class MAFirstPageViewController: UIViewController {
     @IBOutlet weak var validationImage: UIImageView!
     @IBOutlet weak var confirmButton: ShadowButton!
     @IBOutlet weak var showQRCodeButton: ShadowButton!
+    @IBOutlet weak var welcomeLabel: UILabel_DarkMode!
     
     lazy var emailLoginViewModel: EmailLoginViewModel = {
         return EmailLoginViewModel()
@@ -182,17 +183,17 @@ class MAFirstPageViewController: UIViewController {
             }
         }
         
-        emailLoginViewModel.complete = { [weak self] (statusCode) in
+        emailLoginViewModel.complete = { [weak self] (message, statusCode) in
             
             DispatchQueue.main.async {
                 
-                if statusCode != 500 {
+                if statusCode == 500 {
+                    self?.showSimpleAlertWithSingleAction(title: Localize.error_exclamation(), message: "", okAction: UIAlertAction(title: Localize.ok(), style: .default, handler: { (action) in }))
                     
-                    self?.performSegue(withIdentifier: "goToSuccessMail", sender: self)
-                    
+                }else if statusCode == 422 {
+                    self?.showSimpleAlertWithSingleAction(title: Localize.error_exclamation(), message: message, okAction: UIAlertAction(title: Localize.ok(), style: .default, handler: { (action) in  }))
                 }else {
-                    self?.showSimpleAlertWithSingleAction(title: Localize.error_exclamation(), message: "", okAction: UIAlertAction(title: "OK", style: .default, handler: { (action) in
-                    }))
+                     self?.performSegue(withIdentifier: "goToSuccessMail", sender: self)
                 }
             }
         }
