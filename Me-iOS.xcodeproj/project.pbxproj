@@ -190,6 +190,8 @@
 		FF45B3B224D9DC7C00D258E1 /* Extension+UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45B3B124D9DC7C00D258E1 /* Extension+UITextField.swift */; };
 		FF48062924632AA70055E346 /* RecordsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF48062824632AA70055E346 /* RecordsTableViewCell.swift */; };
 		FF53516924EA86C300A95287 /* Extension+UIWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF53516824EA86C300A95287 /* Extension+UIWindow.swift */; };
+		FF6403F82511F2C400CD9802 /* TransactionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF6403F72511F2C400CD9802 /* TransactionViewModel.swift */; };
+		FF6403FA251216B200CD9802 /* TransactionListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF6403F9251216B200CD9802 /* TransactionListTableViewCell.swift */; };
 		FF9B7157248503F100BBCAA3 /* MMainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9B7156248503F100BBCAA3 /* MMainTabBarController.swift */; };
 		FF9B715924851A5900BBCAA3 /* AppVersionUpdateNotifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9B715824851A5900BBCAA3 /* AppVersionUpdateNotifier.swift */; };
 		FFB76E0E24E94ABB00CFB195 /* UICheckbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB76E0224E9490600CFB195 /* UICheckbox.swift */; };
@@ -483,6 +485,8 @@
 		FF45B3B124D9DC7C00D258E1 /* Extension+UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UITextField.swift"; sourceTree = "<group>"; };
 		FF48062824632AA70055E346 /* RecordsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordsTableViewCell.swift; sourceTree = "<group>"; };
 		FF53516824EA86C300A95287 /* Extension+UIWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIWindow.swift"; sourceTree = "<group>"; };
+		FF6403F72511F2C400CD9802 /* TransactionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionViewModel.swift; sourceTree = "<group>"; };
+		FF6403F9251216B200CD9802 /* TransactionListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionListTableViewCell.swift; sourceTree = "<group>"; };
 		FF9B7156248503F100BBCAA3 /* MMainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMainTabBarController.swift; sourceTree = "<group>"; };
 		FF9B715824851A5900BBCAA3 /* AppVersionUpdateNotifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppVersionUpdateNotifier.swift; sourceTree = "<group>"; };
 		FFB76DF324E948B700CFB195 /* AnimationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AnimationManager.swift; path = KVSpinnerView/AnimationManager.swift; sourceTree = "<group>"; };
@@ -1520,6 +1524,8 @@
 			isa = PBXGroup;
 			children = (
 				FFC38D4324FA7DFA001C0DA2 /* MTransactionsViewController.swift */,
+				FF6403F9251216B200CD9802 /* TransactionListTableViewCell.swift */,
+				FF6403F72511F2C400CD9802 /* TransactionViewModel.swift */,
 			);
 			path = Transaction;
 			sourceTree = "<group>";
@@ -1912,6 +1918,7 @@
 				FF53516924EA86C300A95287 /* Extension+UIWindow.swift in Sources */,
 				65139C62228029EF003E0CDE /* SwitchCustom.swift in Sources */,
 				65A8B6EC2282CD7E00B7DF05 /* String+Substring.swift in Sources */,
+				FF6403FA251216B200CD9802 /* TransactionListTableViewCell.swift in Sources */,
 				FFB76E1024E94AC200CFB195 /* CircleLayer.swift in Sources */,
 				65100AFF229D7102007892D1 /* MRecordValidatorsViewController.swift in Sources */,
 				65139C60228029EF003E0CDE /* RoundImageView.swift in Sources */,
@@ -1955,6 +1962,7 @@
 				65139C7B228034DA003E0CDE /* BaseURL.swift in Sources */,
 				5B697EE6242CDA7700153F0D /* RegisterViewModel.swift in Sources */,
 				65D11B7022A69CE600756BE0 /* AllowedOrganizationsViewController.swift in Sources */,
+				FF6403F82511F2C400CD9802 /* TransactionViewModel.swift in Sources */,
 				5B10CCB0240D1FD900199C28 /* EnablePersonalInformationViewController.swift in Sources */,
 				FFE731C224CEEB760064C7D5 /* BackgroundScrollView_DarkMode.swift in Sources */,
 				65D11B7B22A69D5200756BE0 /* OrganizationTableViewCell.swift in Sources */,

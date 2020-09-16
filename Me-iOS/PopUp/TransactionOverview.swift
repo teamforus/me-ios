@@ -20,6 +20,7 @@ class TransactionOverview: UIView {
     let bodyView: Background_DarkMode = {
         let view = Background_DarkMode()
         view.colorName = "RecordBackgroundDetail_DarkTheme"
+        view.rounded(cornerRadius: 9)
         return view
     }()
     
@@ -148,7 +149,6 @@ extension TransactionOverview {
             bodyTransactionDetailView.addSubview(view)
         }
     }
-    
 }
 
 

@@ -10,6 +10,16 @@ import UIKit
 
 class MTransactionsViewController: UIViewController {
     
+    lazy var transactionViewModel: TransactionViewModel = {
+        let viewModel = TransactionViewModel()
+        viewModel.vc = self
+        return viewModel
+    }()
+    
+    private var transaction: [Transaction] = []
+    private let cellHeight: CGFloat = 89
+    
+    // MARK: - Properties
     private let headerView: Background_DarkMode = {
         let view = Background_DarkMode()
         view.colorName = "WhiteBackground_DarkTheme"
@@ -72,26 +82,11 @@ class MTransactionsViewController: UIViewController {
         return view
     }()
     
-    var transactionOverview: TransactionOverview = {
-        let view = TransactionOverview()
-        view.isHidden = true
-        view.backgroundColor = .clear
-        return view
-    }()
-    
-    lazy var voucherViewModel: VouchersViewModel = {
-        return VouchersViewModel()
-    }()
-    
-    private var transaction: [Transaction] = []
-    private let cellHeight: CGFloat = 89
-    
-    
+   
     override func viewDidLoad() {
         super.viewDidLoad()
         addSubviews()
-        addHeaderViewSubviews()
-        addBottomViewSubviews()
+        setupConstraints()
         setupView()
         setupTableView()
         fetchTransaction()
@@ -104,17 +99,17 @@ class MTransactionsViewController: UIViewController {
 
 extension MTransactionsViewController {
     func setupView() {
-        setupConstraints()
-        setupConstraintsHeaderView()
-        setupConstraintsBottomView()
+        
     }
     
     func addSubviews() {
-        let views = [headerView, tableView, bottomView, totalPriceView, transactionOverview]
+        let views = [headerView, tableView, bottomView, totalPriceView]
         views.forEach { (view) in
             view.translatesAutoresizingMaskIntoConstraints = false
             self.view.addSubview(view)
         }
+        addHeaderViewSubviews()
+        addBottomViewSubviews()
     }
     
     func addHeaderViewSubviews() {
@@ -137,7 +132,7 @@ extension MTransactionsViewController {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.separatorStyle = .none
-        tableView.register(TransactionTableViewCell.self, forCellReuseIdentifier: TransactionTableViewCell.identifier)
+        tableView.register(TransactionListTableViewCell.self, forCellReuseIdentifier: TransactionListTableViewCell.identifier)
     }
 }
 
@@ -172,11 +167,10 @@ extension MTransactionsViewController {
             bottomView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0),
             bottomView.topAnchor.constraint(equalTo: tableView.bottomAnchor, constant: 0)])
         
-        NSLayoutConstraint.activate([
-            transactionOverview.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
-            transactionOverview.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
-            transactionOverview.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0),
-            transactionOverview.topAnchor.constraint(equalTo: view.topAnchor, constant: 0)])
+       
+        
+        setupConstraintsHeaderView()
+        setupConstraintsBottomView()
     }
     
     func setupConstraintsHeaderView() {
@@ -227,28 +221,20 @@ extension MTransactionsViewController {
     func fetchTransaction() {
         if isReachable() {
             KVSpinnerView.show()
-            voucherViewModel.vc = self
-            voucherViewModel.initFetch()
+            transactionViewModel.vc = self
+            transactionViewModel.initFetch()
         }else {
             showInternetUnable()
         }
     }
     
     func fetchComplete() {
-        voucherViewModel.complete = { [weak self] (vouchers) in
+        transactionViewModel.complete = { [weak self] (_) in
             DispatchQueue.main.async {
-                self?.sortTransaction(vouchers: vouchers)
+               
                 self?.tableView.reloadData()
                 KVSpinnerView.dismiss()
             }
-        }
-    }
-    
-    func sortTransaction(vouchers: [Voucher]) {
-        vouchers.forEach { (voucher) in
-            voucher.transactions?.forEach({ (transaction) in
-                self.transaction.append(transaction)
-            })
         }
     }
 }
@@ -261,17 +247,47 @@ extension MTransactionsViewController: UITableViewDelegate, UITableViewDataSourc
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return transaction.count
+        return transactionViewModel.numberOfCells
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: TransactionTableViewCell.identifier, for: indexPath) as? TransactionTableViewCell else { return UITableViewCell() }
-        cell.transaction = transaction[indexPath.row]
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: TransactionListTableViewCell.identifier, for: indexPath) as? TransactionListTableViewCell else { return UITableViewCell() }
+        
+        let transaction = transactionViewModel.getCellViewModel(at: indexPath)
+        cell.configure(transaction: transaction)
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return cellHeight
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let transaction = transactionViewModel.getCellViewModel(at: indexPath)
+        openTransactionOverview(with: transaction)
+        
+    }
+}
+
+// MARK: - Actions
+
+extension MTransactionsViewController {
+    func openTransactionOverview(with transaction: Transaction) {
+        let transactionOverview = TransactionOverview(transaction: transaction)
+        setupTrasactionOverview(transactionOverview: transactionOverview)
+        transactionOverview.popIn()
+    }
+    
+    func setupTrasactionOverview(transactionOverview: TransactionOverview) {
+        transactionOverview.translatesAutoresizingMaskIntoConstraints = false
+        transactionOverview.backgroundColor = .clear
+        self.view.addSubview(transactionOverview)
+        NSLayoutConstraint.activate([
+            transactionOverview.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
+            transactionOverview.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
+            transactionOverview.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0),
+            transactionOverview.topAnchor.constraint(equalTo: view.topAnchor, constant: 0)
+        ])
     }
 }

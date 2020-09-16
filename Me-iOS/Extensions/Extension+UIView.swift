@@ -34,3 +34,20 @@ extension UIView {
     }
 }
 
+extension UIView {
+    func rounded(cornerRadius: CGFloat) {
+        layer.cornerRadius = cornerRadius
+        layer.masksToBounds = true
+    }
+    
+    var corner: CGFloat {
+        get {
+            return layer.cornerRadius
+        }
+        set {
+            layer.cornerRadius = newValue
+            rounded(cornerRadius: newValue)
+        }
+    }
+}
+
