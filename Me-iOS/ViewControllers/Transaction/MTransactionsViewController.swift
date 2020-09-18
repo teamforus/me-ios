@@ -28,14 +28,24 @@ class MTransactionsViewController: UIViewController {
     
     private let backButton: BackButton_DarkMode = {
         let button = BackButton_DarkMode()
+        button.addTarget(self, action: #selector(back(_:)), for: .touchUpInside)
         return button
     }()
     
     private let titleLabel: UILabel_DarkMode = {
         let label = UILabel_DarkMode()
-        label.text = "Transacties"
+        label.text = Localize.transactions()
         label.font = UIFont(name: "GoogleSans-Medium", size: 38)
         return label
+    }()
+    
+    private let dateButton: UIButton = {
+        let button = UIButton()
+        button.addTarget(self, action: #selector(openDatePicker), for: .touchUpInside)
+        button.setTitleColor(.black, for: .normal)
+        button.corner = 9
+        button.backgroundColor = #colorLiteral(red: 0.9685427547, green: 0.9686817527, blue: 0.9685124755, alpha: 1)
+        return button
     }()
     
     private let tableView: TableView_Background_DarkMode = {
@@ -52,6 +62,7 @@ class MTransactionsViewController: UIViewController {
     private let totalPriceView: Background_DarkMode = {
         let view = Background_DarkMode()
         view.colorName = "Background_DarkTheme"
+        view.isHidden = true
         return view
     }()
     
@@ -82,6 +93,16 @@ class MTransactionsViewController: UIViewController {
         return view
     }()
     
+    lazy var datePicker : MDatePickerView = {
+        let mdate = MDatePickerView()
+        mdate.Color = #colorLiteral(red: 0.1702004969, green: 0.3387943804, blue: 1, alpha: 1)
+        mdate.delegate = self
+        mdate.translatesAutoresizingMaskIntoConstraints = false
+        mdate.from = 2016
+        mdate.to = 2100
+        return mdate
+    }()
+    
    
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -99,11 +120,12 @@ class MTransactionsViewController: UIViewController {
 
 extension MTransactionsViewController {
     func setupView() {
-        
+        dateButton.setTitle("Choose from date", for: .normal)
+        view.backgroundColor = .white
     }
     
     func addSubviews() {
-        let views = [headerView, tableView, bottomView, totalPriceView]
+        let views = [headerView, dateButton ,tableView, bottomView, totalPriceView]
         views.forEach { (view) in
             view.translatesAutoresizingMaskIntoConstraints = false
             self.view.addSubview(view)
@@ -150,22 +172,30 @@ extension MTransactionsViewController {
         NSLayoutConstraint.activate([
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
-            tableView.topAnchor.constraint(equalTo: headerView.bottomAnchor, constant: 0)
+            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0)
         ])
         
         NSLayoutConstraint.activate([
-            totalPriceView.topAnchor.constraint(equalTo: tableView.bottomAnchor, constant: 18),
-            totalPriceView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
-            totalPriceView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
-            totalPriceView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -28),
-            totalPriceView.heightAnchor.constraint(equalToConstant: 50)
+            dateButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            dateButton.topAnchor.constraint(equalTo: headerView.bottomAnchor, constant: 10),
+            dateButton.bottomAnchor.constraint(equalTo: tableView.topAnchor, constant: -5),
+            dateButton.heightAnchor.constraint(equalToConstant: 44),
+            dateButton.widthAnchor.constraint(equalToConstant: 200)
         ])
         
-        NSLayoutConstraint.activate([
-            bottomView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
-            bottomView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
-            bottomView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0),
-            bottomView.topAnchor.constraint(equalTo: tableView.bottomAnchor, constant: 0)])
+//        NSLayoutConstraint.activate([
+//            totalPriceView.topAnchor.constraint(equalTo: tableView.bottomAnchor, constant: 18),
+//            totalPriceView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
+//            totalPriceView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
+//            totalPriceView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -28),
+//            totalPriceView.heightAnchor.constraint(equalToConstant: 50)
+//        ])
+//
+//        NSLayoutConstraint.activate([
+//            bottomView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
+//            bottomView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
+//            bottomView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0),
+//            bottomView.topAnchor.constraint(equalTo: tableView.bottomAnchor, constant: 0)])
         
        
         
@@ -270,12 +300,22 @@ extension MTransactionsViewController: UITableViewDelegate, UITableViewDataSourc
     }
 }
 
+// MARK: - MDatePickeDelegate
+
+extension MTransactionsViewController: MDatePickerViewDelegate {
+    func mdatePickerView(selectDate: Date) {
+        dateButton.setTitle("From date: " + selectDate.dateFormaterFromDateShort(), for: .normal)
+        transactionViewModel.sortTransactionByDate(form: selectDate)
+    }
+}
+
 // MARK: - Actions
 
 extension MTransactionsViewController {
     func openTransactionOverview(with transaction: Transaction) {
-        let transactionOverview = TransactionOverview(transaction: transaction)
+        let transactionOverview = TransactionOverview()
         setupTrasactionOverview(transactionOverview: transactionOverview)
+        transactionOverview.configure(transaction: transaction)
         transactionOverview.popIn()
     }
     
@@ -288,6 +328,23 @@ extension MTransactionsViewController {
             transactionOverview.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
             transactionOverview.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0),
             transactionOverview.topAnchor.constraint(equalTo: view.topAnchor, constant: 0)
+        ])
+    }
+    
+     @objc func openDatePicker() {
+        
+        view.addSubview(datePicker)
+        setupDatePickerConstraints()
+        datePicker.showAnimate()
+        
+    }
+    
+    func setupDatePickerConstraints() {
+        NSLayoutConstraint.activate([
+            datePicker.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 0),
+            datePicker.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0),
+            datePicker.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.7),
+            datePicker.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.4)
         ])
     }
 }

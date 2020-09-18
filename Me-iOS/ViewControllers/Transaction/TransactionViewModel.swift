@@ -74,4 +74,31 @@ class TransactionViewModel {
         }
         self.cellViewModels = vms
     }
+    
+    func sortTransactionByDate(form date: Date) {
+        commonService.get(request: "platform/provider/transactions?from=" + date.dateFormaterForServer(), complete: { (response: ResponseDataArray<Transaction>, statusCode) in
+            if statusCode == 503 {
+                DispatchQueue.main.async {
+                    KVSpinnerView.dismiss()
+                    self.vc.showErrorServer()
+                }
+                
+            }else if statusCode == 401 {
+                DispatchQueue.main.async {
+                    KVSpinnerView.dismiss()
+                    self.vc.showSimpleAlertWithSingleAction(title: "Expired session".localized(), message: "Your session has expired. You are being logged out.".localized() , okAction: UIAlertAction(title: "Log out".localized(), style: .default, handler: { (action) in
+                        self.vc.logoutOptions()
+                    }))
+                }
+            } else {
+                
+                self.processFetchedLunche(transactions: response.data ?? [])
+            }
+            
+        }, failure: { (error) in
+            DispatchQueue.main.async {
+                KVSpinnerView.dismiss()
+            }
+        })
+    }
 }

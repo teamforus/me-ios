@@ -74,7 +74,7 @@ class TransactionListTableViewCell: UITableViewCell {
     }
     
     func configure(transaction: Transaction) {
-        self.statusLabel.text = transaction.product != nil ? Localize.productVoucher() : Localize.transaction()
+        self.statusLabel.text = transaction.state
         self.organizationNameLabel.text = transaction.product != nil ? transaction.product?.name : transaction.organization?.name ?? ""
         
         if transaction.product != nil {
