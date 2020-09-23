@@ -2,7 +2,7 @@
 //  ColMonthCell.swift
 //  Me-iOS
 //
-//  Created by Tcacenco Daniel on 18.09.2020
+//  Created by Development Kingdom on 18.09.2020
 //  Copyright © 2020 Tcacenco Daniel. All rights reserved.
 //
 
