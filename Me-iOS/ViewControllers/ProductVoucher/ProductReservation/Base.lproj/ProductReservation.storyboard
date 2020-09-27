@@ -187,7 +187,7 @@
             <size key="intrinsicContentSize" width="210" height="210"/>
         </designable>
         <designable name="uzM-Me-hi0">
-            <size key="intrinsicContentSize" width="186" height="30"/>
+            <size key="intrinsicContentSize" width="185" height="32"/>
         </designable>
     </designables>
     <inferredMetricsTieBreakers>
