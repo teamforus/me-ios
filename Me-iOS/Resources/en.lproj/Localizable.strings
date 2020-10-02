@@ -160,3 +160,8 @@
 "lockout_please_go_to_settings_turn_on_passcode" = "%@ Lockout Please go to the Settings & Turn On Passcode";
 "app_cancel" = "App Cancel";
 "invalid_context" = "Invalid context";
+"date" = "Date";
+"provider" = "Provider";
+"fund" = "Fund";
+"transaction_details" = "Transaction details";
+"transactions" = "Transactions";
