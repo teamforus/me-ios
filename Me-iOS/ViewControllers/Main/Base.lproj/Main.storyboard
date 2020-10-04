@@ -540,7 +540,7 @@
                             <constraint firstItem="QFd-Zz-7yk" firstAttribute="leading" secondItem="hQ2-i6-qrA" secondAttribute="leading" id="ycw-h4-bi9"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="string" keyPath="colorName" value="WhiteBackground_DarkTheme"/>
+                            <userDefinedRuntimeAttribute type="string" keyPath="colorName" value="DarkGray_DarkTheme"/>
                         </userDefinedRuntimeAttributes>
                     </view>
                     <navigationItem key="navigationItem" id="lVg-j5-AgA"/>
