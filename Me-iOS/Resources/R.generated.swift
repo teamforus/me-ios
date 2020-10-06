@@ -2709,7 +2709,7 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
 
-    /// This `R.string.localizable` struct is generated, and contains static references to 155 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 156 localization keys.
     struct localizable {
       /// en translation: %@ Don't Available
       ///
@@ -3023,6 +3023,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en, nl
       static let noInternetConecction = Rswift.StringResource(key: "No Internet Conecction", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
+      /// en translation: No balance for your actions
+      ///
+      /// Locales: en, nl
+      static let no_balance_for_actions = Rswift.StringResource(key: "no_balance_for_actions", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
       /// en translation: No phone number
       ///
       /// Locales: en, nl
@@ -4514,6 +4518,21 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("No Internet Conecction", bundle: bundle, comment: "")
+      }
+
+      /// en translation: No balance for your actions
+      ///
+      /// Locales: en, nl
+      static func no_balance_for_actions(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("no_balance_for_actions", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "no_balance_for_actions"
+        }
+
+        return NSLocalizedString("no_balance_for_actions", bundle: bundle, comment: "")
       }
 
       /// en translation: No phone number

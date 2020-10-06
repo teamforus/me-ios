@@ -163,3 +163,4 @@
 "payment" = "PAYMENT";
 "choose_validator" = "Choose validator";
 "choose_organization" = "Choose organization";
+"no_balance_for_actions" = "No balance for your actions";

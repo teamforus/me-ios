@@ -16,6 +16,8 @@ class MActionsViewController: UIViewController {
     }()
     var organization: AllowedOrganization?
     
+    
+    // MARK: - Properties
     let bodyView: Background_DarkMode = {
         let view = Background_DarkMode(frame: .zero)
         view.colorName = "Background_DarkTheme"
@@ -124,30 +126,44 @@ class MActionsViewController: UIViewController {
         return imageView
     }()
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
         addSubviews()
         addConstraints()
-        addHeaderSubviews()
-        addHeaderdConstraints()
-        addBodyvoucherViewSubviews()
-        addBodyvoucherViewConstraints()
-        addOranizationViewSubviews()
-        addOranizationViewConstraints()
-        setupVoucherImageView()
         setupView()
         fetchActions()
     }
     
-    func setupTableView() {
+    private func setupTableView() {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.separatorStyle = .none
         tableView.register(ActionTableViewCell.self, forCellReuseIdentifier: ActionTableViewCell.identifier)
     }
     
-    func setupVoucherImageView() {
+    private func setVoucher() {
+        guard let voucher = self.voucher else {
+            return
+        }
+        
+        fundNameLabel.text = voucher.fund?.name
+        organizationVoucherLabel.text = voucher.fund?.organization?.name ?? ""
+        self.imageViewVoucher.loadImageUsingUrlString(urlString: voucher.fund?.organization?.logo?.sizes?.thumbnail ?? "", placeHolder: #imageLiteral(resourceName: "Resting"))
+    }
+    
+    private func setupView() {
+        setVoucher()
+        self.organizationView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(openOrganization)))
+        self.organizationNameLabel.text = voucher?.allowed_organizations?.first?.name ?? ""
+        organization = voucher?.allowed_organizations?.first
+        
+        setupVoucherImageView()
+    }
+    
+    private func setupVoucherImageView() {
         let frame = self.view.frame
         let width = frame.width - 30
         voucherImageView.layer.shadowColor = UIColor.black.cgColor
@@ -158,37 +174,24 @@ class MActionsViewController: UIViewController {
         voucherImageView.layer.shouldRasterize = false
     }
     
-    func setVoucher() {
-        guard let voucher = self.voucher else {
-            return
-        }
-        
-        fundNameLabel.text = voucher.fund?.name
-        organizationVoucherLabel.text = voucher.fund?.organization?.name ?? ""
-        self.imageViewVoucher.loadImageUsingUrlString(urlString: voucher.fund?.organization?.logo?.sizes?.thumbnail ?? "", placeHolder: #imageLiteral(resourceName: "Resting"))
-    }
-    
-    func setupView() {
-        setVoucher()
-        self.organizationView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(openOrganization)))
-        self.organizationNameLabel.text = voucher?.allowed_organizations?.first?.name ?? ""
-        organization = voucher?.allowed_organizations?.first
-    }
-    
-    func fetchActions() {
+    private func fetchActions() {
         viewModel.fetchSubsidies(voucherAddress: voucher?.address ?? "")
         
         viewModel.complete = { [weak self] (subsidies) in
             DispatchQueue.main.async {
+                if subsidies.count == 0 {
+                    self?.showSimpleAlertWithSingleAction(title: Localize.warning(), message: Localize.no_balance_for_actions(), okAction: UIAlertAction(title: Localize.ok(), style: .default, handler: { (_) in
+                         self?.dismiss(animated: true)
+                    }))
+                }
                 self?.tableView.reloadData()
             }
         }
     }
 }
 
-// MARK: - UITableViewDelegate
-
 extension MActionsViewController: UITableViewDelegate, UITableViewDataSource {
+    // MARK: - UITableViewDelegate
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -218,19 +221,21 @@ extension MActionsViewController: UITableViewDelegate, UITableViewDataSource {
     
 }
 
-// MARK: - Add Subviews
-
 extension MActionsViewController {
-    
-    func addSubviews() {
+    // MARK: - Add Subviews
+    private func addSubviews() {
         let views = [bodyView, headerView, chooseActionLabel, infoPayLabel, organizationView, tableView]
         views.forEach { (view) in
             view.translatesAutoresizingMaskIntoConstraints = false
             self.view.addSubview(view)
         }
+        addHeaderSubviews()
+        addBodyvoucherViewSubviews()
+        addOranizationViewSubviews()
+        
     }
     
-    func addHeaderSubviews() {
+    private func addHeaderSubviews() {
         let views = [backButton, titleLabel, bodyvoucherView]
         views.forEach { (view) in
             view.translatesAutoresizingMaskIntoConstraints = false
@@ -238,7 +243,7 @@ extension MActionsViewController {
         }
     }
     
-    func addBodyvoucherViewSubviews() {
+    private func addBodyvoucherViewSubviews() {
         let views = [voucherImageView, fundNameLabel, organizationVoucherLabel, imageViewVoucher, lineView]
         views.forEach { (view) in
             view.translatesAutoresizingMaskIntoConstraints = false
@@ -246,7 +251,7 @@ extension MActionsViewController {
         }
     }
     
-    func addOranizationViewSubviews() {
+    private func addOranizationViewSubviews() {
         let views = [organizationNameLabel, arrowImageView]
         views.forEach { (view) in
             view.translatesAutoresizingMaskIntoConstraints = false
@@ -255,11 +260,9 @@ extension MActionsViewController {
     }
 }
 
-// MARK: - Add Constraints
-
 extension MActionsViewController {
-    
-    func addConstraints() {
+    // MARK: - Add Constraints
+    private func addConstraints() {
         NSLayoutConstraint.activate([
             bodyView.topAnchor.constraint(equalTo: self.view.topAnchor),
             bodyView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
@@ -298,9 +301,13 @@ extension MActionsViewController {
             tableView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
             tableView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
         ])
+        
+        addHeaderdConstraints()
+        addBodyvoucherViewConstraints()
+        addOranizationViewConstraints()
     }
     
-    func addHeaderdConstraints() {
+    private func addHeaderdConstraints() {
         NSLayoutConstraint.activate([
             backButton.heightAnchor.constraint(equalToConstant: 44),
             backButton.widthAnchor.constraint(equalToConstant: 44),
@@ -322,7 +329,7 @@ extension MActionsViewController {
         
     }
     
-    func addBodyvoucherViewConstraints() {
+    private func addBodyvoucherViewConstraints() {
         NSLayoutConstraint.activate([
             voucherImageView.leadingAnchor.constraint(equalTo: bodyvoucherView.leadingAnchor, constant: 15),
             voucherImageView.trailingAnchor.constraint(equalTo: bodyvoucherView.trailingAnchor, constant: -15),
@@ -356,7 +363,7 @@ extension MActionsViewController {
         ])
     }
     
-    func addOranizationViewConstraints() {
+    private func addOranizationViewConstraints() {
         NSLayoutConstraint.activate([
             organizationNameLabel.topAnchor.constraint(equalTo: organizationView.topAnchor),
             organizationNameLabel.leadingAnchor.constraint(equalTo: organizationView.leadingAnchor, constant: 10),
@@ -389,10 +396,9 @@ extension MActionsViewController: OrganizationValidatorViewControllerDelegate {
     }
 }
 
-// MARK: - Actions
-
 extension MActionsViewController {
-    @objc func openOrganization() {
+    // MARK: - Actions
+    @objc private func openOrganization() {
         let popOverVC = OrganizationValidatorViewController(nibName: "OrganizationValidatorViewController", bundle: nil)
         popOverVC.organizationType = .subsidieOrganization
         popOverVC.allowedOrganization = voucher?.allowed_organizations ?? []
@@ -402,7 +408,7 @@ extension MActionsViewController {
         self.view.addSubview(popOverVC.view)
     }
     
-    func openSubsidiePayment(subsidie: Subsidie, organization: AllowedOrganization?) {
+    private func openSubsidiePayment(subsidie: Subsidie, organization: AllowedOrganization?) {
         let paymentVC = MPaymentActionViewController()
         paymentVC.subsidie = subsidie
         paymentVC.organization = organization
