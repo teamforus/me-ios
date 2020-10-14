@@ -21,6 +21,7 @@ class MVouchersViewController: UIViewController {
     var isFromLogin: Bool!
     @IBOutlet weak var segmentController: HBSegmentedControl!
     @IBOutlet weak var segmentView: UIView!
+    @IBOutlet weak var transactionButton: UIButton!
     
     var voucherType: VoucherType!
     lazy var voucherViewModel: VouchersViewModel = {
@@ -31,7 +32,10 @@ class MVouchersViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        if !Preference.tapToSeeTransactionTipHasShown {
+            Preference.tapToSeeTransactionTipHasShown = true
+            transactionButton?.toolTip(message: "Tap here if you want to see your list of transactions", style: .dark, location: .bottom, offset: CGPoint(x: -50, y: 0))
+        }
         registerForPreviewing(with: self, sourceView: tableView)
         
         if #available(iOS 10.0, *) {
@@ -133,6 +137,12 @@ class MVouchersViewController: UIViewController {
             break
         default: break
         }
+    }
+    
+    @IBAction func openTransaction(_ sender: UIButton) {
+        let transactionVC = MTransactionsViewController()
+        transactionVC.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(transactionVC, animated: true)
     }
     
     

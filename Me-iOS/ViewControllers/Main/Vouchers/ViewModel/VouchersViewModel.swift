@@ -22,7 +22,7 @@ class VouchersViewModel{
     
     private var cellViewModels: [Voucher] = [Voucher]() {
         didSet {
-            complete(cellViewModels)
+            complete?(cellViewModels)
         }
     }
     
@@ -30,7 +30,7 @@ class VouchersViewModel{
         self.commonService = commonService
     }
     
-    var complete: (([Voucher])->())!
+    var complete: (([Voucher])->())?
     
     func initFetch(){
         

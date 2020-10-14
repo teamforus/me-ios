@@ -9,6 +9,9 @@
 import UIKit
 
 class TransactionTableViewCell: UITableViewCell {
+    
+    static let identifier = "TransactionTableViewCell"
+    
     @IBOutlet weak var companyTitle: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
