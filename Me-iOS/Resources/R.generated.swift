@@ -3170,7 +3170,7 @@ struct R: Rswift.Validatable {
       /// en translation: Transactions
       ///
       /// Locales: en, nl
-      static let transactions = Rswift.StringResource(key: "transactions", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil
+      static let transactions = Rswift.StringResource(key: "transactions", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
       /// en translation: Turn off login code
       ///
       /// Locales: en, nl
