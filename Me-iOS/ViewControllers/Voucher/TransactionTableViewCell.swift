@@ -19,7 +19,7 @@ class TransactionTableViewCell: UITableViewCell {
     @IBOutlet weak var imageTransfer: UIImageView!
     var transaction: Transaction?{
         didSet{
-            self.statusTransfer.text = transaction?.product != nil ? Localize.productVoucher() : Localize.transaction()
+            self.statusTransfer.text = transaction?.product != nil ? Localize.product_voucher(): Localize.transaction()
             self.companyTitle.text = transaction?.product != nil ? transaction?.product?.name : transaction?.organization?.name ?? ""
         
             if transaction?.product != nil {

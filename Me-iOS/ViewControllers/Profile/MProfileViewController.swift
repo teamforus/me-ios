@@ -82,7 +82,7 @@ extension MProfileViewController {
     
     @IBAction func feedback(_ sender: Any) {
         
-        showSimpleAlertWithAction(title: "Support", message: Localize.wouldYouLikeToSendUsYourFeedbackByEMail(),
+        showSimpleAlertWithAction(title: "Support", message: Localize.would_you_like_send_us_your_feedback_by_email(),
                                   okAction: UIAlertAction(title: Localize.cancel(), style: .cancel, handler: { (action) in
                                   }),
                                   cancelAction: UIAlertAction(title: Localize.confirm(), style: .default, handler: { (action) in
@@ -90,11 +90,11 @@ extension MProfileViewController {
                                         let composeVC = MFMailComposeViewController()
                                         composeVC.mailComposeDelegate = self
                                         composeVC.setToRecipients(["feedback@forus.io"])
-                                        composeVC.setSubject(Localize.myFeedbackAboutTheMeApp())
+                                        composeVC.setSubject(Localize.my_feedback_about_me_app())
                                         composeVC.setMessageBody("", isHTML: false)
                                         self.present(composeVC, animated: true, completion: nil)
                                     }else{
-                                        self.showSimpleAlert(title: Localize.warning(), message: Localize.mailServicesAreNotAvailable())
+                                        self.showSimpleAlert(title: Localize.warning(), message: Localize.mail_services_are_not_available())
                                     }
                                   }))
     }
@@ -106,15 +106,15 @@ extension MProfileViewController {
     @IBAction func creatEditPasscode(_ sender: Any) {
         
         if passcodeIsSet() {
-            didChooseAppLocker(title: Localize.changePasscode(), subTitle: Localize.enterYourOldCode(), cancelButtonIsVissible: true, mode: .change)
+            didChooseAppLocker(title: Localize.change_passcode(), subTitle: Localize.enter_your_old_code(), cancelButtonIsVissible: true, mode: .change)
         }else {
-            didChooseAppLocker(title: Localize.loginCode(), subTitle: Localize.enterANewLoginCode(), cancelButtonIsVissible: true, mode: .create)
+            didChooseAppLocker(title: Localize.login_code(), subTitle: Localize.enter_a_new_login_code(), cancelButtonIsVissible: true, mode: .create)
         }
     }
     
     @IBAction func deletePasscode(_ sender: Any) {
         
-        didChooseAppLocker(title: Localize.turnOffLoginCode(), subTitle: Localize.enterANewLoginCode(), cancelButtonIsVissible: true, mode: .deactive)
+        didChooseAppLocker(title: Localize.turn_off_login_code(), subTitle: Localize.enter_your_login_code(), cancelButtonIsVissible: true, mode: .deactive)
     }
 }
 
@@ -174,17 +174,17 @@ extension MProfileViewController {
     private func setupSecurity() {
         if faceIDAvailable() {
             useSensorIdIcon.image = #imageLiteral(resourceName: "faceId-1")
-            useSensorIdLabel.text = Localize.turnOnFaceID()
+            useSensorIdLabel.text = Localize.turn_on_face_ID()
         }else {
             useSensorIdIcon.image = #imageLiteral(resourceName: "touchId")
-            useSensorIdLabel.text = Localize.turnOnTouchID()
+            useSensorIdLabel.text = Localize.turn_on_touch_ID()
         }
         
         if passcodeIsSet() {
-            changePasscodeLabel.text = Localize.changePasscode()
+            changePasscodeLabel.text = Localize.change_passcode()
             self.didUpdateButtonStackView(isHiddeButtons: false, buttonHeightConstant: 249, verticalConstant: 66)
         }else{
-            changePasscodeLabel.text = Localize.createPasscode()
+            changePasscodeLabel.text = Localize.create_passcode()
             self.didUpdateButtonStackView(isHiddeButtons: true, buttonHeightConstant: 130, verticalConstant: 10)
         }
     }
@@ -218,7 +218,7 @@ extension MProfileViewController: AccessibilityProtocol {
         crashReportSwitch.setupAccesibility(description: "Turn on/off crash reports", accessibilityTraits: .none)
         aboutMeButton.setupAccesibility(description: "Open About Me App", accessibilityTraits: .button)
         feedBackButton.setupAccesibility(description: "Send feedback by email", accessibilityTraits: .button)
-        logoutButton.setupAccesibility(description: Localize.logOut(), accessibilityTraits: .button)
+        logoutButton.setupAccesibility(description: Localize.log_out(), accessibilityTraits: .button)
     }
 }
 
