@@ -342,7 +342,7 @@ extension AppDelegate {
         if UserDefaults.standard.string(forKey: ALConstants.kPincode) != "" && UserDefaults.standard.string(forKey: ALConstants.kPincode) != nil {
             var appearance = ALAppearance()
             appearance.image = UIImage(named: "lock")!
-            appearance.title = "Enter login code".localized()
+            appearance.title = Localize.enter_login_code()
             appearance.isSensorsEnabled = true
             appearance.cancelIsVissible = false
             appearance.delegate = self
