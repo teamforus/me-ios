@@ -25,6 +25,8 @@ struct ScanPermission {
                     comletion(status == .authorized ? true : false)
                 }
             })
+        case .limited:
+            break
         @unknown default:
             fatalError()
         }
