@@ -69,8 +69,8 @@ class PullUpQRViewController: UIViewController {
             break
         case .Voucher?:
             
-            self.titleDescriptionLabel.text = Localize.thisIsYourVoucherSQRCode()
-            self.descriptionLabel.text = Localize.letTheShopkeeperScanItToMakeAPaymentFromYourVoucher()
+            self.titleDescriptionLabel.text = Localize.this_is_your_vouchers_qr_code()
+            self.descriptionLabel.text = Localize.let_shopkeeper_scan_it_make_payment_from_your_voucher()
             
             self.qrImage.generateQRCode(from: "{ \"type\": \"voucher\",\"value\": \"\(self.voucher.address ?? "")\", \"imgUrl\" : \"https://media.forus.io/assets/me-logo.png\" }")
             
@@ -84,15 +84,15 @@ class PullUpQRViewController: UIViewController {
                 
             }
             
-            dateExpireLabel.text = Localize.thisVoucherExpiresOn() + (voucher.expire_at?.date?.dateFormaterExpireDate())!
+            dateExpireLabel.text = Localize.this_voucher_is_expired_on((voucher.expire_at?.date?.dateFormaterExpireDate())!)
             
             break
         case .Record?:
             self.voucherNameLabel.isHidden = true
             self.dateExpireLabel.isHidden = true
-            self.titleDescriptionLabel.text = Localize.thisIsYourVoucherSQRCode()
+            self.titleDescriptionLabel.text = Localize.this_is_your_vouchers_qr_code()
             if let name = self.record.name {
-                self.descriptionLabel.text = Localize.letTheShopkeeperScanItToMakeAValidtionToYourRecord(name)
+                self.descriptionLabel.text = Localize.let_shopkeeper_scan_it_to_make_validtion_to_your_record(name)
             }
             
             

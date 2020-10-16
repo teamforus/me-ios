@@ -291,6 +291,7 @@
                         <outlet property="segmentController" destination="oKA-aH-qQQ" id="LVJ-qV-QeT"/>
                         <outlet property="segmentView" destination="Lm7-ui-J0c" id="CiD-lV-xoz"/>
                         <outlet property="tableView" destination="5yR-zH-dKR" id="Hve-CW-lin"/>
+                        <outlet property="transactionButton" destination="Sqn-yz-irD" id="pww-pb-WI1"/>
                         <segue destination="yXS-8F-HEa" kind="show" identifier="goToVoucher" id="o6s-gf-Hnr"/>
                         <segue destination="oem-tR-Bhz" kind="show" identifier="goToProduct" id="tzZ-Ns-oe3"/>
                     </connections>
