@@ -474,8 +474,12 @@ struct R: Rswift.Validatable {
     static let gray_Light_DarkTheme = Rswift.ColorResource(bundle: R.hostingBundle, name: "Gray_Light_DarkTheme")
     /// Color `MainBodyColor`.
     static let mainBodyColor = Rswift.ColorResource(bundle: R.hostingBundle, name: "MainBodyColor")
+    /// Color `RecordBackgroundDetail_DarkTheme`.
+    static let recordBackgroundDetail_DarkTheme = Rswift.ColorResource(bundle: R.hostingBundle, name: "RecordBackgroundDetail_DarkTheme")
     /// Color `Thin_Light_Gray_DarkTheme`.
     static let thin_Light_Gray_DarkTheme = Rswift.ColorResource(bundle: R.hostingBundle, name: "Thin_Light_Gray_DarkTheme")
+    /// Color `WhiteBackground_DarkTheme`.
+    static let whiteBackground_DarkTheme = Rswift.ColorResource(bundle: R.hostingBundle, name: "WhiteBackground_DarkTheme")
 
     #if os(iOS) || os(tvOS)
     /// `UIColor(named: "Background_DarkTheme", bundle: ..., traitCollection: ...)`
@@ -541,11 +545,29 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
+    /// `UIColor(named: "RecordBackgroundDetail_DarkTheme", bundle: ..., traitCollection: ...)`
+    @available(tvOS 11.0, *)
+    @available(iOS 11.0, *)
+    static func recordBackgroundDetail_DarkTheme(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
+      return UIKit.UIColor(resource: R.color.recordBackgroundDetail_DarkTheme, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
     /// `UIColor(named: "Thin_Light_Gray_DarkTheme", bundle: ..., traitCollection: ...)`
     @available(tvOS 11.0, *)
     @available(iOS 11.0, *)
     static func thin_Light_Gray_DarkTheme(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
       return UIKit.UIColor(resource: R.color.thin_Light_Gray_DarkTheme, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIColor(named: "WhiteBackground_DarkTheme", bundle: ..., traitCollection: ...)`
+    @available(tvOS 11.0, *)
+    @available(iOS 11.0, *)
+    static func whiteBackground_DarkTheme(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
+      return UIKit.UIColor(resource: R.color.whiteBackground_DarkTheme, compatibleWith: traitCollection)
     }
     #endif
 
@@ -559,7 +581,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.file` struct is generated, and contains static references to 11 files.
+  /// This `R.file` struct is generated, and contains static references to 12 files.
   struct file {
     /// Resource file `GoogleSans-Bold.ttf`.
     static let googleSansBoldTtf = Rswift.FileResource(bundle: R.hostingBundle, name: "GoogleSans-Bold", pathExtension: "ttf")
@@ -583,6 +605,8 @@ struct R: Rswift.Validatable {
     static let backspaceBlue2xPng = Rswift.FileResource(bundle: R.hostingBundle, name: "backspaceBlue@2x", pathExtension: "png")
     /// Resource file `backspaceBlue@3x.png`.
     static let backspaceBlue3xPng = Rswift.FileResource(bundle: R.hostingBundle, name: "backspaceBlue@3x", pathExtension: "png")
+    /// Resource file `ic_check_3x.png`.
+    static let ic_check_3xPng = Rswift.FileResource(bundle: R.hostingBundle, name: "ic_check_3x", pathExtension: "png")
 
     /// `bundle.url(forResource: "GoogleSans-Bold", withExtension: "ttf")`
     static func googleSansBoldTtf(_: Void = ()) -> Foundation.URL? {
@@ -647,6 +671,12 @@ struct R: Rswift.Validatable {
     /// `bundle.url(forResource: "backspaceBlue@3x", withExtension: "png")`
     static func backspaceBlue3xPng(_: Void = ()) -> Foundation.URL? {
       let fileResource = R.file.backspaceBlue3xPng
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
+    /// `bundle.url(forResource: "ic_check_3x", withExtension: "png")`
+    static func ic_check_3xPng(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.ic_check_3xPng
       return fileResource.bundle.url(forResource: fileResource)
     }
 
@@ -750,7 +780,6 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-
   /// This `R.image` struct is generated, and contains static references to 67 images.
   struct image {
     /// Image `5XVoucherContainerWElevation`.
@@ -825,6 +854,8 @@ struct R: Rswift.Validatable {
     static let headings = Rswift.ImageResource(bundle: R.hostingBundle, name: "headings")
     /// Image `homeIcon`.
     static let homeIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "homeIcon")
+    /// Image `ic_check_3x`.
+    static let ic_check_3x = Rswift.ImageResource(bundle: R.hostingBundle, name: "ic_check_3x")
     /// Image `ic_launcher_APP`.
     static let ic_launcher_APP = Rswift.ImageResource(bundle: R.hostingBundle, name: "ic_launcher_APP")
     /// Image `iconDigiD`.
@@ -1135,6 +1166,13 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "homeIcon", bundle: ..., traitCollection: ...)`
     static func homeIcon(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.homeIcon, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "ic_check_3x", bundle: ..., traitCollection: ...)`
+    static func ic_check_3x(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.ic_check_3x, compatibleWith: traitCollection)
     }
     #endif
 
@@ -2700,7 +2738,20 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
 
+    /// This `R.string.localizable` struct is generated, and contains static references to 158 localization keys.
     struct localizable {
+      /// en translation: %@ Don't Available
+      ///
+      /// Locales: en, nl
+      static let dont_available = Rswift.StringResource(key: "dont_available", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
+      /// en translation: %@ Lockout Please go to the Settings & Turn On Passcode
+      ///
+      /// Locales: en, nl
+      static let lockout_please_go_to_settings_turn_on_passcode = Rswift.StringResource(key: "lockout_please_go_to_settings_turn_on_passcode", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
+      /// en translation: %@ Not Enrolled
+      ///
+      /// Locales: en, nl
+      static let not_enrolled = Rswift.StringResource(key: "not_enrolled", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
       /// en translation: -voucher in the form of a QR-code
       ///
       /// Locales: en, nl
@@ -2725,6 +2776,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en, nl
       static let children_nth = Rswift.StringResource(key: "children_nth", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
+      /// en translation: App Cancel
+      ///
+      /// Locales: en, nl
+      static let app_cancel = Rswift.StringResource(key: "app_cancel", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
       /// en translation: Are you sure you want to confirm this transaction.
       ///
       /// Locales: en, nl
@@ -2733,6 +2788,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en, nl
       static let are_you_sure_you_want_log_out = Rswift.StringResource(key: "are_you_sure_you_want_log_out", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
+      /// en translation: Authentication Failed
+      ///
+      /// Locales: en, nl
+      static let authentification_failed = Rswift.StringResource(key: "authentification_failed", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
       /// en translation: BSN
       ///
       /// Locales: en, nl
@@ -2741,6 +2800,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en, nl
       static let before_we_get_started_please_confirm_your_email_address = Rswift.StringResource(key: "before_we_get_started_please_confirm_your_email_address", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
+      /// en translation: Bevestig uw emailadres
+      ///
+      /// Locales: en, nl
+      static let bevestig_uw_emailadres = Rswift.StringResource(key: "bevestig_uw_emailadres", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
       /// en translation: Business
       ///
       /// Locales: en
@@ -2901,6 +2964,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en, nl
       static let field_is_requierd = Rswift.StringResource(key: "field_is_requierd", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
+      /// en translation: Fund
+      ///
+      /// Locales: en, nl
+      static let fund = Rswift.StringResource(key: "fund", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
       /// en translation: Gender
       ///
       /// Locales: en, nl
@@ -2917,6 +2984,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en, nl
       static let login_description_on_webshop = Rswift.StringResource(key: "login_description_on_webshop", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
+      /// en translation: Informatie delen
+      ///
+      /// Locales: en, nl
+      static let informatie_delen = Rswift.StringResource(key: "informatie_delen", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
       /// en translation: Insufficient funds on the voucher
       ///
       /// Locales: en, nl
@@ -2929,6 +3000,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en, nl
       static let invalid_email_address = Rswift.StringResource(key: "invalid_email_address", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
+      /// en translation: Invalid context
+      ///
+      /// Locales: en, nl
+      static let invalid_context = Rswift.StringResource(key: "invalid_context", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
       /// en translation: Klantnummer
       ///
       /// Locales: en, nl
@@ -3021,6 +3096,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en, nl
       static let please_enter_the_amount = Rswift.StringResource(key: "please_enter_the_amount", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
+      /// en translation: Please go to the Settings & Turn On Passcode
+      ///
+      /// Locales: en, nl
+      static let please_go_to_settings_turn_on_passcode = Rswift.StringResource(key: "please_go_to_settings_turn_on_passcode", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
       /// en translation: Please try to send email again.
       ///
       /// Locales: en, nl
@@ -3061,6 +3140,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en, nl
       static let request = Rswift.StringResource(key: "request", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
+      /// en translation: Record
+      ///
+      /// Locales: en
+      static let record = Rswift.StringResource(key: "record", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Records
       ///
       /// Locales: en, nl
@@ -3121,6 +3204,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en, nl
       static let success_exclamation = Rswift.StringResource(key: "success_exclamation", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
+      /// en translation: System Cancel
+      ///
+      /// Locales: en, nl
+      static let system_cancel = Rswift.StringResource(key: "system_cancel", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
       /// en translation: Tax ID
       ///
       /// Locales: en, nl
@@ -3209,6 +3296,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en, nl
       static let unknown_qr_code = Rswift.StringResource(key: "unknown_qr_code", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
+      /// en translation: Unlock with %@
+      ///
+      /// Locales: en, nl
+      static let unlock_with = Rswift.StringResource(key: "unlock_with", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
       /// en translation: Use Touch ID
       ///
       /// Locales: en, nl
@@ -3221,6 +3312,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en, nl
       static let used = Rswift.StringResource(key: "used", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
+      /// en translation: User Cancel
+      ///
+      /// Locales: en, nl
+      static let user_cancel = Rswift.StringResource(key: "user_cancel", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
       /// en translation: Validate
       ///
       /// Locales: en, nl
@@ -3241,7 +3336,7 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en, nl
       static let warning = Rswift.StringResource(key: "warning", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
-      /// en translation: Welcome to Me, 
+      /// en translation: Welcome to Me
       ///
       /// Locales: en, nl
       static let welcome_to_me = Rswift.StringResource(key: "welcome_to_me", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
@@ -3277,6 +3372,57 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en, nl
       static let your_session_has_expired = Rswift.StringResource(key: "your_session_has_expired", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
+
+      /// en translation: %@ Don't Available
+      ///
+      /// Locales: en, nl
+      static func dont_available(_ value1: String, preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          let format = NSLocalizedString("dont_available", bundle: hostingBundle, comment: "")
+          return String(format: format, locale: applicationLocale, value1)
+        }
+
+        guard let (locale, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "dont_available"
+        }
+
+        let format = NSLocalizedString("dont_available", bundle: bundle, comment: "")
+        return String(format: format, locale: locale, value1)
+      }
+
+      /// en translation: %@ Lockout Please go to the Settings & Turn On Passcode
+      ///
+      /// Locales: en, nl
+      static func lockout_please_go_to_settings_turn_on_passcode(_ value1: String, preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          let format = NSLocalizedString("lockout_please_go_to_settings_turn_on_passcode", bundle: hostingBundle, comment: "")
+          return String(format: format, locale: applicationLocale, value1)
+        }
+
+        guard let (locale, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "lockout_please_go_to_settings_turn_on_passcode"
+        }
+
+        let format = NSLocalizedString("lockout_please_go_to_settings_turn_on_passcode", bundle: bundle, comment: "")
+        return String(format: format, locale: locale, value1)
+      }
+
+      /// en translation: %@ Not Enrolled
+      ///
+      /// Locales: en, nl
+      static func not_enrolled(_ value1: String, preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          let format = NSLocalizedString("not_enrolled", bundle: hostingBundle, comment: "")
+          return String(format: format, locale: applicationLocale, value1)
+        }
+
+        guard let (locale, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "not_enrolled"
+        }
+
+        let format = NSLocalizedString("not_enrolled", bundle: bundle, comment: "")
+        return String(format: format, locale: locale, value1)
+      }
 
       /// en translation: -voucher in the form of a QR-code
       ///
@@ -3368,6 +3514,21 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("children_nth", bundle: bundle, comment: "")
       }
 
+      /// en translation: App Cancel
+      ///
+      /// Locales: en, nl
+      static func app_cancel(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("app_cancel", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "app_cancel"
+        }
+
+        return NSLocalizedString("app_cancel", bundle: bundle, comment: "")
+      }
+
       /// en translation: Are you sure you want to confirm this transaction.
       ///
       /// Locales: en, nl
@@ -3398,6 +3559,21 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("are_you_sure_you_want_log_out", bundle: bundle, comment: "")
       }
 
+      /// en translation: Authentication Failed
+      ///
+      /// Locales: en, nl
+      static func authentification_failed(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("authentification_failed", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "authentification_failed"
+        }
+
+        return NSLocalizedString("authentification_failed", bundle: bundle, comment: "")
+      }
+
       /// en translation: BSN
       ///
       /// Locales: en, nl
@@ -3426,6 +3602,21 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("before_we_get_started_please_confirm_your_email_address", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Bevestig uw emailadres
+      ///
+      /// Locales: en, nl
+      static func bevestig_uw_emailadres(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("bevestig_uw_emailadres", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "bevestig_uw_emailadres"
+        }
+
+        return NSLocalizedString("bevestig_uw_emailadres", bundle: bundle, comment: "")
       }
 
       /// en translation: Business
@@ -4105,6 +4296,21 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("login_description_on_webshop", bundle: bundle, comment: "")
       }
 
+      /// en translation: Informatie delen
+      ///
+      /// Locales: en, nl
+      static func informatie_delen(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("informatie_delen", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "informatie_delen"
+        }
+
+        return NSLocalizedString("informatie_delen", bundle: bundle, comment: "")
+      }
+
       /// en translation: Insufficient funds on the voucher
       ///
       /// Locales: en, nl
@@ -4150,6 +4356,21 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("invalid_email_address", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Invalid context
+      ///
+      /// Locales: en, nl
+      static func invalid_context(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("invalid_context", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "invalid_context"
+        }
+
+        return NSLocalizedString("invalid_context", bundle: bundle, comment: "")
       }
 
       /// en translation: Klantnummer
@@ -4501,6 +4722,21 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("please_enter_the_amount", bundle: bundle, comment: "")
       }
 
+      /// en translation: Please go to the Settings & Turn On Passcode
+      ///
+      /// Locales: en, nl
+      static func please_go_to_settings_turn_on_passcode(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("please_go_to_settings_turn_on_passcode", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "please_go_to_settings_turn_on_passcode"
+        }
+
+        return NSLocalizedString("please_go_to_settings_turn_on_passcode", bundle: bundle, comment: "")
+      }
+
       /// en translation: Please try to send email again.
       ///
       /// Locales: en, nl
@@ -4649,6 +4885,21 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("request", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Record
+      ///
+      /// Locales: en
+      static func record(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("record", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "record"
+        }
+
+        return NSLocalizedString("record", bundle: bundle, comment: "")
       }
 
       /// en translation: Records
@@ -4874,6 +5125,21 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("success_exclamation", bundle: bundle, comment: "")
+      }
+
+      /// en translation: System Cancel
+      ///
+      /// Locales: en, nl
+      static func system_cancel(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("system_cancel", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "system_cancel"
+        }
+
+        return NSLocalizedString("system_cancel", bundle: bundle, comment: "")
       }
 
       /// en translation: Tax ID
@@ -5208,6 +5474,23 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("unknown_qr_code", bundle: bundle, comment: "")
       }
 
+      /// en translation: Unlock with %@
+      ///
+      /// Locales: en, nl
+      static func unlock_with(_ value1: String, preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          let format = NSLocalizedString("unlock_with", bundle: hostingBundle, comment: "")
+          return String(format: format, locale: applicationLocale, value1)
+        }
+
+        guard let (locale, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "unlock_with"
+        }
+
+        let format = NSLocalizedString("unlock_with", bundle: bundle, comment: "")
+        return String(format: format, locale: locale, value1)
+      }
+
       /// en translation: Use Touch ID
       ///
       /// Locales: en, nl
@@ -5251,6 +5534,21 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("used", bundle: bundle, comment: "")
+      }
+
+      /// en translation: User Cancel
+      ///
+      /// Locales: en, nl
+      static func user_cancel(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("user_cancel", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "user_cancel"
+        }
+
+        return NSLocalizedString("user_cancel", bundle: bundle, comment: "")
       }
 
       /// en translation: Validate
@@ -5328,7 +5626,7 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("warning", bundle: bundle, comment: "")
       }
 
-      /// en translation: Welcome to Me, 
+      /// en translation: Welcome to Me
       ///
       /// Locales: en, nl
       static func welcome_to_me(preferredLanguages: [String]? = nil) -> String {

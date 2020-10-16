@@ -147,6 +147,7 @@
                     <connections>
                         <outlet property="identificationSwitch" destination="B6I-FH-DWW" id="0HM-w0-V0a"/>
                         <outlet property="identificationView" destination="0Lk-fx-WDO" id="KEk-61-r8D"/>
+                        <outlet property="titleLabel" destination="Pp9-oV-vYl" id="aKx-Ep-niT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2O4-mk-yrq" userLabel="First Responder" sceneMemberID="firstResponder"/>

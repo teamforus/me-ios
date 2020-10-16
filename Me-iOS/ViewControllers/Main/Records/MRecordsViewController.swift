@@ -13,7 +13,8 @@ class MRecordsViewController: UIViewController {
     private let refreshControl = UIRefreshControl()
     @IBOutlet weak var newRecordButton: ShadowButton!
     @IBOutlet weak var topConstraint: NSLayoutConstraint!
-    
+    @IBOutlet weak var titileLabel: UILabel_DarkMode!
+  
     
     lazy var recordViewModel: RecordsViewModel = {
         return RecordsViewModel()
@@ -149,6 +150,9 @@ extension MRecordsViewController: UITableViewDelegate, UITableViewDataSource{
         }else {
             return nil
         }
+    }
+  func setupAccessibility() {
+    titileLabel.setupAccesibility(description: Localize.personal(), accessibilityTraits: .header)
     }
 }
 

@@ -266,6 +266,7 @@
                         <outlet property="environmnetView" destination="OI7-pa-CMz" id="Mck-WT-pYG"/>
                         <outlet property="showQRCodeButton" destination="EPp-cx-awG" id="Rbz-In-gzL"/>
                         <outlet property="validationImage" destination="jsG-Jq-whr" id="zgw-Bu-pwU"/>
+                        <outlet property="welcomeLabel" destination="yyn-hr-0CS" id="b12-x8-UYw"/>
                         <segue destination="qzn-JB-q2a" kind="presentation" identifier="goToMain" modalPresentationStyle="fullScreen" id="6TI-WM-ZPC"/>
                         <segue destination="gNt-Ag-nUJ" kind="presentation" identifier="goToSuccessMail" modalPresentationStyle="fullScreen" id="VVl-cZ-D9m"/>
                         <segue destination="vfJ-1R-B22" kind="presentation" identifier="goToSuccessRegister" modalPresentationStyle="fullScreen" id="9AB-69-nTQ"/>

@@ -159,6 +159,9 @@
 "lockout_please_go_to_settings_turn_on_passcode" = "%@ Vergrendeld. Ga naar instellingen en schakel de toegangscode in";
 "app_cancel" = "App annuleren";
 "invalid_context" = "Ongeldige context";
+"welcome_to_me" = "Welkom bij Me";
+"bevestig_uw_emailadres" = "Bevestig uw emailadres";
+"informatie_delen" = "Informatie delen";
 "date" = "Datum";
 "provider" = "Aanbieder";
 "fund" = "Fonds";

@@ -302,7 +302,6 @@ extension MProductVoucherViewController: AccessibilityProtocol {
     }
 }
 
-
 class CustomPointAnnotation: MKPointAnnotation {
     var imageName: String!
 }

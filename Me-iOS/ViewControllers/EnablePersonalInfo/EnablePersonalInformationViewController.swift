@@ -11,8 +11,9 @@ import UIKit
 class EnablePersonalInformationViewController: UIViewController {
     @IBOutlet weak var identificationView: CustomCornerUIView!
     @IBOutlet weak var identificationSwitch: UISwitchCustom!
-    
-    override func viewDidLoad() {
+    @IBOutlet weak var titleLabel: UILabel_DarkMode!
+  
+  override func viewDidLoad() {
         super.viewDidLoad()
         setupAccessibility()
     }
@@ -40,5 +41,6 @@ extension EnablePersonalInformationViewController: AccessibilityProtocol {
     func setupAccessibility() {
         identificationView.setupAccesibility(description: "Turn on/off to send indentification number in crash report, on right side you can enable this option. ", accessibilityTraits: .none)
         identificationSwitch.setupAccesibility(description: "Turn on/off indentification number", accessibilityTraits: .none)
+      titleLabel.setupAccesibility(description: Localize.informatie_delen(), accessibilityTraits: .header)
     }
 }
