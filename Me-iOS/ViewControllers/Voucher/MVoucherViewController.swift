@@ -105,8 +105,8 @@ class MVoucherViewController: UIViewController {
             }
         }
         
-        showSimpleAlertWithAction(title: Localize.eMailToMe(),
-                                  message: Localize.sendTheVoucherToYourEmail(),
+        showSimpleAlertWithAction(title: Localize.email_to_me(),
+                                  message: Localize.send_voucher_to_your_email(),
                                   okAction: UIAlertAction(title: Localize.confirm(), style: .default, handler: { (action) in
                                     
                                     self.voucherViewModel.sendEmail(address: self.voucher.address ?? "")

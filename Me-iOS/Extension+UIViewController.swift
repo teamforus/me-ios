@@ -92,7 +92,7 @@ extension UIViewController{
         
         let allertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         
-        allertController.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
+        allertController.addAction(UIAlertAction(title: Localize.ok(), style: .default, handler: { (action) in
             
         }))
         
@@ -116,8 +116,8 @@ extension UIViewController{
     
     func showInternetUnable(){
         let alert: UIAlertController
-        alert = UIAlertController(title: "Warning".localized(), message: "No Internet Conecction".localized(), preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
+        alert = UIAlertController(title: Localize.warning(), message: Localize.no_internet_conecction(), preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: Localize.ok(), style: .default, handler: { (action) in
         }))
         
         self.present(alert, animated: true)
@@ -125,8 +125,8 @@ extension UIViewController{
     
     func showErrorServer(){
         let alert: UIAlertController
-        alert = UIAlertController(title: "Warning".localized(), message: "Currently maintenance is being done".localized(), preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
+        alert = UIAlertController(title: Localize.warning(), message: Localize.currently_maintenance_being_done(), preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: Localize.ok(), style: .default, handler: { (action) in
         }))
         
         self.present(alert, animated: true)
@@ -187,7 +187,7 @@ extension UIViewController{
     
     @IBAction func logout(_ sender: UIButton) {
         
-        self.showSimpleAlertWithAction(title: Localize.logOut(), message: Localize.areYouSureYouWantToLogOut(),
+        self.showSimpleAlertWithAction(title: Localize.log_out(), message: Localize.are_you_sure_you_want_log_out(),
                                        okAction: UIAlertAction(title: Localize.confirm(), style: .default, handler: { (action) in
                                         
                                         self.logoutOptions()
@@ -215,10 +215,10 @@ extension UIViewController{
                 }else if statusCode == 422 {
                     self.logoutAction()
                 }else if statusCode == 404 {
-                    self.showSimpleAlertWithSingleAction(title: "Error!".localized(), message: "", okAction: UIAlertAction(title: "OK", style: .default, handler: { (action) in
+                    self.showSimpleAlertWithSingleAction(title: Localize.error(), message: "", okAction: UIAlertAction(title: Localize.ok(), style: .default, handler: { (action) in
                     }))
                 }else if statusCode == 500 {
-                    self.showSimpleAlertWithSingleAction(title: "Error!".localized(), message: "", okAction: UIAlertAction(title: "OK", style: .default, handler: { (action) in
+                    self.showSimpleAlertWithSingleAction(title: Localize.error(), message: "", okAction: UIAlertAction(title: Localize.ok(), style: .default, handler: { (action) in
                     }))
                 }else if statusCode == 401 {
                     self.logoutAction()
@@ -334,11 +334,11 @@ extension UIViewController{
     }
     
     func addShortcuts(application: UIApplication) {
-        let voucherItem = UIMutableApplicationShortcutItem(type: "Vouchers", localizedTitle: "Voucher", localizedSubtitle: "", icon: UIApplicationShortcutIcon(templateImageName: "wallet"), userInfo: nil)
+        let voucherItem = UIMutableApplicationShortcutItem(type: "Vouchers", localizedTitle: Localize.vouchers(), localizedSubtitle: "", icon: UIApplicationShortcutIcon(templateImageName: "wallet"), userInfo: nil)
         
         let qrItem = UIMutableApplicationShortcutItem(type: "QR", localizedTitle: "QR", localizedSubtitle: "", icon: UIApplicationShortcutIcon(templateImageName: "iconGrey"), userInfo: nil)
         
-        let recordItem = UIMutableApplicationShortcutItem(type: "Profile", localizedTitle: "Profile".localized(), localizedSubtitle: "", icon: UIApplicationShortcutIcon(templateImageName: "activeBlue"), userInfo: nil)
+        let recordItem = UIMutableApplicationShortcutItem(type: "Profile", localizedTitle: Localize.profile(), localizedSubtitle: "", icon: UIApplicationShortcutIcon(templateImageName: "activeBlue"), userInfo: nil)
         
         application.shortcutItems = [voucherItem, qrItem, recordItem]
     }

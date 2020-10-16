@@ -90,13 +90,13 @@ class MPaymentViewController: UIViewController {
                     self.present(vc, animated: true)
                 }else {
                     
-                    showSimpleAlert(title: "Warning".localized(), message: "A payment of € 0.01 is too low to be paid out, choose a higher amount.".localized())
+                    showSimpleAlert(title: Localize.warning(), message: Localize.payment_of_001_is_to_low_to_be_paid_out_choose_highe_amount())
                     
                 }
                 
             } else {
                 
-                showSimpleAlert(title: "Warning".localized(), message: "Please enter the amount".localized())
+                showSimpleAlert(title: Localize.warning(), message: Localize.please_enter_the_amount())
                 
             }
             

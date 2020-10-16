@@ -24,7 +24,7 @@ class MSuccessEmailViewController: UIViewController {
         setupAccessibility()
         NotificationCenter.default.addObserver(self, selector: #selector(logIn), name: NotificationName.LoginQR, object: nil)
         
-        let mainString = String(format: Localize.clickOnTheLinkYouReceivedOnToContinue(email))
+        let mainString = String(format: Localize.click_on_link_you_received_continue(email))
         let range = (mainString as NSString).range(of: email ?? "")
         
         let attributedString = NSMutableAttributedString(string:mainString)

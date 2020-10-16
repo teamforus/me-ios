@@ -15,6 +15,7 @@ extension UIView {
         self.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
         self.alpha = 0.0;
         UIView.animate(withDuration: 0.25, animations: {
+            self.isHidden = false
             self.alpha = 1.0
             self.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
         });
@@ -31,6 +32,23 @@ extension UIView {
                 self.isHidden = true
             }
         });
+    }
+}
+
+extension UIView {
+    func rounded(cornerRadius: CGFloat) {
+        layer.cornerRadius = cornerRadius
+        layer.masksToBounds = true
+    }
+    
+    var corner: CGFloat {
+        get {
+            return layer.cornerRadius
+        }
+        set {
+            layer.cornerRadius = newValue
+            rounded(cornerRadius: newValue)
+        }
     }
 }
 

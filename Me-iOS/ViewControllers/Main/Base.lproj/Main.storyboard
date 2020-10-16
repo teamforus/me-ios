@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Tng-OZ-lXd">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Tng-OZ-lXd">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -24,9 +24,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You have no vouchers yet" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r3k-mS-eBG">
-                                <rect key="frame" x="90.5" y="322.5" width="194.5" height="22"/>
-                                <fontDescription key="fontDescription" name="GoogleSans-Regular" family="Google Sans" pointSize="17"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="voucher" translatesAutoresizingMaskIntoConstraints="NO" id="99N-2s-O9Z">
+                                <rect key="frame" x="72.5" y="218.5" width="230" height="230"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Op deze pagina ziet u de tegoeden die u krijgt. U heeft nog geen tegoeden gekregen." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9G1-Sj-fzE" customClass="UILabel_DarkMode" customModule="Me_iOS" customModuleProvider="target">
+                                <rect key="frame" x="18" y="494.5" width="338" height="41"/>
+                                <fontDescription key="fontDescription" name="GoogleSans-Regular" family="Google Sans" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -162,7 +165,7 @@
                                                                     <color key="textColor" red="0.93725490199999995" green="0.13725490200000001" blue="0.25882352939999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zxC-kb-uGI">
+                                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zxC-kb-uGI">
                                                                     <rect key="frame" x="0.0" y="0.0" width="66" height="74"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                 </button>
@@ -189,7 +192,7 @@
                                                                     <rect key="frame" x="26" y="25" width="11" height="7"/>
                                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                                                 </imageView>
-                                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BPR-4r-QDJ">
+                                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BPR-4r-QDJ">
                                                                     <rect key="frame" x="0.0" y="-2" width="68" height="74"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                 </button>
@@ -248,21 +251,37 @@
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sqn-yz-irD">
+                                <rect key="frame" x="302" y="89" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="NIQ-9Z-umr"/>
+                                    <constraint firstAttribute="width" constant="50" id="fAm-d5-XtF"/>
+                                </constraints>
+                                <state key="normal" image="list of transactions"/>
+                                <connections>
+                                    <action selector="openTransaction:" destination="PMk-nO-j9W" eventType="touchUpInside" id="poe-DN-Lrp"/>
+                                </connections>
+                            </button>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="var-xZ-gwZ"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="5yR-zH-dKR" firstAttribute="trailing" secondItem="var-xZ-gwZ" secondAttribute="trailing" id="1UX-Kv-Ee9"/>
+                            <constraint firstItem="9G1-Sj-fzE" firstAttribute="top" secondItem="99N-2s-O9Z" secondAttribute="bottom" constant="46" id="5VA-Py-ubA"/>
                             <constraint firstItem="5yR-zH-dKR" firstAttribute="leading" secondItem="var-xZ-gwZ" secondAttribute="leading" id="DRo-IW-Uwb"/>
-                            <constraint firstItem="r3k-mS-eBG" firstAttribute="centerX" secondItem="var-xZ-gwZ" secondAttribute="centerX" id="O2q-2g-obv"/>
+                            <constraint firstItem="99N-2s-O9Z" firstAttribute="centerX" secondItem="r2N-kg-LZp" secondAttribute="centerX" id="K8d-HM-pkn"/>
+                            <constraint firstItem="9G1-Sj-fzE" firstAttribute="leading" secondItem="var-xZ-gwZ" secondAttribute="leading" constant="18" id="QFo-EP-dkQ"/>
                             <constraint firstItem="5yR-zH-dKR" firstAttribute="top" secondItem="JOr-Qw-UNr" secondAttribute="bottom" constant="3" id="Slf-hE-2kM"/>
                             <constraint firstItem="5yR-zH-dKR" firstAttribute="bottom" secondItem="var-xZ-gwZ" secondAttribute="bottom" id="UCa-Vy-jqm"/>
-                            <constraint firstItem="r3k-mS-eBG" firstAttribute="centerY" secondItem="var-xZ-gwZ" secondAttribute="centerY" constant="24.5" id="Vo1-Cq-KM1"/>
                             <constraint firstItem="JOr-Qw-UNr" firstAttribute="leading" secondItem="var-xZ-gwZ" secondAttribute="leading" constant="20" id="WS9-Ze-71U"/>
+                            <constraint firstItem="var-xZ-gwZ" firstAttribute="trailing" secondItem="Sqn-yz-irD" secondAttribute="trailing" constant="23" id="XVG-CS-kRA"/>
+                            <constraint firstItem="99N-2s-O9Z" firstAttribute="centerY" secondItem="r2N-kg-LZp" secondAttribute="centerY" id="aOu-Mv-acp"/>
+                            <constraint firstItem="var-xZ-gwZ" firstAttribute="trailing" secondItem="9G1-Sj-fzE" secondAttribute="trailing" constant="19" id="dtw-g4-h5Y"/>
+                            <constraint firstItem="Sqn-yz-irD" firstAttribute="top" secondItem="r2N-kg-LZp" secondAttribute="top" constant="89" id="fz6-l4-b9V"/>
                             <constraint firstItem="JOr-Qw-UNr" firstAttribute="top" secondItem="r2N-kg-LZp" secondAttribute="top" constant="90" id="kXe-31-7Sb"/>
                             <constraint firstItem="var-xZ-gwZ" firstAttribute="trailing" secondItem="JOr-Qw-UNr" secondAttribute="trailing" constant="20" id="rOD-RF-Buj"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="var-xZ-gwZ"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="string" keyPath="colorName" value="WhiteBackground_DarkTheme"/>
                         </userDefinedRuntimeAttributes>
@@ -273,6 +292,7 @@
                         <outlet property="segmentView" destination="Lm7-ui-J0c" id="CiD-lV-xoz"/>
                         <outlet property="tableView" destination="5yR-zH-dKR" id="Hve-CW-lin"/>
                         <outlet property="titleLabel" destination="JOr-Qw-UNr" id="4B4-W3-BOk"/>
+                        <outlet property="transactionButton" destination="Sqn-yz-irD" id="pww-pb-WI1"/>
                         <segue destination="yXS-8F-HEa" kind="show" identifier="goToVoucher" id="o6s-gf-Hnr"/>
                         <segue destination="oem-tR-Bhz" kind="show" identifier="goToProduct" id="tzZ-Ns-oe3"/>
                     </connections>
@@ -312,8 +332,8 @@
                     <view key="view" contentMode="scaleToFill" id="0VD-IQ-POD">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="iXk-vG-U9X"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="QR" image="iconGrey" id="ScF-cs-iUb"/>
                     <connections>
@@ -474,7 +494,7 @@
                                     <outlet property="delegate" destination="co2-L5-wDG" id="qZS-eX-DiY"/>
                                 </connections>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fxb-bV-R86" customClass="ShadowButton" customModule="Me_iOS" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fxb-bV-R86" customClass="ShadowButton" customModule="Me_iOS" customModuleProvider="target">
                                 <rect key="frame" x="20" y="176" width="341" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.91764705879999997" green="0.94117647059999998" blue="0.99607843139999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -513,6 +533,7 @@
                                 </connections>
                             </button>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="hQ2-i6-qrA"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="QFd-Zz-7yk" secondAttribute="bottom" id="37f-tq-Etg"/>
@@ -520,7 +541,6 @@
                             <constraint firstItem="QFd-Zz-7yk" firstAttribute="top" secondItem="hQ2-i6-qrA" secondAttribute="top" constant="207" id="dgF-MP-XOH"/>
                             <constraint firstItem="QFd-Zz-7yk" firstAttribute="leading" secondItem="hQ2-i6-qrA" secondAttribute="leading" id="ycw-h4-bi9"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="hQ2-i6-qrA"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="string" keyPath="colorName" value="WhiteBackground_DarkTheme"/>
                         </userDefinedRuntimeAttributes>
@@ -576,15 +596,25 @@
             <point key="canvasLocation" x="2380" y="-620"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="Nks-7K-xN8">
+            <size key="intrinsicContentSize" width="30" height="34"/>
+        </designable>
+        <designable name="fxb-bV-R86">
+            <size key="intrinsicContentSize" width="126" height="26"/>
+        </designable>
+    </designables>
     <resources>
         <image name="Oval 2 Copy" width="51" height="51"/>
         <image name="Resting" width="210" height="210"/>
         <image name="activeBlue" width="30" height="26"/>
         <image name="eth" width="52" height="52"/>
         <image name="iconGrey" width="30" height="26"/>
+        <image name="list of transactions" width="51" height="51"/>
         <image name="records" width="30" height="26"/>
         <image name="rectangle" width="10" height="7"/>
         <image name="rectangleRed" width="9" height="7"/>
+        <image name="voucher" width="230" height="230"/>
         <image name="wallet" width="30" height="26"/>
     </resources>
 </document>
