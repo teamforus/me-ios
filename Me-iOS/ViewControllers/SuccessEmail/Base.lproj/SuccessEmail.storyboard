@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Dvo-As-KDQ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Dvo-As-KDQ">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -168,6 +168,7 @@
                         <outlet property="openMailButton" destination="Opf-SA-edo" id="biI-Fx-6ar"/>
                         <outlet property="showQRCodeButton" destination="pqB-sU-g6i" id="fXe-Me-1le"/>
                         <outlet property="textLabel" destination="YLd-Ch-JFi" id="uwg-rh-T64"/>
+                        <outlet property="titleLabel" destination="zQC-jP-eMe" id="iUJ-qn-lOA"/>
                         <segue destination="MJz-0w-Aaw" kind="presentation" identifier="goToSuccessRegister" modalPresentationStyle="fullScreen" id="qao-pc-Zzq"/>
                     </connections>
                 </viewController>

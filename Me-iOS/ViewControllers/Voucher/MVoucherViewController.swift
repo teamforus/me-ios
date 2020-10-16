@@ -20,7 +20,8 @@ class MVoucherViewController: UIViewController {
     @IBOutlet weak var sendEmailButton: ShadowButton!
     @IBOutlet weak var voucherInfoButton: ShadowButton!
     @IBOutlet weak var qrCodeButton: UIButton!
-    
+    @IBOutlet weak var customCorrnerView: CustomCornerUIView!
+  
     lazy var voucherViewModel: VoucherViewModel = {
         return VoucherViewModel()
     }()
@@ -169,7 +170,8 @@ extension MVoucherViewController: AccessibilityProtocol {
         sendEmailButton.setupAccesibility(description: "Send voucher on email", accessibilityTraits: .button)
         voucherInfoButton.setupAccesibility(description: "Go to voucher info", accessibilityTraits: .button)
         qrCodeButton.setupAccesibility(description: "Tap to open qr code modal", accessibilityTraits: .button)
-    }
+        self.customCorrnerView.setupAccesibility(description: "Transaction View", accessibilityTraits: .none)
+   }
 }
 
 extension MVoucherViewController{
@@ -202,3 +204,5 @@ extension MVoucherViewController{
         return false
     }
 }
+
+

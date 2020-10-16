@@ -1874,7 +1874,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "#\"${PODS_ROOT}/R.swift/rswift\" generate \"$SRCROOT/Me-iOS/Resources/R.generated.swift\"\n";
+			shellScript = "\"${PODS_ROOT}/R.swift/rswift\" generate \"$SRCROOT/Me-iOS/Resources/R.generated.swift\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8v4-1k-45a">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8v4-1k-45a">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -112,7 +112,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U7Z-Ww-Elr" customClass="Background_DarkMode" customModule="Me_iOS" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="255" width="406" height="226"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lU2-HW-tbQ" customClass="ShadowButton" customModule="Me_iOS" customModuleProvider="target">
+                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lU2-HW-tbQ" customClass="ShadowButton" customModule="Me_iOS" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="415" height="59"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -144,7 +144,7 @@
                                                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="color" keyPath="selectedTitleColor">
-                                                                        <color key="value" cocoaTouchSystemColor="darkTextColor"/>
+                                                                        <color key="value" systemColor="darkTextColor"/>
                                                                     </userDefinedRuntimeAttribute>
                                                                     <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
                                                                         <color key="value" red="0.4546945691" green="0.45857155319999998" blue="0.47512608769999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -181,7 +181,7 @@
                                                                 <textInputTraits key="textInputTraits"/>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="color" keyPath="selectedTitleColor">
-                                                                        <color key="value" cocoaTouchSystemColor="darkTextColor"/>
+                                                                        <color key="value" systemColor="darkTextColor"/>
                                                                     </userDefinedRuntimeAttribute>
                                                                     <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
                                                                         <color key="value" red="0.4546945691" green="0.45857155319999998" blue="0.47512608769999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -235,7 +235,7 @@
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="riy-om-vAr" customClass="ShadowButton" customModule="Me_iOS" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="riy-om-vAr" customClass="ShadowButton" customModule="Me_iOS" customModuleProvider="target">
                                                 <rect key="frame" x="10" y="507" width="394" height="36"/>
                                                 <color key="backgroundColor" red="0.19183093309999999" green="0.36965066190000001" blue="0.99199551340000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
@@ -298,6 +298,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="drr-Sf-hDr"/>
                         <color key="backgroundColor" red="0.96852236989999996" green="0.96868795159999999" blue="0.96851199870000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="F3Q-yG-rDj" firstAttribute="leading" secondItem="c6l-wm-m2V" secondAttribute="leading" id="4Gs-zj-GmM"/>
@@ -307,7 +308,6 @@
                             <constraint firstAttribute="trailing" secondItem="F3Q-yG-rDj" secondAttribute="trailing" id="SNw-0I-8GX"/>
                             <constraint firstItem="F3Q-yG-rDj" firstAttribute="top" secondItem="c6l-wm-m2V" secondAttribute="top" constant="-15" id="osa-qg-2qG"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="drr-Sf-hDr"/>
                     </view>
                     <connections>
                         <outlet property="allowedOriganizationLabel" destination="7sB-in-Tb1" id="TqX-Gc-zHz"/>
@@ -335,11 +335,31 @@
             <point key="canvasLocation" x="-504.34782608695656" y="216.96428571428569"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="K4b-9o-1Nt">
+            <size key="intrinsicContentSize" width="16" height="16"/>
+        </designable>
+        <designable name="lU2-HW-tbQ">
+            <size key="intrinsicContentSize" width="30" height="30"/>
+        </designable>
+        <designable name="ncG-YG-kKU">
+            <size key="intrinsicContentSize" width="24" height="24"/>
+        </designable>
+        <designable name="riy-om-vAr">
+            <size key="intrinsicContentSize" width="165" height="29"/>
+        </designable>
+    </designables>
     <resources>
         <image name="5XVoucherSurface" width="345" height="120"/>
         <image name="back" width="24" height="24"/>
         <image name="face24Px" width="24" height="24"/>
         <image name="qrV" width="16" height="16"/>
         <image name="roundedRight" width="72" height="72"/>
+        <systemColor name="darkTextColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="darkTextColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>

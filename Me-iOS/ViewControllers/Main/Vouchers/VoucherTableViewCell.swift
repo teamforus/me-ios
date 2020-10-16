@@ -62,6 +62,7 @@ class VoucherTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         self.usedVoucherLabel.isHidden = true
+  //    setupAccessibility(with: (voucher?.fund?.name)!, and: (voucher?.fund?.organization?.name)!)
         setupIcon()
         self.selectionStyle = .none
         if #available(iOS 11.0, *) {
@@ -87,4 +88,10 @@ class VoucherTableViewCell: UITableViewCell {
         self.voucherImage.layer.borderWidth = 1
     }
     
+}
+
+extension VoucherTableViewCell {
+  func setupAccessibility(with voucherName: String, and voucherOrganization: String) {
+    self.bodyView.setupAccesibility(description: Localize.record() + voucherName + voucherOrganization, accessibilityTraits: .button)
+  }
 }

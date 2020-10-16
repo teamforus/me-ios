@@ -237,3 +237,9 @@ extension MPaymentViewController: UITextFieldDelegate{
     }
     
 }
+extension MPaymentViewController: AccessibilityProtocol {
+    func setupAccessibility() {
+     // sendEmailButton.chooseOrganizationButton(description: "Choose Organization Button", accessibilityTraits: .button)
+       
+   }
+}

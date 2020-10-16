@@ -291,6 +291,7 @@
                         <outlet property="segmentController" destination="oKA-aH-qQQ" id="LVJ-qV-QeT"/>
                         <outlet property="segmentView" destination="Lm7-ui-J0c" id="CiD-lV-xoz"/>
                         <outlet property="tableView" destination="5yR-zH-dKR" id="Hve-CW-lin"/>
+                        <outlet property="titleLabel" destination="JOr-Qw-UNr" id="4B4-W3-BOk"/>
                         <outlet property="transactionButton" destination="Sqn-yz-irD" id="pww-pb-WI1"/>
                         <segue destination="yXS-8F-HEa" kind="show" identifier="goToVoucher" id="o6s-gf-Hnr"/>
                         <segue destination="oem-tR-Bhz" kind="show" identifier="goToProduct" id="tzZ-Ns-oe3"/>
@@ -548,6 +549,7 @@
                     <connections>
                         <outlet property="newRecordButton" destination="fxb-bV-R86" id="b9a-RU-YPd"/>
                         <outlet property="tableView" destination="QFd-Zz-7yk" id="YBe-Oq-XqT"/>
+                        <outlet property="titileLabel" destination="uLp-89-Zk0" id="mbt-yo-Pe8"/>
                         <outlet property="topConstraint" destination="dgF-MP-XOH" id="Qok-L6-fWN"/>
                     </connections>
                 </viewController>
