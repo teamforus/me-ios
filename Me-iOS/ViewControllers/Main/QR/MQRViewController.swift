@@ -31,7 +31,6 @@ class MQRViewController: HSScanViewController {
         
         self.delegate = self
         self.scanCodeTypes  = [.qr]
-        setupAccessibility()
         qrViewModel.vc = self
         qrViewModel.vcAlert = self
         
@@ -41,7 +40,6 @@ class MQRViewController: HSScanViewController {
                 if statusCode != 503 {
                     
                     self?.scanWorker.start()
-                    
                 }else {
                     
                     self?.showErrorServer()
@@ -203,6 +201,7 @@ class MQRViewController: HSScanViewController {
         }
         if scanWorker != nil {
             scanWorker.start()
+            setupAccessibility()
         }
     }
     
