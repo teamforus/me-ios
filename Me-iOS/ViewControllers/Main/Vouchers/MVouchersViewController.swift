@@ -223,8 +223,8 @@ extension MVouchersViewController: UITableViewDelegate, UITableViewDataSource{
             return cell
         case .vouchers?:
             let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! VoucherTableViewCell
-            
-            cell.voucher = voucherViewModel.getCellViewModel(at: indexPath)
+            let voucher = voucherViewModel.getCellViewModel(at: indexPath)
+            cell.setupVoucher(voucher: voucher)
             
             return cell
         default:

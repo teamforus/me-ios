@@ -205,6 +205,7 @@
 		FF8D90F8251BCCAC0035B8D7 /* Preference.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8D90F7251BCCAC0035B8D7 /* Preference.swift */; };
 		FF9B7157248503F100BBCAA3 /* MMainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9B7156248503F100BBCAA3 /* MMainTabBarController.swift */; };
 		FF9B715924851A5900BBCAA3 /* AppVersionUpdateNotifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9B715824851A5900BBCAA3 /* AppVersionUpdateNotifier.swift */; };
+		FF9C60D1253DD405006F6979 /* MActionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9C60D0253DD405006F6979 /* MActionsViewController.swift */; };
 		FFB76E0E24E94ABB00CFB195 /* UICheckbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB76E0224E9490600CFB195 /* UICheckbox.swift */; };
 		FFB76E0F24E94AC200CFB195 /* AnimationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB76DF324E948B700CFB195 /* AnimationManager.swift */; };
 		FFB76E1024E94AC200CFB195 /* CircleLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB76DF424E948B700CFB195 /* CircleLayer.swift */; };
@@ -511,6 +512,7 @@
 		FF8D90F7251BCCAC0035B8D7 /* Preference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preference.swift; sourceTree = "<group>"; };
 		FF9B7156248503F100BBCAA3 /* MMainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMainTabBarController.swift; sourceTree = "<group>"; };
 		FF9B715824851A5900BBCAA3 /* AppVersionUpdateNotifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppVersionUpdateNotifier.swift; sourceTree = "<group>"; };
+		FF9C60D0253DD405006F6979 /* MActionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MActionsViewController.swift; sourceTree = "<group>"; };
 		FFB76DF324E948B700CFB195 /* AnimationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AnimationManager.swift; path = KVSpinnerView/AnimationManager.swift; sourceTree = "<group>"; };
 		FFB76DF424E948B700CFB195 /* CircleLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CircleLayer.swift; path = KVSpinnerView/Layers/CircleLayer.swift; sourceTree = "<group>"; };
 		FFB76DF524E948B700CFB195 /* KVSpinnerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = KVSpinnerView.swift; path = KVSpinnerView/KVSpinnerView.swift; sourceTree = "<group>"; };
@@ -1106,6 +1108,7 @@
 		65A8B6E82282CBB000B7DF05 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				FF9C60CF253DD405006F6979 /* Actions */,
 				655D647A2315A21600EABD57 /* FirstPage */,
 				657DBA47228986F900C67500 /* PullUp */,
 				65A8B6E72282CB9800B7DF05 /* LoginQRandCode */,
@@ -1538,6 +1541,14 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
+		FF9C60CF253DD405006F6979 /* Actions */ = {
+			isa = PBXGroup;
+			children = (
+				FF9C60D0253DD405006F6979 /* MActionsViewController.swift */,
+			);
+			path = Actions;
+			sourceTree = "<group>";
+		};
 		FFB76E0124E948B700CFB195 /* KVSpinnerView */ = {
 			isa = PBXGroup;
 			children = (
@@ -1953,6 +1964,7 @@
 				FF8D90E4251BBBA70035B8D7 /* ToolTip.swift in Sources */,
 				65F1BB1A229EBCB5007D2C8A /* MChooseTypeRecordViewController.swift in Sources */,
 				FF5691272514BFB500CD0343 /* MDatePickerView.swift in Sources */,
+				FF9C60D1253DD405006F6979 /* MActionsViewController.swift in Sources */,
 				658B487022ABF3C500B6236C /* MAboutViewController.swift in Sources */,
 				65F1BB1D229EBF0A007D2C8A /* MChooseTypeTableViewCell.swift in Sources */,
 				65139C6B22802C25003E0CDE /* MLoginQRAndCodeViewController.swift in Sources */,

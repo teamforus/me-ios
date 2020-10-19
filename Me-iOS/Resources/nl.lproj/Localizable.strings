@@ -167,3 +167,7 @@
 "fund" = "Fonds";
 "transaction_details" = "Transactie details";
 "transactions" = "Transacties";
+"payment" = "BETALING";
+"choose_validator" = "Kies validator";
+"choose_organization" = "Kies organisatie";
+"no_balance_for_actions" = "Geen saldo voor uw acties";

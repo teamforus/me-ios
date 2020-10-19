@@ -119,7 +119,9 @@ class MQRViewController: HSScanViewController {
                 if statusCode != 503 {
                     KVSpinnerView.dismiss()
                     if statusCode != 403 {
-                            self?.voucher = voucher
+                        self?.voucher = voucher
+                        
+                        if voucher.fund?.type != FundType.subsidies.rawValue {
                             
                             if voucher.allowed_organizations?.count != 0 && voucher.allowed_organizations?.count  != nil {
                                 
@@ -147,6 +149,9 @@ class MQRViewController: HSScanViewController {
                                                                         self?.scanWorker.start()
                                                                       }))
                             }
+                        }else {
+                            self?.openSubsidies()
+                        }
                     }else {
                         
                         self?.showSimpleAlertWithSingleAction(title: Localize.error_exclamation(), message: Localize.you_cant_scan_this_voucher_you_are_not_accepted_as_provider_for_fund(), okAction: UIAlertAction(title: Localize.ok(), style: .default, handler: { (action) in
@@ -179,13 +184,12 @@ class MQRViewController: HSScanViewController {
                         self.performSegue(withIdentifier: R.segue.mqrViewController.goToVoucherPayment, sender: nil)
                     }
                 }else {
-                
+                    
                     self.showSimpleAlertWithSingleAction(title: Localize.error_exclamation(),
                                                          message: Localize.the_voucher_is_empty(),
                                                      okAction: UIAlertAction(title: Localize.ok(), style: .default, handler: { (action) in
                                                                                    self.scanWorker.start()
                                                                                  }))
-                }
             }
         }
     }
@@ -287,6 +291,10 @@ extension MQRViewController: HSScanViewControllerDelegate{
 }
 
 extension MQRViewController: OrganizationValidatorViewControllerDelegate {
+    func selectOrganizationVoucher(organization: AllowedOrganization, vc: UIViewController) {
+        
+    }
+    
     
     func close() {
         self.scanWorker.start()
@@ -300,6 +308,15 @@ extension MQRViewController: OrganizationValidatorViewControllerDelegate {
                                        }),
                                        cancelAction: UIAlertAction(title: Localize.cancel(), style: .cancel, handler: { (action) in
                                        }))
+    }
+}
+
+extension MQRViewController {
+    func openSubsidies() {
+        let actionsVC = MActionsViewController()
+        actionsVC.modalPresentationStyle = .fullScreen
+        actionsVC.voucher = voucher
+        self.present(actionsVC, animated: true)
     }
 }
 
