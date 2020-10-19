@@ -458,7 +458,7 @@ struct R: Rswift.Validatable {
   }
   #endif
 
-  /// This `R.color` struct is generated, and contains static references to 10 colors.
+  /// This `R.color` struct is generated, and contains static references to 11 colors.
   struct color {
     /// Color `Background_DarkTheme`.
     static let background_DarkTheme = Rswift.ColorResource(bundle: R.hostingBundle, name: "Background_DarkTheme")
@@ -2749,7 +2749,7 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
 
-    /// This `R.string.localizable` struct is generated, and contains static references to 158 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 162 localization keys.
     struct localizable {
       /// en translation: %@ Don't Available
       ///

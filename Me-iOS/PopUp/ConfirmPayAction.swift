@@ -34,7 +34,7 @@ class ConfirmPayAction: UIView {
     private let titleLabel: UILabel_DarkMode = {
         let label = UILabel_DarkMode(frame: .zero)
         label.font = UIFont(name: "GoogleSans-Medium", size: 24)
-        label.text = Localize.confirmTransaction()
+        label.text = Localize.confirm_transaction()
         return label
     }()
     
@@ -168,19 +168,19 @@ extension ConfirmPayAction {
                 KVSpinnerView.dismiss()
                 if statusCode == 201 {
                     
-                    self.vc.showSimpleAlertWithSingleAction(title: Localize.success(), message: Localize.paymentSucceeded(), okAction: UIAlertAction(title: Localize.ok(), style: .default, handler: { (action) in
+                    self.vc.showSimpleAlertWithSingleAction(title: Localize.success(), message: Localize.payment_succeeded(), okAction: UIAlertAction(title: Localize.ok(), style: .default, handler: { (action) in
                         
                             self.vc.presentingViewController?.presentingViewController?.dismiss(animated: true)
                     }))
                 }else if statusCode == 401 {
                     DispatchQueue.main.async {
                         KVSpinnerView.dismiss()
-                        self.vc.showSimpleAlertWithSingleAction(title: Localize.expiredSession(), message: Localize.yourSessionHasExpiredYouAreBeingLoggedOut() , okAction: UIAlertAction(title: Localize.logOut(), style: .default, handler: { (action) in
+                        self.vc.showSimpleAlertWithSingleAction(title: Localize.expired_session(), message: Localize.your_session_has_expired() , okAction: UIAlertAction(title: Localize.log_out(), style: .default, handler: { (action) in
                             self.vc.logoutOptions()
                         }))
                     }
                 }else {
-                    self.vc.showSimpleAlertWithSingleAction(title: Localize.warning(), message: Localize.voucherNotHaveEnoughFunds(), okAction: UIAlertAction(title: Localize.ok(), style: .default, handler: { (action) in
+                    self.vc.showSimpleAlertWithSingleAction(title: Localize.warning(), message: Localize.voucher_not_have_enough_funds(), okAction: UIAlertAction(title: Localize.ok(), style: .default, handler: { (action) in
                     }))
                 }
             }
