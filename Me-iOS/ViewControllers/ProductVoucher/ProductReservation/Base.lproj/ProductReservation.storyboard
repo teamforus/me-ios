@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="DE0-y8-cjP">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="DE0-y8-cjP">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -36,7 +36,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="back"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p2L-9M-BC2">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p2L-9M-BC2">
                                 <rect key="frame" x="21" y="27" width="52" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -127,7 +127,7 @@
                                     <outlet property="delegate" destination="DE0-y8-cjP" id="Rq5-0G-CqA"/>
                                 </connections>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uzM-Me-hi0" customClass="ShadowButton" customModule="Me_iOS" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uzM-Me-hi0" customClass="ShadowButton" customModule="Me_iOS" customModuleProvider="target">
                                 <rect key="frame" x="15" y="607" width="345" height="40"/>
                                 <color key="backgroundColor" red="0.26662361621856689" green="0.42916452884674072" blue="0.99131852388381958" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -147,6 +147,7 @@
                                 </connections>
                             </button>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="Jjn-yc-EIQ"/>
                         <color key="backgroundColor" red="0.96852236986160278" green="0.96868795156478882" blue="0.96851199865341187" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="ulm-Fy-ecA" firstAttribute="top" secondItem="D4r-5y-DST" secondAttribute="bottom" constant="15" id="39V-sz-eJ9"/>
@@ -160,7 +161,6 @@
                             <constraint firstItem="Jjn-yc-EIQ" firstAttribute="trailing" secondItem="uzM-Me-hi0" secondAttribute="trailing" constant="15" id="kMP-qP-wri"/>
                             <constraint firstItem="ulm-Fy-ecA" firstAttribute="trailing" secondItem="Jjn-yc-EIQ" secondAttribute="trailing" id="wRT-q5-wJc"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="Jjn-yc-EIQ"/>
                     </view>
                     <connections>
                         <outlet property="completeAnAmountButton" destination="uzM-Me-hi0" id="QLF-ht-P4D"/>
@@ -182,6 +182,14 @@
             <point key="canvasLocation" x="638" y="70"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="jQ4-FZ-DXr">
+            <size key="intrinsicContentSize" width="210" height="210"/>
+        </designable>
+        <designable name="uzM-Me-hi0">
+            <size key="intrinsicContentSize" width="185" height="32"/>
+        </designable>
+    </designables>
     <inferredMetricsTieBreakers>
         <segue reference="n7a-Va-rEj"/>
     </inferredMetricsTieBreakers>
