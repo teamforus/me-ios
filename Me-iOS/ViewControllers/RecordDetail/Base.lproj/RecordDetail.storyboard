@@ -72,7 +72,7 @@
                                                     <constraint firstAttribute="height" constant="154" id="F9m-Gm-fHT"/>
                                                 </constraints>
                                                 <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="string" keyPath="colorName" value="WhiteBackground_DarkTheme"/>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="colorName" value="DarkGray_DarkTheme"/>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QIh-w6-1ts" customClass="CustomCornerUIView" customModule="Me_iOS" customModuleProvider="target">
@@ -183,6 +183,9 @@
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                     </subviews>
+                                                                    <userDefinedRuntimeAttributes>
+                                                                        <userDefinedRuntimeAttribute type="string" keyPath="colorName" value="DarkGray_DarkTheme"/>
+                                                                    </userDefinedRuntimeAttributes>
                                                                 </tableViewCellContentView>
                                                                 <connections>
                                                                     <outlet property="dateLabel" destination="tEb-WA-zaT" id="QOK-UW-Iq8"/>
@@ -192,6 +195,9 @@
                                                                 </connections>
                                                             </tableViewCell>
                                                         </prototypes>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="colorName" value="DarkGray_DarkTheme"/>
+                                                        </userDefinedRuntimeAttributes>
                                                         <connections>
                                                             <outlet property="dataSource" destination="KwI-hr-Xm2" id="zj1-40-pfn"/>
                                                             <outlet property="delegate" destination="KwI-hr-Xm2" id="2s4-Gv-N7D"/>
@@ -223,7 +229,7 @@
                                                     <constraint firstItem="eLc-rs-IT8" firstAttribute="leading" secondItem="p8d-0D-h6c" secondAttribute="leading" constant="20" id="obg-G7-gz8"/>
                                                 </constraints>
                                                 <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="string" keyPath="colorName" value="WhiteBackground_DarkTheme"/>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="colorName" value="DarkGray_DarkTheme"/>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="owV-nu-EIT">
@@ -257,7 +263,7 @@
                                             <constraint firstItem="wkF-nC-4b3" firstAttribute="top" secondItem="X5u-H2-PWb" secondAttribute="top" id="ymA-ft-f8M"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="colorName" value="Background_Voucher_DarkTheme"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="colorName" value="WhiteBackground_DarkTheme"/>
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                 </subviews>
@@ -268,7 +274,7 @@
                                     <constraint firstItem="X5u-H2-PWb" firstAttribute="leading" secondItem="0Jx-hd-zPA" secondAttribute="leading" id="zcw-6W-MCB"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="colorName" value="Background_DarkTheme"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="colorName" value="WhiteBackground_DarkTheme"/>
                                 </userDefinedRuntimeAttributes>
                             </scrollView>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="353-Ql-vhs" customClass="StatusView" customModule="Me_iOS" customModuleProvider="target">
@@ -276,7 +282,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="colorName" value="Background_DarkTheme"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="colorName" value="DarkGray_DarkTheme"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
@@ -428,9 +434,6 @@
         </designable>
         <designable name="XXm-PG-izE">
             <size key="intrinsicContentSize" width="128" height="29"/>
-        </designable>
-        <designable name="yub-pu-SaO">
-            <size key="intrinsicContentSize" width="36" height="11"/>
         </designable>
     </designables>
     <resources>

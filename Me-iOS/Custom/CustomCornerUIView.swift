@@ -80,6 +80,7 @@ class CustomCornerUIView: Background_DarkMode {
     }
   }
   
+  
   override init(frame: CGRect) {
     super.init(frame: frame)
     self.layer.masksToBounds = false
