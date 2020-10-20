@@ -68,3 +68,40 @@ class UIButtonShadow_DarkMode: ShadowButton {
   }
   
 }
+
+class  UIButtonBackground_DarkMode: UIButton{
+  
+  override init(frame: CGRect) {
+    super.init(frame: frame)
+    setDarkModeButton()
+  }
+  
+  @IBInspectable var colorName :String = "Background_DarkTheme" {
+    didSet {
+      setSelectedColorName()
+    }
+  }
+  
+  required init(coder: NSCoder) {
+    super.init(coder: coder)!
+    setDarkModeButton()
+  }
+  
+  func setDarkModeButton(){
+    
+    //self.setImage(image, for: .normal)
+    if #available(iOS 11.0, *) {
+      self.tintColor = UIColor(named: "Background_DarkTheme")
+    } else {
+      // Fallback on earlier versions
+    }
+  }
+  
+  func setSelectedColorName() {
+    if #available(iOS 11.0, *) {
+      self.backgroundColor = UIColor(named: colorName)
+    } else {
+      // Fallback on earlier versions
+    }
+  }
+}
