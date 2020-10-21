@@ -119,7 +119,7 @@
                                                     <constraint firstAttribute="height" constant="240" id="aDz-eT-h6G"/>
                                                 </constraints>
                                                 <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="string" keyPath="colorName" value="DarkGray_DarkTheme"/>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="colorName" value="Background_Voucher_DarkTheme"/>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U7Z-Ww-Elr" customClass="Background_DarkMode" customModule="Me_iOS" customModuleProvider="target">
@@ -373,7 +373,7 @@
             <size key="intrinsicContentSize" width="24" height="24"/>
         </designable>
         <designable name="riy-om-vAr">
-            <size key="intrinsicContentSize" width="167" height="30"/>
+            <size key="intrinsicContentSize" width="165" height="29"/>
         </designable>
     </designables>
     <resources>

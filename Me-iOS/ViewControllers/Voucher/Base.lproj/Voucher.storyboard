@@ -114,7 +114,8 @@
                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                         <real key="value" value="6"/>
                                                     </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="string" keyPath="colorName" value="Gray_Dark_DarkTheme"/>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="colorName" value="VoucherButton"/>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="colorNameTitle" value="Blue_DarkTheme"/>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="sendEmail:" destination="uQD-o7-OPm" eventType="touchUpInside" id="mh0-Ab-xte"/>
@@ -132,7 +133,8 @@
                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                         <real key="value" value="6"/>
                                                     </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="string" keyPath="colorName" value="Gray_Dark_DarkTheme"/>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="colorName" value="VoucherButton"/>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="colorNameTitle" value="Blue_DarkTheme"/>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="info:" destination="uQD-o7-OPm" eventType="touchUpInside" id="WI3-6n-xFn"/>
@@ -154,7 +156,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vfb-3A-tZe">
-                                        <rect key="frame" x="14" y="110" width="334" height="113"/>
+                                        <rect key="frame" x="13" y="110" width="334" height="113"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <connections>
                                             <action selector="opendQR:" destination="uQD-o7-OPm" eventType="touchUpInside" id="K1u-ZK-KYA"/>
@@ -190,7 +192,7 @@
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="89" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hIb-0R-ybB" customClass="TableView_Background_DarkMode" customModule="Me_iOS" customModuleProvider="target">
                                         <rect key="frame" x="-2" y="77" width="375" height="264"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                        <color key="backgroundColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="89" id="RXZ-Rb-Dag" customClass="TransactionTableViewCell" customModule="Me_iOS" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="28" width="375" height="89"/>
@@ -200,7 +202,7 @@
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XVT-lr-MSA" customClass="CustomCornerUIView" customModule="Me_iOS" customModuleProvider="target">
-                                                            <rect key="frame" x="13" y="10" width="347" height="78"/>
+                                                            <rect key="frame" x="12" y="10" width="347" height="78"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Rijwielhandel Kuis" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="c89-oH-FyY" customClass="UILabel_DarkMode" customModule="Me_iOS" customModuleProvider="target">
@@ -272,6 +274,9 @@
                                                 </connections>
                                             </tableViewCell>
                                         </prototypes>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="colorName" value="Background_Voucher_DarkTheme"/>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <outlet property="dataSource" destination="uQD-o7-OPm" id="an1-Ar-Fb7"/>
                                             <outlet property="delegate" destination="uQD-o7-OPm" id="c4v-3O-fKU"/>
@@ -311,7 +316,7 @@
                             <constraint firstItem="xJ9-oQ-Apx" firstAttribute="leading" secondItem="KwK-zI-Rw9" secondAttribute="leading" id="3ML-KF-Vkd"/>
                             <constraint firstItem="xJ9-oQ-Apx" firstAttribute="top" secondItem="eGU-UJ-zUy" secondAttribute="bottom" id="NR8-iD-N8Y"/>
                             <constraint firstItem="eGU-UJ-zUy" firstAttribute="leading" secondItem="KwK-zI-Rw9" secondAttribute="leading" id="QQm-6A-Ah5"/>
-                            <constraint firstItem="xJ9-oQ-Apx" firstAttribute="bottom" secondItem="KwK-zI-Rw9" secondAttribute="bottom" id="k7M-TY-eIT"/>
+                            <constraint firstItem="xJ9-oQ-Apx" firstAttribute="bottom" secondItem="rYN-1h-lXx" secondAttribute="bottom" id="k7M-TY-eIT"/>
                             <constraint firstItem="eGU-UJ-zUy" firstAttribute="trailing" secondItem="KwK-zI-Rw9" secondAttribute="trailing" id="nOu-qV-Opw"/>
                             <constraint firstItem="eGU-UJ-zUy" firstAttribute="top" secondItem="rYN-1h-lXx" secondAttribute="top" id="y03-MD-Dww"/>
                             <constraint firstItem="xJ9-oQ-Apx" firstAttribute="trailing" secondItem="KwK-zI-Rw9" secondAttribute="trailing" id="zCe-DF-8u1"/>
@@ -357,7 +362,7 @@
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <view hidden="YES" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4AW-cF-E2d" customClass="ISHPullUpHandleView">
-                                                <rect key="frame" x="158" y="6" width="36" height="11"/>
+                                                <rect key="frame" x="157" y="6" width="36" height="11"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <userDefinedRuntimeAttributes>
@@ -390,7 +395,7 @@
                                         <accessibility key="accessibilityConfiguration" identifier="topViewHandle"/>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Laat iemanduw persoonlijke QR-code scannen om u valuta, bezit of vouchers te sturen" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="P7e-xQ-MR9">
-                                        <rect key="frame" x="6" y="350" width="338" height="49"/>
+                                        <rect key="frame" x="5" y="350" width="338" height="49"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="GoogleSans-Regular" family="Google Sans" pointSize="15"/>
                                         <nil key="textColor"/>
@@ -401,14 +406,14 @@
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="qrCode" translatesAutoresizingMaskIntoConstraints="NO" id="6Av-Z6-maF">
-                                                <rect key="frame" x="96" y="19" width="160" height="160"/>
+                                                <rect key="frame" x="95" y="19" width="160" height="160"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </imageView>
                                         </subviews>
                                         <color key="backgroundColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Hier is je persoonlijke QR-Code" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="xIx-dD-8s5">
-                                        <rect key="frame" x="6" y="331" width="339" height="23"/>
+                                        <rect key="frame" x="5" y="331" width="339" height="23"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="GoogleSans-Bold" family="Google Sans" pointSize="20"/>
                                         <nil key="textColor"/>
@@ -463,9 +468,6 @@
         </scene>
     </scenes>
     <designables>
-        <designable name="4AW-cF-E2d">
-            <size key="intrinsicContentSize" width="36" height="11"/>
-        </designable>
         <designable name="kQA-2y-C8q">
             <size key="intrinsicContentSize" width="79" height="29"/>
         </designable>

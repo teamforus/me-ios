@@ -20,13 +20,13 @@ class MActionsViewController: UIViewController {
     // MARK: - Properties
     let bodyView: Background_DarkMode = {
         let view = Background_DarkMode(frame: .zero)
-        view.colorName = "Background_DarkTheme"
+        view.colorName = "Background_Voucher_DarkTheme"
         return view
     }()
     
     private let headerView: Background_DarkMode = {
         let view = Background_DarkMode(frame: .zero)
-        view.colorName = "Thin_Gray_DarkTheme"
+        view.colorName = "Background_Voucher_DarkTheme"
         return view
     }()
     
@@ -53,6 +53,7 @@ class MActionsViewController: UIViewController {
     
     private let bodyvoucherView: UIView = {
         let view = UIView(frame: .zero)
+        view.backgroundColor = .clear
         return view
     }()
     

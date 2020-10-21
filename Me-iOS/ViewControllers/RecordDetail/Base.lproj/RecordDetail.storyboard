@@ -139,7 +139,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="116" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="K6L-y0-eG7" customClass="TableView_Background_DarkMode" customModule="Me_iOS" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="75" width="375" height="171"/>
+                                                        <rect key="frame" x="0.0" y="72" width="375" height="174"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <prototypes>
                                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="116" id="bJ4-SO-Fpc" customClass="ValidatorTableViewCell" customModule="Me_iOS" customModuleProvider="target">
@@ -433,10 +433,7 @@
             <size key="intrinsicContentSize" width="210" height="210"/>
         </designable>
         <designable name="XXm-PG-izE">
-            <size key="intrinsicContentSize" width="128" height="29"/>
-        </designable>
-        <designable name="yub-pu-SaO">
-            <size key="intrinsicContentSize" width="36" height="11"/>
+            <size key="intrinsicContentSize" width="127" height="28"/>
         </designable>
     </designables>
     <resources>
