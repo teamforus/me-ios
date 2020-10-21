@@ -16,6 +16,11 @@ class OrganizationValidatorTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         selectionStyle = .none
+      if #available(iOS 11.0, *) {
+        self.backgroundColor = UIColor(named: "")
+      } else {
+        // Fallback on earlier versions
+      }
     }
     
     func setupRecordOrganization(organization: EmployeesOrganization) {

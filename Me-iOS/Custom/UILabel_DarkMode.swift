@@ -14,6 +14,11 @@ class UILabel_DarkMode: UILabel {
       super.init(frame: frame)
       setDarkModeBackground()
     }
+  @IBInspectable var colorName :String = "Background_DarkTheme" {
+    didSet {
+      setSelectedColorName()
+    }
+  }
     
     required init(coder: NSCoder) {
       super.init(coder: coder)!
@@ -27,6 +32,13 @@ class UILabel_DarkMode: UILabel {
         // Fallback on earlier versions
       }
     }
+  func setSelectedColorName() {
+    if #available(iOS 11.0, *) {
+      self.textColor = UIColor(named: colorName)
+    } else {
+      // Fallback on earlier versions
+    }
+  }
 }
 
 //class UIButton_DarkMode: UIButton {

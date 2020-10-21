@@ -17,12 +17,13 @@ class RecordsTableViewCell: UITableViewCell {
         didSet{
             cellTypeLabel.text = record.name ?? ""
             nameLabel.text = record.value
+           setupAccessibility(with: record.name ?? "", and: record.value ?? "")
         }
     }
     
     override func awakeFromNib() {
         super.awakeFromNib()
-      setupAccessibility(with: record.name ?? "", and: record.value ?? "")
+      
         self.selectionStyle = .none
         if #available(iOS 11.0, *) {
             self.bodyView.layer.shadowColor = UIColor(named: "Black_Light_DarkTheme")?.cgColor
