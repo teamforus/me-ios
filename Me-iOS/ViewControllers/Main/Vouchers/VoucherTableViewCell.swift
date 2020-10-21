@@ -29,6 +29,11 @@ class VoucherTableViewCell: UITableViewCell {
             self.bodyView.layer.shadowColor = UIColor(named: "Black_Light_DarkTheme")?.cgColor
         } else {}
     }
+  
+  override func prepareForReuse() {
+    super.prepareForReuse()
+    self.usedVoucherLabel.isHidden = true
+  }
     
     func setupVoucher(voucher: Voucher) {
         self.voucherTitleLabel.text = voucher.product != nil ? voucher.product?.name : voucher.fund?.name
