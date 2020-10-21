@@ -170,7 +170,7 @@ extension MVoucherViewController: AccessibilityProtocol {
         sendEmailButton.setupAccesibility(description: "Send voucher on email", accessibilityTraits: .button)
         voucherInfoButton.setupAccesibility(description: "Go to voucher info", accessibilityTraits: .button)
         qrCodeButton.setupAccesibility(description: "Tap to open qr code modal", accessibilityTraits: .button)
-        self.customCorrnerView.setupAccesibility(description: "Transaction View", accessibilityTraits: .none)
+//        self.customCorrnerView.setupAccesibility(description: "Transaction View", accessibilityTraits: .none)
    }
 }
 
