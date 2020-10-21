@@ -28,7 +28,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F3Q-yG-rDj" customClass="BackgroundScrollView_DarkMode" customModule="Me_iOS" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="-15" width="414" height="877"/>
+                                <rect key="frame" x="0.0" y="-15" width="414" height="931"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lNy-HV-pMf" customClass="Background_DarkMode" customModule="Me_iOS" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="915"/>
@@ -329,7 +329,7 @@
                         <color key="backgroundColor" red="0.96852236989999996" green="0.96868795159999999" blue="0.96851199870000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="F3Q-yG-rDj" firstAttribute="leading" secondItem="c6l-wm-m2V" secondAttribute="leading" id="4Gs-zj-GmM"/>
-                            <constraint firstItem="F3Q-yG-rDj" firstAttribute="bottom" secondItem="drr-Sf-hDr" secondAttribute="bottom" id="80i-8I-swk"/>
+                            <constraint firstItem="F3Q-yG-rDj" firstAttribute="bottom" secondItem="c6l-wm-m2V" secondAttribute="bottom" constant="20" symbolic="YES" id="80i-8I-swk"/>
                             <constraint firstItem="lNy-HV-pMf" firstAttribute="height" secondItem="c6l-wm-m2V" secondAttribute="height" priority="250" constant="19" id="Ll9-uZ-dfZ"/>
                             <constraint firstItem="lNy-HV-pMf" firstAttribute="width" secondItem="c6l-wm-m2V" secondAttribute="width" id="O3o-mQ-rCw"/>
                             <constraint firstAttribute="trailing" secondItem="F3Q-yG-rDj" secondAttribute="trailing" id="SNw-0I-8GX"/>
@@ -373,7 +373,7 @@
             <size key="intrinsicContentSize" width="24" height="24"/>
         </designable>
         <designable name="riy-om-vAr">
-            <size key="intrinsicContentSize" width="165" height="29"/>
+            <size key="intrinsicContentSize" width="167" height="30"/>
         </designable>
     </designables>
     <resources>

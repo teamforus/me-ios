@@ -533,13 +533,13 @@
     </scenes>
     <designables>
         <designable name="CX4-Bk-Lqq">
-            <size key="intrinsicContentSize" width="52" height="16.5"/>
+            <size key="intrinsicContentSize" width="52" height="18"/>
         </designable>
         <designable name="bdu-eB-oGB">
-            <size key="intrinsicContentSize" width="79" height="29"/>
+            <size key="intrinsicContentSize" width="81" height="30"/>
         </designable>
         <designable name="d75-Qd-xat">
-            <size key="intrinsicContentSize" width="135" height="24"/>
+            <size key="intrinsicContentSize" width="134" height="24"/>
         </designable>
     </designables>
     <resources>
