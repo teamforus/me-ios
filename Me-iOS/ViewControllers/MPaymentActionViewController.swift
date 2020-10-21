@@ -16,7 +16,7 @@ class MPaymentActionViewController: UIViewController {
     
     let bodyView: Background_DarkMode = {
         let view = Background_DarkMode(frame: .zero)
-        view.colorName = "Background_DarkTheme"
+        view.colorName = "Background_Voucher_DarkTheme"
         return view
     }()
     

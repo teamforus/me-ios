@@ -3,7 +3,7 @@
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -154,7 +154,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vfb-3A-tZe">
-                                        <rect key="frame" x="14" y="110" width="334" height="113"/>
+                                        <rect key="frame" x="13" y="110" width="334" height="113"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <connections>
                                             <action selector="opendQR:" destination="uQD-o7-OPm" eventType="touchUpInside" id="K1u-ZK-KYA"/>
@@ -200,7 +200,7 @@
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XVT-lr-MSA" customClass="CustomCornerUIView" customModule="Me_iOS" customModuleProvider="target">
-                                                            <rect key="frame" x="13" y="10" width="347" height="78"/>
+                                                            <rect key="frame" x="12" y="10" width="347" height="78"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Rijwielhandel Kuis" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="c89-oH-FyY" customClass="UILabel_DarkMode" customModule="Me_iOS" customModuleProvider="target">
@@ -311,7 +311,7 @@
                             <constraint firstItem="xJ9-oQ-Apx" firstAttribute="leading" secondItem="KwK-zI-Rw9" secondAttribute="leading" id="3ML-KF-Vkd"/>
                             <constraint firstItem="xJ9-oQ-Apx" firstAttribute="top" secondItem="eGU-UJ-zUy" secondAttribute="bottom" id="NR8-iD-N8Y"/>
                             <constraint firstItem="eGU-UJ-zUy" firstAttribute="leading" secondItem="KwK-zI-Rw9" secondAttribute="leading" id="QQm-6A-Ah5"/>
-                            <constraint firstItem="xJ9-oQ-Apx" firstAttribute="bottom" secondItem="KwK-zI-Rw9" secondAttribute="bottom" id="k7M-TY-eIT"/>
+                            <constraint firstItem="xJ9-oQ-Apx" firstAttribute="bottom" secondItem="rYN-1h-lXx" secondAttribute="bottom" id="k7M-TY-eIT"/>
                             <constraint firstItem="eGU-UJ-zUy" firstAttribute="trailing" secondItem="KwK-zI-Rw9" secondAttribute="trailing" id="nOu-qV-Opw"/>
                             <constraint firstItem="eGU-UJ-zUy" firstAttribute="top" secondItem="rYN-1h-lXx" secondAttribute="top" id="y03-MD-Dww"/>
                             <constraint firstItem="xJ9-oQ-Apx" firstAttribute="trailing" secondItem="KwK-zI-Rw9" secondAttribute="trailing" id="zCe-DF-8u1"/>
@@ -357,7 +357,7 @@
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <view hidden="YES" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4AW-cF-E2d" customClass="ISHPullUpHandleView">
-                                                <rect key="frame" x="158" y="6" width="36" height="11"/>
+                                                <rect key="frame" x="157" y="6" width="36" height="11"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <userDefinedRuntimeAttributes>
@@ -390,7 +390,7 @@
                                         <accessibility key="accessibilityConfiguration" identifier="topViewHandle"/>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Laat iemanduw persoonlijke QR-code scannen om u valuta, bezit of vouchers te sturen" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="P7e-xQ-MR9">
-                                        <rect key="frame" x="6" y="350" width="338" height="49"/>
+                                        <rect key="frame" x="5" y="350" width="338" height="49"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="GoogleSans-Regular" family="Google Sans" pointSize="15"/>
                                         <nil key="textColor"/>
@@ -401,14 +401,14 @@
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="qrCode" translatesAutoresizingMaskIntoConstraints="NO" id="6Av-Z6-maF">
-                                                <rect key="frame" x="96" y="19" width="160" height="160"/>
+                                                <rect key="frame" x="95" y="19" width="160" height="160"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </imageView>
                                         </subviews>
                                         <color key="backgroundColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Hier is je persoonlijke QR-Code" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="xIx-dD-8s5">
-                                        <rect key="frame" x="6" y="331" width="339" height="23"/>
+                                        <rect key="frame" x="5" y="331" width="339" height="23"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="GoogleSans-Bold" family="Google Sans" pointSize="20"/>
                                         <nil key="textColor"/>
@@ -470,7 +470,7 @@
             <size key="intrinsicContentSize" width="79" height="29"/>
         </designable>
         <designable name="mWI-n4-pEO">
-            <size key="intrinsicContentSize" width="135" height="24"/>
+            <size key="intrinsicContentSize" width="118" height="24"/>
         </designable>
         <designable name="wQJ-bH-E8M">
             <size key="intrinsicContentSize" width="210" height="210"/>
