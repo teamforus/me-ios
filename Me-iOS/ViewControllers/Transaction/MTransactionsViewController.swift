@@ -120,7 +120,7 @@ class MTransactionsViewController: UIViewController {
 
 extension MTransactionsViewController {
     func setupView() {
-        dateButton.setTitle("Choose from date", for: .normal)
+        dateButton.setTitle(Localize.choose_from_date(), for: .normal)
         if #available(iOS 11.0, *) {
             self.view.backgroundColor = UIColor(named: "Background_DarkTheme")
         } else {

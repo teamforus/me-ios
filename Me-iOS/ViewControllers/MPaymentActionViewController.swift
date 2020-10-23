@@ -39,7 +39,7 @@ class MPaymentActionViewController: UIViewController {
         view.cornerRadius = 12
         view.shadowRadius = 10
         view.shadowOpacity = 0.1
-        view.colorName = "WhiteBackground_DarkTheme"
+        view.colorName = "Gray_Dark_DarkTheme"
         return view
     }()
     
@@ -102,7 +102,6 @@ class MPaymentActionViewController: UIViewController {
         textField.placeholder = Localize.note()
         textField.left = 10
         textField.top = 10
-        textField.backgroundColor = #colorLiteral(red: 0.9450151324, green: 0.945151031, blue: 0.9449856877, alpha: 1)
         textField.borderStyle = .none
         textField.layer.cornerRadius = 6
         textField.contentVerticalAlignment = .top
@@ -140,6 +139,12 @@ class MPaymentActionViewController: UIViewController {
             setupOrganization(organization: organization)
         }
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard(_:))))
+        
+        if #available(iOS 11.0, *) {
+            noteTextField.backgroundColor = R.color.gray_Dark_DarkTheme()
+        } else {
+            // Fallback on earlier versions
+        }
     }
     
     func setupActions(subsidie: Subsidie) {

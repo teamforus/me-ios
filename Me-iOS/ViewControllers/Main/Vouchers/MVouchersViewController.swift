@@ -35,7 +35,7 @@ class MVouchersViewController: UIViewController {
         super.viewDidLoad()
         if !Preference.tapToSeeTransactionTipHasShown {
             Preference.tapToSeeTransactionTipHasShown = true
-            transactionButton?.toolTip(message: "Tap here if you want to see your list of transactions", style: .dark, location: .bottom, offset: CGPoint(x: -50, y: 0))
+            transactionButton?.toolTip(message: Localize.tap_here_you_want_to_see_list_transaction(), style: .dark, location: .bottom, offset: CGPoint(x: -50, y: 0))
         }
         registerForPreviewing(with: self, sourceView: tableView)
         

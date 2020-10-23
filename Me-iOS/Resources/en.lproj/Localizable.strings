@@ -95,7 +95,7 @@
 "expired" = "Expired";
 "you_sure_you_want_to_login_device" = "You sure you wan't to login this device?";
 "confirm_transaction" = "Confirm transaction";
-"please_confirm_the_transaction" = "Please confirm the transaction of %@.";
+"please_confirm_the_transaction" = "Please confirm the transaction of € %@.";
 "insufficient_funds_on_the_voucher_please_request_extra_payment" = "Insufficient funds on the voucher. Please, request extra payment of €%.02f";
 "are_you_sure_you_want_confirm_transaction" = "Are you sure you want to confirm this transaction.";
 "welcome_to_me" = "Welcome to Me, ";
@@ -173,3 +173,6 @@
 "choose_validator" = "Choose validator";
 "choose_organization" = "Choose organization";
 "no_balance_for_actions" = "No balance for your actions";
+"personal_account" = "Personal account";
+"tap_here_you_want_to_see_list_transaction" = "Tap here if you want to see your list of transactions";
+"choose_from_date" = "Choose from date";

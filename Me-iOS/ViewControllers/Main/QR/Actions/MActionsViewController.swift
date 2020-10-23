@@ -57,18 +57,14 @@ class MActionsViewController: UIViewController {
         return view
     }()
     
-    private let fundNameLabel: UILabel = {
-        let label = UILabel(frame: .zero)
-        label.text = "adasdsa"
-        label.textColor = .black
+    private let fundNameLabel: UILabel_DarkMode = {
+        let label = UILabel_DarkMode(frame: .zero)
         label.font = UIFont(name: "GoogleSans-Medium", size: 21)
         return label
     }()
     
-    private let organizationVoucherLabel: UILabel = {
-        let label = UILabel(frame: .zero)
-        label.text = "adasdsa"
-        label.textColor = .black
+    private let organizationVoucherLabel: UILabel_DarkMode = {
+        let label = UILabel_DarkMode(frame: .zero)
         label.font = UIFont(name: "GoogleSans-Regular", size: 14)
         return label
     }()
@@ -103,8 +99,9 @@ class MActionsViewController: UIViewController {
         return label
     }()
     
-    private let tableView: TableView_Background_DarkMode = {
-        let tableView = TableView_Background_DarkMode(frame: .zero)
+    private let tableView: UITableView = {
+        let tableView = UITableView(frame: .zero)
+        tableView.backgroundColor = .clear
         return tableView
     }()
     
@@ -334,7 +331,8 @@ extension MActionsViewController {
         NSLayoutConstraint.activate([
             voucherImageView.leadingAnchor.constraint(equalTo: bodyvoucherView.leadingAnchor, constant: 15),
             voucherImageView.trailingAnchor.constraint(equalTo: bodyvoucherView.trailingAnchor, constant: -15),
-            voucherImageView.topAnchor.constraint(equalTo: bodyvoucherView.topAnchor, constant: 11)
+            voucherImageView.topAnchor.constraint(equalTo: bodyvoucherView.topAnchor, constant: 11),
+            voucherImageView.heightAnchor.constraint(equalToConstant: 120)
         ])
         
         NSLayoutConstraint.activate([
