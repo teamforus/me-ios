@@ -12,7 +12,7 @@ class Preference {
     
     public static var tapToSeeTransactionTipHasShown: Bool {
         get {
-            return tapToSeeTransactionTipHasShownCount > 2
+            return tapToSeeTransactionTipHasShownCount == 1
         }
         set {
             if newValue {
