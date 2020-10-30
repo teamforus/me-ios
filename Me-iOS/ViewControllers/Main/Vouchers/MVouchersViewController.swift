@@ -141,6 +141,7 @@ class MVouchersViewController: UIViewController {
     }
     
     @IBAction func openTransaction(_ sender: UIButton) {
+        transactionButton.removeToolTip(with: Localize.tap_here_you_want_to_see_list_transaction())
         let transactionVC = MTransactionsViewController()
         transactionVC.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(transactionVC, animated: true)

@@ -61,7 +61,7 @@ class VoucherTableViewCell: UITableViewCell {
             
             self.voucherImage.loadImageUsingUrlString(urlString: voucher.product?.photo?.sizes?.thumbnail ?? "", placeHolder: #imageLiteral(resourceName: "Resting"))
         }else{
-            self.priceLabel.isHidden = false
+            self.priceLabel.isHidden = voucher.fund?.type == FundType.subsidies.rawValue
             
             if let price = voucher.amount {
                 //                    if voucher?.fund?.currency == "eur" {

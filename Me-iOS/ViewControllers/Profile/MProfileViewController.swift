@@ -21,7 +21,6 @@ class MProfileViewController: UIViewController {
     @IBOutlet weak var faceIdVerticalSpacing: NSLayoutConstraint!
     @IBOutlet weak var changePasscodeLabel: UILabel!
     @IBOutlet weak var useSensorIdLabel: UILabel!
-    @IBOutlet weak var useSensorIdIcon: UIImageView!
     @IBOutlet weak var crashButton: UIButton!
     @IBOutlet weak var startScannerSwitch: UISwitchCustom!
     @IBOutlet weak var userFaceIdSwitch: UISwitchCustom!
@@ -89,7 +88,7 @@ extension MProfileViewController {
                                     if MFMailComposeViewController.canSendMail() {
                                         let composeVC = MFMailComposeViewController()
                                         composeVC.mailComposeDelegate = self
-                                        composeVC.setToRecipients(["feedback@forus.io"])
+                                        composeVC.setToRecipients([" support@forus.io"])
                                         composeVC.setSubject(Localize.my_feedback_about_me_app())
                                         composeVC.setMessageBody("", isHTML: false)
                                         self.present(composeVC, animated: true, completion: nil)
@@ -127,10 +126,8 @@ extension MProfileViewController {
         let versionApp: AnyObject? = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as AnyObject
         let buildAppNumber: AnyObject? = Bundle.main.infoDictionary?["CFBundleVersion"] as AnyObject
         #if (DEV || ALPHA )
-        self.appVersionLabel.text = (versionApp as? String)! + " (" + (buildAppNumber as? String)! + ")"
         crashButton.isHidden = false
         #else
-        self.appVersionLabel.text = (versionApp as? String)!
         crashButton.isHidden = true
         #endif
     }
@@ -173,10 +170,8 @@ extension MProfileViewController {
     
     private func setupSecurity() {
         if faceIDAvailable() {
-            useSensorIdIcon.image = #imageLiteral(resourceName: "faceId-1")
             useSensorIdLabel.text = Localize.turn_on_face_ID()
         }else {
-            useSensorIdIcon.image = #imageLiteral(resourceName: "touchId")
             useSensorIdLabel.text = Localize.turn_on_touch_ID()
         }
         

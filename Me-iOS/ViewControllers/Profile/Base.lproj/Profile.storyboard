@@ -12,6 +12,9 @@
         <array key="GoogleSans-Bold.ttf">
             <string>GoogleSans-Bold</string>
         </array>
+        <array key="GoogleSans-Medium.ttf">
+            <string>GoogleSans-Medium</string>
+        </array>
         <array key="GoogleSans-Regular.ttf">
             <string>GoogleSans-Regular</string>
         </array>
@@ -57,10 +60,10 @@
                                                             </label>
                                                         </subviews>
                                                     </stackView>
-                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hu1-sr-b6h" customClass="CloseButton_DarkMode" customModule="Me_iOS" customModuleProvider="target">
+                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hu1-sr-b6h">
                                                         <rect key="frame" x="311" y="31" width="43" height="41"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
-                                                        <state key="normal" image="closeLines"/>
+                                                        <state key="normal" image="closeBlack"/>
                                                         <connections>
                                                             <action selector="dismiss:" destination="eu3-EV-5Ar" eventType="touchUpInside" id="Wk6-Ed-AA0"/>
                                                         </connections>
@@ -98,13 +101,13 @@
                                                         <rect key="frame" x="0.0" y="80" width="375" height="1"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                                         <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="string" keyPath="colorName" value="Light_Dark_Mode"/>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="colorName" value="Line_DarkMode"/>
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Personal Account" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NFd-zA-OpX" customClass="UILabel_DarkMode" customModule="Me_iOS" customModuleProvider="target">
-                                                        <rect key="frame" x="104" y="40" width="133" height="22"/>
+                                                        <rect key="frame" x="104" y="40" width="138" height="22"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <fontDescription key="fontDescription" name="GoogleSans-Regular" family="Google Sans" pointSize="17"/>
+                                                        <fontDescription key="fontDescription" name="GoogleSans-Medium" family="Google Sans" pointSize="17"/>
                                                         <color key="textColor" red="0.99936085939999997" green="0.1497559547" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                         <userDefinedRuntimeAttributes>
@@ -129,17 +132,13 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZtQ-xg-yMS" customClass="Background_DarkMode" customModule="Me_iOS" customModuleProvider="target">
-                                                <rect key="frame" x="16" y="176" width="343" height="249"/>
+                                                <rect key="frame" x="10" y="176" width="355" height="249"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6AQ-Ho-bqt" customClass="CustomCornerUIView" customModule="Me_iOS" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="342" height="56"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="354" height="56"/>
                                                         <subviews>
-                                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="qrImage" translatesAutoresizingMaskIntoConstraints="NO" id="lnl-tz-VdM">
-                                                                <rect key="frame" x="10" y="16" width="24" height="24"/>
-                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            </imageView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Start from scanner" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AiD-mk-0LQ" customClass="UILabel_DarkMode" customModule="Me_iOS" customModuleProvider="target">
-                                                                <rect key="frame" x="46" y="18" width="211" height="22"/>
+                                                                <rect key="frame" x="16" y="18" width="211" height="22"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                 <fontDescription key="fontDescription" name="GoogleSans-Regular" family="Google Sans" pointSize="17"/>
                                                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -149,7 +148,7 @@
                                                                 </userDefinedRuntimeAttributes>
                                                             </label>
                                                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="mxb-o1-SKo" customClass="UISwitchCustom" customModule="Me_iOS" customModuleProvider="target">
-                                                                <rect key="frame" x="280" y="14" width="49" height="31"/>
+                                                                <rect key="frame" x="292" y="14" width="49" height="31"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                                                 <color key="onTintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <userDefinedRuntimeAttributes>
@@ -174,14 +173,10 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wNw-9x-l3y" customClass="CustomCornerUIView" customModule="Me_iOS" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="71" width="342" height="56"/>
+                                                        <rect key="frame" x="0.0" y="71" width="355" height="56"/>
                                                         <subviews>
-                                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="lock24Px-1" translatesAutoresizingMaskIntoConstraints="NO" id="dsY-ow-X7Q">
-                                                                <rect key="frame" x="10" y="16" width="24" height="24"/>
-                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            </imageView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Change 4-digit passcode" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AbL-ew-Qz7" customClass="UILabel_DarkMode" customModule="Me_iOS" customModuleProvider="target">
-                                                                <rect key="frame" x="46" y="18" width="240" height="21"/>
+                                                                <rect key="frame" x="16" y="18" width="240" height="21"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                 <fontDescription key="fontDescription" name="GoogleSans-Regular" family="Google Sans" pointSize="17"/>
                                                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -191,7 +186,7 @@
                                                                 </userDefinedRuntimeAttributes>
                                                             </label>
                                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ycd-8C-4bj">
-                                                                <rect key="frame" x="0.0" y="0.0" width="342" height="56"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="355" height="56"/>
                                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                 <connections>
                                                                     <action selector="creatEditPasscode:" destination="eu3-EV-5Ar" eventType="touchUpInside" id="hEO-Od-ZcN"/>
@@ -210,21 +205,17 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AHo-7Q-nI7" customClass="CustomCornerUIView" customModule="Me_iOS" customModuleProvider="target">
-                                                        <rect key="frame" x="1" y="132" width="342" height="56"/>
+                                                        <rect key="frame" x="0.0" y="132" width="355" height="56"/>
                                                         <subviews>
-                                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="lock24Px-1" translatesAutoresizingMaskIntoConstraints="NO" id="Wnu-qu-28i">
-                                                                <rect key="frame" x="10" y="16" width="24" height="24"/>
-                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            </imageView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Turn off passcode" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bq2-SX-GJZ" customClass="UILabel_DarkMode" customModule="Me_iOS" customModuleProvider="target">
-                                                                <rect key="frame" x="46" y="18" width="240" height="21"/>
+                                                                <rect key="frame" x="16" y="18" width="240" height="21"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                 <fontDescription key="fontDescription" name="GoogleSans-Regular" family="Google Sans" pointSize="17"/>
                                                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7JZ-5w-dnO">
-                                                                <rect key="frame" x="0.0" y="0.0" width="342" height="56"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="355" height="56"/>
                                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                 <connections>
                                                                     <action selector="deletePasscode:" destination="eu3-EV-5Ar" eventType="touchUpInside" id="WKd-YK-eik"/>
@@ -243,14 +234,10 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pLQ-IY-Xhm" customClass="CustomCornerUIView" customModule="Me_iOS" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="193" width="342" height="56"/>
+                                                        <rect key="frame" x="0.0" y="193" width="354" height="56"/>
                                                         <subviews>
-                                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="faceId-1" translatesAutoresizingMaskIntoConstraints="NO" id="M9T-2N-Gxi">
-                                                                <rect key="frame" x="10" y="16" width="24" height="24"/>
-                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            </imageView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Use Face ID for login" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="scn-SY-tGf" customClass="UILabel_DarkMode" customModule="Me_iOS" customModuleProvider="target">
-                                                                <rect key="frame" x="46" y="17" width="203" height="22"/>
+                                                                <rect key="frame" x="16" y="17" width="203" height="22"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                 <fontDescription key="fontDescription" name="GoogleSans-Regular" family="Google Sans" pointSize="17"/>
                                                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -260,7 +247,7 @@
                                                                 </userDefinedRuntimeAttributes>
                                                             </label>
                                                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="aF3-gf-gHS" customClass="UISwitchCustom" customModule="Me_iOS" customModuleProvider="target">
-                                                                <rect key="frame" x="279" y="13" width="49" height="31"/>
+                                                                <rect key="frame" x="291" y="13" width="49" height="31"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                                                 <color key="onTintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <userDefinedRuntimeAttributes>
@@ -289,14 +276,16 @@
                                                 <constraints>
                                                     <constraint firstItem="6AQ-Ho-bqt" firstAttribute="leading" secondItem="ZtQ-xg-yMS" secondAttribute="leading" id="0UM-6C-TkR"/>
                                                     <constraint firstItem="pLQ-IY-Xhm" firstAttribute="top" secondItem="wNw-9x-l3y" secondAttribute="bottom" constant="66" id="JHA-Sf-Y0d"/>
+                                                    <constraint firstAttribute="trailing" secondItem="AHo-7Q-nI7" secondAttribute="trailing" id="QNY-gb-gYR"/>
                                                     <constraint firstAttribute="trailing" secondItem="pLQ-IY-Xhm" secondAttribute="trailing" constant="1" id="X88-S2-otM"/>
                                                     <constraint firstItem="pLQ-IY-Xhm" firstAttribute="leading" secondItem="ZtQ-xg-yMS" secondAttribute="leading" id="YuZ-pd-WoR"/>
                                                     <constraint firstItem="AHo-7Q-nI7" firstAttribute="top" secondItem="wNw-9x-l3y" secondAttribute="bottom" constant="5" id="crM-wZ-CA9"/>
                                                     <constraint firstItem="wNw-9x-l3y" firstAttribute="leading" secondItem="ZtQ-xg-yMS" secondAttribute="leading" id="crz-i7-Sqy"/>
-                                                    <constraint firstAttribute="trailing" secondItem="wNw-9x-l3y" secondAttribute="trailing" constant="1" id="g5y-pX-wgc"/>
+                                                    <constraint firstAttribute="trailing" secondItem="wNw-9x-l3y" secondAttribute="trailing" id="g5y-pX-wgc"/>
                                                     <constraint firstItem="6AQ-Ho-bqt" firstAttribute="top" secondItem="ZtQ-xg-yMS" secondAttribute="top" id="i47-zi-1IM"/>
                                                     <constraint firstItem="wNw-9x-l3y" firstAttribute="top" secondItem="6AQ-Ho-bqt" secondAttribute="bottom" constant="15" id="jMo-ZU-lQs"/>
                                                     <constraint firstAttribute="height" constant="249" id="mmG-cv-HBd"/>
+                                                    <constraint firstItem="AHo-7Q-nI7" firstAttribute="leading" secondItem="ZtQ-xg-yMS" secondAttribute="leading" id="omn-aG-POx"/>
                                                     <constraint firstAttribute="trailing" secondItem="6AQ-Ho-bqt" secondAttribute="trailing" constant="1" id="z4U-2C-qiL"/>
                                                 </constraints>
                                                 <userDefinedRuntimeAttributes>
@@ -304,10 +293,10 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UaK-7a-IlP" customClass="CustomCornerUIView" customModule="Me_iOS" customModuleProvider="target">
-                                                <rect key="frame" x="16" y="438" width="343" height="56"/>
+                                                <rect key="frame" x="10" y="438" width="355" height="56"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Send crash reports" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pA8-VO-WKT" customClass="UILabel_DarkMode" customModule="Me_iOS" customModuleProvider="target">
-                                                        <rect key="frame" x="8" y="18" width="249" height="22"/>
+                                                        <rect key="frame" x="16" y="18" width="249" height="22"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <fontDescription key="fontDescription" name="GoogleSans-Regular" family="Google Sans" pointSize="17"/>
                                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -317,7 +306,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </label>
                                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="629-dg-gyi" customClass="UISwitchCustom" customModule="Me_iOS" customModuleProvider="target">
-                                                        <rect key="frame" x="280" y="14" width="49" height="31"/>
+                                                        <rect key="frame" x="292" y="14" width="49" height="31"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                                         <color key="onTintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <userDefinedRuntimeAttributes>
@@ -355,7 +344,9 @@
                                                         <rect key="frame" x="207" y="119" width="146" height="19"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                                         <fontDescription key="fontDescription" name="GoogleSans-Regular" family="Google Sans" pointSize="15"/>
-                                                        <state key="normal" title="feedback@forus.io"/>
+                                                        <state key="normal" title="support@forus.io">
+                                                            <color key="titleColor" red="0.60002678629999995" green="0.59986692669999997" blue="0.60784477000000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        </state>
                                                         <connections>
                                                             <action selector="feedback:" destination="eu3-EV-5Ar" eventType="touchUpInside" id="b0D-R4-aP2"/>
                                                         </connections>
@@ -389,6 +380,7 @@
                                                                 <real key="value" value="14"/>
                                                             </userDefinedRuntimeAttribute>
                                                             <userDefinedRuntimeAttribute type="string" keyPath="colorName" value="Profile_Button_DarkTheme"/>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="colorNameTitle" value="Black_Light_DarkTheme"/>
                                                         </userDefinedRuntimeAttributes>
                                                         <connections>
                                                             <action selector="logout:" destination="eu3-EV-5Ar" eventType="touchUpInside" id="6RN-6P-vb2"/>
@@ -459,15 +451,13 @@
                                             <constraint firstItem="dmL-c8-BxS" firstAttribute="leading" secondItem="WTi-eV-EKy" secondAttribute="leading" id="AHG-RC-d1M"/>
                                             <constraint firstItem="mQt-Uv-ahd" firstAttribute="leading" secondItem="WTi-eV-EKy" secondAttribute="leading" id="EEE-cr-DUd"/>
                                             <constraint firstAttribute="trailing" secondItem="dmL-c8-BxS" secondAttribute="trailing" id="Gtd-uJ-GGO"/>
-                                            <constraint firstAttribute="trailing" secondItem="ZtQ-xg-yMS" secondAttribute="trailing" constant="16" id="Lah-1t-Uwh"/>
-                                            <constraint firstItem="ZtQ-xg-yMS" firstAttribute="leading" secondItem="WTi-eV-EKy" secondAttribute="leading" constant="16" id="Lsm-gR-nfD"/>
+                                            <constraint firstAttribute="trailing" secondItem="ZtQ-xg-yMS" secondAttribute="trailing" constant="10" id="Lah-1t-Uwh"/>
+                                            <constraint firstItem="ZtQ-xg-yMS" firstAttribute="leading" secondItem="WTi-eV-EKy" secondAttribute="leading" constant="10" id="Lsm-gR-nfD"/>
                                             <constraint firstItem="UaK-7a-IlP" firstAttribute="top" secondItem="ZtQ-xg-yMS" secondAttribute="bottom" constant="13" id="Qy4-P1-fTf"/>
-                                            <constraint firstAttribute="trailing" secondItem="AHo-7Q-nI7" secondAttribute="trailing" constant="16" id="Whe-3L-5UV"/>
-                                            <constraint firstItem="AHo-7Q-nI7" firstAttribute="leading" secondItem="WTi-eV-EKy" secondAttribute="leading" constant="17" id="Wxh-r1-sMN"/>
-                                            <constraint firstAttribute="trailing" secondItem="UaK-7a-IlP" secondAttribute="trailing" constant="16" id="bLl-0v-2pJ"/>
+                                            <constraint firstAttribute="trailing" secondItem="UaK-7a-IlP" secondAttribute="trailing" constant="10" id="bLl-0v-2pJ"/>
                                             <constraint firstItem="ZtQ-xg-yMS" firstAttribute="top" secondItem="mQt-Uv-ahd" secondAttribute="bottom" constant="12" id="h1x-lE-JG3"/>
                                             <constraint firstAttribute="bottom" secondItem="dmL-c8-BxS" secondAttribute="bottom" id="ieM-qL-3Xy"/>
-                                            <constraint firstItem="UaK-7a-IlP" firstAttribute="leading" secondItem="WTi-eV-EKy" secondAttribute="leading" constant="16" id="ifE-Tn-IgC"/>
+                                            <constraint firstItem="UaK-7a-IlP" firstAttribute="leading" secondItem="WTi-eV-EKy" secondAttribute="leading" constant="10" id="ifE-Tn-IgC"/>
                                             <constraint firstItem="mQt-Uv-ahd" firstAttribute="top" secondItem="WTi-eV-EKy" secondAttribute="top" constant="-15" id="w8D-aj-LiZ"/>
                                             <constraint firstAttribute="trailing" secondItem="mQt-Uv-ahd" secondAttribute="trailing" id="zjL-OP-hSg"/>
                                         </constraints>
@@ -519,7 +509,6 @@
                         <outlet property="startScannerSwitch" destination="mxb-o1-SKo" id="ia7-09-DbA"/>
                         <outlet property="turnOffPascodeView" destination="AHo-7Q-nI7" id="Yd2-fv-FH3"/>
                         <outlet property="useFaceIdView" destination="pLQ-IY-Xhm" id="oNj-HJ-xd8"/>
-                        <outlet property="useSensorIdIcon" destination="M9T-2N-Gxi" id="FR5-3f-JWL"/>
                         <outlet property="useSensorIdLabel" destination="scn-SY-tGf" id="ofj-nq-Seo"/>
                         <outlet property="userFaceIdSwitch" destination="aF3-gf-gHS" id="o6r-6U-mBu"/>
                     </connections>
@@ -691,13 +680,10 @@
     </designables>
     <resources>
         <image name="arrow" width="23" height="43"/>
+        <image name="closeBlack" width="24" height="24"/>
         <image name="closeIcon" width="24" height="24"/>
-        <image name="closeLines" width="24" height="24"/>
-        <image name="faceId-1" width="26" height="26"/>
         <image name="ic_launcher_APP" width="210" height="210"/>
-        <image name="lock24Px-1" width="24" height="24"/>
         <image name="qrCode" width="178" height="178"/>
-        <image name="qrImage" width="62" height="62"/>
         <image name="qrImage2" width="16" height="16"/>
         <systemColor name="darkTextColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

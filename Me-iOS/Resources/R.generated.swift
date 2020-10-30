@@ -458,7 +458,7 @@ struct R: Rswift.Validatable {
   }
   #endif
 
-  /// This `R.color` struct is generated, and contains static references to 16 colors.
+  /// This `R.color` struct is generated, and contains static references to 18 colors.
   struct color {
     /// Color `Background_DarkTheme`.
     static let background_DarkTheme = Rswift.ColorResource(bundle: R.hostingBundle, name: "Background_DarkTheme")
@@ -476,6 +476,8 @@ struct R: Rswift.Validatable {
     static let gray_Light_DarkTheme = Rswift.ColorResource(bundle: R.hostingBundle, name: "Gray_Light_DarkTheme")
     /// Color `Light_Dark_Mode`.
     static let light_Dark_Mode = Rswift.ColorResource(bundle: R.hostingBundle, name: "Light_Dark_Mode")
+    /// Color `Line_DarkMode`.
+    static let line_DarkMode = Rswift.ColorResource(bundle: R.hostingBundle, name: "Line_DarkMode")
     /// Color `MainBodyColor`.
     static let mainBodyColor = Rswift.ColorResource(bundle: R.hostingBundle, name: "MainBodyColor")
     /// Color `Profile_Button_DarkTheme`.
@@ -484,6 +486,8 @@ struct R: Rswift.Validatable {
     static let profile_Row_DarkTheme = Rswift.ColorResource(bundle: R.hostingBundle, name: "Profile_Row_DarkTheme")
     /// Color `RecordBackgroundDetail_DarkTheme`.
     static let recordBackgroundDetail_DarkTheme = Rswift.ColorResource(bundle: R.hostingBundle, name: "RecordBackgroundDetail_DarkTheme")
+    /// Color `RecordDetail_BackGround`.
+    static let recordDetail_BackGround = Rswift.ColorResource(bundle: R.hostingBundle, name: "RecordDetail_BackGround")
     /// Color `Thin_Gray_DarkTheme`.
     static let thin_Gray_DarkTheme = Rswift.ColorResource(bundle: R.hostingBundle, name: "Thin_Gray_DarkTheme")
     /// Color `Thin_Light_Gray_DarkTheme`.
@@ -566,6 +570,15 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
+    /// `UIColor(named: "Line_DarkMode", bundle: ..., traitCollection: ...)`
+    @available(tvOS 11.0, *)
+    @available(iOS 11.0, *)
+    static func line_DarkMode(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
+      return UIKit.UIColor(resource: R.color.line_DarkMode, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
     /// `UIColor(named: "MainBodyColor", bundle: ..., traitCollection: ...)`
     @available(tvOS 11.0, *)
     @available(iOS 11.0, *)
@@ -598,6 +611,15 @@ struct R: Rswift.Validatable {
     @available(iOS 11.0, *)
     static func recordBackgroundDetail_DarkTheme(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
       return UIKit.UIColor(resource: R.color.recordBackgroundDetail_DarkTheme, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIColor(named: "RecordDetail_BackGround", bundle: ..., traitCollection: ...)`
+    @available(tvOS 11.0, *)
+    @available(iOS 11.0, *)
+    static func recordDetail_BackGround(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
+      return UIKit.UIColor(resource: R.color.recordDetail_BackGround, compatibleWith: traitCollection)
     }
     #endif
 
@@ -2892,8 +2914,8 @@ struct R: Rswift.Validatable {
       static let certificates = Rswift.StringResource(key: "certificates", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
       /// en translation: Change passcode
       ///
-      /// Locales: en
-      static let change_passcode = Rswift.StringResource(key: "change_passcode", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// Locales: en, nl
+      static let change_passcode = Rswift.StringResource(key: "change_passcode", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
       /// en translation: Children
       ///
       /// Locales: en, nl
@@ -3790,7 +3812,7 @@ struct R: Rswift.Validatable {
 
       /// en translation: Change passcode
       ///
-      /// Locales: en
+      /// Locales: en, nl
       static func change_passcode(preferredLanguages: [String]? = nil) -> String {
         guard let preferredLanguages = preferredLanguages else {
           return NSLocalizedString("change_passcode", bundle: hostingBundle, comment: "")
@@ -9442,13 +9464,10 @@ struct _R: Rswift.Validatable {
 
       static func validate() throws {
         if UIKit.UIImage(named: "arrow", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'arrow' is used in storyboard 'Profile', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "closeBlack", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'closeBlack' is used in storyboard 'Profile', but couldn't be loaded.") }
         if UIKit.UIImage(named: "closeIcon", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'closeIcon' is used in storyboard 'Profile', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "closeLines", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'closeLines' is used in storyboard 'Profile', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "faceId-1", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'faceId-1' is used in storyboard 'Profile', but couldn't be loaded.") }
         if UIKit.UIImage(named: "ic_launcher_APP", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ic_launcher_APP' is used in storyboard 'Profile', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "lock24Px-1", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'lock24Px-1' is used in storyboard 'Profile', but couldn't be loaded.") }
         if UIKit.UIImage(named: "qrCode", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'qrCode' is used in storyboard 'Profile', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "qrImage", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'qrImage' is used in storyboard 'Profile', but couldn't be loaded.") }
         if UIKit.UIImage(named: "qrImage2", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'qrImage2' is used in storyboard 'Profile', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
         }

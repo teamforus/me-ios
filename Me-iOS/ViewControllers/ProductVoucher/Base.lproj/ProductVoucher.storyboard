@@ -3,7 +3,7 @@
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -27,14 +27,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" contentInsetAdjustmentBehavior="scrollableAxes" translatesAutoresizingMaskIntoConstraints="NO" id="yv2-8p-7GK">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yv2-8p-7GK">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="800"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lUs-DV-Tuu" customClass="Background_DarkMode" customModule="Me_iOS" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="800"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="790"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i8Y-rH-VHT" customClass="Background_DarkMode" customModule="Me_iOS" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="-6" width="375" height="328"/>
+                                                <rect key="frame" x="0.0" y="-16" width="375" height="328"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1zt-Tt-hgh" customClass="Background_DarkMode" customModule="Me_iOS" customModuleProvider="target">
                                                         <rect key="frame" x="15" y="116" width="340" height="94"/>
@@ -172,7 +172,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="era-9R-SMi" customClass="CustomCornerUIView" customModule="Me_iOS" customModuleProvider="target">
-                                                <rect key="frame" x="10" y="353" width="355" height="235"/>
+                                                <rect key="frame" x="10" y="343" width="355" height="235"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Rocket Minds" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TTK-vD-7c6" customClass="SkeletonView" customModule="Me_iOS" customModuleProvider="target">
                                                         <rect key="frame" x="68" y="21" width="265" height="29"/>
@@ -223,7 +223,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Ws-ga-W4f" customClass="Background_DarkMode" customModule="Me_iOS" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="588" width="375" height="212"/>
+                                                <rect key="frame" x="0.0" y="578" width="375" height="212"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6Dc-yV-4mG" customClass="Background_DarkMode" customModule="Me_iOS" customModuleProvider="target">
                                                         <rect key="frame" x="13" y="8" width="362" height="72"/>
@@ -318,7 +318,7 @@
                                             <constraint firstAttribute="trailing" secondItem="i8Y-rH-VHT" secondAttribute="trailing" id="HTH-Ub-PkD"/>
                                             <constraint firstAttribute="trailing" secondItem="era-9R-SMi" secondAttribute="trailing" constant="10" id="L2V-rx-FQv"/>
                                             <constraint firstItem="1Ws-ga-W4f" firstAttribute="top" secondItem="era-9R-SMi" secondAttribute="bottom" id="LCg-f5-lpN"/>
-                                            <constraint firstItem="i8Y-rH-VHT" firstAttribute="top" secondItem="lUs-DV-Tuu" secondAttribute="top" constant="-6" id="Su7-24-WUt"/>
+                                            <constraint firstItem="i8Y-rH-VHT" firstAttribute="top" secondItem="lUs-DV-Tuu" secondAttribute="top" constant="-16" id="Su7-24-WUt"/>
                                             <constraint firstItem="i8Y-rH-VHT" firstAttribute="leading" secondItem="lUs-DV-Tuu" secondAttribute="leading" id="T3w-9d-7ag"/>
                                             <constraint firstAttribute="trailing" secondItem="1Ws-ga-W4f" secondAttribute="trailing" id="fiW-9J-y2X"/>
                                             <constraint firstItem="era-9R-SMi" firstAttribute="top" secondItem="i8Y-rH-VHT" secondAttribute="bottom" constant="31" id="fqi-ns-dea"/>
@@ -535,11 +535,14 @@
         <designable name="CX4-Bk-Lqq">
             <size key="intrinsicContentSize" width="52" height="18"/>
         </designable>
+        <designable name="Yeg-Wh-K0b">
+            <size key="intrinsicContentSize" width="36" height="11"/>
+        </designable>
         <designable name="bdu-eB-oGB">
             <size key="intrinsicContentSize" width="81" height="30"/>
         </designable>
         <designable name="d75-Qd-xat">
-            <size key="intrinsicContentSize" width="134" height="24"/>
+            <size key="intrinsicContentSize" width="117" height="24"/>
         </designable>
     </designables>
     <resources>

@@ -40,18 +40,18 @@ class MVoucherViewController: UIViewController {
         voucherViewModel.reloadDataVoucher = { [weak self] (voucher) in
             
             DispatchQueue.main.async {
-                
+                self?.priceLabel.isHidden = voucher.fund?.type == FundType.subsidies.rawValue
                 self?.voucherName.text = voucher.fund?.name ?? ""
                 self?.organizationName.text = voucher.fund?.organization?.name ?? ""
                 if let price = voucher.amount {
                     //                    if voucher.fund?.currency == "eur" {
-                    self?.priceLabel.attributedText = "€ \(price.substringLeftPart()).{\(price.substringRightPart())}".customText(fontBigSize: 20, minFontSize: 14)
+                    self?.priceLabel.text = "€ \(price.substringLeftPart()),\(price.substringRightPart())"
                     //                    }else {
                     //                        self?.priceLabel.attributedText = "ETH \(price.substringLeftPart()).{\(price.substringRightPart())}".customText(fontBigSize: 20, minFontSize: 14)
                     //                    }
                 }else {
                     
-                    self?.priceLabel.attributedText = "0.{0}".customText(fontBigSize: 20, minFontSize: 14)
+                    self?.priceLabel.text = "€ 0,0"
                 }
                 
                 self?.qrImage.generateQRCode(from: "{\"type\": \"voucher\",\"value\": \"\(voucher.address ?? "")\" }")

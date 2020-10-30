@@ -3,7 +3,7 @@
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -42,7 +42,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Jx-hd-zPA" customClass="BackgroundScrollView_DarkMode" customModule="Me_iOS" customModuleProvider="target">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" contentInsetAdjustmentBehavior="scrollableAxes" translatesAutoresizingMaskIntoConstraints="NO" id="0Jx-hd-zPA" customClass="BackgroundScrollView_DarkMode" customModule="Me_iOS" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X5u-H2-PWb" customClass="Background_DarkMode" customModule="Me_iOS" customModuleProvider="target">
@@ -139,7 +139,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="116" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="K6L-y0-eG7" customClass="TableView_Background_DarkMode" customModule="Me_iOS" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="75" width="375" height="171"/>
+                                                        <rect key="frame" x="0.0" y="77" width="375" height="169"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <prototypes>
                                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="116" id="bJ4-SO-Fpc" customClass="ValidatorTableViewCell" customModule="Me_iOS" customModuleProvider="target">
@@ -203,8 +203,8 @@
                                                             <outlet property="delegate" destination="KwI-hr-Xm2" id="2s4-Gv-N7D"/>
                                                         </connections>
                                                     </tableView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Validations" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eLc-rs-IT8" customClass="UILabel_DarkMode" customModule="Me_iOS" customModuleProvider="target">
-                                                        <rect key="frame" x="20" y="34" width="194" height="30"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Validations" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eLc-rs-IT8" customClass="UILabel_DarkMode" customModule="Me_iOS" customModuleProvider="target">
+                                                        <rect key="frame" x="20" y="34" width="194" height="31"/>
                                                         <fontDescription key="fontDescription" name="GoogleSans-Medium" family="Google Sans" pointSize="24"/>
                                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
@@ -214,7 +214,7 @@
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                                         <color key="backgroundColor" red="0.92863541839999997" green="0.95287328959999995" blue="0.96533936259999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="string" keyPath="colorName" value="Gray_Dark_DarkTheme"/>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="colorName" value="Line_DarkMode"/>
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                 </subviews>
@@ -224,7 +224,7 @@
                                                     <constraint firstAttribute="trailing" secondItem="eLc-rs-IT8" secondAttribute="trailing" constant="161" id="HJ9-Ox-Nt5"/>
                                                     <constraint firstAttribute="trailing" secondItem="K6L-y0-eG7" secondAttribute="trailing" id="V64-0H-LMn"/>
                                                     <constraint firstItem="K6L-y0-eG7" firstAttribute="leading" secondItem="p8d-0D-h6c" secondAttribute="leading" id="cqv-yc-MN3"/>
-                                                    <constraint firstItem="K6L-y0-eG7" firstAttribute="top" secondItem="eLc-rs-IT8" secondAttribute="bottom" constant="10" id="hhq-6r-WBX"/>
+                                                    <constraint firstItem="K6L-y0-eG7" firstAttribute="top" secondItem="eLc-rs-IT8" secondAttribute="bottom" constant="12" id="hhq-6r-WBX"/>
                                                     <constraint firstItem="eLc-rs-IT8" firstAttribute="top" secondItem="p8d-0D-h6c" secondAttribute="top" constant="34" id="lkm-Wy-9Xn"/>
                                                     <constraint firstItem="eLc-rs-IT8" firstAttribute="leading" secondItem="p8d-0D-h6c" secondAttribute="leading" constant="20" id="obg-G7-gz8"/>
                                                 </constraints>
@@ -263,7 +263,7 @@
                                             <constraint firstItem="wkF-nC-4b3" firstAttribute="top" secondItem="X5u-H2-PWb" secondAttribute="top" id="ymA-ft-f8M"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="colorName" value="WhiteBackground_DarkTheme"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="colorName" value="RecordDetail_BackGround"/>
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                 </subviews>
@@ -274,12 +274,12 @@
                                     <constraint firstItem="X5u-H2-PWb" firstAttribute="leading" secondItem="0Jx-hd-zPA" secondAttribute="leading" id="zcw-6W-MCB"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="colorName" value="DarkGray_DarkTheme"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="colorName" value="RecordDetail_BackGround"/>
                                 </userDefinedRuntimeAttributes>
                             </scrollView>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="353-Ql-vhs" customClass="StatusView" customModule="Me_iOS" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="20"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="colorName" value="DarkGray_DarkTheme"/>
@@ -434,6 +434,9 @@
         </designable>
         <designable name="XXm-PG-izE">
             <size key="intrinsicContentSize" width="128" height="29"/>
+        </designable>
+        <designable name="yub-pu-SaO">
+            <size key="intrinsicContentSize" width="36" height="11"/>
         </designable>
     </designables>
     <resources>
