@@ -7344,7 +7344,7 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
 
-    /// This `R.string.profile` struct is generated, and contains static references to 19 localization keys.
+    /// This `R.string.profile` struct is generated, and contains static references to 18 localization keys.
     struct profile {
       /// en translation: 1.0.4
       ///
@@ -7414,10 +7414,6 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en, nl
       static let ncj5FIHrText = Rswift.StringResource(key: "Ncj-5F-IHr.text", tableName: "Profile", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
-      /// en translation: feedback@forus.io
-      ///
-      /// Locales: en, nl
-      static let cN1ZL4KNormalTitle = Rswift.StringResource(key: "5cN-1Z-L4K.normalTitle", tableName: "Profile", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
       /// en translation: mail@mail.com
       ///
       /// Locales: en, nl
@@ -7676,21 +7672,6 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("Ncj-5F-IHr.text", tableName: "Profile", bundle: bundle, comment: "")
-      }
-
-      /// en translation: feedback@forus.io
-      ///
-      /// Locales: en, nl
-      static func cN1ZL4KNormalTitle(preferredLanguages: [String]? = nil) -> String {
-        guard let preferredLanguages = preferredLanguages else {
-          return NSLocalizedString("5cN-1Z-L4K.normalTitle", tableName: "Profile", bundle: hostingBundle, comment: "")
-        }
-
-        guard let (_, bundle) = localeBundle(tableName: "Profile", preferredLanguages: preferredLanguages) else {
-          return "5cN-1Z-L4K.normalTitle"
-        }
-
-        return NSLocalizedString("5cN-1Z-L4K.normalTitle", tableName: "Profile", bundle: bundle, comment: "")
       }
 
       /// en translation: mail@mail.com
