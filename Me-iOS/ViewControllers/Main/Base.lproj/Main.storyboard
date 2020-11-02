@@ -3,7 +3,7 @@
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -404,17 +404,20 @@
         <!--Profile-->
         <scene sceneID="edm-BD-Vm9">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="ubb-Qe-KAL" customClass="HiddenNavBarNavigationController" customModule="Me_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="records" automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="ubb-Qe-KAL" customClass="HiddenNavBarNavigationController" customModule="Me_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Profile" image="activeBlue" id="Fxg-Vj-eeO"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="98v-vD-hnf">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="co2-L5-wDG" kind="relationship" relationship="rootViewController" id="sDE-zC-iFs"/>
+                    </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NTp-FX-IRk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1486" y="-620"/>
+            <point key="canvasLocation" x="3182" y="-592"/>
         </scene>
         <!--Records View Controller-->
         <scene sceneID="xak-pS-D4d">
@@ -520,16 +523,24 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Oval 2 Copy" translatesAutoresizingMaskIntoConstraints="NO" id="SRg-vk-gde">
+                            <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Oval 2 Copy" translatesAutoresizingMaskIntoConstraints="NO" id="SRg-vk-gde">
                                 <rect key="frame" x="308" y="89" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gTS-zF-UMZ">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gTS-zF-UMZ">
                                 <rect key="frame" x="310" y="89" width="46" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="activeBlue"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j6D-gi-0WL">
+                                <rect key="frame" x="311" y="25" width="43" height="41"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="43" id="WMn-Ir-5Lp"/>
+                                    <constraint firstAttribute="height" constant="41" id="eYE-YD-4Gt"/>
+                                </constraints>
+                                <state key="normal" image="closeBlack"/>
                                 <connections>
-                                    <segue destination="aWS-SZ-nKf" kind="presentation" id="z00-1J-iem"/>
+                                    <action selector="dismiss:" destination="co2-L5-wDG" eventType="touchUpInside" id="UHP-Qv-f0I"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -539,7 +550,9 @@
                             <constraint firstAttribute="bottom" secondItem="QFd-Zz-7yk" secondAttribute="bottom" id="37f-tq-Etg"/>
                             <constraint firstItem="QFd-Zz-7yk" firstAttribute="trailing" secondItem="hQ2-i6-qrA" secondAttribute="trailing" id="CAe-i9-ES8"/>
                             <constraint firstItem="QFd-Zz-7yk" firstAttribute="top" secondItem="hQ2-i6-qrA" secondAttribute="top" constant="207" id="dgF-MP-XOH"/>
+                            <constraint firstItem="j6D-gi-0WL" firstAttribute="top" secondItem="hQ2-i6-qrA" secondAttribute="top" constant="25" id="nEn-Uz-okn"/>
                             <constraint firstItem="QFd-Zz-7yk" firstAttribute="leading" secondItem="hQ2-i6-qrA" secondAttribute="leading" id="ycw-h4-bi9"/>
+                            <constraint firstItem="hQ2-i6-qrA" firstAttribute="trailing" secondItem="j6D-gi-0WL" secondAttribute="trailing" constant="21" id="z7q-Kg-xvk"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="string" keyPath="colorName" value="DarkGray_DarkTheme"/>
@@ -555,7 +568,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1pc-XS-0Zr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3317.5999999999999" y="-620.23988005997012"/>
+            <point key="canvasLocation" x="3878" y="-592"/>
         </scene>
         <!--Profile-->
         <scene sceneID="ZLx-q9-Ged">
@@ -565,7 +578,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qmi-N2-Dj6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3994" y="-702"/>
+            <point key="canvasLocation" x="4411" y="-665"/>
         </scene>
         <!--RecordDetail-->
         <scene sceneID="LBX-03-8xA">
@@ -575,25 +588,25 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qj7-qp-95c" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3994" y="-539"/>
+            <point key="canvasLocation" x="4442" y="-592"/>
         </scene>
-        <!--Records-->
+        <!--Profile-->
         <scene sceneID="CBG-3U-N66">
             <objects>
                 <navigationController storyboardIdentifier="record" automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="LrU-jE-PNR" customClass="HiddenNavBarNavigationController" customModule="Me_iOS" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Records" image="records" id="S2m-RV-PJB"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="activeBlue" id="S2m-RV-PJB"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="fSu-oA-dgN">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="co2-L5-wDG" kind="relationship" relationship="rootViewController" id="Si1-Lk-FOZ"/>
+                        <segue destination="aWS-SZ-nKf" kind="relationship" relationship="rootViewController" id="feg-gn-498"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xwn-8j-NyB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2380" y="-620"/>
+            <point key="canvasLocation" x="2006" y="-592"/>
         </scene>
     </scenes>
     <designables>
@@ -608,10 +621,10 @@
         <image name="Oval 2 Copy" width="51" height="51"/>
         <image name="Resting" width="210" height="210"/>
         <image name="activeBlue" width="30" height="26"/>
+        <image name="closeBlack" width="24" height="24"/>
         <image name="eth" width="52" height="52"/>
         <image name="iconGrey" width="30" height="26"/>
         <image name="list of transactions" width="51" height="51"/>
-        <image name="records" width="30" height="26"/>
         <image name="rectangle" width="10" height="7"/>
         <image name="rectangleRed" width="9" height="7"/>
         <image name="voucher" width="230" height="230"/>

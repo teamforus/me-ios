@@ -6374,14 +6374,14 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: nl, en
       static let fxgVjEeOTitle = Rswift.StringResource(key: "Fxg-Vj-eeO.title", tableName: "Main", bundle: R.hostingBundle, locales: ["nl", "en"], comment: nil)
+      /// en translation: Profile
+      ///
+      /// Locales: nl, en
+      static let s2mRVPJBTitle = Rswift.StringResource(key: "S2m-RV-PJB.title", tableName: "Main", bundle: R.hostingBundle, locales: ["nl", "en"], comment: nil)
       /// en translation: QR
       ///
       /// Locales: nl, en
       static let scFCsIUbTitle = Rswift.StringResource(key: "ScF-cs-iUb.title", tableName: "Main", bundle: R.hostingBundle, locales: ["nl", "en"], comment: nil)
-      /// en translation: Records
-      ///
-      /// Locales: nl, en
-      static let s2mRVPJBTitle = Rswift.StringResource(key: "S2m-RV-PJB.title", tableName: "Main", bundle: R.hostingBundle, locales: ["nl", "en"], comment: nil)
       /// en translation: Used
       ///
       /// Locales: nl, en
@@ -6590,6 +6590,21 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("Fxg-Vj-eeO.title", tableName: "Main", bundle: bundle, comment: "")
       }
 
+      /// en translation: Profile
+      ///
+      /// Locales: nl, en
+      static func s2mRVPJBTitle(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("S2m-RV-PJB.title", tableName: "Main", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Main", preferredLanguages: preferredLanguages) else {
+          return "S2m-RV-PJB.title"
+        }
+
+        return NSLocalizedString("S2m-RV-PJB.title", tableName: "Main", bundle: bundle, comment: "")
+      }
+
       /// en translation: QR
       ///
       /// Locales: nl, en
@@ -6603,21 +6618,6 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("ScF-cs-iUb.title", tableName: "Main", bundle: bundle, comment: "")
-      }
-
-      /// en translation: Records
-      ///
-      /// Locales: nl, en
-      static func s2mRVPJBTitle(preferredLanguages: [String]? = nil) -> String {
-        guard let preferredLanguages = preferredLanguages else {
-          return NSLocalizedString("S2m-RV-PJB.title", tableName: "Main", bundle: hostingBundle, comment: "")
-        }
-
-        guard let (_, bundle) = localeBundle(tableName: "Main", preferredLanguages: preferredLanguages) else {
-          return "S2m-RV-PJB.title"
-        }
-
-        return NSLocalizedString("S2m-RV-PJB.title", tableName: "Main", bundle: bundle, comment: "")
       }
 
       /// en translation: Used
@@ -9310,6 +9310,7 @@ struct _R: Rswift.Validatable {
       let personal = StoryboardViewControllerResource<MRecordsViewController>(identifier: "personal")
       let qrCodeReader = StoryboardViewControllerResource<MQRViewController>(identifier: "qrCodeReader")
       let record = StoryboardViewControllerResource<HiddenNavBarNavigationController>(identifier: "record")
+      let records = StoryboardViewControllerResource<HiddenNavBarNavigationController>(identifier: "records")
       let tabBar = StoryboardViewControllerResource<UIKit.UITabBarController>(identifier: "tabBar")
 
       func personal(_: Void = ()) -> MRecordsViewController? {
@@ -9324,6 +9325,10 @@ struct _R: Rswift.Validatable {
         return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: record)
       }
 
+      func records(_: Void = ()) -> HiddenNavBarNavigationController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: records)
+      }
+
       func tabBar(_: Void = ()) -> UIKit.UITabBarController? {
         return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: tabBar)
       }
@@ -9332,10 +9337,10 @@ struct _R: Rswift.Validatable {
         if UIKit.UIImage(named: "Oval 2 Copy", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Oval 2 Copy' is used in storyboard 'Main', but couldn't be loaded.") }
         if UIKit.UIImage(named: "Resting", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Resting' is used in storyboard 'Main', but couldn't be loaded.") }
         if UIKit.UIImage(named: "activeBlue", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'activeBlue' is used in storyboard 'Main', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "closeBlack", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'closeBlack' is used in storyboard 'Main', but couldn't be loaded.") }
         if UIKit.UIImage(named: "eth", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'eth' is used in storyboard 'Main', but couldn't be loaded.") }
         if UIKit.UIImage(named: "iconGrey", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'iconGrey' is used in storyboard 'Main', but couldn't be loaded.") }
         if UIKit.UIImage(named: "list of transactions", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'list of transactions' is used in storyboard 'Main', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "records", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'records' is used in storyboard 'Main', but couldn't be loaded.") }
         if UIKit.UIImage(named: "rectangle", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'rectangle' is used in storyboard 'Main', but couldn't be loaded.") }
         if UIKit.UIImage(named: "rectangleRed", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'rectangleRed' is used in storyboard 'Main', but couldn't be loaded.") }
         if UIKit.UIImage(named: "voucher", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'voucher' is used in storyboard 'Main', but couldn't be loaded.") }
@@ -9346,6 +9351,7 @@ struct _R: Rswift.Validatable {
         if _R.storyboard.main().personal() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'personal' could not be loaded from storyboard 'Main' as 'MRecordsViewController'.") }
         if _R.storyboard.main().qrCodeReader() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'qrCodeReader' could not be loaded from storyboard 'Main' as 'MQRViewController'.") }
         if _R.storyboard.main().record() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'record' could not be loaded from storyboard 'Main' as 'HiddenNavBarNavigationController'.") }
+        if _R.storyboard.main().records() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'records' could not be loaded from storyboard 'Main' as 'HiddenNavBarNavigationController'.") }
         if _R.storyboard.main().tabBar() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'tabBar' could not be loaded from storyboard 'Main' as 'UIKit.UITabBarController'.") }
       }
 
