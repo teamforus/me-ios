@@ -458,7 +458,7 @@ struct R: Rswift.Validatable {
   }
   #endif
 
-  /// This `R.color` struct is generated, and contains static references to 18 colors.
+  /// This `R.color` struct is generated, and contains static references to 19 colors.
   struct color {
     /// Color `Background_DarkTheme`.
     static let background_DarkTheme = Rswift.ColorResource(bundle: R.hostingBundle, name: "Background_DarkTheme")
@@ -494,6 +494,8 @@ struct R: Rswift.Validatable {
     static let thin_Light_Gray_DarkTheme = Rswift.ColorResource(bundle: R.hostingBundle, name: "Thin_Light_Gray_DarkTheme")
     /// Color `VoucherButton`.
     static let voucherButton = Rswift.ColorResource(bundle: R.hostingBundle, name: "VoucherButton")
+    /// Color `WhiteBackgroundRecord_DarkTheme`.
+    static let whiteBackgroundRecord_DarkTheme = Rswift.ColorResource(bundle: R.hostingBundle, name: "WhiteBackgroundRecord_DarkTheme")
     /// Color `WhiteBackground_DarkTheme`.
     static let whiteBackground_DarkTheme = Rswift.ColorResource(bundle: R.hostingBundle, name: "WhiteBackground_DarkTheme")
 
@@ -647,6 +649,15 @@ struct R: Rswift.Validatable {
     @available(iOS 11.0, *)
     static func voucherButton(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
       return UIKit.UIColor(resource: R.color.voucherButton, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIColor(named: "WhiteBackgroundRecord_DarkTheme", bundle: ..., traitCollection: ...)`
+    @available(tvOS 11.0, *)
+    @available(iOS 11.0, *)
+    static func whiteBackgroundRecord_DarkTheme(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
+      return UIKit.UIColor(resource: R.color.whiteBackgroundRecord_DarkTheme, compatibleWith: traitCollection)
     }
     #endif
 
