@@ -324,6 +324,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Item 2" id="yc3-wb-YF5"/>
                     <connections>
+                        <outlet property="buttonsInfoView" destination="kcP-fI-Tg7" id="kFM-jw-FJ9"/>
                         <outlet property="dateCreated" destination="qGC-Rd-vKi" id="20k-X8-P5P"/>
                         <outlet property="heightConstraint" destination="Suv-fe-koy" id="ZxH-xR-kT3"/>
                         <outlet property="organizationName" destination="w5t-6W-ueq" id="Eko-y9-lft"/>

@@ -15,7 +15,6 @@ class ConfirmPaymentPopUp: UIViewController {
     @IBOutlet weak var declineButton: ShadowButton!
     @IBOutlet weak var confirmButton: ShadowButton!
     
-    
     var voucher: Voucher!
     var voucherToken: Transaction!
     var testToken: String!
@@ -57,6 +56,10 @@ class ConfirmPaymentPopUp: UIViewController {
             if Double(amount!.replacingOccurrences(of: ",", with: "."))! > amountVoucher {
                 //                if voucher.fund?.currency == "eur" {
                 insuficientLabel.text = Localize.insufficient_funds_on_the_voucher_please_request_extra_payment(aditionalAmount)
+                if let amountTotal = Double(amount!.replacingOccurrences(of: ",", with: ".")) {
+                    let sum = amountTotal - aditionalAmount
+                    amount = String(sum)
+                }
                 //                }else {
                 //                insuficientLabel.text = String(format: NSLocalizedString("Insufficient funds on the voucher. Please, request extra payment of ETH%.02f", comment: ""), aditionalAmount)
                 //                }

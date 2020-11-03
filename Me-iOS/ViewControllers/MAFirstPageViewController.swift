@@ -183,14 +183,15 @@ class MAFirstPageViewController: UIViewController {
             }
         }
         
-        emailLoginViewModel.complete = { [weak self] (statusCode) in
+        emailLoginViewModel.complete = { [weak self] (message, statusCode) in
             
             DispatchQueue.main.async {
                 
-                if statusCode != 500 {
+                if statusCode == 500 {
+                    self?.showSimpleAlertWithSingleAction(title: Localize.error_exclamation(), message: "", okAction: UIAlertAction(title: Localize.ok(), style: .default, handler: { (action) in }))
                     
-                    self?.performSegue(withIdentifier: "goToSuccessMail", sender: self)
-                    
+                }else if statusCode == 422 {
+                    self?.showSimpleAlertWithSingleAction(title: Localize.error_exclamation(), message: message, okAction: UIAlertAction(title: Localize.ok(), style: .default, handler: { (action) in  }))
                 }else {
                     self?.showSimpleAlertWithSingleAction(title: Localize.error_exclamation(), message: "", okAction: UIAlertAction(title: Localize.ok(), style: .default, handler: { (action) in
                     }))
