@@ -123,8 +123,10 @@ extension MProfileViewController {
     
     private func setupView() {
         profileViewModel.vc = self
-        let versionApp: AnyObject? = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as AnyObject
-        let buildAppNumber: AnyObject? = Bundle.main.infoDictionary?["CFBundleVersion"] as AnyObject
+        if let versionApp = Bundle.main.infoDictionary?["CFBundleShortVersionString"] {
+            appVersionLabel.text = "\(versionApp)"
+        }
+        
         #if (DEV || ALPHA )
         crashButton.isHidden = false
         #else

@@ -363,7 +363,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zcj-Zs-YTi" customClass="Background_DarkMode" customModule="Me_iOS" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="153" width="375" height="102"/>
+                                                        <rect key="frame" x="0.0" y="153" width="375" height="101"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <userDefinedRuntimeAttributes>
@@ -495,7 +495,7 @@
                     <size key="freeformSize" width="375" height="765"/>
                     <connections>
                         <outlet property="aboutMeButton" destination="o9m-cg-Pla" id="Byz-n3-XoZ"/>
-                        <outlet property="appVersionLabel" destination="fhS-84-KLb" id="odz-tT-31M"/>
+                        <outlet property="appVersionLabel" destination="Qzj-KA-RoL" id="u92-JV-yij"/>
                         <outlet property="buttonConstraingHeight" destination="mmG-cv-HBd" id="cMy-C3-s00"/>
                         <outlet property="changePassCodeView" destination="wNw-9x-l3y" id="aNg-kj-CA3"/>
                         <outlet property="changePasscodeLabel" destination="AbL-ew-Qz7" id="qLV-7E-3zc"/>
