@@ -17,9 +17,10 @@ class MVoucherViewController: UIViewController {
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var qrImage: UIImageView!
     @IBOutlet weak var heightConstraint: NSLayoutConstraint!
-    @IBOutlet weak var buttonsInfoView: UIView!
-    @IBOutlet weak var qrCodeActionButton: UIButton!
-    
+    @IBOutlet weak var sendEmailButton: ShadowButton!
+    @IBOutlet weak var voucherInfoButton: ShadowButton!
+    @IBOutlet weak var qrCodeButton: UIButton!
+  
     lazy var voucherViewModel: VoucherViewModel = {
         return VoucherViewModel()
     }()
@@ -30,9 +31,8 @@ class MVoucherViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        labeles.forEach { (view) in
-            view.startAnimating()
-        }
+        setupAccessibility()
+       
         
         images.forEach { (view) in
             view.startAnimating()
@@ -40,32 +40,24 @@ class MVoucherViewController: UIViewController {
         voucherViewModel.reloadDataVoucher = { [weak self] (voucher) in
             
             DispatchQueue.main.async {
-                
+                self?.priceLabel.isHidden = voucher.fund?.type == FundType.subsidies.rawValue
                 self?.voucherName.text = voucher.fund?.name ?? ""
                 self?.organizationName.text = voucher.fund?.organization?.name ?? ""
                 if let price = voucher.amount {
                     //                    if voucher.fund?.currency == "eur" {
-                    self?.priceLabel.attributedText = "€ \(price.substringLeftPart()).{\(price.substringRightPart())}".customText(fontBigSize: 20, minFontSize: 14)
+                    self?.priceLabel.text = "€ \(price.substringLeftPart()),\(price.substringRightPart())"
                     //                    }else {
                     //                        self?.priceLabel.attributedText = "ETH \(price.substringLeftPart()).{\(price.substringRightPart())}".customText(fontBigSize: 20, minFontSize: 14)
                     //                    }
                 }else {
                     
-                    self?.priceLabel.attributedText = "0.{0}".customText(fontBigSize: 20, minFontSize: 14)
+                    self?.priceLabel.text = "€ 0,0"
                 }
                 
                 self?.qrImage.generateQRCode(from: "{\"type\": \"voucher\",\"value\": \"\(voucher.address ?? "")\" }")
-                self?.dateCreated.text = voucher.created_at?.dateFormaterNormalDate()
+                self?.dateCreated.text = voucher.created_at_locale
                 self?.voucher = voucher
-                if voucher.expire_at?.date?.formatDate() ?? Date() < Date() {
-                    self?.buttonsInfoView.isHidden = true
-                    self?.heightConstraint.constant = 232
-                    self?.qrImage.isHidden = true
-                    self?.qrCodeActionButton.isEnabled = false
-                }
-                self?.labeles.forEach { (view) in
-                    view.stopAnimating()
-                }
+                
                 self?.images.forEach { (view) in
                     view.stopAnimating()
                 }
@@ -112,8 +104,8 @@ class MVoucherViewController: UIViewController {
             }
         }
         
-        showSimpleAlertWithAction(title: Localize.eMailToMe(),
-                                  message: Localize.sendTheVoucherToYourEmail(),
+        showSimpleAlertWithAction(title: Localize.email_to_me(),
+                                  message: Localize.send_voucher_to_your_email(),
                                   okAction: UIAlertAction(title: Localize.confirm(), style: .default, handler: { (action) in
                                     
                                     self.voucherViewModel.sendEmail(address: self.voucher.address ?? "")
@@ -170,6 +162,16 @@ extension MVoucherViewController: UITableViewDelegate, UITableViewDataSource{
     
 }
 
+// MARK: - Accessibility Protocol
+
+extension MVoucherViewController: AccessibilityProtocol {
+    func setupAccessibility() {
+        sendEmailButton.setupAccesibility(description: "Send voucher on email", accessibilityTraits: .button)
+        voucherInfoButton.setupAccesibility(description: "Go to voucher info", accessibilityTraits: .button)
+        qrCodeButton.setupAccesibility(description: "Tap to open qr code modal", accessibilityTraits: .button)
+   }
+}
+
 extension MVoucherViewController{
     
     func didAnimateTransactioList(){
@@ -186,6 +188,8 @@ extension MVoucherViewController{
                 }
             }
         }
+        
+        
     }
     
     func isFirstCellVisible() -> Bool{
@@ -198,3 +202,5 @@ extension MVoucherViewController{
         return false
     }
 }
+
+
