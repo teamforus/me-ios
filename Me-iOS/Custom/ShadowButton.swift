@@ -17,6 +17,11 @@ class ShadowButton: UIButton {
     }
   }
   
+  @IBInspectable var colorNameTitle :String = "Background_DarkTheme" {
+    didSet {
+      setSelectedTitileName()
+    }
+  }
   
   @IBInspectable var selectedShadowColor : UIColor = UIColor.black {
     didSet {
@@ -100,6 +105,13 @@ class ShadowButton: UIButton {
   func setSelectedColorName() {
     if #available(iOS 11.0, *) {
       self.backgroundColor = UIColor(named: colorName)
+    } else {
+      // Fallback on earlier versions
+    }
+  }
+  func setSelectedTitileName() {
+    if #available(iOS 11.0, *) {
+      self.setTitleColor(UIColor(named: colorNameTitle), for: .normal)
     } else {
       // Fallback on earlier versions
     }

@@ -77,10 +77,9 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yhx-Cq-Cbu">
-                                <rect key="frame" x="14" y="54" width="24" height="24"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yhx-Cq-Cbu" customClass="BackButton_DarkMode" customModule="Me_iOS" customModuleProvider="target">
+                                <rect key="frame" x="11" y="49" width="30" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="back"/>
                                 <connections>
                                     <action selector="dismiss:" destination="m0o-iy-LOr" eventType="touchUpInside" id="P5u-Ri-oD1"/>
                                 </connections>
@@ -173,6 +172,5 @@
     </designables>
     <resources>
         <image name="Me app" width="200" height="201"/>
-        <image name="back" width="24" height="24"/>
     </resources>
 </document>

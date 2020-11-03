@@ -18,7 +18,7 @@ class TransactionListTableViewCell: UITableViewCell {
         view.shadowOffset = CGSize(width: 0, height: 0)
         view.shadowRadius = 10
         view.shadowOpacity = 0.1
-        view.colorName = "WhiteBackground_DarkTheme"
+        view.colorName = "Gray_Dark_DarkTheme"
         view.cornerRadius = 8
         return view
     }()
@@ -63,6 +63,8 @@ class TransactionListTableViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         selectionStyle = .none
+        self.backgroundColor = .clear
+        self.contentView.backgroundColor = .clear
         addSubiews()
         setupConstraints()
     }

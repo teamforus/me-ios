@@ -40,6 +40,11 @@ class TableView_Background_DarkMode: UITableView {
         super.init(frame: frame, style: style)
         setDarkModeBackground()
     }
+  @IBInspectable var colorName :String = "WhiteBackground_DarkTheme" {
+      didSet {
+          setSelectedColorName()
+      }
+  }
     
     required init(coder: NSCoder) {
       super.init(coder: coder)!
@@ -48,10 +53,17 @@ class TableView_Background_DarkMode: UITableView {
     
     func setDarkModeBackground(){
       if #available(iOS 11.0, *) {
-        self.backgroundColor = UIColor(named: "Background_DarkTheme")
+        self.backgroundColor = UIColor(named: "WhiteBackground_DarkTheme")
       } else {
         // Fallback on earlier versions
       }
     }
+  func setSelectedColorName() {
+      if #available(iOS 11.0, *) {
+        self.backgroundColor = UIColor(named: colorName)
+      } else {
+        // Fallback on earlier versions
+      }
+  }
 
 }

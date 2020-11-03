@@ -10,16 +10,16 @@ import UIKit
 
 class TransactionOverview: UIView {
     
-    let transpartentView: Background_DarkMode = {
-        let view = Background_DarkMode()
-        view.colorName = "Black_Light_DarkTheme"
+    let transpartentView: UIView = {
+        let view = UIView()
+      view.backgroundColor = .black
         view.alpha = 0.5
         return view
     }()
     
     let bodyView: Background_DarkMode = {
         let view = Background_DarkMode()
-        view.colorName = "WhiteBackground_DarkTheme"
+        view.colorName = "Background_Voucher_DarkTheme"
         view.roundCorners(corners: [.layerMinXMinYCorner, .layerMaxXMinYCorner], radius: 16)
         return view
     }()
@@ -59,18 +59,17 @@ class TransactionOverview: UIView {
         return label
     }()
     
-    let bodyTransactionDetailView: UIView = {
-        let view = UIView()
+    let bodyTransactionDetailView: Background_DarkMode = {
+        let view = Background_DarkMode()
+        view.colorName = "Gray_Dark_DarkTheme"
         view.corner = 16
-        view.backgroundColor = #colorLiteral(red: 0.9685427547, green: 0.9686817527, blue: 0.9685124755, alpha: 1)
         return view
     }()
     
-    let titleLabel: UILabel = {
-        let label = UILabel()
+    let titleLabel: UILabel_DarkMode = {
+        let label = UILabel_DarkMode()
         label.font = UIFont(name: "GoogleSans-Bold", size: 18)
         label.text = Localize.transaction_details()
-        label.textColor = .black
         return label
     }()
     
@@ -82,10 +81,9 @@ class TransactionOverview: UIView {
         return label
     }()
     
-    let idTransactionLabel: UILabel = {
-        let label = UILabel()
+    let idTransactionLabel: UILabel_DarkMode = {
+        let label = UILabel_DarkMode()
         label.font = UIFont(name: "GoogleSans-Regular", size: 15)
-        label.textColor = .black
         return label
     }()
     
@@ -97,10 +95,9 @@ class TransactionOverview: UIView {
         return label
     }()
     
-    let fundNameLabel: UILabel = {
-        let label = UILabel()
+    let fundNameLabel: UILabel_DarkMode = {
+        let label = UILabel_DarkMode()
         label.font = UIFont(name: "GoogleSans-Regular", size: 15)
-        label.textColor = .black
         return label
     }()
     
@@ -112,9 +109,8 @@ class TransactionOverview: UIView {
         return label
     }()
     
-    let provederNameLabel: UILabel = {
-        let label = UILabel()
-        label.textColor = .black
+    let provederNameLabel: UILabel_DarkMode = {
+        let label = UILabel_DarkMode()
         return label
     }()
     

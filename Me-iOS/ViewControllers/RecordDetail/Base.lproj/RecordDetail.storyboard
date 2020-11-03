@@ -3,7 +3,7 @@
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -38,11 +38,11 @@
         <scene sceneID="RGZ-i9-6CH">
             <objects>
                 <viewController storyboardIdentifier="content" id="KwI-hr-Xm2" customClass="MRecordDetailViewController" customModule="Me_iOS" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="wEk-Zi-rrt">
+                    <view key="view" contentMode="scaleToFill" id="wEk-Zi-rrt" customClass="Background_DarkMode" customModule="Me_iOS" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Jx-hd-zPA" customClass="BackgroundScrollView_DarkMode" customModule="Me_iOS" customModuleProvider="target">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" contentInsetAdjustmentBehavior="scrollableAxes" translatesAutoresizingMaskIntoConstraints="NO" id="0Jx-hd-zPA" customClass="BackgroundScrollView_DarkMode" customModule="Me_iOS" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X5u-H2-PWb" customClass="Background_DarkMode" customModule="Me_iOS" customModuleProvider="target">
@@ -60,9 +60,9 @@
                                                         </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Eigenschap detail" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="nZa-Jq-IY1" customClass="UILabel_DarkMode" customModule="Me_iOS" customModuleProvider="target">
-                                                        <rect key="frame" x="16" y="73" width="351" height="49"/>
+                                                        <rect key="frame" x="16" y="73" width="350" height="49"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <fontDescription key="fontDescription" name="GoogleSans-Bold" family="Google Sans" pointSize="38"/>
+                                                        <fontDescription key="fontDescription" name="GoogleSans-Medium" family="Google Sans" pointSize="38"/>
                                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
@@ -72,7 +72,7 @@
                                                     <constraint firstAttribute="height" constant="154" id="F9m-Gm-fHT"/>
                                                 </constraints>
                                                 <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="string" keyPath="colorName" value="WhiteBackground_DarkTheme"/>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="colorName" value="DarkGray_DarkTheme"/>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QIh-w6-1ts" customClass="CustomCornerUIView" customModule="Me_iOS" customModuleProvider="target">
@@ -86,7 +86,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Jamal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GD3-0S-rSM" customClass="UILabel_DarkMode" customModule="Me_iOS" customModuleProvider="target">
-                                                        <rect key="frame" x="19" y="39" width="259" height="23"/>
+                                                        <rect key="frame" x="19" y="39" width="258" height="23"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <fontDescription key="fontDescription" name="GoogleSans-Medium" family="Google Sans" pointSize="18"/>
                                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -100,7 +100,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XXm-PG-izE" customClass="ShadowButton" customModule="Me_iOS" customModuleProvider="target">
-                                                        <rect key="frame" x="15" y="90" width="325" height="36"/>
+                                                        <rect key="frame" x="14" y="90" width="325" height="36"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <color key="backgroundColor" red="0.91764705879999997" green="0.94117647059999998" blue="0.99607843139999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <fontDescription key="fontDescription" name="GoogleSans-Medium" family="Google Sans" pointSize="13"/>
@@ -132,14 +132,14 @@
                                                 <rect key="frame" x="0.0" y="329" width="375" height="338"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="This record has no validations yet" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TMm-Mn-V3X">
-                                                        <rect key="frame" x="15" y="112" width="346" height="45"/>
+                                                        <rect key="frame" x="14" y="112" width="347" height="45"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <fontDescription key="fontDescription" name="GoogleSans-Regular" family="Google Sans" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="116" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="K6L-y0-eG7" customClass="TableView_Background_DarkMode" customModule="Me_iOS" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="75" width="375" height="171"/>
+                                                        <rect key="frame" x="0.0" y="77" width="375" height="169"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <prototypes>
                                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="116" id="bJ4-SO-Fpc" customClass="ValidatorTableViewCell" customModule="Me_iOS" customModuleProvider="target">
@@ -183,6 +183,9 @@
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                     </subviews>
+                                                                    <userDefinedRuntimeAttributes>
+                                                                        <userDefinedRuntimeAttribute type="string" keyPath="colorName" value="DarkGray_DarkTheme"/>
+                                                                    </userDefinedRuntimeAttributes>
                                                                 </tableViewCellContentView>
                                                                 <connections>
                                                                     <outlet property="dateLabel" destination="tEb-WA-zaT" id="QOK-UW-Iq8"/>
@@ -192,13 +195,16 @@
                                                                 </connections>
                                                             </tableViewCell>
                                                         </prototypes>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="colorName" value="DarkGray_DarkTheme"/>
+                                                        </userDefinedRuntimeAttributes>
                                                         <connections>
                                                             <outlet property="dataSource" destination="KwI-hr-Xm2" id="zj1-40-pfn"/>
                                                             <outlet property="delegate" destination="KwI-hr-Xm2" id="2s4-Gv-N7D"/>
                                                         </connections>
                                                     </tableView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Validations" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eLc-rs-IT8" customClass="UILabel_DarkMode" customModule="Me_iOS" customModuleProvider="target">
-                                                        <rect key="frame" x="20" y="34" width="194" height="30"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Validations" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eLc-rs-IT8" customClass="UILabel_DarkMode" customModule="Me_iOS" customModuleProvider="target">
+                                                        <rect key="frame" x="20" y="34" width="194" height="31"/>
                                                         <fontDescription key="fontDescription" name="GoogleSans-Medium" family="Google Sans" pointSize="24"/>
                                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
@@ -208,7 +214,7 @@
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                                         <color key="backgroundColor" red="0.92863541839999997" green="0.95287328959999995" blue="0.96533936259999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="string" keyPath="colorName" value="Gray_Dark_DarkTheme"/>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="colorName" value="Line_DarkMode"/>
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                 </subviews>
@@ -218,12 +224,12 @@
                                                     <constraint firstAttribute="trailing" secondItem="eLc-rs-IT8" secondAttribute="trailing" constant="161" id="HJ9-Ox-Nt5"/>
                                                     <constraint firstAttribute="trailing" secondItem="K6L-y0-eG7" secondAttribute="trailing" id="V64-0H-LMn"/>
                                                     <constraint firstItem="K6L-y0-eG7" firstAttribute="leading" secondItem="p8d-0D-h6c" secondAttribute="leading" id="cqv-yc-MN3"/>
-                                                    <constraint firstItem="K6L-y0-eG7" firstAttribute="top" secondItem="eLc-rs-IT8" secondAttribute="bottom" constant="10" id="hhq-6r-WBX"/>
+                                                    <constraint firstItem="K6L-y0-eG7" firstAttribute="top" secondItem="eLc-rs-IT8" secondAttribute="bottom" constant="12" id="hhq-6r-WBX"/>
                                                     <constraint firstItem="eLc-rs-IT8" firstAttribute="top" secondItem="p8d-0D-h6c" secondAttribute="top" constant="34" id="lkm-Wy-9Xn"/>
                                                     <constraint firstItem="eLc-rs-IT8" firstAttribute="leading" secondItem="p8d-0D-h6c" secondAttribute="leading" constant="20" id="obg-G7-gz8"/>
                                                 </constraints>
                                                 <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="string" keyPath="colorName" value="WhiteBackground_DarkTheme"/>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="colorName" value="DarkGray_DarkTheme"/>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="owV-nu-EIT">
@@ -257,7 +263,7 @@
                                             <constraint firstItem="wkF-nC-4b3" firstAttribute="top" secondItem="X5u-H2-PWb" secondAttribute="top" id="ymA-ft-f8M"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="colorName" value="Background_Voucher_DarkTheme"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="colorName" value="RecordDetail_BackGround"/>
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                 </subviews>
@@ -268,15 +274,15 @@
                                     <constraint firstItem="X5u-H2-PWb" firstAttribute="leading" secondItem="0Jx-hd-zPA" secondAttribute="leading" id="zcw-6W-MCB"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="colorName" value="Background_DarkTheme"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="colorName" value="RecordDetail_BackGround"/>
                                 </userDefinedRuntimeAttributes>
                             </scrollView>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="353-Ql-vhs" customClass="StatusView" customModule="Me_iOS" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="20"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="colorName" value="Background_DarkTheme"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="colorName" value="DarkGray_DarkTheme"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
@@ -288,8 +294,11 @@
                             <constraint firstItem="X5u-H2-PWb" firstAttribute="width" secondItem="wEk-Zi-rrt" secondAttribute="width" id="jgQ-Ij-cb6"/>
                             <constraint firstAttribute="bottom" secondItem="0Jx-hd-zPA" secondAttribute="bottom" id="lFI-jc-NUm"/>
                             <constraint firstItem="X5u-H2-PWb" firstAttribute="height" secondItem="wEk-Zi-rrt" secondAttribute="height" priority="250" id="tkh-v1-8dq"/>
-                            <constraint firstItem="0Jx-hd-zPA" firstAttribute="top" secondItem="wEk-Zi-rrt" secondAttribute="top" id="uQu-S6-h5L"/>
+                            <constraint firstItem="0Jx-hd-zPA" firstAttribute="top" secondItem="j9d-X1-vWZ" secondAttribute="top" id="uQu-S6-h5L"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="string" keyPath="colorName" value="WhiteBackgroundRecord_DarkTheme"/>
+                        </userDefinedRuntimeAttributes>
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="667"/>
@@ -333,7 +342,7 @@
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <view hidden="YES" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yub-pu-SaO" customClass="ISHPullUpHandleView">
-                                                <rect key="frame" x="160" y="6" width="36" height="11"/>
+                                                <rect key="frame" x="159" y="6" width="36" height="11"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <userDefinedRuntimeAttributes>
@@ -366,7 +375,7 @@
                                         <accessibility key="accessibilityConfiguration" identifier="topViewHandle"/>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Laat iemanduw persoonlijke QR-code scannen om u valuta, bezit of vouchers te sturen" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="Cb7-Bv-I2d">
-                                        <rect key="frame" x="8" y="308" width="339" height="48"/>
+                                        <rect key="frame" x="7" y="308" width="339" height="48"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="GoogleSans-Regular" family="Google Sans" pointSize="15"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -377,7 +386,7 @@
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="qrCode" translatesAutoresizingMaskIntoConstraints="NO" id="rYC-sX-tBb">
-                                                <rect key="frame" x="98" y="19" width="160" height="160"/>
+                                                <rect key="frame" x="97" y="19" width="160" height="160"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </imageView>
                                         </subviews>
