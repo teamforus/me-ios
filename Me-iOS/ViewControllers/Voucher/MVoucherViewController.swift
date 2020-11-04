@@ -151,8 +151,9 @@ extension MVoucherViewController: UITableViewDelegate, UITableViewDataSource{
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TransactionTableViewCell
         
-        cell.transaction = voucherViewModel.getCellViewModel(at: indexPath)
+        let transaction = voucherViewModel.getCellViewModel(at: indexPath)
         
+        cell.configure(transaction: transaction, isSubsidies: voucher.fund?.type == FundType.subsidies.rawValue)
         return cell
     }
     
