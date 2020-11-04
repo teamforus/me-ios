@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 import LocalAuthentication
 import CoreData
+import StoreKit
 
 extension UIViewController{
     
@@ -91,7 +92,7 @@ extension UIViewController{
         
         let allertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         
-        allertController.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
+        allertController.addAction(UIAlertAction(title: Localize.ok(), style: .default, handler: { (action) in
             
         }))
         
@@ -115,8 +116,8 @@ extension UIViewController{
     
     func showInternetUnable(){
         let alert: UIAlertController
-        alert = UIAlertController(title: "Warning".localized(), message: "No Internet Conecction".localized(), preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
+        alert = UIAlertController(title: Localize.warning(), message: Localize.no_internet_conecction(), preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: Localize.ok(), style: .default, handler: { (action) in
         }))
         
         self.present(alert, animated: true)
@@ -124,8 +125,8 @@ extension UIViewController{
     
     func showErrorServer(){
         let alert: UIAlertController
-        alert = UIAlertController(title: "Warning".localized(), message: "Currently maintenance is being done".localized(), preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
+        alert = UIAlertController(title: Localize.warning(), message: Localize.currently_maintenance_being_done(), preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: Localize.ok(), style: .default, handler: { (action) in
         }))
         
         self.present(alert, animated: true)
@@ -186,7 +187,7 @@ extension UIViewController{
     
     @IBAction func logout(_ sender: UIButton) {
         
-        self.showSimpleAlertWithAction(title: Localize.logOut(), message: Localize.areYouSureYouWantToLogOut(),
+        self.showSimpleAlertWithAction(title: Localize.log_out(), message: Localize.are_you_sure_you_want_log_out(),
                                        okAction: UIAlertAction(title: Localize.confirm(), style: .default, handler: { (action) in
                                         
                                         self.logoutOptions()
@@ -210,16 +211,14 @@ extension UIViewController{
         voucherViewModel.completeDeleteToken = { [unowned self] (statusCode) in
             DispatchQueue.main.async {
                 if statusCode == 200 {
-                   self.logoutAction()
+                    self.logoutAction()
                 }else if statusCode == 422 {
-//                    self.showSimpleAlertWithSingleAction(title: "Error!".localized(), message: "", okAction: UIAlertAction(title: "OK", style: .default, handler: { (action) in
-//                    }))
                     self.logoutAction()
                 }else if statusCode == 404 {
-                    self.showSimpleAlertWithSingleAction(title: "Error!".localized(), message: "", okAction: UIAlertAction(title: "OK", style: .default, handler: { (action) in
+                    self.showSimpleAlertWithSingleAction(title: Localize.error(), message: "", okAction: UIAlertAction(title: Localize.ok(), style: .default, handler: { (action) in
                     }))
                 }else if statusCode == 500 {
-                    self.showSimpleAlertWithSingleAction(title: "Error!".localized(), message: "", okAction: UIAlertAction(title: "OK", style: .default, handler: { (action) in
+                    self.showSimpleAlertWithSingleAction(title: Localize.error(), message: "", okAction: UIAlertAction(title: Localize.ok(), style: .default, handler: { (action) in
                     }))
                 }else if statusCode == 401 {
                     self.logoutAction()
@@ -230,19 +229,19 @@ extension UIViewController{
     
     func logoutAction(){
         UserDefaults.standard.setValue(false, forKey: UserDefaultsName.AddressIndentityCrash)
-                           UserDefaults.standard.setValue(false, forKey: UserDefaultsName.UseTouchID)
-                           UserDefaults.standard.setValue(false, forKey: UserDefaultsName.StartFromScanner)
-                           self.deleteEntity(entityName: "User")
-                           UserDefaults.standard.setValue("", forKey: UserDefaultsName.Token)
-                           self.removeShortcutItem(application: UIApplication.shared)
-                           UserDefaults.standard.set("", forKey: ALConstants.kPincode)
-                           UserDefaults.standard.setValue(false, forKey: UserDefaultsName.UserIsLoged)
-                           let storyboard:UIStoryboard = UIStoryboard(name: "First", bundle: nil)
-                           let navigationController:HiddenNavBarNavigationController = storyboard.instantiateInitialViewController() as! HiddenNavBarNavigationController
-                           let firstPageVC:UIViewController = storyboard.instantiateViewController(withIdentifier: "firstPage") as UIViewController
-                           navigationController.viewControllers = [firstPageVC]
-                           navigationController.modalPresentationStyle = .fullScreen
-                           self.present(navigationController, animated: true, completion: nil)
+        UserDefaults.standard.setValue(false, forKey: UserDefaultsName.UseTouchID)
+        UserDefaults.standard.setValue(false, forKey: UserDefaultsName.StartFromScanner)
+        self.deleteEntity(entityName: "User")
+        UserDefaults.standard.setValue("", forKey: UserDefaultsName.Token)
+        self.removeShortcutItem(application: UIApplication.shared)
+        UserDefaults.standard.set("", forKey: ALConstants.kPincode)
+        UserDefaults.standard.setValue(false, forKey: UserDefaultsName.UserIsLoged)
+        let storyboard:UIStoryboard = UIStoryboard(name: "First", bundle: nil)
+        let navigationController:HiddenNavBarNavigationController = storyboard.instantiateInitialViewController() as! HiddenNavBarNavigationController
+        let firstPageVC:UIViewController = storyboard.instantiateViewController(withIdentifier: "firstPage") as UIViewController
+        navigationController.viewControllers = [firstPageVC]
+        navigationController.modalPresentationStyle = .fullScreen
+        self.present(navigationController, animated: true, completion: nil)
     }
     
     func deleteEntity(entityName: String) {
@@ -309,6 +308,14 @@ extension UIViewController{
         return false
     }
     
+    var deviceAuthentification: String {
+            if faceIDAvailable() {
+                return "Face ID"
+            }else {
+                return "Touch ID"
+            }
+    }
+    
     @IBAction func dismissKeyboard(_ sender: Any) {
         self.view.endEditing(true)
     }
@@ -327,11 +334,11 @@ extension UIViewController{
     }
     
     func addShortcuts(application: UIApplication) {
-        let voucherItem = UIMutableApplicationShortcutItem(type: "Vouchers", localizedTitle: "Voucher", localizedSubtitle: "", icon: UIApplicationShortcutIcon(templateImageName: "wallet"), userInfo: nil)
+        let voucherItem = UIMutableApplicationShortcutItem(type: "Vouchers", localizedTitle: Localize.vouchers(), localizedSubtitle: "", icon: UIApplicationShortcutIcon(templateImageName: "wallet"), userInfo: nil)
         
         let qrItem = UIMutableApplicationShortcutItem(type: "QR", localizedTitle: "QR", localizedSubtitle: "", icon: UIApplicationShortcutIcon(templateImageName: "iconGrey"), userInfo: nil)
         
-        let recordItem = UIMutableApplicationShortcutItem(type: "Profile", localizedTitle: "Profile".localized(), localizedSubtitle: "", icon: UIApplicationShortcutIcon(templateImageName: "activeBlue"), userInfo: nil)
+        let recordItem = UIMutableApplicationShortcutItem(type: "Profile", localizedTitle: Localize.profile(), localizedSubtitle: "", icon: UIApplicationShortcutIcon(templateImageName: "activeBlue"), userInfo: nil)
         
         application.shortcutItems = [voucherItem, qrItem, recordItem]
     }
@@ -347,20 +354,15 @@ extension UIViewController{
         let entity = NSEntityDescription.entity(forEntityName: "User", in: context)
         _ = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
         
-        do{
-            let newUser = NSManagedObject(entity: entity!, insertInto: context)
-            newUser.setValue(true, forKey: "currentUser")
-            newUser.setValue("", forKey: "pinCode")
-            newUser.setValue(accessToken, forKey: "accessToken")
-            
-            do {
-                try context.save()
-            } catch {
-                print("Failed saving")
-            }
-            
-        } catch{
-            
+        let newUser = NSManagedObject(entity: entity!, insertInto: context)
+        newUser.setValue(true, forKey: "currentUser")
+        newUser.setValue("", forKey: "pinCode")
+        newUser.setValue(accessToken, forKey: "accessToken")
+        
+        do {
+            try context.save()
+        } catch {
+            print("Failed saving")
         }
     }
     
@@ -401,5 +403,39 @@ extension UIViewController: AppLockerDelegate {
     
     func closePinCodeView(typeClose: typeClose) {
         
+    }
+}
+
+ // MARK: - Close Update Notifier
+
+extension UIViewController {
+    @objc func closeUpdateNotifier() {
+        NotificationCenter.default.post(name: NotificationName.CloseAppNotifier, object: nil)
+    }
+}
+
+// MARK: - SKStore for update app
+
+extension UIViewController {
+    @objc func updateApp(){
+        openStoreProductWithiTunesItemIdentifier(identifier: "1422610676")
+    }
+    
+    func openStoreProductWithiTunesItemIdentifier(identifier: String) {
+        let storeViewController = SKStoreProductViewController()
+        storeViewController.delegate = self
+
+        let parameters = [ SKStoreProductParameterITunesItemIdentifier : identifier]
+        storeViewController.loadProduct(withParameters: parameters) { [weak self] (loaded, error) -> Void in
+            if loaded {
+                self?.present(storeViewController, animated: true, completion: nil)
+            }
+        }
+    }
+}
+
+extension UIViewController: SKStoreProductViewControllerDelegate {
+    public func productViewControllerDidFinish(_ viewController: SKStoreProductViewController) {
+        self.dismiss(animated: true, completion: nil)
     }
 }

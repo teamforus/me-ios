@@ -10,7 +10,9 @@ import UIKit
 
 class MSuccessEmailViewController: UIViewController {
     @IBOutlet weak var textLabel: UILabel!
-    
+    @IBOutlet weak var openMailButton: ShadowButton!
+    @IBOutlet weak var showQRCodeButton: ShadowButton!
+    @IBOutlet weak var titleLabel: UILabel_DarkMode!
     var email: String!
     
     lazy var successEmailViewModel: SuccessEmailViewModel = {
@@ -19,10 +21,10 @@ class MSuccessEmailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        setupAccessibility()
         NotificationCenter.default.addObserver(self, selector: #selector(logIn), name: NotificationName.LoginQR, object: nil)
         
-        let mainString = String(format: Localize.clickOnTheLinkYouReceivedOnToContinue(email))
+        let mainString = String(format: Localize.click_on_link_you_received_continue(email))
         let range = (mainString as NSString).range(of: email ?? "")
         
         let attributedString = NSMutableAttributedString(string:mainString)
@@ -120,5 +122,15 @@ class MSuccessEmailViewController: UIViewController {
     
         showPopUPWithAnimation(vc: popOverVC)
         
+    }
+}
+
+// MARK: - Accessibility Protocol
+
+extension MSuccessEmailViewController: AccessibilityProtocol {
+    func setupAccessibility() {
+        openMailButton.setupAccesibility(description: "Open Mail App to confirm registration", accessibilityTraits: .button)
+        showQRCodeButton.setupAccesibility(description: "Show Qr Code and Pin Code", accessibilityTraits: .button)
+        titleLabel.setupAccesibility(description: Localize.bevestig_uw_emailadres(), accessibilityTraits: .header)
     }
 }
