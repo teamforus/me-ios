@@ -65,7 +65,17 @@ class MAFirstPageViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        if #available(iOS 12.0, *) {
+            if self.traitCollection.userInterfaceStyle == .dark {
+                emailField.textColor = .white
+                emailField.selectedLineColor = .white
+            } else {
+                emailField.textColor = .black
+                emailField.selectedLineColor = .black
+            }
+        } else {
+            // Fallback on earlier versions
+        }
         NotificationCenter.default.addObserver(self, selector: #selector(logIn), name: NotificationName.LoginQR, object: nil)
     }
     
