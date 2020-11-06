@@ -176,3 +176,5 @@
 "personal_account" = "Personal account";
 "tap_here_you_want_to_see_list_transaction" = "Tap here if you want to see your list of transactions";
 "choose_from_date" = "Choose from date";
+"update_is_available" = "New update is available, update your application!";
+"close" = "Close";
