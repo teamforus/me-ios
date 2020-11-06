@@ -21,13 +21,15 @@ class MVoucherViewController: UIViewController {
     @IBOutlet weak var voucherInfoButton: ShadowButton!
     @IBOutlet weak var buttonsView: UIView!
     @IBOutlet weak var qrCodeButton: UIButton!
-  
+    @IBOutlet weak var historyLabel: UILabel!
+    @IBOutlet weak var activatedLabel: UILabel!
+    @IBOutlet weak var titleLabel: UILabel!
+    
     lazy var voucherViewModel: VoucherViewModel = {
         return VoucherViewModel()
     }()
     var address: String!
     var voucher: Voucher!
-    @IBOutlet var labeles: [SkeletonView]!
     @IBOutlet var images: [SkeletonUIImageView]!
     
     override func viewDidLoad() {
@@ -64,7 +66,8 @@ class MVoucherViewController: UIViewController {
                     self?.heightConstraint.constant = 322
                     self?.qrCodeButton.isEnabled = true
                 }
-                
+                self?.historyLabel.isHidden = false
+                self?.activatedLabel.isHidden = false
                 self?.qrCodeImage.generateQRCode(from: "{\"type\": \"voucher\",\"value\": \"\(voucher.address ?? "")\" }")
                 self?.dateCreated.text = voucher.created_at?.dateFormaterNormalDate()
                 self?.voucher = voucher
