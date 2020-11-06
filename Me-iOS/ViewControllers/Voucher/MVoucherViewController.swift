@@ -11,19 +11,19 @@ import SafariServices
 
 class MVoucherViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var dateCreated: UILabel!
-    @IBOutlet weak var voucherName: UILabel!
-    @IBOutlet weak var organizationName: UILabel!
-    @IBOutlet weak var priceLabel: UILabel!
+    @IBOutlet weak var dateCreated: UILabel_DarkMode!
+    @IBOutlet weak var voucherName: UILabel_DarkMode!
+    @IBOutlet weak var organizationName: UILabel_DarkMode!
+    @IBOutlet weak var priceLabel: UILabel_DarkMode!
     @IBOutlet weak var qrCodeImage: UIImageView!
     @IBOutlet weak var heightConstraint: NSLayoutConstraint!
     @IBOutlet weak var sendEmailButton: ShadowButton!
     @IBOutlet weak var voucherInfoButton: ShadowButton!
     @IBOutlet weak var buttonsView: UIView!
     @IBOutlet weak var qrCodeButton: UIButton!
-    @IBOutlet weak var historyLabel: UILabel!
+    @IBOutlet weak var historyLabel: UILabel_DarkMode!
     @IBOutlet weak var activatedLabel: UILabel!
-    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var titleLabel: UILabel_DarkMode!
     
     lazy var voucherViewModel: VoucherViewModel = {
         return VoucherViewModel()
@@ -166,8 +166,9 @@ extension MVoucherViewController: UITableViewDelegate, UITableViewDataSource{
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TransactionTableViewCell
         
         let transaction = voucherViewModel.getCellViewModel(at: indexPath)
-        
-        cell.configure(transaction: transaction, isSubsidies: voucher.fund?.type == FundType.subsidies.rawValue)
+        if let voucher = self.voucher {
+            cell.configure(transaction: transaction, isSubsidies: voucher.fund?.type == FundType.subsidies.rawValue)
+        }
         return cell
     }
     

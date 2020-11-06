@@ -47,7 +47,7 @@ class AppVersionUpdateNotifier {
     
     private var closeButton: UIButton = {
         let button = UIButton(frame: .zero)
-        button.setTitle("CLOSE", for: .normal)
+        button.setTitle(Localize.close().uppercased(), for: .normal)
         button.setTitleColor(#colorLiteral(red: 0.03921568627, green: 0.5176470588, blue: 1, alpha: 1), for: .normal)
         return button
     }()
@@ -55,7 +55,7 @@ class AppVersionUpdateNotifier {
     private lazy var messageLabel: UILabel_DarkMode = {
         let label = UILabel_DarkMode(frame: .zero)
         label.font = UIFont(name: "GoogleSans-Regular", size: 15)
-        label.text = "New update is available, update your application!"
+        label.text = Localize.update_is_available()
         label.numberOfLines = 0
         return label
     }()

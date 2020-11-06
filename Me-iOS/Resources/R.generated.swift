@@ -2837,7 +2837,7 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
 
-    /// This `R.string.localizable` struct is generated, and contains static references to 165 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 167 localization keys.
     struct localizable {
       /// en translation: %@ Don't Available
       ///
@@ -2947,6 +2947,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en, nl
       static let choose_validator = Rswift.StringResource(key: "choose_validator", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
+      /// en translation: Close
+      ///
+      /// Locales: en, nl
+      static let close = Rswift.StringResource(key: "close", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
       /// en translation: Codes don't match. Please try again
       ///
       /// Locales: en, nl
@@ -3163,6 +3167,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en, nl
       static let net_worth = Rswift.StringResource(key: "net_worth", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
+      /// en translation: New update is available, update your application!
+      ///
+      /// Locales: en, nl
+      static let update_is_available = Rswift.StringResource(key: "update_is_available", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
       /// en translation: No Internet Conecction
       ///
       /// Locales: en, nl
@@ -3911,6 +3919,21 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("choose_validator", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Close
+      ///
+      /// Locales: en, nl
+      static func close(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("close", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "close"
+        }
+
+        return NSLocalizedString("close", bundle: bundle, comment: "")
       }
 
       /// en translation: Codes don't match. Please try again
@@ -4725,6 +4748,21 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("net_worth", bundle: bundle, comment: "")
+      }
+
+      /// en translation: New update is available, update your application!
+      ///
+      /// Locales: en, nl
+      static func update_is_available(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("update_is_available", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "update_is_available"
+        }
+
+        return NSLocalizedString("update_is_available", bundle: bundle, comment: "")
       }
 
       /// en translation: No Internet Conecction
