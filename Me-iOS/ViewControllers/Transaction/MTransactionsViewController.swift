@@ -45,6 +45,7 @@ class MTransactionsViewController: UIViewController {
         button.corner = 9
         button.colorName = "VoucherButton"
         button.colorNameTitle = "Blue_DarkTheme"
+        button.titleLabel?.font = R.font.googleSansRegular(size: 14)
         return button
     }()
     
