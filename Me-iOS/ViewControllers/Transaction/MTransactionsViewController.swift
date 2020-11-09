@@ -22,7 +22,7 @@ class MTransactionsViewController: UIViewController {
     // MARK: - Properties
     private let headerView: Background_DarkMode = {
         let view = Background_DarkMode()
-        view.colorName = "WhiteBackground_DarkTheme"
+        view.colorName = "DarkGray_DarkTheme"
         return view
     }()
     
@@ -120,8 +120,11 @@ class MTransactionsViewController: UIViewController {
 
 extension MTransactionsViewController {
     func setupView() {
-        dateButton.setTitle("Choose from date", for: .normal)
-        view.backgroundColor = .white
+        dateButton.setTitle(Localize.choose_from_date(), for: .normal)
+        if #available(iOS 11.0, *) {
+            self.view.backgroundColor = UIColor(named: "Background_DarkTheme")
+        } else {
+        }
     }
     
     func addSubviews() {

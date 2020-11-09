@@ -34,7 +34,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="130" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5yR-zH-dKR" customClass="TableView_Background_DarkMode" customModule="Me_iOS" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="141.5" width="375" height="476.5"/>
+                                <rect key="frame" x="0.0" y="153.5" width="375" height="464.5"/>
                                 <color key="backgroundColor" red="0.96863394979999995" green="0.96861582989999995" blue="0.96862810850000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <inset key="scrollIndicatorInsets" minX="0.0" minY="20" maxX="0.0" maxY="0.0"/>
                                 <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -110,7 +110,7 @@
                                                         <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
                                                             <real key="value" value="10"/>
                                                         </userDefinedRuntimeAttribute>
-                                                        <userDefinedRuntimeAttribute type="string" keyPath="colorName" value="WhiteBackground_DarkTheme"/>
+                                                        <userDefinedRuntimeAttribute type="string" keyPath="colorName" value="Gray_Dark_DarkTheme"/>
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
                                             </subviews>
@@ -240,7 +240,7 @@
                                 <color key="backgroundColor" red="0.92941176469999998" green="0.92941176469999998" blue="0.92941176469999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oKA-aH-qQQ" customClass="HBSegmentedControl" customModule="Me_iOS" customModuleProvider="target">
-                                <rect key="frame" x="23" y="53" width="330" height="42"/>
+                                <rect key="frame" x="22" y="53" width="330" height="42"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -272,7 +272,7 @@
                             <constraint firstItem="5yR-zH-dKR" firstAttribute="leading" secondItem="var-xZ-gwZ" secondAttribute="leading" id="DRo-IW-Uwb"/>
                             <constraint firstItem="99N-2s-O9Z" firstAttribute="centerX" secondItem="r2N-kg-LZp" secondAttribute="centerX" id="K8d-HM-pkn"/>
                             <constraint firstItem="9G1-Sj-fzE" firstAttribute="leading" secondItem="var-xZ-gwZ" secondAttribute="leading" constant="18" id="QFo-EP-dkQ"/>
-                            <constraint firstItem="5yR-zH-dKR" firstAttribute="top" secondItem="JOr-Qw-UNr" secondAttribute="bottom" constant="3" id="Slf-hE-2kM"/>
+                            <constraint firstItem="5yR-zH-dKR" firstAttribute="top" secondItem="JOr-Qw-UNr" secondAttribute="bottom" constant="15" id="Slf-hE-2kM"/>
                             <constraint firstItem="5yR-zH-dKR" firstAttribute="bottom" secondItem="var-xZ-gwZ" secondAttribute="bottom" id="UCa-Vy-jqm"/>
                             <constraint firstItem="JOr-Qw-UNr" firstAttribute="leading" secondItem="var-xZ-gwZ" secondAttribute="leading" constant="20" id="WS9-Ze-71U"/>
                             <constraint firstItem="var-xZ-gwZ" firstAttribute="trailing" secondItem="Sqn-yz-irD" secondAttribute="trailing" constant="23" id="XVG-CS-kRA"/>
@@ -283,7 +283,7 @@
                             <constraint firstItem="var-xZ-gwZ" firstAttribute="trailing" secondItem="JOr-Qw-UNr" secondAttribute="trailing" constant="20" id="rOD-RF-Buj"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="string" keyPath="colorName" value="WhiteBackground_DarkTheme"/>
+                            <userDefinedRuntimeAttribute type="string" keyPath="colorName" value="DarkGray_DarkTheme"/>
                         </userDefinedRuntimeAttributes>
                     </view>
                     <navigationItem key="navigationItem" id="zCo-la-hYJ"/>
@@ -291,6 +291,7 @@
                         <outlet property="segmentController" destination="oKA-aH-qQQ" id="LVJ-qV-QeT"/>
                         <outlet property="segmentView" destination="Lm7-ui-J0c" id="CiD-lV-xoz"/>
                         <outlet property="tableView" destination="5yR-zH-dKR" id="Hve-CW-lin"/>
+                        <outlet property="titleLabel" destination="JOr-Qw-UNr" id="4B4-W3-BOk"/>
                         <outlet property="transactionButton" destination="Sqn-yz-irD" id="pww-pb-WI1"/>
                         <segue destination="yXS-8F-HEa" kind="show" identifier="goToVoucher" id="o6s-gf-Hnr"/>
                         <segue destination="oem-tR-Bhz" kind="show" identifier="goToProduct" id="tzZ-Ns-oe3"/>
@@ -403,17 +404,20 @@
         <!--Profile-->
         <scene sceneID="edm-BD-Vm9">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="ubb-Qe-KAL" customClass="HiddenNavBarNavigationController" customModule="Me_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="records" automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="ubb-Qe-KAL" customClass="HiddenNavBarNavigationController" customModule="Me_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Profile" image="activeBlue" id="Fxg-Vj-eeO"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="98v-vD-hnf">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="co2-L5-wDG" kind="relationship" relationship="rootViewController" id="sDE-zC-iFs"/>
+                    </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NTp-FX-IRk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1486" y="-620"/>
+            <point key="canvasLocation" x="3182" y="-592"/>
         </scene>
         <!--Records View Controller-->
         <scene sceneID="xak-pS-D4d">
@@ -424,7 +428,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Personal" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uLp-89-Zk0" customClass="UILabel_DarkMode" customModule="Me_iOS" customModuleProvider="target">
-                                <rect key="frame" x="16" y="90" width="339" height="49"/>
+                                <rect key="frame" x="16" y="90" width="338" height="49"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="GoogleSans-Bold" family="Google Sans" pointSize="38"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -442,7 +446,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eP7-vQ-c34" customClass="CustomCornerUIView" customModule="Me_iOS" customModuleProvider="target">
-                                                    <rect key="frame" x="8" y="8" width="360" height="78"/>
+                                                    <rect key="frame" x="7" y="8" width="360" height="78"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="First Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rpK-Zw-ROm">
@@ -474,7 +478,7 @@
                                                         <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
                                                             <real key="value" value="5"/>
                                                         </userDefinedRuntimeAttribute>
-                                                        <userDefinedRuntimeAttribute type="string" keyPath="colorName" value="WhiteBackground_DarkTheme"/>
+                                                        <userDefinedRuntimeAttribute type="string" keyPath="colorName" value="Gray_Dark_DarkTheme"/>
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
                                             </subviews>
@@ -519,16 +523,24 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Oval 2 Copy" translatesAutoresizingMaskIntoConstraints="NO" id="SRg-vk-gde">
+                            <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Oval 2 Copy" translatesAutoresizingMaskIntoConstraints="NO" id="SRg-vk-gde">
                                 <rect key="frame" x="308" y="89" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gTS-zF-UMZ">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gTS-zF-UMZ">
                                 <rect key="frame" x="310" y="89" width="46" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="activeBlue"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j6D-gi-0WL">
+                                <rect key="frame" x="311" y="25" width="43" height="41"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="43" id="WMn-Ir-5Lp"/>
+                                    <constraint firstAttribute="height" constant="41" id="eYE-YD-4Gt"/>
+                                </constraints>
+                                <state key="normal" image="closeBlack"/>
                                 <connections>
-                                    <segue destination="aWS-SZ-nKf" kind="presentation" id="z00-1J-iem"/>
+                                    <action selector="dismiss:" destination="co2-L5-wDG" eventType="touchUpInside" id="UHP-Qv-f0I"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -538,22 +550,25 @@
                             <constraint firstAttribute="bottom" secondItem="QFd-Zz-7yk" secondAttribute="bottom" id="37f-tq-Etg"/>
                             <constraint firstItem="QFd-Zz-7yk" firstAttribute="trailing" secondItem="hQ2-i6-qrA" secondAttribute="trailing" id="CAe-i9-ES8"/>
                             <constraint firstItem="QFd-Zz-7yk" firstAttribute="top" secondItem="hQ2-i6-qrA" secondAttribute="top" constant="207" id="dgF-MP-XOH"/>
+                            <constraint firstItem="j6D-gi-0WL" firstAttribute="top" secondItem="hQ2-i6-qrA" secondAttribute="top" constant="25" id="nEn-Uz-okn"/>
                             <constraint firstItem="QFd-Zz-7yk" firstAttribute="leading" secondItem="hQ2-i6-qrA" secondAttribute="leading" id="ycw-h4-bi9"/>
+                            <constraint firstItem="hQ2-i6-qrA" firstAttribute="trailing" secondItem="j6D-gi-0WL" secondAttribute="trailing" constant="21" id="z7q-Kg-xvk"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="string" keyPath="colorName" value="WhiteBackground_DarkTheme"/>
+                            <userDefinedRuntimeAttribute type="string" keyPath="colorName" value="DarkGray_DarkTheme"/>
                         </userDefinedRuntimeAttributes>
                     </view>
                     <navigationItem key="navigationItem" id="lVg-j5-AgA"/>
                     <connections>
                         <outlet property="newRecordButton" destination="fxb-bV-R86" id="b9a-RU-YPd"/>
                         <outlet property="tableView" destination="QFd-Zz-7yk" id="YBe-Oq-XqT"/>
+                        <outlet property="titileLabel" destination="uLp-89-Zk0" id="mbt-yo-Pe8"/>
                         <outlet property="topConstraint" destination="dgF-MP-XOH" id="Qok-L6-fWN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1pc-XS-0Zr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3317.5999999999999" y="-620.23988005997012"/>
+            <point key="canvasLocation" x="3878" y="-592"/>
         </scene>
         <!--Profile-->
         <scene sceneID="ZLx-q9-Ged">
@@ -563,7 +578,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qmi-N2-Dj6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3994" y="-702"/>
+            <point key="canvasLocation" x="4411" y="-665"/>
         </scene>
         <!--RecordDetail-->
         <scene sceneID="LBX-03-8xA">
@@ -573,25 +588,25 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qj7-qp-95c" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3994" y="-539"/>
+            <point key="canvasLocation" x="4442" y="-592"/>
         </scene>
-        <!--Records-->
+        <!--Profile-->
         <scene sceneID="CBG-3U-N66">
             <objects>
                 <navigationController storyboardIdentifier="record" automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="LrU-jE-PNR" customClass="HiddenNavBarNavigationController" customModule="Me_iOS" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Records" image="records" id="S2m-RV-PJB"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="activeBlue" id="S2m-RV-PJB"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="fSu-oA-dgN">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="co2-L5-wDG" kind="relationship" relationship="rootViewController" id="Si1-Lk-FOZ"/>
+                        <segue destination="aWS-SZ-nKf" kind="relationship" relationship="rootViewController" id="feg-gn-498"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xwn-8j-NyB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2380" y="-620"/>
+            <point key="canvasLocation" x="2006" y="-592"/>
         </scene>
     </scenes>
     <designables>
@@ -599,17 +614,17 @@
             <size key="intrinsicContentSize" width="30" height="34"/>
         </designable>
         <designable name="fxb-bV-R86">
-            <size key="intrinsicContentSize" width="126" height="26"/>
+            <size key="intrinsicContentSize" width="128" height="28"/>
         </designable>
     </designables>
     <resources>
         <image name="Oval 2 Copy" width="51" height="51"/>
         <image name="Resting" width="210" height="210"/>
         <image name="activeBlue" width="30" height="26"/>
+        <image name="closeBlack" width="24" height="24"/>
         <image name="eth" width="52" height="52"/>
         <image name="iconGrey" width="30" height="26"/>
         <image name="list of transactions" width="51" height="51"/>
-        <image name="records" width="30" height="26"/>
         <image name="rectangle" width="10" height="7"/>
         <image name="rectangleRed" width="9" height="7"/>
         <image name="voucher" width="230" height="230"/>

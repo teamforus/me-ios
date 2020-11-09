@@ -20,7 +20,7 @@ class MVoucherViewController: UIViewController {
     @IBOutlet weak var sendEmailButton: ShadowButton!
     @IBOutlet weak var voucherInfoButton: ShadowButton!
     @IBOutlet weak var qrCodeButton: UIButton!
-    
+  
     lazy var voucherViewModel: VoucherViewModel = {
         return VoucherViewModel()
     }()
@@ -40,22 +40,22 @@ class MVoucherViewController: UIViewController {
         voucherViewModel.reloadDataVoucher = { [weak self] (voucher) in
             
             DispatchQueue.main.async {
-                
+                self?.priceLabel.isHidden = voucher.fund?.type == FundType.subsidies.rawValue
                 self?.voucherName.text = voucher.fund?.name ?? ""
                 self?.organizationName.text = voucher.fund?.organization?.name ?? ""
                 if let price = voucher.amount {
                     //                    if voucher.fund?.currency == "eur" {
-                    self?.priceLabel.attributedText = "€ \(price.substringLeftPart()).{\(price.substringRightPart())}".customText(fontBigSize: 20, minFontSize: 14)
+                    self?.priceLabel.text = "€ \(price.substringLeftPart()),\(price.substringRightPart())"
                     //                    }else {
                     //                        self?.priceLabel.attributedText = "ETH \(price.substringLeftPart()).{\(price.substringRightPart())}".customText(fontBigSize: 20, minFontSize: 14)
                     //                    }
                 }else {
                     
-                    self?.priceLabel.attributedText = "0.{0}".customText(fontBigSize: 20, minFontSize: 14)
+                    self?.priceLabel.text = "€ 0,0"
                 }
                 
                 self?.qrImage.generateQRCode(from: "{\"type\": \"voucher\",\"value\": \"\(voucher.address ?? "")\" }")
-                self?.dateCreated.text = voucher.created_at?.dateFormaterNormalDate()
+                self?.dateCreated.text = voucher.created_at_locale
                 self?.voucher = voucher
                 
                 self?.images.forEach { (view) in
@@ -169,7 +169,7 @@ extension MVoucherViewController: AccessibilityProtocol {
         sendEmailButton.setupAccesibility(description: "Send voucher on email", accessibilityTraits: .button)
         voucherInfoButton.setupAccesibility(description: "Go to voucher info", accessibilityTraits: .button)
         qrCodeButton.setupAccesibility(description: "Tap to open qr code modal", accessibilityTraits: .button)
-    }
+   }
 }
 
 extension MVoucherViewController{
@@ -202,3 +202,5 @@ extension MVoucherViewController{
         return false
     }
 }
+
+

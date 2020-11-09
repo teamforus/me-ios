@@ -30,11 +30,11 @@ class TransactionTableViewCell: UITableViewCell {
                 
                 self.imageTransfer.loadImageUsingUrlString(urlString: transaction?.organization?.logo?.sizes?.thumbnail ?? "", placeHolder: #imageLiteral(resourceName: "Resting"))
             }
-            
+            self.priceLabel.isHidden = transaction?.fund?.type == FundType.subsidies.rawValue
             if let price = transaction?.amount {
-                self.priceLabel.attributedText = "- \(price.substringLeftPart()).{\(price.substringRightPart())}".customText(fontBigSize: 18, minFontSize: 12)
+                self.priceLabel.text = "€ \(price.substringLeftPart()),\(price.substringRightPart())"
             }else {
-                self.priceLabel.attributedText = "0.{0}".customText(fontBigSize: 18, minFontSize: 12)
+                self.priceLabel.text = "€ 0,0"
             }
             self.dateLabel.text = transaction?.created_at?.dateFormaterNormalDate()
         }
@@ -52,3 +52,6 @@ class TransactionTableViewCell: UITableViewCell {
     }
 
 }
+
+
+

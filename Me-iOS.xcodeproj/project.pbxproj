@@ -181,7 +181,6 @@
 		65F52E452316797900B9D229 /* MCrashConfirmViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65F52E402316797900B9D229 /* MCrashConfirmViewController.xib */; };
 		65F52E462316797900B9D229 /* MCrashConfirmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F52E422316797900B9D229 /* MCrashConfirmViewController.swift */; };
 		65F52E4A23167E0D00B9D229 /* Wallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F52E4923167E0D00B9D229 /* Wallet.swift */; };
-		65FE8E02229FF16A00BB1596 /* RecordValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65FE8E01229FF16A00BB1596 /* RecordValidation.swift */; };
 		A814206C8B175CC687405860 /* Pods_Me_iOSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60302FD09395FFFBF3FE2A2A /* Pods_Me_iOSUITests.framework */; };
 		EBA8A6DE91260768B5722478 /* Pods_Me_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8797D7DA4E65B3CDD1B8B11 /* Pods_Me_iOS.framework */; };
 		FF0DACBE246AD0A80034E3E4 /* OrganizationValidatorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF3B141A243722EE003FDDD9 /* OrganizationValidatorViewController.xib */; };
@@ -203,6 +202,17 @@
 		FF8D90F8251BCCAC0035B8D7 /* Preference.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8D90F7251BCCAC0035B8D7 /* Preference.swift */; };
 		FF9B7157248503F100BBCAA3 /* MMainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9B7156248503F100BBCAA3 /* MMainTabBarController.swift */; };
 		FF9B715924851A5900BBCAA3 /* AppVersionUpdateNotifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9B715824851A5900BBCAA3 /* AppVersionUpdateNotifier.swift */; };
+		FF9C60E3253DD4AE006F6979 /* ActionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9C60E0253DD4AE006F6979 /* ActionViewModel.swift */; };
+		FF9C60E4253DD4AE006F6979 /* MActionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9C60E1253DD4AE006F6979 /* MActionsViewController.swift */; };
+		FF9C60E5253DD4AE006F6979 /* ActionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9C60E2253DD4AE006F6979 /* ActionTableViewCell.swift */; };
+		FF9C60EC253DD4CD006F6979 /* Subsidies.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9C60E9253DD4CD006F6979 /* Subsidies.swift */; };
+		FF9C60ED253DD4CD006F6979 /* RecordValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9C60EA253DD4CD006F6979 /* RecordValidation.swift */; };
+		FF9C60EE253DD4CD006F6979 /* SubsidiePay.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9C60EB253DD4CD006F6979 /* SubsidiePay.swift */; };
+		FF9C60F6253DD869006F6979 /* MPaymentActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9C60F5253DD869006F6979 /* MPaymentActionViewController.swift */; };
+		FF9C60FC253DD87D006F6979 /* ConfirmPayAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9C60FA253DD87D006F6979 /* ConfirmPayAction.swift */; };
+		FF9C60FD253DD87D006F6979 /* ConfirmPaymentActionPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9C60FB253DD87D006F6979 /* ConfirmPaymentActionPopUp.swift */; };
+		FF9C6103253DD8AB006F6979 /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9C6101253DD8AB006F6979 /* ActionButton.swift */; };
+		FF9C6104253DD8AB006F6979 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9C6102253DD8AB006F6979 /* TextField.swift */; };
 		FFB76E0E24E94ABB00CFB195 /* UICheckbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB76E0224E9490600CFB195 /* UICheckbox.swift */; };
 		FFB76E0F24E94AC200CFB195 /* AnimationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB76DF324E948B700CFB195 /* AnimationManager.swift */; };
 		FFB76E1024E94AC200CFB195 /* CircleLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB76DF424E948B700CFB195 /* CircleLayer.swift */; };
@@ -471,7 +481,6 @@
 		65F52E472316798700B9D229 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/MCrashConfirmViewController.strings; sourceTree = "<group>"; };
 		65F52E482316798900B9D229 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/MCrashConfirmViewController.strings; sourceTree = "<group>"; };
 		65F52E4923167E0D00B9D229 /* Wallet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wallet.swift; sourceTree = "<group>"; };
-		65FE8E01229FF16A00BB1596 /* RecordValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RecordValidation.swift; path = ../RecordValidation.swift; sourceTree = "<group>"; };
 		6F5A2CBF3A5DDA911CDEBF20 /* Pods_Me_iOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Me_iOSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7EDD935B59E7B64986126EBB /* Pods-Me-iOSTests.demo.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Me-iOSTests.demo.xcconfig"; path = "Target Support Files/Pods-Me-iOSTests/Pods-Me-iOSTests.demo.xcconfig"; sourceTree = "<group>"; };
 		9745E3CC551173A1E968B358 /* Pods_Me_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Me_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -508,6 +517,17 @@
 		FF8D90F7251BCCAC0035B8D7 /* Preference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preference.swift; sourceTree = "<group>"; };
 		FF9B7156248503F100BBCAA3 /* MMainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMainTabBarController.swift; sourceTree = "<group>"; };
 		FF9B715824851A5900BBCAA3 /* AppVersionUpdateNotifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppVersionUpdateNotifier.swift; sourceTree = "<group>"; };
+		FF9C60E0253DD4AE006F6979 /* ActionViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionViewModel.swift; sourceTree = "<group>"; };
+		FF9C60E1253DD4AE006F6979 /* MActionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MActionsViewController.swift; sourceTree = "<group>"; };
+		FF9C60E2253DD4AE006F6979 /* ActionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionTableViewCell.swift; sourceTree = "<group>"; };
+		FF9C60E9253DD4CD006F6979 /* Subsidies.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Subsidies.swift; sourceTree = "<group>"; };
+		FF9C60EA253DD4CD006F6979 /* RecordValidation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordValidation.swift; sourceTree = "<group>"; };
+		FF9C60EB253DD4CD006F6979 /* SubsidiePay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubsidiePay.swift; sourceTree = "<group>"; };
+		FF9C60F5253DD869006F6979 /* MPaymentActionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MPaymentActionViewController.swift; path = "Me-iOS/ViewControllers/MPaymentActionViewController.swift"; sourceTree = SOURCE_ROOT; };
+		FF9C60FA253DD87D006F6979 /* ConfirmPayAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmPayAction.swift; sourceTree = "<group>"; };
+		FF9C60FB253DD87D006F6979 /* ConfirmPaymentActionPopUp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmPaymentActionPopUp.swift; sourceTree = "<group>"; };
+		FF9C6101253DD8AB006F6979 /* ActionButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
+		FF9C6102253DD8AB006F6979 /* TextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		FFB76DF324E948B700CFB195 /* AnimationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AnimationManager.swift; path = KVSpinnerView/AnimationManager.swift; sourceTree = "<group>"; };
 		FFB76DF424E948B700CFB195 /* CircleLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CircleLayer.swift; path = KVSpinnerView/Layers/CircleLayer.swift; sourceTree = "<group>"; };
 		FFB76DF524E948B700CFB195 /* KVSpinnerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = KVSpinnerView.swift; path = KVSpinnerView/KVSpinnerView.swift; sourceTree = "<group>"; };
@@ -778,6 +798,8 @@
 		65139C6722802A33003E0CDE /* Custom */ = {
 			isa = PBXGroup;
 			children = (
+				FF9C6101253DD8AB006F6979 /* ActionButton.swift */,
+				FF9C6102253DD8AB006F6979 /* TextField.swift */,
 				65139C362280273E003E0CDE /* Scanner */,
 				65139C3F228029C0003E0CDE /* AppLocker */,
 				65139C5C228029EF003E0CDE /* CornerImageView.swift */,
@@ -873,14 +895,6 @@
 			path = LoadAnimation;
 			sourceTree = "<group>";
 		};
-		6568BAB522A52CF8001C722C /* RecordValidation */ = {
-			isa = PBXGroup;
-			children = (
-				65FE8E01229FF16A00BB1596 /* RecordValidation.swift */,
-			);
-			path = RecordValidation;
-			sourceTree = "<group>";
-		};
 		6568BAB822A55541001C722C /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -942,6 +956,9 @@
 		657DBA432289822500C67500 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				FF9C60EA253DD4CD006F6979 /* RecordValidation.swift */,
+				FF9C60EB253DD4CD006F6979 /* SubsidiePay.swift */,
+				FF9C60E9253DD4CD006F6979 /* Subsidies.swift */,
 				657DBA3E22897C3500C67500 /* ResponseDataArray.swift */,
 				657DBA3F22897C3500C67500 /* ResponseData.swift */,
 				6568BAB922A55578001C722C /* QRText */,
@@ -964,7 +981,6 @@
 				65F1BB23229EC1B8007D2C8A /* Record */,
 				65F1BB26229EC1C7007D2C8A /* Validator */,
 				65F1BB27229EC1D0007D2C8A /* RecordType */,
-				6568BAB522A52CF8001C722C /* RecordValidation */,
 				654ACBAA22A92F7F0052C9C2 /* PayTransaction */,
 				651B5C4722E881B500967148 /* ExchangeToken.swift */,
 				65F52E4923167E0D00B9D229 /* Wallet.swift */,
@@ -1150,6 +1166,8 @@
 		65A8B7132282E1B600B7DF05 /* QR */ = {
 			isa = PBXGroup;
 			children = (
+				FF9C60F5253DD869006F6979 /* MPaymentActionViewController.swift */,
+				FF9C60DE253DD4AE006F6979 /* Actions */,
 				65A8B70E2282E19F00B7DF05 /* MQRViewController.swift */,
 				65A8B7362282EBF500B7DF05 /* ViewModel */,
 				6546256C230E891F007B812E /* ProductReservation */,
@@ -1391,6 +1409,8 @@
 		65D11B7D22A6ACE000756BE0 /* PopUp */ = {
 			isa = PBXGroup;
 			children = (
+				FF9C60FA253DD87D006F6979 /* ConfirmPayAction.swift */,
+				FF9C60FB253DD87D006F6979 /* ConfirmPaymentActionPopUp.swift */,
 				65F52E3D2316797900B9D229 /* ConfirmCrashClientAddress */,
 				65D11B7C22A6ACD300756BE0 /* Organization */,
 				65D11B8222A6B13700756BE0 /* ConfirmPayment */,
@@ -1531,6 +1551,24 @@
 				FF8D90F7251BCCAC0035B8D7 /* Preference.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		FF9C60DE253DD4AE006F6979 /* Actions */ = {
+			isa = PBXGroup;
+			children = (
+				FF9C60DF253DD4AE006F6979 /* ViewModel */,
+				FF9C60E1253DD4AE006F6979 /* MActionsViewController.swift */,
+				FF9C60E2253DD4AE006F6979 /* ActionTableViewCell.swift */,
+			);
+			path = Actions;
+			sourceTree = "<group>";
+		};
+		FF9C60DF253DD4AE006F6979 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				FF9C60E0253DD4AE006F6979 /* ActionViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		FFB76E0124E948B700CFB195 /* KVSpinnerView */ = {
@@ -1869,7 +1907,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "#\"${PODS_ROOT}/R.swift/rswift\" generate \"$SRCROOT/Me-iOS/Resources/R.generated.swift\"\n";
+			shellScript = "\"${PODS_ROOT}/R.swift/rswift\" generate \"$SRCROOT/Me-iOS/Resources/R.generated.swift\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -1896,18 +1934,23 @@
 				65A8B7472282EE7B00B7DF05 /* MSuccessEmailViewController.swift in Sources */,
 				655D64732315948900EABD57 /* ValuteTableViewCell.swift in Sources */,
 				FFB76E1424E94AC200CFB195 /* RectangleLayer.swift in Sources */,
+				FF9C60E3253DD4AE006F6979 /* ActionViewModel.swift in Sources */,
 				5B9E8F3423C8B3F000F0E90B /* EmailLoginViewModel.swift in Sources */,
 				65139C0E22802546003E0CDE /* MeApp.xcdatamodeld in Sources */,
+				FF9C60E5253DD4AE006F6979 /* ActionTableViewCell.swift in Sources */,
 				65684619229432CE00097E83 /* TransactionTableViewCell.swift in Sources */,
+				FF9C6104253DD8AB006F6979 /* TextField.swift in Sources */,
 				FFCE835B24B881B1001082B1 /* Extension+UIView.swift in Sources */,
 				5B10CCAC240D021C00199C28 /* BottomQrWithPinViewController.swift in Sources */,
 				FFB76E0E24E94ABB00CFB195 /* UICheckbox.swift in Sources */,
+				FF9C60EE253DD4CD006F6979 /* SubsidiePay.swift in Sources */,
 				654ACBAC22A94D550052C9C2 /* ProfileViewModel.swift in Sources */,
 				654F97AA229BF671009C9FFA /* MRecordDetailViewController.swift in Sources */,
 				65A8B7192282E52D00B7DF05 /* MProductVoucherViewController.swift in Sources */,
 				0408C85D24BF2A4E009B8A2E /* Background_DarkMode.swift in Sources */,
 				65D11B8022A6ADF400756BE0 /* ConfirmPaymentPopUp.swift in Sources */,
 				FF8D90EE251BBCD70035B8D7 /* ToolTipTracker.swift in Sources */,
+				FF9C60ED253DD4CD006F6979 /* RecordValidation.swift in Sources */,
 				656FDDB6235DF046002422B2 /* OrganizationValidatorViewController.swift in Sources */,
 				65CF407F228C0C6A0006F5DE /* Identity.swift in Sources */,
 				65139C7922803349003E0CDE /* CurrentSession.swift in Sources */,
@@ -1929,6 +1972,7 @@
 				657DBA46228983CB00C67500 /* Extension+UIImageView.swift in Sources */,
 				65139C64228029EF003E0CDE /* CornerImageView.swift in Sources */,
 				FF45B3B224D9DC7C00D258E1 /* Extension+UITextField.swift in Sources */,
+				FF9C60FD253DD87D006F6979 /* ConfirmPaymentActionPopUp.swift in Sources */,
 				FFFF8AAC2450CAA2001673DB /* R.generated.swift in Sources */,
 				65911B4E228D8EAE00EA30D6 /* Logo.swift in Sources */,
 				65B10DAF23589DF500F0F34D /* CheckWebsiteReacheble.swift in Sources */,
@@ -1939,18 +1983,20 @@
 				65911B46228D7DBC00EA30D6 /* VoucherTableViewCell.swift in Sources */,
 				65139C54228029C0003E0CDE /* UI.swift in Sources */,
 				6511CB182362FCFC00863E85 /* PullUpQRViewController.swift in Sources */,
-				65FE8E02229FF16A00BB1596 /* RecordValidation.swift in Sources */,
 				FFC38D4424FA7DFA001C0DA2 /* MTransactionsViewController.swift in Sources */,
+				FF9C60F6253DD869006F6979 /* MPaymentActionViewController.swift in Sources */,
 				65B3784D22C241F50095A2EF /* Reachability.swift in Sources */,
 				654F979F229BE71F009C9FFA /* Record.swift in Sources */,
 				654F97AE229C03D0009C9FFA /* RecordDetailViewModel.swift in Sources */,
 				FF8D90E4251BBBA70035B8D7 /* ToolTip.swift in Sources */,
 				65F1BB1A229EBCB5007D2C8A /* MChooseTypeRecordViewController.swift in Sources */,
+				FF9C60E4253DD4AE006F6979 /* MActionsViewController.swift in Sources */,
 				FF5691272514BFB500CD0343 /* MDatePickerView.swift in Sources */,
 				658B487022ABF3C500B6236C /* MAboutViewController.swift in Sources */,
 				65F1BB1D229EBF0A007D2C8A /* MChooseTypeTableViewCell.swift in Sources */,
 				65139C6B22802C25003E0CDE /* MLoginQRAndCodeViewController.swift in Sources */,
 				65139C0622802545003E0CDE /* AppDelegate.swift in Sources */,
+				FF9C6103253DD8AB006F6979 /* ActionButton.swift in Sources */,
 				65911B5A228D91BC00EA30D6 /* Office.swift in Sources */,
 				FFB76E1524E94AC200CFB195 /* StatusTitleLayer.swift in Sources */,
 				65911B56228D904C00EA30D6 /* AllowedOrganization.swift in Sources */,
@@ -1979,6 +2025,7 @@
 				65139C3E2280273E003E0CDE /* HSDefaultScanView.swift in Sources */,
 				FFB76E1324E94AC200CFB195 /* ProgressLayer.swift in Sources */,
 				65911B4A228D899700EA30D6 /* Fund.swift in Sources */,
+				FF9C60EC253DD4CD006F6979 /* Subsidies.swift in Sources */,
 				659859712359B66600D08289 /* EmployeesOrganization.swift in Sources */,
 				5B42874523AD0EBE00FEABE7 /* User+CoreDataClass.swift in Sources */,
 				65A8B70D2282E19400B7DF05 /* MVouchersViewController.swift in Sources */,
@@ -2027,6 +2074,7 @@
 				652E477B22ABD1F300893540 /* SuccessSendingViewController.swift in Sources */,
 				657DBA512289973C00C67500 /* NotificationName.swift in Sources */,
 				65A8B7432282EDDD00B7DF05 /* MEmailLoginViewController.swift in Sources */,
+				FF9C60FC253DD87D006F6979 /* ConfirmPayAction.swift in Sources */,
 				65CF407D228C0BBD0006F5DE /* Errors.swift in Sources */,
 				6568461722942E2900097E83 /* Extension+UITabBarController.swift in Sources */,
 				654F97A8229BF5C5009C9FFA /* ValidatorTableViewCell.swift in Sources */,
@@ -2493,7 +2541,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.3.0;
+				MARKETING_VERSION = 0.3.1;
 				PRODUCT_BUNDLE_IDENTIFIER = io.forus.me.test;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEV;
@@ -2518,7 +2566,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.3.0;
+				MARKETING_VERSION = 0.3.1;
 				PRODUCT_BUNDLE_IDENTIFIER = io.forus.me;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -2684,7 +2732,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.3.0;
+				MARKETING_VERSION = 0.3.1;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = io.forus.me.lab;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -2809,7 +2857,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.3.0;
+				MARKETING_VERSION = 0.3.1;
 				PRODUCT_BUNDLE_IDENTIFIER = io.forus.me.demo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEMO;

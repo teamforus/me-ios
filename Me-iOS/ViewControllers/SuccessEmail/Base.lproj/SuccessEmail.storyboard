@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Dvo-As-KDQ">
+
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Dvo-As-KDQ">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -48,7 +49,7 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1" translatesAutoresizingMaskIntoConstraints="NO" id="8qP-2Y-8Mk">
                                 <rect key="frame" x="0.0" y="205" width="414" height="350"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Opf-SA-edo" customClass="ShadowButton" customModule="Me_iOS" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Opf-SA-edo" customClass="ShadowButton" customModule="Me_iOS" customModuleProvider="target">
                                 <rect key="frame" x="33" y="657" width="348" height="51"/>
                                 <color key="backgroundColor" red="0.20392156859999999" green="0.38431372549999998" blue="0.96470588239999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -79,7 +80,7 @@
                                     <action selector="openMailApp:" destination="Dvo-As-KDQ" eventType="touchUpInside" id="9Et-3B-m7c"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pqB-sU-g6i" customClass="ShadowButton" customModule="Me_iOS" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pqB-sU-g6i" customClass="ShadowButton" customModule="Me_iOS" customModuleProvider="target">
                                 <rect key="frame" x="33" y="729" width="348" height="51"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -131,6 +132,7 @@
                                 </connections>
                             </button>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="I8I-x3-gVB"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="I8I-x3-gVB" firstAttribute="bottom" secondItem="pqB-sU-g6i" secondAttribute="bottom" constant="82" id="3Sz-3T-SMG"/>
@@ -159,7 +161,6 @@
                             <constraint firstItem="I8I-x3-gVB" firstAttribute="trailing" secondItem="zQC-jP-eMe" secondAttribute="trailing" constant="17" id="yA3-Zr-5Eo"/>
                             <constraint firstItem="I8I-x3-gVB" firstAttribute="trailing" secondItem="YLd-Ch-JFi" secondAttribute="trailing" constant="21" id="yRJ-Wk-NhZ"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="I8I-x3-gVB"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="string" keyPath="colorName" value="WhiteBackground_DarkTheme"/>
                         </userDefinedRuntimeAttributes>
@@ -168,6 +169,7 @@
                         <outlet property="openMailButton" destination="Opf-SA-edo" id="biI-Fx-6ar"/>
                         <outlet property="showQRCodeButton" destination="pqB-sU-g6i" id="fXe-Me-1le"/>
                         <outlet property="textLabel" destination="YLd-Ch-JFi" id="uwg-rh-T64"/>
+                        <outlet property="titleLabel" destination="zQC-jP-eMe" id="iUJ-qn-lOA"/>
                         <segue destination="MJz-0w-Aaw" kind="presentation" identifier="goToSuccessRegister" modalPresentationStyle="fullScreen" id="qao-pc-Zzq"/>
                     </connections>
                 </viewController>
@@ -184,6 +186,14 @@
             <point key="canvasLocation" x="1943" y="208"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="Opf-SA-edo">
+            <size key="intrinsicContentSize" width="107" height="30"/>
+        </designable>
+        <designable name="pqB-sU-g6i">
+            <size key="intrinsicContentSize" width="73" height="30"/>
+        </designable>
+    </designables>
     <resources>
         <image name="1" width="374" height="332.33334350585938"/>
         <image name="Shadow" width="238.66667175292969" height="108.33333587646484"/>
