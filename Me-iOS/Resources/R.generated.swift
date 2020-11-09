@@ -2837,7 +2837,7 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
 
-    /// This `R.string.localizable` struct is generated, and contains static references to 165 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 167 localization keys.
     struct localizable {
       /// en translation: %@ Don't Available
       ///
@@ -2875,6 +2875,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en, nl
       static let children_nth = Rswift.StringResource(key: "children_nth", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
+      /// en translation: An e-mail has been sent to %@. Click the link in the email to sign up.
+      ///
+      /// Locales: en, nl
+      static let click_on_link_you_received_continue = Rswift.StringResource(key: "click_on_link_you_received_continue", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
       /// en translation: App Cancel
       ///
       /// Locales: en, nl
@@ -2943,10 +2947,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en, nl
       static let choose_validator = Rswift.StringResource(key: "choose_validator", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
-      /// en translation: Click on the link you received on %@ to continue
+      /// en translation: Close
       ///
       /// Locales: en, nl
-      static let click_on_link_you_received_continue = Rswift.StringResource(key: "click_on_link_you_received_continue", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
+      static let close = Rswift.StringResource(key: "close", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
       /// en translation: Codes don't match. Please try again
       ///
       /// Locales: en, nl
@@ -3163,6 +3167,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en, nl
       static let net_worth = Rswift.StringResource(key: "net_worth", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
+      /// en translation: New update is available, update your application!
+      ///
+      /// Locales: en, nl
+      static let update_is_available = Rswift.StringResource(key: "update_is_available", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
       /// en translation: No Internet Conecction
       ///
       /// Locales: en, nl
@@ -3641,6 +3649,23 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("children_nth", bundle: bundle, comment: "")
       }
 
+      /// en translation: An e-mail has been sent to %@. Click the link in the email to sign up.
+      ///
+      /// Locales: en, nl
+      static func click_on_link_you_received_continue(_ value1: String, preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          let format = NSLocalizedString("click_on_link_you_received_continue", bundle: hostingBundle, comment: "")
+          return String(format: format, locale: applicationLocale, value1)
+        }
+
+        guard let (locale, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "click_on_link_you_received_continue"
+        }
+
+        let format = NSLocalizedString("click_on_link_you_received_continue", bundle: bundle, comment: "")
+        return String(format: format, locale: locale, value1)
+      }
+
       /// en translation: App Cancel
       ///
       /// Locales: en, nl
@@ -3896,21 +3921,19 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("choose_validator", bundle: bundle, comment: "")
       }
 
-      /// en translation: Click on the link you received on %@ to continue
+      /// en translation: Close
       ///
       /// Locales: en, nl
-      static func click_on_link_you_received_continue(_ value1: String, preferredLanguages: [String]? = nil) -> String {
+      static func close(preferredLanguages: [String]? = nil) -> String {
         guard let preferredLanguages = preferredLanguages else {
-          let format = NSLocalizedString("click_on_link_you_received_continue", bundle: hostingBundle, comment: "")
-          return String(format: format, locale: applicationLocale, value1)
+          return NSLocalizedString("close", bundle: hostingBundle, comment: "")
         }
 
-        guard let (locale, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
-          return "click_on_link_you_received_continue"
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "close"
         }
 
-        let format = NSLocalizedString("click_on_link_you_received_continue", bundle: bundle, comment: "")
-        return String(format: format, locale: locale, value1)
+        return NSLocalizedString("close", bundle: bundle, comment: "")
       }
 
       /// en translation: Codes don't match. Please try again
@@ -4725,6 +4748,21 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("net_worth", bundle: bundle, comment: "")
+      }
+
+      /// en translation: New update is available, update your application!
+      ///
+      /// Locales: en, nl
+      static func update_is_available(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("update_is_available", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "update_is_available"
+        }
+
+        return NSLocalizedString("update_is_available", bundle: bundle, comment: "")
       }
 
       /// en translation: No Internet Conecction
@@ -8446,88 +8484,88 @@ struct R: Rswift.Validatable {
     struct voucher {
       /// en translation: -2,76
       ///
-      /// Locales: en, nl
-      static let xmp1yDWXText = Rswift.StringResource(key: "Xmp-1y-dWX.text", tableName: "Voucher", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
+      /// Locales: en
+      static let xmp1yDWXText = Rswift.StringResource(key: "Xmp-1y-dWX.text", tableName: "Voucher", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: 19 Mei, 14:08
       ///
-      /// Locales: en, nl
-      static let qGCRdVKiText = Rswift.StringResource(key: "qGC-Rd-vKi.text", tableName: "Voucher", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
+      /// Locales: en
+      static let qGCRdVKiText = Rswift.StringResource(key: "qGC-Rd-vKi.text", tableName: "Voucher", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: 19 Mei, 14:08
       ///
-      /// Locales: en, nl
-      static let upHBBosText = Rswift.StringResource(key: "0Up-HB-Bos.text", tableName: "Voucher", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
+      /// Locales: en
+      static let upHBBosText = Rswift.StringResource(key: "0Up-HB-Bos.text", tableName: "Voucher", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Activated
       ///
-      /// Locales: en, nl
-      static let cc7YHA8BText = Rswift.StringResource(key: "cc7-yH-a8B.text", tableName: "Voucher", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
+      /// Locales: en
+      static let cc7YHA8BText = Rswift.StringResource(key: "cc7-yH-a8B.text", tableName: "Voucher", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: E-mail to me
       ///
-      /// Locales: en, nl
-      static let mWIN4PEONormalTitle = Rswift.StringResource(key: "mWI-n4-pEO.normalTitle", tableName: "Voucher", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
+      /// Locales: en
+      static let mWIN4PEONormalTitle = Rswift.StringResource(key: "mWI-n4-pEO.normalTitle", tableName: "Voucher", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Er zijn nog geen transacties
       ///
-      /// Locales: en, nl
-      static let jnDO4FnText = Rswift.StringResource(key: "8jn-dO-4Fn.text", tableName: "Voucher", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
+      /// Locales: en
+      static let jnDO4FnText = Rswift.StringResource(key: "8jn-dO-4Fn.text", tableName: "Voucher", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: History
       ///
-      /// Locales: en, nl
-      static let s5YUiYruText = Rswift.StringResource(key: "S5Y-Ui-yru.text", tableName: "Voucher", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
+      /// Locales: en
+      static let s5YUiYruText = Rswift.StringResource(key: "S5Y-Ui-yru.text", tableName: "Voucher", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Item 2
       ///
-      /// Locales: en, nl
-      static let yc3WbYF5Title = Rswift.StringResource(key: "yc3-wb-YF5.title", tableName: "Voucher", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
+      /// Locales: en
+      static let yc3WbYF5Title = Rswift.StringResource(key: "yc3-wb-YF5.title", tableName: "Voucher", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Kindpakket
       ///
-      /// Locales: en, nl
-      static let sdwCxCzaText = Rswift.StringResource(key: "Sdw-Cx-cza.text", tableName: "Voucher", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
+      /// Locales: en
+      static let sdwCxCzaText = Rswift.StringResource(key: "Sdw-Cx-cza.text", tableName: "Voucher", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Label
       ///
-      /// Locales: en, nl
-      static let ladBGS6NText = Rswift.StringResource(key: "Lad-bG-s6N.text", tableName: "Voucher", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
+      /// Locales: en
+      static let ladBGS6NText = Rswift.StringResource(key: "Lad-bG-s6N.text", tableName: "Voucher", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Label
       ///
-      /// Locales: en, nl
-      static let oJuTDyText = Rswift.StringResource(key: "05o-Ju-tDy.text", tableName: "Voucher", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
+      /// Locales: en
+      static let oJuTDyText = Rswift.StringResource(key: "05o-Ju-tDy.text", tableName: "Voucher", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Let the shopkeeper scan it to make a payment from your voucher.
       ///
-      /// Locales: en, nl
-      static let p7eXQMR9Text = Rswift.StringResource(key: "P7e-xQ-MR9.text", tableName: "Voucher", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
+      /// Locales: en
+      static let p7eXQMR9Text = Rswift.StringResource(key: "P7e-xQ-MR9.text", tableName: "Voucher", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: NOT 2 DAGEN GELDIG VALID
       ///
-      /// Locales: en, nl
-      static let w5t6WUeqText = Rswift.StringResource(key: "w5t-6W-ueq.text", tableName: "Voucher", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
+      /// Locales: en
+      static let w5t6WUeqText = Rswift.StringResource(key: "w5t-6W-ueq.text", tableName: "Voucher", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: QR-CODE
       ///
-      /// Locales: en, nl
-      static let sGxRgQ1LText = Rswift.StringResource(key: "sGx-Rg-q1L.text", tableName: "Voucher", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
+      /// Locales: en
+      static let sGxRgQ1LText = Rswift.StringResource(key: "sGx-Rg-q1L.text", tableName: "Voucher", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Rijwielhandel Kuis
       ///
-      /// Locales: en, nl
-      static let c89OHFyYText = Rswift.StringResource(key: "c89-oH-FyY.text", tableName: "Voucher", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
+      /// Locales: en
+      static let c89OHFyYText = Rswift.StringResource(key: "c89-oH-FyY.text", tableName: "Voucher", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: This is your Voucher’s QR-code.
       ///
-      /// Locales: en, nl
-      static let xIxDD8s5Text = Rswift.StringResource(key: "xIx-dD-8s5.text", tableName: "Voucher", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
+      /// Locales: en
+      static let xIxDD8s5Text = Rswift.StringResource(key: "xIx-dD-8s5.text", tableName: "Voucher", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Transaction
       ///
-      /// Locales: en, nl
-      static let pbV1UZtCText = Rswift.StringResource(key: "PbV-1U-ztC.text", tableName: "Voucher", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
+      /// Locales: en
+      static let pbV1UZtCText = Rswift.StringResource(key: "PbV-1U-ztC.text", tableName: "Voucher", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Voucher
       ///
-      /// Locales: en, nl
-      static let vIm8eAeUText = Rswift.StringResource(key: "vIm-8e-AeU.text", tableName: "Voucher", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
+      /// Locales: en
+      static let vIm8eAeUText = Rswift.StringResource(key: "vIm-8e-AeU.text", tableName: "Voucher", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Voucher Info
       ///
-      /// Locales: en, nl
-      static let kQA2yC8qNormalTitle = Rswift.StringResource(key: "kQA-2y-C8q.normalTitle", tableName: "Voucher", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
+      /// Locales: en
+      static let kQA2yC8qNormalTitle = Rswift.StringResource(key: "kQA-2y-C8q.normalTitle", tableName: "Voucher", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: € 122,50
       ///
-      /// Locales: en, nl
-      static let ziozslcbText = Rswift.StringResource(key: "ZIO-zS-LCB.text", tableName: "Voucher", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
+      /// Locales: en
+      static let ziozslcbText = Rswift.StringResource(key: "ZIO-zS-LCB.text", tableName: "Voucher", bundle: R.hostingBundle, locales: ["en"], comment: nil)
 
       /// en translation: -2,76
       ///
-      /// Locales: en, nl
+      /// Locales: en
       static func xmp1yDWXText(preferredLanguages: [String]? = nil) -> String {
         guard let preferredLanguages = preferredLanguages else {
           return NSLocalizedString("Xmp-1y-dWX.text", tableName: "Voucher", bundle: hostingBundle, comment: "")
@@ -8542,7 +8580,7 @@ struct R: Rswift.Validatable {
 
       /// en translation: 19 Mei, 14:08
       ///
-      /// Locales: en, nl
+      /// Locales: en
       static func qGCRdVKiText(preferredLanguages: [String]? = nil) -> String {
         guard let preferredLanguages = preferredLanguages else {
           return NSLocalizedString("qGC-Rd-vKi.text", tableName: "Voucher", bundle: hostingBundle, comment: "")
@@ -8557,7 +8595,7 @@ struct R: Rswift.Validatable {
 
       /// en translation: 19 Mei, 14:08
       ///
-      /// Locales: en, nl
+      /// Locales: en
       static func upHBBosText(preferredLanguages: [String]? = nil) -> String {
         guard let preferredLanguages = preferredLanguages else {
           return NSLocalizedString("0Up-HB-Bos.text", tableName: "Voucher", bundle: hostingBundle, comment: "")
@@ -8572,7 +8610,7 @@ struct R: Rswift.Validatable {
 
       /// en translation: Activated
       ///
-      /// Locales: en, nl
+      /// Locales: en
       static func cc7YHA8BText(preferredLanguages: [String]? = nil) -> String {
         guard let preferredLanguages = preferredLanguages else {
           return NSLocalizedString("cc7-yH-a8B.text", tableName: "Voucher", bundle: hostingBundle, comment: "")
@@ -8587,7 +8625,7 @@ struct R: Rswift.Validatable {
 
       /// en translation: E-mail to me
       ///
-      /// Locales: en, nl
+      /// Locales: en
       static func mWIN4PEONormalTitle(preferredLanguages: [String]? = nil) -> String {
         guard let preferredLanguages = preferredLanguages else {
           return NSLocalizedString("mWI-n4-pEO.normalTitle", tableName: "Voucher", bundle: hostingBundle, comment: "")
@@ -8602,7 +8640,7 @@ struct R: Rswift.Validatable {
 
       /// en translation: Er zijn nog geen transacties
       ///
-      /// Locales: en, nl
+      /// Locales: en
       static func jnDO4FnText(preferredLanguages: [String]? = nil) -> String {
         guard let preferredLanguages = preferredLanguages else {
           return NSLocalizedString("8jn-dO-4Fn.text", tableName: "Voucher", bundle: hostingBundle, comment: "")
@@ -8617,7 +8655,7 @@ struct R: Rswift.Validatable {
 
       /// en translation: History
       ///
-      /// Locales: en, nl
+      /// Locales: en
       static func s5YUiYruText(preferredLanguages: [String]? = nil) -> String {
         guard let preferredLanguages = preferredLanguages else {
           return NSLocalizedString("S5Y-Ui-yru.text", tableName: "Voucher", bundle: hostingBundle, comment: "")
@@ -8632,7 +8670,7 @@ struct R: Rswift.Validatable {
 
       /// en translation: Item 2
       ///
-      /// Locales: en, nl
+      /// Locales: en
       static func yc3WbYF5Title(preferredLanguages: [String]? = nil) -> String {
         guard let preferredLanguages = preferredLanguages else {
           return NSLocalizedString("yc3-wb-YF5.title", tableName: "Voucher", bundle: hostingBundle, comment: "")
@@ -8647,7 +8685,7 @@ struct R: Rswift.Validatable {
 
       /// en translation: Kindpakket
       ///
-      /// Locales: en, nl
+      /// Locales: en
       static func sdwCxCzaText(preferredLanguages: [String]? = nil) -> String {
         guard let preferredLanguages = preferredLanguages else {
           return NSLocalizedString("Sdw-Cx-cza.text", tableName: "Voucher", bundle: hostingBundle, comment: "")
@@ -8662,7 +8700,7 @@ struct R: Rswift.Validatable {
 
       /// en translation: Label
       ///
-      /// Locales: en, nl
+      /// Locales: en
       static func ladBGS6NText(preferredLanguages: [String]? = nil) -> String {
         guard let preferredLanguages = preferredLanguages else {
           return NSLocalizedString("Lad-bG-s6N.text", tableName: "Voucher", bundle: hostingBundle, comment: "")
@@ -8677,7 +8715,7 @@ struct R: Rswift.Validatable {
 
       /// en translation: Label
       ///
-      /// Locales: en, nl
+      /// Locales: en
       static func oJuTDyText(preferredLanguages: [String]? = nil) -> String {
         guard let preferredLanguages = preferredLanguages else {
           return NSLocalizedString("05o-Ju-tDy.text", tableName: "Voucher", bundle: hostingBundle, comment: "")
@@ -8692,7 +8730,7 @@ struct R: Rswift.Validatable {
 
       /// en translation: Let the shopkeeper scan it to make a payment from your voucher.
       ///
-      /// Locales: en, nl
+      /// Locales: en
       static func p7eXQMR9Text(preferredLanguages: [String]? = nil) -> String {
         guard let preferredLanguages = preferredLanguages else {
           return NSLocalizedString("P7e-xQ-MR9.text", tableName: "Voucher", bundle: hostingBundle, comment: "")
@@ -8707,7 +8745,7 @@ struct R: Rswift.Validatable {
 
       /// en translation: NOT 2 DAGEN GELDIG VALID
       ///
-      /// Locales: en, nl
+      /// Locales: en
       static func w5t6WUeqText(preferredLanguages: [String]? = nil) -> String {
         guard let preferredLanguages = preferredLanguages else {
           return NSLocalizedString("w5t-6W-ueq.text", tableName: "Voucher", bundle: hostingBundle, comment: "")
@@ -8722,7 +8760,7 @@ struct R: Rswift.Validatable {
 
       /// en translation: QR-CODE
       ///
-      /// Locales: en, nl
+      /// Locales: en
       static func sGxRgQ1LText(preferredLanguages: [String]? = nil) -> String {
         guard let preferredLanguages = preferredLanguages else {
           return NSLocalizedString("sGx-Rg-q1L.text", tableName: "Voucher", bundle: hostingBundle, comment: "")
@@ -8737,7 +8775,7 @@ struct R: Rswift.Validatable {
 
       /// en translation: Rijwielhandel Kuis
       ///
-      /// Locales: en, nl
+      /// Locales: en
       static func c89OHFyYText(preferredLanguages: [String]? = nil) -> String {
         guard let preferredLanguages = preferredLanguages else {
           return NSLocalizedString("c89-oH-FyY.text", tableName: "Voucher", bundle: hostingBundle, comment: "")
@@ -8752,7 +8790,7 @@ struct R: Rswift.Validatable {
 
       /// en translation: This is your Voucher’s QR-code.
       ///
-      /// Locales: en, nl
+      /// Locales: en
       static func xIxDD8s5Text(preferredLanguages: [String]? = nil) -> String {
         guard let preferredLanguages = preferredLanguages else {
           return NSLocalizedString("xIx-dD-8s5.text", tableName: "Voucher", bundle: hostingBundle, comment: "")
@@ -8767,7 +8805,7 @@ struct R: Rswift.Validatable {
 
       /// en translation: Transaction
       ///
-      /// Locales: en, nl
+      /// Locales: en
       static func pbV1UZtCText(preferredLanguages: [String]? = nil) -> String {
         guard let preferredLanguages = preferredLanguages else {
           return NSLocalizedString("PbV-1U-ztC.text", tableName: "Voucher", bundle: hostingBundle, comment: "")
@@ -8782,7 +8820,7 @@ struct R: Rswift.Validatable {
 
       /// en translation: Voucher
       ///
-      /// Locales: en, nl
+      /// Locales: en
       static func vIm8eAeUText(preferredLanguages: [String]? = nil) -> String {
         guard let preferredLanguages = preferredLanguages else {
           return NSLocalizedString("vIm-8e-AeU.text", tableName: "Voucher", bundle: hostingBundle, comment: "")
@@ -8797,7 +8835,7 @@ struct R: Rswift.Validatable {
 
       /// en translation: Voucher Info
       ///
-      /// Locales: en, nl
+      /// Locales: en
       static func kQA2yC8qNormalTitle(preferredLanguages: [String]? = nil) -> String {
         guard let preferredLanguages = preferredLanguages else {
           return NSLocalizedString("kQA-2y-C8q.normalTitle", tableName: "Voucher", bundle: hostingBundle, comment: "")
@@ -8812,7 +8850,7 @@ struct R: Rswift.Validatable {
 
       /// en translation: € 122,50
       ///
-      /// Locales: en, nl
+      /// Locales: en
       static func ziozslcbText(preferredLanguages: [String]? = nil) -> String {
         guard let preferredLanguages = preferredLanguages else {
           return NSLocalizedString("ZIO-zS-LCB.text", tableName: "Voucher", bundle: hostingBundle, comment: "")
