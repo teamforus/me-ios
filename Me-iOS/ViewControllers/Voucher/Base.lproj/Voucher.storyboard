@@ -33,7 +33,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DXp-Go-e9s" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1360" y="219"/>
+            <point key="canvasLocation" x="-1372" y="320"/>
         </scene>
         <!--Item 2-->
         <scene sceneID="ZWk-mL-mIH">
@@ -189,7 +189,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="89" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hIb-0R-ybB" customClass="TableView_Background_DarkMode" customModule="Me_iOS" customModuleProvider="target">
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="89" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hIb-0R-ybB">
                                         <rect key="frame" x="-2" y="77" width="414" height="493"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -468,18 +468,15 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5vT-89-LQy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-550" y="1009"/>
+            <point key="canvasLocation" x="-505" y="911"/>
         </scene>
     </scenes>
     <designables>
-        <designable name="4AW-cF-E2d">
-            <size key="intrinsicContentSize" width="36" height="11"/>
-        </designable>
         <designable name="kQA-2y-C8q">
-            <size key="intrinsicContentSize" width="81" height="30"/>
+            <size key="intrinsicContentSize" width="79" height="29"/>
         </designable>
         <designable name="mWI-n4-pEO">
-            <size key="intrinsicContentSize" width="117" height="24"/>
+            <size key="intrinsicContentSize" width="135" height="24"/>
         </designable>
         <designable name="wQJ-bH-E8M">
             <size key="intrinsicContentSize" width="210" height="210"/>
