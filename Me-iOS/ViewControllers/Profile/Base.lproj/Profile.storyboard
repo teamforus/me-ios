@@ -38,10 +38,10 @@
                                                 <rect key="frame" x="0.0" y="-15" width="375" height="179"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="6YL-vS-yZM">
-                                                        <rect key="frame" x="95" y="102" width="180" height="54"/>
+                                                        <rect key="frame" x="95" y="102" width="180" height="49"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Uw Profiel" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Ncj-5F-IHr" customClass="UILabel_DarkMode" customModule="Me_iOS" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="0.0" width="180" height="34.5"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="180" height="31.5"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="180" id="aXr-PV-Eyy"/>
                                                                 </constraints>
@@ -50,7 +50,7 @@
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="mail@mail.com" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Rkq-EJ-VPa" customClass="UILabel_DarkMode" customModule="Me_iOS" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="34.5" width="180" height="19.5"/>
+                                                                <rect key="frame" x="0.0" y="31.5" width="180" height="17.5"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="180" id="nx2-12-LKm"/>
                                                                 </constraints>
@@ -100,23 +100,6 @@
                                                             <segue destination="cz6-ov-H3w" kind="presentation" modalPresentationStyle="fullScreen" id="OXA-Jq-Fp8"/>
                                                         </connections>
                                                     </button>
-                                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="V0O-m1-j6W" customClass="Background_DarkMode" customModule="Me_iOS" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="80" width="375" height="1"/>
-                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="string" keyPath="colorName" value="Line_DarkMode"/>
-                                                        </userDefinedRuntimeAttributes>
-                                                    </view>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Personal Account" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NFd-zA-OpX" customClass="UILabel_DarkMode" customModule="Me_iOS" customModuleProvider="target">
-                                                        <rect key="frame" x="118.5" y="40" width="138" height="22"/>
-                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <fontDescription key="fontDescription" name="GoogleSans-Medium" family="Google Sans" pointSize="17"/>
-                                                        <color key="textColor" red="0.99936085939999997" green="0.1497559547" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <nil key="highlightedColor"/>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="string" keyPath="colorName" value="Light_Dark_Mode"/>
-                                                        </userDefinedRuntimeAttributes>
-                                                    </label>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uNa-po-sV7">
                                                         <rect key="frame" x="120" y="40" width="44" height="44"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -125,9 +108,7 @@
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="179" id="8VR-mG-XI6"/>
-                                                    <constraint firstItem="NFd-zA-OpX" firstAttribute="centerX" secondItem="mQt-Uv-ahd" secondAttribute="centerX" id="Hax-j5-g4l"/>
                                                     <constraint firstItem="6YL-vS-yZM" firstAttribute="leading" secondItem="mQt-Uv-ahd" secondAttribute="leading" constant="95" id="Zs9-U2-PeA"/>
-                                                    <constraint firstItem="NFd-zA-OpX" firstAttribute="top" secondItem="mQt-Uv-ahd" secondAttribute="top" constant="40" id="bVB-QK-I9Q"/>
                                                     <constraint firstItem="6YL-vS-yZM" firstAttribute="top" secondItem="mQt-Uv-ahd" secondAttribute="top" constant="102" id="fcP-yc-STi"/>
                                                 </constraints>
                                                 <userDefinedRuntimeAttributes>
@@ -480,13 +461,52 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="colorName" value="WhiteBackground_DarkTheme"/>
                                 </userDefinedRuntimeAttributes>
                             </scrollView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8v9-oZ-Lf1" customClass="Background_DarkMode" customModule="Me_iOS" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="88"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Personal Account" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NFd-zA-OpX" customClass="UILabel_DarkMode" customModule="Me_iOS" customModuleProvider="target">
+                                        <rect key="frame" x="120.5" y="52" width="134.5" height="20"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" name="GoogleSans-Medium" family="Google Sans" pointSize="17"/>
+                                        <color key="textColor" red="0.99936085939999997" green="0.1497559547" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="colorName" value="Light_Dark_Mode"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V0O-m1-j6W" customClass="Background_DarkMode" customModule="Me_iOS" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="87" width="375" height="1"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1" id="CdP-JG-iEA"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="colorName" value="Line_DarkMode"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="V0O-m1-j6W" firstAttribute="leading" secondItem="8v9-oZ-Lf1" secondAttribute="leading" id="4YV-JV-n41"/>
+                                    <constraint firstAttribute="height" constant="88" id="Qs6-Vd-ZF7"/>
+                                    <constraint firstAttribute="bottom" secondItem="V0O-m1-j6W" secondAttribute="bottom" id="RNJ-9r-Zgy"/>
+                                    <constraint firstItem="NFd-zA-OpX" firstAttribute="centerX" secondItem="8v9-oZ-Lf1" secondAttribute="centerX" id="RdP-ZU-TIk"/>
+                                    <constraint firstAttribute="bottom" secondItem="NFd-zA-OpX" secondAttribute="bottom" constant="16" id="e8w-mJ-MPN"/>
+                                    <constraint firstAttribute="trailing" secondItem="V0O-m1-j6W" secondAttribute="trailing" id="fN0-gZ-2KL"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="colorName" value="WhiteBackground_DarkTheme"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Ncr-28-1Z9"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="8v9-oZ-Lf1" firstAttribute="top" secondItem="erS-Sv-h0v" secondAttribute="top" id="332-c1-ffx"/>
                             <constraint firstItem="pYl-68-xkp" firstAttribute="leading" secondItem="Ncr-28-1Z9" secondAttribute="leading" id="6JI-sX-llf"/>
                             <constraint firstItem="WTi-eV-EKy" firstAttribute="width" secondItem="erS-Sv-h0v" secondAttribute="width" id="6Za-Nb-XBV"/>
                             <constraint firstItem="pYl-68-xkp" firstAttribute="bottom" secondItem="erS-Sv-h0v" secondAttribute="bottom" id="Gv0-Ir-mVM"/>
+                            <constraint firstItem="8v9-oZ-Lf1" firstAttribute="leading" secondItem="Ncr-28-1Z9" secondAttribute="leading" id="Mhy-3j-gTZ"/>
+                            <constraint firstItem="8v9-oZ-Lf1" firstAttribute="trailing" secondItem="Ncr-28-1Z9" secondAttribute="trailing" id="MyH-Gu-xQK"/>
                             <constraint firstItem="pYl-68-xkp" firstAttribute="trailing" secondItem="Ncr-28-1Z9" secondAttribute="trailing" id="Xty-hI-HQM"/>
                             <constraint firstItem="WTi-eV-EKy" firstAttribute="height" secondItem="erS-Sv-h0v" secondAttribute="height" priority="250" id="ZO9-rR-N9H"/>
                             <constraint firstItem="pYl-68-xkp" firstAttribute="top" secondItem="erS-Sv-h0v" secondAttribute="top" id="cCB-Mt-jzI"/>
@@ -666,7 +686,7 @@
             <size key="intrinsicContentSize" width="49" height="31"/>
         </designable>
         <designable name="LCl-JE-4Rl">
-            <size key="intrinsicContentSize" width="55" height="28"/>
+            <size key="intrinsicContentSize" width="53" height="26"/>
         </designable>
         <designable name="aF3-gf-gHS">
             <size key="intrinsicContentSize" width="49" height="31"/>

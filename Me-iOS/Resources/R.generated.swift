@@ -2830,7 +2830,7 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
 
-    /// This `R.string.localizable` struct is generated, and contains static references to 168 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 169 localization keys.
     struct localizable {
       /// en translation: %@ Don't Available
       ///
@@ -3384,6 +3384,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en, nl
       static let this_is_your = Rswift.StringResource(key: "this_is_your", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
+      /// en translation: This is your Record’s QR
+      ///
+      /// Locales: en, nl
+      static let this_is_qr_records = Rswift.StringResource(key: "this_is_qr_records", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
       /// en translation: This is your Voucher’s QR-code.
       ///
       /// Locales: en, nl
@@ -5587,6 +5591,21 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("this_is_your", bundle: bundle, comment: "")
+      }
+
+      /// en translation: This is your Record’s QR
+      ///
+      /// Locales: en, nl
+      static func this_is_qr_records(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("this_is_qr_records", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "this_is_qr_records"
+        }
+
+        return NSLocalizedString("this_is_qr_records", bundle: bundle, comment: "")
       }
 
       /// en translation: This is your Voucher’s QR-code.
