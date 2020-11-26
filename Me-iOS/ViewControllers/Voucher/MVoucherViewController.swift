@@ -24,6 +24,8 @@ class MVoucherViewController: UIViewController {
     @IBOutlet weak var historyLabel: UILabel_DarkMode!
     @IBOutlet weak var activatedLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel_DarkMode!
+    @IBOutlet weak var heightTableViewConstraint: NSLayoutConstraint!
+    @IBOutlet weak var emptyLabel: UILabel!
     
     lazy var voucherViewModel: VoucherViewModel = {
         return VoucherViewModel()
@@ -81,9 +83,13 @@ class MVoucherViewController: UIViewController {
         }
         
         voucherViewModel.reloadTableViewClosure = { [weak self] in
-            
+            guard let self = self else {
+                return
+            }
             DispatchQueue.main.async {
-                self?.tableView.reloadData()
+                self.heightTableViewConstraint.constant = CGFloat(self.voucherViewModel.numberOfCells * 89)
+                self.emptyLabel.isHidden = self.voucherViewModel.numberOfCells != 0
+                self.tableView.reloadData()
             }
         }
         
@@ -170,10 +176,6 @@ extension MVoucherViewController: UITableViewDelegate, UITableViewDataSource{
             cell.configure(transaction: transaction, isSubsidies: voucher.fund?.type == FundType.subsidies.rawValue)
         }
         return cell
-    }
-    
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        didAnimateTransactioList()
     }
     
 }
