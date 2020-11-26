@@ -160,7 +160,7 @@ class PullUpQRViewController: UIViewController {
     }
     
     func closeQRAction(){
-        self.bottomConstraint.constant = 439
+        self.bottomConstraint.constant = 525
         
         UIView.animate(withDuration: 0.3, animations: {
             self.view.layoutIfNeeded()
