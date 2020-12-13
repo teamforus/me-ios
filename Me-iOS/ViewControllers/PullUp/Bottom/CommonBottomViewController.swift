@@ -51,11 +51,11 @@ class CommonBottomViewController: UIViewController {
   
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
-    typeOfQRCode()
+    setupTypeOfQRCode()
   }
   
   
-  func typeOfQRCode(){
+  func setupTypeOfQRCode(){
     switch qrType {
     case .AuthToken?:
       

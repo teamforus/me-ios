@@ -34,12 +34,25 @@ class MVouchersViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    
+    setUpUI()
+    getApiRequest()
+    setUpTransactions()
+    voucherType = .vouchers
+    initFetch()
+    setupAccessibility()
+  }
+  
+  
+  func setUpTransactions(){
     if !Preference.tapToSeeTransactionTipHasShown {
       Preference.tapToSeeTransactionTipHasShown = true
       transactionButton?.toolTip(message: Localize.tap_here_you_want_to_see_list_transaction(), style: .dark, location: .bottom, offset: CGPoint(x: -50, y: 0))
       timer = Timer.scheduledTimer(timeInterval: 30, target: self, selector: #selector(dismissToolTip), userInfo: nil, repeats: true)
     }
-    
+  }
+  
+  func setUpUI(){
     registerForPreviewing(with: self, sourceView: tableView)
     
     if #available(iOS 10.0, *) {
@@ -47,9 +60,6 @@ class MVouchersViewController: UIViewController {
     } else {
       tableView.addSubview(refreshControl)
     }
-    
-    voucherType = .vouchers
-    
     segmentController.items = ["Valute", Localize.vouchers()]
     segmentController.selectedIndex = 1
     segmentController.font = UIFont(name: "GoogleSans-Medium", size: 14)
@@ -60,7 +70,9 @@ class MVouchersViewController: UIViewController {
     segmentView.layer.cornerRadius = 8.0
     
     refreshControl.addTarget(self, action: #selector(refreshData(_:)), for: .valueChanged)
-    
+  }
+  
+  func getApiRequest(){
     voucherViewModel.complete = { [weak self] (vouchers) in
       
       DispatchQueue.main.async {
@@ -81,6 +93,7 @@ class MVouchersViewController: UIViewController {
     
     
     
+    
     voucherViewModel.completeIdentity = { [unowned self] (response) in
       DispatchQueue.main.async {
         self.wallet = response
@@ -89,8 +102,6 @@ class MVouchersViewController: UIViewController {
     
     voucherViewModel.getIndentity()
     
-    initFetch()
-    setupAccessibility()
   }
   
   override func viewWillAppear(_ animated: Bool) {
