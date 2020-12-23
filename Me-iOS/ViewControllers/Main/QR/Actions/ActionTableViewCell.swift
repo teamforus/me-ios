@@ -38,7 +38,7 @@ class ActionTableViewCell: UITableViewCell {
         let imageview = UIImageView()
         return imageview
     }()
-
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: ActionTableViewCell.identifier)
         selectionStyle = .none
@@ -56,7 +56,11 @@ class ActionTableViewCell: UITableViewCell {
     
     func setupActions(subsidie: Subsidie) {
         self.subsidieNameLabel.text = subsidie.name ?? ""
-        self.priceLabel.text = subsidie.price_user ?? ""
+        if !(subsidie.no_price ?? false) {
+            self.priceLabel.text = subsidie.price_user ?? ""
+        }else {
+            self.priceLabel.text = Localize.free()
+        }
         self.subsidieImageView.loadImageUsingUrlString(urlString:subsidie.photo?.sizes?.thumbnail ?? "", placeHolder: #imageLiteral(resourceName: "Resting"))
     }
 }

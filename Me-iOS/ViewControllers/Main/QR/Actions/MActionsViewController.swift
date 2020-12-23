@@ -410,6 +410,7 @@ extension MActionsViewController {
     private func openSubsidiePayment(subsidie: Subsidie, organization: AllowedOrganization?) {
         let paymentVC = MPaymentActionViewController()
         paymentVC.subsidie = subsidie
+        paymentVC.fund = voucher?.fund
         paymentVC.organization = organization
         paymentVC.address = voucher?.address ?? ""
         paymentVC.modalPresentationStyle = .fullScreen
