@@ -14,6 +14,7 @@
 		0437CED724BDF49B00FA7C24 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0437CED624BDF49B00FA7C24 /* Colors.xcassets */; };
 		0437CED924BDFC9F00FA7C24 /* BackButton_DarkMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0437CED824BDFC9F00FA7C24 /* BackButton_DarkMode.swift */; };
 		0483DBC124BF3F250074BBA9 /* UILabel_DarkMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0483DBC024BF3F250074BBA9 /* UILabel_DarkMode.swift */; };
+		0499FF282594C0060009C7A4 /* MConfirmAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0499FF272594C0060009C7A4 /* MConfirmAuthViewController.swift */; };
 		21BC9E5E15D09EB33DC67D18 /* Pods_Me_iOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE3A145130ABDFB2E6FA90DA /* Pods_Me_iOSTests.framework */; };
 		3073C31D42060DC36B5A5CF0 /* Pods_Me_iOSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2F0B90D6C19CBE208831044 /* Pods_Me_iOSUITests.framework */; };
 		3EA270A8D4692C1FB4DDDD4D /* Pods_Me_iOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F5A2CBF3A5DDA911CDEBF20 /* Pods_Me_iOSTests.framework */; };
@@ -258,6 +259,7 @@
 		0437CED624BDF49B00FA7C24 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		0437CED824BDFC9F00FA7C24 /* BackButton_DarkMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackButton_DarkMode.swift; sourceTree = "<group>"; };
 		0483DBC024BF3F250074BBA9 /* UILabel_DarkMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabel_DarkMode.swift; sourceTree = "<group>"; };
+		0499FF272594C0060009C7A4 /* MConfirmAuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MConfirmAuthViewController.swift; sourceTree = "<group>"; };
 		0BA3C002535BEC0C09894BC7 /* Pods-Me-iOSUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Me-iOSUITests.release.xcconfig"; path = "Target Support Files/Pods-Me-iOSUITests/Pods-Me-iOSUITests.release.xcconfig"; sourceTree = "<group>"; };
 		1F4F14FBEF270B54FA6F330B /* Pods-Me-iOS.alpha.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Me-iOS.alpha.xcconfig"; path = "Target Support Files/Pods-Me-iOS/Pods-Me-iOS.alpha.xcconfig"; sourceTree = "<group>"; };
 		27C5698FBEA4D2ECE5592544 /* Pods-Me-iOSTests.alpha.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Me-iOSTests.alpha.xcconfig"; path = "Target Support Files/Pods-Me-iOSTests/Pods-Me-iOSTests.alpha.xcconfig"; sourceTree = "<group>"; };
@@ -581,6 +583,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0499FF3B2595094C0009C7A4 /* ConfirmAuth */ = {
+			isa = PBXGroup;
+			children = (
+				0499FF272594C0060009C7A4 /* MConfirmAuthViewController.swift */,
+			);
+			path = ConfirmAuth;
+			sourceTree = "<group>";
+		};
 		265D97ECA3A164A5F7EEAF60 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -1140,6 +1150,7 @@
 				65F1BB2F229EDD90007D2C8A /* TextAreaRecord */,
 				650FF63322AD2E14004C3A85 /* About */,
 				FFC38D4524FA929C001C0DA2 /* Transaction */,
+				0499FF3B2595094C0009C7A4 /* ConfirmAuth */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -1924,6 +1935,7 @@
 				FFFF2527247513510043E459 /* AccessibilityProtocol.swift in Sources */,
 				655D6476231598D300EABD57 /* SendEtherViewController.swift in Sources */,
 				65139C7322802EFF003E0CDE /* LoginService.swift in Sources */,
+				0499FF282594C0060009C7A4 /* MConfirmAuthViewController.swift in Sources */,
 				65A8B70F2282E19F00B7DF05 /* MQRViewController.swift in Sources */,
 				65F52E4A23167E0D00B9D229 /* Wallet.swift in Sources */,
 				FF8D90E9251BBC8A0035B8D7 /* ToolTip+Extension.swift in Sources */,

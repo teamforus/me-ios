@@ -175,3 +175,7 @@
 "tap_here_you_want_to_see_list_transaction" = "Druk hier als je de lijst met transacties wilt openen";
 "choose_from_date" = "Zoeken op datum";
 "change_passcode" = "Wijzig inlogcode";
+"do_you_want_to_login" = "Probeer je in te loggen op een apparaat?";
+"description_of_auth_anothe_device" = "Scan allen QR-codes vanaf je eigen apparaten. Gebruik nooit een code die een andere gebruiker naar je heeft gestuurd.";
+"i_want_to_login" = "ja, ik wil inloggen";
+"no_thanks" = "Annuleren";

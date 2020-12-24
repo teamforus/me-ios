@@ -176,3 +176,7 @@
 "personal_account" = "Personal account";
 "tap_here_you_want_to_see_list_transaction" = "Tap here if you want to see your list of transactions";
 "choose_from_date" = "Choose from date";
+"do_you_want_to_login" = "Do you want to login on this device?";
+"description_of_auth_anothe_device" = "Scan only QR-codes on devices you own or temporarily use. Never scan a code which was sent or shown by another person.";
+"i_want_to_login" = "Yes, I want to login";
+"no_thanks" = "No thanks";
