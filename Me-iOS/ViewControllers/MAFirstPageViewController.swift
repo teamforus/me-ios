@@ -24,7 +24,9 @@ class MAFirstPageViewController: UIViewController {
     @IBOutlet weak var emailField: SkyFloatingLabelTextField!
     @IBOutlet weak var validationImage: UIImageView!
     @IBOutlet weak var confirmButton: ShadowButton!
-    
+    @IBOutlet weak var showQRCodeButton: ShadowButton!
+    @IBOutlet weak var welcomeLabel: UILabel_DarkMode!
+  
     lazy var emailLoginViewModel: EmailLoginViewModel = {
         return EmailLoginViewModel()
     }()
@@ -39,7 +41,7 @@ class MAFirstPageViewController: UIViewController {
         IQKeyboardManager.shared.enable = true
         IQKeyboardManager.shared.enableAutoToolbar = true
         
-        
+        setupAccessibility()
         
         #if DEV
         chooseEnvironmentButton.isHidden = false
@@ -63,9 +65,47 @@ class MAFirstPageViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        if #available(iOS 12.0, *) {
+            if self.traitCollection.userInterfaceStyle == .dark {
+                emailField.textColor = .white
+                emailField.selectedLineColor = .white
+            } else {
+                emailField.textColor = .black
+                emailField.selectedLineColor = .black
+            }
+        } else {
+            // Fallback on earlier versions
+        }
         NotificationCenter.default.addObserver(self, selector: #selector(logIn), name: NotificationName.LoginQR, object: nil)
     }
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        if #available(iOS 12.0, *) {
+            if self.traitCollection.userInterfaceStyle == .dark {
+                emailField.textColor = .white
+                emailField.selectedLineColor = .white
+            } else {
+                emailField.textColor = .black
+                emailField.selectedLineColor = .black
+            }
+        } else {
+            // Fallback on earlier versions
+        }
+        }
+
+        override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
+            if #available(iOS 12.0, *) {
+            if self.traitCollection.userInterfaceStyle == .dark {
+                emailField.textColor = .white
+                emailField.selectedLineColor = .white
+            } else {
+                emailField.textColor = .black
+                emailField.selectedLineColor = .black
+            }
+            }else {
+                // Fallback on earlier versions
+            }
+        }
     
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -173,7 +213,7 @@ class MAFirstPageViewController: UIViewController {
                         self?.emailLoginViewModel.initLoginByEmail(email: self?.emailField.text ?? "")
                   
                 }else if statusCode == 500 {
-                    self?.showSimpleAlertWithSingleAction(title: Localize.error_exclamation(), message: "", okAction: UIAlertAction(title: "OK", style: .default, handler: { (action) in
+                    self?.showSimpleAlertWithSingleAction(title: Localize.error_exclamation(), message: "", okAction: UIAlertAction(title: Localize.ok(), style: .default, handler: { (action) in
                     }))
                 }else {
                     self?.performSegue(withIdentifier: "goToSuccessMail", sender: nil)
@@ -185,13 +225,13 @@ class MAFirstPageViewController: UIViewController {
             
             DispatchQueue.main.async {
                 
-                if statusCode == 500 {
-                    self?.showSimpleAlertWithSingleAction(title: Localize.error_exclamation(), message: "", okAction: UIAlertAction(title: Localize.ok(), style: .default, handler: { (action) in }))
+                if statusCode != 500 {
                     
-                }else if statusCode == 422 {
-                    self?.showSimpleAlertWithSingleAction(title: Localize.error_exclamation(), message: message, okAction: UIAlertAction(title: Localize.ok(), style: .default, handler: { (action) in  }))
+                    self?.performSegue(withIdentifier: "goToSuccessMail", sender: self)
+                    
                 }else {
-                     self?.performSegue(withIdentifier: "goToSuccessMail", sender: self)
+                    self?.showSimpleAlertWithSingleAction(title: Localize.error_exclamation(), message: "", okAction: UIAlertAction(title: Localize.ok(), style: .default, handler: { (action) in
+                    }))
                 }
             }
         }
@@ -206,4 +246,16 @@ class MAFirstPageViewController: UIViewController {
     }
     
     
+}
+
+// MARK: - Accessibility Protocol
+
+extension MAFirstPageViewController: AccessibilityProtocol {
+    func setupAccessibility() {
+        emailField.setupAccesibility(description: "Enter your email", accessibilityTraits: .none)
+        confirmButton.setupAccesibility(description: Localize.confirm(), accessibilityTraits: .button)
+        showQRCodeButton.setupAccesibility(description: "Show Qr Code and Pin Code", accessibilityTraits: .button)
+        validationImage.setupAccesibility(description: "Email is valid", accessibilityTraits: .image)
+      welcomeLabel.setupAccesibility(description: Localize.welcome_to_me(), accessibilityTraits: .header)
+    }
 }

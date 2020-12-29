@@ -21,9 +21,13 @@ class MProductVoucherViewController: UIViewController {
     @IBOutlet weak var emailButton: UIButton!
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var organizationIcon: CornerImageView!
-    @IBOutlet weak var buttonsInfoView: UIView!
-    @IBOutlet weak var qrCodeActionButton: UIButton!
-    @IBOutlet weak var heightTopViewConstraint: NSLayoutConstraint!
+    @IBOutlet weak var qrCodeButton: UIButton!
+    @IBOutlet weak var sendEmailButton: ShadowButton!
+    @IBOutlet weak var voucherInfoButton: ShadowButton!
+    @IBOutlet weak var callPhoneButton: UIButton!
+    @IBOutlet weak var buttonsView: Background_DarkMode!
+    @IBOutlet weak var heightConstraintsHeaderView: NSLayoutConstraint!
+    
     
     @IBOutlet var labeles: [SkeletonView]!
     @IBOutlet var images: [SkeletonUIImageView]!
@@ -37,11 +41,12 @@ class MProductVoucherViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        setupAccessibility()
         labeles.forEach { (view) in
             view.startAnimating()
         }
-        
+        self.heightConstraintsHeaderView.constant = 222
+        self.qrCodeButton.isEnabled = false
         images.forEach { (view) in
             view.startAnimating()
         }
@@ -49,9 +54,17 @@ class MProductVoucherViewController: UIViewController {
             
             DispatchQueue.main.async {
                 
+                if voucher.expire_at?.date?.formatDate() ?? Date() > Date() {
+                    self?.qrCodeImage.isHidden = false
+                    self?.sendEmailButton.isHidden = false
+                    self?.voucherInfoButton.isHidden = false
+                    self?.buttonsView.isHidden = false
+                    self?.heightConstraintsHeaderView.constant = 322
+                    self?.qrCodeButton.isEnabled = true
+                }
                 
                 self?.productNameLabel.text = voucher.product?.name ?? ""
-                self?.organizationNameLabel.text = voucher.product?.organization?.name ?? ""
+                self?.organizationNameLabel.text = voucher.fund?.organization?.name ?? ""
                 self?.organizationProductName.text = voucher.product?.organization?.name ?? ""
                 self?.addressLabel.text = voucher.offices?.first?.address ?? ""
                 self?.phoneNumberLabel.text = voucher.offices?.first?.phone ?? ""
@@ -60,13 +73,7 @@ class MProductVoucherViewController: UIViewController {
                 self?.qrCodeImage.generateQRCode(from: "{\"type\": \"voucher\",\"value\": \"\(voucher.address ?? "")\" }")
                 self?.voucher = voucher
                 
-                if voucher.expire_at?.date?.formatDate() ?? Date() < Date() {
-                    self?.buttonsInfoView.isHidden = true
-                    self?.heightTopViewConstraint.constant = 232
-                    self?.qrCodeImage.isHidden = true
-                    self?.qrCodeActionButton.isEnabled = false
-                }
-                
+    
                 //organizationLabel gesture
                 self?.emailButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self?.Tap)))
                 self?.emailButton.addGestureRecognizer(UILongPressGestureRecognizer(target: self, action: #selector(self?.Long)))
@@ -130,8 +137,8 @@ class MProductVoucherViewController: UIViewController {
             }
         }
         
-        showSimpleAlertWithAction(title: Localize.eMailToMe(),
-                                  message: Localize.sendAnEMailToTheProvider(),
+        showSimpleAlertWithAction(title: Localize.email_to_me(),
+                                  message: Localize.send_an_email_to_the_provider(),
                                   okAction: UIAlertAction(title: Localize.confirm(), style: .default, handler: { (action) in
                                     
                                     self.productViewModel.sendEmail(address: self.voucher.address ?? "")
@@ -168,19 +175,19 @@ extension MProductVoucherViewController {
     @objc func Tap() {
         
         
-        showSimpleAlertWithAction(title:  Localize.sendAnEMailToTheProvider(),
-                                  message: Localize.confirmToGoToYourEmailAppToSendAMessageToTheProvider(),
+        showSimpleAlertWithAction(title: Localize.send_an_email_to_the_provider(),
+                                  message: Localize.confirm_to_go_your_email_app_to_send_message_to_provider(),
                                   okAction: UIAlertAction(title: Localize.confirm(), style: .default, handler: { (action) in
                                     
                                     if MFMailComposeViewController.canSendMail() {
                                         let composeVC = MFMailComposeViewController()
                                         composeVC.mailComposeDelegate = self
                                         composeVC.setToRecipients([(self.voucher.offices?.first?.organization?.email)!])
-                                        composeVC.setSubject(Localize.questionFromMeUser())
+                                        composeVC.setSubject(Localize.question_from_me_user())
                                         composeVC.setMessageBody("", isHTML: false)
                                         self.present(composeVC, animated: true, completion: nil)
                                     }else{
-                                        self.showSimpleAlert(title: Localize.warning(), message: Localize.mailServicesAreNotAvailable())
+                                        self.showSimpleAlert(title: Localize.warning(), message: Localize.mail_services_are_not_available())
                                     }
                                     
                                   }),
@@ -190,7 +197,7 @@ extension MProductVoucherViewController {
     
     @objc func Long() {
         UIPasteboard.general.string = self.voucher.offices?.first?.organization?.email
-        self.showSimpleToast(message: Localize.copiedToClipboard())
+        self.showSimpleToast(message: Localize.copied_to_clipboard())
     }
     
     @objc func goToMap(){
@@ -218,14 +225,16 @@ extension MProductVoucherViewController {
         }))
         
         //copy to clipboard
-        actionSheet.addAction(UIAlertAction.init(title: Localize.copyAddress(), style: UIAlertAction.Style.default, handler: { (action) in
+        actionSheet.addAction(UIAlertAction.init(title: Localize.copy_address(), style: UIAlertAction.Style.default, handler: { (action) in
             UIPasteboard.general.string = self.voucher.offices?.first?.address
-            self.showSimpleToast(message: Localize.copiedToClipboard())
+            self.showSimpleToast(message: Localize.copied_to_clipboard())
         }))
         actionSheet.addAction(UIAlertAction.init(title: Localize.cancel(), style: UIAlertAction.Style.cancel, handler: { (action) in
         }))
         //Present the controller
-        self.present(actionSheet, animated: true, completion: nil)
+        actionSheet.popoverPresentationController?.sourceView = mapView
+        actionSheet.popoverPresentationController?.sourceRect = mapView.frame
+        self.present(actionSheet, animated: true)
     }
     
     func setAnnotation(lattitude: Double, longitude: Double) -> CustomPointAnnotation{
@@ -291,6 +300,19 @@ extension MProductVoucherViewController: MKMapViewDelegate{
     }
 }
 
+// MARK: - Accessiblity Protocol
+
+extension MProductVoucherViewController: AccessibilityProtocol {
+    func setupAccessibility() {
+        qrCodeImage.setupAccesibility(description: "Voucher QR Code", accessibilityTraits: .image)
+        qrCodeButton.setupAccesibility(description: "Tap to open qr code modal", accessibilityTraits: .button)
+        sendEmailButton.setupAccesibility(description: "Send voucher by email", accessibilityTraits: .button)
+        voucherInfoButton.setupAccesibility(description: "Open voucher info", accessibilityTraits: .button)
+        mapView.setupAccesibility(description: "Tap to select map options", accessibilityTraits: .button)
+        callPhoneButton.setupAccesibility(description: "Tap to call", accessibilityTraits: .button)
+        emailButton.setupAccesibility(description: "Tap to send email", accessibilityTraits: .button)
+    }
+}
 
 class CustomPointAnnotation: MKPointAnnotation {
     var imageName: String!
