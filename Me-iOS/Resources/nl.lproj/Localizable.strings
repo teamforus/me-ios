@@ -177,3 +177,10 @@
 "change_passcode" = "Wijzig inlogcode";
 "update_is_available" = "Er is een update beschikbaar.";
 "close" = "Sluiten";
+"price_agreement" = "Prijsafspraak";
+"paid_by_customer" = "Betaald door klant";
+"total_price" = "Totaal prijs";
+"discout_by" = "Korting van %@";
+"subsid_by" = "Bijdrage %@";
+"what_customer_pays" = "Wat de klant betaalt";
+"free" = "Gratis";

@@ -70,14 +70,24 @@ class ConfirmPayAction: UIView {
     }
     
     func setupView() {
-        priceLabel.text = "Heeft de klant  betaald aan de kassa?"
-        priceLabel.font = UIFont(name: "GoogleSans-Regular", size: 16)
-        let mainString = String(format: "Heeft de klant\n" + "€ " + subsidie!.price_user! + "\nbetaald aan de kassa?")
-        let range = (mainString as NSString).range(of: "€ " + subsidie!.price_user!)
-        let attributedString = NSMutableAttributedString(string:mainString)
-        attributedString.addAttribute(NSAttributedString.Key.font, value: UIFont(name: "GoogleSans-Regular", size: 40)! , range: range)
-        attributedString.addAttribute(NSAttributedString.Key.foregroundColor, value: #colorLiteral(red: 0.1702004969, green: 0.3387943804, blue: 1, alpha: 1).cgColor, range: range)
-        priceLabel.attributedText = attributedString
+        if !(subsidie?.no_price ?? false) {
+            priceLabel.font = UIFont(name: "GoogleSans-Regular", size: 16)
+            let mainString = String(format: "Heeft de klant\n" + "€ " + subsidie!.price_user! + "\nbetaald aan de kassa?")
+            let range = (mainString as NSString).range(of: "€ " + subsidie!.price_user!)
+            let attributedString = NSMutableAttributedString(string:mainString)
+            attributedString.addAttribute(NSAttributedString.Key.font, value: UIFont(name: "GoogleSans-Regular", size: 40)! , range: range)
+            attributedString.addAttribute(NSAttributedString.Key.foregroundColor, value: #colorLiteral(red: 0.1702004969, green: 0.3387943804, blue: 1, alpha: 1).cgColor, range: range)
+            priceLabel.attributedText = attributedString
+        }else {
+            priceLabel.font = UIFont(name: "GoogleSans-Regular", size: 16)
+            let mainString = String(format: "Prijs\n" + Localize.free())
+            let range = (mainString as NSString).range(of: Localize.free())
+            let attributedString = NSMutableAttributedString(string:mainString)
+            attributedString.addAttribute(NSAttributedString.Key.font, value: UIFont(name: "GoogleSans-Regular", size: 40)! , range: range)
+            attributedString.addAttribute(NSAttributedString.Key.foregroundColor, value: #colorLiteral(red: 0.1702004969, green: 0.3387943804, blue: 1, alpha: 1).cgColor, range: range)
+            priceLabel.attributedText = attributedString
+        }
+        
     }
     
     required init?(coder: NSCoder) {
