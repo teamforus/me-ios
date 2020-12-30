@@ -147,3 +147,9 @@ extension Substring {
     
    
 }
+
+extension StringProtocol {
+    var double: Double? { Double(self) }
+    var float: Float? { Float(self) }
+    var integer: Int? { Int(self) }
+}

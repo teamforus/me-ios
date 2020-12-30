@@ -12,7 +12,7 @@ class SubsidieOverview: UIView {
     
     let transpartentView: UIView = {
         let view = UIView()
-      view.backgroundColor = .black
+        view.backgroundColor = .black
         view.alpha = 0.5
         return view
     }()
@@ -35,7 +35,7 @@ class SubsidieOverview: UIView {
     private let priceLabel: UILabel = {
         let label = UILabel(frame: .zero)
         label.font = R.font.googleSansRegular(size: 30)
-        label.text = "n.v.t"
+        label.text = "€ 0,00"
         label.textColor = #colorLiteral(red: 0.1903552711, green: 0.369412154, blue: 0.9929068685, alpha: 1)
         return label
     }()
@@ -101,7 +101,7 @@ class SubsidieOverview: UIView {
     private let sponsorPrice: UILabel_DarkMode = {
         let label = UILabel_DarkMode(frame: .zero)
         label.font = R.font.googleSansRegular(size: 15)
-        label.text = "n.v.t"
+        label.text = "€ 0,00"
         return label
     }()
     
@@ -116,7 +116,7 @@ class SubsidieOverview: UIView {
     private let finalPrice: UILabel = {
         let label = UILabel(frame: .zero)
         label.font = R.font.googleSansRegular(size: 15)
-        label.text = "n.v.t"
+        label.text = "€ 0,00"
         label.textColor = #colorLiteral(red: 0.1903552711, green: 0.369412154, blue: 0.9929068685, alpha: 1)
         return label
     }()
@@ -142,24 +142,41 @@ class SubsidieOverview: UIView {
     
     func configureSubsidie(subsidie: Subsidie, and fund: Fund?) {
         if !(subsidie.no_price ?? false){
+            let formatter = NumberFormatter()
+            formatter.minimumFractionDigits = 0
+            formatter.maximumFractionDigits = 2
+            formatter.numberStyle = .decimal
+            
+            
             providerName.text = Localize.discout_by(subsidie.organization?.name ?? "")
             sponsorName.text = Localize.subsid_by(fund?.organization?.name ?? "")
             
             if let priceOld = subsidie.price_old {
-                self.totalPrice.text = "€ \(priceOld), -"
                 
-                let providerPrice = Double(priceOld) ?? 0.0 - Double(subsidie.price ?? "0.0")!
-                self.providerPrice.text = "€ \(providerPrice), -"
+                let doublePrice = Double(priceOld)
+                if let priceFormat = formatter.string(from: doublePrice! as NSNumber) {
+                    self.totalPrice.text = String("€ \(priceFormat), -").replacingOccurrences(of: ".", with: ",")
+                }
+                
+                let providerPrice = Double(priceOld)! - Double(subsidie.price ?? "0.0")!
+                if let priceFormat = formatter.string(from: providerPrice as NSNumber) {
+                    self.providerPrice.text = String("€ \(priceFormat), -").replacingOccurrences(of: ".", with: ",")
+                }
             }
             
-            let sponsorPrice = Double(subsidie.price ?? "0.0") ?? 0.0 - Double(subsidie.price_user ?? "0.0")!
+            let sponsorPrice = Double(subsidie.price ?? "0.0")! - Double(subsidie.price_user ?? "0.0")!
             if sponsorPrice != 0.0 {
-                self.sponsorPrice.text = "€ \(sponsorPrice), -"
+                if let priceFormat = formatter.string(from: sponsorPrice as NSNumber) {
+                    self.sponsorPrice.text =  String("€ \(priceFormat), -").replacingOccurrences(of: ".", with: ",")
+                }
             }
             
             if let priceUser = subsidie.price_user {
-                self.priceLabel.text = "€ \(priceUser)"
-                finalPrice.text = "€ \(priceUser)"
+                self.priceLabel.text = String("€ \(priceUser)").replacingOccurrences(of: ".", with: ",")
+                let doublePrice = Double(priceUser)
+                if let priceFormat = formatter.string(from: doublePrice! as NSNumber) {
+                    finalPrice.text = String("€ \(priceFormat), -").replacingOccurrences(of: ".", with: ",")
+                }
             }
         }
     }
@@ -198,7 +215,7 @@ extension SubsidieOverview {
 extension SubsidieOverview {
     // MARK: - Setup Constraints
     private func setupConstraints() {
-
+        
         NSLayoutConstraint.activate([
             bodyView.heightAnchor.constraint(equalToConstant: 423),
             bodyView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 0),

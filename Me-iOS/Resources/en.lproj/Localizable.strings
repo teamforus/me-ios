@@ -178,8 +178,9 @@
 "choose_from_date" = "Choose from date";
 "update_is_available" = "New update is available, update your application!";
 "close" = "Close";
-"price_agreement" = "Pprice agreement";
-"paid_by_customer" = "Paid by customer";
+"price_agreement" = "Price agreement";
+"more_information_price_agreement" = "More information about price agreement";
+"paid_by_customer" = "The customer needs to pay folowing amount";
 "total_price" = "Total price";
 "discout_by" = "Discount by %@";
 "subsid_by" = "Subsidy by %@";

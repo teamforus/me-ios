@@ -87,18 +87,6 @@ class MActionsViewController: UIViewController {
         return label
     }()
     
-    private let infoPayLabel: UILabel_DarkMode = {
-        let label = UILabel_DarkMode(frame: .zero)
-        label.font = UIFont(name: "GoogleSans-Regulard", size: 11)
-        let mainString = String(format: "Let op: de klant moet het bedrag aan de kassa betalen.")
-        let range = (mainString as NSString).range(of: "Let op:")
-        let attributedString = NSMutableAttributedString(string:mainString)
-        attributedString.addAttribute(NSAttributedString.Key.font, value: UIFont(name: "GoogleSans-Bold", size: 16)! , range: range)
-        label.attributedText = attributedString
-        label.numberOfLines = 0
-        return label
-    }()
-    
     private let tableView: UITableView = {
         let tableView = UITableView(frame: .zero)
         tableView.backgroundColor = .clear
@@ -222,7 +210,7 @@ extension MActionsViewController: UITableViewDelegate, UITableViewDataSource {
 extension MActionsViewController {
     // MARK: - Add Subviews
     private func addSubviews() {
-        let views = [bodyView, headerView, chooseActionLabel, infoPayLabel, organizationView, tableView]
+        let views = [bodyView, headerView, chooseActionLabel, organizationView, tableView]
         views.forEach { (view) in
             view.translatesAutoresizingMaskIntoConstraints = false
             self.view.addSubview(view)
@@ -281,13 +269,7 @@ extension MActionsViewController {
         ])
         
         NSLayoutConstraint.activate([
-            infoPayLabel.topAnchor.constraint(equalTo: chooseActionLabel.bottomAnchor, constant: 6),
-            infoPayLabel.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 20),
-            infoPayLabel.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -10)
-        ])
-        
-        NSLayoutConstraint.activate([
-            organizationView.topAnchor.constraint(equalTo: infoPayLabel.bottomAnchor, constant: 6),
+            organizationView.topAnchor.constraint(equalTo: chooseActionLabel.bottomAnchor, constant: 6),
             organizationView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 15),
             organizationView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -15),
             organizationView.heightAnchor.constraint(equalToConstant: 50)
