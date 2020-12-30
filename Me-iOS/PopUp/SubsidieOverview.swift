@@ -73,7 +73,7 @@ class SubsidieOverview: UIView {
     private let totalPrice: UILabel_DarkMode = {
         let label = UILabel_DarkMode(frame: .zero)
         label.font = R.font.googleSansRegular(size: 15)
-        label.text = "n.v.t"
+        label.text = "€ 0,00"
         return label
     }()
     
@@ -87,7 +87,7 @@ class SubsidieOverview: UIView {
     private let providerPrice: UILabel_DarkMode = {
         let label = UILabel_DarkMode(frame: .zero)
         label.font = R.font.googleSansRegular(size: 15)
-        label.text = "n.v.t"
+        label.text = "€ 0,00"
         return label
     }()
     
@@ -153,30 +153,20 @@ class SubsidieOverview: UIView {
             
             if let priceOld = subsidie.price_old {
                 
-                let doublePrice = Double(priceOld)
-                if let priceFormat = formatter.string(from: doublePrice! as NSNumber) {
-                    self.totalPrice.text = String("€ \(priceFormat), -").replacingOccurrences(of: ".", with: ",")
-                }
+                self.totalPrice.text = String("€ \(priceOld.showDeciaml())").replacingOccurrences(of: ".", with: ",")
                 
                 let providerPrice = Double(priceOld)! - Double(subsidie.price ?? "0.0")!
-                if let priceFormat = formatter.string(from: providerPrice as NSNumber) {
-                    self.providerPrice.text = String("€ \(priceFormat), -").replacingOccurrences(of: ".", with: ",")
-                }
+                self.providerPrice.text = String("€ \(String(providerPrice).showDeciaml())").replacingOccurrences(of: ".", with: ",")
             }
             
             let sponsorPrice = Double(subsidie.price ?? "0.0")! - Double(subsidie.price_user ?? "0.0")!
             if sponsorPrice != 0.0 {
-                if let priceFormat = formatter.string(from: sponsorPrice as NSNumber) {
-                    self.sponsorPrice.text =  String("€ \(priceFormat), -").replacingOccurrences(of: ".", with: ",")
-                }
+                self.sponsorPrice.text =  String("€ \(String(sponsorPrice).showDeciaml())").replacingOccurrences(of: ".", with: ",")
             }
             
             if let priceUser = subsidie.price_user {
                 self.priceLabel.text = String("€ \(priceUser)").replacingOccurrences(of: ".", with: ",")
-                let doublePrice = Double(priceUser)
-                if let priceFormat = formatter.string(from: doublePrice! as NSNumber) {
-                    finalPrice.text = String("€ \(priceFormat), -").replacingOccurrences(of: ".", with: ",")
-                }
+                finalPrice.text = String("€ \(priceUser.showDeciaml())").replacingOccurrences(of: ".", with: ",")
             }
         }
     }
