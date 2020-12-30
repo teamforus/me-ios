@@ -12,6 +12,7 @@ class MPaymentActionViewController: UIViewController {
     
     var subsidie: Subsidie?
     var organization: AllowedOrganization?
+    var fund: Fund?
     var address: String!
     
     let bodyView: Background_DarkMode = {
@@ -96,6 +97,19 @@ class MPaymentActionViewController: UIViewController {
         return view
     }()
     
+    private let detailButton: ActionButton = {
+        let button = ActionButton(frame: .zero)
+        button.setTitle(Localize.price_agreement().uppercased(), for: .normal)
+        button.setImage(R.image.euro(), for: .normal)
+        button.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 13)
+        button.titleEdgeInsets = UIEdgeInsets(top: 0, left: 13, bottom: 0, right: 0)
+        button.titleLabel?.font = R.font.googleSansMedium(size: 13)
+        button.backgroundColor = #colorLiteral(red: 0.9174897075, green: 0.9410797954, blue: 1, alpha: 1)
+        button.setTitleColor(#colorLiteral(red: 0.1903552711, green: 0.369412154, blue: 0.9929068685, alpha: 1), for: .normal)
+        button.rounded(cornerRadius: 20)
+        return button
+    }()
+    
     private let noteTextField: TextField = {
         let textField = TextField(frame: .zero)
         textField.font = UIFont(name: "GoogleSans-Regular", size: 15)
@@ -128,6 +142,7 @@ class MPaymentActionViewController: UIViewController {
         addMiddleSubviews()
         setupMiddleConstraints()
         setupView()
+        setupActions()
     }
     
     func setupView() {
@@ -149,7 +164,11 @@ class MPaymentActionViewController: UIViewController {
     
     func setupActions(subsidie: Subsidie) {
         self.subsidieNameLabel.text = subsidie.name ?? ""
-        self.priceLabel.text = subsidie.price_user ?? ""
+        if !(subsidie.no_price ?? false) {
+            self.priceLabel.text = subsidie.price_user ?? ""
+        }else {
+            self.priceLabel.text = Localize.free()
+        }
         self.subsidieImageView.loadImageUsingUrlString(urlString: subsidie.photo?.sizes?.thumbnail ?? "", placeHolder: #imageLiteral(resourceName: "Resting"))
     }
     
@@ -185,7 +204,7 @@ extension MPaymentActionViewController {
     }
     
     func addMiddleSubviews() {
-        let views = [topLineView, organizationImageView, organizationNameLabel, arrowImageView, lineView, noteTextField]
+        let views = [topLineView, organizationImageView, organizationNameLabel, arrowImageView, lineView, detailButton, noteTextField]
         views.forEach { (view) in
             view.translatesAutoresizingMaskIntoConstraints = false
             middleView.addSubview(view)
@@ -296,7 +315,14 @@ extension MPaymentActionViewController {
         ])
         
         NSLayoutConstraint.activate([
-            noteTextField.topAnchor.constraint(equalTo: lineView.bottomAnchor, constant: 10),
+            detailButton.topAnchor.constraint(equalTo: lineView.bottomAnchor, constant: 14),
+            detailButton.leadingAnchor.constraint(equalTo: middleView.leadingAnchor, constant: 10),
+            detailButton.trailingAnchor.constraint(equalTo: middleView.trailingAnchor, constant: -10),
+            detailButton.heightAnchor.constraint(equalToConstant: 44)
+        ])
+        
+        NSLayoutConstraint.activate([
+            noteTextField.topAnchor.constraint(equalTo: detailButton.bottomAnchor, constant: 22),
             noteTextField.leadingAnchor.constraint(equalTo: middleView.leadingAnchor, constant: 10),
             noteTextField.trailingAnchor.constraint(equalTo: middleView.trailingAnchor, constant: -10),
             noteTextField.heightAnchor.constraint(equalToConstant: 200)
@@ -305,6 +331,7 @@ extension MPaymentActionViewController {
 }
 
 extension MPaymentActionViewController {
+    // MARK: - Actions
     @objc func showConfirm() {
         let view = ConfirmPayAction(frame: .zero)
         view.subsidie = subsidie
@@ -324,5 +351,35 @@ extension MPaymentActionViewController {
         view.cancelButton.actionHandleBlock = {(_) in
             view.removeFromSuperview()
         }
+    }
+    
+    private func setupActions() {
+        detailButton.actionHandleBlock = { [weak self] (_) in
+            DispatchQueue.main.async {
+                self?.openDetail()
+            }
+        }
+    }
+    
+    func openDetail() {
+        guard let subsidie = self.subsidie else {
+            return
+        }
+        let subsidieOverview = SubsidieOverview()
+        setupSubsidieOverview(subsidieOverview: subsidieOverview)
+        subsidieOverview.configureSubsidie(subsidie: subsidie, and: fund)
+        subsidieOverview.popIn()
+    }
+    
+    func setupSubsidieOverview(subsidieOverview: SubsidieOverview) {
+        subsidieOverview.translatesAutoresizingMaskIntoConstraints = false
+        subsidieOverview.backgroundColor = .clear
+        self.view.addSubview(subsidieOverview)
+        NSLayoutConstraint.activate([
+            subsidieOverview.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
+            subsidieOverview.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
+            subsidieOverview.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0),
+            subsidieOverview.topAnchor.constraint(equalTo: view.topAnchor, constant: 0)
+        ])
     }
 }

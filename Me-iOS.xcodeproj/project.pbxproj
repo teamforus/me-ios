@@ -202,6 +202,7 @@
 		FF8D90EE251BBCD70035B8D7 /* ToolTipTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8D90ED251BBCD70035B8D7 /* ToolTipTracker.swift */; };
 		FF8D90F3251BBD320035B8D7 /* WeakRef.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8D90F2251BBD320035B8D7 /* WeakRef.swift */; };
 		FF8D90F8251BCCAC0035B8D7 /* Preference.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8D90F7251BCCAC0035B8D7 /* Preference.swift */; };
+		FF915AE5259281ED00F772E4 /* SubsidieOverview.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF915AE4259281ED00F772E4 /* SubsidieOverview.swift */; };
 		FF9B7157248503F100BBCAA3 /* MMainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9B7156248503F100BBCAA3 /* MMainTabBarController.swift */; };
 		FF9B715924851A5900BBCAA3 /* AppVersionUpdateNotifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9B715824851A5900BBCAA3 /* AppVersionUpdateNotifier.swift */; };
 		FF9C60E3253DD4AE006F6979 /* ActionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9C60E0253DD4AE006F6979 /* ActionViewModel.swift */; };
@@ -518,6 +519,7 @@
 		FF8D90ED251BBCD70035B8D7 /* ToolTipTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolTipTracker.swift; sourceTree = "<group>"; };
 		FF8D90F2251BBD320035B8D7 /* WeakRef.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeakRef.swift; sourceTree = "<group>"; };
 		FF8D90F7251BCCAC0035B8D7 /* Preference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preference.swift; sourceTree = "<group>"; };
+		FF915AE4259281ED00F772E4 /* SubsidieOverview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubsidieOverview.swift; sourceTree = "<group>"; };
 		FF9B7156248503F100BBCAA3 /* MMainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMainTabBarController.swift; sourceTree = "<group>"; };
 		FF9B715824851A5900BBCAA3 /* AppVersionUpdateNotifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppVersionUpdateNotifier.swift; sourceTree = "<group>"; };
 		FF9C60E0253DD4AE006F6979 /* ActionViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionViewModel.swift; sourceTree = "<group>"; };
@@ -1424,7 +1426,8 @@
 				656FDDB8235DF04E002422B2 /* OrganizationValidator */,
 				65F9742C236313C20008BDB0 /* BottomQR */,
 				5B10CCAE240D022100199C28 /* BottomQRWithPin */,
-				FFFC169524FCF4C400FD4500 /* TransactionOverview.swift */,
+				FF915AE0259281C900F772E4 /* Transaction */,
+				FF915AE4259281ED00F772E4 /* SubsidieOverview.swift */,
 			);
 			path = PopUp;
 			sourceTree = "<group>";
@@ -1546,6 +1549,14 @@
 				FF8D90ED251BBCD70035B8D7 /* ToolTipTracker.swift */,
 			);
 			path = ToolTip;
+			sourceTree = "<group>";
+		};
+		FF915AE0259281C900F772E4 /* Transaction */ = {
+			isa = PBXGroup;
+			children = (
+				FFFC169524FCF4C400FD4500 /* TransactionOverview.swift */,
+			);
+			path = Transaction;
 			sourceTree = "<group>";
 		};
 		FF9B715B248542DC00BBCAA3 /* Utils */ = {
@@ -2048,6 +2059,7 @@
 				65100B03229D7167007892D1 /* RecordValidatorsViewModel.swift in Sources */,
 				65A8B72E2282EBC000B7DF05 /* RecordsViewModel.swift in Sources */,
 				65462570230E8DE9007B812E /* ProductReservationTableViewCell.swift in Sources */,
+				FF915AE5259281ED00F772E4 /* SubsidieOverview.swift in Sources */,
 				6568461E22944A1800097E83 /* SkeletonView.swift in Sources */,
 				65139C65228029EF003E0CDE /* StatusView.swift in Sources */,
 				65B4DE3E22A15F5C00AFC878 /* SuccessEmailViewModel.swift in Sources */,

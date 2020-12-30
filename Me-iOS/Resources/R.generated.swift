@@ -879,7 +879,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.image` struct is generated, and contains static references to 67 images.
+  /// This `R.image` struct is generated, and contains static references to 68 images.
   struct image {
     /// Image `5XVoucherContainerWElevation`.
     static let xVoucherContainerWElevation = Rswift.ImageResource(bundle: R.hostingBundle, name: "5XVoucherContainerWElevation")
@@ -941,6 +941,8 @@ struct R: Rswift.Validatable {
     static let emailVoucher = Rswift.ImageResource(bundle: R.hostingBundle, name: "emailVoucher")
     /// Image `eth`.
     static let eth = Rswift.ImageResource(bundle: R.hostingBundle, name: "eth")
+    /// Image `euro`.
+    static let euro = Rswift.ImageResource(bundle: R.hostingBundle, name: "euro")
     /// Image `face24Px`.
     static let face24Px = Rswift.ImageResource(bundle: R.hostingBundle, name: "face24Px")
     /// Image `faceId-1`.
@@ -1223,6 +1225,13 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "eth", bundle: ..., traitCollection: ...)`
     static func eth(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.eth, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "euro", bundle: ..., traitCollection: ...)`
+    static func euro(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.euro, compatibleWith: traitCollection)
     }
     #endif
 
@@ -2837,7 +2846,7 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
 
-    /// This `R.string.localizable` struct is generated, and contains static references to 167 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 174 localization keys.
     struct localizable {
       /// en translation: %@ Don't Available
       ///
@@ -3003,6 +3012,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en, nl
       static let birth_date = Rswift.StringResource(key: "birth_date", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
+      /// en translation: Discount by %@
+      ///
+      /// Locales: en, nl
+      static let discout_by = Rswift.StringResource(key: "discout_by", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
       /// en translation: Do you want to login instead?
       ///
       /// Locales: en, nl
@@ -3079,6 +3092,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en, nl
       static let field_is_requierd = Rswift.StringResource(key: "field_is_requierd", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
+      /// en translation: Free
+      ///
+      /// Locales: en, nl
+      static let free = Rswift.StringResource(key: "free", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
       /// en translation: Fund
       ///
       /// Locales: en, nl
@@ -3203,6 +3220,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en, nl
       static let paid = Rswift.StringResource(key: "paid", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
+      /// en translation: Paid by customer
+      ///
+      /// Locales: en, nl
+      static let paid_by_customer = Rswift.StringResource(key: "paid_by_customer", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
       /// en translation: Parent
       ///
       /// Locales: en, nl
@@ -3235,6 +3256,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en, nl
       static let please_try_to_send_email_again = Rswift.StringResource(key: "please_try_to_send_email_again", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
+      /// en translation: Pprice agreement
+      ///
+      /// Locales: en, nl
+      static let price_agreement = Rswift.StringResource(key: "price_agreement", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
       /// en translation: Press settings to give an access or cancel to close this window.
       ///
       /// Locales: en
@@ -3327,6 +3352,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en, nl
       static let spouse = Rswift.StringResource(key: "spouse", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
+      /// en translation: Subsidy by %@
+      ///
+      /// Locales: en, nl
+      static let subsid_by = Rswift.StringResource(key: "subsid_by", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
       /// en translation: Success
       ///
       /// Locales: en, nl
@@ -3403,6 +3432,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en, nl
       static let this_voucher_is_expired_on = Rswift.StringResource(key: "this_voucher_is_expired_on", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
+      /// en translation: Total price
+      ///
+      /// Locales: en, nl
+      static let total_price = Rswift.StringResource(key: "total_price", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
       /// en translation: Transaction
       ///
       /// Locales: en, nl
@@ -3475,6 +3508,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en, nl
       static let welcome_to_me = Rswift.StringResource(key: "welcome_to_me", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
+      /// en translation: What customer pays
+      ///
+      /// Locales: en, nl
+      static let what_customer_pays = Rswift.StringResource(key: "what_customer_pays", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
       /// en translation: With the Me you can create an identity, receive and use your vouchers.
       ///
       /// Locales: en
@@ -4131,6 +4168,23 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("birth_date", bundle: bundle, comment: "")
       }
 
+      /// en translation: Discount by %@
+      ///
+      /// Locales: en, nl
+      static func discout_by(_ value1: String, preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          let format = NSLocalizedString("discout_by", bundle: hostingBundle, comment: "")
+          return String(format: format, locale: applicationLocale, value1)
+        }
+
+        guard let (locale, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "discout_by"
+        }
+
+        let format = NSLocalizedString("discout_by", bundle: bundle, comment: "")
+        return String(format: format, locale: locale, value1)
+      }
+
       /// en translation: Do you want to login instead?
       ///
       /// Locales: en, nl
@@ -4414,6 +4468,21 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("field_is_requierd", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Free
+      ///
+      /// Locales: en, nl
+      static func free(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("free", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "free"
+        }
+
+        return NSLocalizedString("free", bundle: bundle, comment: "")
       }
 
       /// en translation: Fund
@@ -4885,6 +4954,21 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("paid", bundle: bundle, comment: "")
       }
 
+      /// en translation: Paid by customer
+      ///
+      /// Locales: en, nl
+      static func paid_by_customer(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("paid_by_customer", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "paid_by_customer"
+        }
+
+        return NSLocalizedString("paid_by_customer", bundle: bundle, comment: "")
+      }
+
       /// en translation: Parent
       ///
       /// Locales: en, nl
@@ -5005,6 +5089,21 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("please_try_to_send_email_again", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Pprice agreement
+      ///
+      /// Locales: en, nl
+      static func price_agreement(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("price_agreement", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "price_agreement"
+        }
+
+        return NSLocalizedString("price_agreement", bundle: bundle, comment: "")
       }
 
       /// en translation: Press settings to give an access or cancel to close this window.
@@ -5352,6 +5451,23 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("spouse", bundle: bundle, comment: "")
       }
 
+      /// en translation: Subsidy by %@
+      ///
+      /// Locales: en, nl
+      static func subsid_by(_ value1: String, preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          let format = NSLocalizedString("subsid_by", bundle: hostingBundle, comment: "")
+          return String(format: format, locale: applicationLocale, value1)
+        }
+
+        guard let (locale, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "subsid_by"
+        }
+
+        let format = NSLocalizedString("subsid_by", bundle: bundle, comment: "")
+        return String(format: format, locale: locale, value1)
+      }
+
       /// en translation: Success
       ///
       /// Locales: en, nl
@@ -5639,6 +5755,21 @@ struct R: Rswift.Validatable {
         return String(format: format, locale: locale, value1)
       }
 
+      /// en translation: Total price
+      ///
+      /// Locales: en, nl
+      static func total_price(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("total_price", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "total_price"
+        }
+
+        return NSLocalizedString("total_price", bundle: bundle, comment: "")
+      }
+
       /// en translation: Transaction
       ///
       /// Locales: en, nl
@@ -5909,6 +6040,21 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("welcome_to_me", bundle: bundle, comment: "")
+      }
+
+      /// en translation: What customer pays
+      ///
+      /// Locales: en, nl
+      static func what_customer_pays(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("what_customer_pays", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "what_customer_pays"
+        }
+
+        return NSLocalizedString("what_customer_pays", bundle: bundle, comment: "")
       }
 
       /// en translation: With the Me you can create an identity, receive and use your vouchers.
