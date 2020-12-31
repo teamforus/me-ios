@@ -165,7 +165,7 @@ class MPaymentActionViewController: UIViewController {
     func setupActions(subsidie: Subsidie) {
         self.subsidieNameLabel.text = subsidie.name ?? ""
         if !(subsidie.no_price ?? false) {
-            self.priceLabel.text = subsidie.price_user ?? ""
+            self.priceLabel.text = "€ \(subsidie.price_user ?? "")"
         }else {
             self.priceLabel.text = Localize.free()
         }
