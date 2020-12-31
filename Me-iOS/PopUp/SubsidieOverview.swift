@@ -186,7 +186,7 @@ extension SubsidieOverview {
     }
     
     private func addSubviewsBodyView() {
-        let views = [closeButton, priceLabel, infoLabel, detailView]
+        let views = [closeButton, infoLabel, priceLabel, detailView]
         views.forEach { (view) in
             view.translatesAutoresizingMaskIntoConstraints = false
             self.bodyView.addSubview(view)
@@ -221,8 +221,8 @@ extension SubsidieOverview {
         ])
         
         NSLayoutConstraint.activate([
-            priceLabel.topAnchor.constraint(equalTo: bodyView.topAnchor, constant: 30),
-            priceLabel.centerXAnchor.constraint(equalTo: bodyView.centerXAnchor)
+            infoLabel.topAnchor.constraint(equalTo: bodyView.topAnchor, constant: 30),
+            infoLabel.centerXAnchor.constraint(equalTo: bodyView.centerXAnchor)
         ])
         
         NSLayoutConstraint.activate([
@@ -233,12 +233,12 @@ extension SubsidieOverview {
         ])
         
         NSLayoutConstraint.activate([
-            infoLabel.topAnchor.constraint(equalTo: priceLabel.bottomAnchor, constant: 10),
-            infoLabel.centerXAnchor.constraint(equalTo: bodyView.centerXAnchor)
+            priceLabel.topAnchor.constraint(equalTo: infoLabel.bottomAnchor, constant: 10),
+            priceLabel.centerXAnchor.constraint(equalTo: bodyView.centerXAnchor)
         ])
         
         NSLayoutConstraint.activate([
-            detailView.topAnchor.constraint(equalTo: infoLabel.bottomAnchor, constant: 14),
+            detailView.topAnchor.constraint(equalTo: priceLabel.bottomAnchor, constant: 14),
             detailView.leadingAnchor.constraint(equalTo: bodyView.leadingAnchor, constant: 10),
             detailView.trailingAnchor.constraint(equalTo: bodyView.trailingAnchor, constant: -10),
             detailView.bottomAnchor.constraint(equalTo: bodyView.bottomAnchor, constant: -16)
