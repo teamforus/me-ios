@@ -99,7 +99,7 @@ class MPaymentActionViewController: UIViewController {
     
     private let detailButton: ActionButton = {
         let button = ActionButton(frame: .zero)
-        button.setTitle(Localize.price_agreement().uppercased(), for: .normal)
+        button.setTitle(Localize.more_information_price_agreement().uppercased(), for: .normal)
         button.setImage(R.image.euro(), for: .normal)
         button.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 13)
         button.titleEdgeInsets = UIEdgeInsets(top: 0, left: 13, bottom: 0, right: 0)

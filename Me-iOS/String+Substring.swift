@@ -28,7 +28,7 @@ extension String {
         let rightPart = parts[1]
         return rightPart
     }
-  
+    
     
     func localized(bundle: Bundle = .main, tableName: String = "Localizable") -> String {
         return NSLocalizedString(self, tableName: tableName, value: "**\(self)**", comment: "")
@@ -78,12 +78,12 @@ extension String {
             let index = self.index(self.startIndex, offsetBy: a)
             if self[index] == "{"{
                 indexA[x] = a
-//                debugPrint(indexA[x])
+                //                debugPrint(indexA[x])
                 x+=1
             }
             if self[index] == "}"{
                 indexB[z] = a
-//                debugPrint(indexB[z])
+                //                debugPrint(indexB[z])
                 z+=1
             }
             if self[index] == "£"{
@@ -145,5 +145,22 @@ extension Substring {
         return self[startIndex ..< end]
     }
     
-   
+    
+}
+
+extension StringProtocol {
+    var double: Double? { Double(self) }
+    var float: Float? { Float(self) }
+    var integer: Int? { Int(self) }
+}
+
+extension String {
+    
+    func showDeciaml() -> String {
+        if self.double?.truncatingRemainder(dividingBy: 1) == 0.0 {
+            return String(format: "%.0f,-", self.double!)
+        }else  {
+            return String(format: "%.2f", self.double!)
+        }
+    }
 }
