@@ -163,7 +163,7 @@ class MPaymentActionViewController: UIViewController {
   
   func setupActions(subsidie: Subsidie) {
     self.subsidieNameLabel.text = subsidie.name ?? ""
-    if !(subsidie.no_price ?? false) {
+    if subsidie.no_price_type == SubsidieType.regular.rawValue {
       self.priceLabel.text = "€ \(subsidie.price_user ?? "")"
     }else {
       self.priceLabel.text = Localize.free()
@@ -330,7 +330,7 @@ extension MPaymentActionViewController {
       subsidieOverview.topAnchor.constraint(equalTo: lineView.bottomAnchor, constant: 22),
       subsidieOverview.leadingAnchor.constraint(equalTo: middleView.leadingAnchor, constant: 10),
       subsidieOverview.trailingAnchor.constraint(equalTo: middleView.trailingAnchor, constant: -10),
-      subsidieOverview.heightAnchor.constraint(equalToConstant: 423)
+      subsidieOverview.heightAnchor.constraint(equalToConstant: 300)
     ])
     
     NSLayoutConstraint.activate([

@@ -70,7 +70,7 @@ class ConfirmPayAction: UIView {
     }
     
     func setupView() {
-        if !(subsidie?.no_price ?? false) {
+      if subsidie?.no_price_type == SubsidieType.regular.rawValue{
             priceLabel.font = UIFont(name: "GoogleSans-Regular", size: 16)
             let mainString = String(format: "Heeft de klant\n" + "€ " + subsidie!.price_user! + "\nbetaald aan de kassa?")
             let range = (mainString as NSString).range(of: "€ " + subsidie!.price_user!)

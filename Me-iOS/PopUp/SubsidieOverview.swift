@@ -119,12 +119,9 @@ class SubsidieOverview: UIView {
             
       switch subsidie.no_price_type {
       case SubsidieType.regular.rawValue:
-        sponsorName.text = Localize.subsid_by(fund?.organization?.name ?? "")
+        sponsorName.text = Localize.subsid_by(subsidie.sponsor?.name ?? "")
         
-        let sponsorPrice = Double(subsidie.price ?? "0.0")! - Double(subsidie.price_user ?? "0.0")!
-        if sponsorPrice != 0.0 {
-            self.sponsorPrice.text =  String("€ \(String(sponsorPrice).showDeciaml())").replacingOccurrences(of: ".", with: ",")
-        }
+        self.sponsorPrice.text = "€ \(subsidie.sponsor?.sponsor_subsidy?.showDeciaml() ?? "")"
         
         if let priceUser = subsidie.price_user {
             self.priceLabel.text = String("€ \(priceUser)").replacingOccurrences(of: ".", with: ",")

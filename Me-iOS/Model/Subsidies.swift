@@ -19,6 +19,8 @@ struct Subsidie: Decodable {
   var unlimited_stock: Bool?
   var organization: Organization?
   var product_category: ProductCategory?
+  var sponsor: Sponsor?
   var no_price_type: String?
   var no_price_discount: String?
 }
+
