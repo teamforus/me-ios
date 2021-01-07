@@ -8,29 +8,24 @@
 
 import UIKit
 
+enum SubsidieType: String, CaseIterable {
+  case free = "free"
+  case regular = "regular"
+  case discountPercentage = "discount_percentage"
+  case discountFixed = "discount_fixed"
+}
+
 class SubsidieOverview: UIView {
-    
-    let transpartentView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .black
-        view.alpha = 0.5
-        return view
-    }()
     
     let bodyView: Background_DarkMode = {
         let view = Background_DarkMode()
-        view.colorName = "Background_Voucher_DarkTheme"
+        view.colorName = "Gray_Dark_DarkTheme"
         view.roundCorners(corners: [.layerMinXMinYCorner, .layerMaxXMinYCorner], radius: 16)
         return view
     }()
     
     
     // MARK: - Properties
-    private let closeButton: ActionButton = {
-        let button = ActionButton(frame: .zero)
-        button.setImage(R.image.closeIcon(), for: .normal)
-        return button
-    }()
     
     private let priceLabel: UILabel = {
         let label = UILabel(frame: .zero)
@@ -50,7 +45,7 @@ class SubsidieOverview: UIView {
     
     private let detailView: Background_DarkMode = {
         let view = Background_DarkMode()
-        view.colorName = "Gray_Dark_DarkTheme"
+        view.colorName = "LighGray_DarkTheme"
         view.corner = 16
         return view
     }()
@@ -58,7 +53,7 @@ class SubsidieOverview: UIView {
     private let priceAgreementLabel: UILabel_DarkMode = {
         let label = UILabel_DarkMode(frame: .zero)
         label.font = R.font.googleSansBold(size: 18)
-        label.text = Localize.price_agreement()
+        label.text = Localize.transaction_details()
         return label
     }()
     
@@ -128,12 +123,6 @@ class SubsidieOverview: UIView {
         super.init(frame: .zero)
         addSubviews()
         setupConstraints()
-        
-        closeButton.actionHandleBlock = { [weak self] (_) in
-            DispatchQueue.main.async {
-                self?.popOut()
-            }
-        }
     }
     
     required init?(coder: NSCoder) {
@@ -141,34 +130,30 @@ class SubsidieOverview: UIView {
     }
     
     func configureSubsidie(subsidie: Subsidie, and fund: Fund?) {
-        if !(subsidie.no_price ?? false){
-            let formatter = NumberFormatter()
-            formatter.minimumFractionDigits = 0
-            formatter.maximumFractionDigits = 2
-            formatter.numberStyle = .decimal
             
-            
-            providerName.text = Localize.discout_by(subsidie.organization?.name ?? "")
-            sponsorName.text = Localize.subsid_by(fund?.organization?.name ?? "")
-            
-            if let priceOld = subsidie.price_old {
-                
-                self.totalPrice.text = String("€ \(priceOld.showDeciaml())").replacingOccurrences(of: ".", with: ",")
-                
-                let providerPrice = Double(priceOld)! - Double(subsidie.price ?? "0.0")!
-                self.providerPrice.text = String("€ \(String(providerPrice).showDeciaml())").replacingOccurrences(of: ".", with: ",")
-            }
-            
-            let sponsorPrice = Double(subsidie.price ?? "0.0")! - Double(subsidie.price_user ?? "0.0")!
-            if sponsorPrice != 0.0 {
-                self.sponsorPrice.text =  String("€ \(String(sponsorPrice).showDeciaml())").replacingOccurrences(of: ".", with: ",")
-            }
-            
-            if let priceUser = subsidie.price_user {
-                self.priceLabel.text = String("€ \(priceUser)").replacingOccurrences(of: ".", with: ",")
-                finalPrice.text = String("€ \(priceUser.showDeciaml())").replacingOccurrences(of: ".", with: ",")
-            }
+      switch subsidie.no_price_type {
+      case SubsidieType.regular.rawValue:
+        providerName.text = Localize.discout_by(subsidie.organization?.name ?? "")
+        sponsorName.text = Localize.subsid_by(fund?.organization?.name ?? "")
+        
+        
+        let sponsorPrice = Double(subsidie.price ?? "0.0")! - Double(subsidie.price_user ?? "0.0")!
+        if sponsorPrice != 0.0 {
+            self.sponsorPrice.text =  String("€ \(String(sponsorPrice).showDeciaml())").replacingOccurrences(of: ".", with: ",")
         }
+        
+        if let priceUser = subsidie.price_user {
+            self.priceLabel.text = String("€ \(priceUser)").replacingOccurrences(of: ".", with: ",")
+            finalPrice.text = String("€ \(priceUser.showDeciaml())").replacingOccurrences(of: ".", with: ",")
+        }
+        break
+      case SubsidieType.free.rawValue:
+        detailView.isHidden = true
+      case SubsidieType.discountFixed.rawValue:
+        self.totalPrice.text = String("€ \(subsidie.no_price_discount?.showDeciaml())").replacingOccurrences(of: ".", with: ",")
+      default:
+        break
+      }
     }
 }
 
@@ -176,7 +161,7 @@ extension SubsidieOverview {
     // MARK: - Add Subviews
     
     private func addSubviews() {
-        let views = [transpartentView, bodyView]
+        let views = [bodyView]
         views.forEach { (view) in
             view.translatesAutoresizingMaskIntoConstraints = false
             addSubview(view)
@@ -186,7 +171,7 @@ extension SubsidieOverview {
     }
     
     private func addSubviewsBodyView() {
-        let views = [closeButton, infoLabel, priceLabel, detailView]
+        let views = [infoLabel, priceLabel, detailView]
         views.forEach { (view) in
             view.translatesAutoresizingMaskIntoConstraints = false
             self.bodyView.addSubview(view)
@@ -207,29 +192,15 @@ extension SubsidieOverview {
     private func setupConstraints() {
         
         NSLayoutConstraint.activate([
-            bodyView.heightAnchor.constraint(equalToConstant: 423),
+          bodyView.topAnchor.constraint(equalTo: self.topAnchor, constant: 0),
             bodyView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 0),
             bodyView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 0),
             bodyView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 0)
         ])
         
         NSLayoutConstraint.activate([
-            transpartentView.topAnchor.constraint(equalTo: self.topAnchor, constant: 0),
-            transpartentView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 0),
-            transpartentView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 0),
-            transpartentView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 0)
-        ])
-        
-        NSLayoutConstraint.activate([
             infoLabel.topAnchor.constraint(equalTo: bodyView.topAnchor, constant: 30),
             infoLabel.centerXAnchor.constraint(equalTo: bodyView.centerXAnchor)
-        ])
-        
-        NSLayoutConstraint.activate([
-            closeButton.topAnchor.constraint(equalTo: bodyView.topAnchor, constant: 20),
-            closeButton.trailingAnchor.constraint(equalTo: bodyView.trailingAnchor, constant: -20),
-            closeButton.heightAnchor.constraint(equalToConstant: 24),
-            closeButton.widthAnchor.constraint(equalToConstant: 24)
         ])
         
         NSLayoutConstraint.activate([
@@ -239,8 +210,8 @@ extension SubsidieOverview {
         
         NSLayoutConstraint.activate([
             detailView.topAnchor.constraint(equalTo: priceLabel.bottomAnchor, constant: 14),
-            detailView.leadingAnchor.constraint(equalTo: bodyView.leadingAnchor, constant: 10),
-            detailView.trailingAnchor.constraint(equalTo: bodyView.trailingAnchor, constant: -10),
+            detailView.leadingAnchor.constraint(equalTo: bodyView.leadingAnchor, constant: 0),
+            detailView.trailingAnchor.constraint(equalTo: bodyView.trailingAnchor, constant: 0),
             detailView.bottomAnchor.constraint(equalTo: bodyView.bottomAnchor, constant: -16)
         ])
         
