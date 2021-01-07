@@ -72,20 +72,6 @@ class SubsidieOverview: UIView {
         return label
     }()
     
-    private let providerName: UILabel = {
-        let label = UILabel(frame: .zero)
-        label.font = R.font.googleSansRegular(size: 13)
-        label.textColor = #colorLiteral(red: 0.5569542646, green: 0.5565612912, blue: 0.5783070922, alpha: 1)
-        return label
-    }()
-    
-    private let providerPrice: UILabel_DarkMode = {
-        let label = UILabel_DarkMode(frame: .zero)
-        label.font = R.font.googleSansRegular(size: 15)
-        label.text = "€ 0,00"
-        return label
-    }()
-    
     private let sponsorName: UILabel = {
         let label = UILabel(frame: .zero)
         label.font = R.font.googleSansRegular(size: 13)
@@ -133,9 +119,7 @@ class SubsidieOverview: UIView {
             
       switch subsidie.no_price_type {
       case SubsidieType.regular.rawValue:
-        providerName.text = Localize.discout_by(subsidie.organization?.name ?? "")
         sponsorName.text = Localize.subsid_by(fund?.organization?.name ?? "")
-        
         
         let sponsorPrice = Double(subsidie.price ?? "0.0")! - Double(subsidie.price_user ?? "0.0")!
         if sponsorPrice != 0.0 {
@@ -146,11 +130,12 @@ class SubsidieOverview: UIView {
             self.priceLabel.text = String("€ \(priceUser)").replacingOccurrences(of: ".", with: ",")
             finalPrice.text = String("€ \(priceUser.showDeciaml())").replacingOccurrences(of: ".", with: ",")
         }
-        break
       case SubsidieType.free.rawValue:
         detailView.isHidden = true
       case SubsidieType.discountFixed.rawValue:
         self.totalPrice.text = String("€ \(subsidie.no_price_discount?.showDeciaml())").replacingOccurrences(of: ".", with: ",")
+      case SubsidieType.discountPercentage.rawValue:
+        break
       default:
         break
       }
@@ -179,7 +164,7 @@ extension SubsidieOverview {
     }
     
     private func addDetailViewSubviews() {
-        let views = [priceAgreementLabel, totalPriceTitle, totalPrice, providerName, providerPrice, sponsorName, sponsorPrice, finalPriceTitle, finalPrice]
+        let views = [priceAgreementLabel, totalPriceTitle, totalPrice, sponsorName, sponsorPrice, finalPriceTitle, finalPrice]
         views.forEach { (view) in
             view.translatesAutoresizingMaskIntoConstraints = false
             self.detailView.addSubview(view)
@@ -231,17 +216,7 @@ extension SubsidieOverview {
         ])
         
         NSLayoutConstraint.activate([
-            providerName.topAnchor.constraint(equalTo: totalPrice.bottomAnchor, constant: 11),
-            providerName.leadingAnchor.constraint(equalTo: detailView.leadingAnchor, constant: 25)
-        ])
-        
-        NSLayoutConstraint.activate([
-            providerPrice.topAnchor.constraint(equalTo: providerName.bottomAnchor, constant: 2),
-            providerPrice.leadingAnchor.constraint(equalTo: detailView.leadingAnchor, constant: 25)
-        ])
-        
-        NSLayoutConstraint.activate([
-            sponsorName.topAnchor.constraint(equalTo: providerPrice.bottomAnchor, constant: 11),
+            sponsorName.topAnchor.constraint(equalTo: totalPrice.bottomAnchor, constant: 11),
             sponsorName.leadingAnchor.constraint(equalTo: detailView.leadingAnchor, constant: 25)
         ])
         
