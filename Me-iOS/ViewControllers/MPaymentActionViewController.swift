@@ -14,6 +14,7 @@ class MPaymentActionViewController: UIViewController {
   var organization: AllowedOrganization?
   var fund: Fund?
   var address: String!
+  var subsidieOverviewHeightConstraints: NSLayoutConstraint!
   
   // MARK: - Properties
   let scrollView: BackgroundScrollView_DarkMode = {
@@ -59,13 +60,6 @@ class MPaymentActionViewController: UIViewController {
   private let subsidieNameLabel: UILabel_DarkMode = {
     let label = UILabel_DarkMode(frame: .zero)
     label.font = UIFont(name: "GoogleSans-Medium", size: 20)
-    return label
-  }()
-  
-  private let priceLabel: UILabel = {
-    let label = UILabel(frame: .zero)
-    label.font = UIFont(name: "GoogleSans-Regular", size: 20)
-    label.textColor = #colorLiteral(red: 0.1702004969, green: 0.3387943804, blue: 1, alpha: 1)
     return label
   }()
   
@@ -149,7 +143,7 @@ class MPaymentActionViewController: UIViewController {
       // Fallback on earlier versions
     }
     if let subsidie = subsidie {
-      subsidieOverview.configureSubsidie(subsidie: subsidie, and: fund)
+      subsidieOverview.configureSubsidie(subsidie: subsidie, and: self)
     }
     addObservers()
   }
@@ -163,11 +157,6 @@ class MPaymentActionViewController: UIViewController {
   
   func setupActions(subsidie: Subsidie) {
     self.subsidieNameLabel.text = subsidie.name ?? ""
-    if subsidie.no_price_type == SubsidieType.regular.rawValue {
-      self.priceLabel.text = "€ \(subsidie.price_user ?? "")"
-    }else {
-      self.priceLabel.text = Localize.free()
-    }
     self.subsidieImageView.loadImageUsingUrlString(urlString: subsidie.photo?.sizes?.thumbnail ?? "", placeHolder: #imageLiteral(resourceName: "Resting"))
   }
   
@@ -209,7 +198,7 @@ extension MPaymentActionViewController {
   }
   
   func addSubsidieSubviews() {
-    let views = [subsidieNameLabel, priceLabel, subsidieImageView]
+    let views = [subsidieNameLabel, subsidieImageView]
     views.forEach { (view) in
       view.translatesAutoresizingMaskIntoConstraints = false
       subsidieView.addSubview(view)
@@ -285,14 +274,10 @@ extension MPaymentActionViewController {
   
   func setupSubsidieConstraints() {
     NSLayoutConstraint.activate([
-      subsidieNameLabel.topAnchor.constraint(equalTo: subsidieView.topAnchor, constant: 20),
+      subsidieNameLabel.centerYAnchor.constraint(equalTo: subsidieView.centerYAnchor),
       subsidieNameLabel.leadingAnchor.constraint(equalTo: subsidieView.leadingAnchor, constant: 20)
     ])
     
-    NSLayoutConstraint.activate([
-      priceLabel.topAnchor.constraint(equalTo: subsidieNameLabel.bottomAnchor, constant: 6),
-      priceLabel.leadingAnchor.constraint(equalTo: subsidieView.leadingAnchor, constant: 20)
-    ])
     
     NSLayoutConstraint.activate([
       subsidieImageView.centerYAnchor.constraint(equalTo: subsidieView.centerYAnchor),
@@ -326,11 +311,12 @@ extension MPaymentActionViewController {
       lineView.heightAnchor.constraint(equalToConstant: 1)
     ])
     
+    subsidieOverviewHeightConstraints = subsidieOverview.heightAnchor.constraint(equalToConstant: 320)
     NSLayoutConstraint.activate([
       subsidieOverview.topAnchor.constraint(equalTo: lineView.bottomAnchor, constant: 22),
       subsidieOverview.leadingAnchor.constraint(equalTo: middleView.leadingAnchor, constant: 10),
       subsidieOverview.trailingAnchor.constraint(equalTo: middleView.trailingAnchor, constant: -10),
-      subsidieOverview.heightAnchor.constraint(equalToConstant: 300)
+      subsidieOverviewHeightConstraints
     ])
     
     NSLayoutConstraint.activate([

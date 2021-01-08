@@ -70,7 +70,7 @@ class ConfirmPayAction: UIView {
     }
     
     func setupView() {
-      if subsidie?.no_price_type == SubsidieType.regular.rawValue{
+      if subsidie?.price_type == SubsidieType.regular.rawValue{
             priceLabel.font = UIFont(name: "GoogleSans-Regular", size: 16)
             let mainString = String(format: "Heeft de klant\n" + "€ " + subsidie!.price_user! + "\nbetaald aan de kassa?")
             let range = (mainString as NSString).range(of: "€ " + subsidie!.price_user!)
@@ -78,7 +78,7 @@ class ConfirmPayAction: UIView {
             attributedString.addAttribute(NSAttributedString.Key.font, value: UIFont(name: "GoogleSans-Regular", size: 40)! , range: range)
             attributedString.addAttribute(NSAttributedString.Key.foregroundColor, value: #colorLiteral(red: 0.1702004969, green: 0.3387943804, blue: 1, alpha: 1).cgColor, range: range)
             priceLabel.attributedText = attributedString
-        }else {
+        }else if subsidie?.price_type == SubsidieType.free.rawValue {
             priceLabel.font = UIFont(name: "GoogleSans-Regular", size: 16)
             let mainString = String(format: "Prijs\n" + Localize.free())
             let range = (mainString as NSString).range(of: Localize.free())
@@ -86,6 +86,23 @@ class ConfirmPayAction: UIView {
             attributedString.addAttribute(NSAttributedString.Key.font, value: UIFont(name: "GoogleSans-Regular", size: 40)! , range: range)
             attributedString.addAttribute(NSAttributedString.Key.foregroundColor, value: #colorLiteral(red: 0.1702004969, green: 0.3387943804, blue: 1, alpha: 1).cgColor, range: range)
             priceLabel.attributedText = attributedString
+        }else if subsidie?.price_type == SubsidieType.discountFixed.rawValue {
+          priceLabel.font = UIFont(name: "GoogleSans-Regular", size: 16)
+          let mainString = String(format: "Korting\n" + "€ " + (subsidie!.price_discount)!)
+          let range = (mainString as NSString).range(of: "€ " + (subsidie!.price_discount)!)
+          let attributedString = NSMutableAttributedString(string:mainString)
+          attributedString.addAttribute(NSAttributedString.Key.font, value: UIFont(name: "GoogleSans-Regular", size: 40)! , range: range)
+          attributedString.addAttribute(NSAttributedString.Key.foregroundColor, value: #colorLiteral(red: 0.1702004969, green: 0.3387943804, blue: 1, alpha: 1).cgColor, range: range)
+          priceLabel.attributedText = attributedString
+        }else if subsidie?.price_type == SubsidieType.discountPercentage.rawValue {
+          priceLabel.font = UIFont(name: "GoogleSans-Regular", size: 16)
+          let priceDiscount = Int(subsidie?.price_discount?.double ?? 0.0)
+          let mainString = String(format: "Korting\n \(priceDiscount)﹪")
+          let range = (mainString as NSString).range(of: "\(priceDiscount)﹪")
+          let attributedString = NSMutableAttributedString(string:mainString)
+          attributedString.addAttribute(NSAttributedString.Key.font, value: UIFont(name: "GoogleSans-Regular", size: 40)! , range: range)
+          attributedString.addAttribute(NSAttributedString.Key.foregroundColor, value: #colorLiteral(red: 0.1702004969, green: 0.3387943804, blue: 1, alpha: 1).cgColor, range: range)
+          priceLabel.attributedText = attributedString
         }
         
     }

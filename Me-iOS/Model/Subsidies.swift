@@ -20,7 +20,8 @@ struct Subsidie: Decodable {
   var organization: Organization?
   var product_category: ProductCategory?
   var sponsor: Sponsor?
-  var no_price_type: String?
-  var no_price_discount: String?
+  var price_type: String?
+  var price_discount: String?
+  var sponsor_subsidy: String?
 }
 
