@@ -332,7 +332,7 @@ extension MActionsViewController {
         
         NSLayoutConstraint.activate([
             organizationVoucherLabel.topAnchor.constraint(equalTo: fundNameLabel.bottomAnchor, constant: 4),
-            organizationVoucherLabel.leadingAnchor.constraint(equalTo: bodyvoucherView.leadingAnchor, constant: 64),
+            organizationVoucherLabel.leadingAnchor.constraint(equalTo: bodyvoucherView.leadingAnchor, constant: 32),
             organizationVoucherLabel.trailingAnchor.constraint(equalTo: imageViewVoucher.leadingAnchor, constant: -10)
         ])
         
