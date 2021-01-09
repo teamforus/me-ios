@@ -56,18 +56,7 @@ class ActionTableViewCell: UITableViewCell {
   
   func setupActions(subsidie: Subsidie) {
     self.subsidieNameLabel.text = subsidie.name ?? ""
-    switch subsidie.price_type {
-    case SubsidieType.regular.rawValue:
-      self.priceLabel.text = "Prijs: €\(subsidie.price_user?.showDeciaml() ?? "")"
-    case SubsidieType.free.rawValue:
-      self.priceLabel.text = Localize.free()
-    case SubsidieType.discountPercentage.rawValue:
-      self.priceLabel.text = "Korting: \(subsidie.price_discount ?? "")%"
-    case SubsidieType.discountFixed.rawValue:
-      self.priceLabel.text = "Korting: €\(subsidie.price_discount?.showDeciaml() ?? "")"
-    default:
-      break
-    }
+    self.priceLabel.text = subsidie.price_user_locale ?? ""
     self.subsidieImageView.loadImageUsingUrlString(urlString:subsidie.photo?.sizes?.thumbnail ?? "", placeHolder: #imageLiteral(resourceName: "Resting"))
   }
 }
