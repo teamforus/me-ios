@@ -171,6 +171,7 @@ class SubsidieOverview: UIView {
     }
     
     func showDiscontFixedState(subsidie: Subsidie, vc: MPaymentActionViewController) {
+        self.totalPriceTitle.text = Localize.discount()
         self.totalPrice.text = String("€ \(subsidie.price_discount!.showDeciaml())").replacingOccurrences(of: ".", with: ",")
         if (subsidie.sponsor_subsidy?.double)! > 0.00 {
             self.sponsorName.text = Localize.subsid_by(subsidie.sponsor?.name ?? "")

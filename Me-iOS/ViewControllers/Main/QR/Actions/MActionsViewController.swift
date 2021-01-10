@@ -200,6 +200,11 @@ extension MActionsViewController: UITableViewDelegate, UITableViewDataSource {
         let subsidie = viewModel.getCellViewModel(at: indexPath)
         cell.setupActions(subsidie: subsidie)
         
+        if viewModel.numberOfCells - 1 == indexPath.row {
+            if viewModel.lastPage != viewModel.currentPage {
+                self.fetchActions()
+            }
+        }
         return cell
     }
     

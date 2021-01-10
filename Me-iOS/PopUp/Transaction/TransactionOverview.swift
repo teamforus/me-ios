@@ -133,7 +133,11 @@ class TransactionOverview: UIView {
     func configure(transaction: Transaction) {
         
         if let amount = transaction.amount {
-            priceLabel.text = amount + " €"
+            if amount.double == 0.0 {
+                self.priceLabel.text = Localize.free()
+            }else {
+                self.priceLabel.text = "+ € \(amount)"
+            }
         }
         transactionStatusLabel.text = transaction.state
         transactionDateLabel.text = transaction.created_at?.dateFormaterNormalDate()

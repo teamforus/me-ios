@@ -79,8 +79,8 @@ class ConfirmPayAction: UIView {
                 mainString = String(format: "Prijs\n" + Localize.free())
                 range = (mainString as NSString).range(of: Localize.free())
             }else {
-                mainString = String(format: "Heeft de klant\n" + "€ " + subsidie!.price_user! + "\nbetaald aan de kassa?")
-                range = (mainString as NSString).range(of: "€ " + subsidie!.price_user!)
+                mainString = String(format: "Heeft de klant\n" + "€ " + subsidie!.price_user!.showDeciaml() + "\nbetaald aan de kassa?")
+                range = (mainString as NSString).range(of: "€ " + subsidie!.price_user!.showDeciaml())
             }
             
             let attributedString = NSMutableAttributedString(string:mainString)
@@ -97,8 +97,8 @@ class ConfirmPayAction: UIView {
             priceLabel.attributedText = attributedString
         }else if subsidie?.price_type == SubsidieType.discountFixed.rawValue {
             priceLabel.font = UIFont(name: "GoogleSans-Regular", size: 16)
-            let mainString = String(format: "Korting\n" + "€ " + (subsidie!.price_discount)!)
-            let range = (mainString as NSString).range(of: "€ " + (subsidie!.price_discount)!)
+            let mainString = String(format: "Korting\n" + "€ " + (subsidie!.price_discount?.showDeciaml())!)
+            let range = (mainString as NSString).range(of: "€ " + (subsidie!.price_discount?.showDeciaml())!)
             let attributedString = NSMutableAttributedString(string:mainString)
             attributedString.addAttribute(NSAttributedString.Key.font, value: UIFont(name: "GoogleSans-Regular", size: 40)! , range: range)
             attributedString.addAttribute(NSAttributedString.Key.foregroundColor, value: #colorLiteral(red: 0.1702004969, green: 0.3387943804, blue: 1, alpha: 1).cgColor, range: range)
