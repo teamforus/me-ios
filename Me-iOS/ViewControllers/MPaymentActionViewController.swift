@@ -262,9 +262,13 @@ extension MPaymentActionViewController {
             subsidieView.heightAnchor.constraint(equalToConstant: 86)
         ])
         
+        var bottomConstant = -100
+        if UIDevice.current.screenType == .iPhones_5_5s_5c_SE ||  UIDevice.current.screenType == .iPhones_6_6s_7_8 {
+            bottomConstant = -10
+        }
         NSLayoutConstraint.activate([
             middleView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
-            middleView.bottomAnchor.constraint(equalTo: self.bodyView.bottomAnchor, constant: -10),
+            middleView.bottomAnchor.constraint(equalTo: self.bodyView.bottomAnchor, constant: CGFloat(bottomConstant)),
             middleView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor)
         ])
         
