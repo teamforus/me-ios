@@ -273,7 +273,6 @@ class CommonService: CommonServiceProtocol {
         if let token = CurrentSession.shared.token {
         request.addValue("Bearer " + token , forHTTPHeaderField: "Authorization")
         }
-        
         let session = URLSession.shared
         
         let task = session.dataTask(with: request) { (data, response, error) in
