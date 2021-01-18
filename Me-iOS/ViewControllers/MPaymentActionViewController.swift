@@ -14,6 +14,21 @@ class MPaymentActionViewController: UIViewController {
     var organization: AllowedOrganization?
     var fund: Fund?
     var address: String!
+    var subsidieOverviewHeightConstraints: NSLayoutConstraint!
+    var bodyViewHeightConstraints: NSLayoutConstraint!
+    
+    // MARK: - Properties
+    let scrollView: BackgroundScrollView_DarkMode = {
+        let scrollView = BackgroundScrollView_DarkMode(frame: .zero)
+        scrollView.colorName = "Background_Voucher_DarkTheme"
+        
+        if #available(iOS 11.0, *) {
+            
+        } else {
+            // Fallback on earlier versions
+        }
+        return scrollView
+    }()
     
     let bodyView: Background_DarkMode = {
         let view = Background_DarkMode(frame: .zero)
@@ -50,13 +65,6 @@ class MPaymentActionViewController: UIViewController {
         return label
     }()
     
-    private let priceLabel: UILabel = {
-        let label = UILabel(frame: .zero)
-        label.font = UIFont(name: "GoogleSans-Regular", size: 20)
-        label.textColor = #colorLiteral(red: 0.1702004969, green: 0.3387943804, blue: 1, alpha: 1)
-        return label
-    }()
-    
     private let subsidieImageView: UIImageView = {
         let imageview = UIImageView()
         return imageview
@@ -64,30 +72,20 @@ class MPaymentActionViewController: UIViewController {
     
     private let middleView: Background_DarkMode = {
         let view = Background_DarkMode(frame: .zero)
+        view.colorName = "Gray_Dark_DarkTheme"
         return view
     }()
     
-    private let organizationImageView: UIImageView = {
-        let imageView = UIImageView(frame: .zero)
-        return imageView
+    
+    private let topLineView: Background_DarkMode = {
+        let view = Background_DarkMode(frame: .zero)
+        view.colorName = "Thin_Light_Gray_DarkTheme"
+        return view
     }()
     
-    private let organizationNameLabel: UILabel_DarkMode = {
-        let label = UILabel_DarkMode(frame: .zero)
-        label.font = UIFont(name: "GoogleSans-Regular", size: 16)
-        return label
-    }()
-    
-    private let arrowImageView: UIImageView = {
-        let imageView = UIImageView(frame: .zero)
-        imageView.image = R.image.roundedRight()
-        imageView.contentMode = .scaleAspectFit
-        return imageView
-    }()
-    
-    private let topLineView: UIView = {
-        let view = UIView(frame: .zero)
-        view.backgroundColor = #colorLiteral(red: 0.9607282281, green: 0.9607728124, blue: 0.9649807811, alpha: 1)
+    private let bottomLine: Background_DarkMode = {
+        let view = Background_DarkMode(frame: .zero)
+        view.colorName = "Thin_Light_Gray_DarkTheme"
         return view
     }()
     
@@ -97,28 +95,18 @@ class MPaymentActionViewController: UIViewController {
         return view
     }()
     
-    private let detailButton: ActionButton = {
-        let button = ActionButton(frame: .zero)
-        button.setTitle(Localize.more_information_price_agreement().uppercased(), for: .normal)
-        button.setImage(R.image.euro(), for: .normal)
-        button.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 13)
-        button.titleEdgeInsets = UIEdgeInsets(top: 0, left: 13, bottom: 0, right: 0)
-        button.titleLabel?.font = R.font.googleSansMedium(size: 13)
-        button.backgroundColor = #colorLiteral(red: 0.9174897075, green: 0.9410797954, blue: 1, alpha: 1)
-        button.setTitleColor(#colorLiteral(red: 0.1903552711, green: 0.369412154, blue: 0.9929068685, alpha: 1), for: .normal)
-        button.rounded(cornerRadius: 20)
-        return button
+    let subsidieOverview: SubsidieOverview = {
+        let overview = SubsidieOverview(frame: .zero)
+        return overview
     }()
     
     private let noteTextField: TextField = {
         let textField = TextField(frame: .zero)
         textField.font = UIFont(name: "GoogleSans-Regular", size: 15)
         textField.placeholder = Localize.note()
-        textField.left = 10
-        textField.top = 10
         textField.borderStyle = .none
+        textField.left = 10
         textField.layer.cornerRadius = 6
-        textField.contentVerticalAlignment = .top
         return textField
     }()
     
@@ -142,7 +130,6 @@ class MPaymentActionViewController: UIViewController {
         addMiddleSubviews()
         setupMiddleConstraints()
         setupView()
-        setupActions()
     }
     
     func setupView() {
@@ -150,31 +137,47 @@ class MPaymentActionViewController: UIViewController {
             setupActions(subsidie: subsidie)
         }
         
-        if let organization = self.organization {
-            setupOrganization(organization: organization)
-        }
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard(_:))))
         
         if #available(iOS 11.0, *) {
-            noteTextField.backgroundColor = R.color.gray_Dark_DarkTheme()
+            noteTextField.backgroundColor = R.color.grayWithLight_Dark_DarkTheme()
         } else {
             // Fallback on earlier versions
         }
+        if let subsidie = subsidie {
+            subsidieOverview.configureSubsidie(subsidie: subsidie, and: self)
+        }
+        addObservers()
+        noteTextField.delegate = self
+    }
+    
+    func addObservers() {
+        NotificationCenter.default.addObserver(self,selector: #selector(self.keyboardDidShow(notification:)),
+                                               name: UIResponder.keyboardDidShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self,selector: #selector(self.keyboardDidHide(notification:)),
+                                               name: UIResponder.keyboardDidHideNotification, object: nil)
     }
     
     func setupActions(subsidie: Subsidie) {
         self.subsidieNameLabel.text = subsidie.name ?? ""
-        if !(subsidie.no_price ?? false) {
-            self.priceLabel.text = subsidie.price_user ?? ""
-        }else {
-            self.priceLabel.text = Localize.free()
-        }
         self.subsidieImageView.loadImageUsingUrlString(urlString: subsidie.photo?.sizes?.thumbnail ?? "", placeHolder: #imageLiteral(resourceName: "Resting"))
     }
     
-    func setupOrganization(organization: AllowedOrganization) {
-        self.organizationNameLabel.text = organization.name
-        self.organizationImageView.loadImageUsingUrlString(urlString: organization.logo?.sizes?.thumbnail ?? "", placeHolder: #imageLiteral(resourceName: "Resting"))
+    
+    // MARK: - Keyboard Observers
+    @objc func keyboardDidShow(notification: NSNotification) {
+        let info = notification.userInfo
+        let keyBoardSize = info![UIResponder.keyboardFrameEndUserInfoKey] as! CGRect
+        let constantHeight: CGFloat = 60
+        scrollView.contentInset = UIEdgeInsets(top: 0.0, left: 0.0, bottom: keyBoardSize.height + constantHeight, right: 0.0)
+        scrollView.scrollIndicatorInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: keyBoardSize.height + constantHeight, right: 0.0)
+    }
+    
+    @objc func keyboardDidHide(notification: NSNotification) {
+        UIView.animate(withDuration: 0.3) {
+            self.scrollView.contentInset = UIEdgeInsets.zero
+            self.scrollView.scrollIndicatorInsets = UIEdgeInsets.zero
+        }
     }
     
 }
@@ -183,8 +186,10 @@ class MPaymentActionViewController: UIViewController {
 
 extension MPaymentActionViewController {
     func addSubview() {
+        self.view.addSubview(scrollView)
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.addSubview(bodyView)
         bodyView.translatesAutoresizingMaskIntoConstraints = false
-        self.view.addSubview(bodyView)
     }
     
     func addBodySubviews() {
@@ -196,7 +201,7 @@ extension MPaymentActionViewController {
     }
     
     func addSubsidieSubviews() {
-        let views = [subsidieNameLabel, priceLabel, subsidieImageView]
+        let views = [subsidieNameLabel, subsidieImageView]
         views.forEach { (view) in
             view.translatesAutoresizingMaskIntoConstraints = false
             subsidieView.addSubview(view)
@@ -204,7 +209,7 @@ extension MPaymentActionViewController {
     }
     
     func addMiddleSubviews() {
-        let views = [topLineView, organizationImageView, organizationNameLabel, arrowImageView, lineView, detailButton, noteTextField]
+        let views = [topLineView, lineView, subsidieOverview, noteTextField, bottomLine]
         views.forEach { (view) in
             view.translatesAutoresizingMaskIntoConstraints = false
             middleView.addSubview(view)
@@ -216,11 +221,22 @@ extension MPaymentActionViewController {
 
 extension MPaymentActionViewController {
     func setupConstraints() {
+        
         NSLayoutConstraint.activate([
-            bodyView.topAnchor.constraint(equalTo: self.view.topAnchor),
-            bodyView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
-            bodyView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
-            bodyView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor)
+            scrollView.topAnchor.constraint(equalTo: self.view.topAnchor),
+            scrollView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor)
+        ])
+        
+        bodyViewHeightConstraints = bodyView.heightAnchor.constraint(equalTo: self.scrollView.heightAnchor)
+        NSLayoutConstraint.activate([
+            bodyView.topAnchor.constraint(equalTo: self.scrollView.topAnchor),
+            bodyView.leadingAnchor.constraint(equalTo: self.scrollView.leadingAnchor),
+            bodyView.bottomAnchor.constraint(equalTo: self.scrollView.bottomAnchor),
+            bodyView.trailingAnchor.constraint(equalTo: self.scrollView.trailingAnchor),
+            bodyView.widthAnchor.constraint(equalTo: self.view.widthAnchor),
+            bodyViewHeightConstraints
         ])
     }
     
@@ -233,8 +249,9 @@ extension MPaymentActionViewController {
         ])
         
         NSLayoutConstraint.activate([
-            titleLabel.centerYAnchor.constraint(equalTo: backButton.centerYAnchor),
-            titleLabel.centerXAnchor.constraint(equalTo: bodyView.centerXAnchor)
+            titleLabel.topAnchor.constraint(equalTo: bodyView.topAnchor, constant: 40),
+            titleLabel.centerXAnchor.constraint(equalTo: bodyView.centerXAnchor),
+            titleLabel.heightAnchor.constraint(equalToConstant: 20)
         ])
         
         NSLayoutConstraint.activate([
@@ -245,30 +262,30 @@ extension MPaymentActionViewController {
             subsidieView.heightAnchor.constraint(equalToConstant: 86)
         ])
         
+        var bottomConstant = -100
+        if UIDevice.current.screenType == .iPhones_5_5s_5c_SE ||  UIDevice.current.screenType == .iPhones_6_6s_7_8 {
+            bottomConstant = -10
+        }
         NSLayoutConstraint.activate([
             middleView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
-            middleView.bottomAnchor.constraint(equalTo: self.payButton.topAnchor, constant: 10),
+            middleView.bottomAnchor.constraint(equalTo: self.bodyView.bottomAnchor, constant: CGFloat(bottomConstant)),
             middleView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor)
         ])
         
         NSLayoutConstraint.activate([
-            payButton.leadingAnchor.constraint(equalTo: bodyView.leadingAnchor, constant: 10),
-            payButton.trailingAnchor.constraint(equalTo: bodyView.trailingAnchor, constant: -10),
-            payButton.bottomAnchor.constraint(equalTo: bodyView.bottomAnchor, constant: -30),
+            payButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
+            payButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
+            payButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -30),
             payButton.heightAnchor.constraint(equalToConstant: 46)
         ])
     }
     
     func setupSubsidieConstraints() {
         NSLayoutConstraint.activate([
-            subsidieNameLabel.topAnchor.constraint(equalTo: subsidieView.topAnchor, constant: 20),
+            subsidieNameLabel.centerYAnchor.constraint(equalTo: subsidieView.centerYAnchor),
             subsidieNameLabel.leadingAnchor.constraint(equalTo: subsidieView.leadingAnchor, constant: 20)
         ])
         
-        NSLayoutConstraint.activate([
-            priceLabel.topAnchor.constraint(equalTo: subsidieNameLabel.bottomAnchor, constant: 6),
-            priceLabel.leadingAnchor.constraint(equalTo: subsidieView.leadingAnchor, constant: 20)
-        ])
         
         NSLayoutConstraint.activate([
             subsidieImageView.centerYAnchor.constraint(equalTo: subsidieView.centerYAnchor),
@@ -288,45 +305,43 @@ extension MPaymentActionViewController {
         ])
         
         NSLayoutConstraint.activate([
-            organizationImageView.topAnchor.constraint(equalTo: middleView.topAnchor, constant: 16),
-            organizationImageView.leadingAnchor.constraint(equalTo: middleView.leadingAnchor, constant: 17),
-            organizationImageView.heightAnchor.constraint(equalToConstant: 35),
-            organizationImageView.widthAnchor.constraint(equalToConstant: 35)
-        ])
-        
-        NSLayoutConstraint.activate([
-            organizationNameLabel.centerYAnchor.constraint(equalTo: organizationImageView.centerYAnchor, constant: 0),
-            organizationNameLabel.leadingAnchor.constraint(equalTo: organizationImageView.trailingAnchor, constant: 12),
-        ])
-        
-        NSLayoutConstraint.activate([
-            arrowImageView.centerYAnchor.constraint(equalTo: organizationImageView.centerYAnchor),
-            arrowImageView.trailingAnchor.constraint(equalTo: middleView.trailingAnchor, constant: -15),
-            arrowImageView.heightAnchor.constraint(equalToConstant: 30),
-            arrowImageView.widthAnchor.constraint(equalToConstant: 30)
+            bottomLine.leadingAnchor.constraint(equalTo: middleView.leadingAnchor),
+            bottomLine.bottomAnchor.constraint(equalTo: middleView.bottomAnchor),
+            bottomLine.trailingAnchor.constraint(equalTo: middleView.trailingAnchor),
+            bottomLine.heightAnchor.constraint(equalToConstant: 1)
         ])
         
         
         NSLayoutConstraint.activate([
             lineView.leadingAnchor.constraint(equalTo: middleView.leadingAnchor),
-            lineView.topAnchor.constraint(equalTo: organizationImageView.bottomAnchor, constant: 14),
+            lineView.topAnchor.constraint(equalTo: middleView.topAnchor, constant: 0),
             lineView.trailingAnchor.constraint(equalTo: middleView.trailingAnchor),
             lineView.heightAnchor.constraint(equalToConstant: 1)
         ])
         
+        subsidieOverviewHeightConstraints = subsidieOverview.heightAnchor.constraint(equalToConstant: 330)
         NSLayoutConstraint.activate([
-            detailButton.topAnchor.constraint(equalTo: lineView.bottomAnchor, constant: 14),
-            detailButton.leadingAnchor.constraint(equalTo: middleView.leadingAnchor, constant: 10),
-            detailButton.trailingAnchor.constraint(equalTo: middleView.trailingAnchor, constant: -10),
-            detailButton.heightAnchor.constraint(equalToConstant: 44)
+            subsidieOverview.topAnchor.constraint(equalTo: lineView.bottomAnchor, constant: 22),
+            subsidieOverview.leadingAnchor.constraint(equalTo: middleView.leadingAnchor, constant: 10),
+            subsidieOverview.trailingAnchor.constraint(equalTo: middleView.trailingAnchor, constant: -10),
+            subsidieOverviewHeightConstraints
         ])
         
         NSLayoutConstraint.activate([
-            noteTextField.topAnchor.constraint(equalTo: detailButton.bottomAnchor, constant: 22),
+            noteTextField.topAnchor.constraint(equalTo: subsidieOverview.bottomAnchor, constant: 21),
             noteTextField.leadingAnchor.constraint(equalTo: middleView.leadingAnchor, constant: 10),
             noteTextField.trailingAnchor.constraint(equalTo: middleView.trailingAnchor, constant: -10),
-            noteTextField.heightAnchor.constraint(equalToConstant: 200)
+            noteTextField.heightAnchor.constraint(equalToConstant: 53)
         ])
+    }
+}
+
+extension MPaymentActionViewController: UITextFieldDelegate {
+    // MARK: - UITextFieldDelegate
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 }
 
@@ -351,35 +366,5 @@ extension MPaymentActionViewController {
         view.cancelButton.actionHandleBlock = {(_) in
             view.removeFromSuperview()
         }
-    }
-    
-    private func setupActions() {
-        detailButton.actionHandleBlock = { [weak self] (_) in
-            DispatchQueue.main.async {
-                self?.openDetail()
-            }
-        }
-    }
-    
-    func openDetail() {
-        guard let subsidie = self.subsidie else {
-            return
-        }
-        let subsidieOverview = SubsidieOverview()
-        setupSubsidieOverview(subsidieOverview: subsidieOverview)
-        subsidieOverview.configureSubsidie(subsidie: subsidie, and: fund)
-        subsidieOverview.popIn()
-    }
-    
-    func setupSubsidieOverview(subsidieOverview: SubsidieOverview) {
-        subsidieOverview.translatesAutoresizingMaskIntoConstraints = false
-        subsidieOverview.backgroundColor = .clear
-        self.view.addSubview(subsidieOverview)
-        NSLayoutConstraint.activate([
-            subsidieOverview.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
-            subsidieOverview.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
-            subsidieOverview.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0),
-            subsidieOverview.topAnchor.constraint(equalTo: view.topAnchor, constant: 0)
-        ])
     }
 }

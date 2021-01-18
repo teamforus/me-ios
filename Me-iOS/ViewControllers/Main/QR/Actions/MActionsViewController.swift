@@ -26,7 +26,7 @@ class MActionsViewController: UIViewController {
     
     private let headerView: Background_DarkMode = {
         let view = Background_DarkMode(frame: .zero)
-        view.colorName = "Background_Voucher_DarkTheme"
+        view.colorName = "WhiteBackground_DarkTheme"
         return view
     }()
     
@@ -93,9 +93,9 @@ class MActionsViewController: UIViewController {
         return tableView
     }()
     
-    private let organizationView: UIView = {
-        let view = UIView(frame: .zero)
-        view.backgroundColor = .clear
+    private let organizationView: Background_DarkMode = {
+        let view = Background_DarkMode(frame: .zero)
+        view.colorName = "WhiteBackground_DarkTheme"
         return view
     }()
     
@@ -104,6 +104,13 @@ class MActionsViewController: UIViewController {
         label.font = UIFont(name: "GoogleSans-Medium", size: 18)
         return label
     }()
+  
+  private let organizationIamge: UIImageView = {
+      let imageView = UIImageView(frame: .zero)
+      imageView.contentMode = .scaleToFill
+      imageView.image = R.image.face24Px()
+      return imageView
+  }()
     
     private let arrowImageView: UIImageView = {
         let imageView = UIImageView(frame: .zero)
@@ -193,6 +200,11 @@ extension MActionsViewController: UITableViewDelegate, UITableViewDataSource {
         let subsidie = viewModel.getCellViewModel(at: indexPath)
         cell.setupActions(subsidie: subsidie)
         
+        if viewModel.numberOfCells - 1 == indexPath.row {
+            if viewModel.lastPage != viewModel.currentPage {
+                self.fetchActions()
+            }
+        }
         return cell
     }
     
@@ -238,7 +250,7 @@ extension MActionsViewController {
     }
     
     private func addOranizationViewSubviews() {
-        let views = [organizationNameLabel, arrowImageView]
+        let views = [organizationNameLabel, organizationIamge ,arrowImageView]
         views.forEach { (view) in
             view.translatesAutoresizingMaskIntoConstraints = false
             self.organizationView.addSubview(view)
@@ -264,19 +276,19 @@ extension MActionsViewController {
         ])
         
         NSLayoutConstraint.activate([
-            chooseActionLabel.topAnchor.constraint(equalTo: headerView.bottomAnchor, constant: 29),
+            chooseActionLabel.topAnchor.constraint(equalTo: organizationView.bottomAnchor, constant: 29),
             chooseActionLabel.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 20),
         ])
         
         NSLayoutConstraint.activate([
-            organizationView.topAnchor.constraint(equalTo: chooseActionLabel.bottomAnchor, constant: 6),
-            organizationView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 15),
-            organizationView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -15),
-            organizationView.heightAnchor.constraint(equalToConstant: 50)
+            organizationView.topAnchor.constraint(equalTo: headerView.bottomAnchor, constant: 0),
+            organizationView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 0),
+            organizationView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: 0),
+            organizationView.heightAnchor.constraint(equalToConstant: 60)
         ])
         
         NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: organizationView.bottomAnchor, constant: 10),
+            tableView.topAnchor.constraint(equalTo: chooseActionLabel.bottomAnchor, constant: 10),
             tableView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
             tableView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
@@ -345,19 +357,26 @@ extension MActionsViewController {
     }
     
     private func addOranizationViewConstraints() {
-        NSLayoutConstraint.activate([
-            organizationNameLabel.topAnchor.constraint(equalTo: organizationView.topAnchor),
-            organizationNameLabel.leadingAnchor.constraint(equalTo: organizationView.leadingAnchor, constant: 10),
-            organizationNameLabel.bottomAnchor.constraint(equalTo: organizationView.bottomAnchor),
-            organizationNameLabel.trailingAnchor.constraint(equalTo: arrowImageView.leadingAnchor, constant: 15)
-        ])
-        
-        NSLayoutConstraint.activate([
-            arrowImageView.centerYAnchor.constraint(equalTo: organizationView.centerYAnchor),
-            arrowImageView.trailingAnchor.constraint(equalTo: organizationView.trailingAnchor, constant: -15),
-            arrowImageView.heightAnchor.constraint(equalToConstant: 30),
-            arrowImageView.widthAnchor.constraint(equalToConstant: 30)
-        ])
+      NSLayoutConstraint.activate([
+        organizationNameLabel.topAnchor.constraint(equalTo: organizationView.topAnchor),
+        organizationNameLabel.leadingAnchor.constraint(equalTo: organizationView.leadingAnchor, constant: 64),
+        organizationNameLabel.bottomAnchor.constraint(equalTo: organizationView.bottomAnchor),
+        organizationNameLabel.trailingAnchor.constraint(equalTo: arrowImageView.leadingAnchor, constant: 15)
+      ])
+      
+      NSLayoutConstraint.activate([
+        organizationIamge.centerYAnchor.constraint(equalTo: organizationView.centerYAnchor),
+        organizationIamge.leadingAnchor.constraint(equalTo: organizationView.leadingAnchor, constant: 17),
+        organizationIamge.heightAnchor.constraint(equalToConstant: 35),
+        organizationIamge.widthAnchor.constraint(equalToConstant: 35)
+      ])
+      
+      NSLayoutConstraint.activate([
+        arrowImageView.centerYAnchor.constraint(equalTo: organizationView.centerYAnchor),
+        arrowImageView.trailingAnchor.constraint(equalTo: organizationView.trailingAnchor, constant: -17),
+        arrowImageView.heightAnchor.constraint(equalToConstant: 30),
+        arrowImageView.widthAnchor.constraint(equalToConstant: 30)
+      ])
     }
 }
 

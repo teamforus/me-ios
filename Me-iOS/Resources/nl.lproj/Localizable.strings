@@ -180,8 +180,9 @@
 "price_agreement" = "Prijsafspraak";
 "more_information_price_agreement" = "Meer informatie over prijsafspraak";
 "paid_by_customer" = "De klant dient het volgende bedrag te betalen";
-"total_price" = "Totaal prijs";
+"total_price" = "Totale prijs";
 "discout_by" = "Korting van %@";
 "subsid_by" = "%@ betaalt u";
 "what_customer_pays" = "Wat de klant betaalt";
 "free" = "Gratis";
+"discount" = "Korting";
