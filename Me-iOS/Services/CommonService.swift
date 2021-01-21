@@ -235,6 +235,7 @@ class CommonService: CommonServiceProtocol {
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         request.addValue("me_app-ios", forHTTPHeaderField: "Client-Type")
+        request.addValue("general", forHTTPHeaderField: "Client-key")
         
         request.httpBody = ApiService.getPostString(params: parameters).data(using: .utf8)
         
@@ -272,7 +273,6 @@ class CommonService: CommonServiceProtocol {
         if let token = CurrentSession.shared.token {
         request.addValue("Bearer " + token , forHTTPHeaderField: "Authorization")
         }
-        
         let session = URLSession.shared
         
         let task = session.dataTask(with: request) { (data, response, error) in
