@@ -15,6 +15,13 @@
 		0437CED924BDFC9F00FA7C24 /* BackButton_DarkMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0437CED824BDFC9F00FA7C24 /* BackButton_DarkMode.swift */; };
 		045E5A3425A7518600E338F7 /* Sponsor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045E5A3325A7518600E338F7 /* Sponsor.swift */; };
 		0483DBC124BF3F250074BBA9 /* UILabel_DarkMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0483DBC024BF3F250074BBA9 /* UILabel_DarkMode.swift */; };
+		04D6422725CC7C1300F6F902 /* MInfoVoucherTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D6422625CC7C1300F6F902 /* MInfoVoucherTableViewCell.swift */; };
+		04DD438F25C85EE200038A1D /* MProductVoucherTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DD438E25C85EE200038A1D /* MProductVoucherTableViewCell.swift */; };
+		04DD439925C9A0D500038A1D /* MMapDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DD439825C9A0D500038A1D /* MMapDetailsTableViewCell.swift */; };
+		04DD439E25C9A0E300038A1D /* MAdressTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DD439D25C9A0E300038A1D /* MAdressTableViewCell.swift */; };
+		04DD43A325C9A0F500038A1D /* MTelephoneTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DD43A225C9A0F500038A1D /* MTelephoneTableViewCell.swift */; };
+		04DD43A825C9A0FF00038A1D /* MBranchesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DD43A725C9A0FF00038A1D /* MBranchesTableViewCell.swift */; };
+		04DD43C325CAB7DC00038A1D /* ProductVoucherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DD43C225CAB7DC00038A1D /* ProductVoucherViewController.swift */; };
 		21BC9E5E15D09EB33DC67D18 /* Pods_Me_iOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE3A145130ABDFB2E6FA90DA /* Pods_Me_iOSTests.framework */; };
 		3073C31D42060DC36B5A5CF0 /* Pods_Me_iOSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2F0B90D6C19CBE208831044 /* Pods_Me_iOSUITests.framework */; };
 		3EA270A8D4692C1FB4DDDD4D /* Pods_Me_iOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F5A2CBF3A5DDA911CDEBF20 /* Pods_Me_iOSTests.framework */; };
@@ -262,6 +269,13 @@
 		0437CED824BDFC9F00FA7C24 /* BackButton_DarkMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackButton_DarkMode.swift; sourceTree = "<group>"; };
 		045E5A3325A7518600E338F7 /* Sponsor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sponsor.swift; sourceTree = "<group>"; };
 		0483DBC024BF3F250074BBA9 /* UILabel_DarkMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabel_DarkMode.swift; sourceTree = "<group>"; };
+		04D6422625CC7C1300F6F902 /* MInfoVoucherTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MInfoVoucherTableViewCell.swift; sourceTree = "<group>"; };
+		04DD438E25C85EE200038A1D /* MProductVoucherTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MProductVoucherTableViewCell.swift; sourceTree = "<group>"; };
+		04DD439825C9A0D500038A1D /* MMapDetailsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMapDetailsTableViewCell.swift; sourceTree = "<group>"; };
+		04DD439D25C9A0E300038A1D /* MAdressTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MAdressTableViewCell.swift; sourceTree = "<group>"; };
+		04DD43A225C9A0F500038A1D /* MTelephoneTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTelephoneTableViewCell.swift; sourceTree = "<group>"; };
+		04DD43A725C9A0FF00038A1D /* MBranchesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBranchesTableViewCell.swift; sourceTree = "<group>"; };
+		04DD43C225CAB7DC00038A1D /* ProductVoucherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductVoucherViewController.swift; sourceTree = "<group>"; };
 		0BA3C002535BEC0C09894BC7 /* Pods-Me-iOSUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Me-iOSUITests.release.xcconfig"; path = "Target Support Files/Pods-Me-iOSUITests/Pods-Me-iOSUITests.release.xcconfig"; sourceTree = "<group>"; };
 		1F4F14FBEF270B54FA6F330B /* Pods-Me-iOS.alpha.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Me-iOS.alpha.xcconfig"; path = "Target Support Files/Pods-Me-iOS/Pods-Me-iOS.alpha.xcconfig"; sourceTree = "<group>"; };
 		27C5698FBEA4D2ECE5592544 /* Pods-Me-iOSTests.alpha.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Me-iOSTests.alpha.xcconfig"; path = "Target Support Files/Pods-Me-iOSTests/Pods-Me-iOSTests.alpha.xcconfig"; sourceTree = "<group>"; };
@@ -587,6 +601,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		04DD43AC25C9A11200038A1D /* ProductVoucherCell */ = {
+			isa = PBXGroup;
+			children = (
+				04DD43A225C9A0F500038A1D /* MTelephoneTableViewCell.swift */,
+				04DD43A725C9A0FF00038A1D /* MBranchesTableViewCell.swift */,
+				04DD439D25C9A0E300038A1D /* MAdressTableViewCell.swift */,
+				04DD439825C9A0D500038A1D /* MMapDetailsTableViewCell.swift */,
+				04D6422625CC7C1300F6F902 /* MInfoVoucherTableViewCell.swift */,
+				04DD438E25C85EE200038A1D /* MProductVoucherTableViewCell.swift */,
+			);
+			path = ProductVoucherCell;
+			sourceTree = "<group>";
+		};
 		265D97ECA3A164A5F7EEAF60 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -1213,6 +1240,8 @@
 			isa = PBXGroup;
 			children = (
 				65A8B7182282E52D00B7DF05 /* MProductVoucherViewController.swift */,
+				04DD43C225CAB7DC00038A1D /* ProductVoucherViewController.swift */,
+				04DD43AC25C9A11200038A1D /* ProductVoucherCell */,
 				65A8B7342282EBE900B7DF05 /* ViewModel */,
 				650FF5E122AD192C004C3A85 /* ProductVoucher.storyboard */,
 			);
@@ -1938,6 +1967,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04DD438F25C85EE200038A1D /* MProductVoucherTableViewCell.swift in Sources */,
 				FFFF2527247513510043E459 /* AccessibilityProtocol.swift in Sources */,
 				655D6476231598D300EABD57 /* SendEtherViewController.swift in Sources */,
 				65139C7322802EFF003E0CDE /* LoginService.swift in Sources */,
@@ -1949,6 +1979,7 @@
 				65CF408B228C1CC90006F5DE /* APIService.swift in Sources */,
 				65F52E462316797900B9D229 /* MCrashConfirmViewController.swift in Sources */,
 				657DBA4A2289871400C67500 /* CommonBottomViewModel.swift in Sources */,
+				04DD439E25C9A0E300038A1D /* MAdressTableViewCell.swift in Sources */,
 				FF8D90F8251BCCAC0035B8D7 /* Preference.swift in Sources */,
 				65911B54228D900500EA30D6 /* Product.swift in Sources */,
 				65A8B6F02282DB0200B7DF05 /* Extension+UIViewController.swift in Sources */,
@@ -1999,6 +2030,7 @@
 				FF9C60FD253DD87D006F6979 /* ConfirmPaymentActionPopUp.swift in Sources */,
 				FFFF8AAC2450CAA2001673DB /* R.generated.swift in Sources */,
 				65911B4E228D8EAE00EA30D6 /* Logo.swift in Sources */,
+				04DD43A825C9A0FF00038A1D /* MBranchesTableViewCell.swift in Sources */,
 				65B10DAF23589DF500F0F34D /* CheckWebsiteReacheble.swift in Sources */,
 				FF9B715924851A5900BBCAA3 /* AppVersionUpdateNotifier.swift in Sources */,
 				65100AFD229D65A9007892D1 /* Extension+Array.swift in Sources */,
@@ -2033,6 +2065,7 @@
 				FFB76E0F24E94AC200CFB195 /* AnimationManager.swift in Sources */,
 				657DBA4C2289880A00C67500 /* AuthorizationQRToken.swift in Sources */,
 				FFE731C424CEEFED0064C7D5 /* CloseButton_DarkMode.swift in Sources */,
+				04D6422725CC7C1300F6F902 /* MInfoVoucherTableViewCell.swift in Sources */,
 				FF48062924632AA70055E346 /* RecordsTableViewCell.swift in Sources */,
 				65911B58228D912900EA30D6 /* AllowedProduct.swift in Sources */,
 				FFB76E1124E94AC200CFB195 /* KVSpinnerView.swift in Sources */,
@@ -2062,6 +2095,7 @@
 				FFB76E1224E94AC200CFB195 /* KVSpinnerViewSettings.swift in Sources */,
 				6568461F22944A1800097E83 /* SkeletonUIImageView.swift in Sources */,
 				657DBA4E228993E200C67500 /* StatusService.swift in Sources */,
+				04DD43A325C9A0F500038A1D /* MTelephoneTableViewCell.swift in Sources */,
 				65139C7122802E7E003E0CDE /* LoginQrAndCodeViewModel.swift in Sources */,
 				654ACBAE22A9523B0052C9C2 /* UserDefaultsName.swift in Sources */,
 				65100B03229D7167007892D1 /* RecordValidatorsViewModel.swift in Sources */,
@@ -2076,6 +2110,7 @@
 				65A8B7112282E1A900B7DF05 /* MRecordsViewController.swift in Sources */,
 				655D64712315903900EABD57 /* HBSegmentedControl.swift in Sources */,
 				65139C7522802F25003E0CDE /* PinCode.swift in Sources */,
+				04DD43C325CAB7DC00038A1D /* ProductVoucherViewController.swift in Sources */,
 				FF5691282514BFB500CD0343 /* TextLabel.swift in Sources */,
 				65911B48228D892800EA30D6 /* Voucher.swift in Sources */,
 				5B42874623AD0EBE00FEABE7 /* User+CoreDataProperties.swift in Sources */,
@@ -2093,6 +2128,7 @@
 				65D11B7B22A69D5200756BE0 /* OrganizationTableViewCell.swift in Sources */,
 				FF5691262514BFB500CD0343 /* ColDateCell.swift in Sources */,
 				65F1BB25229EC1C4007D2C8A /* RecordType.swift in Sources */,
+				04DD439925C9A0D500038A1D /* MMapDetailsTableViewCell.swift in Sources */,
 				FF5691242514BFB500CD0343 /* CustomDatePickerView.swift in Sources */,
 				65A8B73E2282ED1D00B7DF05 /* MProfileViewController.swift in Sources */,
 				042D7DA924C58213004AD8C7 /* TextField_DarkMode.swift in Sources */,

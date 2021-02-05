@@ -11,7 +11,10 @@ import MapKit
 import SafariServices
 import MessageUI
 
-class MProductVoucherViewController: UIViewController {
+
+
+class MProductVoucherViewController: UIViewController{
+  
     @IBOutlet weak var productNameLabel: UILabel!
     @IBOutlet weak var organizationNameLabel: UILabel!
     @IBOutlet weak var qrCodeImage: UIImageView!
@@ -39,6 +42,7 @@ class MProductVoucherViewController: UIViewController {
         return ProductVoucherViewModel()
     }()
     
+  
     override func viewDidLoad() {
         super.viewDidLoad()
         setupAccessibility()
@@ -50,10 +54,9 @@ class MProductVoucherViewController: UIViewController {
         images.forEach { (view) in
             view.startAnimating()
         }
+      
         productViewModel.complete = { [weak self] (voucher) in
-            
             DispatchQueue.main.async {
-                
                 if voucher.expire_at?.date?.formatDate() ?? Date() > Date() {
                     self?.qrCodeImage.isHidden = false
                     self?.sendEmailButton.isHidden = false
@@ -103,11 +106,10 @@ class MProductVoucherViewController: UIViewController {
                 self?.images.forEach { (view) in
                     view.stopAnimating()
                 }
-                
             }
-            
-        }
-        
+         }
+      
+     
         if isReachable() {
             productViewModel.vc = self
             productViewModel.initFetchById(address: address)
@@ -118,7 +120,8 @@ class MProductVoucherViewController: UIViewController {
             
         }
     }
-    
+  
+  
     @IBAction func opendQR(_ sender: UIButton) {
         let popOverVC = PullUpQRViewController(nib: R.nib.pullUpQRViewController)
         popOverVC.voucher = voucher
@@ -173,9 +176,7 @@ class MProductVoucherViewController: UIViewController {
 extension MProductVoucherViewController {
     
     @objc func Tap() {
-        
-        
-        showSimpleAlertWithAction(title: Localize.send_an_email_to_the_provider(),
+     showSimpleAlertWithAction(title: Localize.send_an_email_to_the_provider(),
                                   message: Localize.confirm_to_go_your_email_app_to_send_message_to_provider(),
                                   okAction: UIAlertAction(title: Localize.confirm(), style: .default, handler: { (action) in
                                     
@@ -317,3 +318,4 @@ extension MProductVoucherViewController: AccessibilityProtocol {
 class CustomPointAnnotation: MKPointAnnotation {
     var imageName: String!
 }
+
