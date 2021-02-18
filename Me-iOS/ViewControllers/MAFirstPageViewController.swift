@@ -26,7 +26,7 @@ class MAFirstPageViewController: UIViewController {
     @IBOutlet weak var confirmButton: ShadowButton!
     @IBOutlet weak var showQRCodeButton: ShadowButton!
     @IBOutlet weak var welcomeLabel: UILabel_DarkMode!
-  
+    
     lazy var emailLoginViewModel: EmailLoginViewModel = {
         return EmailLoginViewModel()
     }()
@@ -91,10 +91,10 @@ class MAFirstPageViewController: UIViewController {
         } else {
             // Fallback on earlier versions
         }
-        }
-
-        override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
-            if #available(iOS 12.0, *) {
+    }
+    
+    override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
+        if #available(iOS 12.0, *) {
             if self.traitCollection.userInterfaceStyle == .dark {
                 emailField.textColor = .white
                 emailField.selectedLineColor = .white
@@ -102,10 +102,10 @@ class MAFirstPageViewController: UIViewController {
                 emailField.textColor = .black
                 emailField.selectedLineColor = .black
             }
-            }else {
-                // Fallback on earlier versions
-            }
+        }else {
+            // Fallback on earlier versions
         }
+    }
     
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -209,9 +209,9 @@ class MAFirstPageViewController: UIViewController {
             
             DispatchQueue.main.async {
                 if statusCode == 422 {
-                        
-                        self?.emailLoginViewModel.initLoginByEmail(email: self?.emailField.text ?? "")
-                  
+                    
+                    self?.emailLoginViewModel.initLoginByEmail(email: self?.emailField.text ?? "")
+                    
                 }else if statusCode == 500 {
                     self?.showSimpleAlertWithSingleAction(title: Localize.error_exclamation(), message: "", okAction: UIAlertAction(title: Localize.ok(), style: .default, handler: { (action) in
                     }))
@@ -256,6 +256,6 @@ extension MAFirstPageViewController: AccessibilityProtocol {
         confirmButton.setupAccesibility(description: Localize.confirm(), accessibilityTraits: .button)
         showQRCodeButton.setupAccesibility(description: "Show Qr Code and Pin Code", accessibilityTraits: .button)
         validationImage.setupAccesibility(description: "Email is valid", accessibilityTraits: .image)
-      welcomeLabel.setupAccesibility(description: Localize.welcome_to_me(), accessibilityTraits: .header)
+        welcomeLabel.setupAccesibility(description: Localize.welcome_to_me(), accessibilityTraits: .header)
     }
 }

@@ -45,6 +45,10 @@ class MVouchersViewController: UIViewController {
             tableView.addSubview(refreshControl)
         }
         
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            StoreRateModule.shared.showAppRateIn(in: self)
+        }
+        
         voucherType = .vouchers
         
         segmentController.items = ["Valute", Localize.vouchers()]

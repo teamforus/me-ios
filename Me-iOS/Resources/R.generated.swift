@@ -2868,7 +2868,7 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
 
-    /// This `R.string.localizable` struct is generated, and contains static references to 176 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 178 localization keys.
     struct localizable {
       /// en translation: %@ Don't Available
       ///
@@ -3322,6 +3322,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en, nl
       static let request = Rswift.StringResource(key: "request", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
+      /// en translation: Rate Me App
+      ///
+      /// Locales: en, nl
+      static let rate = Rswift.StringResource(key: "rate", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
       /// en translation: Record
       ///
       /// Locales: en
@@ -3542,6 +3546,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en, nl
       static let what_customer_pays = Rswift.StringResource(key: "what_customer_pays", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
+      /// en translation: Whould you like to rate our app?
+      ///
+      /// Locales: en, nl
+      static let whould_you_like_to_rate = Rswift.StringResource(key: "whould_you_like_to_rate", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
       /// en translation: With the Me you can create an identity, receive and use your vouchers.
       ///
       /// Locales: en
@@ -5286,6 +5294,21 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("request", bundle: bundle, comment: "")
       }
 
+      /// en translation: Rate Me App
+      ///
+      /// Locales: en, nl
+      static func rate(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("rate", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "rate"
+        }
+
+        return NSLocalizedString("rate", bundle: bundle, comment: "")
+      }
+
       /// en translation: Record
       ///
       /// Locales: en
@@ -6115,6 +6138,21 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("what_customer_pays", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Whould you like to rate our app?
+      ///
+      /// Locales: en, nl
+      static func whould_you_like_to_rate(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("whould_you_like_to_rate", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "whould_you_like_to_rate"
+        }
+
+        return NSLocalizedString("whould_you_like_to_rate", bundle: bundle, comment: "")
       }
 
       /// en translation: With the Me you can create an identity, receive and use your vouchers.
