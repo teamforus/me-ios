@@ -901,7 +901,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.image` struct is generated, and contains static references to 68 images.
+  /// This `R.image` struct is generated, and contains static references to 70 images.
   struct image {
     /// Image `5XVoucherContainerWElevation`.
     static let xVoucherContainerWElevation = Rswift.ImageResource(bundle: R.hostingBundle, name: "5XVoucherContainerWElevation")
@@ -985,6 +985,8 @@ struct R: Rswift.Validatable {
     static let iconDigiD = Rswift.ImageResource(bundle: R.hostingBundle, name: "iconDigiD")
     /// Image `iconGrey`.
     static let iconGrey = Rswift.ImageResource(bundle: R.hostingBundle, name: "iconGrey")
+    /// Image `iconVoucher`.
+    static let iconVoucher = Rswift.ImageResource(bundle: R.hostingBundle, name: "iconVoucher")
     /// Image `iconsBugreport`.
     static let iconsBugreport = Rswift.ImageResource(bundle: R.hostingBundle, name: "iconsBugreport")
     /// Image `illustration`.
@@ -1003,6 +1005,8 @@ struct R: Rswift.Validatable {
     static let nightMode = Rswift.ImageResource(bundle: R.hostingBundle, name: "nightMode")
     /// Image `notifications`.
     static let notifications = Rswift.ImageResource(bundle: R.hostingBundle, name: "notifications")
+    /// Image `phoneIcon`.
+    static let phoneIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "phoneIcon")
     /// Image `plus`.
     static let plus = Rswift.ImageResource(bundle: R.hostingBundle, name: "plus")
     /// Image `profileIcon`.
@@ -1328,6 +1332,13 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "iconVoucher", bundle: ..., traitCollection: ...)`
+    static func iconVoucher(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.iconVoucher, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
     /// `UIImage(named: "iconsBugreport", bundle: ..., traitCollection: ...)`
     static func iconsBugreport(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.iconsBugreport, compatibleWith: traitCollection)
@@ -1387,6 +1398,13 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "notifications", bundle: ..., traitCollection: ...)`
     static func notifications(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.notifications, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "phoneIcon", bundle: ..., traitCollection: ...)`
+    static func phoneIcon(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.phoneIcon, compatibleWith: traitCollection)
     }
     #endif
 

@@ -20,15 +20,31 @@ class MInfoVoucherTableViewCell: UITableViewCell {
     private let emailButton: ActionButton = {
         let button = ActionButton(frame: .zero)
         button.backgroundColor = #colorLiteral(red: 0.9449954033, green: 0.9451572299, blue: 0.9449852109, alpha: 1)
+        button.setTitleColor(#colorLiteral(red: 0.1918309331, green: 0.3696506619, blue: 0.9919955134, alpha: 1), for: .normal)
+        button.titleLabel?.font = R.font.googleSansRegular(size: 14)
+        button.setTitle("E-mail naar mij", for: .normal)
+        button.rounded(cornerRadius: 6)
         return button
     }()
     
     private let voucherInfoButton: ActionButton = {
         let button = ActionButton(frame: .zero)
         button.backgroundColor = #colorLiteral(red: 0.9449954033, green: 0.9451572299, blue: 0.9449852109, alpha: 1)
+        button.setTitleColor(#colorLiteral(red: 0.1918309331, green: 0.3696506619, blue: 0.9919955134, alpha: 1), for: .normal)
+        button.titleLabel?.font = R.font.googleSansRegular(size: 14)
+        button.setTitle("Voucher Info", for: .normal)
+        button.rounded(cornerRadius: 6)
         return button
     }()
+  
+  
     
+  private let iconImageButton: UIImageView = {
+    let imageQRCodeVoucher = UIImageView(frame: .zero)
+    imageQRCodeVoucher.image = UIImage(named: "email1")
+    imageQRCodeVoucher.contentMode = .scaleAspectFit
+    return imageQRCodeVoucher
+  }()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -47,7 +63,7 @@ class MInfoVoucherTableViewCell: UITableViewCell {
 
 extension MInfoVoucherTableViewCell {
     func addSubviews() {
-        let views = [bodyView, emailButton, voucherInfoButton]
+        let views = [bodyView, emailButton, iconImageButton, voucherInfoButton]
         views.forEach { (view) in
             view.translatesAutoresizingMaskIntoConstraints = false
             self.contentView.addSubview(view)
@@ -65,8 +81,9 @@ extension MInfoVoucherTableViewCell {
         NSLayoutConstraint.activate([
             emailButton.topAnchor.constraint(equalTo: self.bodyView.topAnchor, constant: 11),
             emailButton.leadingAnchor.constraint(equalTo: self.bodyView.leadingAnchor, constant: 20),
-            emailButton.bottomAnchor.constraint(equalTo: self.bodyView.bottomAnchor, constant: -12.5),
+            
             emailButton.heightAnchor.constraint(equalToConstant: 46),
+            emailButton.widthAnchor.constraint(equalToConstant: 170),
         ])
         
         NSLayoutConstraint.activate([
@@ -75,7 +92,18 @@ extension MInfoVoucherTableViewCell {
             voucherInfoButton.centerYAnchor.constraint(equalTo: self.emailButton.centerYAnchor),
             voucherInfoButton.leadingAnchor.constraint(equalTo: self.emailButton.trailingAnchor, constant: 12),
             voucherInfoButton.heightAnchor.constraint(equalToConstant: 46),
+            voucherInfoButton.centerYAnchor.constraint(equalTo: emailButton.centerYAnchor),
         ])
+      
+      NSLayoutConstraint.activate([
+        iconImageButton.topAnchor.constraint(equalTo: self.emailButton.topAnchor, constant: 12),
+    
+        
+        iconImageButton.leadingAnchor.constraint(equalTo: self.emailButton.leadingAnchor, constant: 12),
+        iconImageButton.heightAnchor.constraint(equalToConstant: 20),
+        iconImageButton.widthAnchor.constraint(equalToConstant: 23),
+      ])
+      
     }
     
 }

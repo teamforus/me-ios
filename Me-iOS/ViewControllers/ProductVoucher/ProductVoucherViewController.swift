@@ -86,19 +86,19 @@ extension ProductVoucherViewController: UITableViewDelegate, UITableViewDataSour
             }
             return cell
         case .mapDetail:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: MAdressTableViewCell.identifier, for: indexPath) as? MAdressTableViewCell else {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: MMapDetailsTableViewCell.identifier, for: indexPath) as? MMapDetailsTableViewCell else {
                 return UITableViewCell()
             }
             return cell
             
         case .adress:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: MTelephoneTableViewCell.identifier, for: indexPath) as? MTelephoneTableViewCell else {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: MAdressTableViewCell.identifier, for: indexPath) as? MAdressTableViewCell else {
                 return UITableViewCell()
             }
             return cell
             
         case .telephone:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: MBranchesTableViewCell.identifier, for: indexPath) as? MBranchesTableViewCell else {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: MTelephoneTableViewCell.identifier, for: indexPath) as? MTelephoneTableViewCell else {
                 return UITableViewCell()
             }
             return cell
@@ -121,11 +121,11 @@ extension ProductVoucherViewController: UITableViewDelegate, UITableViewDataSour
         case .infoVoucher:
             return 85
         case .mapDetail:
-            return 160
+            return 275
         case .adress:
-            return 70
+            return 78
         case .telephone:
-            return 80
+            return 82
         case .branches:
             return 80
         }

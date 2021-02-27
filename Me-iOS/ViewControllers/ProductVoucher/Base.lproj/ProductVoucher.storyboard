@@ -226,7 +226,7 @@
                                                 <rect key="frame" x="0.0" y="578" width="375" height="212"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6Dc-yV-4mG" customClass="Background_DarkMode" customModule="Me_iOS" customModuleProvider="target">
-                                                        <rect key="frame" x="12" y="8" width="363" height="72"/>
+                                                        <rect key="frame" x="12" y="0.0" width="363" height="80"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CX4-Bk-Lqq" customClass="MarqueeLabel" customModule="MarqueeLabel">
@@ -244,7 +244,7 @@
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="l3U-By-MF0">
-                                                                <rect key="frame" x="21" y="71" width="334" height="1"/>
+                                                                <rect key="frame" x="21" y="79" width="334" height="1"/>
                                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                                                 <color key="backgroundColor" red="0.90154641869999996" green="0.91382962469999995" blue="0.91375368830000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             </view>
