@@ -183,7 +183,7 @@ extension MVoucherViewController: UITableViewDelegate, UITableViewDataSource{
 extension MVoucherViewController: AccessibilityProtocol {
     func setupAccessibility() {
         sendEmailButton.setupAccesibility(description: "Send voucher on email", accessibilityTraits: .button)
-        voucherInfoButton.setupAccesibility(description: "Go to voucher info", accessibilityTraits: .button)
+        voucherInfoButton.setupAccesibility(description: "Go to view offers", accessibilityTraits: .button)
         qrCodeButton.setupAccesibility(description: "Tap to open qr code modal", accessibilityTraits: .button)
    }
 }
