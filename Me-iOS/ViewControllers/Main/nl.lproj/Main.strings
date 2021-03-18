@@ -3,7 +3,7 @@
 "5fU-r2-fuI.text" = "Jamal";
 
 /* Class = "UITabBarItem"; title = "Profiel"; ObjectID = "Fxg-Vj-eeO"; */
-"Fxg-Vj-eeO.title" = "Profiel";
+"Fxg-Vj-eeO.title" = "Account";
 
 /* Class = "UILabel"; text = "Used"; ObjectID = "Hup-YQ-NKc"; */
 "Hup-YQ-NKc.text" = "Gebruikt";
@@ -36,7 +36,7 @@
 "ony-rh-yQc.title" = "Tegoeden";
 
 /* Class = "UITabBarItem"; title = "Eigenschappen"; ObjectID = "S2m-RV-PJB"; */
-"S2m-RV-PJB.title" = "Profiel";
+"S2m-RV-PJB.title" = "Account";
 
 /* Class = "UILabel"; text = "You have no vouchers yet"; ObjectID = "r3k-mS-eBG"; */
 "r3k-mS-eBG.text" = "Je hebt nog geen vouchers.";

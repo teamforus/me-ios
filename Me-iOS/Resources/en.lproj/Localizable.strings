@@ -178,3 +178,17 @@
 "choose_from_date" = "Choose from date";
 "update_is_available" = "New update is available, update your application!";
 "close" = "Close";
+"price_agreement" = "Price agreement";
+"more_information_price_agreement" = "More information about price agreement";
+"paid_by_customer" = "The customer needs to pay folowing amount";
+"total_price" = "Total price";
+"discout_by" = "Discount by %@";
+"subsid_by" = "Subsidy by %@";
+"what_customer_pays" = "What customer pays";
+"free" = "Free";
+"discount" = "Discount";
+"offers" = "Offers";
+"do_you_want_to_login" = "Do you want to login on this device?";
+"description_of_auth_anothe_device" = "Scan only QR-codes on devices you own or temporarily use. Never scan a code which was sent or shown by another person.";
+"i_want_to_login" = "Yes, I want to login";
+"no_thanks" = "No thanks";

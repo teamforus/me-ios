@@ -43,7 +43,10 @@ class MVoucherViewController: UIViewController {
         }
         voucherViewModel.reloadDataVoucher = { [weak self] (voucher) in
             
-            DispatchQueue.main.async {
+          DispatchQueue.main.async { [self] in
+              if voucher.fund?.type == FundType.subsidies.rawValue {
+                self!.voucherInfoButton?.setTitle(Localize.offers(), for: .normal)
+              }
                 self?.priceLabel.isHidden = voucher.fund?.type == FundType.subsidies.rawValue
                 self?.voucherName.text = voucher.fund?.name ?? ""
                 self?.organizationName.text = voucher.fund?.organization?.name ?? ""
@@ -183,7 +186,7 @@ extension MVoucherViewController: UITableViewDelegate, UITableViewDataSource{
 extension MVoucherViewController: AccessibilityProtocol {
     func setupAccessibility() {
         sendEmailButton.setupAccesibility(description: "Send voucher on email", accessibilityTraits: .button)
-        voucherInfoButton.setupAccesibility(description: "Go to voucher info", accessibilityTraits: .button)
+        voucherInfoButton.setupAccesibility(description: "Go to view offers", accessibilityTraits: .button)
         qrCodeButton.setupAccesibility(description: "Tap to open qr code modal", accessibilityTraits: .button)
    }
 }
