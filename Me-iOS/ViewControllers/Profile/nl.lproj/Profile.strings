@@ -21,7 +21,7 @@
 "LCl-JE-4Rl.normalTitle" = "LOG UIT";
 
 /* Class = "UILabel"; text = "Uw Profiel"; ObjectID = "Ncj-5F-IHr"; */
-"Ncj-5F-IHr.text" = "Uw Profiel";
+"Ncj-5F-IHr.text" = "Je account";
 
 /* Class = "UILabel"; text = "mail@mail.com"; ObjectID = "Rkq-EJ-VPa"; */
 "Rkq-EJ-VPa.text" = "mail@mail.com";
@@ -50,4 +50,4 @@
 /* Class = "UILabel"; text = "Let someone scan your personal QR code to send your currency, property or vouchers"; ObjectID = "MxW-qZ-33f.text"; */
 "MxW-qZ-33f.text" = "Scan deze QR-Code op een apparaat waar je al op ingelogd bent.";
 
-"NFd-zA-OpX.text" = "Persoonlijk profiel";
+"NFd-zA-OpX.text" = "Account";

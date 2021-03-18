@@ -140,7 +140,7 @@
 "let_shopkeeper_scan_it_to_make_validtion_to_your_record" = "Let the shopkeeper scan it to make a validtion to your record %@.";
 "your_session_has_expired" = "Your session has expired. You are being logged out.";
 "expired_session" = "Expired session";
-"click_on_link_you_received_continue" = "Click on the link you received on %@ to continue";
+"click_on_link_you_received_continue" = "An e-mail has been sent to %@. Click the link in the email to sign up.";
 "ok" = "OK";
 "validation_approved" = "Validation approved.";
 "complete_amount" = "COMPLETE AN AMOUNT";
@@ -176,6 +176,18 @@
 "personal_account" = "Personal account";
 "tap_here_you_want_to_see_list_transaction" = "Tap here if you want to see your list of transactions";
 "choose_from_date" = "Choose from date";
+"update_is_available" = "New update is available, update your application!";
+"close" = "Close";
+"price_agreement" = "Price agreement";
+"more_information_price_agreement" = "More information about price agreement";
+"paid_by_customer" = "The customer needs to pay folowing amount";
+"total_price" = "Total price";
+"discout_by" = "Discount by %@";
+"subsid_by" = "Subsidy by %@";
+"what_customer_pays" = "What customer pays";
+"free" = "Free";
+"discount" = "Discount";
+"offers" = "Offers";
 "do_you_want_to_login" = "Do you want to login on this device?";
 "description_of_auth_anothe_device" = "Scan only QR-codes on devices you own or temporarily use. Never scan a code which was sent or shown by another person.";
 "i_want_to_login" = "Yes, I want to login";

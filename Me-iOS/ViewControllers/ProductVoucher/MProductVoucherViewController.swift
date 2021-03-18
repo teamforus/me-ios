@@ -25,6 +25,8 @@ class MProductVoucherViewController: UIViewController {
     @IBOutlet weak var sendEmailButton: ShadowButton!
     @IBOutlet weak var voucherInfoButton: ShadowButton!
     @IBOutlet weak var callPhoneButton: UIButton!
+    @IBOutlet weak var buttonsView: Background_DarkMode!
+    @IBOutlet weak var heightConstraintsHeaderView: NSLayoutConstraint!
     
     
     @IBOutlet var labeles: [SkeletonView]!
@@ -43,7 +45,8 @@ class MProductVoucherViewController: UIViewController {
         labeles.forEach { (view) in
             view.startAnimating()
         }
-        
+        self.heightConstraintsHeaderView.constant = 222
+        self.qrCodeButton.isEnabled = false
         images.forEach { (view) in
             view.startAnimating()
         }
@@ -51,6 +54,14 @@ class MProductVoucherViewController: UIViewController {
             
             DispatchQueue.main.async {
                 
+                if voucher.expire_at?.date?.formatDate() ?? Date() > Date() {
+                    self?.qrCodeImage.isHidden = false
+                    self?.sendEmailButton.isHidden = false
+                    self?.voucherInfoButton.isHidden = false
+                    self?.buttonsView.isHidden = false
+                    self?.heightConstraintsHeaderView.constant = 322
+                    self?.qrCodeButton.isEnabled = true
+                }
                 
                 self?.productNameLabel.text = voucher.product?.name ?? ""
                 self?.organizationNameLabel.text = voucher.fund?.organization?.name ?? ""
@@ -62,6 +73,7 @@ class MProductVoucherViewController: UIViewController {
                 self?.qrCodeImage.generateQRCode(from: "{\"type\": \"voucher\",\"value\": \"\(voucher.address ?? "")\" }")
                 self?.voucher = voucher
                 
+    
                 //organizationLabel gesture
                 self?.emailButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self?.Tap)))
                 self?.emailButton.addGestureRecognizer(UILongPressGestureRecognizer(target: self, action: #selector(self?.Long)))
@@ -295,7 +307,7 @@ extension MProductVoucherViewController: AccessibilityProtocol {
         qrCodeImage.setupAccesibility(description: "Voucher QR Code", accessibilityTraits: .image)
         qrCodeButton.setupAccesibility(description: "Tap to open qr code modal", accessibilityTraits: .button)
         sendEmailButton.setupAccesibility(description: "Send voucher by email", accessibilityTraits: .button)
-        voucherInfoButton.setupAccesibility(description: "Open voucher info", accessibilityTraits: .button)
+        voucherInfoButton.setupAccesibility(description: "View offers", accessibilityTraits: .button)
         mapView.setupAccesibility(description: "Tap to select map options", accessibilityTraits: .button)
         callPhoneButton.setupAccesibility(description: "Tap to call", accessibilityTraits: .button)
         emailButton.setupAccesibility(description: "Tap to send email", accessibilityTraits: .button)

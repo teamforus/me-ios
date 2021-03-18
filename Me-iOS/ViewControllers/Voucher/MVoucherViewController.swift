@@ -11,35 +11,42 @@ import SafariServices
 
 class MVoucherViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var dateCreated: UILabel!
-    @IBOutlet weak var voucherName: UILabel!
-    @IBOutlet weak var organizationName: UILabel!
-    @IBOutlet weak var priceLabel: UILabel!
-    @IBOutlet weak var qrImage: UIImageView!
+    @IBOutlet weak var dateCreated: UILabel_DarkMode!
+    @IBOutlet weak var voucherName: UILabel_DarkMode!
+    @IBOutlet weak var organizationName: UILabel_DarkMode!
+    @IBOutlet weak var priceLabel: UILabel_DarkMode!
+    @IBOutlet weak var qrCodeImage: UIImageView!
     @IBOutlet weak var heightConstraint: NSLayoutConstraint!
     @IBOutlet weak var sendEmailButton: ShadowButton!
     @IBOutlet weak var voucherInfoButton: ShadowButton!
+    @IBOutlet weak var buttonsView: UIView!
     @IBOutlet weak var qrCodeButton: UIButton!
-  
+    @IBOutlet weak var historyLabel: UILabel_DarkMode!
+    @IBOutlet weak var activatedLabel: UILabel!
+    @IBOutlet weak var titleLabel: UILabel_DarkMode!
+    
     lazy var voucherViewModel: VoucherViewModel = {
         return VoucherViewModel()
     }()
     var address: String!
     var voucher: Voucher!
-    @IBOutlet var labeles: [SkeletonView]!
     @IBOutlet var images: [SkeletonUIImageView]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupAccessibility()
-       
+        self.heightConstraint.constant = 260
+        self.qrCodeButton.isEnabled = false
         
         images.forEach { (view) in
             view.startAnimating()
         }
         voucherViewModel.reloadDataVoucher = { [weak self] (voucher) in
             
-            DispatchQueue.main.async {
+          DispatchQueue.main.async { [self] in
+              if voucher.fund?.type == FundType.subsidies.rawValue {
+                self!.voucherInfoButton?.setTitle(Localize.offers(), for: .normal)
+              }
                 self?.priceLabel.isHidden = voucher.fund?.type == FundType.subsidies.rawValue
                 self?.voucherName.text = voucher.fund?.name ?? ""
                 self?.organizationName.text = voucher.fund?.organization?.name ?? ""
@@ -54,8 +61,18 @@ class MVoucherViewController: UIViewController {
                     self?.priceLabel.text = "€ 0,0"
                 }
                 
-                self?.qrImage.generateQRCode(from: "{\"type\": \"voucher\",\"value\": \"\(voucher.address ?? "")\" }")
-                self?.dateCreated.text = voucher.created_at_locale
+                if voucher.expire_at?.date?.formatDate() ?? Date() >= Date() {
+                    self?.qrCodeImage.isHidden = false
+                    self?.sendEmailButton.isHidden = false
+                    self?.voucherInfoButton.isHidden = false
+                    self?.buttonsView.isHidden = false
+                    self?.heightConstraint.constant = 322
+                    self?.qrCodeButton.isEnabled = true
+                }
+                self?.historyLabel.isHidden = false
+                self?.activatedLabel.isHidden = false
+                self?.qrCodeImage.generateQRCode(from: "{\"type\": \"voucher\",\"value\": \"\(voucher.address ?? "")\" }")
+                self?.dateCreated.text = voucher.created_at?.dateFormaterNormalDate()
                 self?.voucher = voucher
                 
                 self?.images.forEach { (view) in
@@ -151,8 +168,10 @@ extension MVoucherViewController: UITableViewDelegate, UITableViewDataSource{
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TransactionTableViewCell
         
-        cell.transaction = voucherViewModel.getCellViewModel(at: indexPath)
-        
+        let transaction = voucherViewModel.getCellViewModel(at: indexPath)
+        if let voucher = self.voucher {
+            cell.configure(transaction: transaction, isSubsidies: voucher.fund?.type == FundType.subsidies.rawValue)
+        }
         return cell
     }
     
@@ -167,7 +186,7 @@ extension MVoucherViewController: UITableViewDelegate, UITableViewDataSource{
 extension MVoucherViewController: AccessibilityProtocol {
     func setupAccessibility() {
         sendEmailButton.setupAccesibility(description: "Send voucher on email", accessibilityTraits: .button)
-        voucherInfoButton.setupAccesibility(description: "Go to voucher info", accessibilityTraits: .button)
+        voucherInfoButton.setupAccesibility(description: "Go to view offers", accessibilityTraits: .button)
         qrCodeButton.setupAccesibility(description: "Tap to open qr code modal", accessibilityTraits: .button)
    }
 }
