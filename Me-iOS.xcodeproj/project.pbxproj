@@ -164,7 +164,6 @@
 		65B3784D22C241F50095A2EF /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B3784C22C241F50095A2EF /* Reachability.swift */; };
 		65B4DE3E22A15F5C00AFC878 /* SuccessEmailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B4DE3D22A15F5C00AFC878 /* SuccessEmailViewModel.swift */; };
 		65B4DE4622A17F8600AFC878 /* Extension+Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B4DE4522A17F8600AFC878 /* Extension+Data.swift */; };
-		65BDB8632292CFFC0016296C /* PausedMarqueLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BDB8622292CFFC0016296C /* PausedMarqueLabel.swift */; };
 		65BDB8652292D5170016296C /* DownloadImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BDB8642292D5160016296C /* DownloadImage.swift */; };
 		65CF407B228C0B8F0006F5DE /* Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CF407A228C0B8F0006F5DE /* Register.swift */; };
 		65CF407D228C0BBD0006F5DE /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CF407C228C0BBD0006F5DE /* Errors.swift */; };
@@ -462,7 +461,6 @@
 		65B4DE4322A17E7800AFC878 /* Me.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Me.entitlements; sourceTree = "<group>"; };
 		65B4DE4422A17E9000AFC878 /* Me-iOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Me-iOS.entitlements"; sourceTree = "<group>"; };
 		65B4DE4522A17F8600AFC878 /* Extension+Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Extension+Data.swift"; path = "../Extension+Data.swift"; sourceTree = "<group>"; };
-		65BDB8622292CFFC0016296C /* PausedMarqueLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PausedMarqueLabel.swift; sourceTree = "<group>"; };
 		65BDB8642292D5160016296C /* DownloadImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadImage.swift; sourceTree = "<group>"; };
 		65CF407A228C0B8F0006F5DE /* Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Register.swift; sourceTree = "<group>"; };
 		65CF407C228C0BBD0006F5DE /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
@@ -560,7 +558,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				EBA8A6DE91260768B5722478 /* Pods_Me_iOS.framework in Frameworks */,
-				4D565DC2720C6F96846BD8CD /* Pods_Me_iOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -775,7 +772,6 @@
 		65139C3F228029C0003E0CDE /* AppLocker */ = {
 			isa = PBXGroup;
 			children = (
-				65BDB8622292CFFC0016296C /* PausedMarqueLabel.swift */,
 				65139C40228029C0003E0CDE /* backspaceBlue@3x.png */,
 				65139C41228029C0003E0CDE /* backspaceBlue@2x.png */,
 				65139C42228029C0003E0CDE /* LICENSE */,
@@ -1712,7 +1708,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1020;
-				LastUpgradeCheck = 1020;
+				LastUpgradeCheck = 1200;
 				ORGANIZATIONNAME = "Tcacenco Daniel";
 				TargetAttributes = {
 					65139C0122802545003E0CDE = {
@@ -1992,7 +1988,6 @@
 				042D7DAC24C74575004AD8C7 /* UIButton_DarkMode.swift in Sources */,
 				65A8B7302282EBD000B7DF05 /* ProductVoucherViewModel.swift in Sources */,
 				65A8B6EE2282CE4500B7DF05 /* CommonBottomViewController.swift in Sources */,
-				65BDB8632292CFFC0016296C /* PausedMarqueLabel.swift in Sources */,
 				65139C5F228029EF003E0CDE /* ShadowButton.swift in Sources */,
 				657DBA46228983CB00C67500 /* Extension+UIImageView.swift in Sources */,
 				65139C64228029EF003E0CDE /* CornerImageView.swift in Sources */,
@@ -2437,6 +2432,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -2459,6 +2455,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -2498,6 +2495,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -2520,6 +2518,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -2559,7 +2558,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = FNTR3V85ZM;
 				INFOPLIST_FILE = "Me-iOS/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -2584,7 +2583,7 @@
 				DEVELOPMENT_TEAM = FNTR3V85ZM;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				INFOPLIST_FILE = "Me-iOS/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -2685,6 +2684,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -2707,6 +2707,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -2749,7 +2750,7 @@
 				ENABLE_TESTABILITY = NO;
 				GCC_OPTIMIZATION_LEVEL = s;
 				INFOPLIST_FILE = "Me-iOS/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -2810,6 +2811,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -2832,6 +2834,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -2872,7 +2875,7 @@
 				DEVELOPMENT_TEAM = FNTR3V85ZM;
 				GCC_OPTIMIZATION_LEVEL = s;
 				INFOPLIST_FILE = "Me-iOS/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
