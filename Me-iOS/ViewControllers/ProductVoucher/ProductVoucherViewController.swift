@@ -155,29 +155,34 @@ extension ProductVoucherViewController: UITableViewDelegate, UITableViewDataSour
             guard let cell = tableView.dequeueReusableCell(withIdentifier: MInfoVoucherTableViewCell.identifier, for: indexPath) as? MInfoVoucherTableViewCell else {
                 return UITableViewCell()
             }
+          //cell.setupVoucher(voucher: voucher)
             return cell
         case .mapDetail:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: MMapDetailsTableViewCell.identifier, for: indexPath) as? MMapDetailsTableViewCell else {
                 return UITableViewCell()
             }
+          cell.setupVoucher(voucher: voucher)
             return cell
             
         case .adress:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: MAdressTableViewCell.identifier, for: indexPath) as? MAdressTableViewCell else {
                 return UITableViewCell()
             }
+          cell.setupVoucher(voucher: voucher)
             return cell
             
         case .telephone:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: MTelephoneTableViewCell.identifier, for: indexPath) as? MTelephoneTableViewCell else {
                 return UITableViewCell()
             }
+          cell.setupVoucher(voucher: voucher)
             return cell
             
         case .branches:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: MBranchesTableViewCell.identifier, for: indexPath) as? MBranchesTableViewCell else {
                 return UITableViewCell()
             }
+         // cell.setupVoucher(voucher: voucher)
             return cell
             
         }

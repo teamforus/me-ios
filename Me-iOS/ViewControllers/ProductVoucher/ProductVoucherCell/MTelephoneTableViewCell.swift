@@ -10,6 +10,7 @@ import UIKit
 
 class MTelephoneTableViewCell: UITableViewCell {
   static let identifier = "MTelephoneTableViewCell"
+  var voucher: Voucher!
 
   private let bodyView: UIView = {
       let bodyView = UIView(frame: .zero)
@@ -59,6 +60,12 @@ class MTelephoneTableViewCell: UITableViewCell {
   required init?(coder: NSCoder) {
       super.init(coder: coder)
   }
+  
+  func setupVoucher(voucher: Voucher?) {
+    self.infoTitleLabel.text = voucher?.offices?.first?.phone ?? ""
+    
+  }
+  
 }
 
 extension MTelephoneTableViewCell {

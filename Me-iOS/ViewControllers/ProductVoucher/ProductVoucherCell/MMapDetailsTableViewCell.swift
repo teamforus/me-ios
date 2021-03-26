@@ -11,6 +11,7 @@ import MapKit
 
 class MMapDetailsTableViewCell: UITableViewCell {
   static let identifier = "MMapDetailsTableViewCell"
+  var voucher: Voucher!
   
   private let bodyView: UIView = {
       let bodyView = UIView(frame: .zero)
@@ -59,11 +60,15 @@ class MMapDetailsTableViewCell: UITableViewCell {
       self.backgroundColor = #colorLiteral(red: 0.9685223699, green: 0.9686879516, blue: 0.9685119987, alpha: 1)
   }
   
+  func setupVoucher(voucher: Voucher?) {
+    self.titleLabel.text = voucher?.fund?.organization?.name ?? ""
+    self.subTitleLabel.text = voucher?.product?.organization?.name ?? ""
+    self.iconImage.loadImageUsingUrlString(urlString: voucher?.product?.organization?.logo?.sizes?.thumbnail ?? "", placeHolder: #imageLiteral(resourceName: "Resting"))
+  }
+  
   required init?(coder: NSCoder) {
       super.init(coder: coder)
   }
-  
-  
 }
 
 extension MMapDetailsTableViewCell {

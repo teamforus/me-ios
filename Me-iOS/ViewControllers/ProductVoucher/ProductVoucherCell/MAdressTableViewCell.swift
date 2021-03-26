@@ -10,6 +10,7 @@ import UIKit
 
 class MAdressTableViewCell: UITableViewCell {
   static let identifier = "MAdressTableViewCell"
+  var voucher: Voucher!
   
   private let bodyView: UIView = {
       let bodyView = UIView(frame: .zero)
@@ -20,7 +21,7 @@ class MAdressTableViewCell: UITableViewCell {
   
   private let titleLabel: UILabel = {
     let label = UILabel(frame: .zero)
-    label.text = "Adres"
+    label.text = "Address"
     label.textColor = #colorLiteral(red: 0.396032095, green: 0.3961050212, blue: 0.3960274756, alpha: 1)
     label.font = R.font.googleSansRegular(size: 14)
     return label
@@ -50,6 +51,11 @@ class MAdressTableViewCell: UITableViewCell {
   
   required init?(coder: NSCoder) {
       super.init(coder: coder)
+  }
+  
+  func setupVoucher(voucher: Voucher?) {
+    self.infoTitleLabel.text = voucher?.offices?.first?.address ?? ""
+    
   }
   
 }
