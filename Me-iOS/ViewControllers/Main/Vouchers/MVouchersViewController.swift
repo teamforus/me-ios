@@ -243,10 +243,11 @@ extension MVouchersViewController: UITableViewDelegate, UITableViewDataSource{
         case .vouchers?:
             
             self.voucherViewModel.userPressed(at: indexPath)
-            
+            let voucher = voucherViewModel.getCellViewModel(at: indexPath)
             if voucherViewModel.isAllowSegue {
                 if voucherViewModel.selectedVoucher?.product != nil {
                   let vc = ProductVoucherViewController()
+                  vc.address = voucher.address ?? ""
                   vc.hidesBottomBarWhenPushed = true
                   self.show(vc, sender: nil)
                   

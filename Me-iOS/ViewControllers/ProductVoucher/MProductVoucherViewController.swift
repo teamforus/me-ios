@@ -54,8 +54,7 @@ class MProductVoucherViewController: UIViewController{
         images.forEach { (view) in
             view.startAnimating()
         }
-      
-        productViewModel.complete = { [weak self] (voucher) in
+      productViewModel.complete = { [weak self] (voucher) in
             DispatchQueue.main.async {
                 if voucher.expire_at?.date?.formatDate() ?? Date() > Date() {
                     self?.qrCodeImage.isHidden = false
@@ -65,7 +64,6 @@ class MProductVoucherViewController: UIViewController{
                     self?.heightConstraintsHeaderView.constant = 322
                     self?.qrCodeButton.isEnabled = true
                 }
-                
                 self?.productNameLabel.text = voucher.product?.name ?? ""
                 self?.organizationNameLabel.text = voucher.fund?.organization?.name ?? ""
                 self?.organizationProductName.text = voucher.product?.organization?.name ?? ""
@@ -75,8 +73,6 @@ class MProductVoucherViewController: UIViewController{
                 self?.organizationIcon.loadImageUsingUrlString(urlString: voucher.product?.organization?.logo?.sizes?.thumbnail ?? "", placeHolder: #imageLiteral(resourceName: "Resting"))
                 self?.qrCodeImage.generateQRCode(from: "{\"type\": \"voucher\",\"value\": \"\(voucher.address ?? "")\" }")
                 self?.voucher = voucher
-                
-    
                 //organizationLabel gesture
                 self?.emailButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self?.Tap)))
                 self?.emailButton.addGestureRecognizer(UILongPressGestureRecognizer(target: self, action: #selector(self?.Long)))
@@ -89,7 +85,6 @@ class MProductVoucherViewController: UIViewController{
                 if let longitudeValue = voucher.offices?.first?.lon, let lon = Double(longitudeValue) {
                     self?.longitude = lon
                 }
-                
                 self?.mapView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self?.goToMap)))
                 let viewRegion = MKCoordinateRegion( center: CLLocationCoordinate2D(latitude: self?.latitude ?? 0.0 , longitude: self?.longitude ?? 0.0), latitudinalMeters: 10000, longitudinalMeters: 10000)
                 self?.mapView.setRegion(viewRegion, animated: false)
@@ -99,7 +94,6 @@ class MProductVoucherViewController: UIViewController{
                     
                     self?.mapView.addAnnotation((self?.setAnnotation(lattitude: self?.latitude ?? 0.0, longitude: self?.longitude ?? 0.0))!)
                 })
-                
                 self?.labeles.forEach { (view) in
                     view.stopAnimating()
                 }
@@ -130,24 +124,17 @@ class MProductVoucherViewController: UIViewController{
     }
     
     @IBAction func sendByEmail(_ sender: Any) {
-        
         productViewModel.completeSendEmail = { [weak self] (statusCode) in
-            
-            DispatchQueue.main.async {
-                
-                self?.showPopUPWithAnimation(vc: SuccessSendingViewController(nib: R.nib.successSendingViewController))
-                
-            }
+         DispatchQueue.main.async {
+          self?.showPopUPWithAnimation(vc: SuccessSendingViewController(nib: R.nib.successSendingViewController))
+           }
         }
-        
         showSimpleAlertWithAction(title: Localize.email_to_me(),
-                                  message: Localize.send_an_email_to_the_provider(),
-                                  okAction: UIAlertAction(title: Localize.confirm(), style: .default, handler: { (action) in
-                                    
-                                    self.productViewModel.sendEmail(address: self.voucher.address ?? "")
-                                    
-                                  }),
-                                  cancelAction: UIAlertAction(title: Localize.cancel(), style: .cancel, handler: nil))
+              message: Localize.send_an_email_to_the_provider(),
+              okAction: UIAlertAction(title: Localize.confirm(), style: .default, handler: { (action) in
+              self.productViewModel.sendEmail(address: self.voucher.address ?? "")
+               }),
+              cancelAction: UIAlertAction(title: Localize.cancel(), style: .cancel, handler: nil))
     }
     
     @IBAction func info(_ sender: Any) {

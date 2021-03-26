@@ -12,6 +12,7 @@ class MProductVoucherTableViewCell: UITableViewCell {
   
   static let identifier = "MProductVoucherTableViewCell"
   
+  var voucher: Voucher!
   private let imageVoucher: UIImageView = {
     let imageVoucher = UIImageView(frame: .zero)
     imageVoucher.image = UIImage(named: "5XVoucherContainerWElevation")
@@ -46,13 +47,17 @@ class MProductVoucherTableViewCell: UITableViewCell {
     super.init(coder: coder)
   }
   
+  func setupVoucher(voucher: Voucher?) {
+    self.labelVoucher.text = voucher?.product?.name ?? ""
+    self.imageQRCodeVoucher.generateQRCode(from: "{\"type\": \"voucher\",\"value\": \"\(voucher?.address ?? "")\" }")
+  }
   
   
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
    }
   
-  
+  // funct set dATA  SI AICI DE DATELE
   
   
   func addSubviews() {
