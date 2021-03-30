@@ -1,7 +1,5 @@
 PODS:
   - BWWalkthrough (3.0.0)
-  - Crashlytics (3.12.0):
-    - Fabric (~> 1.9.0)
   - Fabric (1.9.0)
   - IQKeyboardManagerSwift (6.2.0)
   - ISHPullUp (1.0.7)
@@ -12,7 +10,6 @@ PODS:
 
 DEPENDENCIES:
   - BWWalkthrough
-  - Crashlytics
   - Fabric
   - IQKeyboardManagerSwift
   - ISHPullUp
@@ -22,7 +19,6 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - BWWalkthrough
-    - Crashlytics
     - Fabric
     - IQKeyboardManagerSwift
     - ISHPullUp
@@ -33,14 +29,13 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   BWWalkthrough: b86abce6aa2e4ce21e36a12a277fa6e89a5db075
-  Crashlytics: 07fb167b1694128c1c9a5a5cc319b0e9c3ca0933
-  Fabric: f988e33c97f08930a413e08123064d2e5f68d655
+  Fabric: 09ef2d9b99b104702bede1acaf469fb8f20a9146
   IQKeyboardManagerSwift: b07ccf9d8cafe993dcd6cb794eb4ba34611a0c4e
   ISHPullUp: eaa91bef06270264e1f923bc764705173d341495
   R.swift: 8cbc4fc69b740305b6a17c8a8ed968eb788962d9
   R.swift.Library: fa85ce1e0d0b7e818cd9e080df910ba54d2776cc
   SkyFloatingLabelTextField: 38164979b79512f9ff9288ad8acfc4bbf5d843e3
 
-PODFILE CHECKSUM: 7e073e09ece99db3a148362b74f05163ab7731cf
+PODFILE CHECKSUM: 763a09a7a84ea8f3d7e7ede849aa7c2e66a7a1af
 
-COCOAPODS: 1.9.0
+COCOAPODS: 1.9.3

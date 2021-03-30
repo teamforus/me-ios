@@ -18,7 +18,6 @@ pod 'ISHPullUp'
 pod 'SkyFloatingLabelTextField'
 pod 'BWWalkthrough'
 pod 'Fabric'
-pod 'Crashlytics'
 pod 'IQKeyboardManagerSwift'
 pod 'R.swift'
 

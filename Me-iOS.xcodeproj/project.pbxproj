@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -16,10 +16,6 @@
 		045E5A3425A7518600E338F7 /* Sponsor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045E5A3325A7518600E338F7 /* Sponsor.swift */; };
 		0483DBC124BF3F250074BBA9 /* UILabel_DarkMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0483DBC024BF3F250074BBA9 /* UILabel_DarkMode.swift */; };
 		0499FF282594C0060009C7A4 /* MConfirmAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0499FF272594C0060009C7A4 /* MConfirmAuthViewController.swift */; };
-		21BC9E5E15D09EB33DC67D18 /* Pods_Me_iOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE3A145130ABDFB2E6FA90DA /* Pods_Me_iOSTests.framework */; };
-		3073C31D42060DC36B5A5CF0 /* Pods_Me_iOSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2F0B90D6C19CBE208831044 /* Pods_Me_iOSUITests.framework */; };
-		3EA270A8D4692C1FB4DDDD4D /* Pods_Me_iOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F5A2CBF3A5DDA911CDEBF20 /* Pods_Me_iOSTests.framework */; };
-		4D565DC2720C6F96846BD8CD /* Pods_Me_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9745E3CC551173A1E968B358 /* Pods_Me_iOS.framework */; };
 		50B2CFD78E86F34D7A81BF7F /* Pods_Me_iOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2B12B043656848EE23CDF37 /* Pods_Me_iOSTests.framework */; };
 		5B10CCAC240D021C00199C28 /* BottomQrWithPinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B10CCAA240D021C00199C28 /* BottomQrWithPinViewController.swift */; };
 		5B10CCB0240D1FD900199C28 /* EnablePersonalInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B10CCAF240D1FD900199C28 /* EnablePersonalInformationViewController.swift */; };
@@ -227,6 +223,9 @@
 		FFB76E1424E94AC200CFB195 /* RectangleLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB76DF824E948B700CFB195 /* RectangleLayer.swift */; };
 		FFB76E1524E94AC200CFB195 /* StatusTitleLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB76DF924E948B700CFB195 /* StatusTitleLayer.swift */; };
 		FFB76E1624E94AC800CFB195 /* ic_check_3x.png in Resources */ = {isa = PBXBuildFile; fileRef = FFB76E0324E9490600CFB195 /* ic_check_3x.png */; };
+		FFBD74D9261385CE00B44B87 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = FFBD74D8261385CE00B44B87 /* FirebaseAnalytics */; };
+		FFBD74DB261385CE00B44B87 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = FFBD74DA261385CE00B44B87 /* FirebaseAuth */; };
+		FFBD74DD261385CE00B44B87 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = FFBD74DC261385CE00B44B87 /* FirebaseCrashlytics */; };
 		FFC38D4424FA7DFA001C0DA2 /* MTransactionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC38D4324FA7DFA001C0DA2 /* MTransactionsViewController.swift */; };
 		FFCE835B24B881B1001082B1 /* Extension+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCE835A24B881B1001082B1 /* Extension+UIView.swift */; };
 		FFE731C224CEEB760064C7D5 /* BackgroundScrollView_DarkMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE731C124CEEB760064C7D5 /* BackgroundScrollView_DarkMode.swift */; };
@@ -557,6 +556,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FFBD74D9261385CE00B44B87 /* FirebaseAnalytics in Frameworks */,
+				FFBD74DD261385CE00B44B87 /* FirebaseCrashlytics in Frameworks */,
+				FFBD74DB261385CE00B44B87 /* FirebaseAuth in Frameworks */,
 				EBA8A6DE91260768B5722478 /* Pods_Me_iOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1659,6 +1661,11 @@
 			dependencies = (
 			);
 			name = "Me-iOS";
+			packageProductDependencies = (
+				FFBD74D8261385CE00B44B87 /* FirebaseAnalytics */,
+				FFBD74DA261385CE00B44B87 /* FirebaseAuth */,
+				FFBD74DC261385CE00B44B87 /* FirebaseCrashlytics */,
+			);
 			productName = "Me-iOS";
 			productReference = 65139C0222802545003E0CDE /* Me-iOS.app */;
 			productType = "com.apple.product-type.application";
@@ -1742,6 +1749,9 @@
 				nl,
 			);
 			mainGroup = 65139BF922802545003E0CDE;
+			packageReferences = (
+				FFBD74D7261385CE00B44B87 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = 65139C0322802545003E0CDE /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -2979,6 +2989,35 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		FFBD74D7261385CE00B44B87 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.9.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		FFBD74D8261385CE00B44B87 /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FFBD74D7261385CE00B44B87 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		FFBD74DA261385CE00B44B87 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FFBD74D7261385CE00B44B87 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		FFBD74DC261385CE00B44B87 /* FirebaseCrashlytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FFBD74D7261385CE00B44B87 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCrashlytics;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		65139C0C22802545003E0CDE /* MeApp.xcdatamodeld */ = {
