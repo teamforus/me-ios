@@ -12,6 +12,8 @@ import MapKit
 class MMapDetailsTableViewCell: UITableViewCell {
   static let identifier = "MMapDetailsTableViewCell"
   var voucher: Voucher!
+  var latitude: Double!
+  var longitude: Double!
   
   private let bodyView: UIView = {
       let bodyView = UIView(frame: .zero)
@@ -64,6 +66,44 @@ class MMapDetailsTableViewCell: UITableViewCell {
     self.titleLabel.text = voucher?.fund?.organization?.name ?? ""
     self.subTitleLabel.text = voucher?.product?.organization?.name ?? ""
     self.iconImage.loadImageUsingUrlString(urlString: voucher?.product?.organization?.logo?.sizes?.thumbnail ?? "", placeHolder: #imageLiteral(resourceName: "Resting"))
+    if let latitudeValue = voucher?.offices?.first?.lat, let lat = Double(latitudeValue) {
+      self.latitude = lat
+    }
+    
+    if let longitudeValue = voucher?.offices?.first?.lon, let lon = Double(longitudeValue) {
+      self.longitude = lon
+    }
+    self.mapView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.goToMap)))
+    let viewRegion = MKCoordinateRegion( center: CLLocationCoordinate2D(latitude: self.latitude ?? 0.0 , longitude: self.longitude ?? 0.0), latitudinalMeters: 10000, longitudinalMeters: 10000)
+    self.mapView.setRegion(viewRegion, animated: false)
+    self.mapView.region = viewRegion
+    
+    voucher?.offices?.forEach({ (office) in
+        
+      self.mapView.addAnnotation((self.setAnnotation(lattitude: self.latitude ?? 0.0, longitude: self.longitude ?? 0.0)))
+    })
+  
+  }
+  
+  func showSimpleToast(message : String) {
+      
+      let toastLabel = UILabel(frame: CGRect(x: 15, y: self.contentView.frame.size.height-100, width: self.contentView.frame.size.width - 30, height: 35))
+      toastLabel.backgroundColor = UIColor.black.withAlphaComponent(0.6)
+      toastLabel.textColor = UIColor.white
+      toastLabel.textAlignment = .center;
+      toastLabel.font = UIFont(name: "GoogleSans-Regular", size: 11.0)
+      toastLabel.text = message
+      toastLabel.alpha = 1.0
+      toastLabel.layer.cornerRadius = 10;
+      toastLabel.clipsToBounds  =  true
+      
+      
+      self.contentView.addSubview(toastLabel)
+      UIView.animate(withDuration: 5.0, delay: 0.9, options: .curveEaseOut, animations: {
+          toastLabel.alpha = 0.0
+      }, completion: {(isCompleted) in
+          toastLabel.removeFromSuperview()
+      })
   }
   
   required init?(coder: NSCoder) {
@@ -114,5 +154,104 @@ extension MMapDetailsTableViewCell {
         mapView.trailingAnchor.constraint(equalTo: self.bodyView.trailingAnchor, constant: -3)
       ])
       
+    }
+}
+
+
+extension MMapDetailsTableViewCell {
+  @objc func Long() {
+      UIPasteboard.general.string = self.voucher.offices?.first?.organization?.email
+      self.showSimpleToast(message: Localize.copied_to_clipboard())
+  }
+  
+  @objc func goToMap(){
+      let actionSheet = UIAlertController.init(title: Localize.address(), message: nil, preferredStyle: .actionSheet)
+      
+      //open apple maps
+      actionSheet.addAction(UIAlertAction.init(title: "Open in Apple Maps", style: UIAlertAction.Style.default, handler: { (action) in
+          
+          self.openMapForPlace(lattitude: self.latitude ?? 0.0, longitude: self.longitude ?? 0.0)
+      }))
+      
+      //open google maps
+      actionSheet.addAction(UIAlertAction.init(title: "Open in Google Maps", style: UIAlertAction.Style.default, handler: { (action) in
+          if (UIApplication.shared.canOpenURL(URL(string:"comgooglemaps://")!))
+          {
+              UIApplication.shared.open(URL(string:
+                  "comgooglemaps://?q=\(self.latitude ?? 0.0),\(self.longitude ?? 0.0)")!, options: [:], completionHandler: { (succes) in
+              })
+          } else if (UIApplication.shared.canOpenURL(URL(string:"https://maps.google.com")!))
+          {
+              UIApplication.shared.open(URL(string:
+                  "https://maps.google.com/?q=\(self.latitude ?? 0.0),\(self.longitude ?? 0.0)")!, options: [:], completionHandler: { (succes) in
+              })
+          }
+      }))
+      
+      //copy to clipboard
+      actionSheet.addAction(UIAlertAction.init(title: Localize.copy_address(), style: UIAlertAction.Style.default, handler: { (action) in
+          UIPasteboard.general.string = self.voucher.offices?.first?.address
+          self.showSimpleToast(message: Localize.copied_to_clipboard())
+      }))
+      actionSheet.addAction(UIAlertAction.init(title: Localize.cancel(), style: UIAlertAction.Style.cancel, handler: { (action) in
+      }))
+      //Present the controller
+      actionSheet.popoverPresentationController?.sourceView = mapView
+      actionSheet.popoverPresentationController?.sourceRect = mapView.frame
+     // self.present(actionSheet, animated: true)
+  }
+  
+  func setAnnotation(lattitude: Double, longitude: Double) -> CustomPointAnnotation{
+      let annotation = CustomPointAnnotation()
+      annotation.coordinate = CLLocationCoordinate2DMake(lattitude, longitude)
+      annotation.imageName = "carLocation"
+      return annotation
+  }
+  
+  func openMapForPlace(lattitude: Double, longitude: Double) {
+      
+      let latitude: CLLocationDegrees = lattitude
+      let longitude: CLLocationDegrees = longitude
+      
+      let regionDistance:CLLocationDistance = 10000
+      let coordinates = CLLocationCoordinate2DMake(latitude, longitude)
+      let regionSpan = MKCoordinateRegion(center: coordinates, latitudinalMeters: regionDistance, longitudinalMeters: regionDistance)
+      let options = [
+          MKLaunchOptionsMapCenterKey: NSValue(mkCoordinate: regionSpan.center),
+          MKLaunchOptionsMapSpanKey: NSValue(mkCoordinateSpan: regionSpan.span)
+      ]
+      let placemark = MKPlacemark(coordinate: coordinates, addressDictionary: nil)
+      let mapItem = MKMapItem(placemark: placemark)
+      mapItem.name = "Address Name"
+      mapItem.openInMaps(launchOptions: options)
+  }
+}
+
+extension MMapDetailsTableViewCell: MKMapViewDelegate{
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        if !(annotation is CustomPointAnnotation) {
+            return nil
+        }
+        let reuseId = "annotation"
+        var anView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseId)
+        if anView == nil {
+            anView = MKAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
+            anView?.canShowCallout = true
+        }
+        else {
+            anView?.annotation = annotation
+        }
+        let cpa = annotation as! CustomPointAnnotation
+        anView?.image = UIImage(named:cpa.imageName)
+        
+        return anView
+    }
+    
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+        let circle = MKCircleRenderer(overlay: overlay)
+        circle.strokeColor = #colorLiteral(red: 0.3073092699, green: 0.4766488671, blue: 0.9586974978, alpha: 1)
+        circle.fillColor = #colorLiteral(red: 0.746714294, green: 0.8004079461, blue: 0.9871394038, alpha: 0.7)
+        circle.lineWidth = 1
+        return circle
     }
 }

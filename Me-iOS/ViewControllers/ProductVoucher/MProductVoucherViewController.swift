@@ -94,6 +94,8 @@ class MProductVoucherViewController: UIViewController{
                     
                     self?.mapView.addAnnotation((self?.setAnnotation(lattitude: self?.latitude ?? 0.0, longitude: self?.longitude ?? 0.0))!)
                 })
+              
+              
                 self?.labeles.forEach { (view) in
                     view.stopAnimating()
                 }
