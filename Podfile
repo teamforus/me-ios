@@ -15,10 +15,7 @@ target 'Me-iOS' do
 
   # Pods for Me-iOS
 pod 'ISHPullUp'
-pod 'SkyFloatingLabelTextField'
-pod 'BWWalkthrough'
 pod 'Fabric'
-pod 'IQKeyboardManagerSwift'
 pod 'R.swift'
 
   target 'Me-iOSTests' do

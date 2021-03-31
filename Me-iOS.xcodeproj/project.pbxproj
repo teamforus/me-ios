@@ -193,6 +193,9 @@
 		FF5691272514BFB500CD0343 /* MDatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5691232514BFB500CD0343 /* MDatePickerView.swift */; };
 		FF5691282514BFB500CD0343 /* TextLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF56911F2514BFB400CD0343 /* TextLabel.swift */; };
 		FF5691292514BFB500CD0343 /* CalendarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5691202514BFB400CD0343 /* CalendarController.swift */; };
+		FF5F70A92614BC7B006770EB /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = FF5F70A82614BC7B006770EB /* IQKeyboardManagerSwift */; };
+		FF5F70AF2614BD1A006770EB /* BWWalkthrough in Frameworks */ = {isa = PBXBuildFile; productRef = FF5F70AE2614BD1A006770EB /* BWWalkthrough */; };
+		FF5F70B52614BD79006770EB /* SkyFloatingLabelTextField in Frameworks */ = {isa = PBXBuildFile; productRef = FF5F70B42614BD79006770EB /* SkyFloatingLabelTextField */; };
 		FF6403F82511F2C400CD9802 /* TransactionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF6403F72511F2C400CD9802 /* TransactionViewModel.swift */; };
 		FF6403FA251216B200CD9802 /* TransactionListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF6403F9251216B200CD9802 /* TransactionListTableViewCell.swift */; };
 		FF8D90E4251BBBA70035B8D7 /* ToolTip.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8D90E3251BBBA70035B8D7 /* ToolTip.swift */; };
@@ -556,6 +559,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF5F70AF2614BD1A006770EB /* BWWalkthrough in Frameworks */,
+				FF5F70A92614BC7B006770EB /* IQKeyboardManagerSwift in Frameworks */,
+				FF5F70B52614BD79006770EB /* SkyFloatingLabelTextField in Frameworks */,
 				FFBD74D9261385CE00B44B87 /* FirebaseAnalytics in Frameworks */,
 				FFBD74DD261385CE00B44B87 /* FirebaseCrashlytics in Frameworks */,
 				FFBD74DB261385CE00B44B87 /* FirebaseAuth in Frameworks */,
@@ -1665,6 +1671,9 @@
 				FFBD74D8261385CE00B44B87 /* FirebaseAnalytics */,
 				FFBD74DA261385CE00B44B87 /* FirebaseAuth */,
 				FFBD74DC261385CE00B44B87 /* FirebaseCrashlytics */,
+				FF5F70A82614BC7B006770EB /* IQKeyboardManagerSwift */,
+				FF5F70AE2614BD1A006770EB /* BWWalkthrough */,
+				FF5F70B42614BD79006770EB /* SkyFloatingLabelTextField */,
 			);
 			productName = "Me-iOS";
 			productReference = 65139C0222802545003E0CDE /* Me-iOS.app */;
@@ -1751,6 +1760,9 @@
 			mainGroup = 65139BF922802545003E0CDE;
 			packageReferences = (
 				FFBD74D7261385CE00B44B87 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				FF5F70A72614BC7B006770EB /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
+				FF5F70AD2614BD1A006770EB /* XCRemoteSwiftPackageReference "BWWalkthrough" */,
+				FF5F70B32614BD79006770EB /* XCRemoteSwiftPackageReference "SkyFloatingLabelTextField" */,
 			);
 			productRefGroup = 65139C0322802545003E0CDE /* Products */;
 			projectDirPath = "";
@@ -2991,6 +3003,30 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		FF5F70A72614BC7B006770EB /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.5.6;
+			};
+		};
+		FF5F70AD2614BD1A006770EB /* XCRemoteSwiftPackageReference "BWWalkthrough" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ariok/BWWalkthrough";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.2;
+			};
+		};
+		FF5F70B32614BD79006770EB /* XCRemoteSwiftPackageReference "SkyFloatingLabelTextField" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Skyscanner/SkyFloatingLabelTextField";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
 		FFBD74D7261385CE00B44B87 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
@@ -3002,6 +3038,21 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		FF5F70A82614BC7B006770EB /* IQKeyboardManagerSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FF5F70A72614BC7B006770EB /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
+			productName = IQKeyboardManagerSwift;
+		};
+		FF5F70AE2614BD1A006770EB /* BWWalkthrough */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FF5F70AD2614BD1A006770EB /* XCRemoteSwiftPackageReference "BWWalkthrough" */;
+			productName = BWWalkthrough;
+		};
+		FF5F70B42614BD79006770EB /* SkyFloatingLabelTextField */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FF5F70B32614BD79006770EB /* XCRemoteSwiftPackageReference "SkyFloatingLabelTextField" */;
+			productName = SkyFloatingLabelTextField;
+		};
 		FFBD74D8261385CE00B44B87 /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = FFBD74D7261385CE00B44B87 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
