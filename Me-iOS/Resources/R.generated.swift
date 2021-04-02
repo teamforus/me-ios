@@ -225,13 +225,13 @@ struct R: Rswift.Validatable {
     /// This struct is generated for `MRecordsViewController`, and contains static references to 1 segues.
     struct mRecordsViewController {
       /// Segue identifier `goToRecordDetail`.
-      static let goToRecordDetail: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, MRecordsViewController, CommonPullUpViewController> = Rswift.StoryboardSegueIdentifier(identifier: "goToRecordDetail")
+      static let goToRecordDetail: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, MRecordsViewController, MRecordDetailViewController> = Rswift.StoryboardSegueIdentifier(identifier: "goToRecordDetail")
 
       #if os(iOS) || os(tvOS)
       /// Optionally returns a typed version of segue `goToRecordDetail`.
       /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
       /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
-      static func goToRecordDetail(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, MRecordsViewController, CommonPullUpViewController>? {
+      static func goToRecordDetail(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, MRecordsViewController, MRecordDetailViewController>? {
         return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.mRecordsViewController.goToRecordDetail, segue: segue)
       }
       #endif
@@ -259,15 +259,15 @@ struct R: Rswift.Validatable {
     /// This struct is generated for `MVouchersViewController`, and contains static references to 2 segues.
     struct mVouchersViewController {
       /// Segue identifier `goToProduct`.
-      static let goToProduct: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, MVouchersViewController, CommonPullUpViewController> = Rswift.StoryboardSegueIdentifier(identifier: "goToProduct")
+      static let goToProduct: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, MVouchersViewController, MProductVoucherViewController> = Rswift.StoryboardSegueIdentifier(identifier: "goToProduct")
       /// Segue identifier `goToVoucher`.
-      static let goToVoucher: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, MVouchersViewController, CommonPullUpViewController> = Rswift.StoryboardSegueIdentifier(identifier: "goToVoucher")
+      static let goToVoucher: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, MVouchersViewController, MVoucherViewController> = Rswift.StoryboardSegueIdentifier(identifier: "goToVoucher")
 
       #if os(iOS) || os(tvOS)
       /// Optionally returns a typed version of segue `goToProduct`.
       /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
       /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
-      static func goToProduct(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, MVouchersViewController, CommonPullUpViewController>? {
+      static func goToProduct(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, MVouchersViewController, MProductVoucherViewController>? {
         return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.mVouchersViewController.goToProduct, segue: segue)
       }
       #endif
@@ -276,7 +276,7 @@ struct R: Rswift.Validatable {
       /// Optionally returns a typed version of segue `goToVoucher`.
       /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
       /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
-      static func goToVoucher(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, MVouchersViewController, CommonPullUpViewController>? {
+      static func goToVoucher(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, MVouchersViewController, MVoucherViewController>? {
         return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.mVouchersViewController.goToVoucher, segue: segue)
       }
       #endif
@@ -856,46 +856,6 @@ struct R: Rswift.Validatable {
       if R.font.googleSansMedium(size: 42) == nil { throw Rswift.ValidationError(description:"[R.swift] Font 'GoogleSans-Medium' could not be loaded, is 'GoogleSans-Medium.ttf' added to the UIAppFonts array in this targets Info.plist?") }
       if R.font.googleSansMediumItalic(size: 42) == nil { throw Rswift.ValidationError(description:"[R.swift] Font 'GoogleSans-MediumItalic' could not be loaded, is 'GoogleSans-MediumItalic.ttf' added to the UIAppFonts array in this targets Info.plist?") }
       if R.font.googleSansRegular(size: 42) == nil { throw Rswift.ValidationError(description:"[R.swift] Font 'GoogleSans-Regular' could not be loaded, is 'GoogleSans-Regular.ttf' added to the UIAppFonts array in this targets Info.plist?") }
-    }
-
-    fileprivate init() {}
-  }
-
-  /// This `R.id` struct is generated, and contains static references to accessibility identifiers.
-  struct id {
-    struct loginQRAndCodeViewController {
-      /// Accessibility identifier `topViewHandle`.
-      static let topViewHandle: String = "topViewHandle"
-
-      fileprivate init() {}
-    }
-
-    struct productVoucher {
-      /// Accessibility identifier `topViewHandle`.
-      static let topViewHandle: String = "topViewHandle"
-
-      fileprivate init() {}
-    }
-
-    struct profile {
-      /// Accessibility identifier `topViewHandle`.
-      static let topViewHandle: String = "topViewHandle"
-
-      fileprivate init() {}
-    }
-
-    struct recordDetail {
-      /// Accessibility identifier `topViewHandle`.
-      static let topViewHandle: String = "topViewHandle"
-
-      fileprivate init() {}
-    }
-
-    struct voucher {
-      /// Accessibility identifier `topViewHandle`.
-      static let topViewHandle: String = "topViewHandle"
-
-      fileprivate init() {}
     }
 
     fileprivate init() {}
@@ -9605,21 +9565,11 @@ struct _R: Rswift.Validatable {
 
     #if os(iOS) || os(tvOS)
     struct loginQRAndCodeViewController: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
-      typealias InitialController = CommonPullUpViewController
+      typealias InitialController = MLoginQRAndCodeViewController
 
-      let bottom = StoryboardViewControllerResource<CommonBottomViewController>(identifier: "bottom")
       let bundle = R.hostingBundle
-      let common = StoryboardViewControllerResource<CommonPullUpViewController>(identifier: "common")
       let content = StoryboardViewControllerResource<MLoginQRAndCodeViewController>(identifier: "content")
       let name = "LoginQRAndCodeViewController"
-
-      func bottom(_: Void = ()) -> CommonBottomViewController? {
-        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: bottom)
-      }
-
-      func common(_: Void = ()) -> CommonPullUpViewController? {
-        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: common)
-      }
 
       func content(_: Void = ()) -> MLoginQRAndCodeViewController? {
         return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: content)
@@ -9627,13 +9577,8 @@ struct _R: Rswift.Validatable {
 
       static func validate() throws {
         if UIKit.UIImage(named: "back", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'back' is used in storyboard 'LoginQRAndCodeViewController', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "closeIcon", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'closeIcon' is used in storyboard 'LoginQRAndCodeViewController', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "qrCode", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'qrCode' is used in storyboard 'LoginQRAndCodeViewController', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "qrImage2", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'qrImage2' is used in storyboard 'LoginQRAndCodeViewController', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
-        if _R.storyboard.loginQRAndCodeViewController().bottom() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'bottom' could not be loaded from storyboard 'LoginQRAndCodeViewController' as 'CommonBottomViewController'.") }
-        if _R.storyboard.loginQRAndCodeViewController().common() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'common' could not be loaded from storyboard 'LoginQRAndCodeViewController' as 'CommonPullUpViewController'.") }
         if _R.storyboard.loginQRAndCodeViewController().content() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'content' could not be loaded from storyboard 'LoginQRAndCodeViewController' as 'MLoginQRAndCodeViewController'.") }
       }
 
@@ -9746,40 +9691,25 @@ struct _R: Rswift.Validatable {
 
     #if os(iOS) || os(tvOS)
     struct productVoucher: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
-      typealias InitialController = CommonPullUpViewController
+      typealias InitialController = MProductVoucherViewController
 
-      let bottom = StoryboardViewControllerResource<CommonBottomViewController>(identifier: "bottom")
       let bundle = R.hostingBundle
-      let content = StoryboardViewControllerResource<MProductVoucherViewController>(identifier: "content")
-      let general = StoryboardViewControllerResource<CommonPullUpViewController>(identifier: "general")
       let name = "ProductVoucher"
+      let productVoucher = StoryboardViewControllerResource<MProductVoucherViewController>(identifier: "productVoucher")
 
-      func bottom(_: Void = ()) -> CommonBottomViewController? {
-        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: bottom)
-      }
-
-      func content(_: Void = ()) -> MProductVoucherViewController? {
-        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: content)
-      }
-
-      func general(_: Void = ()) -> CommonPullUpViewController? {
-        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: general)
+      func productVoucher(_: Void = ()) -> MProductVoucherViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: productVoucher)
       }
 
       static func validate() throws {
         if UIKit.UIImage(named: "5XVoucherSurface", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named '5XVoucherSurface' is used in storyboard 'ProductVoucher', but couldn't be loaded.") }
         if UIKit.UIImage(named: "back", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'back' is used in storyboard 'ProductVoucher', but couldn't be loaded.") }
         if UIKit.UIImage(named: "circular", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'circular' is used in storyboard 'ProductVoucher', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "closeIcon", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'closeIcon' is used in storyboard 'ProductVoucher', but couldn't be loaded.") }
         if UIKit.UIImage(named: "email1", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'email1' is used in storyboard 'ProductVoucher', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "qrCode", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'qrCode' is used in storyboard 'ProductVoucher', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "qrImage2", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'qrImage2' is used in storyboard 'ProductVoucher', but couldn't be loaded.") }
         if UIKit.UIImage(named: "qrV", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'qrV' is used in storyboard 'ProductVoucher', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
-        if _R.storyboard.productVoucher().bottom() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'bottom' could not be loaded from storyboard 'ProductVoucher' as 'CommonBottomViewController'.") }
-        if _R.storyboard.productVoucher().content() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'content' could not be loaded from storyboard 'ProductVoucher' as 'MProductVoucherViewController'.") }
-        if _R.storyboard.productVoucher().general() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'general' could not be loaded from storyboard 'ProductVoucher' as 'CommonPullUpViewController'.") }
+        if _R.storyboard.productVoucher().productVoucher() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'productVoucher' could not be loaded from storyboard 'ProductVoucher' as 'MProductVoucherViewController'.") }
       }
 
       fileprivate init() {}
@@ -9790,36 +9720,21 @@ struct _R: Rswift.Validatable {
     struct profile: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
       typealias InitialController = MProfileViewController
 
-      let bottom = StoryboardViewControllerResource<CommonBottomViewController>(identifier: "bottom")
       let bundle = R.hostingBundle
       let content = StoryboardViewControllerResource<MProfileViewController>(identifier: "content")
-      let general = StoryboardViewControllerResource<CommonPullUpViewController>(identifier: "general")
       let name = "Profile"
-
-      func bottom(_: Void = ()) -> CommonBottomViewController? {
-        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: bottom)
-      }
 
       func content(_: Void = ()) -> MProfileViewController? {
         return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: content)
       }
 
-      func general(_: Void = ()) -> CommonPullUpViewController? {
-        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: general)
-      }
-
       static func validate() throws {
         if UIKit.UIImage(named: "arrow", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'arrow' is used in storyboard 'Profile', but couldn't be loaded.") }
         if UIKit.UIImage(named: "closeBlack", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'closeBlack' is used in storyboard 'Profile', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "closeIcon", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'closeIcon' is used in storyboard 'Profile', but couldn't be loaded.") }
         if UIKit.UIImage(named: "ic_launcher_APP", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ic_launcher_APP' is used in storyboard 'Profile', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "qrCode", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'qrCode' is used in storyboard 'Profile', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "qrImage2", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'qrImage2' is used in storyboard 'Profile', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
-        if _R.storyboard.profile().bottom() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'bottom' could not be loaded from storyboard 'Profile' as 'CommonBottomViewController'.") }
         if _R.storyboard.profile().content() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'content' could not be loaded from storyboard 'Profile' as 'MProfileViewController'.") }
-        if _R.storyboard.profile().general() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'general' could not be loaded from storyboard 'Profile' as 'CommonPullUpViewController'.") }
       }
 
       fileprivate init() {}
@@ -9828,38 +9743,23 @@ struct _R: Rswift.Validatable {
 
     #if os(iOS) || os(tvOS)
     struct recordDetail: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
-      typealias InitialController = CommonPullUpViewController
+      typealias InitialController = MRecordDetailViewController
 
-      let bottom = StoryboardViewControllerResource<CommonBottomViewController>(identifier: "bottom")
       let bundle = R.hostingBundle
       let content = StoryboardViewControllerResource<MRecordDetailViewController>(identifier: "content")
-      let general = StoryboardViewControllerResource<CommonPullUpViewController>(identifier: "general")
       let name = "RecordDetail"
-
-      func bottom(_: Void = ()) -> CommonBottomViewController? {
-        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: bottom)
-      }
 
       func content(_: Void = ()) -> MRecordDetailViewController? {
         return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: content)
       }
 
-      func general(_: Void = ()) -> CommonPullUpViewController? {
-        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: general)
-      }
-
       static func validate() throws {
         if UIKit.UIImage(named: "back", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'back' is used in storyboard 'RecordDetail', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "closeIcon", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'closeIcon' is used in storyboard 'RecordDetail', but couldn't be loaded.") }
         if UIKit.UIImage(named: "delete24Px", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'delete24Px' is used in storyboard 'RecordDetail', but couldn't be loaded.") }
         if UIKit.UIImage(named: "ic_launcher_APP", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ic_launcher_APP' is used in storyboard 'RecordDetail', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "qrCode", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'qrCode' is used in storyboard 'RecordDetail', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "qrImage2", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'qrImage2' is used in storyboard 'RecordDetail', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
-        if _R.storyboard.recordDetail().bottom() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'bottom' could not be loaded from storyboard 'RecordDetail' as 'CommonBottomViewController'.") }
         if _R.storyboard.recordDetail().content() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'content' could not be loaded from storyboard 'RecordDetail' as 'MRecordDetailViewController'.") }
-        if _R.storyboard.recordDetail().general() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'general' could not be loaded from storyboard 'RecordDetail' as 'CommonPullUpViewController'.") }
       }
 
       fileprivate init() {}
@@ -9952,40 +9852,25 @@ struct _R: Rswift.Validatable {
 
     #if os(iOS) || os(tvOS)
     struct voucher: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
-      typealias InitialController = CommonPullUpViewController
+      typealias InitialController = MVoucherViewController
 
-      let bottom = StoryboardViewControllerResource<CommonBottomViewController>(identifier: "bottom")
       let bundle = R.hostingBundle
-      let content = StoryboardViewControllerResource<MVoucherViewController>(identifier: "content")
-      let general = StoryboardViewControllerResource<CommonPullUpViewController>(identifier: "general")
       let name = "Voucher"
+      let voucher = StoryboardViewControllerResource<MVoucherViewController>(identifier: "voucher")
 
-      func bottom(_: Void = ()) -> CommonBottomViewController? {
-        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: bottom)
-      }
-
-      func content(_: Void = ()) -> MVoucherViewController? {
-        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: content)
-      }
-
-      func general(_: Void = ()) -> CommonPullUpViewController? {
-        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: general)
+      func voucher(_: Void = ()) -> MVoucherViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: voucher)
       }
 
       static func validate() throws {
         if UIKit.UIImage(named: "5XVoucherSurface", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named '5XVoucherSurface' is used in storyboard 'Voucher', but couldn't be loaded.") }
         if UIKit.UIImage(named: "Resting", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Resting' is used in storyboard 'Voucher', but couldn't be loaded.") }
         if UIKit.UIImage(named: "back", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'back' is used in storyboard 'Voucher', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "closeIcon", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'closeIcon' is used in storyboard 'Voucher', but couldn't be loaded.") }
         if UIKit.UIImage(named: "email1", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'email1' is used in storyboard 'Voucher', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "qrCode", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'qrCode' is used in storyboard 'Voucher', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "qrImage2", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'qrImage2' is used in storyboard 'Voucher', but couldn't be loaded.") }
         if UIKit.UIImage(named: "qrV", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'qrV' is used in storyboard 'Voucher', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
-        if _R.storyboard.voucher().bottom() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'bottom' could not be loaded from storyboard 'Voucher' as 'CommonBottomViewController'.") }
-        if _R.storyboard.voucher().content() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'content' could not be loaded from storyboard 'Voucher' as 'MVoucherViewController'.") }
-        if _R.storyboard.voucher().general() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'general' could not be loaded from storyboard 'Voucher' as 'CommonPullUpViewController'.") }
+        if _R.storyboard.voucher().voucher() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'voucher' could not be loaded from storyboard 'Voucher' as 'MVoucherViewController'.") }
       }
 
       fileprivate init() {}

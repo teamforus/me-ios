@@ -1,29 +1,25 @@
 PODS:
   - Fabric (1.9.0)
-  - ISHPullUp (1.0.7)
   - R.swift (5.2.2):
     - R.swift.Library (~> 5.2.0)
   - R.swift.Library (5.2.0)
 
 DEPENDENCIES:
   - Fabric
-  - ISHPullUp
   - R.swift
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - Fabric
-    - ISHPullUp
   trunk:
     - R.swift
     - R.swift.Library
 
 SPEC CHECKSUMS:
   Fabric: 09ef2d9b99b104702bede1acaf469fb8f20a9146
-  ISHPullUp: eaa91bef06270264e1f923bc764705173d341495
   R.swift: 7c52cdc57a66840ffe6cbd8a823d732059d42a32
   R.swift.Library: 5ba4f1631300caf9a4d890186930da85d540769d
 
-PODFILE CHECKSUM: 3fa98520a0cf4cb36cb60a3409d1d30c76e785f7
+PODFILE CHECKSUM: b43d5e2a8575bde72605770c5f0b8ac56866d42d
 
 COCOAPODS: 1.9.3

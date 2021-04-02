@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import ISHPullUp
 import StoreKit
 
 enum VoucherType: Int {
@@ -23,8 +22,8 @@ class MVouchersViewController: UIViewController {
     @IBOutlet weak var segmentView: UIView!
     @IBOutlet weak var transactionButton: UIButton!
     
-  @IBOutlet weak var titleLabel: UILabel_DarkMode!
-  var voucherType: VoucherType!
+    @IBOutlet weak var titleLabel: UILabel_DarkMode!
+    var voucherType: VoucherType!
     lazy var voucherViewModel: VouchersViewModel = {
         return VouchersViewModel()
     }()
@@ -56,7 +55,7 @@ class MVouchersViewController: UIViewController {
         segmentController.borderColor = .clear
         segmentView.layer.cornerRadius = 8.0
         
-      
+        
         
         refreshControl.addTarget(self, action: #selector(refreshData(_:)), for: .valueChanged)
         
@@ -153,46 +152,16 @@ class MVouchersViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "goToProduct" {
-            
-            let generalVC = didSetPullUP(storyboard: R.storyboard.productVoucher(), segue: segue)
-            (generalVC.contentViewController as! MProductVoucherViewController).address = self.voucherViewModel.selectedVoucher?.address ?? ""
-            (generalVC.bottomViewController as! CommonBottomViewController).voucher = self.voucherViewModel.selectedVoucher
-            (generalVC.bottomViewController as! CommonBottomViewController).qrType = .Voucher
+            if let voucherVC = segue.destination as? MProductVoucherViewController {
+                voucherVC.address = self.voucherViewModel.selectedVoucher?.address ?? ""
+            }
             
         }else if segue.identifier == "goToVoucher" {
-            
-            let generalVC = didSetPullUP(storyboard: R.storyboard.voucher(), segue: segue)
-            (generalVC.contentViewController as! MVoucherViewController).address = self.voucherViewModel.selectedVoucher?.address ?? ""
-            (generalVC.bottomViewController as! CommonBottomViewController).voucher = self.voucherViewModel.selectedVoucher
-            (generalVC.bottomViewController as! CommonBottomViewController).qrType = .Voucher
+            if let voucherVC = segue.destination as? MVoucherViewController {
+                voucherVC.address = self.voucherViewModel.selectedVoucher?.address ?? ""
+            }
             
         }
-    }
-    
-    func didSetPullUPWithoutSegue(storyboard: UIStoryboard, isProduct: Bool) -> CommonPullUpViewController {
-        
-        let passVC = storyboard.instantiateViewController(withIdentifier: "general") as! CommonPullUpViewController
-        
-        passVC.contentViewController = storyboard.instantiateViewController(withIdentifier: "content")
-        
-        passVC.bottomViewController = storyboard.instantiateViewController(withIdentifier: "bottom")
-        
-        (passVC.bottomViewController as! CommonBottomViewController).pullUpController = passVC
-        passVC.sizingDelegate = (passVC.bottomViewController as! CommonBottomViewController)
-        
-        if isProduct {
-            
-            (passVC.contentViewController as! MProductVoucherViewController).address = self.voucherViewModel.selectedVoucher?.address ?? ""
-        }else {
-            
-            (passVC.contentViewController as! MVoucherViewController).address = self.voucherViewModel.selectedVoucher?.address ?? ""
-            
-        }
-        passVC.stateDelegate = (passVC.bottomViewController as! CommonBottomViewController)
-        (passVC.bottomViewController as! CommonBottomViewController).voucher = self.voucherViewModel.selectedVoucher
-        (passVC.bottomViewController as! CommonBottomViewController).qrType = .Voucher
-        
-        return passVC
     }
     
 }
@@ -279,15 +248,22 @@ extension MVouchersViewController: UIViewControllerPreviewingDelegate{
             guard let indexPath = tableView.indexPathForRow(at: location) else {
                 return nil
             }
-            
             self.voucherViewModel.userPressed(at: indexPath)
             var detailViewController = UIViewController()
             if voucherViewModel.selectedVoucher?.product != nil {
-                detailViewController = createDetailViewControllerIndexPath(vc: didSetPullUPWithoutSegue(storyboard: R.storyboard.productVoucher(), isProduct: true),
-                                                                           indexPath: indexPath)
+                
+                let storyboard = R.storyboard.productVoucher()
+                if let productVC = storyboard.instantiateViewController(withIdentifier: "productVoucher") as? MProductVoucherViewController {
+                    productVC.address = voucherViewModel.selectedVoucher?.address ?? ""
+                    detailViewController = productVC
+                }
+                
             }else {
-                detailViewController = createDetailViewControllerIndexPath(vc: didSetPullUPWithoutSegue(storyboard: R.storyboard.voucher(), isProduct: false),
-                                                                           indexPath: indexPath)
+                let storyboard = R.storyboard.voucher()
+                if let voucherVC = storyboard.instantiateViewController(withIdentifier: "voucher") as? MVoucherViewController {
+                    voucherVC.address = voucherViewModel.selectedVoucher?.address ?? ""
+                    detailViewController = voucherVC
+                }
             }
             
             return detailViewController
@@ -312,6 +288,6 @@ extension MVouchersViewController: AccessibilityProtocol {
         if let vouchers = segmentController.accessibilityElement(at: 1) as? UIView {
             vouchers.setupAccesibility(description: "Choose to show all vouchers", accessibilityTraits: .causesPageTurn)
         }
-      titleLabel.setupAccesibility(description: Localize.vouchers(), accessibilityTraits: .header)
+        titleLabel.setupAccesibility(description: Localize.vouchers(), accessibilityTraits: .header)
     }
 }

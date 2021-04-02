@@ -41,7 +41,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         #if DEBUG
         #else
-        Fabric.with([Crashlytics.self])
         
         #endif
         
