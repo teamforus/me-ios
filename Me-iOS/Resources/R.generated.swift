@@ -91,7 +91,7 @@ struct R: Rswift.Validatable {
   }
 
   #if os(iOS) || os(tvOS)
-  /// This `R.segue` struct is generated, and contains static references to 8 view controllers.
+  /// This `R.segue` struct is generated, and contains static references to 7 view controllers.
   struct segue {
     /// This struct is generated for `EnablePersonalInformationViewController`, and contains static references to 1 segues.
     struct enablePersonalInformationViewController {
@@ -143,23 +143,6 @@ struct R: Rswift.Validatable {
       /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
       static func goToSuccessRegister(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, MAFirstPageViewController, HiddenNavBarNavigationController>? {
         return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.maFirstPageViewController.goToSuccessRegister, segue: segue)
-      }
-      #endif
-
-      fileprivate init() {}
-    }
-
-    /// This struct is generated for `MEmailLoginViewController`, and contains static references to 1 segues.
-    struct mEmailLoginViewController {
-      /// Segue identifier `goToSuccessMail`.
-      static let goToSuccessMail: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, MEmailLoginViewController, MSuccessEmailViewController> = Rswift.StoryboardSegueIdentifier(identifier: "goToSuccessMail")
-
-      #if os(iOS) || os(tvOS)
-      /// Optionally returns a typed version of segue `goToSuccessMail`.
-      /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
-      /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
-      static func goToSuccessMail(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, MEmailLoginViewController, MSuccessEmailViewController>? {
-        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.mEmailLoginViewController.goToSuccessMail, segue: segue)
       }
       #endif
 
@@ -289,14 +272,12 @@ struct R: Rswift.Validatable {
   #endif
 
   #if os(iOS) || os(tvOS)
-  /// This `R.storyboard` struct is generated, and contains static references to 18 storyboards.
+  /// This `R.storyboard` struct is generated, and contains static references to 17 storyboards.
   struct storyboard {
     /// Storyboard `About`.
     static let about = _R.storyboard.about()
     /// Storyboard `ChooseTypeRecord`.
     static let chooseTypeRecord = _R.storyboard.chooseTypeRecord()
-    /// Storyboard `EmailLogin`.
-    static let emailLogin = _R.storyboard.emailLogin()
     /// Storyboard `EnablePersonalInformation`.
     static let enablePersonalInformation = _R.storyboard.enablePersonalInformation()
     /// Storyboard `First`.
@@ -339,13 +320,6 @@ struct R: Rswift.Validatable {
     /// `UIStoryboard(name: "ChooseTypeRecord", bundle: ...)`
     static func chooseTypeRecord(_: Void = ()) -> UIKit.UIStoryboard {
       return UIKit.UIStoryboard(resource: R.storyboard.chooseTypeRecord)
-    }
-    #endif
-
-    #if os(iOS) || os(tvOS)
-    /// `UIStoryboard(name: "EmailLogin", bundle: ...)`
-    static func emailLogin(_: Void = ()) -> UIKit.UIStoryboard {
-      return UIKit.UIStoryboard(resource: R.storyboard.emailLogin)
     }
     #endif
 
@@ -1660,7 +1634,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.string` struct is generated, and contains static references to 26 localization tables.
+  /// This `R.string` struct is generated, and contains static references to 25 localization tables.
   struct string {
     /// This `R.string.about` struct is generated, and contains static references to 7 localization keys.
     struct about {
@@ -2434,107 +2408,6 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("SnK-yG-X66.text", tableName: "ConfirmPaymentPopUp", bundle: bundle, comment: "")
-      }
-
-      fileprivate init() {}
-    }
-
-    /// This `R.string.emailLogin` struct is generated, and contains static references to 5 localization keys.
-    struct emailLogin {
-      /// en translation: CONFIRM
-      ///
-      /// Locales: en, nl
-      static let f91eTZnNormalTitle = Rswift.StringResource(key: "9F9-1e-TZn.normalTitle", tableName: "EmailLogin", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
-      /// en translation: E-mail
-      ///
-      /// Locales: en, nl
-      static let biEcFhuPlaceholder = Rswift.StringResource(key: "9Bi-Ec-fhu.placeholder", tableName: "EmailLogin", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
-      /// en translation: Log in
-      ///
-      /// Locales: en, nl
-      static let wxT25HVYText = Rswift.StringResource(key: "WxT-25-hVY.text", tableName: "EmailLogin", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
-      /// en translation: Log in by e-mail
-      ///
-      /// Locales: en, nl
-      static let rxRIOZjaText = Rswift.StringResource(key: "RxR-iO-Zja.text", tableName: "EmailLogin", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
-      /// en translation: Please enter your e-mail address in order to receive your login details.
-      ///
-      /// Locales: en, nl
-      static let cVyOl6XbText = Rswift.StringResource(key: "cVy-Ol-6Xb.text", tableName: "EmailLogin", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
-
-      /// en translation: CONFIRM
-      ///
-      /// Locales: en, nl
-      static func f91eTZnNormalTitle(preferredLanguages: [String]? = nil) -> String {
-        guard let preferredLanguages = preferredLanguages else {
-          return NSLocalizedString("9F9-1e-TZn.normalTitle", tableName: "EmailLogin", bundle: hostingBundle, comment: "")
-        }
-
-        guard let (_, bundle) = localeBundle(tableName: "EmailLogin", preferredLanguages: preferredLanguages) else {
-          return "9F9-1e-TZn.normalTitle"
-        }
-
-        return NSLocalizedString("9F9-1e-TZn.normalTitle", tableName: "EmailLogin", bundle: bundle, comment: "")
-      }
-
-      /// en translation: E-mail
-      ///
-      /// Locales: en, nl
-      static func biEcFhuPlaceholder(preferredLanguages: [String]? = nil) -> String {
-        guard let preferredLanguages = preferredLanguages else {
-          return NSLocalizedString("9Bi-Ec-fhu.placeholder", tableName: "EmailLogin", bundle: hostingBundle, comment: "")
-        }
-
-        guard let (_, bundle) = localeBundle(tableName: "EmailLogin", preferredLanguages: preferredLanguages) else {
-          return "9Bi-Ec-fhu.placeholder"
-        }
-
-        return NSLocalizedString("9Bi-Ec-fhu.placeholder", tableName: "EmailLogin", bundle: bundle, comment: "")
-      }
-
-      /// en translation: Log in
-      ///
-      /// Locales: en, nl
-      static func wxT25HVYText(preferredLanguages: [String]? = nil) -> String {
-        guard let preferredLanguages = preferredLanguages else {
-          return NSLocalizedString("WxT-25-hVY.text", tableName: "EmailLogin", bundle: hostingBundle, comment: "")
-        }
-
-        guard let (_, bundle) = localeBundle(tableName: "EmailLogin", preferredLanguages: preferredLanguages) else {
-          return "WxT-25-hVY.text"
-        }
-
-        return NSLocalizedString("WxT-25-hVY.text", tableName: "EmailLogin", bundle: bundle, comment: "")
-      }
-
-      /// en translation: Log in by e-mail
-      ///
-      /// Locales: en, nl
-      static func rxRIOZjaText(preferredLanguages: [String]? = nil) -> String {
-        guard let preferredLanguages = preferredLanguages else {
-          return NSLocalizedString("RxR-iO-Zja.text", tableName: "EmailLogin", bundle: hostingBundle, comment: "")
-        }
-
-        guard let (_, bundle) = localeBundle(tableName: "EmailLogin", preferredLanguages: preferredLanguages) else {
-          return "RxR-iO-Zja.text"
-        }
-
-        return NSLocalizedString("RxR-iO-Zja.text", tableName: "EmailLogin", bundle: bundle, comment: "")
-      }
-
-      /// en translation: Please enter your e-mail address in order to receive your login details.
-      ///
-      /// Locales: en, nl
-      static func cVyOl6XbText(preferredLanguages: [String]? = nil) -> String {
-        guard let preferredLanguages = preferredLanguages else {
-          return NSLocalizedString("cVy-Ol-6Xb.text", tableName: "EmailLogin", bundle: hostingBundle, comment: "")
-        }
-
-        guard let (_, bundle) = localeBundle(tableName: "EmailLogin", preferredLanguages: preferredLanguages) else {
-          return "cVy-Ol-6Xb.text"
-        }
-
-        return NSLocalizedString("cVy-Ol-6Xb.text", tableName: "EmailLogin", bundle: bundle, comment: "")
       }
 
       fileprivate init() {}
@@ -9388,9 +9261,6 @@ struct _R: Rswift.Validatable {
       try chooseTypeRecord.validate()
       #endif
       #if os(iOS) || os(tvOS)
-      try emailLogin.validate()
-      #endif
-      #if os(iOS) || os(tvOS)
       try enablePersonalInformation.validate()
       #endif
       #if os(iOS) || os(tvOS)
@@ -9476,24 +9346,6 @@ struct _R: Rswift.Validatable {
         }
         if _R.storyboard.chooseTypeRecord().types() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'types' could not be loaded from storyboard 'ChooseTypeRecord' as 'MChooseTypeRecordViewController'.") }
         if _R.storyboard.chooseTypeRecord().walk() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'walk' could not be loaded from storyboard 'ChooseTypeRecord' as 'BWWalkthrough.BWWalkthroughViewController'.") }
-      }
-
-      fileprivate init() {}
-    }
-    #endif
-
-    #if os(iOS) || os(tvOS)
-    struct emailLogin: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
-      typealias InitialController = MEmailLoginViewController
-
-      let bundle = R.hostingBundle
-      let name = "EmailLogin"
-
-      static func validate() throws {
-        if UIKit.UIImage(named: "back", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'back' is used in storyboard 'EmailLogin', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "proper", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'proper' is used in storyboard 'EmailLogin', but couldn't be loaded.") }
-        if #available(iOS 11.0, tvOS 11.0, *) {
-        }
       }
 
       fileprivate init() {}

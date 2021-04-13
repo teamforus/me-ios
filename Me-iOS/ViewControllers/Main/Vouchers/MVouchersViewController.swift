@@ -32,33 +32,31 @@ class MVouchersViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupView()
+    }
+    
+    private func setupView() {
+        setupAccessibility()
         if !Preference.tapToSeeTransactionTipHasShown {
             Preference.tapToSeeTransactionTipHasShown = true
             transactionButton?.toolTip(message: Localize.tap_here_you_want_to_see_list_transaction(), style: .dark, location: .bottom, offset: CGPoint(x: -50, y: 0))
         }
-        registerForPreviewing(with: self, sourceView: tableView)
-        
-        if #available(iOS 10.0, *) {
-            tableView.refreshControl = refreshControl
-        } else {
-            tableView.addSubview(refreshControl)
-        }
-        
         voucherType = .vouchers
         
-        segmentController.items = ["Valute", Localize.vouchers()]
-        segmentController.selectedIndex = 1
-        segmentController.font = UIFont(name: "GoogleSans-Medium", size: 14)
-        segmentController.unselectedLabelColor = #colorLiteral(red: 0.631372549, green: 0.6509803922, blue: 0.6784313725, alpha: 1)
-        segmentController.selectedLabelColor = #colorLiteral(red: 0.2078431373, green: 0.3921568627, blue: 0.968627451, alpha: 1)
-        segmentController.addTarget(self, action: #selector(self.segmentSelected(sender:)), for: .valueChanged)
-        segmentController.borderColor = .clear
-        segmentView.layer.cornerRadius = 8.0
+        setupSegmentControll()
+        voucherViewModel.completeIdentity = { [unowned self] (response) in
+            DispatchQueue.main.async {
+                self.wallet = response
+            }
+        }
         
-        
-        
-        refreshControl.addTarget(self, action: #selector(refreshData(_:)), for: .valueChanged)
-        
+        voucherViewModel.getIndentity()
+        setupTableView()
+        initFetch()
+        receiveFetch()
+    }
+    
+    private func receiveFetch() {
         voucherViewModel.complete = { [weak self] (vouchers) in
             
             DispatchQueue.main.async {
@@ -76,19 +74,31 @@ class MVouchersViewController: UIViewController {
                 self?.refreshControl.endRefreshing()
             }
         }
+    }
+    
+    private func setupTableView() {
+        registerForPreviewing(with: self, sourceView: tableView)
         
-        
-        
-        voucherViewModel.completeIdentity = { [unowned self] (response) in
-            DispatchQueue.main.async {
-                self.wallet = response
-            }
+        if #available(iOS 10.0, *) {
+            tableView.refreshControl = refreshControl
+        } else {
+            tableView.addSubview(refreshControl)
         }
         
-        voucherViewModel.getIndentity()
         
-        initFetch()
-        setupAccessibility()
+        refreshControl.addTarget(self, action: #selector(refreshData(_:)), for: .valueChanged)
+        
+    }
+    
+    private func setupSegmentControll() {
+        segmentController.items = ["Valute", Localize.vouchers()]
+        segmentController.selectedIndex = 1
+        segmentController.font = UIFont(name: "GoogleSans-Medium", size: 14)
+        segmentController.unselectedLabelColor = #colorLiteral(red: 0.631372549, green: 0.6509803922, blue: 0.6784313725, alpha: 1)
+        segmentController.selectedLabelColor = #colorLiteral(red: 0.2078431373, green: 0.3921568627, blue: 0.968627451, alpha: 1)
+        segmentController.addTarget(self, action: #selector(self.segmentSelected(sender:)), for: .valueChanged)
+        segmentController.borderColor = .clear
+        segmentView.layer.cornerRadius = 8.0
     }
     
     override func viewWillAppear(_ animated: Bool) {
