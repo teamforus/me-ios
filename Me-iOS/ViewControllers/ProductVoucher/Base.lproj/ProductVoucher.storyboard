@@ -74,7 +74,7 @@
                                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                 <color key="backgroundColor" red="0.96852236989999996" green="0.96868795159999999" blue="0.96851199870000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <fontDescription key="fontDescription" name="GoogleSans-Regular" family="Google Sans" pointSize="14"/>
-                                                                <state key="normal" title="Voucher Info">
+                                                                <state key="normal" title="Bekijk aanbod">
                                                                     <color key="titleColor" red="0.19183093309999999" green="0.36965066190000001" blue="0.99199551340000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 </state>
                                                                 <userDefinedRuntimeAttributes>
@@ -541,10 +541,10 @@
             <size key="intrinsicContentSize" width="36" height="11"/>
         </designable>
         <designable name="bdu-eB-oGB">
-            <size key="intrinsicContentSize" width="79" height="29"/>
+            <size key="intrinsicContentSize" width="90" height="29"/>
         </designable>
         <designable name="d75-Qd-xat">
-            <size key="intrinsicContentSize" width="118" height="24"/>
+            <size key="intrinsicContentSize" width="135" height="24"/>
         </designable>
     </designables>
     <resources>
