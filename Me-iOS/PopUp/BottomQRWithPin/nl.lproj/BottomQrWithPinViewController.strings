@@ -3,7 +3,7 @@
 "DA1-v9-PIh.text" = "Scan deze QR-Code met een ander apparaat waar je al op aangemeld bent";
 
 /* Class = "UILabel"; text = "Dit is uw persoonlijke koppelcode"; ObjectID = "Jr0-D7-9x9"; */
-"Jr0-D7-9x9.text" = "Dit is jouw persoonlijke koppelcode";
+"Jr0-D7-9x9.text" = "Dit is je persoonlijke koppelcode";
 
 /* Class = "UILabel"; text = "• "; ObjectID = "MXf-TD-C8T"; */
 "MXf-TD-C8T.text" = "• ";
