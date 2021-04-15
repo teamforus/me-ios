@@ -22,7 +22,7 @@ class VoucherTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         self.usedVoucherLabel.isHidden = true
-   //setupAccessibility(with: (voucher?.fund?.name)!, and: (voucher?.fund?.organization?.name)!)
+  //    setupAccessibility(with: (voucher?.fund?.name)!, and: (voucher?.fund?.organization?.name)!)
         setupIcon()
         self.selectionStyle = .none
         if #available(iOS 11.0, *) {

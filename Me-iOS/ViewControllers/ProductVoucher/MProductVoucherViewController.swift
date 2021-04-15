@@ -307,7 +307,7 @@ extension MProductVoucherViewController: AccessibilityProtocol {
         qrCodeImage.setupAccesibility(description: "Voucher QR Code", accessibilityTraits: .image)
         qrCodeButton.setupAccesibility(description: "Tap to open qr code modal", accessibilityTraits: .button)
         sendEmailButton.setupAccesibility(description: "Send voucher by email", accessibilityTraits: .button)
-        voucherInfoButton.setupAccesibility(description: "View offers", accessibilityTraits: .button)
+        voucherInfoButton.setupAccesibility(description: "Open voucher info", accessibilityTraits: .button)
         mapView.setupAccesibility(description: "Tap to select map options", accessibilityTraits: .button)
         callPhoneButton.setupAccesibility(description: "Tap to call", accessibilityTraits: .button)
         emailButton.setupAccesibility(description: "Tap to send email", accessibilityTraits: .button)

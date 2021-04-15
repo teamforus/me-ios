@@ -35,8 +35,8 @@
 /* Class = "UILabel"; text = "Activated"; ObjectID = "cc7-yH-a8B"; */
 "cc7-yH-a8B.text" = "Activated";
 
-/* Class = "UIButton"; normalTitle = "View offers"; ObjectID = "kQA-2y-C8q"; */
-"kQA-2y-C8q.normalTitle" = "View offers";
+/* Class = "UIButton"; normalTitle = "Voucher Info"; ObjectID = "kQA-2y-C8q"; */
+"kQA-2y-C8q.normalTitle" = "Voucher Info";
 
 /* Class = "UIButton"; normalTitle = "E-mail naar mij"; ObjectID = "mWI-n4-pEO"; */
 "mWI-n4-pEO.normalTitle" = "E-mail to me";

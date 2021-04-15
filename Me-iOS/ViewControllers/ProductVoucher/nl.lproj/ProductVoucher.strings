@@ -32,8 +32,8 @@
 /* Class = "UILabel"; text = "Rocket Minds"; ObjectID = "TTK-vD-7c6"; */
 "TTK-vD-7c6.text" = "Rocket Minds";
 
-/* Class = "UIButton"; normalTitle = "Bekijk aanbod"; ObjectID = "bdu-eB-oGB"; */
-"bdu-eB-oGB.normalTitle" = "Bekijk aanbod";
+/* Class = "UIButton"; normalTitle = "Voucher Info"; ObjectID = "bdu-eB-oGB"; */
+"bdu-eB-oGB.normalTitle" = "Voucher Info";
 
 /* Class = "UIButton"; normalTitle = "E-mail naar mij"; ObjectID = "d75-Qd-xat"; */
 "d75-Qd-xat.normalTitle" = "E-Mail naar mij";
