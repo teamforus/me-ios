@@ -50,5 +50,5 @@
 /* Class = "UILabel"; text = "Personal"; ObjectID = "uLp-89-Zk0"; */
 "uLp-89-Zk0.text" = "Persoonlijk";
 
-/* Class = "UILabel"; text = "Op deze pagina ziet u de tegoeden die u krijgt. U heeft nog geen tegoeden gekregen."; ObjectID = "9G1-Sj-fzE"; */
-"9G1-Sj-fzE.text" = "Op deze pagina ziet u de tegoeden die u krijgt. U heeft nog geen tegoeden gekregen.";
+/* Class = "UILabel"; text = "Op deze pagina zie je de tegoeden die je krijgt. Je hebt nog geen tegoeden gekregen."; ObjectID = "9G1-Sj-fzE"; */
+"9G1-Sj-fzE.text" = "Op deze pagina zie je de tegoeden die je krijgt. Je hebt nog geen tegoeden gekregen.";
