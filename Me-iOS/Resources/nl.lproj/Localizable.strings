@@ -188,6 +188,6 @@
 "discount" = "Korting";
 "offers"  = "Aanbod";
 "do_you_want_to_login" = "Probeer je in te loggen op een apparaat?";
-"description_of_auth_anothe_device" = "Scan allen QR-codes vanaf je eigen apparaten. Gebruik nooit een code die een andere gebruiker naar je heeft gestuurd.";
-"i_want_to_login" = "ja, ik wil inloggen";
+"description_of_auth_anothe_device" = "Door verder te gaan met inloggen geef je een ander apparaat toegang tot je account. Weet je zeker dat je verder wilt gaan?";
+"i_want_to_login" = "Ja, ik wil inloggen";
 "no_thanks" = "Annuleren";
