@@ -86,8 +86,9 @@ class AppVersionUpdateNotifier {
                return
           }
           if let result = (json["results"] as? [Any])?.first as? [String: Any], let version = result["version"] as? String {
-              
-            delegate?.hasNewVersion(shouldBeUpdated: !currentVersion.contains(version))
+            if let versionBundle = Int(version.replacingOccurrences(of: ".", with: "")), let currentBundle =  Int(currentVersion.replacingOccurrences(of: ".", with: "")) {
+                delegate?.hasNewVersion(shouldBeUpdated: currentBundle < versionBundle)
+            }
     
           }
         }catch { }
