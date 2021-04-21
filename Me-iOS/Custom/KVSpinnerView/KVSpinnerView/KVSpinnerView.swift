@@ -278,7 +278,7 @@ public class KVSpinnerView: UIView {
 
 fileprivate extension KVSpinnerView {
     
-    fileprivate func startAnimating(onView view: UIView?,
+    func startAnimating(onView view: UIView?,
                                     withMessage message: String?) {
         clearAllAnimation()
         rectangleLayer.statusMessage = message != nil ? message : nil
@@ -291,7 +291,7 @@ fileprivate extension KVSpinnerView {
         }
     }
     
-    fileprivate func handleProgress(_ progress: Progress?,
+    func handleProgress(_ progress: Progress?,
                                     orProgressUnits units: CGFloat?) {
         if let progress = progress {
             let completed = CGFloat(progress.fractionCompleted)
@@ -306,7 +306,7 @@ fileprivate extension KVSpinnerView {
         }
     }
     
-    fileprivate func dismiss() {
+    func dismiss() {
         UIView.animate(withDuration: KVSpinnerView.settings.fadeOutDuration,
                        delay: KVSpinnerView.settings.minimumDismissDelay,
                        options: .curveEaseInOut,
@@ -319,7 +319,7 @@ fileprivate extension KVSpinnerView {
         })
     }
     
-    fileprivate func dismiss(afterDelay delay: TimeInterval) {
+    func dismiss(afterDelay delay: TimeInterval) {
         let minDelay = KVSpinnerView.settings.minimumDismissDelay
         UIView.animate(withDuration: KVSpinnerView.settings.fadeOutDuration,
                        delay: minDelay > delay ? minDelay : delay,
@@ -335,7 +335,7 @@ fileprivate extension KVSpinnerView {
     
     //MARK: - 
     
-    fileprivate func addViewToWindow() {
+    func addViewToWindow() {
         let window = UIApplication.shared.keyWindow!
         let radius = KVSpinnerView.settings.spinnerRadius
         self.frame = CGRect(x: window.bounds.midX,
@@ -354,7 +354,7 @@ fileprivate extension KVSpinnerView {
         }, completion: nil)
     }
     
-    fileprivate func addSubViewToParentView(_ parentView: UIView) {
+    func addSubViewToParentView(_ parentView: UIView) {
         let radius = KVSpinnerView.settings.spinnerRadius
         self.frame = CGRect(x: parentView.bounds.midX,
                             y: parentView.bounds.midY,
@@ -373,7 +373,7 @@ fileprivate extension KVSpinnerView {
         }, completion: nil)
     }
     
-    fileprivate func clearAllAnimation() {
+    func clearAllAnimation() {
         circleLayers.forEach({ (circleLayer) in
             circleLayer.removeAllAnimations()
         })

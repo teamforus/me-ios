@@ -323,6 +323,7 @@
                                             <action selector="back:" destination="uQD-o7-OPm" eventType="touchUpInside" id="BNo-WC-cZk"/>
                                         </connections>
                                     </button>
+
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
@@ -383,8 +384,11 @@
         </scene>
     </scenes>
     <designables>
+        <designable name="4AW-cF-E2d">
+            <size key="intrinsicContentSize" width="36" height="11"/>
+        </designable>
         <designable name="kQA-2y-C8q">
-            <size key="intrinsicContentSize" width="79" height="29"/>
+            <size key="intrinsicContentSize" width="90" height="29"/>
         </designable>
         <designable name="mWI-n4-pEO">
             <size key="intrinsicContentSize" width="135" height="24"/>

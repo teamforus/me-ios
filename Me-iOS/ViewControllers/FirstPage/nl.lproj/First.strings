@@ -15,7 +15,7 @@
 "IrT-93-1Nw.normalTitle" = "Choose Environmnet";
 
 /* Class = "UITextField"; placeholder = "Uw email"; ObjectID = "YwF-T9-4XR"; */
-"YwF-T9-4XR.placeholder" = "Uw e-mailadres";
+"YwF-T9-4XR.placeholder" = "Je e-mailadres";
 
 /* Class = "UILabel"; text = "Inloggen vanaf een ander apparaat"; ObjectID = "aoI-oj-U12"; */
 "aoI-oj-U12.text" = "Inloggen vanaf een ander apparaat";

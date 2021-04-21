@@ -89,7 +89,11 @@ class TransactionListTableViewCell: UITableViewCell {
         }
         
         if let price = transaction.amount {
-            self.priceLabel.text = "+ € \(price)"
+            if price.double == 0.0 {
+                self.priceLabel.text = Localize.free()
+            }else {
+                self.priceLabel.text = "+ € \(price)"
+            }
         }else {
             self.priceLabel.text = "+ € 0"
         }
