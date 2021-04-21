@@ -11,8 +11,28 @@ import UIKit
 class MConfirmAuthViewController: UIViewController {
   
   weak var delegate: QRControllerDelegate!
+    var heightConstraintsBody: NSLayoutConstraint!
   
   // MARK: - Properties
+    
+    let scrollView: BackgroundScrollView_DarkMode = {
+        let scrollView = BackgroundScrollView_DarkMode(frame: .zero)
+        scrollView.colorName = "Background_Voucher_DarkTheme"
+        
+        if #available(iOS 11.0, *) {
+            
+        } else {
+            // Fallback on earlier versions
+        }
+        return scrollView
+    }()
+    
+    let bodyView: Background_DarkMode = {
+        let view = Background_DarkMode(frame: .zero)
+        view.colorName = "Background_Voucher_DarkTheme"
+        return view
+    }()
+    
   private let titleLabel: UILabel_DarkMode = {
     let label = UILabel_DarkMode(frame: .zero)
     label.font = R.font.googleSansMedium(size: 36)
@@ -60,7 +80,7 @@ class MConfirmAuthViewController: UIViewController {
   // MARK: - Setup View
   override func viewDidLoad() {
     super.viewDidLoad()
-    addSubviews()
+    addSubview()
     setupConstraints()
     setupUI()
   }
@@ -76,11 +96,20 @@ class MConfirmAuthViewController: UIViewController {
 
 extension MConfirmAuthViewController {
   // MARK: - Add Subviews
-  private func addSubviews() {
+    
+    func addSubview() {
+        self.view.addSubview(scrollView)
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.addSubview(bodyView)
+        bodyView.translatesAutoresizingMaskIntoConstraints = false
+        addBodySubviews()
+    }
+    
+  private func addBodySubviews() {
     let views = [titleLabel, iconImageView, descriptionLabel, confirmButton, cancelButton]
     views.forEach { (view) in
       view.translatesAutoresizingMaskIntoConstraints = false
-      self.view.addSubview(view)
+      self.bodyView.addSubview(view)
     }
   }
 }
@@ -90,36 +119,63 @@ extension MConfirmAuthViewController {
   private func setupConstraints() {
     
     NSLayoutConstraint.activate([
-      titleLabel.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 92),
-      titleLabel.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 17),
-      titleLabel.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -17)
+        scrollView.topAnchor.constraint(equalTo: self.view.topAnchor),
+        scrollView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+        scrollView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
+        scrollView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor)
     ])
     
+    heightConstraintsBody = bodyView.heightAnchor.constraint(equalTo: self.scrollView.heightAnchor)
+    NSLayoutConstraint.activate([
+        bodyView.topAnchor.constraint(equalTo: self.scrollView.topAnchor),
+        bodyView.leadingAnchor.constraint(equalTo: self.scrollView.leadingAnchor),
+        bodyView.bottomAnchor.constraint(equalTo: self.scrollView.bottomAnchor),
+        bodyView.trailingAnchor.constraint(equalTo: self.scrollView.trailingAnchor),
+        bodyView.widthAnchor.constraint(equalTo: self.view.widthAnchor),
+       heightConstraintsBody
+    ])
+    
+    if UIDevice.current.screenType == .iPhones_5_5s_5c_SE ||  UIDevice.current.screenType == .iPhones_6_6s_7_8 {
+        heightConstraintsBody.isActive = false
+        NSLayoutConstraint.activate([
+            bodyView.heightAnchor.constraint(equalToConstant: 700)
+            
+        ])
+    }
+    
+    
+    NSLayoutConstraint.activate([
+        titleLabel.topAnchor.constraint(equalTo: self.bodyView.safeAreaLayoutGuide.topAnchor, constant: 12),
+        titleLabel.leadingAnchor.constraint(equalTo: self.bodyView.leadingAnchor, constant: 17),
+        titleLabel.trailingAnchor.constraint(equalTo: self.bodyView.trailingAnchor, constant: -17),
+        titleLabel.heightAnchor.constraint(equalToConstant: 160)
+    ])
+   
     NSLayoutConstraint.activate([
       iconImageView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 4),
-      iconImageView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
-      iconImageView.widthAnchor.constraint(equalToConstant: 281),
-      iconImageView.heightAnchor.constraint(equalToConstant: 281)
+      iconImageView.centerXAnchor.constraint(equalTo: self.bodyView.centerXAnchor)
     ])
     
     NSLayoutConstraint.activate([
       descriptionLabel.topAnchor.constraint(equalTo: iconImageView.bottomAnchor, constant: 42),
-      descriptionLabel.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 21),
-      descriptionLabel.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -21)
+      descriptionLabel.leadingAnchor.constraint(equalTo: self.bodyView.leadingAnchor, constant: 21),
+      descriptionLabel.trailingAnchor.constraint(equalTo: self.bodyView.trailingAnchor, constant: -21),
+      descriptionLabel.heightAnchor.constraint(equalToConstant: 120)
     ])
     
     NSLayoutConstraint.activate([
-      confirmButton.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 25),
+        confirmButton.topAnchor.constraint(greaterThanOrEqualTo: descriptionLabel.bottomAnchor, constant: 20),
       confirmButton.heightAnchor.constraint(equalToConstant: 50),
-      confirmButton.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 31),
-      confirmButton.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -31)
+      confirmButton.leadingAnchor.constraint(equalTo: self.bodyView.leadingAnchor, constant: 31),
+      confirmButton.trailingAnchor.constraint(equalTo: self.bodyView.trailingAnchor, constant: -31)
     ])
     
     NSLayoutConstraint.activate([
       cancelButton.topAnchor.constraint(equalTo: confirmButton.bottomAnchor, constant: 3),
       cancelButton.heightAnchor.constraint(equalToConstant: 50),
-      cancelButton.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 31),
-      cancelButton.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -31)
+      cancelButton.leadingAnchor.constraint(equalTo: self.bodyView.leadingAnchor, constant: 31),
+      cancelButton.trailingAnchor.constraint(equalTo: self.bodyView.trailingAnchor, constant: -31),
+        cancelButton.bottomAnchor.constraint(equalTo: self.bodyView.safeAreaLayoutGuide.bottomAnchor, constant: -5)
     ])
   }
 }
