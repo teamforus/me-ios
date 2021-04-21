@@ -2848,6 +2848,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en, nl
       static let confirm_transaction = Rswift.StringResource(key: "confirm_transaction", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
+      /// en translation: Continuing will allow this device to acces your account. Are you sure you want to continue?
+      ///
+      /// Locales: en, nl
+      static let description_of_auth_anothe_device = Rswift.StringResource(key: "description_of_auth_anothe_device", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
       /// en translation: Copied to clipboard
       ///
       /// Locales: en, nl
@@ -3192,10 +3196,6 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en, nl
       static let base_salary = Rswift.StringResource(key: "base_salary", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
-      /// en translation: Scan only QR-codes on devices you own or temporarily use. Never scan a code which was sent or shown by another person.
-      ///
-      /// Locales: en, nl
-      static let description_of_auth_anothe_device = Rswift.StringResource(key: "description_of_auth_anothe_device", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
       /// en translation: Search currency
       ///
       /// Locales: en, nl
@@ -3953,6 +3953,21 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("confirm_transaction", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Continuing will allow this device to acces your account. Are you sure you want to continue?
+      ///
+      /// Locales: en, nl
+      static func description_of_auth_anothe_device(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("description_of_auth_anothe_device", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "description_of_auth_anothe_device"
+        }
+
+        return NSLocalizedString("description_of_auth_anothe_device", bundle: bundle, comment: "")
       }
 
       /// en translation: Copied to clipboard
@@ -5251,21 +5266,6 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("base_salary", bundle: bundle, comment: "")
-      }
-
-      /// en translation: Scan only QR-codes on devices you own or temporarily use. Never scan a code which was sent or shown by another person.
-      ///
-      /// Locales: en, nl
-      static func description_of_auth_anothe_device(preferredLanguages: [String]? = nil) -> String {
-        guard let preferredLanguages = preferredLanguages else {
-          return NSLocalizedString("description_of_auth_anothe_device", bundle: hostingBundle, comment: "")
-        }
-
-        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
-          return "description_of_auth_anothe_device"
-        }
-
-        return NSLocalizedString("description_of_auth_anothe_device", bundle: bundle, comment: "")
       }
 
       /// en translation: Search currency

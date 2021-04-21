@@ -57,9 +57,6 @@
                                         <real key="value" value="10"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <segue destination="GHd-i6-BeE" kind="show" id="E0u-Jr-yqb"/>
-                                </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hqF-eK-v55" customClass="CustomCornerUIView" customModule="Me_iOS" customModuleProvider="target">
                                 <rect key="frame" x="15" y="428" width="384" height="210"/>
@@ -302,14 +299,6 @@
             </objects>
             <point key="canvasLocation" x="-697.10144927536237" y="209.59821428571428"/>
         </scene>
-        <!--EmailLogin-->
-        <scene sceneID="A4t-VK-Qsh">
-            <objects>
-                <viewControllerPlaceholder storyboardName="EmailLogin" id="GHd-i6-BeE" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="E4L-rc-R3q" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-20" y="236"/>
-        </scene>
         <!--Main-->
         <scene sceneID="N43-cV-2F7">
             <objects>
@@ -321,10 +310,10 @@
     </scenes>
     <designables>
         <designable name="8Wa-ps-2Db">
-            <size key="intrinsicContentSize" width="148" height="29"/>
+            <size key="intrinsicContentSize" width="155" height="30"/>
         </designable>
         <designable name="DCA-Vc-6V9">
-            <size key="intrinsicContentSize" width="152" height="29"/>
+            <size key="intrinsicContentSize" width="156" height="30"/>
         </designable>
     </designables>
     <resources>
