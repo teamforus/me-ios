@@ -272,7 +272,7 @@ struct R: Rswift.Validatable {
   #endif
 
   #if os(iOS) || os(tvOS)
-  /// This `R.storyboard` struct is generated, and contains static references to 17 storyboards.
+  /// This `R.storyboard` struct is generated, and contains static references to 16 storyboards.
   struct storyboard {
     /// Storyboard `About`.
     static let about = _R.storyboard.about()
@@ -284,8 +284,6 @@ struct R: Rswift.Validatable {
     static let first = _R.storyboard.first()
     /// Storyboard `LaunchScreen`.
     static let launchScreen = _R.storyboard.launchScreen()
-    /// Storyboard `LoginQRAndCodeViewController`.
-    static let loginQRAndCodeViewController = _R.storyboard.loginQRAndCodeViewController()
     /// Storyboard `Main`.
     static let main = _R.storyboard.main()
     /// Storyboard `Payment`.
@@ -341,13 +339,6 @@ struct R: Rswift.Validatable {
     /// `UIStoryboard(name: "LaunchScreen", bundle: ...)`
     static func launchScreen(_: Void = ()) -> UIKit.UIStoryboard {
       return UIKit.UIStoryboard(resource: R.storyboard.launchScreen)
-    }
-    #endif
-
-    #if os(iOS) || os(tvOS)
-    /// `UIStoryboard(name: "LoginQRAndCodeViewController", bundle: ...)`
-    static func loginQRAndCodeViewController(_: Void = ()) -> UIKit.UIStoryboard {
-      return UIKit.UIStoryboard(resource: R.storyboard.loginQRAndCodeViewController)
     }
     #endif
 
@@ -1634,7 +1625,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.string` struct is generated, and contains static references to 25 localization tables.
+  /// This `R.string` struct is generated, and contains static references to 24 localization tables.
   struct string {
     /// This `R.string.about` struct is generated, and contains static references to 7 localization keys.
     struct about {
@@ -6177,259 +6168,6 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
 
-    /// This `R.string.loginQRAndCodeViewController` struct is generated, and contains static references to 13 localization keys.
-    struct loginQRAndCodeViewController {
-      /// en translation: ADD ANOTHER DEVICE
-      ///
-      /// Locales: en, nl
-      static let dcaVc6V9NormalTitle = Rswift.StringResource(key: "DCA-Vc-6V9.normalTitle", tableName: "LoginQRAndCodeViewController", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
-      /// en translation: Authorization code.
-      ///
-      /// Locales: en, nl
-      static let nOlFgXzGText = Rswift.StringResource(key: "nOl-fg-xzG.text", tableName: "LoginQRAndCodeViewController", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
-      /// en translation: LOG IN BY E-MAIL
-      ///
-      /// Locales: en, nl
-      static let waPs2DbNormalTitle = Rswift.StringResource(key: "8Wa-ps-2Db.normalTitle", tableName: "LoginQRAndCodeViewController", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
-      /// en translation: Log in
-      ///
-      /// Locales: en, nl
-      static let t4Jt651Text = Rswift.StringResource(key: "0T4-Jt-651.text", tableName: "LoginQRAndCodeViewController", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
-      /// en translation: Log in to the webshop, click on your profile, then authorize device and enter this code.
-      ///
-      /// Locales: en, nl
-      static let feTyMqbText = Rswift.StringResource(key: "3FE-Ty-mqb.text", tableName: "LoginQRAndCodeViewController", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
-      /// en translation: Me
-      ///
-      /// Locales: en, nl
-      static let xytDH3coText = Rswift.StringResource(key: "Xyt-DH-3co.text", tableName: "LoginQRAndCodeViewController", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
-      /// en translation: QR-CODE
-      ///
-      /// Locales: en, nl
-      static let wLz4HL5IText = Rswift.StringResource(key: "wLz-4H-L5I.text", tableName: "LoginQRAndCodeViewController", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
-      /// en translation: Scan this QR-Code with a device you have already logged into.
-      ///
-      /// Locales: en, nl
-      static let cqbST7HSText = Rswift.StringResource(key: "cqb-ST-7HS.text", tableName: "LoginQRAndCodeViewController", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
-      /// en translation: • 
-      ///
-      /// Locales: en, nl
-      static let fVpMwKdPText = Rswift.StringResource(key: "fVp-mw-kdP.text", tableName: "LoginQRAndCodeViewController", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
-      /// en translation: • 
-      ///
-      /// Locales: en, nl
-      static let qqiEhAdxText = Rswift.StringResource(key: "qqi-eh-adx.text", tableName: "LoginQRAndCodeViewController", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
-      /// en translation: • 
-      ///
-      /// Locales: en, nl
-      static let sTDAl3dfText = Rswift.StringResource(key: "sTD-Al-3df.text", tableName: "LoginQRAndCodeViewController", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
-      /// en translation: • 
-      ///
-      /// Locales: en, nl
-      static let sy8YgYeKText = Rswift.StringResource(key: "sy8-Yg-yeK.text", tableName: "LoginQRAndCodeViewController", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
-      /// en translation: • 
-      ///
-      /// Locales: en, nl
-      static let vdhDoXjnText = Rswift.StringResource(key: "VDH-do-xjn.text", tableName: "LoginQRAndCodeViewController", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
-
-      /// en translation: ADD ANOTHER DEVICE
-      ///
-      /// Locales: en, nl
-      static func dcaVc6V9NormalTitle(preferredLanguages: [String]? = nil) -> String {
-        guard let preferredLanguages = preferredLanguages else {
-          return NSLocalizedString("DCA-Vc-6V9.normalTitle", tableName: "LoginQRAndCodeViewController", bundle: hostingBundle, comment: "")
-        }
-
-        guard let (_, bundle) = localeBundle(tableName: "LoginQRAndCodeViewController", preferredLanguages: preferredLanguages) else {
-          return "DCA-Vc-6V9.normalTitle"
-        }
-
-        return NSLocalizedString("DCA-Vc-6V9.normalTitle", tableName: "LoginQRAndCodeViewController", bundle: bundle, comment: "")
-      }
-
-      /// en translation: Authorization code.
-      ///
-      /// Locales: en, nl
-      static func nOlFgXzGText(preferredLanguages: [String]? = nil) -> String {
-        guard let preferredLanguages = preferredLanguages else {
-          return NSLocalizedString("nOl-fg-xzG.text", tableName: "LoginQRAndCodeViewController", bundle: hostingBundle, comment: "")
-        }
-
-        guard let (_, bundle) = localeBundle(tableName: "LoginQRAndCodeViewController", preferredLanguages: preferredLanguages) else {
-          return "nOl-fg-xzG.text"
-        }
-
-        return NSLocalizedString("nOl-fg-xzG.text", tableName: "LoginQRAndCodeViewController", bundle: bundle, comment: "")
-      }
-
-      /// en translation: LOG IN BY E-MAIL
-      ///
-      /// Locales: en, nl
-      static func waPs2DbNormalTitle(preferredLanguages: [String]? = nil) -> String {
-        guard let preferredLanguages = preferredLanguages else {
-          return NSLocalizedString("8Wa-ps-2Db.normalTitle", tableName: "LoginQRAndCodeViewController", bundle: hostingBundle, comment: "")
-        }
-
-        guard let (_, bundle) = localeBundle(tableName: "LoginQRAndCodeViewController", preferredLanguages: preferredLanguages) else {
-          return "8Wa-ps-2Db.normalTitle"
-        }
-
-        return NSLocalizedString("8Wa-ps-2Db.normalTitle", tableName: "LoginQRAndCodeViewController", bundle: bundle, comment: "")
-      }
-
-      /// en translation: Log in
-      ///
-      /// Locales: en, nl
-      static func t4Jt651Text(preferredLanguages: [String]? = nil) -> String {
-        guard let preferredLanguages = preferredLanguages else {
-          return NSLocalizedString("0T4-Jt-651.text", tableName: "LoginQRAndCodeViewController", bundle: hostingBundle, comment: "")
-        }
-
-        guard let (_, bundle) = localeBundle(tableName: "LoginQRAndCodeViewController", preferredLanguages: preferredLanguages) else {
-          return "0T4-Jt-651.text"
-        }
-
-        return NSLocalizedString("0T4-Jt-651.text", tableName: "LoginQRAndCodeViewController", bundle: bundle, comment: "")
-      }
-
-      /// en translation: Log in to the webshop, click on your profile, then authorize device and enter this code.
-      ///
-      /// Locales: en, nl
-      static func feTyMqbText(preferredLanguages: [String]? = nil) -> String {
-        guard let preferredLanguages = preferredLanguages else {
-          return NSLocalizedString("3FE-Ty-mqb.text", tableName: "LoginQRAndCodeViewController", bundle: hostingBundle, comment: "")
-        }
-
-        guard let (_, bundle) = localeBundle(tableName: "LoginQRAndCodeViewController", preferredLanguages: preferredLanguages) else {
-          return "3FE-Ty-mqb.text"
-        }
-
-        return NSLocalizedString("3FE-Ty-mqb.text", tableName: "LoginQRAndCodeViewController", bundle: bundle, comment: "")
-      }
-
-      /// en translation: Me
-      ///
-      /// Locales: en, nl
-      static func xytDH3coText(preferredLanguages: [String]? = nil) -> String {
-        guard let preferredLanguages = preferredLanguages else {
-          return NSLocalizedString("Xyt-DH-3co.text", tableName: "LoginQRAndCodeViewController", bundle: hostingBundle, comment: "")
-        }
-
-        guard let (_, bundle) = localeBundle(tableName: "LoginQRAndCodeViewController", preferredLanguages: preferredLanguages) else {
-          return "Xyt-DH-3co.text"
-        }
-
-        return NSLocalizedString("Xyt-DH-3co.text", tableName: "LoginQRAndCodeViewController", bundle: bundle, comment: "")
-      }
-
-      /// en translation: QR-CODE
-      ///
-      /// Locales: en, nl
-      static func wLz4HL5IText(preferredLanguages: [String]? = nil) -> String {
-        guard let preferredLanguages = preferredLanguages else {
-          return NSLocalizedString("wLz-4H-L5I.text", tableName: "LoginQRAndCodeViewController", bundle: hostingBundle, comment: "")
-        }
-
-        guard let (_, bundle) = localeBundle(tableName: "LoginQRAndCodeViewController", preferredLanguages: preferredLanguages) else {
-          return "wLz-4H-L5I.text"
-        }
-
-        return NSLocalizedString("wLz-4H-L5I.text", tableName: "LoginQRAndCodeViewController", bundle: bundle, comment: "")
-      }
-
-      /// en translation: Scan this QR-Code with a device you have already logged into.
-      ///
-      /// Locales: en, nl
-      static func cqbST7HSText(preferredLanguages: [String]? = nil) -> String {
-        guard let preferredLanguages = preferredLanguages else {
-          return NSLocalizedString("cqb-ST-7HS.text", tableName: "LoginQRAndCodeViewController", bundle: hostingBundle, comment: "")
-        }
-
-        guard let (_, bundle) = localeBundle(tableName: "LoginQRAndCodeViewController", preferredLanguages: preferredLanguages) else {
-          return "cqb-ST-7HS.text"
-        }
-
-        return NSLocalizedString("cqb-ST-7HS.text", tableName: "LoginQRAndCodeViewController", bundle: bundle, comment: "")
-      }
-
-      /// en translation: • 
-      ///
-      /// Locales: en, nl
-      static func fVpMwKdPText(preferredLanguages: [String]? = nil) -> String {
-        guard let preferredLanguages = preferredLanguages else {
-          return NSLocalizedString("fVp-mw-kdP.text", tableName: "LoginQRAndCodeViewController", bundle: hostingBundle, comment: "")
-        }
-
-        guard let (_, bundle) = localeBundle(tableName: "LoginQRAndCodeViewController", preferredLanguages: preferredLanguages) else {
-          return "fVp-mw-kdP.text"
-        }
-
-        return NSLocalizedString("fVp-mw-kdP.text", tableName: "LoginQRAndCodeViewController", bundle: bundle, comment: "")
-      }
-
-      /// en translation: • 
-      ///
-      /// Locales: en, nl
-      static func qqiEhAdxText(preferredLanguages: [String]? = nil) -> String {
-        guard let preferredLanguages = preferredLanguages else {
-          return NSLocalizedString("qqi-eh-adx.text", tableName: "LoginQRAndCodeViewController", bundle: hostingBundle, comment: "")
-        }
-
-        guard let (_, bundle) = localeBundle(tableName: "LoginQRAndCodeViewController", preferredLanguages: preferredLanguages) else {
-          return "qqi-eh-adx.text"
-        }
-
-        return NSLocalizedString("qqi-eh-adx.text", tableName: "LoginQRAndCodeViewController", bundle: bundle, comment: "")
-      }
-
-      /// en translation: • 
-      ///
-      /// Locales: en, nl
-      static func sTDAl3dfText(preferredLanguages: [String]? = nil) -> String {
-        guard let preferredLanguages = preferredLanguages else {
-          return NSLocalizedString("sTD-Al-3df.text", tableName: "LoginQRAndCodeViewController", bundle: hostingBundle, comment: "")
-        }
-
-        guard let (_, bundle) = localeBundle(tableName: "LoginQRAndCodeViewController", preferredLanguages: preferredLanguages) else {
-          return "sTD-Al-3df.text"
-        }
-
-        return NSLocalizedString("sTD-Al-3df.text", tableName: "LoginQRAndCodeViewController", bundle: bundle, comment: "")
-      }
-
-      /// en translation: • 
-      ///
-      /// Locales: en, nl
-      static func sy8YgYeKText(preferredLanguages: [String]? = nil) -> String {
-        guard let preferredLanguages = preferredLanguages else {
-          return NSLocalizedString("sy8-Yg-yeK.text", tableName: "LoginQRAndCodeViewController", bundle: hostingBundle, comment: "")
-        }
-
-        guard let (_, bundle) = localeBundle(tableName: "LoginQRAndCodeViewController", preferredLanguages: preferredLanguages) else {
-          return "sy8-Yg-yeK.text"
-        }
-
-        return NSLocalizedString("sy8-Yg-yeK.text", tableName: "LoginQRAndCodeViewController", bundle: bundle, comment: "")
-      }
-
-      /// en translation: • 
-      ///
-      /// Locales: en, nl
-      static func vdhDoXjnText(preferredLanguages: [String]? = nil) -> String {
-        guard let preferredLanguages = preferredLanguages else {
-          return NSLocalizedString("VDH-do-xjn.text", tableName: "LoginQRAndCodeViewController", bundle: hostingBundle, comment: "")
-        }
-
-        guard let (_, bundle) = localeBundle(tableName: "LoginQRAndCodeViewController", preferredLanguages: preferredLanguages) else {
-          return "VDH-do-xjn.text"
-        }
-
-        return NSLocalizedString("VDH-do-xjn.text", tableName: "LoginQRAndCodeViewController", bundle: bundle, comment: "")
-      }
-
-      fileprivate init() {}
-    }
-
     /// This `R.string.mCrashConfirmViewController` struct is generated, and contains static references to 4 localization keys.
     struct mCrashConfirmViewController {
       /// en translation: CANCEL
@@ -9270,9 +9008,6 @@ struct _R: Rswift.Validatable {
       try launchScreen.validate()
       #endif
       #if os(iOS) || os(tvOS)
-      try loginQRAndCodeViewController.validate()
-      #endif
-      #if os(iOS) || os(tvOS)
       try main.validate()
       #endif
       #if os(iOS) || os(tvOS)
@@ -9409,29 +9144,6 @@ struct _R: Rswift.Validatable {
       static func validate() throws {
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
-      }
-
-      fileprivate init() {}
-    }
-    #endif
-
-    #if os(iOS) || os(tvOS)
-    struct loginQRAndCodeViewController: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
-      typealias InitialController = MLoginQRAndCodeViewController
-
-      let bundle = R.hostingBundle
-      let content = StoryboardViewControllerResource<MLoginQRAndCodeViewController>(identifier: "content")
-      let name = "LoginQRAndCodeViewController"
-
-      func content(_: Void = ()) -> MLoginQRAndCodeViewController? {
-        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: content)
-      }
-
-      static func validate() throws {
-        if UIKit.UIImage(named: "back", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'back' is used in storyboard 'LoginQRAndCodeViewController', but couldn't be loaded.") }
-        if #available(iOS 11.0, tvOS 11.0, *) {
-        }
-        if _R.storyboard.loginQRAndCodeViewController().content() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'content' could not be loaded from storyboard 'LoginQRAndCodeViewController' as 'MLoginQRAndCodeViewController'.") }
       }
 
       fileprivate init() {}
