@@ -22,7 +22,7 @@ class MInfoVoucherTableViewCell: UITableViewCell {
         button.backgroundColor = #colorLiteral(red: 0.9449954033, green: 0.9451572299, blue: 0.9449852109, alpha: 1)
         button.setTitleColor(#colorLiteral(red: 0.1918309331, green: 0.3696506619, blue: 0.9919955134, alpha: 1), for: .normal)
         button.titleLabel?.font = R.font.googleSansRegular(size: 14)
-        button.setTitle("E-mail naar mij", for: .normal)
+        button.setTitle(Localize.email_to_me(), for: .normal)
         button.rounded(cornerRadius: 6)
         return button
     }()
@@ -32,19 +32,17 @@ class MInfoVoucherTableViewCell: UITableViewCell {
         button.backgroundColor = #colorLiteral(red: 0.9449954033, green: 0.9451572299, blue: 0.9449852109, alpha: 1)
         button.setTitleColor(#colorLiteral(red: 0.1918309331, green: 0.3696506619, blue: 0.9919955134, alpha: 1), for: .normal)
         button.titleLabel?.font = R.font.googleSansRegular(size: 14)
-        button.setTitle("Voucher Info", for: .normal)
+        button.setTitle(Localize.voucher_info(), for: .normal)
         button.rounded(cornerRadius: 6)
         return button
     }()
-  
-  
     
-  private let iconImageButton: UIImageView = {
-    let imageQRCodeVoucher = UIImageView(frame: .zero)
-    imageQRCodeVoucher.image = UIImage(named: "email1")
-    imageQRCodeVoucher.contentMode = .scaleAspectFit
-    return imageQRCodeVoucher
-  }()
+    private let iconImageButton: UIImageView = {
+        let imageQRCodeVoucher = UIImageView(frame: .zero)
+        imageQRCodeVoucher.image = UIImage(named: "email1")
+        imageQRCodeVoucher.contentMode = .scaleAspectFit
+        return imageQRCodeVoucher
+    }()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -52,13 +50,12 @@ class MInfoVoucherTableViewCell: UITableViewCell {
         setupConstraints()
         contentView.backgroundColor = .clear
         self.backgroundColor = .clear
+        self.selectionStyle = .none
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
-    
-    
 }
 
 extension MInfoVoucherTableViewCell {
@@ -94,16 +91,14 @@ extension MInfoVoucherTableViewCell {
             voucherInfoButton.heightAnchor.constraint(equalToConstant: 46),
             voucherInfoButton.centerYAnchor.constraint(equalTo: emailButton.centerYAnchor),
         ])
-      
-      NSLayoutConstraint.activate([
-        iconImageButton.topAnchor.constraint(equalTo: self.emailButton.topAnchor, constant: 12),
-    
         
-        iconImageButton.leadingAnchor.constraint(equalTo: self.emailButton.leadingAnchor, constant: 12),
-        iconImageButton.heightAnchor.constraint(equalToConstant: 20),
-        iconImageButton.widthAnchor.constraint(equalToConstant: 23),
-      ])
-      
+        NSLayoutConstraint.activate([
+            iconImageButton.topAnchor.constraint(equalTo: self.emailButton.topAnchor, constant: 12),
+            iconImageButton.leadingAnchor.constraint(equalTo: self.emailButton.leadingAnchor, constant: 12),
+            iconImageButton.heightAnchor.constraint(equalToConstant: 20),
+            iconImageButton.widthAnchor.constraint(equalToConstant: 23),
+        ])
+        
     }
     
 }

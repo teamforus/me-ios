@@ -10,11 +10,12 @@ import UIKit
 
 enum MainTableViewSection: Int, CaseIterable {
     case voucher = 0
-    case infoVoucher = 1
-    case mapDetail = 2
-    case adress = 3
-    case telephone = 4
-    case branches = 5
+    case infoVoucher
+    case mapDetail
+    case adress
+    case telephone
+    case email
+    case branches
 }
 
 class ProductVoucherViewController: UIViewController {
@@ -35,9 +36,10 @@ class ProductVoucherViewController: UIViewController {
     
     private let titleLabel: UILabel = {
         let label = UILabel(frame: .zero)
-        label.text = "Product Voucher"
+        label.text = Localize.product_voucher()
         label.font = R.font.googleSansMedium(size: 17)
         label.textColor = .black
+        label.textAlignment = .center
         return label
     }()
     
@@ -161,6 +163,7 @@ extension ProductVoucherViewController: UITableViewDelegate, UITableViewDataSour
             guard let cell = tableView.dequeueReusableCell(withIdentifier: MMapDetailsTableViewCell.identifier, for: indexPath) as? MMapDetailsTableViewCell else {
                 return UITableViewCell()
             }
+            cell.parentViewController = self
           cell.setupVoucher(voucher: voucher)
             return cell
             
@@ -176,6 +179,13 @@ extension ProductVoucherViewController: UITableViewDelegate, UITableViewDataSour
                 return UITableViewCell()
             }
           cell.setupVoucher(voucher: voucher)
+            return cell
+            
+        case .email:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: MAdressTableViewCell.identifier, for: indexPath) as? MAdressTableViewCell else {
+                return UITableViewCell()
+            }
+          cell.setupEmail(voucher: voucher)
             return cell
             
         case .branches:
@@ -201,6 +211,8 @@ extension ProductVoucherViewController: UITableViewDelegate, UITableViewDataSour
         case .adress:
             return 78
         case .telephone:
+            return 82
+        case .email:
             return 82
         case .branches:
             return 80
