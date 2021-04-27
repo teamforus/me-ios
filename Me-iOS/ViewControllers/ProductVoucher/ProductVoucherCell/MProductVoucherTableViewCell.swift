@@ -15,14 +15,19 @@ class MProductVoucherTableViewCell: UITableViewCell {
     var voucher: Voucher!
     private let imageVoucher: UIImageView = {
         let imageVoucher = UIImageView(frame: .zero)
-        imageVoucher.image = UIImage(named: "5XVoucherContainerWElevation")
+        imageVoucher.image = UIImage(named: "5XVoucherSurface")
         return imageVoucher
     }()
     
-    private let labelVoucher: UILabel = {
-        let label = UILabel(frame: .zero)
-        label.font = R.font.googleSansMedium(size: 21)
-        label.textColor = .black
+    private let productName: UILabel_DarkMode = {
+        let label = UILabel_DarkMode(frame: .zero)
+        label.font = R.font.googleSansMedium(size: 20)
+        return label
+    }()
+    
+    private var organizationName: UILabel_DarkMode = {
+        let label = UILabel_DarkMode(frame: .zero)
+        label.font = R.font.googleSansRegular(size: 13)
         return label
     }()
     
@@ -47,42 +52,53 @@ class MProductVoucherTableViewCell: UITableViewCell {
     }
     
     func setupVoucher(voucher: Voucher?) {
-        self.labelVoucher.text = voucher?.product?.name ?? ""
+        self.productName.text = voucher?.product?.name ?? ""
         self.imageQRCodeVoucher.generateQRCode(from: "{\"type\": \"voucher\",\"value\": \"\(voucher?.address ?? "")\" }")
+        self.organizationName.text = voucher?.product?.organization?.name ?? ""
     }
-    
-    func addSubviews() {
-        let views = [imageVoucher, labelVoucher, imageQRCodeVoucher]
+}
+
+extension MProductVoucherTableViewCell {
+    // MARK: - Add Subviews
+    private func addSubviews() {
+        let views = [imageVoucher, productName, organizationName, imageQRCodeVoucher]
         views.forEach { (view) in
             view.translatesAutoresizingMaskIntoConstraints = false
             self.contentView.addSubview(view)
         }
     }
-    func setupConstraints(){
+}
+
+extension MProductVoucherTableViewCell {
+    // MARK: - Setup Constraints
+    private func setupConstraints(){
         NSLayoutConstraint.activate([
             imageVoucher.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 0),
             imageVoucher.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 15),
             imageVoucher.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant:  -15),
             imageVoucher.heightAnchor.constraint(equalToConstant: 120),
-            imageVoucher.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: 0)
+            imageVoucher.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: -10)
         ])
         
         NSLayoutConstraint.activate([
-            labelVoucher.topAnchor.constraint(equalTo: self.imageVoucher.topAnchor, constant: 40),
-            labelVoucher.leadingAnchor.constraint(equalTo: self.imageVoucher.leadingAnchor, constant: 34),
-            labelVoucher.widthAnchor.constraint(equalToConstant: 180),
-            labelVoucher.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: -53)
+            productName.topAnchor.constraint(equalTo: self.imageVoucher.topAnchor, constant: 20),
+            productName.leadingAnchor.constraint(equalTo: self.imageVoucher.leadingAnchor, constant: 20),
+            productName.widthAnchor.constraint(equalToConstant: 180)
         ])
         
         NSLayoutConstraint.activate([
-            imageQRCodeVoucher.topAnchor.constraint(equalTo: self.imageVoucher.topAnchor, constant: 22),
-            imageQRCodeVoucher.trailingAnchor.constraint(equalTo: self.imageVoucher.trailingAnchor, constant:  -36),
-            imageQRCodeVoucher.centerYAnchor.constraint(equalTo: self.labelVoucher.centerYAnchor),
+            organizationName.topAnchor.constraint(equalTo: self.productName.bottomAnchor, constant: 5),
+            organizationName.leadingAnchor.constraint(equalTo: self.imageVoucher.leadingAnchor, constant: 20),
+            organizationName.widthAnchor.constraint(equalToConstant: 180)
+        ])
+        
+        NSLayoutConstraint.activate([
+            imageQRCodeVoucher.trailingAnchor.constraint(equalTo: self.imageVoucher.trailingAnchor, constant:  -10),
+            imageQRCodeVoucher.centerYAnchor.constraint(equalTo: self.imageVoucher.centerYAnchor),
             imageQRCodeVoucher.heightAnchor.constraint(equalToConstant: 76),
             imageQRCodeVoucher.widthAnchor.constraint(equalToConstant: 76),
         ])
     }
-    
 }
 
 

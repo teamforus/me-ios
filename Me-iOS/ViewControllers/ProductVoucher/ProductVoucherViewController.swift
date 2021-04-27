@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import SafariServices
+import MessageUI
 
 enum MainTableViewSection: Int, CaseIterable {
     case voucher = 0
@@ -20,33 +22,33 @@ enum MainTableViewSection: Int, CaseIterable {
 
 class ProductVoucherViewController: UIViewController {
     
+    
+    
+    var voucher: Voucher!
+    var address: String!
+    lazy var productViewModel: ProductVoucherViewModel = {
+        return ProductVoucherViewModel()
+    }()
+    
     // MARK: - Properties
-  
-  var voucher: Voucher!
-  var address: String!
-  lazy var productViewModel: ProductVoucherViewModel = {
-      return ProductVoucherViewModel()
-  }()
-  
-    private let backButton: ActionButton = {
-        let button = ActionButton(frame: .zero)
-        button.setImage(#imageLiteral(resourceName: "back"), for: .normal)
+    private let backButton: BackButton_DarkMode = {
+        let button = BackButton_DarkMode(frame: .zero)
         return button
     }()
     
-    private let titleLabel: UILabel = {
-        let label = UILabel(frame: .zero)
+    private let titleLabel: UILabel_DarkMode = {
+        let label = UILabel_DarkMode(frame: .zero)
         label.text = Localize.product_voucher()
         label.font = R.font.googleSansMedium(size: 17)
-        label.textColor = .black
         label.textAlignment = .center
         return label
     }()
     
-    private let tableView: UITableView = {
-        let tableView = UITableView(frame: .zero)
+    private let tableView: TableView_Background_DarkMode = {
+        let tableView = TableView_Background_DarkMode(frame: .zero)
         tableView.backgroundColor = .clear
         tableView.separatorStyle = .none
+        tableView.colorName = "Background_Voucher_DarkTheme"
         tableView.showsVerticalScrollIndicator = false
         return tableView
     }()
@@ -56,74 +58,34 @@ class ProductVoucherViewController: UIViewController {
         super.viewDidLoad()
         self.view.backgroundColor = #colorLiteral(red: 0.9646012187, green: 0.9647662044, blue: 0.9645908475, alpha: 1)
         addSubviews()
-        setUpTableView()
         addCosntrains()
+        setupUI()
+    }
+    
+    private func setupUI() {
+        setUpTableView()
         setUpActions()
         getApiRequest()
+        if #available(iOS 11.0, *) {
+            self.view.backgroundColor = UIColor(named: "Background_Voucher_DarkTheme")
+        } else {}
     }
-  
-  func getApiRequest(){
-    productViewModel.complete = { [weak self] (voucher) in
-          DispatchQueue.main.async {
-            self?.voucher = voucher
-            self?.tableView.reloadData()
-              if voucher.expire_at?.date?.formatDate() ?? Date() > Date() {
-//                  self?.qrCodeImage.isHidden = false
-//                  self?.sendEmailButton.isHidden = false
-//                  self?.voucherInfoButton.isHidden = false
-//                  self?.buttonsView.isHidden = false
-//                  self?.heightConstraintsHeaderView.constant = 322
-//                  self?.qrCodeButton.isEnabled = true
-              }
-//              self?.productNameLabel.text = voucher.product?.name ?? ""
-//              self?.organizationNameLabel.text = voucher.fund?.organization?.name ?? ""
-//              self?.organizationProductName.text = voucher.product?.organization?.name ?? ""
-//              self?.addressLabel.text = voucher.offices?.first?.address ?? ""
-//              self?.phoneNumberLabel.text = voucher.offices?.first?.phone ?? ""
-//              self?.emailButton.setTitle(voucher.offices?.first?.organization?.email, for: .normal)
-//              self?.organizationIcon.loadImageUsingUrlString(urlString: voucher.product?.organization?.logo?.sizes?.thumbnail ?? "", placeHolder: #imageLiteral(resourceName: "Resting"))
-//              self?.qrCodeImage.generateQRCode(from: "{\"type\": \"voucher\",\"value\": \"\(voucher.address ?? "")\" }")
-//              self?.voucher = voucher
-//              //organizationLabel gesture
-//              self?.emailButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self?.Tap)))
-//              self?.emailButton.addGestureRecognizer(UILongPressGestureRecognizer(target: self, action: #selector(self?.Long)))
-//
-//
-//              if let latitudeValue = voucher.offices?.first?.lat, let lat = Double(latitudeValue) {
-//                  self?.latitude = lat
-//              }
-//
-//              if let longitudeValue = voucher.offices?.first?.lon, let lon = Double(longitudeValue) {
-//                  self?.longitude = lon
-//              }
-//              self?.mapView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self?.goToMap)))
-//              let viewRegion = MKCoordinateRegion( center: CLLocationCoordinate2D(latitude: self?.latitude ?? 0.0 , longitude: self?.longitude ?? 0.0), latitudinalMeters: 10000, longitudinalMeters: 10000)
-//              self?.mapView.setRegion(viewRegion, animated: false)
-//              self?.mapView.region = viewRegion
-//
-//              voucher.offices?.forEach({ (office) in
-//
-//                  self?.mapView.addAnnotation((self?.setAnnotation(lattitude: self?.latitude ?? 0.0, longitude: self?.longitude ?? 0.0))!)
-//              })
-//              self?.labeles.forEach { (view) in
-//                  view.stopAnimating()
-//              }
-//              self?.images.forEach { (view) in
-//                  view.stopAnimating()
-//              }
-          }
-       }
     
-    if isReachable() {
-        productViewModel.vc = self
-        productViewModel.initFetchById(address: address)
+    func getApiRequest(){
+        productViewModel.complete = { [weak self] (voucher) in
+            DispatchQueue.main.async {
+                self?.voucher = voucher
+                self?.tableView.reloadData()
+            }
+        }
         
-    }else {
-        
-        showInternetUnable()
-        
+        if isReachable() {
+            productViewModel.vc = self
+            productViewModel.initFetchById(address: address)
+        }else {
+            showInternetUnable()
+        }
     }
-  }
     
     private func setUpTableView() {
         tableView.delegate = self
@@ -149,50 +111,65 @@ extension ProductVoucherViewController: UITableViewDelegate, UITableViewDataSour
         switch sections {
         case .voucher:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: MProductVoucherTableViewCell.identifier, for: indexPath) as? MProductVoucherTableViewCell else {
-              return UITableViewCell()
+                return UITableViewCell()
             }
-          cell.setupVoucher(voucher: voucher)
+            cell.setupVoucher(voucher: voucher)
             return cell
         case .infoVoucher:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: MInfoVoucherTableViewCell.identifier, for: indexPath) as? MInfoVoucherTableViewCell else {
                 return UITableViewCell()
             }
-          //cell.setupVoucher(voucher: voucher)
+            cell.emailCompletion = { [weak self] () in
+                self?.sendVoucherToMail()
+            }
+            
+            cell.infoCompletion = { [weak self] () in
+                self?.showVoucherInfo()
+            }
             return cell
         case .mapDetail:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: MMapDetailsTableViewCell.identifier, for: indexPath) as? MMapDetailsTableViewCell else {
                 return UITableViewCell()
             }
             cell.parentViewController = self
-          cell.setupVoucher(voucher: voucher)
+            cell.setupVoucher(voucher: voucher)
             return cell
             
         case .adress:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: MAdressTableViewCell.identifier, for: indexPath) as? MAdressTableViewCell else {
                 return UITableViewCell()
             }
-          cell.setupVoucher(voucher: voucher)
+            cell.setupVoucher(voucher: voucher)
             return cell
             
         case .telephone:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: MTelephoneTableViewCell.identifier, for: indexPath) as? MTelephoneTableViewCell else {
                 return UITableViewCell()
             }
-          cell.setupVoucher(voucher: voucher)
+            cell.setupVoucher(voucher: voucher)
             return cell
             
         case .email:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: MAdressTableViewCell.identifier, for: indexPath) as? MAdressTableViewCell else {
                 return UITableViewCell()
             }
-          cell.setupEmail(voucher: voucher)
+            
+            cell.sendEmailCompletion = { [weak self] () in
+                self?.sendEmailToProvider()
+            }
+            
+            cell.copyCompletion = { [weak self] () in
+                self?.copyEmailToClipBoard()
+            }
+            
+            cell.setupEmail(voucher: voucher)
             return cell
             
         case .branches:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: MBranchesTableViewCell.identifier, for: indexPath) as? MBranchesTableViewCell else {
                 return UITableViewCell()
             }
-         // cell.setupVoucher(voucher: voucher)
+            // cell.setupVoucher(voucher: voucher)
             return cell
             
         }
@@ -205,7 +182,7 @@ extension ProductVoucherViewController: UITableViewDelegate, UITableViewDataSour
         case .voucher:
             return 120
         case .infoVoucher:
-            return 85
+            return 70
         case .mapDetail:
             return 275
         case .adress:
@@ -219,6 +196,18 @@ extension ProductVoucherViewController: UITableViewDelegate, UITableViewDataSour
         }
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let sections = MainTableViewSection.allCases[indexPath.row]
+        switch sections {
+        case .voucher:
+            self.didOpenQR()
+        case .telephone:
+            callPhone()
+        case .email, .infoVoucher,  .mapDetail, .adress, .branches: break
+            
+        }
+        
+    }
     
 }
 
@@ -258,7 +247,6 @@ extension ProductVoucherViewController{
             titleLabel.centerYAnchor.constraint(equalTo: self.backButton.centerYAnchor),
             titleLabel.widthAnchor.constraint(equalToConstant: 200),
         ])
-        
     }
 }
 
@@ -270,5 +258,80 @@ extension ProductVoucherViewController{
         backButton.actionHandleBlock = { [weak self] (button) in
             self?.back(button)
         }
+    }
+    
+    private func didOpenQR() {
+        let popOverVC = PullUpQRViewController(nib: R.nib.pullUpQRViewController)
+        popOverVC.voucher = voucher
+        popOverVC.qrType = .Voucher
+        showPopUPWithAnimation(vc: popOverVC)
+    }
+    
+    private func showVoucherInfo() {
+        if voucher.fund?.url_webshop != nil {
+            if let url = URL(string: "\(voucher.fund?.url_webshop ?? "")product/\(voucher.product?.id ?? 0)") {
+                let safariVC = SFSafariViewController(url: url)
+                self.present(safariVC, animated: true, completion: nil)
+            }
+        }else {
+            if let url = URL(string: "https://kerstpakket.forus.io") {
+                let safariVC = SFSafariViewController(url: url)
+                self.present(safariVC, animated: true, completion: nil)
+            }
+        }
+    }
+    
+    private func sendVoucherToMail() {
+        productViewModel.completeSendEmail = { [weak self] (statusCode) in
+            DispatchQueue.main.async {
+                self?.showPopUPWithAnimation(vc: SuccessSendingViewController(nib: R.nib.successSendingViewController))
+            }
+        }
+        showSimpleAlertWithAction(title: Localize.email_to_me(),
+                                  message: Localize.send_an_email_to_the_provider(),
+                                  okAction: UIAlertAction(title: Localize.confirm(), style: .default, handler: { (action) in
+                                    self.productViewModel.sendEmail(address: self.voucher.address ?? "")
+                                  }),
+                                  cancelAction: UIAlertAction(title: Localize.cancel(), style: .cancel, handler: nil))
+    }
+    
+    private func callPhone() {
+        if let phone = voucher.offices?.first?.phone {
+            guard let number = URL(string: "tel://" + (phone)) else { return }
+            UIApplication.shared.open(number)
+        }
+    }
+    
+    private func sendEmailToProvider() {
+        showSimpleAlertWithAction(title: Localize.send_an_email_to_the_provider(),
+                                  message: Localize.confirm_to_go_your_email_app_to_send_message_to_provider(),
+                                  okAction: UIAlertAction(title: Localize.confirm(), style: .default, handler: { (action) in
+                                    
+                                    if MFMailComposeViewController.canSendMail() {
+                                        let composeVC = MFMailComposeViewController()
+                                        composeVC.mailComposeDelegate = self
+                                        composeVC.setToRecipients([(self.voucher.offices?.first?.organization?.email)!])
+                                        composeVC.setSubject(Localize.question_from_me_user())
+                                        composeVC.setMessageBody("", isHTML: false)
+                                        self.present(composeVC, animated: true, completion: nil)
+                                    }else{
+                                        self.showSimpleAlert(title: Localize.warning(), message: Localize.mail_services_are_not_available())
+                                    }
+                                    
+                                  }),
+                                  cancelAction: UIAlertAction(title: Localize.cancel(), style: .cancel, handler: nil))
+    }
+    
+    private func copyEmailToClipBoard() {
+        UIPasteboard.general.string = self.voucher.offices?.first?.organization?.email
+        self.showSimpleToast(message: Localize.copied_to_clipboard())
+    }
+}
+
+// MARK: - Mail Delegate
+extension ProductVoucherViewController: MFMailComposeViewControllerDelegate{
+    func mailComposeController(_ controller: MFMailComposeViewController,
+                               didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true, completion: nil)
     }
 }

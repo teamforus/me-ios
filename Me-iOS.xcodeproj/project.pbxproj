@@ -193,6 +193,7 @@
 		65F52E4A23167E0D00B9D229 /* Wallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F52E4923167E0D00B9D229 /* Wallet.swift */; };
 		A814206C8B175CC687405860 /* Pods_Me_iOSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60302FD09395FFFBF3FE2A2A /* Pods_Me_iOSUITests.framework */; };
 		EBA8A6DE91260768B5722478 /* Pods_Me_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8797D7DA4E65B3CDD1B8B11 /* Pods_Me_iOS.framework */; };
+		FF037FB52637326100B078DC /* DarkMode_ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF037FB42637326100B078DC /* DarkMode_ActionButton.swift */; };
 		FF0DACBE246AD0A80034E3E4 /* OrganizationValidatorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF3B141A243722EE003FDDD9 /* OrganizationValidatorViewController.xib */; };
 		FF45B3B224D9DC7C00D258E1 /* Extension+UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45B3B124D9DC7C00D258E1 /* Extension+UITextField.swift */; };
 		FF48062924632AA70055E346 /* RecordsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF48062824632AA70055E346 /* RecordsTableViewCell.swift */; };
@@ -517,6 +518,7 @@
 		DD33B298743ED6923528A696 /* Pods-Me-iOSUITests.alpha.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Me-iOSUITests.alpha.xcconfig"; path = "Target Support Files/Pods-Me-iOSUITests/Pods-Me-iOSUITests.alpha.xcconfig"; sourceTree = "<group>"; };
 		E8797D7DA4E65B3CDD1B8B11 /* Pods_Me_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Me_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3E9ECB144534F67E9BA608D /* Pods-Me-iOSUITests.demo.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Me-iOSUITests.demo.xcconfig"; path = "Target Support Files/Pods-Me-iOSUITests/Pods-Me-iOSUITests.demo.xcconfig"; sourceTree = "<group>"; };
+		FF037FB42637326100B078DC /* DarkMode_ActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkMode_ActionButton.swift; sourceTree = "<group>"; };
 		FF3B1419243722EE003FDDD9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/OrganizationValidatorViewController.xib; sourceTree = "<group>"; };
 		FF3B141E243722F6003FDDD9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/OrganizationValidatorViewController.strings; sourceTree = "<group>"; };
 		FF3B1422243722F8003FDDD9 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/OrganizationValidatorViewController.strings; sourceTree = "<group>"; };
@@ -864,6 +866,7 @@
 				FFB76E0124E948B700CFB195 /* KVSpinnerView */,
 				FFB76E0D24E9490600CFB195 /* UICheckbox.Swift */,
 				FF8D90FC251BCE960035B8D7 /* ToolTip */,
+				FF037FB42637326100B078DC /* DarkMode_ActionButton.swift */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -1976,6 +1979,7 @@
 				65F52E4A23167E0D00B9D229 /* Wallet.swift in Sources */,
 				FF8D90E9251BBC8A0035B8D7 /* ToolTip+Extension.swift in Sources */,
 				65911B4C228D8E4200EA30D6 /* Organization.swift in Sources */,
+				FF037FB52637326100B078DC /* DarkMode_ActionButton.swift in Sources */,
 				65CF408B228C1CC90006F5DE /* APIService.swift in Sources */,
 				65F52E462316797900B9D229 /* MCrashConfirmViewController.swift in Sources */,
 				657DBA4A2289871400C67500 /* CommonBottomViewModel.swift in Sources */,

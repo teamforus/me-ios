@@ -16,22 +16,21 @@ class MMapDetailsTableViewCell: UITableViewCell {
     var longitude: Double!
     var parentViewController: UIViewController?
     
-    private let bodyView: UIView = {
-        let bodyView = UIView(frame: .zero)
-        bodyView.backgroundColor = .white
+    private let bodyView: Background_DarkMode = {
+        let bodyView = Background_DarkMode(frame: .zero)
+        bodyView.colorName = "DarkGray_DarkTheme"
         bodyView.roundCorners(corners: [.layerMaxXMinYCorner, .layerMinXMinYCorner], radius: 16)
-        
         return bodyView
     }()
     
-    private let titleLabel: UILabel = {
-        let label = UILabel(frame: .zero)
+    private let titleLabel: UILabel_DarkMode = {
+        let label = UILabel_DarkMode(frame: .zero)
         label.font = R.font.googleSansMedium(size: 21)
         return label
     }()
     
-    private let subTitleLabel: UILabel = {
-        let label = UILabel(frame: .zero)
+    private let subTitleLabel: UILabel_DarkMode = {
+        let label = UILabel_DarkMode(frame: .zero)
         label.font = R.font.googleSansRegular(size: 14)
         label.textColor = #colorLiteral(red: 0.556738019, green: 0.5565260053, blue: 0.577188611, alpha: 1)
         return label
@@ -47,8 +46,8 @@ class MMapDetailsTableViewCell: UITableViewCell {
     private let mapView: MKMapView = {
         let mapView = MKMapView(frame: .zero)
         mapView.mapType = MKMapType.standard
-        mapView.isZoomEnabled = true
-        mapView.isScrollEnabled = true
+        mapView.isZoomEnabled = false
+        mapView.isScrollEnabled = false
         return mapView
     }()
     
@@ -60,7 +59,8 @@ class MMapDetailsTableViewCell: UITableViewCell {
         mapView.delegate = self
         mapView.isUserInteractionEnabled = true
         self.selectionStyle = .none
-        self.backgroundColor = #colorLiteral(red: 0.9685223699, green: 0.9686879516, blue: 0.9685119987, alpha: 1)
+        self.backgroundColor = .clear
+        self.contentView.backgroundColor = .clear
     }
     
     func setupVoucher(voucher: Voucher?) {
@@ -159,10 +159,6 @@ extension MMapDetailsTableViewCell {
 
 
 extension MMapDetailsTableViewCell {
-    @objc func Long() {
-        UIPasteboard.general.string = self.voucher.offices?.first?.organization?.email
-        self.showSimpleToast(message: Localize.copied_to_clipboard())
-    }
     
     @objc func goToMap(){
         let actionSheet = UIAlertController.init(title: Localize.address(), message: nil, preferredStyle: .actionSheet)

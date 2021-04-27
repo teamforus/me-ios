@@ -112,7 +112,7 @@
 "cancel" = "Cancel";
 "validations" = "Validations";
 "primary_email" = "Primary e-mail";
-"email" = "Secundary e-mail";
+"secundary_email" = "Secundary e-mail";
 "given_name" = "Given name";
 "family_name" = "Family Name";
 "children" = "Children";
@@ -188,3 +188,4 @@
 "free" = "Free";
 "discount" = "Discount";
 "voucher_info" = "Voucher Info";
+"email" = "Email";

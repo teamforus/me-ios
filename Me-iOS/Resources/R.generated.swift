@@ -2886,7 +2886,7 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
 
-    /// This `R.string.localizable` struct is generated, and contains static references to 177 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 178 localization keys.
     struct localizable {
       /// en translation: %@ Don't Available
       ///
@@ -3080,6 +3080,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en, nl
       static let meedoenregeling_2018_eligible = Rswift.StringResource(key: "meedoenregeling_2018_eligible", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
+      /// en translation: Email
+      ///
+      /// Locales: en, nl
+      static let email = Rswift.StringResource(key: "email", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
       /// en translation: Email is empty
       ///
       /// Locales: en, nl
@@ -3363,7 +3367,7 @@ struct R: Rswift.Validatable {
       /// en translation: Secundary e-mail
       ///
       /// Locales: en, nl
-      static let email = Rswift.StringResource(key: "email", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
+      static let secundary_email = Rswift.StringResource(key: "secundary_email", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
       /// en translation: Send an e-mail to the provider
       ///
       /// Locales: en, nl
@@ -4325,6 +4329,21 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("meedoenregeling_2018_eligible", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Email
+      ///
+      /// Locales: en, nl
+      static func email(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("email", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "email"
+        }
+
+        return NSLocalizedString("email", bundle: bundle, comment: "")
       }
 
       /// en translation: Email is empty
@@ -5386,16 +5405,16 @@ struct R: Rswift.Validatable {
       /// en translation: Secundary e-mail
       ///
       /// Locales: en, nl
-      static func email(preferredLanguages: [String]? = nil) -> String {
+      static func secundary_email(preferredLanguages: [String]? = nil) -> String {
         guard let preferredLanguages = preferredLanguages else {
-          return NSLocalizedString("email", bundle: hostingBundle, comment: "")
+          return NSLocalizedString("secundary_email", bundle: hostingBundle, comment: "")
         }
 
         guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
-          return "email"
+          return "secundary_email"
         }
 
-        return NSLocalizedString("email", bundle: bundle, comment: "")
+        return NSLocalizedString("secundary_email", bundle: bundle, comment: "")
       }
 
       /// en translation: Send an e-mail to the provider

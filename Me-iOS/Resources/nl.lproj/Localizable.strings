@@ -112,7 +112,7 @@
 "cancel" = "Annuleren";
 "validations" = "Validaties";
 "primary_email" = "Hoofd e-mail";
-"email" = "Tweede e-mail";
+"secundary_email" = "Tweede e-mail";
 "given_name" = "Voornaam";
 "family_name" = "Achternaam";
 "children" = "Kinderen";
@@ -187,3 +187,4 @@
 "free" = "Gratis";
 "discount" = "Korting";
 "voucher_info" = "Voucher Info";
+"email" = "Email";

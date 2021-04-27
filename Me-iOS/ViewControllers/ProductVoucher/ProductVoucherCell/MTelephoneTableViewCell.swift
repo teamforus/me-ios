@@ -12,24 +12,23 @@ class MTelephoneTableViewCell: UITableViewCell {
     static let identifier = "MTelephoneTableViewCell"
     var voucher: Voucher!
     
-    private let bodyView: UIView = {
-        let bodyView = UIView(frame: .zero)
-        bodyView.backgroundColor = .white
+    private let bodyView: Background_DarkMode = {
+        let bodyView = Background_DarkMode(frame: .zero)
+        bodyView.colorName = "DarkGray_DarkTheme"
         return bodyView
     }()
     
-    private let titleLabel: UILabel = {
-        let label = UILabel(frame: .zero)
+    private let titleLabel: UILabel_DarkMode = {
+        let label = UILabel_DarkMode(frame: .zero)
         label.text = Localize.telephone()
         label.textColor = #colorLiteral(red: 0.396032095, green: 0.3961050212, blue: 0.3960274756, alpha: 1)
         label.font = R.font.googleSansRegular(size: 14)
         return label
     }()
     
-    private let infoTitleLabel: UILabel = {
-        let label = UILabel(frame: .zero)
+    private let infoTitleLabel: UILabel_DarkMode = {
+        let label = UILabel_DarkMode(frame: .zero)
         label.font = R.font.googleSansRegular(size: 16)
-        label.textColor = .black
         return label
     }()
     
@@ -51,7 +50,7 @@ class MTelephoneTableViewCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.addSubviews()
         self.setupConstraints()
-        self.backgroundColor = #colorLiteral(red: 0.9685223699, green: 0.9686879516, blue: 0.9685119987, alpha: 1)
+        self.backgroundColor = .clear
         self.selectionStyle = .none
     }
     

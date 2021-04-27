@@ -11,26 +11,27 @@ import UIKit
 class MAdressTableViewCell: UITableViewCell {
     static let identifier = "MAdressTableViewCell"
     var voucher: Voucher!
+    var copyCompletion: (() -> ())?
+    var sendEmailCompletion: (() -> ())?
     
-    private let bodyView: UIView = {
-        let bodyView = UIView(frame: .zero)
-        bodyView.backgroundColor = .white
+    private let bodyView: Background_DarkMode = {
+        let bodyView = Background_DarkMode(frame: .zero)
+        bodyView.colorName = "DarkGray_DarkTheme"
         // bodyView.rounded(cornerRadius: 16)
         return bodyView
     }()
     
-    private let titleLabel: UILabel = {
-        let label = UILabel(frame: .zero)
+    private let titleLabel: UILabel_DarkMode = {
+        let label = UILabel_DarkMode(frame: .zero)
         label.text = Localize.address()
         label.textColor = #colorLiteral(red: 0.396032095, green: 0.3961050212, blue: 0.3960274756, alpha: 1)
         label.font = R.font.googleSansRegular(size: 14)
         return label
     }()
     
-    private let infoTitleLabel: UILabel = {
-        let label = UILabel(frame: .zero)
+    private let infoTitleLabel: UILabel_DarkMode = {
+        let label = UILabel_DarkMode(frame: .zero)
         label.font = R.font.googleSansRegular(size: 16)
-        label.textColor = .black
         return label
     }()
     
@@ -45,7 +46,7 @@ class MAdressTableViewCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.addSubviews()
         self.setupConstraints()
-        self.backgroundColor = #colorLiteral(red: 0.9685223699, green: 0.9686879516, blue: 0.9685119987, alpha: 1)
+        self.backgroundColor = .clear
         self.selectionStyle = .none
     }
     
@@ -65,8 +66,10 @@ class MAdressTableViewCell: UITableViewCell {
         self.titleLabel.text = Localize.email()
         self.infoTitleLabel.textColor = #colorLiteral(red: 0.1918309331, green: 0.3696506619, blue: 0.9919955134, alpha: 1)
         self.infoTitleLabel.text = voucher.offices?.first?.organization?.email
+        self.infoTitleLabel.isUserInteractionEnabled = true
+        self.infoTitleLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.setupShortTap)))
+        self.infoTitleLabel.addGestureRecognizer(UILongPressGestureRecognizer(target: self, action: #selector(self.setupLongTap)))
     }
-    
 }
 
 extension MAdressTableViewCell {
@@ -105,6 +108,16 @@ extension MAdressTableViewCell {
             separatorView.heightAnchor.constraint(equalToConstant: 1),
             separatorView.bottomAnchor.constraint(equalTo: self.bodyView.bottomAnchor,constant: -2)
         ])
-        
+    }
+}
+
+extension MAdressTableViewCell {
+    // MARK: - Setup Email Gesture
+    @objc private func setupShortTap() {
+        sendEmailCompletion?()
+    }
+    
+    @objc private func setupLongTap() {
+        copyCompletion?()
     }
 }
