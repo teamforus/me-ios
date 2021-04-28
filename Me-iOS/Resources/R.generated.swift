@@ -901,7 +901,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.image` struct is generated, and contains static references to 70 images.
+  /// This `R.image` struct is generated, and contains static references to 73 images.
   struct image {
     /// Image `5XVoucherContainerWElevation`.
     static let xVoucherContainerWElevation = Rswift.ImageResource(bundle: R.hostingBundle, name: "5XVoucherContainerWElevation")
@@ -945,6 +945,8 @@ struct R: Rswift.Validatable {
     static let cellularNetwork = Rswift.ImageResource(bundle: R.hostingBundle, name: "cellularNetwork")
     /// Image `circular`.
     static let circular = Rswift.ImageResource(bundle: R.hostingBundle, name: "circular")
+    /// Image `clock_icon`.
+    static let clock_icon = Rswift.ImageResource(bundle: R.hostingBundle, name: "clock_icon")
     /// Image `closeBlack`.
     static let closeBlack = Rswift.ImageResource(bundle: R.hostingBundle, name: "closeBlack")
     /// Image `closeIcon`.
@@ -993,6 +995,8 @@ struct R: Rswift.Validatable {
     static let illustration = Rswift.ImageResource(bundle: R.hostingBundle, name: "illustration")
     /// Image `list of transactions`.
     static let listOfTransactions = Rswift.ImageResource(bundle: R.hostingBundle, name: "list of transactions")
+    /// Image `location_icon`.
+    static let location_icon = Rswift.ImageResource(bundle: R.hostingBundle, name: "location_icon")
     /// Image `lock24Px-1`.
     static let lock24Px1 = Rswift.ImageResource(bundle: R.hostingBundle, name: "lock24Px-1")
     /// Image `lock24Px`.
@@ -1007,6 +1011,8 @@ struct R: Rswift.Validatable {
     static let notifications = Rswift.ImageResource(bundle: R.hostingBundle, name: "notifications")
     /// Image `phoneIcon`.
     static let phoneIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "phoneIcon")
+    /// Image `phone_icon`.
+    static let phone_icon = Rswift.ImageResource(bundle: R.hostingBundle, name: "phone_icon")
     /// Image `plus`.
     static let plus = Rswift.ImageResource(bundle: R.hostingBundle, name: "plus")
     /// Image `profileIcon`.
@@ -1192,6 +1198,13 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "clock_icon", bundle: ..., traitCollection: ...)`
+    static func clock_icon(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.clock_icon, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
     /// `UIImage(named: "closeBlack", bundle: ..., traitCollection: ...)`
     static func closeBlack(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.closeBlack, compatibleWith: traitCollection)
@@ -1360,6 +1373,13 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "location_icon", bundle: ..., traitCollection: ...)`
+    static func location_icon(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.location_icon, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
     /// `UIImage(named: "lock", bundle: ..., traitCollection: ...)`
     static func lock(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.lock, compatibleWith: traitCollection)
@@ -1405,6 +1425,13 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "phoneIcon", bundle: ..., traitCollection: ...)`
     static func phoneIcon(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.phoneIcon, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "phone_icon", bundle: ..., traitCollection: ...)`
+    static func phone_icon(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.phone_icon, compatibleWith: traitCollection)
     }
     #endif
 

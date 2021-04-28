@@ -169,7 +169,7 @@ extension ProductVoucherViewController: UITableViewDelegate, UITableViewDataSour
             guard let cell = tableView.dequeueReusableCell(withIdentifier: MBranchesTableViewCell.identifier, for: indexPath) as? MBranchesTableViewCell else {
                 return UITableViewCell()
             }
-            // cell.setupVoucher(voucher: voucher)
+            cell.setup(voucher: voucher)
             return cell
             
         }
@@ -192,7 +192,7 @@ extension ProductVoucherViewController: UITableViewDelegate, UITableViewDataSour
         case .email:
             return 82
         case .branches:
-            return 80
+            return 168
         }
     }
     
