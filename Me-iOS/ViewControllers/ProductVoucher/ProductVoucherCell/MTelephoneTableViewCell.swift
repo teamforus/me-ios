@@ -14,7 +14,7 @@ class MTelephoneTableViewCell: UITableViewCell {
     
     private let bodyView: Background_DarkMode = {
         let bodyView = Background_DarkMode(frame: .zero)
-        bodyView.colorName = "DarkGray_DarkTheme"
+        bodyView.colorName = "Gray_Dark_DarkTheme"
         return bodyView
     }()
     

@@ -170,6 +170,7 @@ extension ProductVoucherViewController: UITableViewDelegate, UITableViewDataSour
                 return UITableViewCell()
             }
             cell.setup(voucher: voucher)
+            cell.parentViewController = self
             return cell
             
         }

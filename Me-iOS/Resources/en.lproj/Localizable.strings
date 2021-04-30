@@ -189,3 +189,8 @@
 "discount" = "Discount";
 "voucher_info" = "Voucher Info";
 "email" = "Email";
+"offers" = "Offers";
+"do_you_want_to_login" = "Do you want to login on this device?";
+"description_of_auth_anothe_device" = "Continuing will allow this device to acces your account. Are you sure you want to continue?";
+"i_want_to_login" = "Yes, I want to login";
+"no_thanks" = "No thanks";

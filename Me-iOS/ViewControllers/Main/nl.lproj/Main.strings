@@ -3,7 +3,7 @@
 "5fU-r2-fuI.text" = "Jamal";
 
 /* Class = "UITabBarItem"; title = "Profiel"; ObjectID = "Fxg-Vj-eeO"; */
-"Fxg-Vj-eeO.title" = "Profiel";
+"Fxg-Vj-eeO.title" = "Account";
 
 /* Class = "UILabel"; text = "Used"; ObjectID = "Hup-YQ-NKc"; */
 "Hup-YQ-NKc.text" = "Gebruikt";
@@ -36,7 +36,7 @@
 "ony-rh-yQc.title" = "Tegoeden";
 
 /* Class = "UITabBarItem"; title = "Eigenschappen"; ObjectID = "S2m-RV-PJB"; */
-"S2m-RV-PJB.title" = "Profiel";
+"S2m-RV-PJB.title" = "Account";
 
 /* Class = "UILabel"; text = "You have no vouchers yet"; ObjectID = "r3k-mS-eBG"; */
 "r3k-mS-eBG.text" = "Je hebt nog geen vouchers.";
@@ -50,5 +50,5 @@
 /* Class = "UILabel"; text = "Personal"; ObjectID = "uLp-89-Zk0"; */
 "uLp-89-Zk0.text" = "Persoonlijk";
 
-/* Class = "UILabel"; text = "Op deze pagina ziet u de tegoeden die u krijgt. U heeft nog geen tegoeden gekregen."; ObjectID = "9G1-Sj-fzE"; */
-"9G1-Sj-fzE.text" = "Op deze pagina ziet u de tegoeden die u krijgt. U heeft nog geen tegoeden gekregen.";
+/* Class = "UILabel"; text = "Op deze pagina zie je de tegoeden die je krijgt. Je hebt nog geen tegoeden gekregen."; ObjectID = "9G1-Sj-fzE"; */
+"9G1-Sj-fzE.text" = "Op deze pagina zie je de tegoeden die je krijgt. Je hebt nog geen tegoeden gekregen.";

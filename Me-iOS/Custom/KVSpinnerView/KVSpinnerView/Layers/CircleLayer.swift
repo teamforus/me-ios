@@ -34,10 +34,10 @@ class CircleLayer: CAShapeLayer {
         let radius = KVSpinnerView.settings.spinnerRadius
         let linesDistance = radius / 5
         
-        let startEvenAngle = CGFloat(-M_PI_2)
-        let endEvenAngle = startEvenAngle + CGFloat(M_PI * 2)
+        let startEvenAngle = CGFloat(-Double.pi / 2)
+        let endEvenAngle = startEvenAngle + CGFloat(Double.pi * 2)
         let startOddAngle = CGFloat(0)
-        let endOddAngle = startOddAngle + CGFloat(M_PI * 2)
+        let endOddAngle = startOddAngle + CGFloat(Double.pi * 2)
         
         var path = UIBezierPath()
         if index % 2 == 1 {

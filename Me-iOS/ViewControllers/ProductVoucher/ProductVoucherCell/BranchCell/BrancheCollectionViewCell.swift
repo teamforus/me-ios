@@ -7,16 +7,21 @@
 //
 
 import UIKit
+import MapKit
 
 class BrancheCollectionViewCell: UICollectionViewCell {
     static let identifier = "BrancheCollectionViewCell"
+    var parentViewController: UIViewController?
+    var address: String?
+    var latitude: Double!
+    var longitude: Double!
     
     // MARK: - Properties
     
     let bodyView: Background_DarkMode = {
         let view = Background_DarkMode(frame: .zero)
         view.rounded(cornerRadius: 9)
-        view.colorName = "Profile_Row_DarkTheme"
+        view.colorName = "GrayWithLight_Dark_DarkTheme"
         return view
     }()
     
@@ -77,6 +82,7 @@ class BrancheCollectionViewCell: UICollectionViewCell {
         self.backgroundColor = .clear
         addSubviews()
         setupConstraints()
+        setupActions()
     }
     
     required init?(coder: NSCoder) {
@@ -86,6 +92,13 @@ class BrancheCollectionViewCell: UICollectionViewCell {
     func setup(office: Office) {
         locationNameLabel.text = office.address
         phoneNumberLabel.text = office.phone
+        if let latitudeValue = office.lat, let lat = Double(latitudeValue) {
+            self.latitude = lat
+        }
+        
+        if let longitudeValue = office.lon, let lon = Double(longitudeValue) {
+            self.longitude = lon
+        }
     }
 }
 
@@ -150,5 +163,71 @@ extension BrancheCollectionViewCell {
 //            scheduleOfficeLabel.leadingAnchor.constraint(equalTo: iconClock.trailingAnchor, constant: 15),
 //            scheduleOfficeLabel.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: -8)
 //        ])
+    }
+}
+
+extension BrancheCollectionViewCell {
+    // MARK: - Setup Actions
+    private func setupActions() {
+        showMapButton.actionHandleBlock = { [weak self] (_) in
+            DispatchQueue.main.async {
+                self?.openOptionsMap()
+            }
+        }
+    }
+    
+    private func openOptionsMap(){
+        let actionSheet = UIAlertController.init(title: Localize.address(), message: nil, preferredStyle: .actionSheet)
+        
+        //open apple maps
+        actionSheet.addAction(UIAlertAction.init(title: "Open in Apple Maps", style: UIAlertAction.Style.default, handler: { (action) in
+            
+            self.openMapForPlace(lattitude: self.latitude ?? 0.0, longitude: self.longitude ?? 0.0)
+        }))
+        
+        //open google maps
+        actionSheet.addAction(UIAlertAction.init(title: "Open in Google Maps", style: UIAlertAction.Style.default, handler: { (action) in
+            if (UIApplication.shared.canOpenURL(URL(string:"comgooglemaps://")!))
+            {
+                UIApplication.shared.open(URL(string:
+                                                "comgooglemaps://?q=\(self.latitude ?? 0.0),\(self.longitude ?? 0.0)")!, options: [:], completionHandler: { (succes) in
+                                                })
+            } else if (UIApplication.shared.canOpenURL(URL(string:"https://maps.google.com")!))
+            {
+                UIApplication.shared.open(URL(string:
+                                                "https://maps.google.com/?q=\(self.latitude ?? 0.0),\(self.longitude ?? 0.0)")!, options: [:], completionHandler: { (succes) in
+                                                })
+            }
+        }))
+        
+        //copy to clipboard
+        actionSheet.addAction(UIAlertAction.init(title: Localize.copy_address(), style: UIAlertAction.Style.default, handler: { (action) in
+            UIPasteboard.general.string = self.address
+            self.parentViewController?.showSimpleToast(message: Localize.copied_to_clipboard())
+        }))
+        actionSheet.addAction(UIAlertAction.init(title: Localize.cancel(), style: UIAlertAction.Style.cancel, handler: { (action) in
+        }))
+        //Present the controller
+        actionSheet.popoverPresentationController?.sourceView = self
+        actionSheet.popoverPresentationController?.sourceRect = self.frame
+        parentViewController?.present(actionSheet, animated: true)
+    }
+    
+    func openMapForPlace(lattitude: Double, longitude: Double) {
+        
+        let latitude: CLLocationDegrees = lattitude
+        let longitude: CLLocationDegrees = longitude
+        
+        let regionDistance:CLLocationDistance = 10000
+        let coordinates = CLLocationCoordinate2DMake(latitude, longitude)
+        let regionSpan = MKCoordinateRegion(center: coordinates, latitudinalMeters: regionDistance, longitudinalMeters: regionDistance)
+        let options = [
+            MKLaunchOptionsMapCenterKey: NSValue(mkCoordinate: regionSpan.center),
+            MKLaunchOptionsMapSpanKey: NSValue(mkCoordinateSpan: regionSpan.span)
+        ]
+        let placemark = MKPlacemark(coordinate: coordinates, addressDictionary: nil)
+        let mapItem = MKMapItem(placemark: placemark)
+        mapItem.name = "Address Name"
+        mapItem.openInMaps(launchOptions: options)
     }
 }

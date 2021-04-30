@@ -18,7 +18,7 @@ class MMapDetailsTableViewCell: UITableViewCell {
     
     private let bodyView: Background_DarkMode = {
         let bodyView = Background_DarkMode(frame: .zero)
-        bodyView.colorName = "DarkGray_DarkTheme"
+        bodyView.colorName = "Gray_Dark_DarkTheme"
         bodyView.roundCorners(corners: [.layerMaxXMinYCorner, .layerMinXMinYCorner], radius: 16)
         return bodyView
     }()
@@ -37,10 +37,11 @@ class MMapDetailsTableViewCell: UITableViewCell {
     }()
     
     private let iconImage: UIImageView = {
-        let imageQRCodeVoucher = UIImageView(frame: .zero)
-        imageQRCodeVoucher.image = UIImage(named: "iconVoucher")
-        imageQRCodeVoucher.contentMode = .scaleAspectFit
-        return imageQRCodeVoucher
+        let imageView = UIImageView(frame: .zero)
+        imageView.image = UIImage(named: "iconVoucher")
+        imageView.contentMode = .scaleAspectFit
+        imageView.rounded(cornerRadius: 9)
+        return imageView
     }()
     
     private let mapView: MKMapView = {
@@ -48,6 +49,7 @@ class MMapDetailsTableViewCell: UITableViewCell {
         mapView.mapType = MKMapType.standard
         mapView.isZoomEnabled = false
         mapView.isScrollEnabled = false
+        mapView.rounded(cornerRadius: 9)
         return mapView
     }()
     

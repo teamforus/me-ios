@@ -11,6 +11,13 @@ import UIKit
 class MBranchesTableViewCell: UITableViewCell {
   static let identifier = "MBranchesTableViewCell"
     var offices: [Office] = []
+    var parentViewController: UIViewController?
+    
+    private let bodyView: Background_DarkMode = {
+        let bodyView = Background_DarkMode(frame: .zero)
+        bodyView.colorName = "Gray_Dark_DarkTheme"
+        return bodyView
+    }()
     
     private var countBranchesLabel: UILabel_DarkMode = {
         let label = UILabel_DarkMode(frame: .zero)
@@ -32,9 +39,7 @@ class MBranchesTableViewCell: UITableViewCell {
         setupConstraints()
         setupCollectionView()
         self.selectionStyle = .none
-        if #available(iOS 11.0, *) {
-            self.backgroundColor = UIColor(named: "DarkGray_DarkTheme")
-        } else {}
+        self.backgroundColor = .clear
     }
     
     private func setupCollectionView() {
@@ -49,6 +54,7 @@ class MBranchesTableViewCell: UITableViewCell {
         }
         self.countBranchesLabel.text = "\(offices.count) Branches"
         self.offices = offices
+        
         collectionView.reloadData()
     }
     
@@ -72,6 +78,7 @@ extension MBranchesTableViewCell: UICollectionViewDelegate, UICollectionViewData
             return UICollectionViewCell()
         }
         cell.setup(office: offices[indexPath.row])
+        cell.parentViewController = parentViewController
         return cell
     }
 }
@@ -86,10 +93,12 @@ extension MBranchesTableViewCell: UICollectionViewDelegateFlowLayout {
 extension MBranchesTableViewCell {
     // MARK: - Add Subviews
     private func addSubiews() {
+        bodyView.translatesAutoresizingMaskIntoConstraints = false
+        self.contentView.addSubview(bodyView)
         let views = [countBranchesLabel, collectionView]
         views.forEach { (view) in
             view.translatesAutoresizingMaskIntoConstraints = false
-            self.contentView.addSubview(view)
+            self.bodyView.addSubview(view)
         }
     }
 }
@@ -97,16 +106,24 @@ extension MBranchesTableViewCell {
 extension MBranchesTableViewCell {
     // MARK: - Setup Constraints
     private func setupConstraints() {
+        
         NSLayoutConstraint.activate([
-            countBranchesLabel.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 17),
-            countBranchesLabel.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 16)
+            bodyView.topAnchor.constraint(equalTo: self.contentView.topAnchor),
+            bodyView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 10),
+            bodyView.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: -10),
+            bodyView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor)
+        ])
+        
+        NSLayoutConstraint.activate([
+            countBranchesLabel.topAnchor.constraint(equalTo: bodyView.topAnchor, constant: 17),
+            countBranchesLabel.leadingAnchor.constraint(equalTo: bodyView.leadingAnchor, constant: 16)
         ])
         
         NSLayoutConstraint.activate([
             collectionView.topAnchor.constraint(equalTo: self.countBranchesLabel.bottomAnchor, constant: 6),
-            collectionView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 16),
-            collectionView.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor),
-            collectionView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: -5)
+            collectionView.leadingAnchor.constraint(equalTo: bodyView.leadingAnchor, constant: 10),
+            collectionView.trailingAnchor.constraint(equalTo: bodyView.trailingAnchor),
+            collectionView.bottomAnchor.constraint(equalTo: bodyView.bottomAnchor, constant: -5)
         ])
     }
 }
