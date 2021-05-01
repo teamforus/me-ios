@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="GHb-Mw-jlE">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="GHb-Mw-jlE">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -101,7 +101,7 @@
                                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="5XVoucherSurface" translatesAutoresizingMaskIntoConstraints="NO" id="4y0-Pr-vAO">
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="voucher_ticket_icon" translatesAutoresizingMaskIntoConstraints="NO" id="4y0-Pr-vAO">
                                                         <rect key="frame" x="15" y="103" width="345" height="120"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                                     </imageView>
@@ -534,9 +534,6 @@
         </scene>
     </scenes>
     <designables>
-        <designable name="CX4-Bk-Lqq">
-            <size key="intrinsicContentSize" width="52" height="16.5"/>
-        </designable>
         <designable name="Yeg-Wh-K0b">
             <size key="intrinsicContentSize" width="36" height="11"/>
         </designable>
@@ -544,11 +541,10 @@
             <size key="intrinsicContentSize" width="90" height="29"/>
         </designable>
         <designable name="d75-Qd-xat">
-            <size key="intrinsicContentSize" width="135" height="24"/>
+            <size key="intrinsicContentSize" width="118" height="24"/>
         </designable>
     </designables>
     <resources>
-        <image name="5XVoucherSurface" width="345" height="120"/>
         <image name="back" width="24" height="24"/>
         <image name="circular" width="40" height="40"/>
         <image name="closeIcon" width="24" height="24"/>
@@ -556,5 +552,6 @@
         <image name="qrCode" width="178" height="178"/>
         <image name="qrImage2" width="16" height="16"/>
         <image name="qrV" width="16" height="16"/>
+        <image name="voucher_ticket_icon" width="345" height="120"/>
     </resources>
 </document>

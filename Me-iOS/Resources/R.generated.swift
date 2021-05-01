@@ -905,8 +905,6 @@ struct R: Rswift.Validatable {
   struct image {
     /// Image `5XVoucherContainerWElevation`.
     static let xVoucherContainerWElevation = Rswift.ImageResource(bundle: R.hostingBundle, name: "5XVoucherContainerWElevation")
-    /// Image `5XVoucherSurface`.
-    static let xVoucherSurface = Rswift.ImageResource(bundle: R.hostingBundle, name: "5XVoucherSurface")
     /// Image `Done@1,5x 1`.
     static let done15x1 = Rswift.ImageResource(bundle: R.hostingBundle, name: "Done@1,5x 1")
     /// Image `FlashlightOff`.
@@ -927,6 +925,8 @@ struct R: Rswift.Validatable {
     static let shadow = Rswift.ImageResource(bundle: R.hostingBundle, name: "Shadow")
     /// Image `activeBlue`.
     static let activeBlue = Rswift.ImageResource(bundle: R.hostingBundle, name: "activeBlue")
+    /// Image `arrow_right_icon`.
+    static let arrow_right_icon = Rswift.ImageResource(bundle: R.hostingBundle, name: "arrow_right_icon")
     /// Image `arrow`.
     static let arrow = Rswift.ImageResource(bundle: R.hostingBundle, name: "arrow")
     /// Image `backCopy`.
@@ -965,12 +965,12 @@ struct R: Rswift.Validatable {
     static let eth = Rswift.ImageResource(bundle: R.hostingBundle, name: "eth")
     /// Image `euro`.
     static let euro = Rswift.ImageResource(bundle: R.hostingBundle, name: "euro")
-    /// Image `face24Px`.
-    static let face24Px = Rswift.ImageResource(bundle: R.hostingBundle, name: "face24Px")
     /// Image `faceId-1`.
     static let faceId1 = Rswift.ImageResource(bundle: R.hostingBundle, name: "faceId-1")
     /// Image `faceId`.
     static let faceId = Rswift.ImageResource(bundle: R.hostingBundle, name: "faceId")
+    /// Image `face_icon`.
+    static let face_icon = Rswift.ImageResource(bundle: R.hostingBundle, name: "face_icon")
     /// Image `fill1Copy`.
     static let fill1Copy = Rswift.ImageResource(bundle: R.hostingBundle, name: "fill1Copy")
     /// Image `headings`.
@@ -1025,8 +1025,6 @@ struct R: Rswift.Validatable {
     static let rectangleRed = Rswift.ImageResource(bundle: R.hostingBundle, name: "rectangleRed")
     /// Image `rectangle`.
     static let rectangle = Rswift.ImageResource(bundle: R.hostingBundle, name: "rectangle")
-    /// Image `roundedRight`.
-    static let roundedRight = Rswift.ImageResource(bundle: R.hostingBundle, name: "roundedRight")
     /// Image `rounded`.
     static let rounded = Rswift.ImageResource(bundle: R.hostingBundle, name: "rounded")
     /// Image `splitIcon`.
@@ -1037,6 +1035,8 @@ struct R: Rswift.Validatable {
     static let touchId = Rswift.ImageResource(bundle: R.hostingBundle, name: "touchId")
     /// Image `userpick`.
     static let userpick = Rswift.ImageResource(bundle: R.hostingBundle, name: "userpick")
+    /// Image `voucher_ticket_icon`.
+    static let voucher_ticket_icon = Rswift.ImageResource(bundle: R.hostingBundle, name: "voucher_ticket_icon")
     /// Image `voucher`.
     static let voucher = Rswift.ImageResource(bundle: R.hostingBundle, name: "voucher")
     /// Image `wallet`.
@@ -1046,13 +1046,6 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "5XVoucherContainerWElevation", bundle: ..., traitCollection: ...)`
     static func xVoucherContainerWElevation(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.xVoucherContainerWElevation, compatibleWith: traitCollection)
-    }
-    #endif
-
-    #if os(iOS) || os(tvOS)
-    /// `UIImage(named: "5XVoucherSurface", bundle: ..., traitCollection: ...)`
-    static func xVoucherSurface(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.xVoucherSurface, compatibleWith: traitCollection)
     }
     #endif
 
@@ -1130,6 +1123,13 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "arrow", bundle: ..., traitCollection: ...)`
     static func arrow(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.arrow, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "arrow_right_icon", bundle: ..., traitCollection: ...)`
+    static func arrow_right_icon(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.arrow_right_icon, compatibleWith: traitCollection)
     }
     #endif
 
@@ -1260,13 +1260,6 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
-    /// `UIImage(named: "face24Px", bundle: ..., traitCollection: ...)`
-    static func face24Px(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.face24Px, compatibleWith: traitCollection)
-    }
-    #endif
-
-    #if os(iOS) || os(tvOS)
     /// `UIImage(named: "faceId", bundle: ..., traitCollection: ...)`
     static func faceId(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.faceId, compatibleWith: traitCollection)
@@ -1277,6 +1270,13 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "faceId-1", bundle: ..., traitCollection: ...)`
     static func faceId1(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.faceId1, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "face_icon", bundle: ..., traitCollection: ...)`
+    static func face_icon(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.face_icon, compatibleWith: traitCollection)
     }
     #endif
 
@@ -1477,13 +1477,6 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
-    /// `UIImage(named: "roundedRight", bundle: ..., traitCollection: ...)`
-    static func roundedRight(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.roundedRight, compatibleWith: traitCollection)
-    }
-    #endif
-
-    #if os(iOS) || os(tvOS)
     /// `UIImage(named: "splitIcon", bundle: ..., traitCollection: ...)`
     static func splitIcon(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.splitIcon, compatibleWith: traitCollection)
@@ -1515,6 +1508,13 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "voucher", bundle: ..., traitCollection: ...)`
     static func voucher(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.voucher, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "voucher_ticket_icon", bundle: ..., traitCollection: ...)`
+    static func voucher_ticket_icon(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.voucher_ticket_icon, compatibleWith: traitCollection)
     }
     #endif
 
@@ -3015,6 +3015,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en, nl
       static let confirm_transaction = Rswift.StringResource(key: "confirm_transaction", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
+      /// en translation: Continuing will allow this device to acces your account. Are you sure you want to continue?
+      ///
+      /// Locales: en, nl
+      static let description_of_auth_anothe_device = Rswift.StringResource(key: "description_of_auth_anothe_device", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
       /// en translation: Copied to clipboard
       ///
       /// Locales: en, nl
@@ -3359,10 +3363,6 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en, nl
       static let base_salary = Rswift.StringResource(key: "base_salary", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
-      /// en translation: Scan only QR-codes on devices you own or temporarily use. Never scan a code which was sent or shown by another person.
-      ///
-      /// Locales: en, nl
-      static let description_of_auth_anothe_device = Rswift.StringResource(key: "description_of_auth_anothe_device", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
       /// en translation: Search currency
       ///
       /// Locales: en, nl
@@ -4120,6 +4120,21 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("confirm_transaction", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Continuing will allow this device to acces your account. Are you sure you want to continue?
+      ///
+      /// Locales: en, nl
+      static func description_of_auth_anothe_device(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("description_of_auth_anothe_device", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "description_of_auth_anothe_device"
+        }
+
+        return NSLocalizedString("description_of_auth_anothe_device", bundle: bundle, comment: "")
       }
 
       /// en translation: Copied to clipboard
@@ -5418,21 +5433,6 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("base_salary", bundle: bundle, comment: "")
-      }
-
-      /// en translation: Scan only QR-codes on devices you own or temporarily use. Never scan a code which was sent or shown by another person.
-      ///
-      /// Locales: en, nl
-      static func description_of_auth_anothe_device(preferredLanguages: [String]? = nil) -> String {
-        guard let preferredLanguages = preferredLanguages else {
-          return NSLocalizedString("description_of_auth_anothe_device", bundle: hostingBundle, comment: "")
-        }
-
-        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
-          return "description_of_auth_anothe_device"
-        }
-
-        return NSLocalizedString("description_of_auth_anothe_device", bundle: bundle, comment: "")
       }
 
       /// en translation: Search currency
@@ -9712,11 +9712,11 @@ struct _R: Rswift.Validatable {
       }
 
       static func validate() throws {
-        if UIKit.UIImage(named: "5XVoucherSurface", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named '5XVoucherSurface' is used in storyboard 'Payment', but couldn't be loaded.") }
         if UIKit.UIImage(named: "back", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'back' is used in storyboard 'Payment', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "face24Px", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'face24Px' is used in storyboard 'Payment', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "face_icon", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'face_icon' is used in storyboard 'Payment', but couldn't be loaded.") }
         if UIKit.UIImage(named: "qrV", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'qrV' is used in storyboard 'Payment', but couldn't be loaded.") }
         if UIKit.UIImage(named: "roundedRight", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'roundedRight' is used in storyboard 'Payment', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "voucher_ticket_icon", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'voucher_ticket_icon' is used in storyboard 'Payment', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
         if _R.storyboard.payment().content() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'content' could not be loaded from storyboard 'Payment' as 'MPaymentViewController'.") }
@@ -9734,8 +9734,8 @@ struct _R: Rswift.Validatable {
       let name = "ProductReservation"
 
       static func validate() throws {
-        if UIKit.UIImage(named: "5XVoucherSurface", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named '5XVoucherSurface' is used in storyboard 'ProductReservation', but couldn't be loaded.") }
         if UIKit.UIImage(named: "Resting", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Resting' is used in storyboard 'ProductReservation', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "voucher_ticket_icon", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'voucher_ticket_icon' is used in storyboard 'ProductReservation', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
       }
@@ -9767,7 +9767,6 @@ struct _R: Rswift.Validatable {
       }
 
       static func validate() throws {
-        if UIKit.UIImage(named: "5XVoucherSurface", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named '5XVoucherSurface' is used in storyboard 'ProductVoucher', but couldn't be loaded.") }
         if UIKit.UIImage(named: "back", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'back' is used in storyboard 'ProductVoucher', but couldn't be loaded.") }
         if UIKit.UIImage(named: "circular", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'circular' is used in storyboard 'ProductVoucher', but couldn't be loaded.") }
         if UIKit.UIImage(named: "closeIcon", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'closeIcon' is used in storyboard 'ProductVoucher', but couldn't be loaded.") }
@@ -9775,6 +9774,7 @@ struct _R: Rswift.Validatable {
         if UIKit.UIImage(named: "qrCode", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'qrCode' is used in storyboard 'ProductVoucher', but couldn't be loaded.") }
         if UIKit.UIImage(named: "qrImage2", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'qrImage2' is used in storyboard 'ProductVoucher', but couldn't be loaded.") }
         if UIKit.UIImage(named: "qrV", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'qrV' is used in storyboard 'ProductVoucher', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "voucher_ticket_icon", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'voucher_ticket_icon' is used in storyboard 'ProductVoucher', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
         if _R.storyboard.productVoucher().bottom() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'bottom' could not be loaded from storyboard 'ProductVoucher' as 'CommonBottomViewController'.") }
@@ -9973,7 +9973,6 @@ struct _R: Rswift.Validatable {
       }
 
       static func validate() throws {
-        if UIKit.UIImage(named: "5XVoucherSurface", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named '5XVoucherSurface' is used in storyboard 'Voucher', but couldn't be loaded.") }
         if UIKit.UIImage(named: "Resting", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Resting' is used in storyboard 'Voucher', but couldn't be loaded.") }
         if UIKit.UIImage(named: "back", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'back' is used in storyboard 'Voucher', but couldn't be loaded.") }
         if UIKit.UIImage(named: "closeIcon", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'closeIcon' is used in storyboard 'Voucher', but couldn't be loaded.") }
@@ -9981,6 +9980,7 @@ struct _R: Rswift.Validatable {
         if UIKit.UIImage(named: "qrCode", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'qrCode' is used in storyboard 'Voucher', but couldn't be loaded.") }
         if UIKit.UIImage(named: "qrImage2", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'qrImage2' is used in storyboard 'Voucher', but couldn't be loaded.") }
         if UIKit.UIImage(named: "qrV", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'qrV' is used in storyboard 'Voucher', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "voucher_ticket_icon", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'voucher_ticket_icon' is used in storyboard 'Voucher', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
         if _R.storyboard.voucher().bottom() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'bottom' could not be loaded from storyboard 'Voucher' as 'CommonBottomViewController'.") }

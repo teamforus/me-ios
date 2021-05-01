@@ -342,7 +342,7 @@ extension AppDelegate {
     func didCheckPasscode(vc: UIViewController){
         if UserDefaults.standard.string(forKey: ALConstants.kPincode) != "" && UserDefaults.standard.string(forKey: ALConstants.kPincode) != nil {
             var appearance = ALAppearance()
-            appearance.image = UIImage(named: "lock")!
+            appearance.image = Image.lock_icon
             appearance.title = Localize.enter_login_code()
             appearance.isSensorsEnabled = true
             appearance.cancelIsVissible = false

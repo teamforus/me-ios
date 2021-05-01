@@ -265,7 +265,7 @@ extension UIViewController{
     
     func didChooseAppLocker(title: String, subTitle: String, cancelButtonIsVissible: Bool, mode: ALMode){
         var appearance = ALAppearance()
-        appearance.image = UIImage(named: "lock")!
+        appearance.image = Image.lock_icon
         appearance.title = title
         appearance.subtitle = subTitle
         appearance.isSensorsEnabled = UserDefaults.standard.bool(forKey: UserDefaultsName.UseTouchID)

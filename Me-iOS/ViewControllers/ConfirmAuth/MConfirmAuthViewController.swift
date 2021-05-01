@@ -45,7 +45,7 @@ class MConfirmAuthViewController: UIViewController {
   private let iconImageView: UIImageView = {
     let imageView = UIImageView(frame: .zero)
     imageView.contentMode = .scaleAspectFill
-    imageView.image = R.image.iconCheckAuthorize()
+    imageView.image = Image.checkAuthorizationIcon
     return imageView
   }()
   
