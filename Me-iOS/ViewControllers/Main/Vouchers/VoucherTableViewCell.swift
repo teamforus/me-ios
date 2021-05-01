@@ -73,7 +73,7 @@ class VoucherTableViewCell: UITableViewCell {
                 self.priceLabel.text = "0,0"
             }
             
-            self.voucherImage.loadImageUsingUrlString(urlString: voucher.fund?.organization?.logo?.sizes?.thumbnail ?? "", placeHolder: #imageLiteral(resourceName: "Resting"))
+            self.voucherImage.loadImageUsingUrlString(urlString: voucher.fund?.logo?.sizes?.thumbnail ?? "", placeHolder: #imageLiteral(resourceName: "Resting"))
         }
     }
     
