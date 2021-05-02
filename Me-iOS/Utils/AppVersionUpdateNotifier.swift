@@ -30,7 +30,7 @@ class AppVersionUpdateNotifier {
     
     private var logoImageView: UIImageView = {
         let imageView = UIImageView(frame: .zero)
-        imageView.image = #imageLiteral(resourceName: "fill1Copy")
+        imageView.image = #imageLiteral(resourceName: "logo_icon")
         imageView.contentMode = .scaleAspectFill
         return imageView
     }()

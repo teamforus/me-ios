@@ -896,8 +896,6 @@ struct R: Rswift.Validatable {
     static let faceId1 = Rswift.ImageResource(bundle: R.hostingBundle, name: "faceId-1")
     /// Image `faceId`.
     static let faceId = Rswift.ImageResource(bundle: R.hostingBundle, name: "faceId")
-    /// Image `fill1Copy`.
-    static let fill1Copy = Rswift.ImageResource(bundle: R.hostingBundle, name: "fill1Copy")
     /// Image `headings`.
     static let headings = Rswift.ImageResource(bundle: R.hostingBundle, name: "headings")
     /// Image `homeIcon`.
@@ -926,6 +924,8 @@ struct R: Rswift.Validatable {
     static let lockError = Rswift.ImageResource(bundle: R.hostingBundle, name: "lockError")
     /// Image `lock`.
     static let lock = Rswift.ImageResource(bundle: R.hostingBundle, name: "lock")
+    /// Image `logo_icon`.
+    static let logo_icon = Rswift.ImageResource(bundle: R.hostingBundle, name: "logo_icon")
     /// Image `nightMode`.
     static let nightMode = Rswift.ImageResource(bundle: R.hostingBundle, name: "nightMode")
     /// Image `notifications`.
@@ -1206,13 +1206,6 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
-    /// `UIImage(named: "fill1Copy", bundle: ..., traitCollection: ...)`
-    static func fill1Copy(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.fill1Copy, compatibleWith: traitCollection)
-    }
-    #endif
-
-    #if os(iOS) || os(tvOS)
     /// `UIImage(named: "headings", bundle: ..., traitCollection: ...)`
     static func headings(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.headings, compatibleWith: traitCollection)
@@ -1307,6 +1300,13 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "lockError", bundle: ..., traitCollection: ...)`
     static func lockError(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.lockError, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "logo_icon", bundle: ..., traitCollection: ...)`
+    static func logo_icon(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.logo_icon, compatibleWith: traitCollection)
     }
     #endif
 
@@ -2701,7 +2701,7 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
 
-    /// This `R.string.localizable` struct is generated, and contains static references to 181 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 182 localization keys.
     struct localizable {
       /// en translation: %@ Don't Available
       ///
@@ -3023,6 +3023,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en, nl
       static let log_out = Rswift.StringResource(key: "log_out", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
+      /// en translation: Log in from another device
+      ///
+      /// Locales: en, nl
+      static let log_from_another_device = Rswift.StringResource(key: "log_from_another_device", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
       /// en translation: Login code
       ///
       /// Locales: en, nl
@@ -4640,6 +4644,21 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("log_out", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Log in from another device
+      ///
+      /// Locales: en, nl
+      static func log_from_another_device(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("log_from_another_device", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "log_from_another_device"
+        }
+
+        return NSLocalizedString("log_from_another_device", bundle: bundle, comment: "")
       }
 
       /// en translation: Login code
@@ -8899,7 +8918,7 @@ struct _R: Rswift.Validatable {
       }
 
       static func validate() throws {
-        if UIKit.UIImage(named: "fill1Copy", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'fill1Copy' is used in nib 'OrganizationValidatorTableViewCell', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "logo_icon", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'logo_icon' is used in nib 'OrganizationValidatorTableViewCell', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
       }
@@ -9051,7 +9070,7 @@ struct _R: Rswift.Validatable {
 
       static func validate() throws {
         if UIKit.UIImage(named: "closeLines", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'closeLines' is used in storyboard 'About', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "fill1Copy", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'fill1Copy' is used in storyboard 'About', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "logo_icon", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'logo_icon' is used in storyboard 'About', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
       }

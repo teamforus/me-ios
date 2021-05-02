@@ -192,3 +192,4 @@
 "description_of_auth_anothe_device" = "Continuing will allow this device to acces your account. Are you sure you want to continue?";
 "i_want_to_login" = "Yes, I want to login";
 "no_thanks" = "No thanks";
+"log_from_another_device" = "Log in from another device";
