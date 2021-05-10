@@ -192,3 +192,5 @@
 "i_want_to_login" = "Ja, ik wil inloggen";
 "no_thanks" = "Annuleren";
 "log_from_another_device" = "Inloggen vanaf een ander apparaat";
+"sign_in" = "AANMELDEN";
+"pairing" = "KOPPELEN";

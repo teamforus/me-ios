@@ -193,3 +193,5 @@
 "i_want_to_login" = "Yes, I want to login";
 "no_thanks" = "No thanks";
 "log_from_another_device" = "Log in from another device";
+"sign_in" = "SIGN IN";
+"pairing" = "PAIRING";

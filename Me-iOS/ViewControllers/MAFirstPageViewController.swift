@@ -6,12 +6,20 @@
 //  Copyright © 2019 Tcacenco Daniel. All rights reserved.
 //
 
-enum EnvironmentType: Int {
+enum EnvironmentType: Int, CaseIterable {
     case production = 0
     case alpha = 1
     case demo = 2
     case dev = 3
     case custom = 4
+}
+
+enum EnvironmentTitles: String, CaseIterable {
+    case production = "Production"
+    case alpha = "Staging"
+    case demo = "Demo"
+    case dev = "Develop"
+    case custom = "Custom"
 }
 
 import UIKit
@@ -42,12 +50,14 @@ class MAFirstPageViewController: UIViewController {
         stackView.alignment = .fill
         stackView.distribution = .fill
         stackView.spacing = 6
+        stackView.isHidden = true
         return stackView
     }()
     
     private var chooseEnvironmentButton: ActionButton = {
         let button = ActionButton(frame: .zero)
         button.setTitle("Choose Environmnet", for: .normal)
+        button.setTitleColor(.blue, for: .normal)
         return button
     }()
     
@@ -58,8 +68,10 @@ class MAFirstPageViewController: UIViewController {
         textField.selectedLineColor = .black
         textField.lineColor = .lightGray
         textField.placeholderColor = Color.placeHolderTextField
+        textField.placeholder = Localize.email()
         textField.titleColor = Color.titleTextField
         textField.selectedLineColor = Color.selectedTitleTextField
+        textField.addTarget(self, action: #selector(didCheckValidateEmail(_:)), for: .editingChanged)
         return textField
     }()
     
@@ -73,6 +85,7 @@ class MAFirstPageViewController: UIViewController {
     private var validationImage: UIImageView = {
         let imageView = UIImageView(frame: .zero)
         imageView.image = #imageLiteral(resourceName: "proper")
+        imageView.isHidden = true
         imageView.contentMode = .scaleAspectFit
         return imageView
     }()
@@ -81,7 +94,15 @@ class MAFirstPageViewController: UIViewController {
         let button = ActionButton(frame: .zero)
         button.backgroundColor = .lightGray
         button.setTitleColor(.white, for: .normal)
+        button.setTitle(Localize.sign_in(), for: .normal)
+        button.rounded(cornerRadius: 9)
+        button.isEnabled = false
         button.titleLabel?.font = R.font.googleSansBold(size: 14)
+        button.layer.shadowOffset = CGSize(width: 0, height: 10)
+        button.layer.shadowRadius = 10
+        button.layer.shadowOpacity = 0.2
+        button.layer.masksToBounds = false
+        button.layer.shadowColor = UIColor.black.cgColor
         return button
     }()
     
@@ -89,7 +110,14 @@ class MAFirstPageViewController: UIViewController {
         let button = ActionButton(frame: .zero)
         button.backgroundColor = .white
         button.setTitleColor(Color.titleTextField, for: .normal)
+        button.setTitle(Localize.pairing(), for: .normal)
+        button.rounded(cornerRadius: 9)
         button.titleLabel?.font = R.font.googleSansBold(size: 14)
+        button.layer.shadowOffset = CGSize(width: 0, height: 10)
+        button.layer.shadowRadius = 10
+        button.layer.shadowOpacity = 0.3
+        button.layer.masksToBounds = false
+        button.layer.shadowColor = UIColor.black.cgColor
         return button
     }()
     
@@ -108,16 +136,23 @@ class MAFirstPageViewController: UIViewController {
         label.textAlignment = .center
         return label
     }()
-  
+    
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        addSubviews()
+        setupConstraints()
+        setupUI()
+    }
+    
+    private func setupUI() {
         IQKeyboardManager.shared.enable = true
         IQKeyboardManager.shared.enableAutoToolbar = true
-        
+        setupActions()
         setupAccessibility()
         setupEnvironments()
+        setupEnvironmentButtons()
     }
     
     private func setupEnvironments() {
@@ -157,13 +192,30 @@ class MAFirstPageViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(logIn), name: NotificationName.LoginQR, object: nil)
     }
     
+    private func setupEnvironmentButtons() {
+        for i in 0..<EnvironmentType.allCases.count {
+            let button = ActionButton(frame: .zero)
+            button.tag = i
+            button.setTitle(EnvironmentTitles.allCases[i].rawValue, for: .normal)
+            button.setTitleColor(.blue, for: .normal)
+            environmnetsStackView.addArrangedSubview(button)
+            button.snp.makeConstraints { make in
+                make.height.equalTo(40)
+                make.width.equalTo(100)
+            }
+            button.actionHandleBlock = { [weak self] (button) in
+                self?.didChooseEnvironment(environmentType: EnvironmentType.allCases[button.tag])
+            }
+        }
+    }
+    
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         setupInitialEmailFieldState()
-        }
-
-        override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
-            setupInitialEmailFieldState()
-        }
+    }
+    
+    override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
+        setupInitialEmailFieldState()
+    }
     
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -176,15 +228,12 @@ class MAFirstPageViewController: UIViewController {
         performSegue(withIdentifier: "goToSuccessRegister", sender: self)
     }
     
-    @IBAction func validateEmail(_ sender: SkyFloatingLabelTextField) {
+    @objc func didCheckValidateEmail(_ sender: SkyFloatingLabelTextField) {
         if validateEmail(emailField.text!){
-            
             validationImage.isHidden = false
             confirmButton.backgroundColor = #colorLiteral(red: 0.2078431373, green: 0.3921568627, blue: 0.9764705882, alpha: 1)
             confirmButton.isEnabled = true
-            
         }else{
-            
             validationImage.isHidden = true
             confirmButton.backgroundColor = #colorLiteral(red: 0.7647058824, green: 0.7647058824, blue: 0.7647058824, alpha: 1)
             confirmButton.isEnabled = false
@@ -218,31 +267,33 @@ extension MAFirstPageViewController {
         }
         
         chooseEnvironmentButton.snp.makeConstraints { make in
-            make.left.equalTo(scrollView).offset(32)
-            make.top.equalTo(scrollView).offset(63)
+            make.left.equalTo(self.view).offset(32)
+            make.top.equalTo(self.view.safeAreaLayoutGuide)
+            make.height.equalTo(50)
         }
         
         environmnetsStackView.snp.makeConstraints { make in
-            make.left.equalTo(scrollView).offset(32)
-            make.top.equalTo(scrollView).offset(88)
+            make.left.equalTo(self.view).offset(27)
+            make.top.equalTo(self.view.safeAreaLayoutGuide).offset(50)
         }
         
         logoImage.snp.makeConstraints { make in
+            make.top.equalTo(self.view).offset(164)
             make.centerX.equalTo(scrollView)
             make.width.equalTo(100)
             make.height.equalTo(85)
         }
         
         welcomeLabel.snp.makeConstraints { make in
-            make.top.equalTo(validationImage.snp.bottom).offset(25)
-            make.left.equalTo(scrollView).offset(20)
-            make.right.equalTo(scrollView).offset(-20)
+            make.top.equalTo(logoImage.snp.bottom).offset(25)
+            make.left.equalTo(self.view).offset(30)
+            make.right.equalTo(self.view).offset(-30)
             make.height.equalTo(50)
         }
         
         emailField.snp.makeConstraints { make in
-            make.left.equalTo(scrollView).offset(33)
-            make.right.equalTo(scrollView).offset(-33)
+            make.left.equalTo(self.view).offset(30)
+            make.right.equalTo(self.view).offset(-30)
             make.height.equalTo(62)
             make.top.equalTo(welcomeLabel.snp.bottom).offset(33)
         }
@@ -250,27 +301,29 @@ extension MAFirstPageViewController {
         validationImage.snp.makeConstraints { make in
             make.width.height.equalTo(14)
             make.top.equalTo(welcomeLabel.snp.bottom).offset(63)
-            make.right.equalTo(scrollView).offset(-33)
+            make.right.equalTo(self.view).offset(-30)
         }
         
         confirmButton.snp.makeConstraints { make in
             make.top.equalTo(emailField.snp.bottom).offset(24)
-            make.left.equalTo(scrollView).offset(33)
-            make.right.equalTo(scrollView).offset(-33)
+            make.left.equalTo(self.view).offset(30)
+            make.right.equalTo(self.view).offset(-30)
             make.height.equalTo(51)
         }
         
         descriptionLabel.snp.makeConstraints { make in
             make.top.equalTo(confirmButton.snp.bottom).offset(56)
-            make.left.equalTo(scrollView).offset(62)
-            make.right.equalTo(scrollView).offset(-62)
+            make.left.equalTo(self.view).offset(62)
+            make.height.equalTo(20)
+            make.right.equalTo(self.view).offset(-62)
         }
         
         showQRCodeButton.snp.makeConstraints { make in
             make.top.equalTo(descriptionLabel.snp.bottom).offset(13)
-            make.left.equalTo(scrollView).offset(33)
-            make.right.equalTo(scrollView).offset(-33)
-            make.bottom.equalTo(scrollView).offset(90)
+            make.left.equalTo(self.view).offset(30)
+            make.height.equalTo(51)
+            make.right.equalTo(self.view).offset(-30)
+            make.bottom.equalTo(self.view.safeAreaLayoutGuide).offset(-30)
         }
     }
 }
@@ -309,9 +362,9 @@ extension MAFirstPageViewController {
             
             DispatchQueue.main.async {
                 if statusCode == 422 {
-                        
-                        self?.emailLoginViewModel.initLoginByEmail(email: self?.emailField.text ?? "")
-                  
+                    
+                    self?.emailLoginViewModel.initLoginByEmail(email: self?.emailField.text ?? "")
+                    
                 }else if statusCode == 500 {
                     self?.showSimpleAlertWithSingleAction(title: Localize.error_exclamation(), message: "", okAction: UIAlertAction(title: Localize.ok(), style: .default, handler: { (action) in
                     }))
@@ -391,6 +444,6 @@ extension MAFirstPageViewController: AccessibilityProtocol {
         confirmButton.setupAccesibility(description: Localize.confirm(), accessibilityTraits: .button)
         showQRCodeButton.setupAccesibility(description: "Show Qr Code and Pin Code", accessibilityTraits: .button)
         validationImage.setupAccesibility(description: "Email is valid", accessibilityTraits: .image)
-      welcomeLabel.setupAccesibility(description: Localize.welcome_to_me(), accessibilityTraits: .header)
+        welcomeLabel.setupAccesibility(description: Localize.welcome_to_me(), accessibilityTraits: .header)
     }
 }

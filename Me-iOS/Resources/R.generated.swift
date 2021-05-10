@@ -2701,7 +2701,7 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
 
-    /// This `R.string.localizable` struct is generated, and contains static references to 182 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 184 localization keys.
     struct localizable {
       /// en translation: %@ Don't Available
       ///
@@ -3095,6 +3095,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en, nl
       static let others = Rswift.StringResource(key: "others", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
+      /// en translation: PAIRING
+      ///
+      /// Locales: en, nl
+      static let pairing = Rswift.StringResource(key: "pairing", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
       /// en translation: PAYMENT
       ///
       /// Locales: en, nl
@@ -3187,6 +3191,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en, nl
       static let relationships = Rswift.StringResource(key: "relationships", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
+      /// en translation: SIGN IN
+      ///
+      /// Locales: en, nl
+      static let sign_in = Rswift.StringResource(key: "sign_in", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
       /// en translation: Salary
       ///
       /// Locales: en, nl
@@ -4916,6 +4924,21 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("others", bundle: bundle, comment: "")
       }
 
+      /// en translation: PAIRING
+      ///
+      /// Locales: en, nl
+      static func pairing(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("pairing", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "pairing"
+        }
+
+        return NSLocalizedString("pairing", bundle: bundle, comment: "")
+      }
+
       /// en translation: PAYMENT
       ///
       /// Locales: en, nl
@@ -5261,6 +5284,21 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("relationships", bundle: bundle, comment: "")
+      }
+
+      /// en translation: SIGN IN
+      ///
+      /// Locales: en, nl
+      static func sign_in(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("sign_in", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "sign_in"
+        }
+
+        return NSLocalizedString("sign_in", bundle: bundle, comment: "")
       }
 
       /// en translation: Salary
@@ -9141,8 +9179,6 @@ struct _R: Rswift.Validatable {
       }
 
       static func validate() throws {
-        if UIKit.UIImage(named: "fill1Copy", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'fill1Copy' is used in storyboard 'First', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "proper", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'proper' is used in storyboard 'First', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
         if _R.storyboard.first().first() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'first' could not be loaded from storyboard 'First' as 'HiddenNavBarNavigationController'.") }

@@ -15,6 +15,7 @@ class ActionButton: UIButton {
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.isExclusiveTouch = true
+        self.layer.masksToBounds = false
         setupButtonAction()
         setupButton()
         
@@ -22,12 +23,14 @@ class ActionButton: UIButton {
     
     convenience init(){
         self.init(frame: CGRect.zero)
+        self.layer.masksToBounds = false
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         setupButtonAction()
         setupButton()
+        self.layer.masksToBounds = false
     }
     
     func setupButtonAction() {
