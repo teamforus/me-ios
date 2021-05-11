@@ -194,3 +194,5 @@
 "log_from_another_device" = "Inloggen vanaf een ander apparaat";
 "sign_in" = "AANMELDEN";
 "pairing" = "KOPPELEN";
+"email_has_been_sent" = "Er is een e-mail naar je toegestuurd.";
+"open_mail_app" = "OPEN MAIL APP";

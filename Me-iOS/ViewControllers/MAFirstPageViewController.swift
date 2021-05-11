@@ -98,11 +98,7 @@ class MAFirstPageViewController: UIViewController {
         button.rounded(cornerRadius: 9)
         button.isEnabled = false
         button.titleLabel?.font = R.font.googleSansBold(size: 14)
-        button.layer.shadowOffset = CGSize(width: 0, height: 10)
-        button.layer.shadowRadius = 10
-        button.layer.shadowOpacity = 0.2
-        button.layer.masksToBounds = false
-        button.layer.shadowColor = UIColor.black.cgColor
+        button.setupShadow(offset: CGSize(width: 0, height: 10), radius: 10, opacity: 0.2, color: UIColor.black.cgColor)
         return button
     }()
     
@@ -113,11 +109,7 @@ class MAFirstPageViewController: UIViewController {
         button.setTitle(Localize.pairing(), for: .normal)
         button.rounded(cornerRadius: 9)
         button.titleLabel?.font = R.font.googleSansBold(size: 14)
-        button.layer.shadowOffset = CGSize(width: 0, height: 10)
-        button.layer.shadowRadius = 10
-        button.layer.shadowOpacity = 0.3
-        button.layer.masksToBounds = false
-        button.layer.shadowColor = UIColor.black.cgColor
+        button.setupShadow(offset: CGSize(width: 0, height: 10), radius: 10, opacity: 0.2, color: UIColor.black.cgColor)
         return button
     }()
     
@@ -369,7 +361,8 @@ extension MAFirstPageViewController {
                     self?.showSimpleAlertWithSingleAction(title: Localize.error_exclamation(), message: "", okAction: UIAlertAction(title: Localize.ok(), style: .default, handler: { (action) in
                     }))
                 }else {
-                    self?.performSegue(withIdentifier: "goToSuccessMail", sender: nil)
+                    let emailVC = MSuccessEmailViewController(email: self?.emailField.text ?? "")
+                    self?.navigationController?.show(emailVC, sender: nil)
                 }
             }
         }
@@ -379,9 +372,8 @@ extension MAFirstPageViewController {
             DispatchQueue.main.async {
                 
                 if statusCode != 500 {
-                    
-                    self?.performSegue(withIdentifier: "goToSuccessMail", sender: self)
-                    
+                    let emailVC = MSuccessEmailViewController(email: self?.emailField.text ?? "")
+                    self?.navigationController?.show(emailVC, sender: nil)
                 }else {
                     self?.showSimpleAlertWithSingleAction(title: Localize.error_exclamation(), message: "", okAction: UIAlertAction(title: Localize.ok(), style: .default, handler: { (action) in
                     }))

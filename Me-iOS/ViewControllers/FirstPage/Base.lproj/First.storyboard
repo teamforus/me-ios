@@ -22,7 +22,6 @@
                     <navigationItem key="navigationItem" id="G7f-GB-5DU"/>
                     <connections>
                         <segue destination="qzn-JB-q2a" kind="presentation" identifier="goToMain" modalPresentationStyle="fullScreen" id="6TI-WM-ZPC"/>
-                        <segue destination="gNt-Ag-nUJ" kind="presentation" identifier="goToSuccessMail" modalPresentationStyle="fullScreen" id="VVl-cZ-D9m"/>
                         <segue destination="vfJ-1R-B22" kind="presentation" identifier="goToSuccessRegister" modalPresentationStyle="fullScreen" id="9AB-69-nTQ"/>
                     </connections>
                 </viewController>
@@ -42,14 +41,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tEc-nq-umH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1375" y="210"/>
-        </scene>
-        <!--SuccessEmail-->
-        <scene sceneID="Zxa-gw-fX1">
-            <objects>
-                <viewControllerPlaceholder storyboardName="SuccessEmail" id="gNt-Ag-nUJ" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="5I1-Pz-BTL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1433" y="279"/>
         </scene>
         <!--SuccessRegister-->
         <scene sceneID="C4R-lE-mpc">

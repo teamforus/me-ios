@@ -110,12 +110,10 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
 
-    /// This struct is generated for `MAFirstPageViewController`, and contains static references to 3 segues.
+    /// This struct is generated for `MAFirstPageViewController`, and contains static references to 2 segues.
     struct maFirstPageViewController {
       /// Segue identifier `goToMain`.
       static let goToMain: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, MAFirstPageViewController, EnablePersonalInformationViewController> = Rswift.StoryboardSegueIdentifier(identifier: "goToMain")
-      /// Segue identifier `goToSuccessMail`.
-      static let goToSuccessMail: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, MAFirstPageViewController, MSuccessEmailViewController> = Rswift.StoryboardSegueIdentifier(identifier: "goToSuccessMail")
       /// Segue identifier `goToSuccessRegister`.
       static let goToSuccessRegister: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, MAFirstPageViewController, HiddenNavBarNavigationController> = Rswift.StoryboardSegueIdentifier(identifier: "goToSuccessRegister")
 
@@ -125,15 +123,6 @@ struct R: Rswift.Validatable {
       /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
       static func goToMain(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, MAFirstPageViewController, EnablePersonalInformationViewController>? {
         return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.maFirstPageViewController.goToMain, segue: segue)
-      }
-      #endif
-
-      #if os(iOS) || os(tvOS)
-      /// Optionally returns a typed version of segue `goToSuccessMail`.
-      /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
-      /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
-      static func goToSuccessMail(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, MAFirstPageViewController, MSuccessEmailViewController>? {
-        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.maFirstPageViewController.goToSuccessMail, segue: segue)
       }
       #endif
 
@@ -2701,7 +2690,7 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
 
-    /// This `R.string.localizable` struct is generated, and contains static references to 184 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 186 localization keys.
     struct localizable {
       /// en translation: %@ Don't Available
       ///
@@ -2887,6 +2876,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en, nl
       static let do_you_want_to_login = Rswift.StringResource(key: "do_you_want_to_login", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
+      /// en translation: E-mail has been sent to you.
+      ///
+      /// Locales: en, nl
+      static let email_has_been_sent = Rswift.StringResource(key: "email_has_been_sent", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
       /// en translation: E-mail to me
       ///
       /// Locales: en, nl
@@ -3087,6 +3080,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en, nl
       static let ok = Rswift.StringResource(key: "ok", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
+      /// en translation: OPEN MAIL APP
+      ///
+      /// Locales: en, nl
+      static let open_mail_app = Rswift.StringResource(key: "open_mail_app", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
       /// en translation: Offers
       ///
       /// Locales: en, nl
@@ -4140,6 +4137,21 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("do_you_want_to_login", bundle: bundle, comment: "")
       }
 
+      /// en translation: E-mail has been sent to you.
+      ///
+      /// Locales: en, nl
+      static func email_has_been_sent(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("email_has_been_sent", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "email_has_been_sent"
+        }
+
+        return NSLocalizedString("email_has_been_sent", bundle: bundle, comment: "")
+      }
+
       /// en translation: E-mail to me
       ///
       /// Locales: en, nl
@@ -4892,6 +4904,21 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("ok", bundle: bundle, comment: "")
+      }
+
+      /// en translation: OPEN MAIL APP
+      ///
+      /// Locales: en, nl
+      static func open_mail_app(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("open_mail_app", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "open_mail_app"
+        }
+
+        return NSLocalizedString("open_mail_app", bundle: bundle, comment: "")
       }
 
       /// en translation: Offers
@@ -9418,10 +9445,6 @@ struct _R: Rswift.Validatable {
       let name = "SuccessEmail"
 
       static func validate() throws {
-        if UIKit.UIImage(named: "1", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named '1' is used in storyboard 'SuccessEmail', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "Shadow", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Shadow' is used in storyboard 'SuccessEmail', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "back", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'back' is used in storyboard 'SuccessEmail', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "illustration", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'illustration' is used in storyboard 'SuccessEmail', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
       }

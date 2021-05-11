@@ -195,3 +195,5 @@
 "log_from_another_device" = "Log in from another device";
 "sign_in" = "SIGN IN";
 "pairing" = "PAIRING";
+"email_has_been_sent" = "E-mail has been sent to you.";
+"open_mail_app" = "OPEN MAIL APP";
