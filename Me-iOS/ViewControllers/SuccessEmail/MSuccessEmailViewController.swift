@@ -44,7 +44,7 @@ class MSuccessEmailViewController: UIViewController {
         let button = ActionButton(frame: .zero)
         button.setTitleColor(.white, for: .normal)
         button.setTitle(Localize.open_mail_app(), for: .normal)
-        button.backgroundColor = #colorLiteral(red: 0.2078431373, green: 0.3921568627, blue: 0.9764705882, alpha: 1)
+        button.backgroundColor = Color.onTintSwitch
         button.rounded(cornerRadius: 9)
         button.titleLabel?.font = R.font.googleSansBold(size: 14)
         button.setupShadow(offset: CGSize(width: 0, height: 10), radius: 10, opacity: 0.2, color: UIColor.black.cgColor)
@@ -164,7 +164,8 @@ class MSuccessEmailViewController: UIViewController {
     }
     
     @objc func logIn(){
-        performSegue(withIdentifier: "goToSuccessRegister", sender: self)
+        let registerVC = MSuccessRegisterViewController()
+        self.navigationController?.show(registerVC, sender: nil)
     }
 }
 

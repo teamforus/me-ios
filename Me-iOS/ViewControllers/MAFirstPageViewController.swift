@@ -217,7 +217,8 @@ class MAFirstPageViewController: UIViewController {
     
     
     @objc func logIn(){
-        performSegue(withIdentifier: "goToSuccessRegister", sender: self)
+        let registerVC = MSuccessRegisterViewController()
+        self.navigationController?.show(registerVC, sender: nil)
     }
     
     @objc func didCheckValidateEmail(_ sender: SkyFloatingLabelTextField) {

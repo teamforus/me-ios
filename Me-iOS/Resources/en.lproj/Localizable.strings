@@ -197,3 +197,8 @@
 "pairing" = "PAIRING";
 "email_has_been_sent" = "E-mail has been sent to you.";
 "open_mail_app" = "OPEN MAIL APP";
+"sharing_information" = "Sharing information";
+"next" = "NEXT";
+"sharing_identification_number_info" = "By sharing your identification number, problems can be solved faster. If needed the developers can contact you as well.";
+"share_identification_number" = "Share identification number";
+"success_login" = "Successfully \nlogged in!";

@@ -196,3 +196,8 @@
 "pairing" = "KOPPELEN";
 "email_has_been_sent" = "Er is een e-mail naar je toegestuurd.";
 "open_mail_app" = "OPEN MAIL APP";
+"sharing_information" = "Informatie delen";
+"next" = "VOLGENDE";
+"sharing_identification_number_info" = "Door je identificatie nummer te delen, kunnen problemen beter en sneller worden opgelost, en kunnen de ontwikkelaars eventueel contact met je opnemen.";
+"share_identification_number" = "Deel identificatienummer";
+"success_login" = "Aanmelding \ngeslaagd!";

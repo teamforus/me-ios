@@ -91,53 +91,8 @@ struct R: Rswift.Validatable {
   }
 
   #if os(iOS) || os(tvOS)
-  /// This `R.segue` struct is generated, and contains static references to 7 view controllers.
+  /// This `R.segue` struct is generated, and contains static references to 4 view controllers.
   struct segue {
-    /// This struct is generated for `EnablePersonalInformationViewController`, and contains static references to 1 segues.
-    struct enablePersonalInformationViewController {
-      /// Segue identifier `goToMain`.
-      static let goToMain: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, EnablePersonalInformationViewController, UIKit.UITabBarController> = Rswift.StoryboardSegueIdentifier(identifier: "goToMain")
-
-      #if os(iOS) || os(tvOS)
-      /// Optionally returns a typed version of segue `goToMain`.
-      /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
-      /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
-      static func goToMain(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, EnablePersonalInformationViewController, UIKit.UITabBarController>? {
-        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.enablePersonalInformationViewController.goToMain, segue: segue)
-      }
-      #endif
-
-      fileprivate init() {}
-    }
-
-    /// This struct is generated for `MAFirstPageViewController`, and contains static references to 2 segues.
-    struct maFirstPageViewController {
-      /// Segue identifier `goToMain`.
-      static let goToMain: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, MAFirstPageViewController, EnablePersonalInformationViewController> = Rswift.StoryboardSegueIdentifier(identifier: "goToMain")
-      /// Segue identifier `goToSuccessRegister`.
-      static let goToSuccessRegister: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, MAFirstPageViewController, HiddenNavBarNavigationController> = Rswift.StoryboardSegueIdentifier(identifier: "goToSuccessRegister")
-
-      #if os(iOS) || os(tvOS)
-      /// Optionally returns a typed version of segue `goToMain`.
-      /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
-      /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
-      static func goToMain(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, MAFirstPageViewController, EnablePersonalInformationViewController>? {
-        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.maFirstPageViewController.goToMain, segue: segue)
-      }
-      #endif
-
-      #if os(iOS) || os(tvOS)
-      /// Optionally returns a typed version of segue `goToSuccessRegister`.
-      /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
-      /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
-      static func goToSuccessRegister(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, MAFirstPageViewController, HiddenNavBarNavigationController>? {
-        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.maFirstPageViewController.goToSuccessRegister, segue: segue)
-      }
-      #endif
-
-      fileprivate init() {}
-    }
-
     /// This struct is generated for `MProductReservationViewController`, and contains static references to 2 segues.
     struct mProductReservationViewController {
       /// Segue identifier `goToPaymentFromSelected`.
@@ -211,23 +166,6 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
 
-    /// This struct is generated for `MSuccessEmailViewController`, and contains static references to 1 segues.
-    struct mSuccessEmailViewController {
-      /// Segue identifier `goToSuccessRegister`.
-      static let goToSuccessRegister: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, MSuccessEmailViewController, HiddenNavBarNavigationController> = Rswift.StoryboardSegueIdentifier(identifier: "goToSuccessRegister")
-
-      #if os(iOS) || os(tvOS)
-      /// Optionally returns a typed version of segue `goToSuccessRegister`.
-      /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
-      /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
-      static func goToSuccessRegister(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, MSuccessEmailViewController, HiddenNavBarNavigationController>? {
-        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.mSuccessEmailViewController.goToSuccessRegister, segue: segue)
-      }
-      #endif
-
-      fileprivate init() {}
-    }
-
     /// This struct is generated for `MVouchersViewController`, and contains static references to 2 segues.
     struct mVouchersViewController {
       /// Segue identifier `goToProduct`.
@@ -261,14 +199,12 @@ struct R: Rswift.Validatable {
   #endif
 
   #if os(iOS) || os(tvOS)
-  /// This `R.storyboard` struct is generated, and contains static references to 16 storyboards.
+  /// This `R.storyboard` struct is generated, and contains static references to 13 storyboards.
   struct storyboard {
     /// Storyboard `About`.
     static let about = _R.storyboard.about()
     /// Storyboard `ChooseTypeRecord`.
     static let chooseTypeRecord = _R.storyboard.chooseTypeRecord()
-    /// Storyboard `EnablePersonalInformation`.
-    static let enablePersonalInformation = _R.storyboard.enablePersonalInformation()
     /// Storyboard `First`.
     static let first = _R.storyboard.first()
     /// Storyboard `LaunchScreen`.
@@ -287,10 +223,6 @@ struct R: Rswift.Validatable {
     static let recordDetail = _R.storyboard.recordDetail()
     /// Storyboard `RecordValidators`.
     static let recordValidators = _R.storyboard.recordValidators()
-    /// Storyboard `SuccessEmail`.
-    static let successEmail = _R.storyboard.successEmail()
-    /// Storyboard `SuccessRegister`.
-    static let successRegister = _R.storyboard.successRegister()
     /// Storyboard `TextRecord`.
     static let textRecord = _R.storyboard.textRecord()
     /// Storyboard `Voucher`.
@@ -307,13 +239,6 @@ struct R: Rswift.Validatable {
     /// `UIStoryboard(name: "ChooseTypeRecord", bundle: ...)`
     static func chooseTypeRecord(_: Void = ()) -> UIKit.UIStoryboard {
       return UIKit.UIStoryboard(resource: R.storyboard.chooseTypeRecord)
-    }
-    #endif
-
-    #if os(iOS) || os(tvOS)
-    /// `UIStoryboard(name: "EnablePersonalInformation", bundle: ...)`
-    static func enablePersonalInformation(_: Void = ()) -> UIKit.UIStoryboard {
-      return UIKit.UIStoryboard(resource: R.storyboard.enablePersonalInformation)
     }
     #endif
 
@@ -381,20 +306,6 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
-    /// `UIStoryboard(name: "SuccessEmail", bundle: ...)`
-    static func successEmail(_: Void = ()) -> UIKit.UIStoryboard {
-      return UIKit.UIStoryboard(resource: R.storyboard.successEmail)
-    }
-    #endif
-
-    #if os(iOS) || os(tvOS)
-    /// `UIStoryboard(name: "SuccessRegister", bundle: ...)`
-    static func successRegister(_: Void = ()) -> UIKit.UIStoryboard {
-      return UIKit.UIStoryboard(resource: R.storyboard.successRegister)
-    }
-    #endif
-
-    #if os(iOS) || os(tvOS)
     /// `UIStoryboard(name: "TextRecord", bundle: ...)`
     static func textRecord(_: Void = ()) -> UIKit.UIStoryboard {
       return UIKit.UIStoryboard(resource: R.storyboard.textRecord)
@@ -412,7 +323,7 @@ struct R: Rswift.Validatable {
   }
   #endif
 
-  /// This `R.color` struct is generated, and contains static references to 21 colors.
+  /// This `R.color` struct is generated, and contains static references to 22 colors.
   struct color {
     /// Color `Background_DarkTheme`.
     static let background_DarkTheme = Rswift.ColorResource(bundle: R.hostingBundle, name: "Background_DarkTheme")
@@ -446,6 +357,8 @@ struct R: Rswift.Validatable {
     static let recordBackgroundDetail_DarkTheme = Rswift.ColorResource(bundle: R.hostingBundle, name: "RecordBackgroundDetail_DarkTheme")
     /// Color `RecordDetail_BackGround`.
     static let recordDetail_BackGround = Rswift.ColorResource(bundle: R.hostingBundle, name: "RecordDetail_BackGround")
+    /// Color `Row_Switch_DarkTheme`.
+    static let row_Switch_DarkTheme = Rswift.ColorResource(bundle: R.hostingBundle, name: "Row_Switch_DarkTheme")
     /// Color `Thin_Gray_DarkTheme`.
     static let thin_Gray_DarkTheme = Rswift.ColorResource(bundle: R.hostingBundle, name: "Thin_Gray_DarkTheme")
     /// Color `Thin_Light_Gray_DarkTheme`.
@@ -598,6 +511,15 @@ struct R: Rswift.Validatable {
     @available(iOS 11.0, *)
     static func recordDetail_BackGround(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
       return UIKit.UIColor(resource: R.color.recordDetail_BackGround, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIColor(named: "Row_Switch_DarkTheme", bundle: ..., traitCollection: ...)`
+    @available(tvOS 11.0, *)
+    @available(iOS 11.0, *)
+    static func row_Switch_DarkTheme(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
+      return UIKit.UIColor(resource: R.color.row_Switch_DarkTheme, compatibleWith: traitCollection)
     }
     #endif
 
@@ -1614,7 +1536,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.string` struct is generated, and contains static references to 24 localization tables.
+  /// This `R.string` struct is generated, and contains static references to 21 localization tables.
   struct string {
     /// This `R.string.about` struct is generated, and contains static references to 7 localization keys.
     struct about {
@@ -2393,88 +2315,6 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
 
-    /// This `R.string.enablePersonalInformation` struct is generated, and contains static references to 4 localization keys.
-    struct enablePersonalInformation {
-      /// en translation: By sharing your identification number, problems can be solved faster. If needed the developers can contact you as well.
-      ///
-      /// Locales: en, nl
-      static let bOkMYYl9Text = Rswift.StringResource(key: "bOk-mY-Yl9.text", tableName: "EnablePersonalInformation", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
-      /// en translation: NEXT
-      ///
-      /// Locales: en, nl
-      static let aCwB0HvFNormalTitle = Rswift.StringResource(key: "aCw-B0-HvF.normalTitle", tableName: "EnablePersonalInformation", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
-      /// en translation: Share identification number
-      ///
-      /// Locales: en, nl
-      static let mgT1RAaxText = Rswift.StringResource(key: "mgT-1R-Aax.text", tableName: "EnablePersonalInformation", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
-      /// en translation: Sharing information
-      ///
-      /// Locales: en, nl
-      static let pp9OVVYlText = Rswift.StringResource(key: "Pp9-oV-vYl.text", tableName: "EnablePersonalInformation", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
-
-      /// en translation: By sharing your identification number, problems can be solved faster. If needed the developers can contact you as well.
-      ///
-      /// Locales: en, nl
-      static func bOkMYYl9Text(preferredLanguages: [String]? = nil) -> String {
-        guard let preferredLanguages = preferredLanguages else {
-          return NSLocalizedString("bOk-mY-Yl9.text", tableName: "EnablePersonalInformation", bundle: hostingBundle, comment: "")
-        }
-
-        guard let (_, bundle) = localeBundle(tableName: "EnablePersonalInformation", preferredLanguages: preferredLanguages) else {
-          return "bOk-mY-Yl9.text"
-        }
-
-        return NSLocalizedString("bOk-mY-Yl9.text", tableName: "EnablePersonalInformation", bundle: bundle, comment: "")
-      }
-
-      /// en translation: NEXT
-      ///
-      /// Locales: en, nl
-      static func aCwB0HvFNormalTitle(preferredLanguages: [String]? = nil) -> String {
-        guard let preferredLanguages = preferredLanguages else {
-          return NSLocalizedString("aCw-B0-HvF.normalTitle", tableName: "EnablePersonalInformation", bundle: hostingBundle, comment: "")
-        }
-
-        guard let (_, bundle) = localeBundle(tableName: "EnablePersonalInformation", preferredLanguages: preferredLanguages) else {
-          return "aCw-B0-HvF.normalTitle"
-        }
-
-        return NSLocalizedString("aCw-B0-HvF.normalTitle", tableName: "EnablePersonalInformation", bundle: bundle, comment: "")
-      }
-
-      /// en translation: Share identification number
-      ///
-      /// Locales: en, nl
-      static func mgT1RAaxText(preferredLanguages: [String]? = nil) -> String {
-        guard let preferredLanguages = preferredLanguages else {
-          return NSLocalizedString("mgT-1R-Aax.text", tableName: "EnablePersonalInformation", bundle: hostingBundle, comment: "")
-        }
-
-        guard let (_, bundle) = localeBundle(tableName: "EnablePersonalInformation", preferredLanguages: preferredLanguages) else {
-          return "mgT-1R-Aax.text"
-        }
-
-        return NSLocalizedString("mgT-1R-Aax.text", tableName: "EnablePersonalInformation", bundle: bundle, comment: "")
-      }
-
-      /// en translation: Sharing information
-      ///
-      /// Locales: en, nl
-      static func pp9OVVYlText(preferredLanguages: [String]? = nil) -> String {
-        guard let preferredLanguages = preferredLanguages else {
-          return NSLocalizedString("Pp9-oV-vYl.text", tableName: "EnablePersonalInformation", bundle: hostingBundle, comment: "")
-        }
-
-        guard let (_, bundle) = localeBundle(tableName: "EnablePersonalInformation", preferredLanguages: preferredLanguages) else {
-          return "Pp9-oV-vYl.text"
-        }
-
-        return NSLocalizedString("Pp9-oV-vYl.text", tableName: "EnablePersonalInformation", bundle: bundle, comment: "")
-      }
-
-      fileprivate init() {}
-    }
-
     /// This `R.string.first` struct is generated, and contains static references to 11 localization keys.
     struct first {
       /// en translation: Add custom
@@ -2690,7 +2530,7 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
 
-    /// This `R.string.localizable` struct is generated, and contains static references to 186 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 191 localization keys.
     struct localizable {
       /// en translation: %@ Don't Available
       ///
@@ -2764,6 +2604,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en
       static let business = Rswift.StringResource(key: "business", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: By sharing your identification number, problems can be solved faster. If needed the developers can contact you as well.
+      ///
+      /// Locales: en, nl
+      static let sharing_identification_number_info = Rswift.StringResource(key: "sharing_identification_number_info", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
       /// en translation: COMPLETE AN AMOUNT
       ///
       /// Locales: en, nl
@@ -3044,6 +2888,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en, nl
       static let my_feedback_about_me_app = Rswift.StringResource(key: "my_feedback_about_me_app", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
+      /// en translation: NEXT
+      ///
+      /// Locales: en, nl
+      static let next = Rswift.StringResource(key: "next", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
       /// en translation: NO
       ///
       /// Locales: en, nl
@@ -3220,6 +3068,14 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en, nl
       static let settings = Rswift.StringResource(key: "settings", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
+      /// en translation: Share identification number
+      ///
+      /// Locales: en, nl
+      static let share_identification_number = Rswift.StringResource(key: "share_identification_number", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
+      /// en translation: Sharing information
+      ///
+      /// Locales: en, nl
+      static let sharing_information = Rswift.StringResource(key: "sharing_information", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
       /// en translation: Something went wrong, please try again…
       ///
       /// Locales: en, nl
@@ -3248,6 +3104,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en, nl
       static let success_exclamation = Rswift.StringResource(key: "success_exclamation", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
+      /// en translation: Successfully  logged in!
+      ///
+      /// Locales: en, nl
+      static let success_login = Rswift.StringResource(key: "success_login", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
       /// en translation: System Cancel
       ///
       /// Locales: en, nl
@@ -3713,6 +3573,21 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("business", bundle: bundle, comment: "")
+      }
+
+      /// en translation: By sharing your identification number, problems can be solved faster. If needed the developers can contact you as well.
+      ///
+      /// Locales: en, nl
+      static func sharing_identification_number_info(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("sharing_identification_number_info", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "sharing_identification_number_info"
+        }
+
+        return NSLocalizedString("sharing_identification_number_info", bundle: bundle, comment: "")
       }
 
       /// en translation: COMPLETE AN AMOUNT
@@ -4771,6 +4646,21 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("my_feedback_about_me_app", bundle: bundle, comment: "")
       }
 
+      /// en translation: NEXT
+      ///
+      /// Locales: en, nl
+      static func next(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("next", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "next"
+        }
+
+        return NSLocalizedString("next", bundle: bundle, comment: "")
+      }
+
       /// en translation: NO
       ///
       /// Locales: en, nl
@@ -5433,6 +5323,36 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("settings", bundle: bundle, comment: "")
       }
 
+      /// en translation: Share identification number
+      ///
+      /// Locales: en, nl
+      static func share_identification_number(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("share_identification_number", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "share_identification_number"
+        }
+
+        return NSLocalizedString("share_identification_number", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Sharing information
+      ///
+      /// Locales: en, nl
+      static func sharing_information(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("sharing_information", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "sharing_information"
+        }
+
+        return NSLocalizedString("sharing_information", bundle: bundle, comment: "")
+      }
+
       /// en translation: Something went wrong, please try again…
       ///
       /// Locales: en, nl
@@ -5538,6 +5458,21 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("success_exclamation", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Successfully  logged in!
+      ///
+      /// Locales: en, nl
+      static func success_login(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("success_login", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "success_login"
+        }
+
+        return NSLocalizedString("success_login", bundle: bundle, comment: "")
       }
 
       /// en translation: System Cancel
@@ -8136,113 +8071,6 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
 
-    /// This `R.string.successEmail` struct is generated, and contains static references to 3 localization keys.
-    struct successEmail {
-      /// en translation: E-mail has been sent to you.
-      ///
-      /// Locales: en, nl
-      static let zQCJPEMeText = Rswift.StringResource(key: "zQC-jP-eMe.text", tableName: "SuccessEmail", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
-      /// en translation: OPEN MAIL APP
-      ///
-      /// Locales: en, nl
-      static let opfSAEdoNormalTitle = Rswift.StringResource(key: "Opf-SA-edo.normalTitle", tableName: "SuccessEmail", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
-      /// en translation: PAIRING
-      ///
-      /// Locales: en, nl
-      static let pqBSUG6iNormalTitle = Rswift.StringResource(key: "pqB-sU-g6i.normalTitle", tableName: "SuccessEmail", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
-
-      /// en translation: E-mail has been sent to you.
-      ///
-      /// Locales: en, nl
-      static func zQCJPEMeText(preferredLanguages: [String]? = nil) -> String {
-        guard let preferredLanguages = preferredLanguages else {
-          return NSLocalizedString("zQC-jP-eMe.text", tableName: "SuccessEmail", bundle: hostingBundle, comment: "")
-        }
-
-        guard let (_, bundle) = localeBundle(tableName: "SuccessEmail", preferredLanguages: preferredLanguages) else {
-          return "zQC-jP-eMe.text"
-        }
-
-        return NSLocalizedString("zQC-jP-eMe.text", tableName: "SuccessEmail", bundle: bundle, comment: "")
-      }
-
-      /// en translation: OPEN MAIL APP
-      ///
-      /// Locales: en, nl
-      static func opfSAEdoNormalTitle(preferredLanguages: [String]? = nil) -> String {
-        guard let preferredLanguages = preferredLanguages else {
-          return NSLocalizedString("Opf-SA-edo.normalTitle", tableName: "SuccessEmail", bundle: hostingBundle, comment: "")
-        }
-
-        guard let (_, bundle) = localeBundle(tableName: "SuccessEmail", preferredLanguages: preferredLanguages) else {
-          return "Opf-SA-edo.normalTitle"
-        }
-
-        return NSLocalizedString("Opf-SA-edo.normalTitle", tableName: "SuccessEmail", bundle: bundle, comment: "")
-      }
-
-      /// en translation: PAIRING
-      ///
-      /// Locales: en, nl
-      static func pqBSUG6iNormalTitle(preferredLanguages: [String]? = nil) -> String {
-        guard let preferredLanguages = preferredLanguages else {
-          return NSLocalizedString("pqB-sU-g6i.normalTitle", tableName: "SuccessEmail", bundle: hostingBundle, comment: "")
-        }
-
-        guard let (_, bundle) = localeBundle(tableName: "SuccessEmail", preferredLanguages: preferredLanguages) else {
-          return "pqB-sU-g6i.normalTitle"
-        }
-
-        return NSLocalizedString("pqB-sU-g6i.normalTitle", tableName: "SuccessEmail", bundle: bundle, comment: "")
-      }
-
-      fileprivate init() {}
-    }
-
-    /// This `R.string.successRegister` struct is generated, and contains static references to 2 localization keys.
-    struct successRegister {
-      /// en translation: NEXT
-      ///
-      /// Locales: en, nl
-      static let dBnEcKcUNormalTitle = Rswift.StringResource(key: "DBn-Ec-KcU.normalTitle", tableName: "SuccessRegister", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
-      /// en translation: Successfully  logged in!
-      ///
-      /// Locales: en, nl
-      static let xpePkSDUText = Rswift.StringResource(key: "Xpe-pk-sDU.text", tableName: "SuccessRegister", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
-
-      /// en translation: NEXT
-      ///
-      /// Locales: en, nl
-      static func dBnEcKcUNormalTitle(preferredLanguages: [String]? = nil) -> String {
-        guard let preferredLanguages = preferredLanguages else {
-          return NSLocalizedString("DBn-Ec-KcU.normalTitle", tableName: "SuccessRegister", bundle: hostingBundle, comment: "")
-        }
-
-        guard let (_, bundle) = localeBundle(tableName: "SuccessRegister", preferredLanguages: preferredLanguages) else {
-          return "DBn-Ec-KcU.normalTitle"
-        }
-
-        return NSLocalizedString("DBn-Ec-KcU.normalTitle", tableName: "SuccessRegister", bundle: bundle, comment: "")
-      }
-
-      /// en translation: Successfully  logged in!
-      ///
-      /// Locales: en, nl
-      static func xpePkSDUText(preferredLanguages: [String]? = nil) -> String {
-        guard let preferredLanguages = preferredLanguages else {
-          return NSLocalizedString("Xpe-pk-sDU.text", tableName: "SuccessRegister", bundle: hostingBundle, comment: "")
-        }
-
-        guard let (_, bundle) = localeBundle(tableName: "SuccessRegister", preferredLanguages: preferredLanguages) else {
-          return "Xpe-pk-sDU.text"
-        }
-
-        return NSLocalizedString("Xpe-pk-sDU.text", tableName: "SuccessRegister", bundle: bundle, comment: "")
-      }
-
-      fileprivate init() {}
-    }
-
     /// This `R.string.successSendingViewController` struct is generated, and contains static references to 3 localization keys.
     struct successSendingViewController {
       /// en translation: OK
@@ -9083,9 +8911,6 @@ struct _R: Rswift.Validatable {
       try chooseTypeRecord.validate()
       #endif
       #if os(iOS) || os(tvOS)
-      try enablePersonalInformation.validate()
-      #endif
-      #if os(iOS) || os(tvOS)
       try first.validate()
       #endif
       #if os(iOS) || os(tvOS)
@@ -9111,12 +8936,6 @@ struct _R: Rswift.Validatable {
       #endif
       #if os(iOS) || os(tvOS)
       try recordValidators.validate()
-      #endif
-      #if os(iOS) || os(tvOS)
-      try successEmail.validate()
-      #endif
-      #if os(iOS) || os(tvOS)
-      try successRegister.validate()
       #endif
       #if os(iOS) || os(tvOS)
       try textRecord.validate()
@@ -9165,23 +8984,6 @@ struct _R: Rswift.Validatable {
         }
         if _R.storyboard.chooseTypeRecord().types() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'types' could not be loaded from storyboard 'ChooseTypeRecord' as 'MChooseTypeRecordViewController'.") }
         if _R.storyboard.chooseTypeRecord().walk() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'walk' could not be loaded from storyboard 'ChooseTypeRecord' as 'BWWalkthrough.BWWalkthroughViewController'.") }
-      }
-
-      fileprivate init() {}
-    }
-    #endif
-
-    #if os(iOS) || os(tvOS)
-    struct enablePersonalInformation: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
-      typealias InitialController = EnablePersonalInformationViewController
-
-      let bundle = R.hostingBundle
-      let name = "EnablePersonalInformation"
-
-      static func validate() throws {
-        if UIKit.UIImage(named: "Me app", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Me app' is used in storyboard 'EnablePersonalInformation', but couldn't be loaded.") }
-        if #available(iOS 11.0, tvOS 11.0, *) {
-        }
       }
 
       fileprivate init() {}
@@ -9431,40 +9233,6 @@ struct _R: Rswift.Validatable {
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
         if _R.storyboard.recordValidators().validators() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'validators' could not be loaded from storyboard 'RecordValidators' as 'MRecordValidatorsViewController'.") }
-      }
-
-      fileprivate init() {}
-    }
-    #endif
-
-    #if os(iOS) || os(tvOS)
-    struct successEmail: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
-      typealias InitialController = MSuccessEmailViewController
-
-      let bundle = R.hostingBundle
-      let name = "SuccessEmail"
-
-      static func validate() throws {
-        if #available(iOS 11.0, tvOS 11.0, *) {
-        }
-      }
-
-      fileprivate init() {}
-    }
-    #endif
-
-    #if os(iOS) || os(tvOS)
-    struct successRegister: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
-      typealias InitialController = HiddenNavBarNavigationController
-
-      let bundle = R.hostingBundle
-      let name = "SuccessRegister"
-
-      static func validate() throws {
-        if UIKit.UIImage(named: "Done@1,5x 1", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Done@1,5x 1' is used in storyboard 'SuccessRegister', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "IlustrationCheckmark", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'IlustrationCheckmark' is used in storyboard 'SuccessRegister', but couldn't be loaded.") }
-        if #available(iOS 11.0, tvOS 11.0, *) {
-        }
       }
 
       fileprivate init() {}

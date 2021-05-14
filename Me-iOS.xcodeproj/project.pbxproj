@@ -24,11 +24,8 @@
 		5B42874623AD0EBE00FEABE7 /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B42874423AD0EBE00FEABE7 /* User+CoreDataProperties.swift */; };
 		5B5871AE240571AF004C3AF7 /* BodyId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5871AD240571AF004C3AF7 /* BodyId.swift */; };
 		5BF8461F241FA60100B0BAAD /* BottomQrWithPinViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BF84621241FA60100B0BAAD /* BottomQrWithPinViewController.xib */; };
-		5BF84626241FA66800B0BAAD /* EnablePersonalInformation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BF84628241FA66800B0BAAD /* EnablePersonalInformation.storyboard */; };
-		5BF8462D241FA6A900B0BAAD /* SuccessRegister.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BF8462F241FA6A900B0BAAD /* SuccessRegister.storyboard */; };
 		650FF5DF22AD192C004C3A85 /* ProductVoucher.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 650FF5E122AD192C004C3A85 /* ProductVoucher.storyboard */; };
 		650FF5E622AD1AE3004C3A85 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 650FF5E822AD1AE3004C3A85 /* Main.storyboard */; };
-		650FF5FB22AD22A3004C3A85 /* SuccessEmail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 650FF5FD22AD22A3004C3A85 /* SuccessEmail.storyboard */; };
 		650FF61022AD24A2004C3A85 /* First.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 650FF61222AD24A2004C3A85 /* First.storyboard */; };
 		650FF61722AD2ACF004C3A85 /* RecordDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 650FF61922AD2ACF004C3A85 /* RecordDetail.storyboard */; };
 		650FF61E22AD2CA3004C3A85 /* RecordValidators.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 650FF62022AD2CA3004C3A85 /* RecordValidators.storyboard */; };
@@ -145,7 +142,6 @@
 		65A8B7322282EBDC00B7DF05 /* VoucherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A8B7312282EBDC00B7DF05 /* VoucherViewModel.swift */; };
 		65A8B73B2282EC3800B7DF05 /* PaymentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A8B73A2282EC3800B7DF05 /* PaymentViewModel.swift */; };
 		65A8B73E2282ED1D00B7DF05 /* MProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A8B73D2282ED1D00B7DF05 /* MProfileViewController.swift */; };
-		65A8B7472282EE7B00B7DF05 /* MSuccessEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A8B7462282EE7B00B7DF05 /* MSuccessEmailViewController.swift */; };
 		65B10DAF23589DF500F0F34D /* CheckWebsiteReacheble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B10DAE23589DF500F0F34D /* CheckWebsiteReacheble.swift */; };
 		65B3784D22C241F50095A2EF /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B3784C22C241F50095A2EF /* Reachability.swift */; };
 		65B4DE3E22A15F5C00AFC878 /* SuccessEmailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B4DE3D22A15F5C00AFC878 /* SuccessEmailViewModel.swift */; };
@@ -174,6 +170,7 @@
 		779F1336FE399D3CDDB6AE5E /* Pods_Me_iOSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 970CD27E06CAF26581789FF9 /* Pods_Me_iOSUITests.framework */; };
 		EBA8A6DE91260768B5722478 /* Pods_Me_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8797D7DA4E65B3CDD1B8B11 /* Pods_Me_iOS.framework */; };
 		FF0DACBE246AD0A80034E3E4 /* OrganizationValidatorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF3B141A243722EE003FDDD9 /* OrganizationValidatorViewController.xib */; };
+		FF41BEAC264E9804002C0CED /* MSuccessEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF41BEAB264E9804002C0CED /* MSuccessEmailViewController.swift */; };
 		FF45B3B224D9DC7C00D258E1 /* Extension+UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45B3B124D9DC7C00D258E1 /* Extension+UITextField.swift */; };
 		FF48062924632AA70055E346 /* RecordsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF48062824632AA70055E346 /* RecordsTableViewCell.swift */; };
 		FF53516924EA86C300A95287 /* Extension+UIWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF53516824EA86C300A95287 /* Extension+UIWindow.swift */; };
@@ -274,12 +271,6 @@
 		5BF84620241FA60100B0BAAD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/BottomQrWithPinViewController.xib; sourceTree = "<group>"; };
 		5BF84623241FA60900B0BAAD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/BottomQrWithPinViewController.strings; sourceTree = "<group>"; };
 		5BF84625241FA60B00B0BAAD /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/BottomQrWithPinViewController.strings; sourceTree = "<group>"; };
-		5BF84627241FA66800B0BAAD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/EnablePersonalInformation.storyboard; sourceTree = "<group>"; };
-		5BF8462A241FA66D00B0BAAD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/EnablePersonalInformation.strings; sourceTree = "<group>"; };
-		5BF8462C241FA67200B0BAAD /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/EnablePersonalInformation.strings; sourceTree = "<group>"; };
-		5BF8462E241FA6A900B0BAAD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/SuccessRegister.storyboard; sourceTree = "<group>"; };
-		5BF84631241FA6AD00B0BAAD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/SuccessRegister.strings; sourceTree = "<group>"; };
-		5BF84633241FA6B000B0BAAD /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/SuccessRegister.strings; sourceTree = "<group>"; };
 		5BF84635241FA82500B0BAAD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/First.strings; sourceTree = "<group>"; };
 		5BF84637241FA82900B0BAAD /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/First.strings; sourceTree = "<group>"; };
 		644A1B68834DF814F70203BA /* Pods-Me-iOS.demo.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Me-iOS.demo.xcconfig"; path = "Target Support Files/Pods-Me-iOS/Pods-Me-iOS.demo.xcconfig"; sourceTree = "<group>"; };
@@ -287,9 +278,6 @@
 		650FF5E322AD1933004C3A85 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ProductVoucher.strings; sourceTree = "<group>"; };
 		650FF5E522AD1937004C3A85 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/ProductVoucher.strings; sourceTree = "<group>"; };
 		650FF5E722AD1AE3004C3A85 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		650FF5FC22AD22A3004C3A85 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/SuccessEmail.storyboard; sourceTree = "<group>"; };
-		650FF5FF22AD22A8004C3A85 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/SuccessEmail.strings; sourceTree = "<group>"; };
-		650FF60122AD22AA004C3A85 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/SuccessEmail.strings; sourceTree = "<group>"; };
 		650FF61122AD24A2004C3A85 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/First.storyboard; sourceTree = "<group>"; };
 		650FF61822AD2ACF004C3A85 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/RecordDetail.storyboard; sourceTree = "<group>"; };
 		650FF61B22AD2AD3004C3A85 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/RecordDetail.strings; sourceTree = "<group>"; };
@@ -437,7 +425,6 @@
 		65A8B7312282EBDC00B7DF05 /* VoucherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoucherViewModel.swift; sourceTree = "<group>"; };
 		65A8B73A2282EC3800B7DF05 /* PaymentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentViewModel.swift; sourceTree = "<group>"; };
 		65A8B73D2282ED1D00B7DF05 /* MProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MProfileViewController.swift; sourceTree = "<group>"; };
-		65A8B7462282EE7B00B7DF05 /* MSuccessEmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSuccessEmailViewController.swift; sourceTree = "<group>"; };
 		65ABEF2622DB6C350049B23D /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Main.strings; sourceTree = "<group>"; };
 		65B10DAE23589DF500F0F34D /* CheckWebsiteReacheble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckWebsiteReacheble.swift; sourceTree = "<group>"; };
 		65B3784C22C241F50095A2EF /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
@@ -486,6 +473,7 @@
 		FF3B1419243722EE003FDDD9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/OrganizationValidatorViewController.xib; sourceTree = "<group>"; };
 		FF3B141E243722F6003FDDD9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/OrganizationValidatorViewController.strings; sourceTree = "<group>"; };
 		FF3B1422243722F8003FDDD9 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/OrganizationValidatorViewController.strings; sourceTree = "<group>"; };
+		FF41BEAB264E9804002C0CED /* MSuccessEmailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSuccessEmailViewController.swift; sourceTree = "<group>"; };
 		FF45B3B124D9DC7C00D258E1 /* Extension+UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UITextField.swift"; sourceTree = "<group>"; };
 		FF48062824632AA70055E346 /* RecordsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordsTableViewCell.swift; sourceTree = "<group>"; };
 		FF53516824EA86C300A95287 /* Extension+UIWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIWindow.swift"; sourceTree = "<group>"; };
@@ -628,7 +616,6 @@
 			isa = PBXGroup;
 			children = (
 				5B10CCAF240D1FD900199C28 /* EnablePersonalInformationViewController.swift */,
-				5BF84628241FA66800B0BAAD /* EnablePersonalInformation.storyboard */,
 			);
 			path = EnablePersonalInfo;
 			sourceTree = "<group>";
@@ -637,7 +624,6 @@
 			isa = PBXGroup;
 			children = (
 				5B10CCB3240D292000199C28 /* MSuccessRegisterViewController.swift */,
-				5BF8462F241FA6A900B0BAAD /* SuccessRegister.storyboard */,
 			);
 			path = SuccessRegister;
 			sourceTree = "<group>";
@@ -1257,9 +1243,8 @@
 		65A8B74A2282EEB600B7DF05 /* SuccessEmail */ = {
 			isa = PBXGroup;
 			children = (
-				65A8B7462282EE7B00B7DF05 /* MSuccessEmailViewController.swift */,
+				FF41BEAB264E9804002C0CED /* MSuccessEmailViewController.swift */,
 				65B4DE3F22A1636700AFC878 /* ViewModel */,
-				650FF5FD22AD22A3004C3A85 /* SuccessEmail.storyboard */,
 			);
 			path = SuccessEmail;
 			sourceTree = "<group>";
@@ -1724,13 +1709,11 @@
 				650FF61722AD2ACF004C3A85 /* RecordDetail.storyboard in Resources */,
 				655D6477231598D300EABD57 /* SendEtherViewController.xib in Resources */,
 				5BF8461F241FA60100B0BAAD /* BottomQrWithPinViewController.xib in Resources */,
-				5BF8462D241FA6A900B0BAAD /* SuccessRegister.storyboard in Resources */,
 				65A8B7042282DD2C00B7DF05 /* GoogleSans-Medium.ttf in Resources */,
 				65D130D122D71760007F1378 /* AllowedOrganizationsViewController.xib in Resources */,
 				65A8B7022282DD2C00B7DF05 /* GoogleSans-Regular.ttf in Resources */,
 				650FF63C22AD2EBA004C3A85 /* ConfirmPaymentPopUp.xib in Resources */,
 				65A8B7032282DD2C00B7DF05 /* GoogleSans-MediumItalic.ttf in Resources */,
-				650FF5FB22AD22A3004C3A85 /* SuccessEmail.storyboard in Resources */,
 				658B488622ABF8B700B6236C /* Payment.storyboard in Resources */,
 				650FF62522AD2D31004C3A85 /* ChooseTypeRecord.storyboard in Resources */,
 				65D11B7922A69D5200756BE0 /* OrganizationTableViewCell.strings in Resources */,
@@ -1757,7 +1740,6 @@
 				65139C4E228029C0003E0CDE /* backspaceBlue@3x.png in Resources */,
 				656FDDBD235DF3DB002422B2 /* OrganizationValidatorTableViewCell.xib in Resources */,
 				65D11B7A22A69D5200756BE0 /* OrganizationTableViewCell.xib in Resources */,
-				5BF84626241FA66800B0BAAD /* EnablePersonalInformation.storyboard in Resources */,
 				65139C52228029C0003E0CDE /* AppLocker.xib in Resources */,
 				650FF61022AD24A2004C3A85 /* First.storyboard in Resources */,
 				650FF61E22AD2CA3004C3A85 /* RecordValidators.storyboard in Resources */,
@@ -1908,7 +1890,6 @@
 				65A8B6F02282DB0200B7DF05 /* Extension+UIViewController.swift in Sources */,
 				65A8B71E2282E6BF00B7DF05 /* MVoucherViewController.swift in Sources */,
 				656FDDBC235DF3DB002422B2 /* OrganizationValidatorTableViewCell.swift in Sources */,
-				65A8B7472282EE7B00B7DF05 /* MSuccessEmailViewController.swift in Sources */,
 				655D64732315948900EABD57 /* ValuteTableViewCell.swift in Sources */,
 				FFB76E1424E94AC200CFB195 /* RectangleLayer.swift in Sources */,
 				FF9C60E3253DD4AE006F6979 /* ActionViewModel.swift in Sources */,
@@ -1955,6 +1936,7 @@
 				65100AFD229D65A9007892D1 /* Extension+Array.swift in Sources */,
 				65139C61228029EF003E0CDE /* Formater.swift in Sources */,
 				5B5871AE240571AF004C3AF7 /* BodyId.swift in Sources */,
+				FF41BEAC264E9804002C0CED /* MSuccessEmailViewController.swift in Sources */,
 				65911B46228D7DBC00EA30D6 /* VoucherTableViewCell.swift in Sources */,
 				FFFF988025AA3F06009538FE /* Extension+UIDevice.swift in Sources */,
 				65139C54228029C0003E0CDE /* UI.swift in Sources */,
@@ -2107,26 +2089,6 @@
 			name = BottomQrWithPinViewController.xib;
 			sourceTree = "<group>";
 		};
-		5BF84628241FA66800B0BAAD /* EnablePersonalInformation.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				5BF84627241FA66800B0BAAD /* Base */,
-				5BF8462A241FA66D00B0BAAD /* en */,
-				5BF8462C241FA67200B0BAAD /* nl */,
-			);
-			name = EnablePersonalInformation.storyboard;
-			sourceTree = "<group>";
-		};
-		5BF8462F241FA6A900B0BAAD /* SuccessRegister.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				5BF8462E241FA6A900B0BAAD /* Base */,
-				5BF84631241FA6AD00B0BAAD /* en */,
-				5BF84633241FA6B000B0BAAD /* nl */,
-			);
-			name = SuccessRegister.storyboard;
-			sourceTree = "<group>";
-		};
 		650FF5E122AD192C004C3A85 /* ProductVoucher.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -2145,16 +2107,6 @@
 				65529EB022DF682C00B8941B /* en */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		650FF5FD22AD22A3004C3A85 /* SuccessEmail.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				650FF5FC22AD22A3004C3A85 /* Base */,
-				650FF5FF22AD22A8004C3A85 /* en */,
-				650FF60122AD22AA004C3A85 /* nl */,
-			);
-			name = SuccessEmail.storyboard;
 			sourceTree = "<group>";
 		};
 		650FF61222AD24A2004C3A85 /* First.storyboard */ = {

@@ -20,10 +20,6 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="G7f-GB-5DU"/>
-                    <connections>
-                        <segue destination="qzn-JB-q2a" kind="presentation" identifier="goToMain" modalPresentationStyle="fullScreen" id="6TI-WM-ZPC"/>
-                        <segue destination="vfJ-1R-B22" kind="presentation" identifier="goToSuccessRegister" modalPresentationStyle="fullScreen" id="9AB-69-nTQ"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FEL-Tp-bOB" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="ACa-Xq-lNJ">
@@ -33,22 +29,6 @@
                 </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-2150.7246376811595" y="210.32608695652175"/>
-        </scene>
-        <!--EnablePersonalInformation-->
-        <scene sceneID="C5g-if-jJa">
-            <objects>
-                <viewControllerPlaceholder storyboardName="EnablePersonalInformation" id="qzn-JB-q2a" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="tEc-nq-umH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1375" y="210"/>
-        </scene>
-        <!--SuccessRegister-->
-        <scene sceneID="C4R-lE-mpc">
-            <objects>
-                <viewControllerPlaceholder storyboardName="SuccessRegister" id="vfJ-1R-B22" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="TIh-0q-UkU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1420" y="360"/>
         </scene>
         <!--Hidden Nav Bar Navigation Controller-->
         <scene sceneID="1tB-IA-WG2">
