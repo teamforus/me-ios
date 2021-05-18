@@ -119,7 +119,6 @@ extension TransactionListTableViewCell {
         self.contentView.addSubview(bodyView)
         let views = [organizationIcon, organizationNameLabel, transactionDateLabel, priceLabel, statusLabel]
         views.forEach { (view) in
-            view.translatesAutoresizingMaskIntoConstraints = false
             self.bodyView.addSubview(view)
         }
     }
@@ -128,41 +127,41 @@ extension TransactionListTableViewCell {
 // MARK: - Setup Constraints
 extension TransactionListTableViewCell {
     private func setupConstraints() {
-        NSLayoutConstraint.activate([
-            bodyView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 10),
-            bodyView.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: -10),
-            bodyView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: 0),
-            bodyView.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 10)
-        ])
         
-        NSLayoutConstraint.activate([
-            organizationIcon.centerYAnchor.constraint(equalTo: bodyView.centerYAnchor, constant: 0),
-            organizationIcon.leadingAnchor.constraint(equalTo: bodyView.leadingAnchor, constant: 15),
-            organizationIcon.heightAnchor.constraint(equalToConstant: 24),
-            organizationIcon.widthAnchor.constraint(equalToConstant: 24)
-        ])
+        bodyView.snp.makeConstraints { make in
+            make.left.top.equalTo(self.contentView).offset(10)
+            make.right.equalTo(self.contentView).offset(-10)
+            make.bottom.equalTo(self.contentView)
+        }
         
-        NSLayoutConstraint.activate([
-            organizationNameLabel.topAnchor.constraint(equalTo: bodyView.topAnchor, constant: 19),
-            organizationNameLabel.leadingAnchor.constraint(equalTo: organizationIcon.trailingAnchor, constant: 16)
-        ])
+        organizationIcon.snp.makeConstraints { make in
+            make.centerY.equalTo(bodyView)
+            make.left.equalTo(bodyView).offset(15)
+            make.height.width.equalTo(24)
+        }
         
-        NSLayoutConstraint.activate([
-            transactionDateLabel.topAnchor.constraint(equalTo: organizationNameLabel.bottomAnchor, constant: 2),
-            transactionDateLabel.leadingAnchor.constraint(equalTo: organizationIcon.trailingAnchor, constant: 16),
-            transactionDateLabel.bottomAnchor.constraint(equalTo: bodyView.bottomAnchor, constant: -17)
-        ])
+        organizationNameLabel.snp.makeConstraints { make in
+            make.top.equalTo(bodyView).offset(19)
+            make.left.equalTo(organizationIcon.snp.right).offset(16)
+        }
         
-        NSLayoutConstraint.activate([
-            priceLabel.trailingAnchor.constraint(equalTo: bodyView.trailingAnchor, constant: -21),
-            priceLabel.topAnchor.constraint(equalTo: bodyView.topAnchor, constant: 19),
-            priceLabel.leadingAnchor.constraint(equalTo: organizationNameLabel.trailingAnchor, constant: 20)
-        ])
+        transactionDateLabel.snp.makeConstraints { make in
+            make.top.equalTo(organizationNameLabel.snp.bottom).offset(2)
+            make.left.equalTo(organizationIcon.snp.right).offset(16)
+            make.bottom.equalTo(bodyView).offset(-17)
+        }
         
-        NSLayoutConstraint.activate([
-            statusLabel.topAnchor.constraint(equalTo: priceLabel.bottomAnchor, constant: 2),
-            statusLabel.trailingAnchor.constraint(equalTo: bodyView.trailingAnchor, constant: -21),
-            statusLabel.bottomAnchor.constraint(equalTo: bodyView.bottomAnchor, constant: -17)
-        ])
+        priceLabel.snp.makeConstraints { make in
+            make.right.equalTo(bodyView).offset(-21)
+            make.top.equalTo(bodyView).offset(19)
+            make.left.equalTo(organizationNameLabel.snp.right).offset(20)
+        }
+        
+        statusLabel.snp.makeConstraints { make in
+            make.top.equalTo(priceLabel.snp.bottom).offset(2)
+            make.right.equalTo(bodyView).offset(-21)
+            make.bottom.equalTo(bodyView).offset(-17)
+            
+        }
     }
 }

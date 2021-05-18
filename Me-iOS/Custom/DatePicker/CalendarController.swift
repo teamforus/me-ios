@@ -11,24 +11,21 @@ import UIKit
 class CalendarController : UIViewController {
     
     
-    lazy var CustomView : CustomDatePickerView = {
+    lazy var customView : CustomDatePickerView = {
         let v = CustomDatePickerView()
         v.calendarController = self
-        v.translatesAutoresizingMaskIntoConstraints = false
         return v
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.black.withAlphaComponent(0.5)
-        view.addSubview(CustomView)
+        view.addSubview(customView)
         
-        NSLayoutConstraint.activate([
-            CustomView.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0),
-            CustomView.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 0),
-            CustomView.heightAnchor.constraint(equalToConstant: 380),
-            CustomView.widthAnchor.constraint(equalToConstant: 300)
-        ])
+        customView.snp.makeConstraints { make in
+            make.center.equalTo(view)
+            make.height.width.equalTo(380)
+        }
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
