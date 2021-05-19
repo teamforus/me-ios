@@ -51,7 +51,7 @@ class MActionsViewController: UIViewController {
         return imageView
     }()
     
-    private let bodyvoucherView: UIView = {
+    private let bodyVoucherView: UIView = {
         let view = UIView(frame: .zero)
         view.backgroundColor = .clear
         return view
@@ -234,7 +234,7 @@ extension MActionsViewController {
     }
     
     private func addHeaderSubviews() {
-        let views = [backButton, titleLabel, bodyvoucherView]
+        let views = [backButton, titleLabel, bodyVoucherView]
         views.forEach { (view) in
             view.translatesAutoresizingMaskIntoConstraints = false
             self.headerView.addSubview(view)
@@ -245,7 +245,7 @@ extension MActionsViewController {
         let views = [voucherImageView, fundNameLabel, organizationVoucherLabel, imageViewVoucher, lineView]
         views.forEach { (view) in
             view.translatesAutoresizingMaskIntoConstraints = false
-            self.bodyvoucherView.addSubview(view)
+            self.bodyVoucherView.addSubview(view)
         }
     }
     
@@ -261,38 +261,31 @@ extension MActionsViewController {
 extension MActionsViewController {
     // MARK: - Add Constraints
     private func addConstraints() {
-        NSLayoutConstraint.activate([
-            bodyView.topAnchor.constraint(equalTo: self.view.topAnchor),
-            bodyView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
-            bodyView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
-            bodyView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
-        ])
         
-        NSLayoutConstraint.activate([
-            headerView.topAnchor.constraint(equalTo: self.view.topAnchor),
-            headerView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
-            headerView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
-            headerView.heightAnchor.constraint(equalToConstant: 241)
-        ])
+        bodyView.snp.makeConstraints { make in
+            make.top.left.right.bottom.equalTo(self.view)
+        }
         
-        NSLayoutConstraint.activate([
-            chooseActionLabel.topAnchor.constraint(equalTo: organizationView.bottomAnchor, constant: 29),
-            chooseActionLabel.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 20),
-        ])
+        headerView.snp.makeConstraints { make in
+            make.top.left.right.equalTo(self.view)
+            make.height.equalTo(241)
+        }
         
-        NSLayoutConstraint.activate([
-            organizationView.topAnchor.constraint(equalTo: headerView.bottomAnchor, constant: 0),
-            organizationView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 0),
-            organizationView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: 0),
-            organizationView.heightAnchor.constraint(equalToConstant: 60)
-        ])
+        chooseActionLabel.snp.makeConstraints { make in
+            make.top.equalTo(organizationView.snp.bottom).offset(29)
+            make.left.equalTo(self.view).offset(20)
+        }
         
-        NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: chooseActionLabel.bottomAnchor, constant: 10),
-            tableView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
-            tableView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
-            tableView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
-        ])
+        organizationView.snp.makeConstraints { make in
+            make.top.equalTo(headerView.snp.bottom)
+            make.left.right.equalTo(self.view)
+            make.height.equalTo(60)
+        }
+        
+        tableView.snp.makeConstraints { make in
+            make.top.equalTo(chooseActionLabel.snp.bottom).offset(10)
+            make.left.right.bottom.equalTo(self.view)
+        }
         
         addHeaderdConstraints()
         addBodyvoucherViewConstraints()
@@ -300,83 +293,74 @@ extension MActionsViewController {
     }
     
     private func addHeaderdConstraints() {
-        NSLayoutConstraint.activate([
-            backButton.heightAnchor.constraint(equalToConstant: 44),
-            backButton.widthAnchor.constraint(equalToConstant: 44),
-            backButton.leadingAnchor.constraint(equalTo: headerView.leadingAnchor, constant: 10),
-            backButton.topAnchor.constraint(equalTo: headerView.topAnchor, constant: 35)
-        ])
+        backButton.snp.makeConstraints { make in
+            make.height.width.equalTo(44)
+            make.left.equalTo(headerView).offset(10)
+            make.top.equalTo(headerView).offset(35)
+        }
         
-        NSLayoutConstraint.activate([
-            titleLabel.centerYAnchor.constraint(equalTo: backButton.centerYAnchor),
-            titleLabel.centerXAnchor.constraint(equalTo: headerView.centerXAnchor)
-        ])
+        titleLabel.snp.makeConstraints { make in
+            make.centerY.equalTo(backButton)
+            make.centerX.equalTo(headerView)
+        }
         
-        NSLayoutConstraint.activate([
-            bodyvoucherView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 20),
-            bodyvoucherView.leadingAnchor.constraint(equalTo: headerView.leadingAnchor),
-            bodyvoucherView.trailingAnchor.constraint(equalTo: headerView.trailingAnchor),
-            bodyvoucherView.heightAnchor.constraint(equalToConstant: 153)
-        ])
-        
+        bodyVoucherView.snp.makeConstraints { make in
+            make.top.equalTo(titleLabel.snp.bottom).offset(20)
+            make.left.right.equalTo(headerView)
+            make.height.equalTo(153)
+        }
     }
     
     private func addBodyvoucherViewConstraints() {
-        NSLayoutConstraint.activate([
-            voucherImageView.leadingAnchor.constraint(equalTo: bodyvoucherView.leadingAnchor, constant: 15),
-            voucherImageView.trailingAnchor.constraint(equalTo: bodyvoucherView.trailingAnchor, constant: -15),
-            voucherImageView.topAnchor.constraint(equalTo: bodyvoucherView.topAnchor, constant: 11),
-            voucherImageView.heightAnchor.constraint(equalToConstant: 120)
-        ])
+        voucherImageView.snp.makeConstraints { make in
+            make.top.equalTo(bodyVoucherView).offset(11)
+            make.left.equalTo(bodyVoucherView).offset(15)
+            make.right.equalTo(bodyVoucherView).offset(-15)
+            make.height.equalTo(120)
+        }
         
-        NSLayoutConstraint.activate([
-            fundNameLabel.topAnchor.constraint(equalTo: bodyvoucherView.topAnchor, constant: 39),
-            fundNameLabel.leadingAnchor.constraint(equalTo: bodyvoucherView.leadingAnchor, constant: 32),
-            fundNameLabel.trailingAnchor.constraint(equalTo: imageViewVoucher.leadingAnchor, constant: -10)
-        ])
+        fundNameLabel.snp.makeConstraints { make in
+            make.top.equalTo(bodyVoucherView).offset(39)
+            make.left.equalTo(bodyVoucherView).offset(32)
+            make.right.equalTo(imageViewVoucher.snp.left).offset(-10)
+        }
         
-        NSLayoutConstraint.activate([
-            organizationVoucherLabel.topAnchor.constraint(equalTo: fundNameLabel.bottomAnchor, constant: 4),
-            organizationVoucherLabel.leadingAnchor.constraint(equalTo: bodyvoucherView.leadingAnchor, constant: 32),
-            organizationVoucherLabel.trailingAnchor.constraint(equalTo: imageViewVoucher.leadingAnchor, constant: -10)
-        ])
+        organizationVoucherLabel.snp.makeConstraints { make in
+            make.top.equalTo(fundNameLabel.snp.bottom).offset(4)
+            make.left.equalTo(bodyVoucherView).offset(32)
+            make.right.equalTo(imageViewVoucher.snp.left).offset(-10)
+        }
         
-        NSLayoutConstraint.activate([
-            imageViewVoucher.heightAnchor.constraint(equalToConstant: 70),
-            imageViewVoucher.widthAnchor.constraint(equalToConstant: 70),
-            imageViewVoucher.trailingAnchor.constraint(equalTo: bodyvoucherView.trailingAnchor, constant: -28),
-            imageViewVoucher.topAnchor.constraint(equalTo: bodyvoucherView.topAnchor, constant: 36)
-        ])
+        imageViewVoucher.snp.makeConstraints { make in
+            make.width.height.equalTo(70)
+            make.right.equalTo(bodyVoucherView).offset(-28)
+            make.top.equalTo(bodyVoucherView).offset(36)
+        }
         
-        NSLayoutConstraint.activate([
-            lineView.heightAnchor.constraint(equalToConstant: 1),
-            lineView.bottomAnchor.constraint(equalTo: bodyvoucherView.bottomAnchor),
-            lineView.leadingAnchor.constraint(equalTo: bodyvoucherView.leadingAnchor),
-            lineView.trailingAnchor.constraint(equalTo: bodyvoucherView.trailingAnchor)
-        ])
+        lineView.snp.makeConstraints { make in
+            make.height.equalTo(1)
+            make.bottom.left.right.equalTo(bodyVoucherView)
+        }
     }
     
     private func addOranizationViewConstraints() {
-      NSLayoutConstraint.activate([
-        organizationNameLabel.topAnchor.constraint(equalTo: organizationView.topAnchor),
-        organizationNameLabel.leadingAnchor.constraint(equalTo: organizationView.leadingAnchor, constant: 64),
-        organizationNameLabel.bottomAnchor.constraint(equalTo: organizationView.bottomAnchor),
-        organizationNameLabel.trailingAnchor.constraint(equalTo: arrowImageView.leadingAnchor, constant: 15)
-      ])
+        organizationNameLabel.snp.makeConstraints { make in
+            make.top.bottom.equalTo(organizationView)
+            make.left.equalTo(organizationView).offset(64)
+            make.right.equalTo(arrowImageView.snp.left).offset(-15)
+        }
+        
+        organizationIamge.snp.makeConstraints { make in
+            make.centerY.equalTo(organizationView)
+            make.left.equalTo(organizationView).offset(17)
+            make.height.width.equalTo(35)
+        }
       
-      NSLayoutConstraint.activate([
-        organizationIamge.centerYAnchor.constraint(equalTo: organizationView.centerYAnchor),
-        organizationIamge.leadingAnchor.constraint(equalTo: organizationView.leadingAnchor, constant: 17),
-        organizationIamge.heightAnchor.constraint(equalToConstant: 35),
-        organizationIamge.widthAnchor.constraint(equalToConstant: 35)
-      ])
-      
-      NSLayoutConstraint.activate([
-        arrowImageView.centerYAnchor.constraint(equalTo: organizationView.centerYAnchor),
-        arrowImageView.trailingAnchor.constraint(equalTo: organizationView.trailingAnchor, constant: -17),
-        arrowImageView.heightAnchor.constraint(equalToConstant: 30),
-        arrowImageView.widthAnchor.constraint(equalToConstant: 30)
-      ])
+        arrowImageView.snp.makeConstraints { make in
+            make.centerY.equalTo(organizationView)
+            make.right.equalTo(organizationView).offset(-17)
+            make.height.width.equalTo(30)
+        }
     }
 }
 

@@ -66,14 +66,12 @@ class ActionTableViewCell: UITableViewCell {
 extension ActionTableViewCell {
   
   func addSubview() {
-    bodyView.translatesAutoresizingMaskIntoConstraints = false
     self.contentView.addSubview(bodyView)
   }
   
   func addBodySubviews() {
     let views = [subsidieNameLabel, priceLabel, subsidieImageView]
     views.forEach { (view) in
-      view.translatesAutoresizingMaskIntoConstraints = false
       self.bodyView.addSubview(view)
     }
   }
@@ -84,31 +82,29 @@ extension ActionTableViewCell {
 extension ActionTableViewCell {
   
   func setupConstraint() {
-    NSLayoutConstraint.activate([
-      bodyView.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 10),
-      bodyView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 17),
-      bodyView.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: -17),
-      bodyView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: 0)
-    ])
+    bodyView.snp.makeConstraints { make in
+        make.top.equalTo(self.contentView).offset(10)
+        make.left.equalTo(self.contentView).offset(17)
+        make.right.equalTo(self.contentView).offset(-17)
+        make.bottom.equalTo(self.contentView)
+    }
   }
   
   func setupBodyConstraints() {
-    NSLayoutConstraint.activate([
-      subsidieNameLabel.topAnchor.constraint(equalTo: bodyView.topAnchor, constant: 20),
-      subsidieNameLabel.leadingAnchor.constraint(equalTo: bodyView.leadingAnchor, constant: 20)
-    ])
+    subsidieNameLabel.snp.makeConstraints { make in
+        make.top.left.equalTo(bodyView).offset(20)
+    }
     
-    NSLayoutConstraint.activate([
-      priceLabel.topAnchor.constraint(equalTo: subsidieNameLabel.bottomAnchor, constant: 6),
-      priceLabel.leadingAnchor.constraint(equalTo: bodyView.leadingAnchor, constant: 20)
-    ])
+    priceLabel.snp.makeConstraints { make in
+        make.top.equalTo(subsidieNameLabel.snp.bottom).offset(6)
+        make.left.equalTo(bodyView).offset(20)
+    }
     
-    NSLayoutConstraint.activate([
-      subsidieImageView.centerYAnchor.constraint(equalTo: bodyView.centerYAnchor),
-      subsidieImageView.heightAnchor.constraint(equalToConstant: 50),
-      subsidieImageView.widthAnchor.constraint(equalToConstant: 50),
-      subsidieImageView.trailingAnchor.constraint(equalTo: bodyView.trailingAnchor, constant: -20),
-      subsidieImageView.leadingAnchor.constraint(equalTo: subsidieNameLabel.trailingAnchor, constant: 20)
-    ])
+    subsidieImageView.snp.makeConstraints { make in
+        make.centerY.equalTo(bodyView)
+        make.height.width.equalTo(50)
+        make.left.equalTo(subsidieNameLabel.snp.right).offset(20)
+        make.right.equalTo(bodyView).offset(-20)
+    }
   }
 }

@@ -17,6 +17,7 @@ class ConfirmPayAction: UIView {
     var commonService: CommonServiceProtocol! = CommonService()
     var vc: UIViewController!
     
+    // MARK: - Parameters
     private let blurView: UIView = {
         let view = UIView(frame: .zero)
         view.backgroundColor = .black
@@ -148,47 +149,44 @@ extension ConfirmPayAction {
 extension ConfirmPayAction {
     
     func setupConstraints() {
-        NSLayoutConstraint.activate([
-            blurView.topAnchor.constraint(equalTo: self.topAnchor),
-            blurView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            blurView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
-            blurView.trailingAnchor.constraint(equalTo: self.trailingAnchor)
-        ])
+        blurView.snp.makeConstraints { make in
+            make.top.left.right.bottom.equalTo(self)
+        }
         
-        NSLayoutConstraint.activate([
-            bodyView.heightAnchor.constraint(equalToConstant: 250),
-            bodyView.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-            bodyView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 38),
-            bodyView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -38)
-        ])
+        bodyView.snp.makeConstraints { make in
+            make.centerY.equalTo(self)
+            make.height.equalTo(250)
+            make.left.equalTo(38)
+            make.right.equalTo(-38)
+        }
     }
     
     func setupBodyConstraints() {
-        NSLayoutConstraint.activate([
-            titleLabel.topAnchor.constraint(equalTo: bodyView.topAnchor, constant: 26),
-            titleLabel.leadingAnchor.constraint(equalTo: bodyView.leadingAnchor, constant: 52),
-            titleLabel.trailingAnchor.constraint(equalTo: bodyView.trailingAnchor, constant: 52)
-        ])
         
-        NSLayoutConstraint.activate([
-            priceLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 9),
-            priceLabel.leadingAnchor.constraint(equalTo: bodyView.leadingAnchor, constant: 0),
-            priceLabel.trailingAnchor.constraint(equalTo: bodyView.trailingAnchor, constant: 0)
-        ])
+        titleLabel.snp.makeConstraints { make in
+            make.top.equalTo(bodyView).offset(26)
+            make.left.equalTo(bodyView).offset(52)
+            make.right.equalTo(bodyView).offset(-52)
+        }
         
-        NSLayoutConstraint.activate([
-            cancelButton.bottomAnchor.constraint(equalTo: bodyView.bottomAnchor, constant: -19),
-            cancelButton.leadingAnchor.constraint(equalTo: bodyView.leadingAnchor, constant: 19),
-            cancelButton.heightAnchor.constraint(equalToConstant: 46),
-            cancelButton.widthAnchor.constraint(equalToConstant: 128)
-        ])
+        priceLabel.snp.makeConstraints { make in
+            make.top.equalTo(titleLabel.snp.bottom).offset(9)
+            make.left.right.equalTo(bodyView)
+        }
         
-        NSLayoutConstraint.activate([
-            confirmButton.bottomAnchor.constraint(equalTo: bodyView.bottomAnchor, constant: -19),
-            confirmButton.trailingAnchor.constraint(equalTo: bodyView.trailingAnchor, constant: -19),
-            confirmButton.leadingAnchor.constraint(equalTo: cancelButton.trailingAnchor, constant: 6),
-            confirmButton.heightAnchor.constraint(equalToConstant: 46)
-        ])
+        cancelButton.snp.makeConstraints { make in
+            make.bottom.equalTo(bodyView).offset(-19)
+            make.left.equalTo(bodyView).offset(19)
+            make.height.equalTo(46)
+            make.width.equalTo(128)
+        }
+        
+        confirmButton.snp.makeConstraints { make in
+            make.bottom.equalTo(bodyView).offset(-19)
+            make.right.equalTo(bodyView).offset(-19)
+            make.left.equalTo(cancelButton.snp.right).offset(6)
+            make.height.equalTo(46)
+        }
     }
 }
 
