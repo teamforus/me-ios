@@ -104,7 +104,6 @@
 		657DBA4E228993E200C67500 /* StatusService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657DBA4D228993E200C67500 /* StatusService.swift */; };
 		657DBA512289973C00C67500 /* NotificationName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657DBA502289973C00C67500 /* NotificationName.swift */; };
 		658B487022ABF3C500B6236C /* MAboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 658B486F22ABF3C500B6236C /* MAboutViewController.swift */; };
-		658B487322ABF40100B6236C /* About.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 658B487522ABF40100B6236C /* About.storyboard */; };
 		658B487F22ABF79100B6236C /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 658B488122ABF79100B6236C /* Profile.storyboard */; };
 		658B488622ABF8B700B6236C /* Payment.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 658B488822ABF8B700B6236C /* Payment.storyboard */; };
 		658B488D22ABF9D000B6236C /* Voucher.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 658B488F22ABF9D000B6236C /* Voucher.storyboard */; };
@@ -381,9 +380,6 @@
 		657DBA4D228993E200C67500 /* StatusService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusService.swift; sourceTree = "<group>"; };
 		657DBA502289973C00C67500 /* NotificationName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NotificationName.swift; path = ../NotificationName.swift; sourceTree = "<group>"; };
 		658B486F22ABF3C500B6236C /* MAboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MAboutViewController.swift; sourceTree = "<group>"; };
-		658B487422ABF40100B6236C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/About.storyboard; sourceTree = "<group>"; };
-		658B487722ABF40400B6236C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/About.strings; sourceTree = "<group>"; };
-		658B487922ABF40A00B6236C /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/About.strings; sourceTree = "<group>"; };
 		658B488022ABF79100B6236C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Profile.storyboard; sourceTree = "<group>"; };
 		658B488722ABF8B700B6236C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Payment.storyboard; sourceTree = "<group>"; };
 		658B488A22ABF8C000B6236C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Payment.strings; sourceTree = "<group>"; };
@@ -632,7 +628,6 @@
 			isa = PBXGroup;
 			children = (
 				658B486F22ABF3C500B6236C /* MAboutViewController.swift */,
-				658B487522ABF40100B6236C /* About.storyboard */,
 			);
 			path = About;
 			sourceTree = "<group>";
@@ -1728,7 +1723,6 @@
 				65139C1022802548003E0CDE /* Assets.xcassets in Resources */,
 				650FF62C22AD2D98004C3A85 /* TextRecord.storyboard in Resources */,
 				65A8B6FF2282DD2C00B7DF05 /* GoogleSans-Italic.ttf in Resources */,
-				658B487322ABF40100B6236C /* About.storyboard in Resources */,
 				65139C51228029C0003E0CDE /* AppLocker.strings in Resources */,
 				658B488D22ABF9D000B6236C /* Voucher.storyboard in Resources */,
 				65F52E452316797900B9D229 /* MCrashConfirmViewController.xib in Resources */,
@@ -2222,16 +2216,6 @@
 				6546257F230F1AB5007B812E /* nl */,
 			);
 			name = ProductReservation.storyboard;
-			sourceTree = "<group>";
-		};
-		658B487522ABF40100B6236C /* About.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				658B487422ABF40100B6236C /* Base */,
-				658B487722ABF40400B6236C /* en */,
-				658B487922ABF40A00B6236C /* nl */,
-			);
-			name = About.storyboard;
 			sourceTree = "<group>";
 		};
 		658B488122ABF79100B6236C /* Profile.storyboard */ = {

@@ -27,7 +27,7 @@ class MProfileViewController: UIViewController {
     @IBOutlet weak var crashReportSwitch: UISwitchCustom!
     @IBOutlet weak var startFromScannerView: CustomCornerUIView!
     @IBOutlet weak var sendCrashReportView: CustomCornerUIView!
-    @IBOutlet weak var aboutMeButton: UIButton!
+    @IBOutlet weak var aboutMeButton: UIButtonBackground_DarkMode!
     @IBOutlet weak var feedBackButton: UIButton!
     @IBOutlet weak var logoutButton: ShadowButton!
     @IBOutlet weak var openRecordsButton: UIButton!
@@ -43,6 +43,10 @@ class MProfileViewController: UIViewController {
         fetchUserData()
         setupUserDefaults()
         setupAccessibility()
+        aboutMeButton.actionHandleBlock = { [weak self] (_) in
+            let aboutVC = MAboutViewController()
+            self?.present(aboutVC, animated: true)
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {

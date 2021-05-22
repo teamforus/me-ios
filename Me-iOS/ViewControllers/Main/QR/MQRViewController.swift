@@ -15,7 +15,7 @@ enum QRTypeScann: String {
   case testTransaction = "demo_voucher"
 }
 
-protocol QRControllerDelegate: class {
+protocol QRControllerDelegate {
   func initAuth()
   func cancelAuth()
 }

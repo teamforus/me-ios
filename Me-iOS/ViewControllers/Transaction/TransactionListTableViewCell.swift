@@ -107,7 +107,6 @@ class TransactionListTableViewCell: UITableViewCell {
         transactionDateLabel.text = nil
         priceLabel.text = nil
         statusLabel.text = nil
-        
     }
 }
 

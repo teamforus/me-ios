@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CloseButton_DarkMode: UIButton {
+class CloseButton_DarkMode: ActionButton {
 
      override init(frame: CGRect) {
        super.init(frame: frame)

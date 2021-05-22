@@ -51,7 +51,7 @@
 "validate" = "Valideer";
 "error" = "Error";
 "This device in not authorize" = "Dit apparaat is niet geautoriseerd";
-"About Me" = "Over Me";
+"about_me" = "Over Me";
 "With the Me you can create an identity, receive and use your vouchers. For more information please visit our website — https://zuidhorn.forus.io" = "Met Me kan je een profiel aanmaken, vouchers beheren en de QR-code scanner gebruiken om in te loggen op de gebruikersomgeving.";
 "create_passcode" = "Maak een inlogcode aan";
 "Change passcode" = "Wijzig inlogcode";
@@ -201,3 +201,4 @@
 "sharing_identification_number_info" = "Door je identificatie nummer te delen, kunnen problemen beter en sneller worden opgelost, en kunnen de ontwikkelaars eventueel contact met je opnemen.";
 "share_identification_number" = "Deel identificatienummer";
 "success_login" = "Aanmelding \ngeslaagd!";
+"description_about" = "Deze app is bedoeld om vouchers te beheren, betalingen te verrichten en in te loggen op verschillende applicaties.\n\n\nDeze app werkt samen met:\n\n     • \tDe Westerkwartier webshop;\n     • \tDe Nijmegen webshop;\n     • \tDe Winterswijk webshop;\n     • \tDe Oost Gelre webshop;\n     • \tDe Berkelland webshop;\n     • \tDe Noordoostpolder webshop\n     • \tDe Kerstpakket webshop;";

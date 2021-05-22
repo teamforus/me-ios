@@ -199,10 +199,8 @@ struct R: Rswift.Validatable {
   #endif
 
   #if os(iOS) || os(tvOS)
-  /// This `R.storyboard` struct is generated, and contains static references to 13 storyboards.
+  /// This `R.storyboard` struct is generated, and contains static references to 12 storyboards.
   struct storyboard {
-    /// Storyboard `About`.
-    static let about = _R.storyboard.about()
     /// Storyboard `ChooseTypeRecord`.
     static let chooseTypeRecord = _R.storyboard.chooseTypeRecord()
     /// Storyboard `First`.
@@ -227,13 +225,6 @@ struct R: Rswift.Validatable {
     static let textRecord = _R.storyboard.textRecord()
     /// Storyboard `Voucher`.
     static let voucher = _R.storyboard.voucher()
-
-    #if os(iOS) || os(tvOS)
-    /// `UIStoryboard(name: "About", bundle: ...)`
-    static func about(_: Void = ()) -> UIKit.UIStoryboard {
-      return UIKit.UIStoryboard(resource: R.storyboard.about)
-    }
-    #endif
 
     #if os(iOS) || os(tvOS)
     /// `UIStoryboard(name: "ChooseTypeRecord", bundle: ...)`
@@ -1536,147 +1527,8 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.string` struct is generated, and contains static references to 21 localization tables.
+  /// This `R.string` struct is generated, and contains static references to 20 localization tables.
   struct string {
-    /// This `R.string.about` struct is generated, and contains static references to 7 localization keys.
-    struct about {
-      /// en translation:      • 	The Westerkwartier webshop;      • 	The Nijmegen webshop;      • 	The Winterswijk webshop;      • 	The Oost Gelre webshop;      • 	The Berkelland webshop;      • 	The Noordoostpolder webshop      • 	The Kerstpakket webshop;
-      ///
-      /// Locales: en, nl
-      static let sGf5C9HHText = Rswift.StringResource(key: "SGf-5C-9HH.text", tableName: "About", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
-      /// en translation: About Me
-      ///
-      /// Locales: en, nl
-      static let p0oGxVk0Text = Rswift.StringResource(key: "p0o-gx-Vk0.text", tableName: "About", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
-      /// en translation: Forus, 2018-2020
-      ///
-      /// Locales: en, nl
-      static let ecDI1ItvText = Rswift.StringResource(key: "EcD-I1-itv.text", tableName: "About", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
-      /// en translation: Later on several shops and applications will be added.
-      ///
-      /// Locales: en, nl
-      static let t8Z5VGrCText = Rswift.StringResource(key: "T8Z-5V-grC.text", tableName: "About", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
-      /// en translation: Me
-      ///
-      /// Locales: en, nl
-      static let deM7TARDText = Rswift.StringResource(key: "DeM-7T-ARD.text", tableName: "About", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
-      /// en translation: This app is intended to store vouchers, make payments and log in to different applications.
-      ///
-      /// Locales: en, nl
-      static let mIjASTcHText = Rswift.StringResource(key: "mIj-aS-tcH.text", tableName: "About", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
-      /// en translation: This app works together with:
-      ///
-      /// Locales: en, nl
-      static let laNJ4BvCText = Rswift.StringResource(key: "laN-j4-BvC.text", tableName: "About", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
-
-      /// en translation:      • 	The Westerkwartier webshop;      • 	The Nijmegen webshop;      • 	The Winterswijk webshop;      • 	The Oost Gelre webshop;      • 	The Berkelland webshop;      • 	The Noordoostpolder webshop      • 	The Kerstpakket webshop;
-      ///
-      /// Locales: en, nl
-      static func sGf5C9HHText(preferredLanguages: [String]? = nil) -> String {
-        guard let preferredLanguages = preferredLanguages else {
-          return NSLocalizedString("SGf-5C-9HH.text", tableName: "About", bundle: hostingBundle, comment: "")
-        }
-
-        guard let (_, bundle) = localeBundle(tableName: "About", preferredLanguages: preferredLanguages) else {
-          return "SGf-5C-9HH.text"
-        }
-
-        return NSLocalizedString("SGf-5C-9HH.text", tableName: "About", bundle: bundle, comment: "")
-      }
-
-      /// en translation: About Me
-      ///
-      /// Locales: en, nl
-      static func p0oGxVk0Text(preferredLanguages: [String]? = nil) -> String {
-        guard let preferredLanguages = preferredLanguages else {
-          return NSLocalizedString("p0o-gx-Vk0.text", tableName: "About", bundle: hostingBundle, comment: "")
-        }
-
-        guard let (_, bundle) = localeBundle(tableName: "About", preferredLanguages: preferredLanguages) else {
-          return "p0o-gx-Vk0.text"
-        }
-
-        return NSLocalizedString("p0o-gx-Vk0.text", tableName: "About", bundle: bundle, comment: "")
-      }
-
-      /// en translation: Forus, 2018-2020
-      ///
-      /// Locales: en, nl
-      static func ecDI1ItvText(preferredLanguages: [String]? = nil) -> String {
-        guard let preferredLanguages = preferredLanguages else {
-          return NSLocalizedString("EcD-I1-itv.text", tableName: "About", bundle: hostingBundle, comment: "")
-        }
-
-        guard let (_, bundle) = localeBundle(tableName: "About", preferredLanguages: preferredLanguages) else {
-          return "EcD-I1-itv.text"
-        }
-
-        return NSLocalizedString("EcD-I1-itv.text", tableName: "About", bundle: bundle, comment: "")
-      }
-
-      /// en translation: Later on several shops and applications will be added.
-      ///
-      /// Locales: en, nl
-      static func t8Z5VGrCText(preferredLanguages: [String]? = nil) -> String {
-        guard let preferredLanguages = preferredLanguages else {
-          return NSLocalizedString("T8Z-5V-grC.text", tableName: "About", bundle: hostingBundle, comment: "")
-        }
-
-        guard let (_, bundle) = localeBundle(tableName: "About", preferredLanguages: preferredLanguages) else {
-          return "T8Z-5V-grC.text"
-        }
-
-        return NSLocalizedString("T8Z-5V-grC.text", tableName: "About", bundle: bundle, comment: "")
-      }
-
-      /// en translation: Me
-      ///
-      /// Locales: en, nl
-      static func deM7TARDText(preferredLanguages: [String]? = nil) -> String {
-        guard let preferredLanguages = preferredLanguages else {
-          return NSLocalizedString("DeM-7T-ARD.text", tableName: "About", bundle: hostingBundle, comment: "")
-        }
-
-        guard let (_, bundle) = localeBundle(tableName: "About", preferredLanguages: preferredLanguages) else {
-          return "DeM-7T-ARD.text"
-        }
-
-        return NSLocalizedString("DeM-7T-ARD.text", tableName: "About", bundle: bundle, comment: "")
-      }
-
-      /// en translation: This app is intended to store vouchers, make payments and log in to different applications.
-      ///
-      /// Locales: en, nl
-      static func mIjASTcHText(preferredLanguages: [String]? = nil) -> String {
-        guard let preferredLanguages = preferredLanguages else {
-          return NSLocalizedString("mIj-aS-tcH.text", tableName: "About", bundle: hostingBundle, comment: "")
-        }
-
-        guard let (_, bundle) = localeBundle(tableName: "About", preferredLanguages: preferredLanguages) else {
-          return "mIj-aS-tcH.text"
-        }
-
-        return NSLocalizedString("mIj-aS-tcH.text", tableName: "About", bundle: bundle, comment: "")
-      }
-
-      /// en translation: This app works together with:
-      ///
-      /// Locales: en, nl
-      static func laNJ4BvCText(preferredLanguages: [String]? = nil) -> String {
-        guard let preferredLanguages = preferredLanguages else {
-          return NSLocalizedString("laN-j4-BvC.text", tableName: "About", bundle: hostingBundle, comment: "")
-        }
-
-        guard let (_, bundle) = localeBundle(tableName: "About", preferredLanguages: preferredLanguages) else {
-          return "laN-j4-BvC.text"
-        }
-
-        return NSLocalizedString("laN-j4-BvC.text", tableName: "About", bundle: bundle, comment: "")
-      }
-
-      fileprivate init() {}
-    }
-
     /// This `R.string.allowedOrganizationsViewController` struct is generated, and contains static references to 1 localization keys.
     struct allowedOrganizationsViewController {
       /// en translation: Organization Account
@@ -2530,7 +2382,7 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
 
-    /// This `R.string.localizable` struct is generated, and contains static references to 191 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 192 localization keys.
     struct localizable {
       /// en translation: %@ Don't Available
       ///
@@ -2558,8 +2410,8 @@ struct R: Rswift.Validatable {
       static let a_record_has_been_validated = Rswift.StringResource(key: "a_record_has_been_validated", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
       /// en translation: About Me
       ///
-      /// Locales: en
-      static let about_me = Rswift.StringResource(key: "about_me", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// Locales: en, nl
+      static let about_me = Rswift.StringResource(key: "about_me", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
       /// en translation: Address
       ///
       /// Locales: en, nl
@@ -3144,6 +2996,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en, nl
       static let the_voucher_is_empty = Rswift.StringResource(key: "the_voucher_is_empty", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
+      /// en translation: This app is intended to store vouchers, make payments and log in to different applications./n/n/nThis app works together with:/n/n     • 	The Westerkwartier webshop;      • 	The Nijmegen webshop;      • 	The Winterswijk webshop;      • 	The Oost Gelre webshop;      • 	The Berkelland webshop;      • 	The Noordoostpolder webshop      • 	The Kerstpakket webshop;
+      ///
+      /// Locales: en, nl
+      static let description_about = Rswift.StringResource(key: "description_about", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
       /// en translation: This app is not authorized to use Back Camera
       ///
       /// Locales: en, nl
@@ -3395,7 +3251,7 @@ struct R: Rswift.Validatable {
 
       /// en translation: About Me
       ///
-      /// Locales: en
+      /// Locales: en, nl
       static func about_me(preferredLanguages: [String]? = nil) -> String {
         guard let preferredLanguages = preferredLanguages else {
           return NSLocalizedString("about_me", bundle: hostingBundle, comment: "")
@@ -5608,6 +5464,21 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("the_voucher_is_empty", bundle: bundle, comment: "")
+      }
+
+      /// en translation: This app is intended to store vouchers, make payments and log in to different applications./n/n/nThis app works together with:/n/n     • 	The Westerkwartier webshop;      • 	The Nijmegen webshop;      • 	The Winterswijk webshop;      • 	The Oost Gelre webshop;      • 	The Berkelland webshop;      • 	The Noordoostpolder webshop      • 	The Kerstpakket webshop;
+      ///
+      /// Locales: en, nl
+      static func description_about(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("description_about", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "description_about"
+        }
+
+        return NSLocalizedString("description_about", bundle: bundle, comment: "")
       }
 
       /// en translation: This app is not authorized to use Back Camera
@@ -8905,9 +8776,6 @@ struct _R: Rswift.Validatable {
   struct storyboard: Rswift.Validatable {
     static func validate() throws {
       #if os(iOS) || os(tvOS)
-      try about.validate()
-      #endif
-      #if os(iOS) || os(tvOS)
       try chooseTypeRecord.validate()
       #endif
       #if os(iOS) || os(tvOS)
@@ -8944,24 +8812,6 @@ struct _R: Rswift.Validatable {
       try voucher.validate()
       #endif
     }
-
-    #if os(iOS) || os(tvOS)
-    struct about: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
-      typealias InitialController = MAboutViewController
-
-      let bundle = R.hostingBundle
-      let name = "About"
-
-      static func validate() throws {
-        if UIKit.UIImage(named: "closeLines", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'closeLines' is used in storyboard 'About', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "logo_icon", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'logo_icon' is used in storyboard 'About', but couldn't be loaded.") }
-        if #available(iOS 11.0, tvOS 11.0, *) {
-        }
-      }
-
-      fileprivate init() {}
-    }
-    #endif
 
     #if os(iOS) || os(tvOS)
     struct chooseTypeRecord: Rswift.StoryboardResourceType, Rswift.Validatable {
