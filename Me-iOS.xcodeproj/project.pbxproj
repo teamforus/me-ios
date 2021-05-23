@@ -163,8 +163,6 @@
 		65F1BB25229EC1C4007D2C8A /* RecordType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F1BB24229EC1C4007D2C8A /* RecordType.swift */; };
 		65F1BB2A229ECA8F007D2C8A /* MTextRecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F1BB29229ECA8F007D2C8A /* MTextRecordViewController.swift */; };
 		65F1BB2E229ED06C007D2C8A /* TextRecordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F1BB2D229ED06C007D2C8A /* TextRecordViewModel.swift */; };
-		65F52E452316797900B9D229 /* MCrashConfirmViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65F52E402316797900B9D229 /* MCrashConfirmViewController.xib */; };
-		65F52E462316797900B9D229 /* MCrashConfirmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F52E422316797900B9D229 /* MCrashConfirmViewController.swift */; };
 		65F52E4A23167E0D00B9D229 /* Wallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F52E4923167E0D00B9D229 /* Wallet.swift */; };
 		779F1336FE399D3CDDB6AE5E /* Pods_Me_iOSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 970CD27E06CAF26581789FF9 /* Pods_Me_iOSUITests.framework */; };
 		EBA8A6DE91260768B5722478 /* Pods_Me_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8797D7DA4E65B3CDD1B8B11 /* Pods_Me_iOS.framework */; };
@@ -449,10 +447,6 @@
 		65F1BB24229EC1C4007D2C8A /* RecordType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordType.swift; sourceTree = "<group>"; };
 		65F1BB29229ECA8F007D2C8A /* MTextRecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTextRecordViewController.swift; sourceTree = "<group>"; };
 		65F1BB2D229ED06C007D2C8A /* TextRecordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextRecordViewModel.swift; sourceTree = "<group>"; };
-		65F52E412316797900B9D229 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MCrashConfirmViewController.xib; sourceTree = "<group>"; };
-		65F52E422316797900B9D229 /* MCrashConfirmViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCrashConfirmViewController.swift; sourceTree = "<group>"; };
-		65F52E472316798700B9D229 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/MCrashConfirmViewController.strings; sourceTree = "<group>"; };
-		65F52E482316798900B9D229 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/MCrashConfirmViewController.strings; sourceTree = "<group>"; };
 		65F52E4923167E0D00B9D229 /* Wallet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wallet.swift; sourceTree = "<group>"; };
 		7EDD935B59E7B64986126EBB /* Pods-Me-iOSTests.demo.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Me-iOSTests.demo.xcconfig"; path = "Target Support Files/Pods-Me-iOSTests/Pods-Me-iOSTests.demo.xcconfig"; sourceTree = "<group>"; };
 		970CD27E06CAF26581789FF9 /* Pods_Me_iOSUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Me_iOSUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1333,7 +1327,6 @@
 			children = (
 				FF9C60FA253DD87D006F6979 /* ConfirmPayAction.swift */,
 				FF9C60FB253DD87D006F6979 /* ConfirmPaymentActionPopUp.swift */,
-				65F52E3D2316797900B9D229 /* ConfirmCrashClientAddress */,
 				65D11B7C22A6ACD300756BE0 /* Organization */,
 				65D11B8222A6B13700756BE0 /* ConfirmPayment */,
 				650FF63B22AD2EAB004C3A85 /* SuccessSendingByEmail */,
@@ -1423,15 +1416,6 @@
 				65F1BB2D229ED06C007D2C8A /* TextRecordViewModel.swift */,
 			);
 			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		65F52E3D2316797900B9D229 /* ConfirmCrashClientAddress */ = {
-			isa = PBXGroup;
-			children = (
-				65F52E422316797900B9D229 /* MCrashConfirmViewController.swift */,
-				65F52E402316797900B9D229 /* MCrashConfirmViewController.xib */,
-			);
-			path = ConfirmCrashClientAddress;
 			sourceTree = "<group>";
 		};
 		65F9742C236313C20008BDB0 /* BottomQR */ = {
@@ -1725,7 +1709,6 @@
 				65A8B6FF2282DD2C00B7DF05 /* GoogleSans-Italic.ttf in Resources */,
 				65139C51228029C0003E0CDE /* AppLocker.strings in Resources */,
 				658B488D22ABF9D000B6236C /* Voucher.storyboard in Resources */,
-				65F52E452316797900B9D229 /* MCrashConfirmViewController.xib in Resources */,
 				65139C55228029C0003E0CDE /* README.md in Resources */,
 				650FF5DF22AD192C004C3A85 /* ProductVoucher.storyboard in Resources */,
 				65462579230F1AB1007B812E /* ProductReservation.storyboard in Resources */,
@@ -1878,7 +1861,6 @@
 				FF8D90E9251BBC8A0035B8D7 /* ToolTip+Extension.swift in Sources */,
 				65911B4C228D8E4200EA30D6 /* Organization.swift in Sources */,
 				65CF408B228C1CC90006F5DE /* APIService.swift in Sources */,
-				65F52E462316797900B9D229 /* MCrashConfirmViewController.swift in Sources */,
 				FF8D90F8251BCCAC0035B8D7 /* Preference.swift in Sources */,
 				65911B54228D900500EA30D6 /* Product.swift in Sources */,
 				65A8B6F02282DB0200B7DF05 /* Extension+UIViewController.swift in Sources */,
@@ -2273,16 +2255,6 @@
 				65D130D722D71766007F1378 /* nl */,
 			);
 			name = AllowedOrganizationsViewController.xib;
-			sourceTree = "<group>";
-		};
-		65F52E402316797900B9D229 /* MCrashConfirmViewController.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				65F52E412316797900B9D229 /* Base */,
-				65F52E472316798700B9D229 /* en */,
-				65F52E482316798900B9D229 /* nl */,
-			);
-			name = MCrashConfirmViewController.xib;
 			sourceTree = "<group>";
 		};
 		FF3B141A243722EE003FDDD9 /* OrganizationValidatorViewController.xib */ = {

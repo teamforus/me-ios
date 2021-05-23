@@ -1355,7 +1355,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.nib` struct is generated, and contains static references to 11 nibs.
+  /// This `R.nib` struct is generated, and contains static references to 10 nibs.
   struct nib {
     /// Nib `AllowedOrganizationsViewController`.
     static let allowedOrganizationsViewController = _R.nib._AllowedOrganizationsViewController()
@@ -1365,8 +1365,6 @@ struct R: Rswift.Validatable {
     static let bottomQrWithPinViewController = _R.nib._BottomQrWithPinViewController()
     /// Nib `ConfirmPaymentPopUp`.
     static let confirmPaymentPopUp = _R.nib._ConfirmPaymentPopUp()
-    /// Nib `MCrashConfirmViewController`.
-    static let mCrashConfirmViewController = _R.nib._MCrashConfirmViewController()
     /// Nib `OrganizationTableViewCell`.
     static let organizationTableViewCell = _R.nib._OrganizationTableViewCell()
     /// Nib `OrganizationValidatorTableViewCell`.
@@ -1409,14 +1407,6 @@ struct R: Rswift.Validatable {
     @available(*, deprecated, message: "Use UINib(resource: R.nib.confirmPaymentPopUp) instead")
     static func confirmPaymentPopUp(_: Void = ()) -> UIKit.UINib {
       return UIKit.UINib(resource: R.nib.confirmPaymentPopUp)
-    }
-    #endif
-
-    #if os(iOS) || os(tvOS)
-    /// `UINib(name: "MCrashConfirmViewController", in: bundle)`
-    @available(*, deprecated, message: "Use UINib(resource: R.nib.mCrashConfirmViewController) instead")
-    static func mCrashConfirmViewController(_: Void = ()) -> UIKit.UINib {
-      return UIKit.UINib(resource: R.nib.mCrashConfirmViewController)
     }
     #endif
 
@@ -1484,10 +1474,6 @@ struct R: Rswift.Validatable {
       return R.nib.confirmPaymentPopUp.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
     }
 
-    static func mCrashConfirmViewController(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> CustomCornerUIView? {
-      return R.nib.mCrashConfirmViewController.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? CustomCornerUIView
-    }
-
     static func organizationTableViewCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> OrganizationTableViewCell? {
       return R.nib.organizationTableViewCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? OrganizationTableViewCell
     }
@@ -1527,7 +1513,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.string` struct is generated, and contains static references to 20 localization tables.
+  /// This `R.string` struct is generated, and contains static references to 19 localization tables.
   struct string {
     /// This `R.string.allowedOrganizationsViewController` struct is generated, and contains static references to 1 localization keys.
     struct allowedOrganizationsViewController {
@@ -6058,88 +6044,6 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
 
-    /// This `R.string.mCrashConfirmViewController` struct is generated, and contains static references to 4 localization keys.
-    struct mCrashConfirmViewController {
-      /// en translation: CANCEL
-      ///
-      /// Locales: en, nl
-      static let ykIIFA72NormalTitle = Rswift.StringResource(key: "YkI-iF-A72.normalTitle", tableName: "MCrashConfirmViewController", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
-      /// en translation: CONFIRM
-      ///
-      /// Locales: en, nl
-      static let wuQY9OwWNormalTitle = Rswift.StringResource(key: "wuQ-y9-OwW.normalTitle", tableName: "MCrashConfirmViewController", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
-      /// en translation: Send crash reports
-      ///
-      /// Locales: en, nl
-      static let gNBMvYw2Text = Rswift.StringResource(key: "gNB-Mv-yw2.text", tableName: "MCrashConfirmViewController", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
-      /// en translation: We want our app to give you best user experience. If crash happens, let us know your device id, so our support can contact you directly and solve the problem.
-      ///
-      /// Locales: en, nl
-      static let wos4IFQlText = Rswift.StringResource(key: "wos-4I-fQl.text", tableName: "MCrashConfirmViewController", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
-
-      /// en translation: CANCEL
-      ///
-      /// Locales: en, nl
-      static func ykIIFA72NormalTitle(preferredLanguages: [String]? = nil) -> String {
-        guard let preferredLanguages = preferredLanguages else {
-          return NSLocalizedString("YkI-iF-A72.normalTitle", tableName: "MCrashConfirmViewController", bundle: hostingBundle, comment: "")
-        }
-
-        guard let (_, bundle) = localeBundle(tableName: "MCrashConfirmViewController", preferredLanguages: preferredLanguages) else {
-          return "YkI-iF-A72.normalTitle"
-        }
-
-        return NSLocalizedString("YkI-iF-A72.normalTitle", tableName: "MCrashConfirmViewController", bundle: bundle, comment: "")
-      }
-
-      /// en translation: CONFIRM
-      ///
-      /// Locales: en, nl
-      static func wuQY9OwWNormalTitle(preferredLanguages: [String]? = nil) -> String {
-        guard let preferredLanguages = preferredLanguages else {
-          return NSLocalizedString("wuQ-y9-OwW.normalTitle", tableName: "MCrashConfirmViewController", bundle: hostingBundle, comment: "")
-        }
-
-        guard let (_, bundle) = localeBundle(tableName: "MCrashConfirmViewController", preferredLanguages: preferredLanguages) else {
-          return "wuQ-y9-OwW.normalTitle"
-        }
-
-        return NSLocalizedString("wuQ-y9-OwW.normalTitle", tableName: "MCrashConfirmViewController", bundle: bundle, comment: "")
-      }
-
-      /// en translation: Send crash reports
-      ///
-      /// Locales: en, nl
-      static func gNBMvYw2Text(preferredLanguages: [String]? = nil) -> String {
-        guard let preferredLanguages = preferredLanguages else {
-          return NSLocalizedString("gNB-Mv-yw2.text", tableName: "MCrashConfirmViewController", bundle: hostingBundle, comment: "")
-        }
-
-        guard let (_, bundle) = localeBundle(tableName: "MCrashConfirmViewController", preferredLanguages: preferredLanguages) else {
-          return "gNB-Mv-yw2.text"
-        }
-
-        return NSLocalizedString("gNB-Mv-yw2.text", tableName: "MCrashConfirmViewController", bundle: bundle, comment: "")
-      }
-
-      /// en translation: We want our app to give you best user experience. If crash happens, let us know your device id, so our support can contact you directly and solve the problem.
-      ///
-      /// Locales: en, nl
-      static func wos4IFQlText(preferredLanguages: [String]? = nil) -> String {
-        guard let preferredLanguages = preferredLanguages else {
-          return NSLocalizedString("wos-4I-fQl.text", tableName: "MCrashConfirmViewController", bundle: hostingBundle, comment: "")
-        }
-
-        guard let (_, bundle) = localeBundle(tableName: "MCrashConfirmViewController", preferredLanguages: preferredLanguages) else {
-          return "wos-4I-fQl.text"
-        }
-
-        return NSLocalizedString("wos-4I-fQl.text", tableName: "MCrashConfirmViewController", bundle: bundle, comment: "")
-      }
-
-      fileprivate init() {}
-    }
-
     /// This `R.string.main` struct is generated, and contains static references to 18 localization keys.
     struct main {
       /// en translation: 18 tagen geldig
@@ -8634,17 +8538,6 @@ struct _R: Rswift.Validatable {
 
       func secondView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
         return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[1] as? UIKit.UIView
-      }
-
-      fileprivate init() {}
-    }
-
-    struct _MCrashConfirmViewController: Rswift.NibResourceType {
-      let bundle = R.hostingBundle
-      let name = "MCrashConfirmViewController"
-
-      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> CustomCornerUIView? {
-        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? CustomCornerUIView
       }
 
       fileprivate init() {}
