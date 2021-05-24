@@ -190,6 +190,8 @@
 		FF6403FA251216B200CD9802 /* TransactionListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF6403F9251216B200CD9802 /* TransactionListTableViewCell.swift */; };
 		FF66316E2625C6400021507D /* EmailLoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF66316D2625C6400021507D /* EmailLoginViewModel.swift */; };
 		FF6631732625C6480021507D /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF6631722625C6480021507D /* RegisterViewModel.swift */; };
+		FF7F2D39265B7B9E0045E25F /* VouchersDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7F2D38265B7B9E0045E25F /* VouchersDataSource.swift */; };
+		FF7F2D3B265B87350045E25F /* RecordsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7F2D3A265B87350045E25F /* RecordsDataSource.swift */; };
 		FF8D90E4251BBBA70035B8D7 /* ToolTip.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8D90E3251BBBA70035B8D7 /* ToolTip.swift */; };
 		FF8D90E9251BBC8A0035B8D7 /* ToolTip+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8D90E8251BBC8A0035B8D7 /* ToolTip+Extension.swift */; };
 		FF8D90EE251BBCD70035B8D7 /* ToolTipTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8D90ED251BBCD70035B8D7 /* ToolTipTracker.swift */; };
@@ -497,6 +499,8 @@
 		FF6403F9251216B200CD9802 /* TransactionListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionListTableViewCell.swift; sourceTree = "<group>"; };
 		FF66316D2625C6400021507D /* EmailLoginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmailLoginViewModel.swift; sourceTree = "<group>"; };
 		FF6631722625C6480021507D /* RegisterViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
+		FF7F2D38265B7B9E0045E25F /* VouchersDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VouchersDataSource.swift; sourceTree = "<group>"; };
+		FF7F2D3A265B87350045E25F /* RecordsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordsDataSource.swift; sourceTree = "<group>"; };
 		FF8D90E3251BBBA70035B8D7 /* ToolTip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolTip.swift; sourceTree = "<group>"; };
 		FF8D90E8251BBC8A0035B8D7 /* ToolTip+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ToolTip+Extension.swift"; sourceTree = "<group>"; };
 		FF8D90ED251BBCD70035B8D7 /* ToolTipTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolTipTracker.swift; sourceTree = "<group>"; };
@@ -1123,6 +1127,7 @@
 				65A8B70C2282E19400B7DF05 /* MVouchersViewController.swift */,
 				65911B45228D7DBC00EA30D6 /* VoucherTableViewCell.swift */,
 				655D64722315948900EABD57 /* ValuteTableViewCell.swift */,
+				FF7F2D38265B7B9E0045E25F /* VouchersDataSource.swift */,
 				65A8B7372282EBF900B7DF05 /* ViewModel */,
 			);
 			path = Vouchers;
@@ -1144,6 +1149,7 @@
 			isa = PBXGroup;
 			children = (
 				65A8B7102282E1A900B7DF05 /* MRecordsViewController.swift */,
+				FF7F2D3A265B87350045E25F /* RecordsDataSource.swift */,
 				654F97A4229BEA43009C9FFA /* Cell */,
 				65A8B7352282EBF100B7DF05 /* ViewModel */,
 			);
@@ -1917,6 +1923,7 @@
 				654F97AA229BF671009C9FFA /* MRecordDetailViewController.swift in Sources */,
 				65A8B7192282E52D00B7DF05 /* MProductVoucherViewController.swift in Sources */,
 				0408C85D24BF2A4E009B8A2E /* Background_DarkMode.swift in Sources */,
+				FF7F2D39265B7B9E0045E25F /* VouchersDataSource.swift in Sources */,
 				65D11B8022A6ADF400756BE0 /* ConfirmPaymentPopUp.swift in Sources */,
 				FF8D90EE251BBCD70035B8D7 /* ToolTipTracker.swift in Sources */,
 				FF9C60ED253DD4CD006F6979 /* RecordValidation.swift in Sources */,
@@ -1956,6 +1963,7 @@
 				FF9C60F6253DD869006F6979 /* MPaymentActionViewController.swift in Sources */,
 				65B3784D22C241F50095A2EF /* Reachability.swift in Sources */,
 				654F979F229BE71F009C9FFA /* Record.swift in Sources */,
+				FF7F2D3B265B87350045E25F /* RecordsDataSource.swift in Sources */,
 				654F97AE229C03D0009C9FFA /* RecordDetailViewModel.swift in Sources */,
 				FF8D90E4251BBBA70035B8D7 /* ToolTip.swift in Sources */,
 				FFBDBCA82631ACC9006F7871 /* LoginQrAndCodeViewModel.swift in Sources */,
