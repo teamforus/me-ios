@@ -52,7 +52,7 @@ class MBranchesTableViewCell: UITableViewCell {
         guard let offices = voucher?.offices else {
             return
         }
-        self.countBranchesLabel.text = "\(offices.count) Branches"
+        self.countBranchesLabel.text = Localize.branches("\(offices.count)")
         self.offices = offices
         
         collectionView.reloadData()

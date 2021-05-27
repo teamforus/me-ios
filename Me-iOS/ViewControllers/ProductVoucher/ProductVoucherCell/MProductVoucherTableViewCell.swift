@@ -15,7 +15,7 @@ class MProductVoucherTableViewCell: UITableViewCell {
     var voucher: Voucher!
     private let imageVoucher: UIImageView = {
         let imageVoucher = UIImageView(frame: .zero)
-        imageVoucher.image = UIImage(named: "5XVoucherSurface")
+        imageVoucher.image = UIImage(named: "voucher_ticket_icon")
         return imageVoucher
     }()
     

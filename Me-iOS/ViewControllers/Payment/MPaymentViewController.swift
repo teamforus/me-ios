@@ -37,14 +37,13 @@ class MPaymentViewController: UIViewController {
         IQKeyboardManager.shared.enableAutoToolbar = true
         
         if voucher != nil {
-            initView()
+            setupUI()
         }else {
             titleLabel.text = Localize.test_transaction()
             allowedOriganizationLabel.text = Localize.test_organization()
             organizationLabel.isHidden = true
             priceUILabel.isHidden = true
         }
-        
     }
     
     
@@ -60,113 +59,122 @@ class MPaymentViewController: UIViewController {
         if voucher != nil {
             
             if voucher.product != nil {
-                
-                let vc = ConfirmPaymentPopUp()
-                if isFromReservation != nil {
-                    vc.isFromReservation = isFromReservation
-                }
-                vc.voucher = voucher
-                vc.organizationId = selectedAllowerdOrganization?.id ?? 0
-                vc.note = notesField.text
-                vc.amount = amountField.text
-                vc.tabBar = tabBar
-                vc.modalTransitionStyle = .crossDissolve
-                vc.modalPresentationStyle = .overCurrentContext
-                self.present(vc, animated: true)
-                
+                sendProductTransaction()
             }else if amountField.text != "" {
-                
-                if amountField.text != limitEN && amountField.text != limitDT{
-                    
-                    let vc = ConfirmPaymentPopUp()
-                    if isFromReservation != nil {
-                        vc.isFromReservation = isFromReservation
-                    }
-                    vc.voucher = voucher
-                    vc.organizationId = selectedAllowerdOrganization?.id ?? 0
-                    vc.note = notesField.text
-                    vc.amount = amountField.text
-                    vc.tabBar = tabBar
-                    vc.modalTransitionStyle = .crossDissolve
-                    vc.modalPresentationStyle = .overCurrentContext
-                    self.present(vc, animated: true)
-                }else {
-                    
-                    showSimpleAlert(title: Localize.warning(), message: Localize.payment_of_001_is_to_low_to_be_paid_out_choose_highe_amount())
-                    
-                }
-                
+                sendVoucherTransactions()
             } else {
-                
                 showSimpleAlert(title: Localize.warning(), message: Localize.please_enter_the_amount())
-                
             }
-            
         }else {
-            let vc = ConfirmPaymentPopUp()
-            if isFromReservation != nil {
-                vc.isFromReservation = isFromReservation
-            }
-            vc.organizationId = 0
-            vc.testToken = testToken
-            vc.note = notesField.text
-            vc.amount = amountField.text
-            vc.tabBar = tabBar
-            vc.modalTransitionStyle = .crossDissolve
-            vc.modalPresentationStyle = .overCurrentContext
-            self.present(vc, animated: true)
+            sendTestTransaction()
         }
     }
     
+    private func sendProductTransaction() {
+        let vc = ConfirmPaymentPopUp()
+        if isFromReservation != nil {
+            vc.isFromReservation = isFromReservation
+        }
+        vc.voucher = voucher
+        vc.organizationId = selectedAllowerdOrganization?.id ?? 0
+        vc.note = notesField.text
+        vc.amount = amountField.text
+        vc.tabBar = tabBar
+        vc.modalTransitionStyle = .crossDissolve
+        vc.modalPresentationStyle = .overCurrentContext
+        self.present(vc, animated: true)
+    }
     
+    private func sendVoucherTransactions() {
+        // Uncomment if eth will be implemented
+        //        if amountField.text != limitEN && amountField.text != limitDT{
+        
+        let vc = ConfirmPaymentPopUp()
+        if isFromReservation != nil {
+            vc.isFromReservation = isFromReservation
+        }
+        vc.voucher = voucher
+        vc.organizationId = selectedAllowerdOrganization?.id ?? 0
+        vc.note = notesField.text
+        vc.amount = amountField.text
+        vc.tabBar = tabBar
+        vc.modalTransitionStyle = .crossDissolve
+        vc.modalPresentationStyle = .overCurrentContext
+        self.present(vc, animated: true)
+        //        }
+        
+        //        else {
+        //            showSimpleAlert(title: Localize.warning(), message: Localize.payment_of_001_is_to_low_to_be_paid_out_choose_highe_amount())
+        //        }
+    }
     
-    
+    private func sendTestTransaction() {
+        let vc = ConfirmPaymentPopUp()
+        if isFromReservation != nil {
+            vc.isFromReservation = isFromReservation
+        }
+        vc.organizationId = 0
+        vc.testToken = testToken
+        vc.note = notesField.text
+        vc.amount = amountField.text
+        vc.tabBar = tabBar
+        vc.modalTransitionStyle = .crossDissolve
+        vc.modalPresentationStyle = .overCurrentContext
+        self.present(vc, animated: true)
+    }
 }
 
+
+// MARK: - Setup UI
 extension MPaymentViewController {
     
-    func initView(){
+    func setupUI(){
         if #available(iOS 13, *) {
         }else {
             self.setStatusBarStyle(.default)
         }
         if voucher?.product != nil {
-            if let price = voucher?.product?.price {
-                priceUILabel.text = "€ " + price
-            }
-            arrowIcon.isHidden = true
-            chooseOrganizationButton.isHidden = true
-            voucherNameLabel.text = voucher.product?.name ?? ""
-            voucherIcon.loadImageUsingUrlString(urlString: voucher.product?.photo?.sizes?.thumbnail ?? "", placeHolder: #imageLiteral(resourceName: "Resting"))
-            organizationLabel.text = voucher.product?.organization?.name ?? ""
-            allowedOriganizationLabel.text = voucher.product?.organization?.name ?? ""
-            organizationIcon.loadImageUsingUrlString(urlString: voucher.product?.photo?.sizes?.thumbnail ?? "", placeHolder: #imageLiteral(resourceName: "Resting"))
-            
-            var rectNote = self.notesView.frame
-            rectNote.origin.y = 70
-            self.notesView.frame = rectNote
-            heightFieldsConstraint.constant = 160
-            
+            setupProduct()
         }else {
-            if let price = voucher?.amount {
-                priceUILabel.text = "€ " + price
-            }
-            voucherNameLabel.text = voucher.fund?.name ?? ""
-            voucherIcon.loadImageUsingUrlString(urlString: voucher.fund?.organization?.logo?.sizes?.thumbnail ?? "", placeHolder: #imageLiteral(resourceName: "Resting"))
-            organizationLabel.text = voucher.fund?.organization?.name ?? ""
-            allowedOriganizationLabel.text = voucher.allowed_organizations?.first?.name ?? ""
-            organizationIcon.loadImageUsingUrlString(urlString: voucher.allowed_organizations?.first?.logo?.sizes?.thumbnail ?? "", placeHolder: #imageLiteral(resourceName: "Resting"))
-            selectedAllowerdOrganization = voucher.allowed_organizations?.first
+            setupVoucher()
         }
         amountField.setPlaceholderColor(with: Localize.enter_the_price_here(), and: .lightGray)
         notesField.setPlaceholderColor(with: Localize.note(), and: .lightGray)
-       let image = UIImage(named: "roundedRight")?.withRenderingMode(.alwaysTemplate)
+        let image = Image.arrowRightIcon?.withRenderingMode(.alwaysTemplate)
         self.arrowIcon.image = image
         if #available(iOS 11.0, *) {
             self.arrowIcon.tintColor = UIColor(named: "Black_Light_DarkTheme")
-        } else {
-          // Fallback on earlier versions
+        } else {}
+    }
+    
+    private func setupProduct() {
+        if let price = voucher?.product?.price {
+            priceUILabel.text = "€ " + price
         }
+        arrowIcon.isHidden = true
+        chooseOrganizationButton.isHidden = true
+        voucherNameLabel.text = voucher.product?.name ?? ""
+        voucherIcon.loadImageUsingUrlString(urlString: voucher.product?.photo?.sizes?.thumbnail ?? "", placeHolder: #imageLiteral(resourceName: "Resting"))
+        organizationLabel.text = voucher.product?.organization?.name ?? ""
+        allowedOriganizationLabel.text = voucher.product?.organization?.name ?? ""
+        organizationIcon.loadImageUsingUrlString(urlString: voucher.product?.photo?.sizes?.thumbnail ?? "", placeHolder: #imageLiteral(resourceName: "Resting"))
+        
+        var rectNote = self.notesView.frame
+        rectNote.origin.y = 70
+        self.notesView.frame = rectNote
+        heightFieldsConstraint.constant = 160
+    }
+    
+    private func setupVoucher() {
+        if let price = voucher?.amount {
+            priceUILabel.text = "€ " + price
+        }
+        voucherNameLabel.text = voucher.fund?.name ?? ""
+        voucherIcon.loadImageUsingUrlString(urlString: voucher.fund?.organization?.logo?.sizes?.thumbnail ?? "", placeHolder: #imageLiteral(resourceName: "Resting"))
+        organizationLabel.text = voucher.fund?.organization?.name ?? ""
+        allowedOriganizationLabel.text = voucher.allowed_organizations?.first?.name ?? ""
+        organizationIcon.loadImageUsingUrlString(urlString: voucher.allowed_organizations?.first?.logo?.sizes?.thumbnail ?? "", placeHolder: #imageLiteral(resourceName: "Resting"))
+        selectedAllowerdOrganization = voucher.allowed_organizations?.first
     }
     
     @IBAction func showOrganizations(_ sender: UIButton) {
@@ -180,9 +188,6 @@ extension MPaymentViewController {
             self.view.addSubview(popOverVC.view)
         }
     }
-    
-    
-    
 }
 
 extension MPaymentViewController: AllowedOrganizationsViewControllerDelegate {
@@ -191,11 +196,9 @@ extension MPaymentViewController: AllowedOrganizationsViewControllerDelegate {
     }
     
     func didSelectAllowedOrganization(organization: AllowedOrganization) {
-        
         selectedAllowerdOrganization = organization
         allowedOriganizationLabel.text = organization.name ?? ""
         organizationIcon.loadImageUsingUrlString(urlString: organization.logo?.sizes?.thumbnail ?? "", placeHolder: #imageLiteral(resourceName: "Resting"))
-        
     }
     
 }
@@ -241,7 +244,7 @@ extension MPaymentViewController: UITextFieldDelegate{
 }
 extension MPaymentViewController: AccessibilityProtocol {
     func setupAccessibility() {
-     // sendEmailButton.chooseOrganizationButton(description: "Choose Organization Button", accessibilityTraits: .button)
-       
-   }
+        // sendEmailButton.chooseOrganizationButton(description: "Choose Organization Button", accessibilityTraits: .button)
+        
+    }
 }

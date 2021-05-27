@@ -58,8 +58,7 @@ class MRecordDetailViewController: UIViewController {
                     if recordValidation.state == "approved" {
                         self?.showSimpleAlert(title: Localize.success(), message: Localize.validation_approved())
                     }
-                }else {
-                }
+                }else {}
             }
         }
     }
@@ -70,48 +69,30 @@ class MRecordDetailViewController: UIViewController {
             DispatchQueue.main.async {
                 
                 self?.record = record
-                
                 self?.recordTypeLabel.text = record.name ?? ""
                 self?.recordValue.text = record.value
                 self?.tableView.reloadData()
-                
-                if self?.recordDetailViewModel.numberOfCells == 0{
-                    
-                    self?.tableView.isHidden = true
-                    
-                }else {
-                    
-                    self?.tableView.isHidden = false
-                    
-                }
+                self?.tableView.isHidden = self?.recordDetailViewModel.numberOfCells == 0
                 KVSpinnerView.dismiss()
             }
         }
         
-        
         if isReachable() {
-            
             KVSpinnerView.show()
             recordDetailViewModel.initFetchById(id: recordId)
-            
         }else {
-            
             showInternetUnable()
-            
         }
     }
     
     func completeDelete() {
         recordDetailViewModel.completeDelete = { [weak self] (statusCode) in
-            
             DispatchQueue.main.async {
-                
                 KVSpinnerView.dismiss()
                 self?.navigationController?.popViewController(animated: true)
             }
         }
     }
-    
     
     @IBAction func showQRCode(_ sender: Any) {
         let popOverVC = PullUpQRViewController(nib: R.nib.pullUpQRViewController)
@@ -124,7 +105,6 @@ class MRecordDetailViewController: UIViewController {
     @IBAction func deleteRecord(_ sender: UIButton) {
         KVSpinnerView.show()
         recordDetailViewModel.initDeleteById(id: recordId)
-        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -132,8 +112,9 @@ class MRecordDetailViewController: UIViewController {
             recordValidatorVC.record = self.record
         }
     }
-    
 }
+
+ // MARK: - UITableViewDelegate
 
 extension MRecordDetailViewController: UITableViewDataSource, UITableViewDelegate {
     

@@ -22,8 +22,6 @@ enum MainTableViewSection: Int, CaseIterable {
 
 class ProductVoucherViewController: UIViewController {
     
-    
-    
     var voucher: Voucher!
     var address: String!
     lazy var productViewModel: ProductVoucherViewModel = {

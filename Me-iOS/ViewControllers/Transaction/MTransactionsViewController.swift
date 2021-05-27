@@ -110,9 +110,6 @@ class MTransactionsViewController: UIViewController {
         addSubviews()
         setupConstraints()
         setupView()
-        setupTableView()
-        fetchTransaction()
-        fetchComplete()
     }
     
 }
@@ -126,6 +123,9 @@ extension MTransactionsViewController {
             self.view.backgroundColor = UIColor(named: "Background_DarkTheme")
         } else {
         }
+        setupTableView()
+        fetchTransaction()
+        fetchComplete()
     }
     
     func addSubviews() {
@@ -265,7 +265,6 @@ extension MTransactionsViewController {
     func fetchComplete() {
         transactionViewModel.complete = { [weak self] (_) in
             DispatchQueue.main.async {
-               
                 self?.tableView.reloadData()
                 KVSpinnerView.dismiss()
             }
@@ -336,11 +335,9 @@ extension MTransactionsViewController {
     }
     
      @objc func openDatePicker() {
-        
         view.addSubview(datePicker)
         setupDatePickerConstraints()
         datePicker.showAnimate()
-        
     }
     
     func setupDatePickerConstraints() {

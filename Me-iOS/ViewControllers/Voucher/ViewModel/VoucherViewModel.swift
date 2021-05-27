@@ -61,7 +61,6 @@ class VoucherViewModel{
     
     func sendEmail(address: String) {
         
-        
         commonService.postWithoutParamtersAndResponse(request: "platform/vouchers/"+address+"/send-email", complete: { (statusCode) in
             if statusCode == 401 {
                 DispatchQueue.main.async {
@@ -76,7 +75,6 @@ class VoucherViewModel{
         }) { (error) in
             
         }
-        
     }
     
     func openVoucher() {

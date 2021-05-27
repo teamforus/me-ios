@@ -265,7 +265,7 @@ extension UIViewController{
     
     func didChooseAppLocker(title: String, subTitle: String, cancelButtonIsVissible: Bool, mode: ALMode){
         var appearance = ALAppearance()
-        appearance.image = UIImage(named: "lock")!
+        appearance.image = Image.lock_icon
         appearance.title = title
         appearance.subtitle = subTitle
         appearance.isSensorsEnabled = UserDefaults.standard.bool(forKey: UserDefaultsName.UseTouchID)
@@ -381,23 +381,6 @@ extension UIViewController{
     }
 }
 
-extension UIViewController{
-    
-    func didSetPullUP(storyboard: UIStoryboard, segue: UIStoryboardSegue) -> CommonPullUpViewController {
-        
-        let passVC = segue.destination as! CommonPullUpViewController
-        
-        passVC.contentViewController = storyboard.instantiateViewController(withIdentifier: "content")
-        
-        passVC.bottomViewController = storyboard.instantiateViewController(withIdentifier: "bottom")
-        
-        (passVC.bottomViewController as! CommonBottomViewController).pullUpController = passVC
-        passVC.sizingDelegate = (passVC.bottomViewController as! CommonBottomViewController)
-        passVC.stateDelegate = (passVC.bottomViewController as! CommonBottomViewController)
-        
-        return passVC
-    }
-}
 
 extension UIViewController: AppLockerDelegate {
     

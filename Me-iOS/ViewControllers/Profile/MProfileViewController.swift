@@ -8,7 +8,7 @@
 
 import UIKit
 import MessageUI
-import Crashlytics
+import FirebaseCrashlytics
 
 class MProfileViewController: UIViewController {
     @IBOutlet weak var profileNameLabel: UILabel!
@@ -99,7 +99,7 @@ extension MProfileViewController {
     }
     
     @IBAction func crash(_ sender: Any) {
-        Crashlytics.sharedInstance().crash()
+        fatalError()
     }
     
     @IBAction func creatEditPasscode(_ sender: Any) {
