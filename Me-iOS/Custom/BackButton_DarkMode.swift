@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BackButton_DarkMode: UIButton {
+class BackButton_DarkMode: ActionButton {
   
   override init(frame: CGRect) {
     super.init(frame: frame)

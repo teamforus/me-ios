@@ -34,6 +34,10 @@ class MVoucherViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupUI()
+    }
+    
+    private func setupUI() {
         setupAccessibility()
         self.heightConstraint.constant = 260
         self.qrCodeButton.isEnabled = false
@@ -41,12 +45,33 @@ class MVoucherViewController: UIViewController {
         images.forEach { (view) in
             view.startAnimating()
         }
+        
+        fetchVoucher()
+        setupVoucher()
+    }
+    
+    private func fetchVoucher() {
+        voucherViewModel.reloadTableViewClosure = { [weak self] in
+            DispatchQueue.main.async {
+                self?.tableView.reloadData()
+            }
+        }
+        
+        if isReachable() {
+            voucherViewModel.vc = self
+            voucherViewModel.initFetchById(address: address)
+        }else {
+            showInternetUnable()
+        }
+    }
+    
+    private func setupVoucher() {
         voucherViewModel.reloadDataVoucher = { [weak self] (voucher) in
             
-          DispatchQueue.main.async { [self] in
-              if voucher.fund?.type == FundType.subsidies.rawValue {
-                self!.voucherInfoButton?.setTitle(Localize.offers(), for: .normal)
-              }
+            DispatchQueue.main.async { [self] in
+                if voucher.fund?.type == FundType.subsidies.rawValue {
+                    self!.voucherInfoButton?.setTitle(Localize.offers(), for: .normal)
+                }
                 self?.priceLabel.isHidden = voucher.fund?.type == FundType.subsidies.rawValue
                 self?.voucherName.text = voucher.fund?.name ?? ""
                 self?.organizationName.text = voucher.fund?.organization?.name ?? ""
@@ -79,27 +104,6 @@ class MVoucherViewController: UIViewController {
                     view.stopAnimating()
                 }
             }
-            
-            
-        }
-        
-        voucherViewModel.reloadTableViewClosure = { [weak self] in
-            
-            DispatchQueue.main.async {
-                self?.tableView.reloadData()
-            }
-        }
-        
-        
-        if isReachable() {
-            
-            voucherViewModel.vc = self
-            voucherViewModel.initFetchById(address: address)
-            
-        }else {
-            
-            showInternetUnable()
-            
         }
     }
     
@@ -113,11 +117,8 @@ class MVoucherViewController: UIViewController {
     @IBAction func sendEmail(_ sender: Any) {
         
         voucherViewModel.completeSendEmail = { [weak self] (statusCode) in
-            
             DispatchQueue.main.async {
-                
                 self?.showPopUPWithAnimation(vc: SuccessSendingViewController(nib: R.nib.successSendingViewController))
-                
             }
         }
         
@@ -129,7 +130,6 @@ class MVoucherViewController: UIViewController {
                                     
                                   }),
                                   cancelAction: UIAlertAction(title: Localize.cancel(), style: .cancel, handler: nil))
-        
     }
     
     @IBAction func info(_ sender: Any) {
@@ -153,6 +153,8 @@ class MVoucherViewController: UIViewController {
         }
     }
 }
+
+// MARK: - UITableViewDelegate
 
 extension MVoucherViewController: UITableViewDelegate, UITableViewDataSource{
     
@@ -188,7 +190,7 @@ extension MVoucherViewController: AccessibilityProtocol {
         sendEmailButton.setupAccesibility(description: "Send voucher on email", accessibilityTraits: .button)
         voucherInfoButton.setupAccesibility(description: "Go to view offers", accessibilityTraits: .button)
         qrCodeButton.setupAccesibility(description: "Tap to open qr code modal", accessibilityTraits: .button)
-   }
+    }
 }
 
 extension MVoucherViewController{
@@ -207,8 +209,6 @@ extension MVoucherViewController{
                 }
             }
         }
-        
-        
     }
     
     func isFirstCellVisible() -> Bool{

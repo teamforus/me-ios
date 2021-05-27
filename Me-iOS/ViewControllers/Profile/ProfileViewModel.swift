@@ -21,7 +21,6 @@ class ProfileViewModel {
     }
     
     func initProfile(){
-        
         commonService.get(request: "identity", complete: { (response: Identity, statusCode) in
             if statusCode == 401 {
                 DispatchQueue.main.async {
@@ -31,15 +30,11 @@ class ProfileViewModel {
                     }))
                 }
             } else {
-               
-                
                 self.complete?(response.email ?? "", response.address ?? "")
             }
             
         }) { (error) in
             
         }
-        
     }
-    
 }
