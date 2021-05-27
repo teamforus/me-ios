@@ -161,19 +161,12 @@ class MVouchersViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        if segue.identifier == "goToProduct" {
-            if let voucherVC = segue.destination as? MProductVoucherViewController {
-                voucherVC.address = self.voucherViewModel.selectedVoucher?.address ?? ""
-            }
-            
-        }else if segue.identifier == "goToVoucher" {
+         if segue.identifier == "goToVoucher" {
             if let voucherVC = segue.destination as? MVoucherViewController {
                 voucherVC.address = self.voucherViewModel.selectedVoucher?.address ?? ""
             }
-            
         }
     }
-    
 }
 
 extension MVouchersViewController: UITableViewDelegate, UITableViewDataSource{
@@ -222,10 +215,14 @@ extension MVouchersViewController: UITableViewDelegate, UITableViewDataSource{
         case .vouchers?:
             
             self.voucherViewModel.userPressed(at: indexPath)
-            
+            let voucher = voucherViewModel.getCellViewModel(at: indexPath)
             if voucherViewModel.isAllowSegue {
                 if voucherViewModel.selectedVoucher?.product != nil {
-                    self.performSegue(withIdentifier: "goToProduct", sender: nil)
+                    let vc = ProductVoucherViewController()
+                    vc.address = voucher.address ?? ""
+                    vc.hidesBottomBarWhenPushed = true
+                    self.show(vc, sender: nil)
+                    
                 }else {
                     self.performSegue(withIdentifier: "goToVoucher", sender: nil)
                 }
@@ -261,13 +258,9 @@ extension MVouchersViewController: UIViewControllerPreviewingDelegate{
             self.voucherViewModel.userPressed(at: indexPath)
             var detailViewController = UIViewController()
             if voucherViewModel.selectedVoucher?.product != nil {
-                
-                let storyboard = R.storyboard.productVoucher()
-                if let productVC = storyboard.instantiateViewController(withIdentifier: "productVoucher") as? MProductVoucherViewController {
-                    productVC.address = voucherViewModel.selectedVoucher?.address ?? ""
-                    detailViewController = productVC
-                }
-                
+                let productVC = ProductVoucherViewController()
+                productVC.address = voucherViewModel.selectedVoucher?.address ?? ""
+                detailViewController = productVC
             }else {
                 let storyboard = R.storyboard.voucher()
                 if let voucherVC = storyboard.instantiateViewController(withIdentifier: "voucher") as? MVoucherViewController {
