@@ -23,8 +23,8 @@ class MVouchersViewController: UIViewController {
     @IBOutlet weak var segmentView: UIView!
     @IBOutlet weak var transactionButton: UIButton!
     
-  @IBOutlet weak var titleLabel: UILabel_DarkMode!
-  var voucherType: VoucherType!
+    @IBOutlet weak var titleLabel: UILabel_DarkMode!
+    var voucherType: VoucherType!
     lazy var voucherViewModel: VouchersViewModel = {
         return VouchersViewModel()
     }()
@@ -56,7 +56,7 @@ class MVouchersViewController: UIViewController {
         segmentController.borderColor = .clear
         segmentView.layer.cornerRadius = 8.0
         
-      
+        
         
         refreshControl.addTarget(self, action: #selector(refreshData(_:)), for: .valueChanged)
         
@@ -152,14 +152,7 @@ class MVouchersViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        if segue.identifier == "goToProduct" {
-            
-            let generalVC = didSetPullUP(storyboard: R.storyboard.productVoucher(), segue: segue)
-            (generalVC.contentViewController as! MProductVoucherViewController).address = self.voucherViewModel.selectedVoucher?.address ?? ""
-            (generalVC.bottomViewController as! CommonBottomViewController).voucher = self.voucherViewModel.selectedVoucher
-            (generalVC.bottomViewController as! CommonBottomViewController).qrType = .Voucher
-            
-        }else if segue.identifier == "goToVoucher" {
+        if segue.identifier == "goToVoucher" {
             
             let generalVC = didSetPullUP(storyboard: R.storyboard.voucher(), segue: segue)
             (generalVC.contentViewController as! MVoucherViewController).address = self.voucherViewModel.selectedVoucher?.address ?? ""
@@ -180,14 +173,7 @@ class MVouchersViewController: UIViewController {
         (passVC.bottomViewController as! CommonBottomViewController).pullUpController = passVC
         passVC.sizingDelegate = (passVC.bottomViewController as! CommonBottomViewController)
         
-        if isProduct {
-            
-            (passVC.contentViewController as! MProductVoucherViewController).address = self.voucherViewModel.selectedVoucher?.address ?? ""
-        }else {
-            
-            (passVC.contentViewController as! MVoucherViewController).address = self.voucherViewModel.selectedVoucher?.address ?? ""
-            
-        }
+        (passVC.contentViewController as! MVoucherViewController).address = self.voucherViewModel.selectedVoucher?.address ?? ""
         passVC.stateDelegate = (passVC.bottomViewController as! CommonBottomViewController)
         (passVC.bottomViewController as! CommonBottomViewController).voucher = self.voucherViewModel.selectedVoucher
         (passVC.bottomViewController as! CommonBottomViewController).qrType = .Voucher
@@ -243,10 +229,14 @@ extension MVouchersViewController: UITableViewDelegate, UITableViewDataSource{
         case .vouchers?:
             
             self.voucherViewModel.userPressed(at: indexPath)
-            
+            let voucher = voucherViewModel.getCellViewModel(at: indexPath)
             if voucherViewModel.isAllowSegue {
                 if voucherViewModel.selectedVoucher?.product != nil {
-                    self.performSegue(withIdentifier: "goToProduct", sender: nil)
+                    let vc = ProductVoucherViewController()
+                    vc.address = voucher.address ?? ""
+                    vc.hidesBottomBarWhenPushed = true
+                    self.show(vc, sender: nil)
+                    
                 }else {
                     self.performSegue(withIdentifier: "goToVoucher", sender: nil)
                 }
@@ -283,7 +273,9 @@ extension MVouchersViewController: UIViewControllerPreviewingDelegate{
             self.voucherViewModel.userPressed(at: indexPath)
             var detailViewController = UIViewController()
             if voucherViewModel.selectedVoucher?.product != nil {
-                detailViewController = createDetailViewControllerIndexPath(vc: didSetPullUPWithoutSegue(storyboard: R.storyboard.productVoucher(), isProduct: true),
+                let vc = ProductVoucherViewController()
+                vc.address = self.voucherViewModel.selectedVoucher?.address ?? ""
+                detailViewController = createDetailViewControllerIndexPath(vc: vc,
                                                                            indexPath: indexPath)
             }else {
                 detailViewController = createDetailViewControllerIndexPath(vc: didSetPullUPWithoutSegue(storyboard: R.storyboard.voucher(), isProduct: false),
@@ -312,6 +304,6 @@ extension MVouchersViewController: AccessibilityProtocol {
         if let vouchers = segmentController.accessibilityElement(at: 1) as? UIView {
             vouchers.setupAccesibility(description: "Choose to show all vouchers", accessibilityTraits: .causesPageTurn)
         }
-      titleLabel.setupAccesibility(description: Localize.vouchers(), accessibilityTraits: .header)
+        titleLabel.setupAccesibility(description: Localize.vouchers(), accessibilityTraits: .header)
     }
 }

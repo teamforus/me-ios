@@ -112,7 +112,7 @@
 "cancel" = "Annuleren";
 "validations" = "Validaties";
 "primary_email" = "Hoofd e-mail";
-"email" = "Tweede e-mail";
+"secundary_email" = "Tweede e-mail";
 "given_name" = "Voornaam";
 "family_name" = "Achternaam";
 "children" = "Kinderen";
@@ -186,6 +186,8 @@
 "what_customer_pays" = "Wat de klant betaalt";
 "free" = "Gratis";
 "discount" = "Korting";
+"voucher_info" = "Voucher Info";
+"email" = "Email";
 "offers"  = "Aanbod";
 "do_you_want_to_login" = "Probeer je in te loggen op een apparaat?";
 "description_of_auth_anothe_device" = "Door verder te gaan met inloggen geef je een ander apparaat toegang tot je account. Weet je zeker dat je verder wilt gaan?";

@@ -226,12 +226,14 @@ class MAFirstPageViewController: UIViewController {
             DispatchQueue.main.async {
                 
                 if statusCode != 500 {
-                    
-                    self?.performSegue(withIdentifier: "goToSuccessMail", sender: self)
-                    
-                }else {
                     self?.showSimpleAlertWithSingleAction(title: Localize.error_exclamation(), message: "", okAction: UIAlertAction(title: Localize.ok(), style: .default, handler: { (action) in
                     }))
+                    
+                }else if statusCode == 422{
+                    self?.showSimpleAlertWithSingleAction(title: Localize.error_exclamation(), message: message, okAction: UIAlertAction(title: Localize.ok(), style: .default, handler: { (action) in
+                    }))
+                }else {
+                    self?.performSegue(withIdentifier: "goToSuccessMail", sender: self)
                 }
             }
         }
