@@ -47,7 +47,7 @@ class MActionsViewController: UIViewController {
     private let voucherImageView: UIImageView = {
         let imageView = UIImageView(frame: .zero)
         imageView.contentMode = .scaleToFill
-        imageView.image = R.image.xVoucherSurface()
+        imageView.image = Image.voucherTickerIcon
         return imageView
     }()
     
@@ -108,13 +108,13 @@ class MActionsViewController: UIViewController {
   private let organizationIamge: UIImageView = {
       let imageView = UIImageView(frame: .zero)
       imageView.contentMode = .scaleToFill
-      imageView.image = R.image.face24Px()
+    imageView.image = Image.faceIcon
       return imageView
   }()
     
     private let arrowImageView: UIImageView = {
         let imageView = UIImageView(frame: .zero)
-        imageView.image = R.image.roundedRight()
+        imageView.image = Image.arrowRightIcon
         imageView.contentMode = .scaleAspectFit
         return imageView
     }()

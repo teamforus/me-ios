@@ -60,8 +60,6 @@ class MProductReservationViewController: UIViewController {
             }
         }
     }
-    
-    
 }
 
 extension MProductReservationViewController: UITableViewDelegate, UITableViewDataSource {

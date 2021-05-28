@@ -378,6 +378,7 @@ extension MAFirstPageViewController {
                 }else {
                     self?.showSimpleAlertWithSingleAction(title: Localize.error_exclamation(), message: "", okAction: UIAlertAction(title: Localize.ok(), style: .default, handler: { (action) in
                     }))
+                    
                 }
             }
         }

@@ -184,7 +184,7 @@ public class AppLocker: UIViewController {
             
             view.shake(delegate: self)
             view.backgroundColor = .red
-            self.photoImageView.image = UIImage(named: "lockError")
+            self.photoImageView.image = Image.lockErrorIcon
             if self.isCancelButton == true {
                 submessageLabel.text = Localize.codes_dont_match_please_try_again()
             }else{

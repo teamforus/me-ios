@@ -45,7 +45,7 @@ class MConfirmAuthViewController: UIViewController {
     private let iconImageView: UIImageView = {
         let imageView = UIImageView(frame: .zero)
         imageView.contentMode = .scaleAspectFit
-        imageView.image = R.image.iconCheckAuthorize()
+        imageView.image = Image.checkAuthorizationIcon
         return imageView
     }()
     
@@ -117,10 +117,10 @@ extension MConfirmAuthViewController {
         scrollView.snp.makeConstraints { make in
             make.top.left.right.bottom.equalTo(self.view)
         }
-            bodyView.snp.makeConstraints { make in
-                make.bottom.right.left.top.equalTo(self.scrollView)
-                make.height.width.equalTo(self.view)
-            }
+        bodyView.snp.makeConstraints { make in
+            make.bottom.right.left.top.equalTo(self.scrollView)
+            make.height.width.equalTo(self.view)
+        }
         
         titleLabel.snp.makeConstraints { make in
             make.top.equalTo(self.bodyView.safeAreaLayoutGuide).offset(12)

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8v4-1k-45a">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8v4-1k-45a">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -63,7 +63,7 @@
                                                             <userDefinedRuntimeAttribute type="string" keyPath="colorName" value="DarkGray_DarkTheme"/>
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="5XVoucherSurface" translatesAutoresizingMaskIntoConstraints="NO" id="kvV-Yv-NsQ">
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="voucher_ticket_icon" translatesAutoresizingMaskIntoConstraints="NO" id="kvV-Yv-NsQ">
                                                         <rect key="frame" x="17" y="103" width="382" height="120"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
                                                     </imageView>
@@ -136,7 +136,7 @@
                                                             <action selector="showOrganizations:" destination="8v4-1k-45a" eventType="touchUpInside" id="tOF-Nw-zVv"/>
                                                         </connections>
                                                     </button>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="face24Px" translatesAutoresizingMaskIntoConstraints="NO" id="ncG-YG-kKU" customClass="RoundImageView" customModule="Me_iOS" customModuleProvider="target">
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="face_icon" translatesAutoresizingMaskIntoConstraints="NO" id="ncG-YG-kKU" customClass="RoundImageView" customModule="Me_iOS" customModuleProvider="target">
                                                         <rect key="frame" x="20" y="11" width="35" height="35"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     </imageView>
@@ -239,7 +239,7 @@
                                                             <userDefinedRuntimeAttribute type="string" keyPath="colorName" value="Background_Voucher_DarkTheme"/>
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="roundedRight" translatesAutoresizingMaskIntoConstraints="NO" id="EOY-EE-Hwy">
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="arrow_right_icon" translatesAutoresizingMaskIntoConstraints="NO" id="EOY-EE-Hwy">
                                                         <rect key="frame" x="366" y="11" width="30" height="35"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                                     </imageView>
@@ -377,11 +377,11 @@
         </designable>
     </designables>
     <resources>
-        <image name="5XVoucherSurface" width="345" height="120"/>
+        <image name="arrow_right_icon" width="72" height="72"/>
         <image name="back" width="24" height="24"/>
-        <image name="face24Px" width="24" height="24"/>
+        <image name="face_icon" width="24" height="24"/>
         <image name="qrV" width="16" height="16"/>
-        <image name="roundedRight" width="72" height="72"/>
+        <image name="voucher_ticket_icon" width="345" height="120"/>
         <systemColor name="darkTextColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
