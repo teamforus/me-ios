@@ -178,7 +178,7 @@ extension MVouchersViewController: UITableViewDelegate{
         
         switch voucherType {
         case .vouchers?:
-            if voucherViewModel.selectedVoucher?.product != nil {
+            if voucher.product != nil {
                 let vc = ProductVoucherViewController()
                 vc.address = voucher.address ?? ""
                 vc.hidesBottomBarWhenPushed = true
