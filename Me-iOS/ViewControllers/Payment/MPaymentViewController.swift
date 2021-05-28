@@ -140,7 +140,7 @@ extension MPaymentViewController {
         }
         amountField.setPlaceholderColor(with: Localize.enter_the_price_here(), and: .lightGray)
         notesField.setPlaceholderColor(with: Localize.note(), and: .lightGray)
-        let image = UIImage(named: "roundedRight")?.withRenderingMode(.alwaysTemplate)
+        let image = Image.arrowRightIcon?.withRenderingMode(.alwaysTemplate)
         self.arrowIcon.image = image
         if #available(iOS 11.0, *) {
             self.arrowIcon.tintColor = UIColor(named: "Black_Light_DarkTheme")

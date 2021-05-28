@@ -83,7 +83,7 @@
                                                     <rect key="frame" x="15" y="10" width="345" height="120"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                                     <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="5XVoucherSurface" translatesAutoresizingMaskIntoConstraints="NO" id="CM2-mv-nV5">
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="voucher_ticket_icon" translatesAutoresizingMaskIntoConstraints="NO" id="CM2-mv-nV5">
                                                             <rect key="frame" x="0.0" y="0.0" width="345" height="120"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                                         </imageView>
@@ -210,8 +210,8 @@
         <segue reference="n7a-Va-rEj"/>
     </inferredMetricsTieBreakers>
     <resources>
-        <image name="5XVoucherSurface" width="345" height="120"/>
         <image name="Resting" width="210" height="210"/>
+        <image name="voucher_ticket_icon" width="345" height="120"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
