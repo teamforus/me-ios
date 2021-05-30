@@ -124,38 +124,37 @@ extension MMapDetailsTableViewCell {
     }
     
     func setupConstraints(){
-        NSLayoutConstraint.activate([
-            bodyView.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 40),
-            bodyView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 10),
-            bodyView.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant:  -10),
-            bodyView.heightAnchor.constraint(equalToConstant: 70),
-            bodyView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: 0)
-        ])
         
-        NSLayoutConstraint.activate([
-            titleLabel.topAnchor.constraint(equalTo: self.bodyView.topAnchor, constant: 25),
-            titleLabel.leadingAnchor.constraint(equalTo: self.bodyView.leadingAnchor, constant: 67),
-        ])
-         
-        NSLayoutConstraint.activate([
-            subTitleLabel.topAnchor.constraint(equalTo: self.bodyView.topAnchor, constant: 52),
-            subTitleLabel.leadingAnchor.constraint(equalTo: self.bodyView.leadingAnchor, constant: 67),
-        ])
+        bodyView.snp.makeConstraints { make in
+            make.top.equalTo(self.contentView).offset(40)
+            make.left.equalTo(self.contentView).offset(10)
+            make.right.equalTo(self.contentView).offset(-10)
+            make.height.equalTo(70)
+            make.bottom.equalTo(self.contentView)
+        }
         
-        NSLayoutConstraint.activate([
-            iconImage.topAnchor.constraint(equalTo: self.bodyView.topAnchor, constant: 22),
-            iconImage.leadingAnchor.constraint(equalTo: self.bodyView.leadingAnchor, constant: 8),
-            iconImage.heightAnchor.constraint(equalToConstant: 44),
-            iconImage.widthAnchor.constraint(equalToConstant: 44),
-        ])
+        titleLabel.snp.makeConstraints { make in
+            make.top.equalTo(bodyView).offset(25)
+            make.left.equalTo(bodyView).offset(67)
+        }
         
-        NSLayoutConstraint.activate([
-            mapView.topAnchor.constraint(equalTo: self.bodyView.topAnchor, constant: 84),
-            mapView.leadingAnchor.constraint(equalTo: self.bodyView.leadingAnchor, constant: 3),
-            mapView.trailingAnchor.constraint(equalTo: self.bodyView.trailingAnchor, constant: -3),
-            mapView.bottomAnchor.constraint(equalTo: self.bodyView.bottomAnchor, constant: 0)
-        ])
+        subTitleLabel.snp.makeConstraints { make in
+            make.top.equalTo(bodyView).offset(52)
+            make.left.equalTo(bodyView).offset(67)
+        }
+       
+        iconImage.snp.makeConstraints { make in
+            make.top.equalTo(bodyView).offset(22)
+            make.left.equalTo(bodyView).offset(8)
+            make.height.width.equalTo(44)
+        }
         
+        mapView.snp.makeConstraints { make in
+            make.top.equalTo(bodyView).offset(84)
+            make.left.equalTo(bodyView).offset(3)
+            make.right.equalTo(bodyView).offset(-3)
+            make.bottom.equalTo(bodyView)
+        }
     }
 }
 

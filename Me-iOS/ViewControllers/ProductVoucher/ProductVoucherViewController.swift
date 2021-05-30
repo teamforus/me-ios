@@ -226,26 +226,24 @@ extension ProductVoucherViewController{
     
     // MARK: - Add Constraints
     private func addCosntrains(){
-        NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 103),
-            tableView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 0),
-            tableView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: 0),
-            tableView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: 0)
-        ])
         
-        NSLayoutConstraint.activate([
-            backButton.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 54),
-            backButton.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 14),
-            backButton.heightAnchor.constraint(equalToConstant: 44),
-            backButton.widthAnchor.constraint(equalToConstant: 44),
-        ])
+        tableView.snp.makeConstraints { make in
+            make.top.equalTo(view).offset(103)
+            make.left.right.bottom.equalTo(view)
+        }
         
-        NSLayoutConstraint.activate([
-            titleLabel.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 56),
-            titleLabel.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
-            titleLabel.centerYAnchor.constraint(equalTo: self.backButton.centerYAnchor),
-            titleLabel.widthAnchor.constraint(equalToConstant: 200),
-        ])
+        backButton.snp.makeConstraints { make in
+            make.top.equalTo(view).offset(54)
+            make.left.equalTo(view).offset(14)
+            make.width.height.equalTo(44)
+        }
+        
+        titleLabel.snp.makeConstraints { make in
+            make.top.equalTo(view).offset(56)
+            make.centerX.equalTo(view)
+            make.centerY.equalTo(backButton)
+            make.width.equalTo(200)
+        }
     }
 }
 
