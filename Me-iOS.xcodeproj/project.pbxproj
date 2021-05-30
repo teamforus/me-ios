@@ -173,6 +173,7 @@
 		779F1336FE399D3CDDB6AE5E /* Pods_Me_iOSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 970CD27E06CAF26581789FF9 /* Pods_Me_iOSUITests.framework */; };
 		EBA8A6DE91260768B5722478 /* Pods_Me_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8797D7DA4E65B3CDD1B8B11 /* Pods_Me_iOS.framework */; };
 		FF037FB52637326100B078DC /* DarkMode_ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF037FB42637326100B078DC /* DarkMode_ActionButton.swift */; };
+		FF07B0FB2663C2570030548A /* ProductVoucherDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF07B0FA2663C2570030548A /* ProductVoucherDataSource.swift */; };
 		FF0DACBE246AD0A80034E3E4 /* OrganizationValidatorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF3B141A243722EE003FDDD9 /* OrganizationValidatorViewController.xib */; };
 		FF1CF092263AEED700C8C317 /* MMapDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1CF08A263AEED700C8C317 /* MMapDetailsTableViewCell.swift */; };
 		FF1CF093263AEED700C8C317 /* BrancheCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1CF08C263AEED700C8C317 /* BrancheCollectionViewCell.swift */; };
@@ -492,6 +493,7 @@
 		F2B12B043656848EE23CDF37 /* Pods_Me_iOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Me_iOSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3E9ECB144534F67E9BA608D /* Pods-Me-iOSUITests.demo.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Me-iOSUITests.demo.xcconfig"; path = "Target Support Files/Pods-Me-iOSUITests/Pods-Me-iOSUITests.demo.xcconfig"; sourceTree = "<group>"; };
 		FF037FB42637326100B078DC /* DarkMode_ActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkMode_ActionButton.swift; sourceTree = "<group>"; };
+		FF07B0FA2663C2570030548A /* ProductVoucherDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductVoucherDataSource.swift; sourceTree = "<group>"; };
 		FF1CF08A263AEED700C8C317 /* MMapDetailsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMapDetailsTableViewCell.swift; sourceTree = "<group>"; };
 		FF1CF08C263AEED700C8C317 /* BrancheCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrancheCollectionViewCell.swift; sourceTree = "<group>"; };
 		FF1CF08D263AEED700C8C317 /* MBranchesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MBranchesTableViewCell.swift; sourceTree = "<group>"; };
@@ -1194,6 +1196,7 @@
 			isa = PBXGroup;
 			children = (
 				04DD43C225CAB7DC00038A1D /* ProductVoucherViewController.swift */,
+				FF07B0FA2663C2570030548A /* ProductVoucherDataSource.swift */,
 				FF1CF089263AEED700C8C317 /* ProductVoucherCell */,
 				65A8B7342282EBE900B7DF05 /* ViewModel */,
 			);
@@ -1986,6 +1989,7 @@
 				6546256B230E891B007B812E /* MProductReservationViewController.swift in Sources */,
 				FF9B7157248503F100BBCAA3 /* MMainTabBarController.swift in Sources */,
 				65911B50228D8F2900EA30D6 /* ProductCategory.swift in Sources */,
+				FF07B0FB2663C2570030548A /* ProductVoucherDataSource.swift in Sources */,
 				65CF407B228C0B8F0006F5DE /* Register.swift in Sources */,
 				651B5C4822E881B500967148 /* ExchangeToken.swift in Sources */,
 				655D64792315A04300EABD57 /* MAFirstPageViewController.swift in Sources */,
@@ -2108,7 +2112,6 @@
 				657DBA512289973C00C67500 /* NotificationName.swift in Sources */,
 				FF1CF097263AEED700C8C317 /* MProductVoucherTableViewCell.swift in Sources */,
 				FF1CF09A263AF86E00C8C317 /* CustomPointAnnotation.swift in Sources */,
-				65A8B7432282EDDD00B7DF05 /* MEmailLoginViewController.swift in Sources */,
 				FF9C60FC253DD87D006F6979 /* ConfirmPayAction.swift in Sources */,
 				65CF407D228C0BBD0006F5DE /* Errors.swift in Sources */,
 				6568461722942E2900097E83 /* Extension+UITabBarController.swift in Sources */,
