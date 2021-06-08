@@ -107,7 +107,6 @@ extension BrancheCollectionViewCell {
     private func addSubviews() {
         let views = [bodyView, iconLocation, locationNameLabel, showMapButton, iconPhone, phoneNumberLabel]
         views.forEach { view in
-            view.translatesAutoresizingMaskIntoConstraints = false
             self.contentView.addSubview(view)
         }
     }
@@ -117,39 +116,36 @@ extension BrancheCollectionViewCell {
     // MARK: - Setup Constraints
     private func setupConstraints() {
         
-        NSLayoutConstraint.activate([
-            bodyView.topAnchor.constraint(equalTo: self.contentView.topAnchor),
-            bodyView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor),
-            bodyView.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor),
-            bodyView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor)
-        ])
+        bodyView.snp.makeConstraints { make in
+            make.top.left.right.bottom.equalTo(contentView)
+        }
         
-        NSLayoutConstraint.activate([
-            iconLocation.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 8),
-            iconLocation.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 16)
-        ])
+        iconLocation.snp.makeConstraints { make in
+            make.left.equalTo(contentView).offset(8)
+            make.top.equalTo(contentView).offset(16)
+        }
         
-        NSLayoutConstraint.activate([
-            locationNameLabel.centerYAnchor.constraint(equalTo: iconLocation.centerYAnchor),
-            locationNameLabel.leadingAnchor.constraint(equalTo: iconLocation.trailingAnchor, constant: 15)
-        ])
+        locationNameLabel.snp.makeConstraints { make in
+            make.centerY.equalTo(iconLocation)
+            make.left.equalTo(iconLocation.snp.right).offset(15)
+        }
         
-        NSLayoutConstraint.activate([
-            showMapButton.centerYAnchor.constraint(equalTo: iconLocation.centerYAnchor),
-            showMapButton.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: -8),
-            showMapButton.leadingAnchor.constraint(equalTo: locationNameLabel.trailingAnchor, constant: 8),
-            showMapButton.widthAnchor.constraint(equalToConstant: 60)
-        ])
+        showMapButton.snp.makeConstraints { make in
+            make.centerY.equalTo(iconLocation)
+            make.right.equalTo(contentView).offset(-8)
+            make.left.equalTo(locationNameLabel.snp.right).offset(8)
+            make.width.equalTo(60)
+        }
         
-        NSLayoutConstraint.activate([
-            iconPhone.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 8),
-            iconPhone.topAnchor.constraint(equalTo: self.iconLocation.bottomAnchor, constant: 36)
-        ])
+        iconPhone.snp.makeConstraints { make in
+            make.left.equalTo(contentView).offset(8)
+            make.top.equalTo(iconLocation.snp.bottom).offset(36)
+        }
         
-        NSLayoutConstraint.activate([
-            phoneNumberLabel.centerYAnchor.constraint(equalTo: iconPhone.centerYAnchor),
-            phoneNumberLabel.leadingAnchor.constraint(equalTo: iconPhone.trailingAnchor, constant: 15)
-        ])
+        phoneNumberLabel.snp.makeConstraints { make in
+            make.centerY.equalTo(iconPhone)
+            make.left.equalTo(iconPhone.snp.right).offset(15)
+        }
         
 //        NSLayoutConstraint.activate([
 //            iconClock.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 8),

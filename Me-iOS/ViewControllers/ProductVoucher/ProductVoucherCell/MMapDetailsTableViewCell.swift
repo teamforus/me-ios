@@ -118,7 +118,6 @@ extension MMapDetailsTableViewCell {
     func addSubviews() {
         let views = [bodyView, titleLabel, subTitleLabel, iconImage, mapView]
         views.forEach { (view) in
-            view.translatesAutoresizingMaskIntoConstraints = false
             self.contentView.addSubview(view)
         }
     }
@@ -129,7 +128,6 @@ extension MMapDetailsTableViewCell {
             make.top.equalTo(self.contentView).offset(40)
             make.left.equalTo(self.contentView).offset(10)
             make.right.equalTo(self.contentView).offset(-10)
-            make.height.equalTo(70)
             make.bottom.equalTo(self.contentView)
         }
         
@@ -145,14 +143,14 @@ extension MMapDetailsTableViewCell {
        
         iconImage.snp.makeConstraints { make in
             make.top.equalTo(bodyView).offset(22)
-            make.left.equalTo(bodyView).offset(8)
+            make.left.equalTo(bodyView).offset(10)
             make.height.width.equalTo(44)
         }
         
         mapView.snp.makeConstraints { make in
             make.top.equalTo(bodyView).offset(84)
-            make.left.equalTo(bodyView).offset(3)
-            make.right.equalTo(bodyView).offset(-3)
+            make.left.equalTo(bodyView).offset(10)
+            make.right.equalTo(bodyView).offset(-10)
             make.bottom.equalTo(bodyView)
         }
     }

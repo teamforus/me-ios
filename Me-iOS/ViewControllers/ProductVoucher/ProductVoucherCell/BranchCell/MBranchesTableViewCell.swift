@@ -13,6 +13,7 @@ class MBranchesTableViewCell: UITableViewCell {
     var offices: [Office] = []
     var parentViewController: UIViewController?
     
+    // MARK: - Properties
     private let bodyView: Background_DarkMode = {
         let bodyView = Background_DarkMode(frame: .zero)
         bodyView.colorName = "Gray_Dark_DarkTheme"
@@ -93,11 +94,9 @@ extension MBranchesTableViewCell: UICollectionViewDelegateFlowLayout {
 extension MBranchesTableViewCell {
     // MARK: - Add Subviews
     private func addSubiews() {
-        bodyView.translatesAutoresizingMaskIntoConstraints = false
         self.contentView.addSubview(bodyView)
         let views = [countBranchesLabel, collectionView]
         views.forEach { (view) in
-            view.translatesAutoresizingMaskIntoConstraints = false
             self.bodyView.addSubview(view)
         }
     }
@@ -107,23 +106,22 @@ extension MBranchesTableViewCell {
     // MARK: - Setup Constraints
     private func setupConstraints() {
         
-        NSLayoutConstraint.activate([
-            bodyView.topAnchor.constraint(equalTo: self.contentView.topAnchor),
-            bodyView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 10),
-            bodyView.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: -10),
-            bodyView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor)
-        ])
+        bodyView.snp.makeConstraints { make in
+            make.top.bottom.equalTo(contentView)
+            make.left.equalTo(contentView).offset(10)
+            make.right.equalTo(contentView).offset(-10)
+        }
         
-        NSLayoutConstraint.activate([
-            countBranchesLabel.topAnchor.constraint(equalTo: bodyView.topAnchor, constant: 17),
-            countBranchesLabel.leadingAnchor.constraint(equalTo: bodyView.leadingAnchor, constant: 16)
-        ])
+        countBranchesLabel.snp.makeConstraints { make in
+            make.top.equalTo(bodyView).offset(17)
+            make.left.equalTo(bodyView).offset(16)
+        }
         
-        NSLayoutConstraint.activate([
-            collectionView.topAnchor.constraint(equalTo: self.countBranchesLabel.bottomAnchor, constant: 6),
-            collectionView.leadingAnchor.constraint(equalTo: bodyView.leadingAnchor, constant: 10),
-            collectionView.trailingAnchor.constraint(equalTo: bodyView.trailingAnchor),
-            collectionView.bottomAnchor.constraint(equalTo: bodyView.bottomAnchor, constant: -5)
-        ])
+        collectionView.snp.makeConstraints { make in
+            make.top.equalTo(countBranchesLabel.snp.bottom).offset(6)
+            make.left.equalTo(bodyView).offset(10)
+            make.right.equalTo(bodyView)
+            make.bottom.equalTo(bodyView).offset(-5)
+        }
     }
 }

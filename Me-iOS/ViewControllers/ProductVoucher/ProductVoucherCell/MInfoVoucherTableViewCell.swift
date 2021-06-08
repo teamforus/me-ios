@@ -72,7 +72,6 @@ extension MInfoVoucherTableViewCell {
     private func addSubviews() {
         let views = [bodyView, emailButton, iconImageButton, voucherInfoButton]
         views.forEach { (view) in
-            view.translatesAutoresizingMaskIntoConstraints = false
             self.contentView.addSubview(view)
         }
     }
@@ -81,34 +80,30 @@ extension MInfoVoucherTableViewCell {
 extension MInfoVoucherTableViewCell {
     // MARK: - Setup Constraints
     private func setupConstraints(){
-        NSLayoutConstraint.activate([
-            bodyView.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 0),
-            bodyView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 0),
-            bodyView.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant:  0),
-            bodyView.heightAnchor.constraint(equalToConstant: 70),
-            bodyView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: 0)
-        ])
         
-        NSLayoutConstraint.activate([
-            emailButton.leadingAnchor.constraint(equalTo: self.bodyView.leadingAnchor, constant: 20),
-            emailButton.centerYAnchor.constraint(equalTo: self.bodyView.centerYAnchor),
-            emailButton.heightAnchor.constraint(equalToConstant: 46),
-            emailButton.widthAnchor.constraint(equalToConstant: 170),
-        ])
+        bodyView.snp.makeConstraints { make in
+            make.top.left.right.bottom.equalTo(contentView)
+        }
         
-        NSLayoutConstraint.activate([
-            voucherInfoButton.trailingAnchor.constraint(equalTo: self.bodyView.trailingAnchor, constant:  -17),
-            voucherInfoButton.leadingAnchor.constraint(equalTo: self.emailButton.trailingAnchor, constant: 12),
-            voucherInfoButton.heightAnchor.constraint(equalToConstant: 46),
-            voucherInfoButton.centerYAnchor.constraint(equalTo: emailButton.centerYAnchor),
-        ])
+        emailButton.snp.makeConstraints { make in
+            make.left.equalTo(bodyView).offset(20)
+            make.centerY.equalTo(bodyView)
+            make.height.equalTo(46)
+            make.width.equalTo(170)
+        }
         
-        NSLayoutConstraint.activate([
-            iconImageButton.topAnchor.constraint(equalTo: self.emailButton.topAnchor, constant: 12),
-            iconImageButton.leadingAnchor.constraint(equalTo: self.emailButton.leadingAnchor, constant: 12),
-            iconImageButton.heightAnchor.constraint(equalToConstant: 20),
-            iconImageButton.widthAnchor.constraint(equalToConstant: 23),
-        ])
+        voucherInfoButton.snp.makeConstraints { make in
+            make.right.equalTo(bodyView).offset(-17)
+            make.left.equalTo(emailButton.snp.right).offset(12)
+            make.height.equalTo(46)
+            make.centerY.equalTo(emailButton)
+        }
+        
+        iconImageButton.snp.makeConstraints { make in
+            make.top.left.equalTo(emailButton).offset(12)
+            make.height.equalTo(20)
+            make.width.equalTo(23)
+        }
     }
 }
 

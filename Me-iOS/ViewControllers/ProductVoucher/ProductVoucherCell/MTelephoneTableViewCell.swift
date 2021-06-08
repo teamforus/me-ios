@@ -60,7 +60,6 @@ class MTelephoneTableViewCell: UITableViewCell {
     
     func setupVoucher(voucher: Voucher?) {
         self.infoTitleLabel.text = voucher?.offices?.first?.phone ?? ""
-        
     }
     
 }
@@ -69,45 +68,38 @@ extension MTelephoneTableViewCell {
     func addSubviews() {
         let views = [bodyView, titleLabel, infoTitleLabel, separatorView, iconImage]
         views.forEach { (view) in
-            view.translatesAutoresizingMaskIntoConstraints = false
             self.contentView.addSubview(view)
         }
     }
     func setupConstraints(){
-        NSLayoutConstraint.activate([
-            bodyView.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 0),
-            bodyView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 10),
-            bodyView.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant:  -10),
-            bodyView.heightAnchor.constraint(equalToConstant: 70),
-            bodyView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: 0)
-        ])
         
+        bodyView.snp.makeConstraints { make in
+            make.top.bottom.equalTo(contentView)
+            make.right.equalTo(contentView).offset(-10)
+            make.left.equalTo(contentView).offset(10)
+        }
         
-        NSLayoutConstraint.activate([
-            titleLabel.topAnchor.constraint(equalTo: self.bodyView.topAnchor, constant: 9),
-            titleLabel.leadingAnchor.constraint(equalTo: self.bodyView.leadingAnchor, constant: 16),
-        ])
+        titleLabel.snp.makeConstraints { make in
+            make.top.equalTo(bodyView).offset(9)
+            make.left.equalTo(bodyView).offset(16)
+        }
         
+        infoTitleLabel.snp.makeConstraints { make in
+            make.top.equalTo(bodyView).offset(35)
+            make.left.equalTo(bodyView).offset(16)
+        }
         
-        NSLayoutConstraint.activate([
-            infoTitleLabel.topAnchor.constraint(equalTo: self.bodyView.topAnchor, constant: 35),
-            infoTitleLabel.leadingAnchor.constraint(equalTo: self.bodyView.leadingAnchor, constant: 16),
-        ])
+        separatorView.snp.makeConstraints { make in
+            make.right.equalTo(bodyView).offset(-15)
+            make.left.equalTo(bodyView).offset(15)
+            make.height.equalTo(1)
+            make.bottom.equalTo(bodyView).offset(-2)
+        }
         
-        
-        NSLayoutConstraint.activate([
-            separatorView.trailingAnchor.constraint(equalTo: self.bodyView.trailingAnchor, constant: -15),
-            separatorView.leadingAnchor.constraint(equalTo: self.bodyView.leadingAnchor, constant: 15),
-            separatorView.heightAnchor.constraint(equalToConstant: 1),
-            separatorView.bottomAnchor.constraint(equalTo: self.bodyView.bottomAnchor,constant: -2)
-        ])
-        
-        NSLayoutConstraint.activate([
-            iconImage.topAnchor.constraint(equalTo: self.bodyView.topAnchor, constant: 16),
-            iconImage.trailingAnchor.constraint(equalTo: self.bodyView.trailingAnchor, constant: -15),
-            iconImage.heightAnchor.constraint(equalToConstant: 40),
-            iconImage.widthAnchor.constraint(equalToConstant: 40),
-        ])
-        
+        iconImage.snp.makeConstraints { make in
+            make.top.equalTo(bodyView).offset(16)
+            make.right.equalTo(bodyView).offset(-15)
+            make.height.width.equalTo(40)
+        }
     }
 }

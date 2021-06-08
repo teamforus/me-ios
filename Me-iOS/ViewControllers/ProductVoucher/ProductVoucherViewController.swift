@@ -216,7 +216,6 @@ extension ProductVoucherViewController {
     private func addSubviews(){
         let views = [tableView, backButton, titleLabel]
         views.forEach { (view) in
-            view.translatesAutoresizingMaskIntoConstraints = false
             self.view.addSubview(view)
         }
     }

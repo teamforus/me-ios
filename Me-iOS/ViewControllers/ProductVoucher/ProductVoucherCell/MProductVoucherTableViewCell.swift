@@ -63,7 +63,6 @@ extension MProductVoucherTableViewCell {
     private func addSubviews() {
         let views = [imageVoucher, productName, organizationName, imageQRCodeVoucher]
         views.forEach { (view) in
-            view.translatesAutoresizingMaskIntoConstraints = false
             self.contentView.addSubview(view)
         }
     }
@@ -72,32 +71,30 @@ extension MProductVoucherTableViewCell {
 extension MProductVoucherTableViewCell {
     // MARK: - Setup Constraints
     private func setupConstraints(){
-        NSLayoutConstraint.activate([
-            imageVoucher.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 0),
-            imageVoucher.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 15),
-            imageVoucher.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant:  -15),
-            imageVoucher.heightAnchor.constraint(equalToConstant: 120),
-            imageVoucher.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: -10)
-        ])
         
-        NSLayoutConstraint.activate([
-            productName.topAnchor.constraint(equalTo: self.imageVoucher.topAnchor, constant: 20),
-            productName.leadingAnchor.constraint(equalTo: self.imageVoucher.leadingAnchor, constant: 20),
-            productName.widthAnchor.constraint(equalToConstant: 180)
-        ])
+        imageVoucher.snp.makeConstraints { make in
+            make.top.equalTo(contentView)
+            make.left.equalTo(contentView).offset(15)
+            make.right.equalTo(contentView).offset(-15)
+            make.bottom.equalTo(contentView).offset(-10)
+        }
         
-        NSLayoutConstraint.activate([
-            organizationName.topAnchor.constraint(equalTo: self.productName.bottomAnchor, constant: 5),
-            organizationName.leadingAnchor.constraint(equalTo: self.imageVoucher.leadingAnchor, constant: 20),
-            organizationName.widthAnchor.constraint(equalToConstant: 180)
-        ])
+        productName.snp.makeConstraints { make in
+            make.top.left.equalTo(imageVoucher).offset(20)
+            make.width.equalTo(180)
+        }
         
-        NSLayoutConstraint.activate([
-            imageQRCodeVoucher.trailingAnchor.constraint(equalTo: self.imageVoucher.trailingAnchor, constant:  -10),
-            imageQRCodeVoucher.centerYAnchor.constraint(equalTo: self.imageVoucher.centerYAnchor),
-            imageQRCodeVoucher.heightAnchor.constraint(equalToConstant: 76),
-            imageQRCodeVoucher.widthAnchor.constraint(equalToConstant: 76),
-        ])
+        organizationName.snp.makeConstraints { make in
+            make.top.equalTo(productName.snp.bottom).offset(5)
+            make.left.equalTo(imageVoucher).offset(20)
+            make.width.equalTo(180)
+        }
+        
+        imageQRCodeVoucher.snp.makeConstraints { make in
+            make.right.equalTo(imageVoucher).offset(-10)
+            make.centerY.equalTo(imageVoucher)
+            make.height.width.equalTo(76)
+        }
     }
 }
 
