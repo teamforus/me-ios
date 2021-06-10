@@ -804,8 +804,6 @@ struct R: Rswift.Validatable {
     static let iconsBugreport = Rswift.ImageResource(bundle: R.hostingBundle, name: "iconsBugreport")
     /// Image `illustration`.
     static let illustration = Rswift.ImageResource(bundle: R.hostingBundle, name: "illustration")
-    /// Image `list of transactions`.
-    static let listOfTransactions = Rswift.ImageResource(bundle: R.hostingBundle, name: "list of transactions")
     /// Image `location_icon`.
     static let location_icon = Rswift.ImageResource(bundle: R.hostingBundle, name: "location_icon")
     /// Image `lock24Px-1`.
@@ -858,6 +856,8 @@ struct R: Rswift.Validatable {
     static let top_right_square_icon = Rswift.ImageResource(bundle: R.hostingBundle, name: "top_right_square_icon")
     /// Image `touchId`.
     static let touchId = Rswift.ImageResource(bundle: R.hostingBundle, name: "touchId")
+    /// Image `transaction_icon`.
+    static let transaction_icon = Rswift.ImageResource(bundle: R.hostingBundle, name: "transaction_icon")
     /// Image `userpick`.
     static let userpick = Rswift.ImageResource(bundle: R.hostingBundle, name: "userpick")
     /// Image `voucher_ticket_icon`.
@@ -1197,13 +1197,6 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
-    /// `UIImage(named: "list of transactions", bundle: ..., traitCollection: ...)`
-    static func listOfTransactions(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.listOfTransactions, compatibleWith: traitCollection)
-    }
-    #endif
-
-    #if os(iOS) || os(tvOS)
     /// `UIImage(named: "location_icon", bundle: ..., traitCollection: ...)`
     static func location_icon(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.location_icon, compatibleWith: traitCollection)
@@ -1386,6 +1379,13 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "transaction_icon", bundle: ..., traitCollection: ...)`
+    static func transaction_icon(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.transaction_icon, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
     /// `UIImage(named: "userpick", bundle: ..., traitCollection: ...)`
     static func userpick(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.userpick, compatibleWith: traitCollection)
@@ -1562,14 +1562,12 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.reuseIdentifier` struct is generated, and contains static references to 3 reuse identifiers.
+  /// This `R.reuseIdentifier` struct is generated, and contains static references to 2 reuse identifiers.
   struct reuseIdentifier {
     /// Reuse identifier `OrganizationTableViewCell`.
     static let organizationTableViewCell: Rswift.ReuseIdentifier<OrganizationTableViewCell> = Rswift.ReuseIdentifier(identifier: "OrganizationTableViewCell")
     /// Reuse identifier `OrganizationValidatorTableViewCell`.
     static let organizationValidatorTableViewCell: Rswift.ReuseIdentifier<OrganizationValidatorTableViewCell> = Rswift.ReuseIdentifier(identifier: "OrganizationValidatorTableViewCell")
-    /// Reuse identifier `valuteCell`.
-    static let valuteCell: Rswift.ReuseIdentifier<ValuteTableViewCell> = Rswift.ReuseIdentifier(identifier: "valuteCell")
 
     fileprivate init() {}
   }
@@ -8561,15 +8559,9 @@ struct _R: Rswift.Validatable {
 
       static func validate() throws {
         if UIKit.UIImage(named: "Oval 2 Copy", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Oval 2 Copy' is used in storyboard 'Main', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "Resting", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Resting' is used in storyboard 'Main', but couldn't be loaded.") }
         if UIKit.UIImage(named: "activeBlue", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'activeBlue' is used in storyboard 'Main', but couldn't be loaded.") }
         if UIKit.UIImage(named: "closeBlack", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'closeBlack' is used in storyboard 'Main', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "eth", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'eth' is used in storyboard 'Main', but couldn't be loaded.") }
         if UIKit.UIImage(named: "iconGrey", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'iconGrey' is used in storyboard 'Main', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "list of transactions", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'list of transactions' is used in storyboard 'Main', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "rectangle", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'rectangle' is used in storyboard 'Main', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "rectangleRed", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'rectangleRed' is used in storyboard 'Main', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "voucher", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'voucher' is used in storyboard 'Main', but couldn't be loaded.") }
         if UIKit.UIImage(named: "wallet", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'wallet' is used in storyboard 'Main', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
           if UIKit.UIColor(named: "systemGreenColor", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'systemGreenColor' is used in storyboard 'Main', but couldn't be loaded.") }

@@ -44,7 +44,7 @@ extension VouchersDataSource: UITableViewDataSource {
 //            cell.sendButton.addTarget(self, action: #selector(send(_:)), for: .touchUpInside)
             return cell
         case .vouchers:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! VoucherTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: VoucherTableViewCell.identifier, for: indexPath) as! VoucherTableViewCell
             let voucher = vouchers[indexPath.row]
             cell.setupVoucher(voucher: voucher)
             

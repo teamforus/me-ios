@@ -16,5 +16,6 @@ public struct Color {
     public static let offTintSwitch = UIColor(red: 215/255, green: 218/255, blue: 227/255, alpha: 1)
     public static let onTintSwitch = UIColor(red: 69/255, green: 120/255, blue: 249/255, alpha: 1)
     public static let grayText = UIColor(red: 153/255, green: 155/255, blue: 157/255, alpha: 1)
-    
+    public static let blueText = UIColor(hex: "#315EFD")
+    public static let usedColor = UIColor(hex: "#EFA741")
 }

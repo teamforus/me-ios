@@ -15,23 +15,44 @@ enum VoucherType: Int {
 }
 
 class MVouchersViewController: UIViewController {
-    @IBOutlet weak var tableView: UITableView!
-    private let refreshControl = UIRefreshControl()
     var isFromLogin: Bool!
-    @IBOutlet weak var segmentController: HBSegmentedControl!
-    @IBOutlet weak var segmentView: UIView!
-    @IBOutlet weak var transactionButton: UIButton!
-    
-    @IBOutlet weak var titleLabel: UILabel_DarkMode!
     var voucherType: VoucherType! = .vouchers
-    lazy var voucherViewModel: VouchersViewModel = {
-        return VouchersViewModel()
-    }()
     var dataSource: VouchersDataSource!
     var wallet: Office!
     
+    lazy var voucherViewModel: VouchersViewModel = {
+        return VouchersViewModel()
+    }()
+    
+    // MARK: - Properties
+    private let refreshControl = UIRefreshControl()
+    
+    var segmentController: HBSegmentedControl!
+    var segmentView: UIView!
+    
+    var tableView: UITableView = {
+        let tableView = UITableView(frame: .zero)
+        return tableView
+    }()
+    
+    var transactionButton: ActionButton = {
+        let buttton = ActionButton(frame: .zero)
+        buttton.setImage(Image.transactionIcon, for: .normal)
+        return buttton
+    }()
+    
+    var titleLabel: UILabel_DarkMode = {
+        let label = UILabel_DarkMode(frame: .zero)
+        label.font = R.font.googleSansBold(size: 38)
+        label.text = "Vouchers"
+        return label
+    }()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        addSubviews()
+        setupConstraints()
         setupView()
     }
     
@@ -39,16 +60,16 @@ class MVouchersViewController: UIViewController {
         setupAccessibility()
         if !Preference.tapToSeeTransactionTipHasShown {
             Preference.tapToSeeTransactionTipHasShown = true
-            transactionButton?.toolTip(message: Localize.tap_here_you_want_to_see_list_transaction(), style: .dark, location: .bottom, offset: CGPoint(x: -50, y: 0))
+            transactionButton.toolTip(message: Localize.tap_here_you_want_to_see_list_transaction(), style: .dark, location: .bottom, offset: CGPoint(x: -50, y: 0))
         }
         
-        setupSegmentControll()
+//        setupSegmentControll()
         voucherViewModel.completeIdentity = { [unowned self] (response) in
             DispatchQueue.main.async {
                 self.wallet = response
             }
         }
-        
+        setupAction()
         voucherViewModel.getIndentity()
         setupTableView()
         initFetch()
@@ -63,6 +84,7 @@ class MVouchersViewController: UIViewController {
                 self?.voucherViewModel.sendPushToken(token: UserDefaults.standard.string(forKey: "TOKENPUSH") ?? "")
                 self?.dataSource = VouchersDataSource(vouchers: vouchers, wallet: nil)
                 self?.tableView.dataSource = self?.dataSource
+                self?.tableView.delegate = self
                 self?.tableView.reloadData()
                 if vouchers.count == 0 {
                     
@@ -84,7 +106,9 @@ class MVouchersViewController: UIViewController {
         } else {
             tableView.addSubview(refreshControl)
         }
+        tableView.separatorStyle = .none
         refreshControl.addTarget(self, action: #selector(refreshData(_:)), for: .valueChanged)
+        tableView.register(VoucherTableViewCell.self, forCellReuseIdentifier: VoucherTableViewCell.identifier)
         
     }
     
@@ -147,13 +171,6 @@ class MVouchersViewController: UIViewController {
         }
     }
     
-    @IBAction func openTransaction(_ sender: UIButton) {
-        transactionButton.removeToolTip(with: Localize.tap_here_you_want_to_see_list_transaction())
-        let transactionVC = MTransactionsViewController()
-        transactionVC.hidesBottomBarWhenPushed = true
-        self.navigationController?.pushViewController(transactionVC, animated: true)
-    }
-    
     
     // MARK: - Navigation
     
@@ -189,6 +206,10 @@ extension MVouchersViewController: UITableViewDelegate{
         default:
             break
         }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 114
     }
 }
 
@@ -232,18 +253,63 @@ extension MVouchersViewController: UIViewControllerPreviewingDelegate{
         navigationController?.pushViewController(viewControllerToCommit, animated: true)
     }
 }
+
+// MARK: - Add Subviews
+
+extension MVouchersViewController {
+    private func addSubviews() {
+        let views = [titleLabel, transactionButton, tableView]
+        views.forEach { view in
+            self.view.addSubview(view)
+        }
+    }
+}
+
+// MARK: - Setup Constraintst
+
+extension MVouchersViewController {
+    private func setupConstraints() {
+        titleLabel.snp.makeConstraints { make in
+            make.top.equalTo(self.view.safeAreaLayoutGuide).offset(40)
+            make.left.equalTo(self.view).offset(16)
+        }
+        
+        transactionButton.snp.makeConstraints { make in
+            make.centerY.equalTo(titleLabel)
+            make.right.equalTo(self.view).offset(-22)
+        }
+        
+        tableView.snp.makeConstraints { make in
+            make.top.equalTo(titleLabel.snp.bottom).offset(16)
+            make.left.right.bottom.equalTo(self.view)
+        }
+    }
+}
+
+extension MVouchersViewController {
+    // MARK: - Setup Action
+    private func setupAction() {
+        transactionButton.actionHandleBlock = { [weak self] (_) in
+            self?.transactionButton.removeToolTip(with: Localize.tap_here_you_want_to_see_list_transaction())
+            let transactionVC = MTransactionsViewController()
+            transactionVC.hidesBottomBarWhenPushed = true
+            self?.navigationController?.pushViewController(transactionVC, animated: true)
+        }
+    }
+}
+
 // MARK: - Accessibility Protocol
 
 extension MVouchersViewController: AccessibilityProtocol {
     
     func setupAccessibility() {
-        if let valute = segmentController.accessibilityElement(at: 0) as? UIView {
-            valute.setupAccesibility(description: "Choose to show all valute", accessibilityTraits: .causesPageTurn)
-        }
+//        if let valute = segmentController.accessibilityElement(at: 0) as? UIView {
+//            valute.setupAccesibility(description: "Choose to show all valute", accessibilityTraits: .causesPageTurn)
+//        }
         
-        if let vouchers = segmentController.accessibilityElement(at: 1) as? UIView {
-            vouchers.setupAccesibility(description: "Choose to show all vouchers", accessibilityTraits: .causesPageTurn)
-        }
+//        if let vouchers = segmentController.accessibilityElement(at: 1) as? UIView {
+//            vouchers.setupAccesibility(description: "Choose to show all vouchers", accessibilityTraits: .causesPageTurn)
+//        }
         titleLabel.setupAccesibility(description: Localize.vouchers(), accessibilityTraits: .header)
     }
 }

@@ -25,9 +25,6 @@
 		5B42874623AD0EBE00FEABE7 /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B42874423AD0EBE00FEABE7 /* User+CoreDataProperties.swift */; };
 		5B5871AE240571AF004C3AF7 /* BodyId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5871AD240571AF004C3AF7 /* BodyId.swift */; };
 		5BF8461F241FA60100B0BAAD /* BottomQrWithPinViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BF84621241FA60100B0BAAD /* BottomQrWithPinViewController.xib */; };
-		650FF5DF22AD192C004C3A85 /* ProductVoucher.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 650FF5E122AD192C004C3A85 /* ProductVoucher.storyboard */; };
-		5BF84626241FA66800B0BAAD /* EnablePersonalInformation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BF84628241FA66800B0BAAD /* EnablePersonalInformation.storyboard */; };
-		5BF8462D241FA6A900B0BAAD /* SuccessRegister.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BF8462F241FA6A900B0BAAD /* SuccessRegister.storyboard */; };
 		650FF5E622AD1AE3004C3A85 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 650FF5E822AD1AE3004C3A85 /* Main.storyboard */; };
 		650FF61022AD24A2004C3A85 /* First.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 650FF61222AD24A2004C3A85 /* First.storyboard */; };
 		650FF61722AD2ACF004C3A85 /* RecordDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 650FF61922AD2ACF004C3A85 /* RecordDetail.storyboard */; };
@@ -171,7 +168,6 @@
 		FF037FB52637326100B078DC /* DarkMode_ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF037FB42637326100B078DC /* DarkMode_ActionButton.swift */; };
 		FF07B0FB2663C2570030548A /* ProductVoucherDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF07B0FA2663C2570030548A /* ProductVoucherDataSource.swift */; };
 		FF0DACBE246AD0A80034E3E4 /* OrganizationValidatorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF3B141A243722EE003FDDD9 /* OrganizationValidatorViewController.xib */; };
-		FF41BEAC264E9804002C0CED /* MSuccessEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF41BEAB264E9804002C0CED /* MSuccessEmailViewController.swift */; };
 		FF1CF092263AEED700C8C317 /* MMapDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1CF08A263AEED700C8C317 /* MMapDetailsTableViewCell.swift */; };
 		FF1CF093263AEED700C8C317 /* BrancheCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1CF08C263AEED700C8C317 /* BrancheCollectionViewCell.swift */; };
 		FF1CF094263AEED700C8C317 /* MBranchesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1CF08D263AEED700C8C317 /* MBranchesTableViewCell.swift */; };
@@ -180,6 +176,7 @@
 		FF1CF097263AEED700C8C317 /* MProductVoucherTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1CF090263AEED700C8C317 /* MProductVoucherTableViewCell.swift */; };
 		FF1CF098263AEED700C8C317 /* MInfoVoucherTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1CF091263AEED700C8C317 /* MInfoVoucherTableViewCell.swift */; };
 		FF1CF09A263AF86E00C8C317 /* CustomPointAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1CF099263AF86E00C8C317 /* CustomPointAnnotation.swift */; };
+		FF41BEAC264E9804002C0CED /* MSuccessEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF41BEAB264E9804002C0CED /* MSuccessEmailViewController.swift */; };
 		FF45B3B224D9DC7C00D258E1 /* Extension+UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45B3B124D9DC7C00D258E1 /* Extension+UITextField.swift */; };
 		FF48062924632AA70055E346 /* RecordsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF48062824632AA70055E346 /* RecordsTableViewCell.swift */; };
 		FF53516924EA86C300A95287 /* Extension+UIWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF53516824EA86C300A95287 /* Extension+UIWindow.swift */; };
@@ -196,6 +193,7 @@
 		FF6403FA251216B200CD9802 /* TransactionListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF6403F9251216B200CD9802 /* TransactionListTableViewCell.swift */; };
 		FF66316E2625C6400021507D /* EmailLoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF66316D2625C6400021507D /* EmailLoginViewModel.swift */; };
 		FF6631732625C6480021507D /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF6631722625C6480021507D /* RegisterViewModel.swift */; };
+		FF6AC284267232E00099E264 /* Extension+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF6AC283267232E00099E264 /* Extension+UIColor.swift */; };
 		FF7F2D39265B7B9E0045E25F /* VouchersDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7F2D38265B7B9E0045E25F /* VouchersDataSource.swift */; };
 		FF7F2D3B265B87350045E25F /* RecordsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7F2D3A265B87350045E25F /* RecordsDataSource.swift */; };
 		FF7F2D3D265CFC370045E25F /* ActionsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7F2D3C265CFC370045E25F /* ActionsDataSource.swift */; };
@@ -219,9 +217,9 @@
 		FF9C60FD253DD87D006F6979 /* ConfirmPaymentActionPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9C60FB253DD87D006F6979 /* ConfirmPaymentActionPopUp.swift */; };
 		FF9C6103253DD8AB006F6979 /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9C6101253DD8AB006F6979 /* ActionButton.swift */; };
 		FF9C6104253DD8AB006F6979 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9C6102253DD8AB006F6979 /* TextField.swift */; };
+		FF9F87A6263DA14A0012574E /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9F87A5263DA14A0012574E /* Image.swift */; };
 		FF9F87A9263DB22F0012574E /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = FF9F87A8263DB22F0012574E /* SnapKit */; };
 		FF9F87AB263DB55D0012574E /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9F87AA263DB55D0012574E /* Color.swift */; };
-		FF9F87A6263DA14A0012574E /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9F87A5263DA14A0012574E /* Image.swift */; };
 		FFB76E0E24E94ABB00CFB195 /* UICheckbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB76E0224E9490600CFB195 /* UICheckbox.swift */; };
 		FFB76E0F24E94AC200CFB195 /* AnimationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB76DF324E948B700CFB195 /* AnimationManager.swift */; };
 		FFB76E1024E94AC200CFB195 /* CircleLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB76DF424E948B700CFB195 /* CircleLayer.swift */; };
@@ -501,6 +499,7 @@
 		FF6403F9251216B200CD9802 /* TransactionListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionListTableViewCell.swift; sourceTree = "<group>"; };
 		FF66316D2625C6400021507D /* EmailLoginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmailLoginViewModel.swift; sourceTree = "<group>"; };
 		FF6631722625C6480021507D /* RegisterViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
+		FF6AC283267232E00099E264 /* Extension+UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIColor.swift"; sourceTree = "<group>"; };
 		FF7F2D38265B7B9E0045E25F /* VouchersDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VouchersDataSource.swift; sourceTree = "<group>"; };
 		FF7F2D3A265B87350045E25F /* RecordsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordsDataSource.swift; sourceTree = "<group>"; };
 		FF7F2D3C265CFC370045E25F /* ActionsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionsDataSource.swift; sourceTree = "<group>"; };
@@ -524,8 +523,8 @@
 		FF9C60FB253DD87D006F6979 /* ConfirmPaymentActionPopUp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmPaymentActionPopUp.swift; sourceTree = "<group>"; };
 		FF9C6101253DD8AB006F6979 /* ActionButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
 		FF9C6102253DD8AB006F6979 /* TextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
-		FF9F87AA263DB55D0012574E /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		FF9F87A5263DA14A0012574E /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
+		FF9F87AA263DB55D0012574E /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		FFB76DF324E948B700CFB195 /* AnimationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AnimationManager.swift; path = KVSpinnerView/AnimationManager.swift; sourceTree = "<group>"; };
 		FFB76DF424E948B700CFB195 /* CircleLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CircleLayer.swift; path = KVSpinnerView/Layers/CircleLayer.swift; sourceTree = "<group>"; };
 		FFB76DF524E948B700CFB195 /* KVSpinnerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = KVSpinnerView.swift; path = KVSpinnerView/KVSpinnerView.swift; sourceTree = "<group>"; };
@@ -922,6 +921,7 @@
 				FF45B3B124D9DC7C00D258E1 /* Extension+UITextField.swift */,
 				FF53516824EA86C300A95287 /* Extension+UIWindow.swift */,
 				FFFF987F25AA3F06009538FE /* Extension+UIDevice.swift */,
+				FF6AC283267232E00099E264 /* Extension+UIColor.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -2025,6 +2025,7 @@
 				FF1CF098263AEED700C8C317 /* MInfoVoucherTableViewCell.swift in Sources */,
 				FFB76E1324E94AC200CFB195 /* ProgressLayer.swift in Sources */,
 				65911B4A228D899700EA30D6 /* Fund.swift in Sources */,
+				FF6AC284267232E00099E264 /* Extension+UIColor.swift in Sources */,
 				FF1CF094263AEED700C8C317 /* MBranchesTableViewCell.swift in Sources */,
 				FF9C60EC253DD4CD006F6979 /* Subsidies.swift in Sources */,
 				659859712359B66600D08289 /* EmployeesOrganization.swift in Sources */,
@@ -2137,27 +2138,6 @@
 				5BF84625241FA60B00B0BAAD /* nl */,
 			);
 			name = BottomQrWithPinViewController.xib;
-			sourceTree = "<group>";
-		};
-		
-		5BF84628241FA66800B0BAAD /* EnablePersonalInformation.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				5BF84627241FA66800B0BAAD /* Base */,
-				5BF8462A241FA66D00B0BAAD /* en */,
-				5BF8462C241FA67200B0BAAD /* nl */,
-			);
-			name = EnablePersonalInformation.storyboard;
-			sourceTree = "<group>";
-		};
-		5BF8462F241FA6A900B0BAAD /* SuccessRegister.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				5BF8462E241FA6A900B0BAAD /* Base */,
-				5BF84631241FA6AD00B0BAAD /* en */,
-				5BF84633241FA6B000B0BAAD /* nl */,
-			);
-			name = SuccessRegister.storyboard;
 			sourceTree = "<group>";
 		};
 		650FF5E822AD1AE3004C3A85 /* Main.storyboard */ = {
