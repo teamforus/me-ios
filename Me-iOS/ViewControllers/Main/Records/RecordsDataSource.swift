@@ -17,7 +17,7 @@ class RecordsDataSource: NSObject {
     }
 }
 
-extension RecordsDataSource: UITableViewDataSource {
+extension RecordsDataSource: UITableViewDataSource, UITableViewDelegate {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -27,9 +27,15 @@ extension RecordsDataSource: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! RecordsTableViewCell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: RecordsTableViewCell.identifier, for: indexPath) as? RecordsTableViewCell else {
+            return UITableViewCell()
+        }
         
-        cell.record = records[indexPath.row]
+        cell.setup(records[indexPath.row])
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 94
     }
 }

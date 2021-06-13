@@ -20,4 +20,5 @@ public struct Image {
     public static let topRightSquareIcon: UIImage? = UIImage(named: "top_right_square_icon")
     public static let lockErrorIcon: UIImage? = UIImage(named: "lock_error_icon")
     public static let transactionIcon: UIImage? = UIImage(named: "transaction_icon")
+    public static let closeBlackIcon: UIImage? = UIImage(named: "closeBlack")
 }

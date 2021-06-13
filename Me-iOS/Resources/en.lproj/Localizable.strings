@@ -206,3 +206,4 @@
 "success_login" = "Successfully \nlogged in!";
 "description_about" = "This app is intended to store vouchers, make payments and log in to different applications./n/n/nThis app works together with:/n/n     • \tThe Westerkwartier webshop;\n     • \tThe Nijmegen webshop;\n     • \tThe Winterswijk webshop;\n     • \tThe Oost Gelre webshop;\n     • \tThe Berkelland webshop;\n     • \tThe Noordoostpolder webshop\n     • \tThe Kerstpakket webshop;";
 "branches" = "%@ Branches";
+"new_records" = "NEW RECORDS";

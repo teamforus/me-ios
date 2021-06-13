@@ -91,7 +91,7 @@ struct R: Rswift.Validatable {
   }
 
   #if os(iOS) || os(tvOS)
-  /// This `R.segue` struct is generated, and contains static references to 4 view controllers.
+  /// This `R.segue` struct is generated, and contains static references to 3 view controllers.
   struct segue {
     /// This struct is generated for `MProductReservationViewController`, and contains static references to 2 segues.
     struct mProductReservationViewController {
@@ -143,23 +143,6 @@ struct R: Rswift.Validatable {
       /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
       static func goToVoucherPayment(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, MQRViewController, MPaymentViewController>? {
         return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.mqrViewController.goToVoucherPayment, segue: segue)
-      }
-      #endif
-
-      fileprivate init() {}
-    }
-
-    /// This struct is generated for `MRecordsViewController`, and contains static references to 1 segues.
-    struct mRecordsViewController {
-      /// Segue identifier `goToRecordDetail`.
-      static let goToRecordDetail: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, MRecordsViewController, MRecordDetailViewController> = Rswift.StoryboardSegueIdentifier(identifier: "goToRecordDetail")
-
-      #if os(iOS) || os(tvOS)
-      /// Optionally returns a typed version of segue `goToRecordDetail`.
-      /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
-      /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
-      static func goToRecordDetail(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, MRecordsViewController, MRecordDetailViewController>? {
-        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.mRecordsViewController.goToRecordDetail, segue: segue)
       }
       #endif
 
@@ -2427,7 +2410,7 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
 
-    /// This `R.string.localizable` struct is generated, and contains static references to 195 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 196 localization keys.
     struct localizable {
       /// en translation: %@ Branches
       ///
@@ -2793,6 +2776,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en, nl
       static let my_feedback_about_me_app = Rswift.StringResource(key: "my_feedback_about_me_app", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
+      /// en translation: NEW RECORDS
+      ///
+      /// Locales: en, nl
+      static let new_records = Rswift.StringResource(key: "new_records", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
       /// en translation: NEXT
       ///
       /// Locales: en, nl
@@ -4589,6 +4576,21 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("my_feedback_about_me_app", bundle: bundle, comment: "")
+      }
+
+      /// en translation: NEW RECORDS
+      ///
+      /// Locales: en, nl
+      static func new_records(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("new_records", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "new_records"
+        }
+
+        return NSLocalizedString("new_records", bundle: bundle, comment: "")
       }
 
       /// en translation: NEXT
@@ -8558,9 +8560,7 @@ struct _R: Rswift.Validatable {
       }
 
       static func validate() throws {
-        if UIKit.UIImage(named: "Oval 2 Copy", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Oval 2 Copy' is used in storyboard 'Main', but couldn't be loaded.") }
         if UIKit.UIImage(named: "activeBlue", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'activeBlue' is used in storyboard 'Main', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "closeBlack", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'closeBlack' is used in storyboard 'Main', but couldn't be loaded.") }
         if UIKit.UIImage(named: "iconGrey", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'iconGrey' is used in storyboard 'Main', but couldn't be loaded.") }
         if UIKit.UIImage(named: "wallet", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'wallet' is used in storyboard 'Main', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
