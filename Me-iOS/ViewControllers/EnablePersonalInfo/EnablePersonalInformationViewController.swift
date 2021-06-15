@@ -10,6 +10,8 @@ import UIKit
 
 class EnablePersonalInformationViewController: UIViewController {
     
+    var navigator: Navigator
+    
     // MARK: - Parameters
     
     var identificationView: UIView = {
@@ -73,6 +75,17 @@ class EnablePersonalInformationViewController: UIViewController {
     }()
     
     
+    // MARK: - Init
+    init(navigator: Navigator) {
+        self.navigator = navigator
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    
     // MARK: - Setup View
     
     override func viewDidLoad() {
@@ -87,13 +100,10 @@ class EnablePersonalInformationViewController: UIViewController {
             self.view.backgroundColor = UIColor(named: "Background_DarkTheme")
         } else {}
         setupAccessibility()
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let barVC = segue.destination as? UITabBarController
-        let nVC = barVC!.viewControllers![0] as? HiddenNavBarNavigationController
-        let vc = nVC?.topViewController as? MVouchersViewController
-        vc?.isFromLogin = true
+        
+        nextButton.actionHandleBlock = { [weak self] (_) in
+            self?.navigator.navigate(to: .home)
+        }
     }
     
     @objc func enableSendIndenity(_ sender: UISwitch) {

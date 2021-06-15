@@ -21,4 +21,7 @@ public struct Image {
     public static let lockErrorIcon: UIImage? = UIImage(named: "lock_error_icon")
     public static let transactionIcon: UIImage? = UIImage(named: "transaction_icon")
     public static let closeBlackIcon: UIImage? = UIImage(named: "closeBlack")
+    public static let qrTabIcon: UIImage? = UIImage(named: "iconGrey")
+    public static let voucherTabIcon: UIImage? = UIImage(named: "wallet")
+    public static let profileTabIcon: UIImage? = UIImage(named: "activeBlue")
 }

@@ -236,6 +236,9 @@
 		FFC38D4424FA7DFA001C0DA2 /* MTransactionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC38D4324FA7DFA001C0DA2 /* MTransactionsViewController.swift */; };
 		FFCE835B24B881B1001082B1 /* Extension+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCE835A24B881B1001082B1 /* Extension+UIView.swift */; };
 		FFE2EF9226175DBB002C0D25 /* CommonBottomViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE2EF9126175DBB002C0D25 /* CommonBottomViewModel.swift */; };
+		FFE364D626775383006B43EE /* Navigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE364D526775383006B43EE /* Navigator.swift */; };
+		FFE364D826775847006B43EE /* HomeTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE364D726775847006B43EE /* HomeTabViewController.swift */; };
+		FFE364DA26776755006B43EE /* TransactionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE364D926776755006B43EE /* TransactionManager.swift */; };
 		FFE731C224CEEB760064C7D5 /* BackgroundScrollView_DarkMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE731C124CEEB760064C7D5 /* BackgroundScrollView_DarkMode.swift */; };
 		FFE731C424CEEFED0064C7D5 /* CloseButton_DarkMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE731C324CEEFED0064C7D5 /* CloseButton_DarkMode.swift */; };
 		FFFC169624FCF4C400FD4500 /* TransactionOverview.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFFC169524FCF4C400FD4500 /* TransactionOverview.swift */; };
@@ -538,6 +541,9 @@
 		FFC38D4324FA7DFA001C0DA2 /* MTransactionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTransactionsViewController.swift; sourceTree = "<group>"; };
 		FFCE835A24B881B1001082B1 /* Extension+UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIView.swift"; sourceTree = "<group>"; };
 		FFE2EF9126175DBB002C0D25 /* CommonBottomViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonBottomViewModel.swift; sourceTree = "<group>"; };
+		FFE364D526775383006B43EE /* Navigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigator.swift; sourceTree = "<group>"; };
+		FFE364D726775847006B43EE /* HomeTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabViewController.swift; sourceTree = "<group>"; };
+		FFE364D926776755006B43EE /* TransactionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionManager.swift; sourceTree = "<group>"; };
 		FFE731C124CEEB760064C7D5 /* BackgroundScrollView_DarkMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundScrollView_DarkMode.swift; sourceTree = "<group>"; };
 		FFE731C324CEEFED0064C7D5 /* CloseButton_DarkMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloseButton_DarkMode.swift; sourceTree = "<group>"; };
 		FFFC169524FCF4C400FD4500 /* TransactionOverview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionOverview.swift; sourceTree = "<group>"; };
@@ -1111,6 +1117,9 @@
 				650FF63322AD2E14004C3A85 /* About */,
 				FFC38D4524FA929C001C0DA2 /* Transaction */,
 				0499FF3B2595094C0009C7A4 /* ConfirmAuth */,
+				FFE364D526775383006B43EE /* Navigator.swift */,
+				FFE364D726775847006B43EE /* HomeTabViewController.swift */,
+				FFE364D926776755006B43EE /* TransactionManager.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -1920,6 +1929,7 @@
 				FF8D90E9251BBC8A0035B8D7 /* ToolTip+Extension.swift in Sources */,
 				FF1CF095263AEED700C8C317 /* MAdressTableViewCell.swift in Sources */,
 				65911B4C228D8E4200EA30D6 /* Organization.swift in Sources */,
+				FFE364D626775383006B43EE /* Navigator.swift in Sources */,
 				FF037FB52637326100B078DC /* DarkMode_ActionButton.swift in Sources */,
 				65CF408B228C1CC90006F5DE /* APIService.swift in Sources */,
 				FF8D90F8251BCCAC0035B8D7 /* Preference.swift in Sources */,
@@ -1970,6 +1980,7 @@
 				FF45B3B224D9DC7C00D258E1 /* Extension+UITextField.swift in Sources */,
 				FF9C60FD253DD87D006F6979 /* ConfirmPaymentActionPopUp.swift in Sources */,
 				FFFF8AAC2450CAA2001673DB /* R.generated.swift in Sources */,
+				FFE364D826775847006B43EE /* HomeTabViewController.swift in Sources */,
 				65911B4E228D8EAE00EA30D6 /* Logo.swift in Sources */,
 				65B10DAF23589DF500F0F34D /* CheckWebsiteReacheble.swift in Sources */,
 				FF9B715924851A5900BBCAA3 /* AppVersionUpdateNotifier.swift in Sources */,
@@ -2075,6 +2086,7 @@
 				FF5691262514BFB500CD0343 /* ColDateCell.swift in Sources */,
 				65F1BB25229EC1C4007D2C8A /* RecordType.swift in Sources */,
 				FF5691242514BFB500CD0343 /* CustomDatePickerView.swift in Sources */,
+				FFE364DA26776755006B43EE /* TransactionManager.swift in Sources */,
 				65A8B73E2282ED1D00B7DF05 /* MProfileViewController.swift in Sources */,
 				042D7DA924C58213004AD8C7 /* TextField_DarkMode.swift in Sources */,
 				65A8B7322282EBDC00B7DF05 /* VoucherViewModel.swift in Sources */,
