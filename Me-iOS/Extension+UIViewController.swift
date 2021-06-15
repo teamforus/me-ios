@@ -237,7 +237,7 @@ extension UIViewController{
         UserDefaults.standard.set("", forKey: ALConstants.kPincode)
         UserDefaults.standard.setValue(false, forKey: UserDefaultsName.UserIsLoged)
         let storyboard:UIStoryboard = UIStoryboard(name: "First", bundle: nil)
-        let navigationController:HiddenNavBarNavigationController = storyboard.instantiateInitialViewController() as! HiddenNavBarNavigationController
+        let navigationController:MeNavigationController = storyboard.instantiateInitialViewController() as! MeNavigationController
         let firstPageVC:UIViewController = storyboard.instantiateViewController(withIdentifier: "firstPage") as UIViewController
         navigationController.viewControllers = [firstPageVC]
         navigationController.modalPresentationStyle = .fullScreen

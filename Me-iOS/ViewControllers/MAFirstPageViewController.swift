@@ -29,6 +29,8 @@ import SnapKit
 
 class MAFirstPageViewController: UIViewController {
     
+    var navigator: Navigator
+    
     lazy var emailLoginViewModel: EmailLoginViewModel = {
         return EmailLoginViewModel()
     }()
@@ -130,7 +132,18 @@ class MAFirstPageViewController: UIViewController {
     }()
     
     
+    // MARK: - Init
+    init(navigator: Navigator) {
+        self.navigator = navigator
+        super.init(nibName: nil, bundle: nil)
+    }
     
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    
+    // MARK: - Setup View
     override func viewDidLoad() {
         super.viewDidLoad()
         addSubviews()
@@ -139,6 +152,10 @@ class MAFirstPageViewController: UIViewController {
     }
     
     private func setupUI() {
+        if #available(iOS 11.0, *) {
+            self.view.backgroundColor = UIColor(named: "Background_DarkTheme")
+        } else {
+        }
         IQKeyboardManager.shared.enable = true
         IQKeyboardManager.shared.enableAutoToolbar = true
         setupActions()
@@ -217,8 +234,7 @@ class MAFirstPageViewController: UIViewController {
     
     
     @objc func logIn(){
-        let registerVC = MSuccessRegisterViewController()
-        self.navigationController?.show(registerVC, sender: nil)
+        navigator.navigate(to: .successRegister)
     }
     
     @objc func didCheckValidateEmail(_ sender: SkyFloatingLabelTextField) {
@@ -362,8 +378,7 @@ extension MAFirstPageViewController {
                     self?.showSimpleAlertWithSingleAction(title: Localize.error_exclamation(), message: "", okAction: UIAlertAction(title: Localize.ok(), style: .default, handler: { (action) in
                     }))
                 }else {
-                    let emailVC = MSuccessEmailViewController(email: self?.emailField.text ?? "")
-                    self?.navigationController?.show(emailVC, sender: nil)
+                    self?.navigator.navigate(to: .successEmail(self?.emailField.text ?? ""))
                 }
             }
         }
@@ -373,8 +388,7 @@ extension MAFirstPageViewController {
             DispatchQueue.main.async {
                 
                 if statusCode != 500 {
-                    let emailVC = MSuccessEmailViewController(email: self?.emailField.text ?? "")
-                    self?.navigationController?.show(emailVC, sender: nil)
+                    self?.navigator.navigate(to: .successEmail(self?.emailField.text ?? ""))
                 }else {
                     self?.showSimpleAlertWithSingleAction(title: Localize.error_exclamation(), message: "", okAction: UIAlertAction(title: Localize.ok(), style: .default, handler: { (action) in
                     }))

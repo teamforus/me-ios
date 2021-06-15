@@ -33,7 +33,7 @@ extension MANavicationController: UIGestureRecognizerDelegate {
 }
 
 
-class HiddenNavBarNavigationController: UINavigationController {
+class MeNavigationController: UINavigationController {
     
     // MARK: - Properties
     
@@ -44,11 +44,23 @@ class HiddenNavBarNavigationController: UINavigationController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupPopRecognizer()
+        delegate = self
     }
     
     // MARK: - Setup
     
     private func setupPopRecognizer() {
         popRecognizer = MANavicationController(controller: self)
+    }
+}
+
+extension MeNavigationController: UINavigationControllerDelegate {
+    func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
+        
+        switch viewController {
+        case is MAFirstPageViewController, is MSuccessEmailViewController, is EnablePersonalInformationViewController, is MSuccessRegisterViewController:
+            setNavigationBarHidden(true, animated: true)
+        default: ()
+        }
     }
 }

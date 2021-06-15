@@ -10,24 +10,24 @@ import UIKit
 
 class Navigator: NSObject {
 
-    var navController: HiddenNavBarNavigationController!
+    var navController: MeNavigationController!
     
     override init() {
         super.init()
     }
     
-    func configure(_ navController: HiddenNavBarNavigationController) {
+    func configure(_ navController: MeNavigationController) {
         self.navController = navController
     }
     
     func navigate(to destination: Destination) {
         switch destination {
         case .successEmail(let email):
-            let emailVC = MSuccessEmailViewController(email: email)
+            let emailVC = MSuccessEmailViewController(email: email, navigator: self)
             navController.show(emailVC, sender: nil)
             
-        case .successRegistre:
-            let registerVC = MSuccessRegisterViewController()
+        case .successRegister:
+            let registerVC = MSuccessRegisterViewController(navigator: self)
             navController.show(registerVC, sender: nil)
             
         case .enablePersonalInfo:
@@ -43,7 +43,7 @@ class Navigator: NSObject {
     
     enum Destination {
         case successEmail(_ email: String)
-        case successRegistre
+        case successRegister
         case enablePersonalInfo
         case home
     }

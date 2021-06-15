@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Tng-OZ-lXd">
-    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -13,7 +11,7 @@
             <objects>
                 <viewController id="PMk-nO-j9W" customClass="MVouchersViewController" customModule="Me_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="r2N-kg-LZp" customClass="Background_DarkMode" customModule="Me_iOS" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="var-xZ-gwZ"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -52,7 +50,7 @@
             <objects>
                 <viewController storyboardIdentifier="qrCodeReader" id="RzJ-PV-457" customClass="MQRViewController" customModule="Me_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0VD-IQ-POD">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="iXk-vG-U9X"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -106,12 +104,13 @@
         <!--Eigendom-->
         <scene sceneID="f95-Hc-V5q">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="lIg-wq-GeU" customClass="HiddenNavBarNavigationController" customModule="Me_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="lIg-wq-GeU" customClass="MeNavigationController" customModule="Me_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Eigendom" image="wallet" id="ony-rh-yQc">
                         <color key="badgeColor" name="systemGreenColor" catalog="System" colorSpace="catalog"/>
                     </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="vy4-eR-52o">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -126,10 +125,11 @@
         <!--Profile-->
         <scene sceneID="edm-BD-Vm9">
             <objects>
-                <navigationController storyboardIdentifier="records" automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="ubb-Qe-KAL" customClass="HiddenNavBarNavigationController" customModule="Me_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="records" automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="ubb-Qe-KAL" customClass="MeNavigationController" customModule="Me_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Profile" image="activeBlue" id="Fxg-Vj-eeO"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="98v-vD-hnf">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -146,7 +146,7 @@
             <objects>
                 <viewController storyboardIdentifier="personal" id="co2-L5-wDG" customClass="MRecordsViewController" customModule="Me_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Sdn-XG-DIS" customClass="Background_DarkMode" customModule="Me_iOS" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="hQ2-i6-qrA"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -183,10 +183,11 @@
         <!--Profile-->
         <scene sceneID="CBG-3U-N66">
             <objects>
-                <navigationController storyboardIdentifier="record" automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="LrU-jE-PNR" customClass="HiddenNavBarNavigationController" customModule="Me_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="record" automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="LrU-jE-PNR" customClass="MeNavigationController" customModule="Me_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Profile" image="activeBlue" id="S2m-RV-PJB"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="fSu-oA-dgN">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>

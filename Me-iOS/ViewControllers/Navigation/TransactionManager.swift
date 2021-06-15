@@ -31,12 +31,31 @@ class TransactionManager {
     
 }
 
+
+// MARK: - Login
+extension TransactionManager {
+    func loginScreen() -> MeNavigationController {
+        let viewController = MAFirstPageViewController(navigator: Navigator())
+        let navController = MeNavigationController(rootViewController: viewController)
+        viewController.navigator.configure(navController)
+        return navController
+    }
+}
+
 // MARK: - Vouchers
 extension TransactionManager {
-    func vouchersScreen() -> HiddenNavBarNavigationController {
+    func tabBarControllerScreen() -> HomeTabViewController {
+        let tabBarController = HomeTabViewController()
+        return tabBarController
+    }
+}
+
+// MARK: - Vouchers
+extension TransactionManager {
+    func vouchersScreen() -> MeNavigationController {
         let viewController = MVouchersViewController()
         viewController.isFromLogin = true
-        let navController = HiddenNavBarNavigationController(rootViewController: viewController)
+        let navController = MeNavigationController(rootViewController: viewController)
         navController.tabBarItem = UITabBarItem(title: "Vouchers", image: Image.voucherTabIcon, tag: Tab.voucher.rawValue)
         return navController
     }

@@ -10,6 +10,8 @@ import UIKit
 
 class MSuccessRegisterViewController: UIViewController {
     
+    var navigator: Navigator
+    
     // MARK: - Parameters
     var titleLabel: UILabel_DarkMode = {
         let label = UILabel_DarkMode(frame: .zero)
@@ -37,6 +39,16 @@ class MSuccessRegisterViewController: UIViewController {
         button.setupShadow(offset: CGSize(width: 0, height: 10), radius: 10, opacity: 0.2, color: UIColor.black.cgColor)
         return button
     }()
+    
+    // MARK: - Init
+    init(navigator: Navigator) {
+        self.navigator = navigator
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     
     // MARK: - Setup View
@@ -92,8 +104,7 @@ extension MSuccessRegisterViewController {
     // MARK: - Setup Actions
     private func setupActions() {
         nextButton.actionHandleBlock = { [weak self] (_) in
-            let enableInfoVC = EnablePersonalInformationViewController()
-            self?.navigationController?.show(enableInfoVC, sender: nil)
+            self?.navigator.navigate(to: .enablePersonalInfo)
         }
     }
 }

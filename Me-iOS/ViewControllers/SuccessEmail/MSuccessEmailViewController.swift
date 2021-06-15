@@ -12,6 +12,7 @@ class MSuccessEmailViewController: UIViewController {
     
     
     var email: String
+    var navigator: Navigator
     
     lazy var successEmailViewModel: SuccessEmailViewModel = {
         return SuccessEmailViewModel()
@@ -72,8 +73,9 @@ class MSuccessEmailViewController: UIViewController {
     
     
     // MARK: - Init
-    init(email: String) {
+    init(email: String, navigator: Navigator) {
         self.email = email
+        self.navigator = navigator
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -164,8 +166,7 @@ class MSuccessEmailViewController: UIViewController {
     }
     
     @objc func logIn(){
-        let registerVC = MSuccessRegisterViewController()
-        self.navigationController?.show(registerVC, sender: nil)
+        navigator.navigate(to: .successRegister)
     }
 }
 

@@ -19,6 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var commonService: CommonServiceProtocol! = CommonService()
     var appnotifier = AppVersionUpdateNotifier()
     var timer = Timer()
+    var appNavigator: AppNavigator?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
@@ -40,73 +41,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.makeKeyAndVisible()
         
         
-        if existCurrentUser() {
-            
-            CurrentSession.shared.token = getCurrentUser().accessToken ?? ""
-            self.addShortcuts(application: application)
-            if UserDefaults.standard.bool(forKey: UserDefaultsName.AddressIndentityCrash) {
-                
-//                commonService.get(request: "identity", complete: { (response: Office, statusCode) in
-//                    Crashlytics.sharedInstance().setUserIdentifier(response.address)
-//                }) { (error) in
-//
-//                }
-            }
-            
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let initialViewController = storyboard.instantiateViewController(withIdentifier: "tabBar") as! UITabBarController
-            
-            if UserDefaults.standard.bool(forKey: UserDefaultsName.StartFromScanner){
-                
-                initialViewController.selectedIndex = 1
-                
-            }
-            
-            self.window?.rootViewController = initialViewController
-            
-        }else {
-            
-            let storyboard = UIStoryboard(name: "First", bundle: nil)
-            let initialViewController = storyboard.instantiateViewController(withIdentifier: "first") as! HiddenNavBarNavigationController
-            self.window?.rootViewController = initialViewController
-            
-        }
+        
+        window = UIWindow(frame: UIScreen.main.bounds)
+        appNavigator = AppNavigator(window)
         didCheckPasscode(vc: self.window!.rootViewController!)
         initPush(application)
         
         appnotifier.initNotifier(self)
-        
+        self.addShortcuts(application: application)
         return true
     }
-    
-    func getCurrentUser() -> User{
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let context = appDelegate.persistentContainer.viewContext
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
-        fetchRequest.predicate = NSPredicate(format: "currentUser == YES")
-        do {
-            let results = try context.fetch(fetchRequest) as? [User]
-            if results?.count != 0 {
-                return results![0]
-            }
-        } catch {}
-     return User()
-    }
-    
-    func existCurrentUser() -> Bool{
-           let appDelegate = UIApplication.shared.delegate as! AppDelegate
-           let context = appDelegate.persistentContainer.viewContext
-           let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
-           fetchRequest.predicate = NSPredicate(format:"currentUser == YES")
-           do{
-               let results = try context.fetch(fetchRequest) as? [User]
-               if results?.count != 0 {
-                  
-                   return true
-               }
-           } catch{}
-           return false
-       }
     
     func applicationWillResignActive(_ application: UIApplication) {
     }
@@ -342,12 +286,12 @@ extension AppDelegate {
 extension AppDelegate: AppUpdateNotifier {
     func hasNewVersion(shouldBeUpdated: Bool) {
         if shouldBeUpdated && !appnotifier.viewIsShoun {
-            if let vc = window?.rootViewController as? HiddenNavBarNavigationController {
+            if let vc = window?.rootViewController as? MeNavigationController {
                 vc.topViewController?.view.addSubview(appnotifier.showUpdateView())
                 appnotifier.vc = vc.topViewController
                 appnotifier.setupView()
             }else if let vc = window?.rootViewController as? MMainTabBarController {
-                if let navVC = vc.selectedViewController as? HiddenNavBarNavigationController {
+                if let navVC = vc.selectedViewController as? MeNavigationController {
                     navVC.topViewController?.view.addSubview(appnotifier.showUpdateView())
                     appnotifier.vc = navVC.topViewController
                     appnotifier.setupView()
