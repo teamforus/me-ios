@@ -26,19 +26,6 @@ class MTransactionsViewController: UIViewController {
         return view
     }()
     
-    private let backButton: BackButton_DarkMode = {
-        let button = BackButton_DarkMode()
-        button.addTarget(self, action: #selector(back(_:)), for: .touchUpInside)
-        return button
-    }()
-    
-    private let titleLabel: UILabel_DarkMode = {
-        let label = UILabel_DarkMode()
-        label.text = Localize.transactions()
-        label.font = UIFont(name: "GoogleSans-Medium", size: 38)
-        return label
-    }()
-    
     private let dateButton: ShadowButton = {
         let button = ShadowButton()
         button.addTarget(self, action: #selector(openDatePicker), for: .touchUpInside)
@@ -129,19 +116,11 @@ extension MTransactionsViewController {
     }
     
     func addSubviews() {
-        let views = [headerView ,tableView, bottomView, totalPriceView]
+        let views = [tableView, headerView, bottomView, totalPriceView, dateButton]
         views.forEach { (view) in
             self.view.addSubview(view)
         }
-        addHeaderViewSubviews()
         addBottomViewSubviews()
-    }
-    
-    func addHeaderViewSubviews() {
-        let views = [backButton, titleLabel, dateButton]
-        views.forEach { (view) in
-            self.headerView.addSubview(view)
-        }
     }
     
     func addBottomViewSubviews() {
@@ -164,19 +143,14 @@ extension MTransactionsViewController {
 extension MTransactionsViewController {
     func setupConstraints() {
         
-        headerView.snp.makeConstraints { make in
-            make.top.left.right.equalTo(self.view)
-            make.height.equalTo(210)
-        }
-        
         tableView.snp.makeConstraints { make in
             make.left.right.bottom.equalTo(self.view)
-            make.top.equalTo(headerView.snp.bottom)
+            make.top.equalTo(dateButton.snp.bottom)
         }
         
         dateButton.snp.makeConstraints { make in
-            make.left.equalTo(headerView.snp.left).offset(20)
-            make.bottom.bottom.equalTo(headerView.snp.bottom).offset(-10)
+            make.left.equalTo(self.view)
+            make.top.equalTo(self.view.safeAreaLayoutGuide).offset(10)
             make.height.equalTo(44)
             make.width.equalTo(200)
         }
@@ -196,23 +170,7 @@ extension MTransactionsViewController {
 //            bottomView.topAnchor.constraint(equalTo: tableView.bottomAnchor, constant: 0)])
         
        
-        
-        setupConstraintsHeaderView()
         setupConstraintsBottomView()
-    }
-    
-    func setupConstraintsHeaderView() {
-        
-        backButton.snp.makeConstraints { make in
-            make.height.width.equalTo(44)
-            make.left.equalTo(headerView.snp.left).offset(8)
-            make.top.equalTo(headerView.snp.top).offset(40)
-        }
-        
-        titleLabel.snp.makeConstraints { make in
-            make.top.equalTo(headerView).offset(90)
-            make.left.equalTo(headerView).offset(17)
-        }
     }
     
     func setupConstraintsBottomView() {

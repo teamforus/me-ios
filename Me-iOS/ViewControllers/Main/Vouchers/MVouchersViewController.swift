@@ -19,6 +19,7 @@ class MVouchersViewController: UIViewController {
     var voucherType: VoucherType! = .vouchers
     var dataSource: VouchersDataSource!
     var wallet: Office!
+    var navigator: Navigator
     
     lazy var voucherViewModel: VouchersViewModel = {
         return VouchersViewModel()
@@ -41,14 +42,19 @@ class MVouchersViewController: UIViewController {
         return buttton
     }()
     
-    var titleLabel: UILabel_DarkMode = {
-        let label = UILabel_DarkMode(frame: .zero)
-        label.font = R.font.googleSansBold(size: 38)
-        label.text = "Vouchers"
-        return label
-    }()
+    
+    // MARK: - Init
+    init(navigator: Navigator) {
+        self.navigator = navigator
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     
+    // MARK: - Setup Viiew
     override func viewDidLoad() {
         super.viewDidLoad()
         addSubviews()
@@ -57,6 +63,9 @@ class MVouchersViewController: UIViewController {
     }
     
     private func setupView() {
+        if #available(iOS 11.0, *) {
+            self.view.backgroundColor = UIColor(named: "Background_DarkTheme")
+        } else {}
         setupAccessibility()
         if !Preference.tapToSeeTransactionTipHasShown {
             Preference.tapToSeeTransactionTipHasShown = true
@@ -258,7 +267,7 @@ extension MVouchersViewController: UIViewControllerPreviewingDelegate{
 
 extension MVouchersViewController {
     private func addSubviews() {
-        let views = [titleLabel, transactionButton, tableView]
+        let views = [tableView]
         views.forEach { view in
             self.view.addSubview(view)
         }
@@ -269,19 +278,9 @@ extension MVouchersViewController {
 
 extension MVouchersViewController {
     private func setupConstraints() {
-        titleLabel.snp.makeConstraints { make in
-            make.top.equalTo(self.view.safeAreaLayoutGuide).offset(40)
-            make.left.equalTo(self.view).offset(16)
-        }
-        
-        transactionButton.snp.makeConstraints { make in
-            make.centerY.equalTo(titleLabel)
-            make.right.equalTo(self.view).offset(-22)
-        }
         
         tableView.snp.makeConstraints { make in
-            make.top.equalTo(titleLabel.snp.bottom).offset(16)
-            make.left.right.bottom.equalTo(self.view)
+            make.top.left.right.bottom.equalTo(self.view.safeAreaLayoutGuide)
         }
     }
 }
@@ -291,9 +290,7 @@ extension MVouchersViewController {
     private func setupAction() {
         transactionButton.actionHandleBlock = { [weak self] (_) in
             self?.transactionButton.removeToolTip(with: Localize.tap_here_you_want_to_see_list_transaction())
-            let transactionVC = MTransactionsViewController()
-            transactionVC.hidesBottomBarWhenPushed = true
-            self?.navigationController?.pushViewController(transactionVC, animated: true)
+            self?.navigator.navigate(to: .transaction)
         }
     }
 }
@@ -310,6 +307,5 @@ extension MVouchersViewController: AccessibilityProtocol {
 //        if let vouchers = segmentController.accessibilityElement(at: 1) as? UIView {
 //            vouchers.setupAccesibility(description: "Choose to show all vouchers", accessibilityTraits: .causesPageTurn)
 //        }
-        titleLabel.setupAccesibility(description: Localize.vouchers(), accessibilityTraits: .header)
     }
 }

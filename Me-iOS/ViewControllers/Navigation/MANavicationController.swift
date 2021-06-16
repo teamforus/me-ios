@@ -56,10 +56,42 @@ class MeNavigationController: UINavigationController {
 
 extension MeNavigationController: UINavigationControllerDelegate {
     func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
+        navigationController.navigationBar.barTintColor = R.color.background_DarkTheme()
+        navigationController.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        navigationController.navigationBar.shadowImage =  UIImage()
+        navigationController.navigationBar.isTranslucent = true
+        viewController.navigationItem.rightBarButtonItem = nil
+        viewController.navigationItem.backBarButtonItem = UIBarButtonItem(title: " ", style: .plain, target: nil, action: nil)
+        
+        let image = UIImage(named: "back")?.withRenderingMode(.alwaysTemplate)
+        viewController.navigationController?.navigationBar.backIndicatorImage = image
+        viewController.navigationController?.navigationBar.backIndicatorTransitionMaskImage = image
+        if #available(iOS 11.0, *) {
+            viewController.navigationController?.navigationBar.tintColor = UIColor(named: "Black_Light_DarkTheme")
+        } else {
+            viewController.navigationController?.navigationBar.tintColor = .black
+        }
+        viewController.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
         
         switch viewController {
         case is MAFirstPageViewController, is MSuccessEmailViewController, is EnablePersonalInformationViewController, is MSuccessRegisterViewController:
             setNavigationBarHidden(true, animated: true)
+            
+        case is MVouchersViewController:
+            self.navigationBar.prefersLargeTitles = true
+            viewController.title = "Vouchers"
+            let barButtonItem = UIBarButtonItem(customView: (viewController as? MVouchersViewController)!.transactionButton)
+            viewController.navigationItem.rightBarButtonItem = barButtonItem
+            
+        case is MTransactionsViewController:
+            self.navigationBar.prefersLargeTitles = true
+            viewController.title = Localize.transactions()
+            viewController.hidesBottomBarWhenPushed = true
+            
+        case is ProductVoucherViewController:
+            self.navigationBar.prefersLargeTitles = false
+            viewController.title = Localize.product_voucher()
+            viewController.hidesBottomBarWhenPushed = true
         default: ()
         }
     }

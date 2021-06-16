@@ -37,6 +37,10 @@ class Navigator: NSObject {
         case .home:
             let tabBarController = HomeTabViewController()
             navController.present(tabBarController, animated: true)
+            
+        case .transaction:
+            let viewControllerr = MTransactionsViewController()
+            navController.show(viewControllerr, sender: nil)
         }
     }
     
@@ -46,5 +50,6 @@ class Navigator: NSObject {
         case successRegister
         case enablePersonalInfo
         case home
+        case transaction
     }
 }

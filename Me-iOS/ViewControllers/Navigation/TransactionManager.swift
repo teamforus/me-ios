@@ -42,7 +42,7 @@ extension TransactionManager {
     }
 }
 
-// MARK: - Vouchers
+// MARK: - Tab Bar
 extension TransactionManager {
     func tabBarControllerScreen() -> HomeTabViewController {
         let tabBarController = HomeTabViewController()
@@ -53,10 +53,11 @@ extension TransactionManager {
 // MARK: - Vouchers
 extension TransactionManager {
     func vouchersScreen() -> MeNavigationController {
-        let viewController = MVouchersViewController()
+        let viewController = MVouchersViewController(navigator: Navigator())
         viewController.isFromLogin = true
         let navController = MeNavigationController(rootViewController: viewController)
         navController.tabBarItem = UITabBarItem(title: "Vouchers", image: Image.voucherTabIcon, tag: Tab.voucher.rawValue)
+        viewController.navigator.configure(navController)
         return navController
     }
 }

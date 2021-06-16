@@ -30,18 +30,6 @@ class ProductVoucherViewController: UIViewController {
     }()
     
     // MARK: - Properties
-    private let backButton: BackButton_DarkMode = {
-        let button = BackButton_DarkMode(frame: .zero)
-        return button
-    }()
-    
-    private let titleLabel: UILabel_DarkMode = {
-        let label = UILabel_DarkMode(frame: .zero)
-        label.text = Localize.product_voucher()
-        label.font = R.font.googleSansMedium(size: 17)
-        label.textAlignment = .center
-        return label
-    }()
     
     private let tableView: TableView_Background_DarkMode = {
         let tableView = TableView_Background_DarkMode(frame: .zero)
@@ -146,7 +134,7 @@ extension ProductVoucherViewController {
     
     // MARK: - Add Subviews
     private func addSubviews(){
-        let views = [tableView, backButton, titleLabel]
+        let views = [tableView]
         views.forEach { (view) in
             self.view.addSubview(view)
         }
@@ -159,21 +147,8 @@ extension ProductVoucherViewController{
     private func addCosntrains(){
         
         tableView.snp.makeConstraints { make in
-            make.top.equalTo(view).offset(103)
-            make.left.right.bottom.equalTo(view)
-        }
-        
-        backButton.snp.makeConstraints { make in
-            make.top.equalTo(view).offset(54)
-            make.left.equalTo(view).offset(14)
-            make.width.height.equalTo(44)
-        }
-        
-        titleLabel.snp.makeConstraints { make in
-            make.top.equalTo(view).offset(56)
-            make.centerX.equalTo(view)
-            make.centerY.equalTo(backButton)
-            make.width.equalTo(200)
+            make.top.equalTo(view.safeAreaLayoutGuide).offset(10)
+            make.left.right.bottom.equalTo(view.safeAreaLayoutGuide)
         }
     }
 }
@@ -183,9 +158,6 @@ extension ProductVoucherViewController{
     
     //MARK: - Setup Actions
     private func setUpActions(){
-        backButton.actionHandleBlock = { [weak self] (button) in
-            self?.back(button)
-        }
     }
     
     func sendEmailToProvider() {
