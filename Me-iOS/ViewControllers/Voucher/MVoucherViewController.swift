@@ -9,45 +9,64 @@
 import UIKit
 import SafariServices
 
+enum VoucherTableViewSection: Int, CaseIterable {
+    case voucher = 0
+    case infoVoucher
+    case activeDate
+    case transactions
+}
+
 class MVoucherViewController: UIViewController {
-    @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var dateCreated: UILabel_DarkMode!
-    @IBOutlet weak var voucherName: UILabel_DarkMode!
-    @IBOutlet weak var organizationName: UILabel_DarkMode!
-    @IBOutlet weak var priceLabel: UILabel_DarkMode!
-    @IBOutlet weak var qrCodeImage: UIImageView!
-    @IBOutlet weak var heightConstraint: NSLayoutConstraint!
-    @IBOutlet weak var sendEmailButton: ShadowButton!
-    @IBOutlet weak var voucherInfoButton: ShadowButton!
-    @IBOutlet weak var buttonsView: UIView!
-    @IBOutlet weak var qrCodeButton: UIButton!
-    @IBOutlet weak var historyLabel: UILabel_DarkMode!
-    @IBOutlet weak var activatedLabel: UILabel!
-    @IBOutlet weak var titleLabel: UILabel_DarkMode!
+    var dataSource: VoucherDataSource!
+    
+    // MARK: - Properties
+    private let tableView: TableView_Background_DarkMode = {
+        let tableView = TableView_Background_DarkMode(frame: .zero)
+        tableView.backgroundColor = .clear
+        tableView.separatorStyle = .none
+        tableView.colorName = "Background_Voucher_DarkTheme"
+        tableView.showsVerticalScrollIndicator = false
+        return tableView
+    }()
     
     lazy var voucherViewModel: VoucherViewModel = {
         return VoucherViewModel()
     }()
     var address: String!
-    var voucher: Voucher!
-    @IBOutlet var images: [SkeletonUIImageView]!
+    var voucher: Voucher
+    var navigator: Navigator
     
+    
+    // MARK: - Init
+    init(voucher: Voucher, navigator: Navigator) {
+        self.voucher = voucher
+        self.navigator = navigator
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    
+    // MARK: - Setup View
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
     }
     
     private func setupUI() {
-        setupAccessibility()
-        self.heightConstraint.constant = 260
-        self.qrCodeButton.isEnabled = false
-        
-        images.forEach { (view) in
-            view.startAnimating()
-        }
         
         fetchVoucher()
         setupVoucher()
+    }
+    
+    private func setUpTableView() {
+        tableView.delegate = self
+        tableView.dataSource = dataSource
+        tableView.register(MProductVoucherTableViewCell.self, forCellReuseIdentifier: MProductVoucherTableViewCell.identifier)
+        tableView.register(MInfoVoucherTableViewCell.self, forCellReuseIdentifier: MInfoVoucherTableViewCell.identifier)
+        tableView.register(TransactionTableViewCell.self, forCellReuseIdentifier: TransactionTableViewCell.identifier)
     }
     
     private func fetchVoucher() {
@@ -69,40 +88,16 @@ class MVoucherViewController: UIViewController {
         voucherViewModel.reloadDataVoucher = { [weak self] (voucher) in
             
             DispatchQueue.main.async { [self] in
-                if voucher.fund?.type == FundType.subsidies.rawValue {
-                    self!.voucherInfoButton?.setTitle(Localize.offers(), for: .normal)
-                }
-                self?.priceLabel.isHidden = voucher.fund?.type == FundType.subsidies.rawValue
-                self?.voucherName.text = voucher.fund?.name ?? ""
-                self?.organizationName.text = voucher.fund?.organization?.name ?? ""
-                if let price = voucher.amount {
-                    //                    if voucher.fund?.currency == "eur" {
-                    self?.priceLabel.text = "€ \(price.substringLeftPart()),\(price.substringRightPart())"
-                    //                    }else {
-                    //                        self?.priceLabel.attributedText = "ETH \(price.substringLeftPart()).{\(price.substringRightPart())}".customText(fontBigSize: 20, minFontSize: 14)
-                    //                    }
-                }else {
-                    
-                    self?.priceLabel.text = "€ 0,0"
-                }
+//                if voucher.fund?.type == FundType.subsidies.rawValue {
+//                    self!.voucherInfoButton?.setTitle(Localize.offers(), for: .normal)
+//                }
+//                self?.priceLabel.isHidden = voucher.fund?.type == FundType.subsidies.rawValue
+//                self?.voucherName.text = voucher.fund?.name ?? ""
+//                self?.organizationName.text = voucher.fund?.organization?.name ?? ""
                 
                 if voucher.expire_at?.date?.formatDate() ?? Date() >= Date() {
-                    self?.qrCodeImage.isHidden = false
-                    self?.sendEmailButton.isHidden = false
-                    self?.voucherInfoButton.isHidden = false
-                    self?.buttonsView.isHidden = false
-                    self?.heightConstraint.constant = 322
-                    self?.qrCodeButton.isEnabled = true
                 }
-                self?.historyLabel.isHidden = false
-                self?.activatedLabel.isHidden = false
-                self?.qrCodeImage.generateQRCode(from: "{\"type\": \"voucher\",\"value\": \"\(voucher.address ?? "")\" }")
-                self?.dateCreated.text = voucher.created_at?.dateFormaterNormalDate()
                 self?.voucher = voucher
-                
-                self?.images.forEach { (view) in
-                    view.stopAnimating()
-                }
             }
         }
     }
@@ -171,25 +166,7 @@ extension MVoucherViewController: UITableViewDelegate, UITableViewDataSource{
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TransactionTableViewCell
         
         let transaction = voucherViewModel.getCellViewModel(at: indexPath)
-        if let voucher = self.voucher {
-            cell.configure(transaction: transaction, isSubsidies: voucher.fund?.type == FundType.subsidies.rawValue)
-        }
         return cell
-    }
-    
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        didAnimateTransactioList()
-    }
-    
-}
-
-// MARK: - Accessibility Protocol
-
-extension MVoucherViewController: AccessibilityProtocol {
-    func setupAccessibility() {
-        sendEmailButton.setupAccesibility(description: "Send voucher on email", accessibilityTraits: .button)
-        voucherInfoButton.setupAccesibility(description: "Go to view offers", accessibilityTraits: .button)
-        qrCodeButton.setupAccesibility(description: "Tap to open qr code modal", accessibilityTraits: .button)
     }
 }
 
@@ -198,12 +175,10 @@ extension MVoucherViewController{
     func didAnimateTransactioList(){
         if voucherViewModel.numberOfCells > 8{
             if isFirstCellVisible(){
-                self.heightConstraint.constant = 322
                 UIView.animate(withDuration: 0.5) {
                     self.view.layoutIfNeeded()
                 }
             }else{
-                self.heightConstraint.constant = 60
                 UIView.animate(withDuration: 0.5) {
                     self.view.layoutIfNeeded()
                 }

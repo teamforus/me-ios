@@ -235,6 +235,8 @@
 		FFC38D4424FA7DFA001C0DA2 /* MTransactionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC38D4324FA7DFA001C0DA2 /* MTransactionsViewController.swift */; };
 		FFC643502678F66100B7F3C4 /* AppNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC6434F2678F66100B7F3C4 /* AppNavigator.swift */; };
 		FFCE835B24B881B1001082B1 /* Extension+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCE835A24B881B1001082B1 /* Extension+UIView.swift */; };
+		FFDD95A9267B6F460037F998 /* VoucherDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFDD95A8267B6F460037F998 /* VoucherDataSource.swift */; };
+		FFDD95AB267B84270037F998 /* ActiveDateVoucherTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFDD95AA267B84270037F998 /* ActiveDateVoucherTableViewCell.swift */; };
 		FFE2EF9226175DBB002C0D25 /* CommonBottomViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE2EF9126175DBB002C0D25 /* CommonBottomViewModel.swift */; };
 		FFE364D626775383006B43EE /* Navigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE364D526775383006B43EE /* Navigator.swift */; };
 		FFE364D826775847006B43EE /* HomeTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE364D726775847006B43EE /* HomeTabViewController.swift */; };
@@ -538,6 +540,8 @@
 		FFC38D4324FA7DFA001C0DA2 /* MTransactionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTransactionsViewController.swift; sourceTree = "<group>"; };
 		FFC6434F2678F66100B7F3C4 /* AppNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNavigator.swift; sourceTree = "<group>"; };
 		FFCE835A24B881B1001082B1 /* Extension+UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIView.swift"; sourceTree = "<group>"; };
+		FFDD95A8267B6F460037F998 /* VoucherDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoucherDataSource.swift; sourceTree = "<group>"; };
+		FFDD95AA267B84270037F998 /* ActiveDateVoucherTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveDateVoucherTableViewCell.swift; sourceTree = "<group>"; };
 		FFE2EF9126175DBB002C0D25 /* CommonBottomViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonBottomViewModel.swift; sourceTree = "<group>"; };
 		FFE364D526775383006B43EE /* Navigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigator.swift; sourceTree = "<group>"; };
 		FFE364D726775847006B43EE /* HomeTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabViewController.swift; sourceTree = "<group>"; };
@@ -1192,7 +1196,9 @@
 			isa = PBXGroup;
 			children = (
 				65A8B71D2282E6BF00B7DF05 /* MVoucherViewController.swift */,
+				FFDD95A8267B6F460037F998 /* VoucherDataSource.swift */,
 				65684618229432CE00097E83 /* TransactionTableViewCell.swift */,
+				FFDD95AA267B84270037F998 /* ActiveDateVoucherTableViewCell.swift */,
 				65A8B7332282EBDF00B7DF05 /* ViewModel */,
 				658B488F22ABF9D000B6236C /* Voucher.storyboard */,
 			);
@@ -1954,6 +1960,7 @@
 				5B10CCAC240D021C00199C28 /* BottomQrWithPinViewController.swift in Sources */,
 				FFB76E0E24E94ABB00CFB195 /* UICheckbox.swift in Sources */,
 				FF9C60EE253DD4CD006F6979 /* SubsidiePay.swift in Sources */,
+				FFDD95AB267B84270037F998 /* ActiveDateVoucherTableViewCell.swift in Sources */,
 				654ACBAC22A94D550052C9C2 /* ProfileViewModel.swift in Sources */,
 				654F97AA229BF671009C9FFA /* MRecordDetailViewController.swift in Sources */,
 				0408C85D24BF2A4E009B8A2E /* Background_DarkMode.swift in Sources */,
@@ -2056,6 +2063,7 @@
 				6568462022944A1800097E83 /* UIViewMasking.swift in Sources */,
 				FFB76E1224E94AC200CFB195 /* KVSpinnerViewSettings.swift in Sources */,
 				6568461F22944A1800097E83 /* SkeletonUIImageView.swift in Sources */,
+				FFDD95A9267B6F460037F998 /* VoucherDataSource.swift in Sources */,
 				657DBA4E228993E200C67500 /* StatusService.swift in Sources */,
 				654ACBAE22A9523B0052C9C2 /* UserDefaultsName.swift in Sources */,
 				FF9F87AB263DB55D0012574E /* Color.swift in Sources */,
