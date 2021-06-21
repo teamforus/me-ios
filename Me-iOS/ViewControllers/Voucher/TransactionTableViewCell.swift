@@ -61,28 +61,28 @@ class TransactionTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func configure(transaction: Transaction, isSubsidies: Bool) {
+    func configure(transaction: Transaction?, isSubsidies: Bool) {
         if isSubsidies {
-            self.statusTransfer.text = transaction.created_at?.dateFormaterNormalDate()
+            self.statusTransfer.text = transaction?.created_at?.dateFormaterNormalDate()
         }else {
-            self.statusTransfer.text = transaction.product != nil ? Localize.product_voucher(): Localize.transaction()
+            self.statusTransfer.text = transaction?.product != nil ? Localize.product_voucher(): Localize.transaction()
         }
-        self.companyTitle.text = transaction.product != nil ? transaction.product?.name : transaction.organization?.name ?? ""
+        self.companyTitle.text = transaction?.product != nil ? transaction?.product?.name : transaction?.organization?.name ?? ""
         self.priceLabel.isHidden = isSubsidies
-        if transaction.product != nil {
+        if transaction?.product != nil {
             
-            self.imageTransfer.loadImageUsingUrlString(urlString: transaction.product?.photo?.sizes?.thumbnail ?? "", placeHolder: #imageLiteral(resourceName: "Resting"))
+            self.imageTransfer.loadImageUsingUrlString(urlString: transaction?.product?.photo?.sizes?.thumbnail ?? "", placeHolder: #imageLiteral(resourceName: "Resting"))
             
-        }else if transaction.organization != nil {
+        }else if transaction?.organization != nil {
             
-            self.imageTransfer.loadImageUsingUrlString(urlString: transaction.organization?.logo?.sizes?.thumbnail ?? "", placeHolder: #imageLiteral(resourceName: "Resting"))
+            self.imageTransfer.loadImageUsingUrlString(urlString: transaction?.organization?.logo?.sizes?.thumbnail ?? "", placeHolder: #imageLiteral(resourceName: "Resting"))
         }
-        if let price = transaction.amount {
+        if let price = transaction?.amount {
             self.priceLabel.text = "€ \(price.substringLeftPart()),\(price.substringRightPart())"
         }else {
             self.priceLabel.text = "€ 0,0"
         }
-        self.dateLabel.text = isSubsidies ? transaction.organization?.name : transaction.created_at?.dateFormaterNormalDate()
+        self.dateLabel.text = isSubsidies ? transaction?.organization?.name : transaction?.created_at?.dateFormaterNormalDate()
     }
 }
 

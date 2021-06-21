@@ -41,6 +41,15 @@ class Navigator: NSObject {
         case .transaction:
             let viewControllerr = MTransactionsViewController()
             navController.show(viewControllerr, sender: nil)
+            
+        case .productVoucher(let address):
+            let productVC = ProductVoucherViewController()
+            productVC.address = address
+            navController.show(productVC, sender: nil)
+            
+        case .budgetVoucher(let voucher):
+            let voucherVC = MVoucherViewController(voucher: voucher, navigator: self)
+            navController.show(voucherVC, sender: nil)
         }
     }
     
@@ -51,5 +60,7 @@ class Navigator: NSObject {
         case enablePersonalInfo
         case home
         case transaction
+        case productVoucher(_ address: String)
+        case budgetVoucher(_ voucher: Voucher)
     }
 }

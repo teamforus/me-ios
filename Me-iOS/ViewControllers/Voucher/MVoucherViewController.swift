@@ -42,6 +42,7 @@ class MVoucherViewController: UIViewController {
         self.voucher = voucher
         self.navigator = navigator
         super.init(nibName: nil, bundle: nil)
+        self.dataSource = VoucherDataSource(voucher: voucher, parentViewController: self)
     }
     
     required init?(coder: NSCoder) {
@@ -62,11 +63,12 @@ class MVoucherViewController: UIViewController {
     }
     
     private func setUpTableView() {
-        tableView.delegate = self
+        tableView.delegate = dataSource
         tableView.dataSource = dataSource
         tableView.register(MProductVoucherTableViewCell.self, forCellReuseIdentifier: MProductVoucherTableViewCell.identifier)
         tableView.register(MInfoVoucherTableViewCell.self, forCellReuseIdentifier: MInfoVoucherTableViewCell.identifier)
         tableView.register(TransactionTableViewCell.self, forCellReuseIdentifier: TransactionTableViewCell.identifier)
+        tableView.register(ActiveDateVoucherTableViewCell.self, forCellReuseIdentifier: ActiveDateVoucherTableViewCell.identifier)
     }
     
     private func fetchVoucher() {
@@ -146,27 +148,6 @@ class MVoucherViewController: UIViewController {
                 }
             }
         }
-    }
-}
-
-// MARK: - UITableViewDelegate
-
-extension MVoucherViewController: UITableViewDelegate, UITableViewDataSource{
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return voucherViewModel.numberOfCells
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TransactionTableViewCell
-        
-        let transaction = voucherViewModel.getCellViewModel(at: indexPath)
-        return cell
     }
 }
 

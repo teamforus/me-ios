@@ -206,3 +206,5 @@
 "description_about" = "Deze app is bedoeld om vouchers te beheren, betalingen te verrichten en in te loggen op verschillende applicaties.\n\n\nDeze app werkt samen met:\n\n     • \tDe Westerkwartier webshop;\n     • \tDe Nijmegen webshop;\n     • \tDe Winterswijk webshop;\n     • \tDe Oost Gelre webshop;\n     • \tDe Berkelland webshop;\n     • \tDe Noordoostpolder webshop\n     • \tDe Kerstpakket webshop;";
 "branches" = "%@ Vestigingen";
 "new_records" = "NIEUWE EIGENSCHAP";
+"history" = "Geschiedenis";
+"activated" = "Aangemaakt";

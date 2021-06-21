@@ -179,18 +179,6 @@ class MVouchersViewController: UIViewController {
         default: break
         }
     }
-    
-    
-    // MARK: - Navigation
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-         if segue.identifier == "goToVoucher" {
-            if let voucherVC = segue.destination as? MVoucherViewController {
-                voucherVC.address = self.dataSource.vouchers[tableView.indexPathForSelectedRow?.row ?? 0].address
-            }
-        }
-    }
 }
 
 extension MVouchersViewController: UITableViewDelegate{
@@ -205,12 +193,9 @@ extension MVouchersViewController: UITableViewDelegate{
         switch voucherType {
         case .vouchers?:
             if voucher.product != nil {
-                let vc = ProductVoucherViewController()
-                vc.address = voucher.address ?? ""
-                vc.hidesBottomBarWhenPushed = true
-                self.show(vc, sender: nil)
+                navigator.navigate(to: .productVoucher(voucher.address ?? ""))
             }else {
-                self.performSegue(withIdentifier: "goToVoucher", sender: nil)
+                navigator.navigate(to: .budgetVoucher(voucher))
             }
         default:
             break
@@ -245,11 +230,9 @@ extension MVouchersViewController: UIViewControllerPreviewingDelegate{
                 productVC.address = voucherViewModel.selectedVoucher?.address ?? ""
                 detailViewController = productVC
             }else {
-                let storyboard = R.storyboard.voucher()
-                if let voucherVC = storyboard.instantiateViewController(withIdentifier: "voucher") as? MVoucherViewController {
-                    voucherVC.address = voucher.address ?? ""
-                    detailViewController = voucherVC
-                }
+                let productVC = MVoucherViewController(voucher: voucher, navigator: navigator)
+                productVC.address = voucherViewModel.selectedVoucher?.address ?? ""
+                detailViewController = productVC
             }
             
             return detailViewController

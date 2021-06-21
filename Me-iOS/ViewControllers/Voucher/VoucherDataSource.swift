@@ -69,11 +69,17 @@ class VoucherDataSource: NSObject {
 
 extension VoucherDataSource: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return VoucherTableViewSection.allCases.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return VoucherTableViewSection.allCases.count
+        let sections = VoucherTableViewSection.allCases[section]
+        switch sections {
+        case .voucher, .infoVoucher, .activeDate:
+            return 1
+        case .transactions:
+            return voucher.transactions?.count ?? 0
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -84,6 +90,8 @@ extension VoucherDataSource: UITableViewDelegate, UITableViewDataSource {
                 return UITableViewCell()
             }
             cell.setupVoucher(voucher: voucher)
+            return cell
+            
         case .infoVoucher:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: MInfoVoucherTableViewCell.identifier, for: indexPath) as? MInfoVoucherTableViewCell else {
                 return UITableViewCell()
@@ -95,11 +103,35 @@ extension VoucherDataSource: UITableViewDelegate, UITableViewDataSource {
             cell.infoCompletion = { [weak self] () in
                 self?.showVoucherInfo()
             }
+            return cell
+            
         case .activeDate:
-            break
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: ActiveDateVoucherTableViewCell.identifier, for: indexPath) as? ActiveDateVoucherTableViewCell else {
+                return UITableViewCell()
+            }
+            cell.setup(voucher)
+            return cell
+            
         case .transactions:
-//            cell.configure(transaction: transaction, isSubsidies: voucher.fund?.type == FundType.subsidies.rawValue)
-            break
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: TransactionTableViewCell.identifier, for: indexPath) as? TransactionTableViewCell else {
+                return UITableViewCell()
+            }
+            cell.configure(transaction: voucher.transactions?[indexPath.row], isSubsidies: false)
+            return cell
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let sections = VoucherTableViewSection.allCases[indexPath.section]
+        switch sections {
+        case .voucher:
+            return 120
+        case .infoVoucher:
+            return 70
+        case .activeDate:
+            return 70
+        case .transactions:
+            return 90
         }
     }
 }
