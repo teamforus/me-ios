@@ -16,17 +16,21 @@ class ActiveDateVoucherTableViewCell: UITableViewCell {
     private let nameLabel: UILabel_DarkMode = {
         let label = UILabel_DarkMode(frame: .zero)
         label.text = Localize.history()
+        label.font = R.font.googleSansMedium(size: 24)
         return label
     }()
     
     private let activateLabel: UILabel = {
         let label = UILabel(frame: .zero)
         label.text = Localize.activated()
+        label.font = R.font.googleSansRegular(size: 12)
+        label.textColor = Color.lightGrayText
         return label
     }()
     
     private let dateLabel: UILabel_DarkMode = {
         let label = UILabel_DarkMode(frame: .zero)
+        label.font = R.font.googleSansRegular(size: 13)
         return label
     }()
     
@@ -34,6 +38,8 @@ class ActiveDateVoucherTableViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         selectionStyle = .none
+        self.backgroundColor = .clear
+        self.contentView.backgroundColor = .clear
         addSubviews()
         setupConstraints()
     }
@@ -43,7 +49,7 @@ class ActiveDateVoucherTableViewCell: UITableViewCell {
     }
     
     func setup(_ voucher: Voucher) {
-        dateLabel.text = voucher.expire_at?.date
+        dateLabel.text = voucher.expire_at?.date?.dateFormaterExpireDate()
     }
 }
 

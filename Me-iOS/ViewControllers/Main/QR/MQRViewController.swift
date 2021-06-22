@@ -136,7 +136,7 @@ class MQRViewController: HSScanViewController {
                 
                 if voucher.product?.price != "0.00"{
                   
-                  self?.performSegue(withIdentifier: R.segue.mqrViewController.goToVoucherPayment, sender: nil)
+//                  self?.performSegue(withIdentifier: R.segue.mqrViewController.goToVoucherPayment, sender: nil)
                 }else{
                   
                   self?.showSimpleAlertWithSingleAction(title: Localize.error_exclamation(),
@@ -184,9 +184,9 @@ class MQRViewController: HSScanViewController {
             }
           })
           if self.productVoucher.count != 0 {
-            self.performSegue(withIdentifier: R.segue.mqrViewController.goToChooseProduct, sender: nil)
+//            self.performSegue(withIdentifier: R.segue.mqrViewController.goToChooseProduct, sender: nil)
           }else {
-            self.performSegue(withIdentifier: R.segue.mqrViewController.goToVoucherPayment, sender: nil)
+//            self.performSegue(withIdentifier: R.segue.mqrViewController.goToVoucherPayment, sender: nil)
           }
         }else {
           
@@ -213,17 +213,17 @@ class MQRViewController: HSScanViewController {
   }
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    if let paymentVC = R.segue.mqrViewController.goToVoucherPayment(segue: segue) {
-      paymentVC.destination.testToken = testToken
-      paymentVC.destination.voucher = voucher
-      paymentVC.destination.tabBar = self.tabBarController
-      
-    }else if let productReservation =  R.segue.mqrViewController.goToChooseProduct(segue: segue) {
-      productReservation.destination.voucher = voucher
-      productReservation.destination.voucherTokens = productVoucher.filter({$0.amount != "0.0"})
-      productReservation.destination.vc = self
-      productReservation.destination.tabBar = self.tabBarController
-    }
+//    if let paymentVC = R.segue.mqrViewController.goToVoucherPayment(segue: segue) {
+//      paymentVC.destination.testToken = testToken
+//      paymentVC.destination.voucher = voucher
+//      paymentVC.destination.tabBar = self.tabBarController
+//      
+//    }else if let productReservation =  R.segue.mqrViewController.goToChooseProduct(segue: segue) {
+//      productReservation.destination.voucher = voucher
+//      productReservation.destination.voucherTokens = productVoucher.filter({$0.amount != "0.0"})
+//      productReservation.destination.vc = self
+//      productReservation.destination.tabBar = self.tabBarController
+//    }
   }
 }
 
@@ -264,7 +264,7 @@ extension MQRViewController: HSScanViewControllerDelegate{
             } else if qr.type == QRTypeScann.testTransaction.rawValue {
               self.scanWorker.stop()
               self.testToken = qr.value
-              self.performSegue(withIdentifier: R.segue.mqrViewController.goToVoucherPayment, sender: nil)
+//              self.performSegue(withIdentifier: R.segue.mqrViewController.goToVoucherPayment, sender: nil)
             }
           }
         } catch {

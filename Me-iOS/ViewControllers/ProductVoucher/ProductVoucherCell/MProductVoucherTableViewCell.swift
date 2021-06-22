@@ -38,6 +38,12 @@ class MProductVoucherTableViewCell: UITableViewCell {
         return imageQRCodeVoucher
     }()
     
+    private let priceLabel: UILabel = {
+        let label = UILabel(frame: .zero)
+        label.isHidden = true
+        return label
+    }()
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         addSubviews()
@@ -51,17 +57,25 @@ class MProductVoucherTableViewCell: UITableViewCell {
         super.init(coder: coder)
     }
     
-    func setupVoucher(voucher: Voucher?) {
-        self.productName.text = voucher?.product?.name ?? ""
+    func setupProduct(voucher: Voucher?) {
+        self.productName.text = voucher?.product?.name
         self.imageQRCodeVoucher.generateQRCode(from: "{\"type\": \"voucher\",\"value\": \"\(voucher?.address ?? "")\" }")
-        self.organizationName.text = voucher?.product?.organization?.name ?? ""
+        self.organizationName.text = voucher?.product?.organization?.name
+    }
+    
+    func setup(voucher: Voucher?) {
+        self.productName.text = voucher?.fund?.name
+        self.imageQRCodeVoucher.generateQRCode(from: "{\"type\": \"voucher\",\"value\": \"\(voucher?.address ?? "")\" }")
+        self.organizationName.text = voucher?.fund?.organization?.name
+        self.priceLabel.isHidden = voucher?.fund?.type == FundType.subsidies.rawValue
+        self.priceLabel.text = "€ \(voucher?.amount ?? String.empty)"
     }
 }
 
 extension MProductVoucherTableViewCell {
     // MARK: - Add Subviews
     private func addSubviews() {
-        let views = [imageVoucher, productName, organizationName, imageQRCodeVoucher]
+        let views = [imageVoucher, productName, organizationName, imageQRCodeVoucher, priceLabel]
         views.forEach { (view) in
             self.contentView.addSubview(view)
         }
@@ -94,6 +108,11 @@ extension MProductVoucherTableViewCell {
             make.right.equalTo(imageVoucher).offset(-10)
             make.centerY.equalTo(imageVoucher)
             make.height.width.equalTo(76)
+        }
+        
+        priceLabel.snp.makeConstraints { make in
+            make.left.equalTo(imageVoucher).offset(20)
+            make.top.equalTo(organizationName.snp.bottom).offset(3)
         }
     }
 }

@@ -80,7 +80,7 @@ extension ProductVoucherDataSource: UITableViewDataSource {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: MProductVoucherTableViewCell.identifier, for: indexPath) as? MProductVoucherTableViewCell else {
                 return UITableViewCell()
             }
-            cell.setupVoucher(voucher: voucher)
+            cell.setupProduct(voucher: voucher)
             return cell
         case .infoVoucher:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: MInfoVoucherTableViewCell.identifier, for: indexPath) as? MInfoVoucherTableViewCell else {

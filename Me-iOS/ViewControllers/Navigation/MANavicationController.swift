@@ -92,6 +92,11 @@ extension MeNavigationController: UINavigationControllerDelegate {
             self.navigationBar.prefersLargeTitles = false
             viewController.title = Localize.product_voucher()
             viewController.hidesBottomBarWhenPushed = true
+            
+        case is MVoucherViewController:
+            self.navigationBar.prefersLargeTitles = false
+            viewController.title = "Voucher"
+            viewController.hidesBottomBarWhenPushed = true
         default: ()
         }
     }

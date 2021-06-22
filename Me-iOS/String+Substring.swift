@@ -14,6 +14,11 @@ var Localize: R.string.localizable.Type {
 }
 
 extension String {
+    static let empty = ""
+    
+}
+
+extension String {
     
     func substringLeftPart() -> String{
         let number = self

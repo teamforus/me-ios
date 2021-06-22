@@ -53,6 +53,8 @@ class TransactionTableViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         selectionStyle = .none
+        self.contentView.backgroundColor = .clear
+        self.backgroundColor = .clear
         addSubviews()
         setupConstraints()
     }
@@ -108,12 +110,13 @@ extension TransactionTableViewCell {
         
         imageTransfer.snp.makeConstraints { make in
             make.centerY.equalTo(bodyView)
+            make.width.height.equalTo(40)
             make.left.equalTo(bodyView).offset(15)
         }
         
         companyTitle.snp.makeConstraints { make in
             make.left.equalTo(imageTransfer.snp.right).offset(8)
-            make.top.equalTo(bodyView).offset(30)
+            make.top.equalTo(bodyView).offset(20)
         }
         
         dateLabel.snp.makeConstraints { make in
@@ -122,13 +125,13 @@ extension TransactionTableViewCell {
         }
         
         priceLabel.snp.makeConstraints { make in
-            make.right.equalTo(bodyView).offset(8)
-            make.top.equalTo(bodyView).offset(30)
+            make.right.equalTo(bodyView).offset(-8)
+            make.top.equalTo(bodyView).offset(20)
         }
         
-        dateLabel.snp.makeConstraints { make in
+        statusTransfer.snp.makeConstraints { make in
             make.top.equalTo(priceLabel.snp.bottom).offset(2)
-            make.right.equalTo(bodyView).offset(8)
+            make.right.equalTo(bodyView).offset(-8)
         }
         
     }

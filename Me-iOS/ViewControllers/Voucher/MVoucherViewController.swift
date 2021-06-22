@@ -57,9 +57,13 @@ class MVoucherViewController: UIViewController {
     }
     
     private func setupUI() {
-        
+        if #available(iOS 11.0, *) {
+            self.view.backgroundColor = UIColor(named: "Background_Voucher_DarkTheme")
+        } else {}
         fetchVoucher()
         setupVoucher()
+        setupView()
+        setUpTableView()
     }
     
     private func setUpTableView() {
@@ -69,6 +73,7 @@ class MVoucherViewController: UIViewController {
         tableView.register(MInfoVoucherTableViewCell.self, forCellReuseIdentifier: MInfoVoucherTableViewCell.identifier)
         tableView.register(TransactionTableViewCell.self, forCellReuseIdentifier: TransactionTableViewCell.identifier)
         tableView.register(ActiveDateVoucherTableViewCell.self, forCellReuseIdentifier: ActiveDateVoucherTableViewCell.identifier)
+        self.tableView.reloadData()
     }
     
     private func fetchVoucher() {
@@ -78,12 +83,12 @@ class MVoucherViewController: UIViewController {
             }
         }
         
-        if isReachable() {
-            voucherViewModel.vc = self
-            voucherViewModel.initFetchById(address: address)
-        }else {
-            showInternetUnable()
-        }
+//        if isReachable() {
+//            voucherViewModel.vc = self
+//            voucherViewModel.initFetchById(address: address)
+//        }else {
+//            showInternetUnable()
+//        }
     }
     
     private func setupVoucher() {
@@ -152,6 +157,13 @@ class MVoucherViewController: UIViewController {
 }
 
 extension MVoucherViewController{
+    
+    func setupView() {
+        self.view.addSubview(tableView)
+        tableView.snp.makeConstraints { make in
+            make.top.left.right.bottom.equalTo(self.view.safeAreaLayoutGuide)
+        }
+    }
     
     func didAnimateTransactioList(){
         if voucherViewModel.numberOfCells > 8{

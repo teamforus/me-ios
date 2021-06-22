@@ -75,21 +75,26 @@ extension VoucherDataSource: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let sections = VoucherTableViewSection.allCases[section]
         switch sections {
-        case .voucher, .infoVoucher, .activeDate:
+        case .voucher, .activeDate:
             return 1
+        case .infoVoucher:
+            if voucher.expire_at?.date == nil {
+                return 0
+            }
+            return voucher.expire_at?.date?.formatDate() ?? Date() >= Date() ? 1 : 0
         case .transactions:
             return voucher.transactions?.count ?? 0
         }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let rows = VoucherTableViewSection.allCases[indexPath.row]
+        let rows = VoucherTableViewSection.allCases[indexPath.section]
         switch rows {
         case .voucher:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: MProductVoucherTableViewCell.identifier, for: indexPath) as? MProductVoucherTableViewCell else {
                 return UITableViewCell()
             }
-            cell.setupVoucher(voucher: voucher)
+            cell.setup(voucher: voucher)
             return cell
             
         case .infoVoucher:

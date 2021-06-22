@@ -96,9 +96,6 @@
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="string" keyPath="colorName" value="Gray_Dark_DarkTheme"/>
                                                         </userDefinedRuntimeAttributes>
-                                                        <connections>
-                                                            <segue destination="cz6-ov-H3w" kind="presentation" modalPresentationStyle="fullScreen" id="OXA-Jq-Fp8"/>
-                                                        </connections>
                                                     </button>
                                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="V0O-m1-j6W" customClass="Background_DarkMode" customModule="Me_iOS" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="80" width="375" height="1"/>
@@ -516,14 +513,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qRh-Tn-urI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-87.200000000000003" y="249.62518740629687"/>
-        </scene>
-        <!--records-->
-        <scene sceneID="HrR-Dl-RMc">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Main" referencedIdentifier="records" id="cz6-ov-H3w" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="g7m-0C-3oN" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="494" y="220"/>
         </scene>
     </scenes>
     <designables>
