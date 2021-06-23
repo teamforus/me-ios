@@ -86,17 +86,14 @@ extension MeNavigationController: UINavigationControllerDelegate {
         case is MTransactionsViewController:
             self.navigationBar.prefersLargeTitles = true
             viewController.title = Localize.transactions()
-            viewController.hidesBottomBarWhenPushed = true
             
         case is ProductVoucherViewController:
             self.navigationBar.prefersLargeTitles = false
             viewController.title = Localize.product_voucher()
-            viewController.hidesBottomBarWhenPushed = true
             
         case is MVoucherViewController:
             self.navigationBar.prefersLargeTitles = false
             viewController.title = "Voucher"
-            viewController.hidesBottomBarWhenPushed = true
         default: ()
         }
     }

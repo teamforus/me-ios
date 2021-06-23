@@ -19,6 +19,14 @@ class HomeTabViewController: UITabBarController {
     
     static let shared = HomeTabViewController()
     
+    var tabBarHeight: CGFloat {
+        if view.safeAreaInsets.bottom == 0 { // check if screen has safe area
+            return 60
+        } else {
+            return 100
+        }
+    }
+    
     let vouchersViewController = TransactionManager.shared.vouchersScreen()
     
     let qrViewController = TransactionManager.shared.qrScreen()
@@ -27,12 +35,23 @@ class HomeTabViewController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        configureSubviews()
         viewControllers = [vouchersViewController, qrViewController, profileViewController]
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        tabBar.frame.size.height = tabBarHeight
+        tabBar.frame.origin.y = view.frame.height - tabBarHeight
     }
     
     public func setTab(_ tab: Tab) {
         selectedIndex = tab.rawValue
+    }
+    
+    func configureSubviews() {
+        hidesBottomBarWhenPushed = true
     }
 
 }

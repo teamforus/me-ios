@@ -12,19 +12,14 @@ import SafariServices
 class VoucherDataSource: NSObject {
     var voucher: Voucher
     var parentViewController: MVoucherViewController
+    var navigator: Navigator
     
-    init(voucher: Voucher, parentViewController: MVoucherViewController) {
+    init(voucher: Voucher, parentViewController: MVoucherViewController, navigator: Navigator) {
         self.voucher = voucher
         self.parentViewController = parentViewController
+        self.navigator = navigator
         super.init()
     }
-    
-    func didOpenQR() {
-       let popOverVC = PullUpQRViewController(nib: R.nib.pullUpQRViewController)
-       popOverVC.voucher = voucher
-       popOverVC.qrType = .Voucher
-        parentViewController.showPopUPWithAnimation(vc: popOverVC)
-   }
    
     func showVoucherInfo() {
        if voucher.fund?.url_webshop != nil {
@@ -123,6 +118,17 @@ extension VoucherDataSource: UITableViewDelegate, UITableViewDataSource {
             }
             cell.configure(transaction: voucher.transactions?[indexPath.row], isSubsidies: false)
             return cell
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let sections = VoucherTableViewSection.allCases[indexPath.section]
+        switch sections {
+        case .voucher:
+            if voucher.expire_at?.date?.formatDate() ?? Date() >= Date() {
+                navigator.navigate(to: .openQRVoucher(voucher, vc: parentViewController))
+            }
+        default: ()
         }
     }
     

@@ -20,55 +20,55 @@ class ProductVoucherDataSource: NSObject {
     }
     
     func didOpenQR() {
-       let popOverVC = PullUpQRViewController(nib: R.nib.pullUpQRViewController)
-       popOverVC.voucher = voucher
-       popOverVC.qrType = .Voucher
+        let popOverVC = PullUpQRViewController(nib: R.nib.pullUpQRViewController)
+        popOverVC.voucher = voucher
+        popOverVC.qrType = .Voucher
         parentViewController.showPopUPWithAnimation(vc: popOverVC)
-   }
-   
+    }
+    
     func showVoucherInfo() {
-       if voucher.fund?.url_webshop != nil {
-           if let url = URL(string: "\(voucher.fund?.url_webshop ?? "")product/\(voucher.product?.id ?? 0)") {
-               let safariVC = SFSafariViewController(url: url)
-            self.parentViewController.present(safariVC, animated: true, completion: nil)
-           }
-       }else {
-           if let url = URL(string: "https://kerstpakket.forus.io") {
-               let safariVC = SFSafariViewController(url: url)
-            self.parentViewController.present(safariVC, animated: true, completion: nil)
-           }
-       }
-   }
-   
+        if voucher.fund?.url_webshop != nil {
+            if let url = URL(string: "\(voucher.fund?.url_webshop ?? "")product/\(voucher.product?.id ?? 0)") {
+                let safariVC = SFSafariViewController(url: url)
+                self.parentViewController.present(safariVC, animated: true, completion: nil)
+            }
+        }else {
+            if let url = URL(string: "https://kerstpakket.forus.io") {
+                let safariVC = SFSafariViewController(url: url)
+                self.parentViewController.present(safariVC, animated: true, completion: nil)
+            }
+        }
+    }
+    
     func sendVoucherToMail() {
         parentViewController.productViewModel.completeSendEmail = { [weak self] (statusCode) in
-           DispatchQueue.main.async {
-            self?.parentViewController.showPopUPWithAnimation(vc: SuccessSendingViewController(nib: R.nib.successSendingViewController))
-           }
-       }
+            DispatchQueue.main.async {
+                self?.parentViewController.showPopUPWithAnimation(vc: SuccessSendingViewController(nib: R.nib.successSendingViewController))
+            }
+        }
         parentViewController.showSimpleAlertWithAction(title: Localize.email_to_me(),
-                                 message: Localize.send_an_email_to_the_provider(),
-                                 okAction: UIAlertAction(title: Localize.confirm(), style: .default, handler: { (action) in
-                                    self.parentViewController.productViewModel.sendEmail(address: self.voucher.address ?? "")
-                                 }),
-                                 cancelAction: UIAlertAction(title: Localize.cancel(), style: .cancel, handler: nil))
-   }
-   
+                                                       message: Localize.send_an_email_to_the_provider(),
+                                                       okAction: UIAlertAction(title: Localize.confirm(), style: .default, handler: { (action) in
+                                                        self.parentViewController.productViewModel.sendEmail(address: self.voucher.address ?? "")
+                                                       }),
+                                                       cancelAction: UIAlertAction(title: Localize.cancel(), style: .cancel, handler: nil))
+    }
+    
     func callPhone() {
-       if let phone = voucher.offices?.first?.phone {
-           guard let number = URL(string: "tel://" + (phone)) else { return }
-           UIApplication.shared.open(number)
-       }
-   }
-   
+        if let phone = voucher.offices?.first?.phone {
+            guard let number = URL(string: "tel://" + (phone)) else { return }
+            UIApplication.shared.open(number)
+        }
+    }
+    
     func copyEmailToClipBoard() {
-       UIPasteboard.general.string = self.voucher.offices?.first?.organization?.email
+        UIPasteboard.general.string = self.voucher.offices?.first?.organization?.email
         self.parentViewController.showSimpleToast(message: Localize.copied_to_clipboard())
-   }
+    }
 }
 
 // MARK: - UITableViewDataSource
-extension ProductVoucherDataSource: UITableViewDataSource {
+extension ProductVoucherDataSource: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return MainTableViewSection.allCases.count
     }
@@ -140,6 +140,39 @@ extension ProductVoucherDataSource: UITableViewDataSource {
             cell.parentViewController = parentViewController
             return cell
             
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let sections = MainTableViewSection.allCases[indexPath.row]
+        switch sections {
+        case .voucher:
+            self.didOpenQR()
+        case .telephone:
+            callPhone()
+        case .email, .infoVoucher,  .mapDetail, .adress, .branches: break
+            
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let sections = MainTableViewSection.allCases[indexPath.row]
+        
+        switch sections {
+        case .voucher:
+            return 120
+        case .infoVoucher:
+            return 70
+        case .mapDetail:
+            return 275
+        case .adress:
+            return 78
+        case .telephone:
+            return 82
+        case .email:
+            return 82
+        case .branches:
+            return 168
         }
     }
 }

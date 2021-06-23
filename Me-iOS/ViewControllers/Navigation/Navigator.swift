@@ -40,16 +40,25 @@ class Navigator: NSObject {
             
         case .transaction:
             let viewControllerr = MTransactionsViewController()
+            viewControllerr.hidesBottomBarWhenPushed = true
             navController.show(viewControllerr, sender: nil)
             
         case .productVoucher(let address):
             let productVC = ProductVoucherViewController()
             productVC.address = address
+            productVC.hidesBottomBarWhenPushed = true
             navController.show(productVC, sender: nil)
             
         case .budgetVoucher(let voucher):
             let voucherVC = MVoucherViewController(voucher: voucher, navigator: self)
+            voucherVC.hidesBottomBarWhenPushed = true
             navController.show(voucherVC, sender: nil)
+            
+        case .openQRVoucher(let voucher, vc: let vc):
+            let popOverVC = PullUpQRViewController(nib: R.nib.pullUpQRViewController)
+            popOverVC.voucher = voucher
+            popOverVC.qrType = .Voucher
+            vc.showPopUPWithAnimation(vc: popOverVC)
         }
     }
     
@@ -62,5 +71,6 @@ class Navigator: NSObject {
         case transaction
         case productVoucher(_ address: String)
         case budgetVoucher(_ voucher: Voucher)
+        case openQRVoucher(_ voucher: Voucher, vc: UIViewController)
     }
 }

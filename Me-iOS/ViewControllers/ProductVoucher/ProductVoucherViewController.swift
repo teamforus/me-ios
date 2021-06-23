@@ -43,14 +43,12 @@ class ProductVoucherViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = #colorLiteral(red: 0.9646012187, green: 0.9647662044, blue: 0.9645908475, alpha: 1)
         addSubviews()
         addCosntrains()
         setupUI()
     }
     
     private func setupUI() {
-        setUpActions()
         getApiRequest()
         if #available(iOS 11.0, *) {
             self.view.backgroundColor = UIColor(named: "Background_Voucher_DarkTheme")
@@ -79,7 +77,7 @@ class ProductVoucherViewController: UIViewController {
     }
     
     private func setUpTableView() {
-        tableView.delegate = self
+        tableView.delegate = dataSource
         tableView.dataSource = dataSource
         tableView.register(MProductVoucherTableViewCell.self, forCellReuseIdentifier: MProductVoucherTableViewCell.identifier)
         tableView.register(MTelephoneTableViewCell.self, forCellReuseIdentifier: MTelephoneTableViewCell.identifier)
@@ -89,45 +87,6 @@ class ProductVoucherViewController: UIViewController {
         tableView.register(MMapDetailsTableViewCell.self, forCellReuseIdentifier: MMapDetailsTableViewCell.identifier)
         tableView.register(MInfoVoucherTableViewCell.self, forCellReuseIdentifier: MInfoVoucherTableViewCell.identifier)
     }
-}
-
-extension ProductVoucherViewController: UITableViewDelegate {
-    // MARK: - UITableViewDelegate
-    
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let sections = MainTableViewSection.allCases[indexPath.row]
-        switch sections {
-        case .voucher:
-            self.dataSource.didOpenQR()
-        case .telephone:
-            dataSource.callPhone()
-        case .email, .infoVoucher,  .mapDetail, .adress, .branches: break
-            
-        }
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        let sections = MainTableViewSection.allCases[indexPath.row]
-        
-        switch sections {
-        case .voucher:
-            return 120
-        case .infoVoucher:
-            return 70
-        case .mapDetail:
-            return 275
-        case .adress:
-            return 78
-        case .telephone:
-            return 82
-        case .email:
-            return 82
-        case .branches:
-            return 168
-        }
-    }
-    
 }
 
 extension ProductVoucherViewController {
@@ -155,10 +114,6 @@ extension ProductVoucherViewController{
 
 
 extension ProductVoucherViewController{
-    
-    //MARK: - Setup Actions
-    private func setUpActions(){
-    }
     
     func sendEmailToProvider() {
         showSimpleAlertWithAction(title: Localize.send_an_email_to_the_provider(),

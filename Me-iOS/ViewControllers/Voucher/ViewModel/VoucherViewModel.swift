@@ -47,8 +47,6 @@ class VoucherViewModel{
             }else {
                 var array = response.data?.transactions ?? []
                 array.append(contentsOf: response.data?.product_vouchers ?? [])
-                
-                self.processFetchedLunche(transactions: array.sorted(by: { $0.created_at?.compare($1.created_at ?? "") == .orderedDescending}))
                 self.reloadDataVoucher?(response.data!)
                 
             }
@@ -100,26 +98,4 @@ class VoucherViewModel{
             
         }
     }
-    
-    var numberOfCells: Int {
-        return cellViewModels.count
-    }
-    
-    func getCellViewModel( at indexPath: IndexPath ) -> Transaction {
-        return cellViewModels[indexPath.row]
-    }
-    
-    func createCellViewModel( transaction: Transaction ) -> Transaction {
-        
-        return transaction
-    }
-    
-    private func processFetchedLunche( transactions: [Transaction] ) {
-        var vms = [Transaction]()
-        for transaction in transactions {
-            vms.append( createCellViewModel(transaction: transaction) )
-        }
-        self.cellViewModels = vms
-    }
-    
 }
