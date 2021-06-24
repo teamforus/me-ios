@@ -74,7 +74,7 @@ extension MeNavigationController: UINavigationControllerDelegate {
         viewController.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
         
         switch viewController {
-        case is MAFirstPageViewController, is MSuccessEmailViewController, is EnablePersonalInformationViewController, is MSuccessRegisterViewController:
+        case is MAFirstPageViewController, is MSuccessEmailViewController, is EnablePersonalInformationViewController, is MSuccessRegisterViewController, is MQRViewController:
             setNavigationBarHidden(true, animated: true)
             
         case is MVouchersViewController:

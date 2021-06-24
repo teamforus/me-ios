@@ -64,10 +64,12 @@ extension TransactionManager {
 
 // MARK: - QR
 extension TransactionManager {
-    func qrScreen() -> MQRViewController {
-        let viewController = MQRViewController()
+    func qrScreen() -> MeNavigationController {
+        let viewController = MQRViewController(navigator: Navigator())
+        let navController = MeNavigationController(rootViewController: viewController)
         viewController.tabBarItem = UITabBarItem(title: "QR", image: Image.qrTabIcon, tag: Tab.qr.rawValue)
-        return viewController
+        viewController.navigator.configure(navController)
+        return navController
     }
 }
 
@@ -77,5 +79,15 @@ extension TransactionManager {
         let viewController = loadScene(storyboard: Storyboards.profile, viewController: ViewControllers.Profile.profile) as! MProfileViewController
         viewController.tabBarItem = UITabBarItem(title: Localize.profile(), image: Image.profileTabIcon, tag: Tab.voucher.rawValue)
         return viewController
+    }
+}
+
+// MARK: - Subsidie
+extension TransactionManager {
+    func actionsScreen(voucher: Voucher) -> MeNavigationController {
+        let viewController = MActionsViewController(navigator: Navigator(), voucher: voucher)
+        let navController = MeNavigationController(rootViewController: viewController)
+        viewController.navigator.configure(navController)
+        return navController
     }
 }

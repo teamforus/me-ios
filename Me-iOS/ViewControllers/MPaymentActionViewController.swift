@@ -2,18 +2,23 @@
 //  MPaymentActionViewController.swift
 //  Me-iOS
 //
-//  Created by Inga Codreanu on 04.09.20.
+//  Created by Tcacenco Daniel on 04.09.20.
 //  Copyright © 2020 Tcacenco Daniel. All rights reserved.
 //
 
 import UIKit
 
+struct PaymenyActionModel {
+    var subsidie: Subsidie?
+    var fund: Fund?
+    var organization: AllowedOrganization?
+    var voucherAddress: String
+}
+
 class MPaymentActionViewController: UIViewController {
     
-    var subsidie: Subsidie?
-    var organization: AllowedOrganization?
-    var fund: Fund?
-    var address: String!
+    var paymentAction: PaymenyActionModel
+    var navigator: Navigator
     var subsidieOverviewHeightConstraints: NSLayoutConstraint!
     
     // MARK: - Properties
@@ -120,6 +125,17 @@ class MPaymentActionViewController: UIViewController {
     
     
     // MARK: - Setup View
+    
+    init(navigator: Navigator, paymentAction: PaymenyActionModel) {
+        self.navigator = navigator
+        self.paymentAction = paymentAction
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         addSubview()
@@ -128,7 +144,7 @@ class MPaymentActionViewController: UIViewController {
     }
     
     func setupView() {
-        if let subsidie = self.subsidie {
+        if let subsidie = self.paymentAction.subsidie {
             setupActions(subsidie: subsidie)
         }
         
@@ -139,7 +155,7 @@ class MPaymentActionViewController: UIViewController {
         } else {
             // Fallback on earlier versions
         }
-        if let subsidie = subsidie {
+        if let subsidie = paymentAction.subsidie {
             subsidieOverview.configureSubsidie(subsidie: subsidie, and: self)
         }
         addObservers()
@@ -332,10 +348,7 @@ extension MPaymentActionViewController: UITextFieldDelegate {
 extension MPaymentActionViewController {
     // MARK: - Actions
     @objc func showConfirm() {
-        let view = ConfirmPayAction(frame: .zero)
-        view.subsidie = subsidie
-        view.organization = organization
-        view.address = address
+        let view = ConfirmPayAction(paymentAction: paymentAction)
         view.vc = self
         view.setupView()
         self.view.addSubview(view)

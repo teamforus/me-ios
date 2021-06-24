@@ -10,12 +10,13 @@ import UIKit
 
 class MActionsViewController: UIViewController {
     
-    var voucher: Voucher?
+    var voucher: Voucher
     private lazy var viewModel: ActionViewModel = {
         return ActionViewModel()
     }()
     var organization: AllowedOrganization?
     var dataSource: ActionsDataSource!
+    var navigator: Navigator
     
     // MARK: - Properties
     let bodyView: Background_DarkMode = {
@@ -120,7 +121,18 @@ class MActionsViewController: UIViewController {
     }()
     
     
+    // MARK: - Init
+    init(navigator: Navigator, voucher: Voucher) {
+        self.navigator = navigator
+        self.voucher = voucher
+        super.init(nibName: nil, bundle: nil)
+    }
     
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    // MARK: - Setup View
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
@@ -138,20 +150,16 @@ class MActionsViewController: UIViewController {
     }
     
     private func setVoucher() {
-        guard let voucher = self.voucher else {
-            return
-        }
-        
         fundNameLabel.text = voucher.fund?.name
-        organizationVoucherLabel.text = voucher.fund?.organization?.name ?? ""
-        self.imageViewVoucher.loadImageUsingUrlString(urlString: voucher.fund?.organization?.logo?.sizes?.thumbnail ?? "", placeHolder: #imageLiteral(resourceName: "Resting"))
+        organizationVoucherLabel.text = voucher.fund?.organization?.name ?? String.empty
+        self.imageViewVoucher.loadImageUsingUrlString(urlString: voucher.fund?.organization?.logo?.sizes?.thumbnail ?? String.empty, placeHolder: #imageLiteral(resourceName: "Resting"))
     }
     
     private func setupView() {
         setVoucher()
         self.organizationView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(openOrganization)))
-        self.organizationNameLabel.text = voucher?.allowed_organizations?.first?.name ?? ""
-        organization = voucher?.allowed_organizations?.first
+        self.organizationNameLabel.text = voucher.allowed_organizations?.first?.name ?? String.empty
+        organization = voucher.allowed_organizations?.first
         
         setupVoucherImageView()
     }
@@ -168,7 +176,7 @@ class MActionsViewController: UIViewController {
     }
     
      func fetchActions() {
-        viewModel.fetchSubsidies(voucherAddress: voucher?.address ?? "")
+        viewModel.fetchSubsidies(voucherAddress: voucher.address ?? String.empty)
         
         viewModel.complete = { [weak self] (subsidies) in
             guard let self = self else {
@@ -368,7 +376,7 @@ extension MActionsViewController {
     @objc private func openOrganization() {
         let popOverVC = OrganizationValidatorViewController(nibName: "OrganizationValidatorViewController", bundle: nil)
         popOverVC.organizationType = .subsidieOrganization
-        popOverVC.allowedOrganization = voucher?.allowed_organizations ?? []
+        popOverVC.allowedOrganization = voucher.allowed_organizations ?? []
         popOverVC.delegate = self
         self.addChild(popOverVC)
         popOverVC.view.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height)
@@ -376,12 +384,8 @@ extension MActionsViewController {
     }
     
      func openSubsidiePayment(subsidie: Subsidie, organization: AllowedOrganization?) {
-        let paymentVC = MPaymentActionViewController()
-        paymentVC.subsidie = subsidie
-        paymentVC.fund = voucher?.fund
-        paymentVC.organization = organization
-        paymentVC.address = voucher?.address ?? ""
-        paymentVC.modalPresentationStyle = .fullScreen
-        self.present(paymentVC, animated: true)
+        let paymentAction = PaymenyActionModel(subsidie: subsidie, fund: voucher.fund, organization: organization, voucherAddress: voucher.address ?? String.empty)
+        navigator.navigate(to: .paymentActions(paymentAction))
+        
     }
 }

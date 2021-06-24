@@ -31,7 +31,19 @@ class MQRViewController: HSScanViewController {
   private var qrValue: String?
   
   private var recordValidateResponse: RecordValidation!
-  
+    var navigator: Navigator
+    
+    
+    // MARK: - Init
+    init(navigator: Navigator) {
+        self.navigator = navigator
+        super.init()
+    }
+    
+    required public init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
   override func viewDidLoad() {
     super.viewDidLoad()
     
@@ -313,10 +325,7 @@ extension MQRViewController: OrganizationValidatorViewControllerDelegate {
 
 extension MQRViewController {
   func openSubsidies() {
-    let actionsVC = MActionsViewController()
-    actionsVC.modalPresentationStyle = .fullScreen
-    actionsVC.voucher = voucher
-    self.present(actionsVC, animated: true)
+    navigator.navigate(to: .subsidie(voucher))
   }
 }
 

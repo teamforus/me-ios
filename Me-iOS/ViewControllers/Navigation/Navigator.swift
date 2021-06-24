@@ -59,6 +59,16 @@ class Navigator: NSObject {
             popOverVC.voucher = voucher
             popOverVC.qrType = .Voucher
             vc.showPopUPWithAnimation(vc: popOverVC)
+            
+        case .subsidie(let voucher):
+            let actionsVC = TransactionManager.shared.actionsScreen(voucher: voucher)
+            actionsVC.modalPresentationStyle = .fullScreen
+            self.navController.present(actionsVC, animated: true)
+            
+        case .paymentActions(let paymentAction):
+            let paymentVC = MPaymentActionViewController(navigator: self, paymentAction: paymentAction)
+            paymentVC.modalPresentationStyle = .fullScreen
+            self.navController.present(paymentVC, animated: true)
         }
     }
     
@@ -72,5 +82,7 @@ class Navigator: NSObject {
         case productVoucher(_ address: String)
         case budgetVoucher(_ voucher: Voucher)
         case openQRVoucher(_ voucher: Voucher, vc: UIViewController)
+        case subsidie(_ voucher: Voucher)
+        case paymentActions(_ paymentAction: PaymenyActionModel)
     }
 }
