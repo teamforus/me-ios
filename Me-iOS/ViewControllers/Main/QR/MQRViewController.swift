@@ -196,7 +196,7 @@ class MQRViewController: HSScanViewController {
             }
           })
           if self.productVoucher.count != 0 {
-//            self.performSegue(withIdentifier: R.segue.mqrViewController.goToChooseProduct, sender: nil)
+            navigator.navigate(to: .productReservation(productVoucher.filter({$0.amount != "0.0"}), voucher))
           }else {
 //            self.performSegue(withIdentifier: R.segue.mqrViewController.goToVoucherPayment, sender: nil)
           }

@@ -2123,7 +2123,7 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
 
-    /// This `R.string.localizable` struct is generated, and contains static references to 198 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 199 localization keys.
     struct localizable {
       /// en translation: %@ Branches
       ///
@@ -2749,6 +2749,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en, nl
       static let paid_by_customer = Rswift.StringResource(key: "paid_by_customer", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
+      /// en translation: The offers below are reserved by the customer
+      ///
+      /// Locales: en, nl
+      static let offer_below_reserved_customer = Rswift.StringResource(key: "offer_below_reserved_customer", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
       /// en translation: The scanner is not supported on this device
       ///
       /// Locales: en, nl
@@ -5276,6 +5280,21 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("paid_by_customer", bundle: bundle, comment: "")
+      }
+
+      /// en translation: The offers below are reserved by the customer
+      ///
+      /// Locales: en, nl
+      static func offer_below_reserved_customer(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("offer_below_reserved_customer", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "offer_below_reserved_customer"
+        }
+
+        return NSLocalizedString("offer_below_reserved_customer", bundle: bundle, comment: "")
       }
 
       /// en translation: The scanner is not supported on this device

@@ -27,10 +27,12 @@ extension ProductReservationDataSource: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ProductReservationTableViewCell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: ProductReservationTableViewCell.identifier, for: indexPath) as? ProductReservationTableViewCell else {
+            return UITableViewCell()
+        }
         let voucherToken = voucherTokens[indexPath.row]
         
-        cell.productReservation = voucherToken
+        cell.setup(voucherToken)
         
         return cell
     }

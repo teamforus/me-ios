@@ -69,6 +69,11 @@ class Navigator: NSObject {
             let paymentVC = MPaymentActionViewController(navigator: self, paymentAction: paymentAction)
             paymentVC.modalPresentationStyle = .fullScreen
             self.navController.present(paymentVC, animated: true)
+            
+        case .productReservation(let voucherTokens, let voucher):
+            let productReservationVC = TransactionManager.shared.productReservationScreen(voucherTokens: voucherTokens, voucher: voucher)
+            productReservationVC.modalPresentationStyle = .fullScreen
+            self.navController.present(productReservationVC, animated: true)
         }
     }
     
@@ -84,5 +89,6 @@ class Navigator: NSObject {
         case openQRVoucher(_ voucher: Voucher, vc: UIViewController)
         case subsidie(_ voucher: Voucher)
         case paymentActions(_ paymentAction: PaymenyActionModel)
+        case productReservation(_ voucherTokens: [Transaction], _ voucher: Voucher)
     }
 }

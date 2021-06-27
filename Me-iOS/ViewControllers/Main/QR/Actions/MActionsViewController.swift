@@ -48,7 +48,7 @@ class MActionsViewController: UIViewController {
     private let voucherImageView: UIImageView = {
         let imageView = UIImageView(frame: .zero)
         imageView.contentMode = .scaleToFill
-        imageView.image = Image.voucherTickerIcon
+        imageView.image = Image.voucherTicketIcon
         return imageView
     }()
     

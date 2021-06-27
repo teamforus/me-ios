@@ -10,7 +10,7 @@ import UIKit
 
 public struct Image {
     public static let lock_icon: UIImage? = UIImage(named: "lock")
-    public static let voucherTickerIcon: UIImage? = UIImage(named: "voucher_ticket_icon")
+    public static let voucherTicketIcon: UIImage? = UIImage(named: "voucher_ticket_icon")
     public static let faceIcon: UIImage? = UIImage(named: "face_icon")
     public static let arrowRightIcon: UIImage? = UIImage(named: "arrow_right_icon")
     public static let checkAuthorizationIcon: UIImage? = UIImage(named: "check_authorize_icon")
@@ -24,4 +24,5 @@ public struct Image {
     public static let qrTabIcon: UIImage? = UIImage(named: "iconGrey")
     public static let voucherTabIcon: UIImage? = UIImage(named: "wallet")
     public static let profileTabIcon: UIImage? = UIImage(named: "activeBlue")
+    public static let restingIcon: UIImage? = UIImage(named: "Resting")
 }
