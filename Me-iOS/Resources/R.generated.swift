@@ -91,42 +91,7 @@ struct R: Rswift.Validatable {
   }
 
   #if os(iOS) || os(tvOS)
-  /// This `R.segue` struct is generated, and contains static references to 1 view controllers.
-  struct segue {
-    /// This struct is generated for `MProductReservationViewController`, and contains static references to 2 segues.
-    struct mProductReservationViewController {
-      /// Segue identifier `goToPaymentFromSelected`.
-      static let goToPaymentFromSelected: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, MProductReservationViewController, MPaymentViewController> = Rswift.StoryboardSegueIdentifier(identifier: "goToPaymentFromSelected")
-      /// Segue identifier `goToPaymentSimple`.
-      static let goToPaymentSimple: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, MProductReservationViewController, MPaymentViewController> = Rswift.StoryboardSegueIdentifier(identifier: "goToPaymentSimple")
-
-      #if os(iOS) || os(tvOS)
-      /// Optionally returns a typed version of segue `goToPaymentFromSelected`.
-      /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
-      /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
-      static func goToPaymentFromSelected(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, MProductReservationViewController, MPaymentViewController>? {
-        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.mProductReservationViewController.goToPaymentFromSelected, segue: segue)
-      }
-      #endif
-
-      #if os(iOS) || os(tvOS)
-      /// Optionally returns a typed version of segue `goToPaymentSimple`.
-      /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
-      /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
-      static func goToPaymentSimple(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, MProductReservationViewController, MPaymentViewController>? {
-        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.mProductReservationViewController.goToPaymentSimple, segue: segue)
-      }
-      #endif
-
-      fileprivate init() {}
-    }
-
-    fileprivate init() {}
-  }
-  #endif
-
-  #if os(iOS) || os(tvOS)
-  /// This `R.storyboard` struct is generated, and contains static references to 8 storyboards.
+  /// This `R.storyboard` struct is generated, and contains static references to 7 storyboards.
   struct storyboard {
     /// Storyboard `ChooseTypeRecord`.
     static let chooseTypeRecord = _R.storyboard.chooseTypeRecord()
@@ -134,8 +99,6 @@ struct R: Rswift.Validatable {
     static let launchScreen = _R.storyboard.launchScreen()
     /// Storyboard `Payment`.
     static let payment = _R.storyboard.payment()
-    /// Storyboard `ProductReservation`.
-    static let productReservation = _R.storyboard.productReservation()
     /// Storyboard `Profile`.
     static let profile = _R.storyboard.profile()
     /// Storyboard `RecordDetail`.
@@ -163,13 +126,6 @@ struct R: Rswift.Validatable {
     /// `UIStoryboard(name: "Payment", bundle: ...)`
     static func payment(_: Void = ()) -> UIKit.UIStoryboard {
       return UIKit.UIStoryboard(resource: R.storyboard.payment)
-    }
-    #endif
-
-    #if os(iOS) || os(tvOS)
-    /// `UIStoryboard(name: "ProductReservation", bundle: ...)`
-    static func productReservation(_: Void = ()) -> UIKit.UIStoryboard {
-      return UIKit.UIStoryboard(resource: R.storyboard.productReservation)
     }
     #endif
 
@@ -1483,7 +1439,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.string` struct is generated, and contains static references to 15 localization tables.
+  /// This `R.string` struct is generated, and contains static references to 14 localization tables.
   struct string {
     /// This `R.string.allowedOrganizationsViewController` struct is generated, and contains static references to 1 localization keys.
     struct allowedOrganizationsViewController {
@@ -2123,7 +2079,7 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
 
-    /// This `R.string.localizable` struct is generated, and contains static references to 199 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 200 localization keys.
     struct localizable {
       /// en translation: %@ Branches
       ///
@@ -2233,6 +2189,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en, nl
       static let children = Rswift.StringResource(key: "children", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
+      /// en translation: Choose Reservation
+      ///
+      /// Locales: en, nl
+      static let choose_reservation = Rswift.StringResource(key: "choose_reservation", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
       /// en translation: Choose from date
       ///
       /// Locales: en, nl
@@ -3335,6 +3295,21 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("children", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Choose Reservation
+      ///
+      /// Locales: en, nl
+      static func choose_reservation(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("choose_reservation", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "choose_reservation"
+        }
+
+        return NSLocalizedString("choose_reservation", bundle: bundle, comment: "")
       }
 
       /// en translation: Choose from date
@@ -6142,107 +6117,6 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
 
-    /// This `R.string.productReservation` struct is generated, and contains static references to 5 localization keys.
-    struct productReservation {
-      /// en translation: 300 €
-      ///
-      /// Locales: en, nl
-      static let wfvDJZtwText = Rswift.StringResource(key: "wfv-DJ-Ztw.text", tableName: "ProductReservation", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
-      /// en translation: COMPLETE AN AMOUNT
-      ///
-      /// Locales: en, nl
-      static let uzMMeHi0NormalTitle = Rswift.StringResource(key: "uzM-Me-hi0.normalTitle", tableName: "ProductReservation", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
-      /// en translation: Choose Reservation
-      ///
-      /// Locales: en, nl
-      static let j1CHn7j5Text = Rswift.StringResource(key: "j1C-Hn-7j5.text", tableName: "ProductReservation", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
-      /// en translation: Kindpakket
-      ///
-      /// Locales: en, nl
-      static let e2mHCZoQText = Rswift.StringResource(key: "e2m-hC-zoQ.text", tableName: "ProductReservation", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
-      /// en translation: The offers below are reserved by the customer
-      ///
-      /// Locales: en, nl
-      static let tzMGHUFText = Rswift.StringResource(key: "8tz-MG-HUF.text", tableName: "ProductReservation", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
-
-      /// en translation: 300 €
-      ///
-      /// Locales: en, nl
-      static func wfvDJZtwText(preferredLanguages: [String]? = nil) -> String {
-        guard let preferredLanguages = preferredLanguages else {
-          return NSLocalizedString("wfv-DJ-Ztw.text", tableName: "ProductReservation", bundle: hostingBundle, comment: "")
-        }
-
-        guard let (_, bundle) = localeBundle(tableName: "ProductReservation", preferredLanguages: preferredLanguages) else {
-          return "wfv-DJ-Ztw.text"
-        }
-
-        return NSLocalizedString("wfv-DJ-Ztw.text", tableName: "ProductReservation", bundle: bundle, comment: "")
-      }
-
-      /// en translation: COMPLETE AN AMOUNT
-      ///
-      /// Locales: en, nl
-      static func uzMMeHi0NormalTitle(preferredLanguages: [String]? = nil) -> String {
-        guard let preferredLanguages = preferredLanguages else {
-          return NSLocalizedString("uzM-Me-hi0.normalTitle", tableName: "ProductReservation", bundle: hostingBundle, comment: "")
-        }
-
-        guard let (_, bundle) = localeBundle(tableName: "ProductReservation", preferredLanguages: preferredLanguages) else {
-          return "uzM-Me-hi0.normalTitle"
-        }
-
-        return NSLocalizedString("uzM-Me-hi0.normalTitle", tableName: "ProductReservation", bundle: bundle, comment: "")
-      }
-
-      /// en translation: Choose Reservation
-      ///
-      /// Locales: en, nl
-      static func j1CHn7j5Text(preferredLanguages: [String]? = nil) -> String {
-        guard let preferredLanguages = preferredLanguages else {
-          return NSLocalizedString("j1C-Hn-7j5.text", tableName: "ProductReservation", bundle: hostingBundle, comment: "")
-        }
-
-        guard let (_, bundle) = localeBundle(tableName: "ProductReservation", preferredLanguages: preferredLanguages) else {
-          return "j1C-Hn-7j5.text"
-        }
-
-        return NSLocalizedString("j1C-Hn-7j5.text", tableName: "ProductReservation", bundle: bundle, comment: "")
-      }
-
-      /// en translation: Kindpakket
-      ///
-      /// Locales: en, nl
-      static func e2mHCZoQText(preferredLanguages: [String]? = nil) -> String {
-        guard let preferredLanguages = preferredLanguages else {
-          return NSLocalizedString("e2m-hC-zoQ.text", tableName: "ProductReservation", bundle: hostingBundle, comment: "")
-        }
-
-        guard let (_, bundle) = localeBundle(tableName: "ProductReservation", preferredLanguages: preferredLanguages) else {
-          return "e2m-hC-zoQ.text"
-        }
-
-        return NSLocalizedString("e2m-hC-zoQ.text", tableName: "ProductReservation", bundle: bundle, comment: "")
-      }
-
-      /// en translation: The offers below are reserved by the customer
-      ///
-      /// Locales: en, nl
-      static func tzMGHUFText(preferredLanguages: [String]? = nil) -> String {
-        guard let preferredLanguages = preferredLanguages else {
-          return NSLocalizedString("8tz-MG-HUF.text", tableName: "ProductReservation", bundle: hostingBundle, comment: "")
-        }
-
-        guard let (_, bundle) = localeBundle(tableName: "ProductReservation", preferredLanguages: preferredLanguages) else {
-          return "8tz-MG-HUF.text"
-        }
-
-        return NSLocalizedString("8tz-MG-HUF.text", tableName: "ProductReservation", bundle: bundle, comment: "")
-      }
-
-      fileprivate init() {}
-    }
-
     /// This `R.string.profile` struct is generated, and contains static references to 18 localization keys.
     struct profile {
       /// en translation: 1.0.4
@@ -7467,9 +7341,6 @@ struct _R: Rswift.Validatable {
       try payment.validate()
       #endif
       #if os(iOS) || os(tvOS)
-      try productReservation.validate()
-      #endif
-      #if os(iOS) || os(tvOS)
       try profile.validate()
       #endif
       #if os(iOS) || os(tvOS)
@@ -7547,24 +7418,6 @@ struct _R: Rswift.Validatable {
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
         if _R.storyboard.payment().content() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'content' could not be loaded from storyboard 'Payment' as 'MPaymentViewController'.") }
-      }
-
-      fileprivate init() {}
-    }
-    #endif
-
-    #if os(iOS) || os(tvOS)
-    struct productReservation: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
-      typealias InitialController = MProductReservationViewController
-
-      let bundle = R.hostingBundle
-      let name = "ProductReservation"
-
-      static func validate() throws {
-        if UIKit.UIImage(named: "Resting", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Resting' is used in storyboard 'ProductReservation', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "voucher_ticket_icon", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'voucher_ticket_icon' is used in storyboard 'ProductReservation', but couldn't be loaded.") }
-        if #available(iOS 11.0, tvOS 11.0, *) {
-        }
       }
 
       fileprivate init() {}

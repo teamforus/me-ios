@@ -221,7 +221,6 @@ extension MActionsViewController {
         addHeaderSubviews()
         addBodyvoucherViewSubviews()
         addOranizationViewSubviews()
-        
     }
     
     private func addHeaderSubviews() {

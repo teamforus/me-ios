@@ -92,7 +92,7 @@ extension TransactionManager {
     }
 }
 
-// MARKL: - Product Reservation
+// MARK: - Product Reservation
 extension TransactionManager {
     func productReservationScreen(voucherTokens: [Transaction], voucher: Voucher) -> MeNavigationController {
         let viewController = MProductReservationViewController(navigator: Navigator(), voucherTokens: voucherTokens, voucher: voucher)
@@ -101,3 +101,4 @@ extension TransactionManager {
         return navController
     }
 }
+

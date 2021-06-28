@@ -42,6 +42,9 @@ class ProductReservationTableViewCell: UITableViewCell {
     // MARK: - Init
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        self.backgroundColor = .clear
+        self.contentView.backgroundColor = .clear
+        self.selectionStyle = .none
         addSubviews()
         setupConstraints()
     }
@@ -91,6 +94,7 @@ extension ProductReservationTableViewCell {
             make.left.equalTo(titleVoucher.snp.right).offset(5)
             make.centerY.equalTo(ticketImageView)
             make.right.equalTo(self.contentView).offset(-30)
+            make.height.width.equalTo(80)
         }
     }
 }

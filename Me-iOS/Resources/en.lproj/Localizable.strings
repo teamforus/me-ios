@@ -211,3 +211,4 @@
 "activated" = "Activated";
 "complete_amount" = "COMPLETE AN AMOUNT";
 "offer_below_reserved_customer" = "The offers below are reserved by the customer";
+"choose_reservation" = "Choose Reservation";

@@ -10,6 +10,14 @@ import UIKit
 import IQKeyboardManagerSwift
 
 class MPaymentViewController: UIViewController {
+    
+    var isFromReservation: Bool!
+    var testToken: String!
+    var voucher: Voucher
+    var naivgator: Navigator
+    var selectedAllowerdOrganization: AllowedOrganization!
+    
+    // MARK: - Parameters
     @IBOutlet weak var voucherNameLabel: UILabel!
     @IBOutlet weak var organizationLabel: UILabel!
     @IBOutlet weak var voucherIcon: CornerImageView!
@@ -24,12 +32,18 @@ class MPaymentViewController: UIViewController {
     @IBOutlet weak var priceUILabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
     
-    var isFromReservation: Bool!
-    var testToken: String!
-    var voucher: Voucher!
-    var tabBar: UITabBarController!
-    var selectedAllowerdOrganization: AllowedOrganization!
     
+    init(naivgator: Navigator, voucher: Voucher) {
+        self.voucher = voucher
+        self.naivgator = naivgator
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    // MARK: - Setup View
     override func viewDidLoad() {
         super.viewDidLoad()
         

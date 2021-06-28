@@ -68,10 +68,10 @@ extension MeNavigationController: UINavigationControllerDelegate {
         viewController.navigationController?.navigationBar.backIndicatorTransitionMaskImage = image
         if #available(iOS 11.0, *) {
             viewController.navigationController?.navigationBar.tintColor = UIColor(named: "Black_Light_DarkTheme")
+            viewController.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor(named: "Black_Light_DarkTheme")!]
         } else {
             viewController.navigationController?.navigationBar.tintColor = .black
         }
-        viewController.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
         
         switch viewController {
         case is MAFirstPageViewController, is MSuccessEmailViewController, is EnablePersonalInformationViewController, is MSuccessRegisterViewController, is MQRViewController:
@@ -94,6 +94,12 @@ extension MeNavigationController: UINavigationControllerDelegate {
         case is MVoucherViewController:
             self.navigationBar.prefersLargeTitles = false
             viewController.title = "Voucher"
+            
+        case is MProductReservationViewController:
+            self.navigationBar.prefersLargeTitles = false
+            viewController.title = Localize.choose_reservation()
+            let barButtonItem = UIBarButtonItem(image: Image.bakcIcon, style: .plain, target: viewController, action: #selector(HomeTabViewController.dismiss(_:)))
+            viewController.navigationItem.leftBarButtonItem = barButtonItem
         default: ()
         }
     }

@@ -25,4 +25,5 @@ public struct Image {
     public static let voucherTabIcon: UIImage? = UIImage(named: "wallet")
     public static let profileTabIcon: UIImage? = UIImage(named: "activeBlue")
     public static let restingIcon: UIImage? = UIImage(named: "Resting")
+    public static let bakcIcon: UIImage? = UIImage(named: "back")
 }

@@ -72,7 +72,6 @@
 		652E477B22ABD1F300893540 /* SuccessSendingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652E477A22ABD1F300893540 /* SuccessSendingViewController.swift */; };
 		6546256B230E891B007B812E /* MProductReservationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6546256A230E891B007B812E /* MProductReservationViewController.swift */; };
 		65462570230E8DE9007B812E /* ProductReservationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6546256F230E8DE9007B812E /* ProductReservationTableViewCell.swift */; };
-		65462579230F1AB1007B812E /* ProductReservation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6546257B230F1AB1007B812E /* ProductReservation.storyboard */; };
 		654ACBA922A92A870052C9C2 /* PayTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654ACBA822A92A870052C9C2 /* PayTransaction.swift */; };
 		654ACBAC22A94D550052C9C2 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654ACBAB22A94D550052C9C2 /* ProfileViewModel.swift */; };
 		654ACBAE22A9523B0052C9C2 /* UserDefaultsName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654ACBAD22A9523B0052C9C2 /* UserDefaultsName.swift */; };
@@ -357,9 +356,6 @@
 		652E477A22ABD1F300893540 /* SuccessSendingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessSendingViewController.swift; sourceTree = "<group>"; };
 		6546256A230E891B007B812E /* MProductReservationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MProductReservationViewController.swift; sourceTree = "<group>"; };
 		6546256F230E8DE9007B812E /* ProductReservationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductReservationTableViewCell.swift; sourceTree = "<group>"; };
-		6546257A230F1AB1007B812E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/ProductReservation.storyboard; sourceTree = "<group>"; };
-		6546257D230F1AB4007B812E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ProductReservation.strings; sourceTree = "<group>"; };
-		6546257F230F1AB5007B812E /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/ProductReservation.strings; sourceTree = "<group>"; };
 		654ACBA822A92A870052C9C2 /* PayTransaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayTransaction.swift; sourceTree = "<group>"; };
 		654ACBAB22A94D550052C9C2 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		654ACBAD22A9523B0052C9C2 /* UserDefaultsName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsName.swift; sourceTree = "<group>"; };
@@ -843,7 +839,6 @@
 			children = (
 				6546256A230E891B007B812E /* MProductReservationViewController.swift */,
 				FF7F2D3E265D04F00045E25F /* ProductReservationDataSource.swift */,
-				6546257B230F1AB1007B812E /* ProductReservation.storyboard */,
 				6546256F230E8DE9007B812E /* ProductReservationTableViewCell.swift */,
 			);
 			name = ProductReservation;
@@ -1779,7 +1774,6 @@
 				65A8B6FF2282DD2C00B7DF05 /* GoogleSans-Italic.ttf in Resources */,
 				65139C51228029C0003E0CDE /* AppLocker.strings in Resources */,
 				65139C55228029C0003E0CDE /* README.md in Resources */,
-				65462579230F1AB1007B812E /* ProductReservation.storyboard in Resources */,
 				65100B08229D9146007892D1 /* Localizable.strings in Resources */,
 				658B487F22ABF79100B6236C /* Profile.storyboard in Resources */,
 				65139C4E228029C0003E0CDE /* backspaceBlue@3x.png in Resources */,
@@ -2247,16 +2241,6 @@
 				65139C48228029C0003E0CDE /* Base */,
 			);
 			name = AppLocker.xib;
-			sourceTree = "<group>";
-		};
-		6546257B230F1AB1007B812E /* ProductReservation.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				6546257A230F1AB1007B812E /* Base */,
-				6546257D230F1AB4007B812E /* en */,
-				6546257F230F1AB5007B812E /* nl */,
-			);
-			name = ProductReservation.storyboard;
 			sourceTree = "<group>";
 		};
 		658B488122ABF79100B6236C /* Profile.storyboard */ = {

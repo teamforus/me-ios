@@ -24,12 +24,15 @@ class MProductReservationViewController: UIViewController {
     var descriptionLabel: UILabel_DarkMode = {
         let label = UILabel_DarkMode(frame: .zero)
         label.font = R.font.googleSansRegular(size: 17)
+        label.numberOfLines = 0
+        label.textAlignment = .center
         label.text = Localize.offer_below_reserved_customer()
         return label
     }()
     
     var tableView: UITableView = {
         let tableView = UITableView(frame: .zero)
+        tableView.backgroundColor = .clear
         return tableView
     }()
     
@@ -38,6 +41,7 @@ class MProductReservationViewController: UIViewController {
         button.backgroundColor = Color.blueText
         button.setTitle(Localize.complete_amount(), for: .normal)
         button.setTitleColor(.white, for: .normal)
+        button.rounded(cornerRadius: 9)
         return button
     }()
     
@@ -66,14 +70,17 @@ class MProductReservationViewController: UIViewController {
     }
     
     private func setupView() {
+        if #available(iOS 11.0, *) {
+            self.view.backgroundColor = UIColor(named: "Background_Voucher_DarkTheme")
+        } else {}
         setupAccessibility()
         qrViewModel.vcAlert = self
         goToVoucherButton.isHidden = voucher.amount == "0.00"
         // Response
         qrViewModel.getVoucher = { [weak self] (voucher, statusCode) in
             DispatchQueue.main.async {
-                self?.selectedProduct = voucher
-                self?.performSegue(withIdentifier: "goToPaymentFromSelected", sender: nil)
+                self?.voucher = voucher
+                self?.navigator.navigate(to: .paymentContinue(voucher))
             }
         }
         setupTableView()
@@ -82,24 +89,8 @@ class MProductReservationViewController: UIViewController {
     private func setupTableView() {
         tableView.dataSource = dataSource
         tableView.delegate = self
+        tableView.separatorStyle = .none
         tableView.register(ProductReservationTableViewCell.self, forCellReuseIdentifier: ProductReservationTableViewCell.identifier)
-    }
-    
-    // MARK: - Navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "goToPaymentFromSelected" {
-            if let paymentVC = segue.destination as? MPaymentViewController {
-                
-                paymentVC.voucher = selectedProduct
-                paymentVC.isFromReservation = true
-            }
-        }else if segue.identifier == "goToPaymentSimple" {
-            if let paymentVC = segue.destination as? MPaymentViewController {
-                
-                paymentVC.isFromReservation = true
-                paymentVC.voucher = voucher
-            }
-        }
     }
 }
 
@@ -107,6 +98,10 @@ extension MProductReservationViewController: UITableViewDelegate {
     // MARK: - UITableViewDelegate
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.qrViewModel.initVoucherAddress(address: voucherTokens[indexPath.row].address ?? "")
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 140
     }
 }
 
@@ -125,6 +120,8 @@ extension MProductReservationViewController {
     private func setupConstraints() {
         descriptionLabel.snp.makeConstraints { make in
             make.top.equalTo(self.view.safeAreaLayoutGuide)
+            make.left.equalTo(self.view).offset(16)
+            make.right.equalTo(self.view).offset(-16)
             make.centerX.equalTo(self.view)
         }
         
@@ -140,7 +137,6 @@ extension MProductReservationViewController {
             make.height.equalTo(44)
             make.right.equalTo(self.view).offset(-15)
         }
-        
     }
 }
 
