@@ -200,6 +200,8 @@
 		FF8D90F3251BBD320035B8D7 /* WeakRef.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8D90F2251BBD320035B8D7 /* WeakRef.swift */; };
 		FF8D90F8251BCCAC0035B8D7 /* Preference.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8D90F7251BCCAC0035B8D7 /* Preference.swift */; };
 		FF915AE5259281ED00F772E4 /* SubsidieOverview.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF915AE4259281ED00F772E4 /* SubsidieOverview.swift */; };
+		FF93BFE7268B61C000FCD4C9 /* PaymentDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF93BFE6268B61C000FCD4C9 /* PaymentDataSource.swift */; };
+		FF93BFE9268B64A000FCD4C9 /* OrganizationPaymentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF93BFE8268B64A000FCD4C9 /* OrganizationPaymentTableViewCell.swift */; };
 		FF9B7157248503F100BBCAA3 /* MMainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9B7156248503F100BBCAA3 /* MMainTabBarController.swift */; };
 		FF9B715924851A5900BBCAA3 /* AppVersionUpdateNotifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9B715824851A5900BBCAA3 /* AppVersionUpdateNotifier.swift */; };
 		FF9C60E3253DD4AE006F6979 /* ActionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9C60E0253DD4AE006F6979 /* ActionViewModel.swift */; };
@@ -225,6 +227,7 @@
 		FFB76E1424E94AC200CFB195 /* RectangleLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB76DF824E948B700CFB195 /* RectangleLayer.swift */; };
 		FFB76E1524E94AC200CFB195 /* StatusTitleLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB76DF924E948B700CFB195 /* StatusTitleLayer.swift */; };
 		FFB76E1624E94AC800CFB195 /* ic_check_3x.png in Resources */ = {isa = PBXBuildFile; fileRef = FFB76E0324E9490600CFB195 /* ic_check_3x.png */; };
+		FFBA0620268B71C400325D63 /* TextFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFBA061F268B71C400325D63 /* TextFieldTableViewCell.swift */; };
 		FFBD74D9261385CE00B44B87 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = FFBD74D8261385CE00B44B87 /* FirebaseAnalytics */; };
 		FFBD74DB261385CE00B44B87 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = FFBD74DA261385CE00B44B87 /* FirebaseAuth */; };
 		FFBD74DD261385CE00B44B87 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = FFBD74DC261385CE00B44B87 /* FirebaseCrashlytics */; };
@@ -500,6 +503,8 @@
 		FF8D90F2251BBD320035B8D7 /* WeakRef.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeakRef.swift; sourceTree = "<group>"; };
 		FF8D90F7251BCCAC0035B8D7 /* Preference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preference.swift; sourceTree = "<group>"; };
 		FF915AE4259281ED00F772E4 /* SubsidieOverview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubsidieOverview.swift; sourceTree = "<group>"; };
+		FF93BFE6268B61C000FCD4C9 /* PaymentDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentDataSource.swift; sourceTree = "<group>"; };
+		FF93BFE8268B64A000FCD4C9 /* OrganizationPaymentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationPaymentTableViewCell.swift; sourceTree = "<group>"; };
 		FF9B7156248503F100BBCAA3 /* MMainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMainTabBarController.swift; sourceTree = "<group>"; };
 		FF9B715824851A5900BBCAA3 /* AppVersionUpdateNotifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppVersionUpdateNotifier.swift; sourceTree = "<group>"; };
 		FF9C60E0253DD4AE006F6979 /* ActionViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionViewModel.swift; sourceTree = "<group>"; };
@@ -524,6 +529,7 @@
 		FFB76DF924E948B700CFB195 /* StatusTitleLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StatusTitleLayer.swift; path = KVSpinnerView/Layers/StatusTitleLayer.swift; sourceTree = "<group>"; };
 		FFB76E0224E9490600CFB195 /* UICheckbox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UICheckbox.swift; path = UICheckbox/Classes/UICheckbox.swift; sourceTree = "<group>"; };
 		FFB76E0324E9490600CFB195 /* ic_check_3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ic_check_3x.png; path = UICheckbox/Assets/ic_check_3x.png; sourceTree = "<group>"; };
+		FFBA061F268B71C400325D63 /* TextFieldTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldTableViewCell.swift; sourceTree = "<group>"; };
 		FFBDBCA72631ACC9006F7871 /* LoginQrAndCodeViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginQrAndCodeViewModel.swift; sourceTree = "<group>"; };
 		FFC38D4324FA7DFA001C0DA2 /* MTransactionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTransactionsViewController.swift; sourceTree = "<group>"; };
 		FFC6434F2678F66100B7F3C4 /* AppNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNavigator.swift; sourceTree = "<group>"; };
@@ -1194,6 +1200,9 @@
 			isa = PBXGroup;
 			children = (
 				65A8B7242282EADE00B7DF05 /* MPaymentViewController.swift */,
+				FFBA061F268B71C400325D63 /* TextFieldTableViewCell.swift */,
+				FF93BFE6268B61C000FCD4C9 /* PaymentDataSource.swift */,
+				FF93BFE8268B64A000FCD4C9 /* OrganizationPaymentTableViewCell.swift */,
 				65A8B73C2282EC4100B7DF05 /* ViewModel */,
 				658B488822ABF8B700B6236C /* Payment.storyboard */,
 			);
@@ -1918,6 +1927,7 @@
 				0499FF282594C0060009C7A4 /* MConfirmAuthViewController.swift in Sources */,
 				65A8B70F2282E19F00B7DF05 /* MQRViewController.swift in Sources */,
 				045E5A3425A7518600E338F7 /* Sponsor.swift in Sources */,
+				FFBA0620268B71C400325D63 /* TextFieldTableViewCell.swift in Sources */,
 				65F52E4A23167E0D00B9D229 /* Wallet.swift in Sources */,
 				FFE2EF9226175DBB002C0D25 /* CommonBottomViewModel.swift in Sources */,
 				FF8D90E9251BBC8A0035B8D7 /* ToolTip+Extension.swift in Sources */,
@@ -2004,6 +2014,7 @@
 				FF9C6103253DD8AB006F6979 /* ActionButton.swift in Sources */,
 				65911B5A228D91BC00EA30D6 /* Office.swift in Sources */,
 				FFB76E1524E94AC200CFB195 /* StatusTitleLayer.swift in Sources */,
+				FF93BFE9268B64A000FCD4C9 /* OrganizationPaymentTableViewCell.swift in Sources */,
 				65911B56228D904C00EA30D6 /* AllowedOrganization.swift in Sources */,
 				FF5691292514BFB500CD0343 /* CalendarController.swift in Sources */,
 				65A8B6F22282DB9500B7DF05 /* MANavicationController.swift in Sources */,
@@ -2098,6 +2109,7 @@
 				FF1CF092263AEED700C8C317 /* MMapDetailsTableViewCell.swift in Sources */,
 				657DBA4022897C3500C67500 /* ResponseDataArray.swift in Sources */,
 				FFFC169624FCF4C400FD4500 /* TransactionOverview.swift in Sources */,
+				FF93BFE7268B61C000FCD4C9 /* PaymentDataSource.swift in Sources */,
 				65139C7722803197003E0CDE /* CommonService.swift in Sources */,
 				6568BAB722A52D24001C722C /* QRText.swift in Sources */,
 				65F1BB22229EC0B6007D2C8A /* ChooseTypeRecordViewModel.swift in Sources */,

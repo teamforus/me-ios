@@ -17,7 +17,15 @@ class MPaymentViewController: UIViewController {
     var naivgator: Navigator
     var selectedAllowerdOrganization: AllowedOrganization!
     
+    var dataSource: PaymentDataSource
+    
     // MARK: - Parameters
+    
+    private let tableView: UITableView = {
+        let tableView = UITableView(frame: .zero)
+        return tableView
+    }()
+    
     @IBOutlet weak var voucherNameLabel: UILabel!
     @IBOutlet weak var organizationLabel: UILabel!
     @IBOutlet weak var voucherIcon: CornerImageView!
@@ -36,6 +44,7 @@ class MPaymentViewController: UIViewController {
     init(naivgator: Navigator, voucher: Voucher) {
         self.voucher = voucher
         self.naivgator = naivgator
+        self.dataSource = PaymentDataSource(voucher: voucher)
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -49,32 +58,50 @@ class MPaymentViewController: UIViewController {
         
         IQKeyboardManager.shared.enable = true
         IQKeyboardManager.shared.enableAutoToolbar = true
-        
-        if voucher != nil {
-            setupUI()
+    }
+    
+    func setupUI(){
+        if #available(iOS 13, *) {
         }else {
-            titleLabel.text = Localize.test_transaction()
-            allowedOriganizationLabel.text = Localize.test_organization()
-            organizationLabel.isHidden = true
-            priceUILabel.isHidden = true
+            self.setStatusBarStyle(.default)
         }
+        if voucher.product != nil {
+            setupProduct()
+        }else {
+            setupVoucher()
+        }
+        let image = Image.arrowRightIcon?.withRenderingMode(.alwaysTemplate)
+        self.arrowIcon.image = image
+        if #available(iOS 11.0, *) {
+            self.arrowIcon.tintColor = UIColor(named: "Black_Light_DarkTheme")
+        } else {}
+        setupUI()
+    }
+    
+    private func setupTableView() {
+        tableView.delegate = dataSource
+        tableView.dataSource = dataSource
+        tableView.register(MProductVoucherTableViewCell.self, forCellReuseIdentifier: MProductVoucherTableViewCell.identifier)
+        tableView.register(OrganizationPaymentTableViewCell.self, forCellReuseIdentifier: OrganizationPaymentTableViewCell.identifier)
+        tableView.register(TextFieldTableViewCell.self, forCellReuseIdentifier: TextFieldTableViewCell.identifier)
+        
     }
     
     
     @IBAction func send(_ sender: Any) {
-        var limitEN = "0.01"
-        var limitDT = "0,01"
+        _ = "0.01"
+        _ = "0,01"
         
         //        if voucher.fund?.currency == "eth" {
         //            limitEN = "0.0001"
         //            limitDT = "0,0001"
         //        }
         
-        if voucher != nil {
+        if voucher.fund != nil {
             
             if voucher.product != nil {
                 sendProductTransaction()
-            }else if amountField.text != "" {
+            }else if amountField.text != String.empty {
                 sendVoucherTransactions()
             } else {
                 showSimpleAlert(title: Localize.warning(), message: Localize.please_enter_the_amount())
@@ -93,7 +120,6 @@ class MPaymentViewController: UIViewController {
         vc.organizationId = selectedAllowerdOrganization?.id ?? 0
         vc.note = notesField.text
         vc.amount = amountField.text
-        vc.tabBar = tabBar
         vc.modalTransitionStyle = .crossDissolve
         vc.modalPresentationStyle = .overCurrentContext
         self.present(vc, animated: true)
@@ -111,7 +137,6 @@ class MPaymentViewController: UIViewController {
         vc.organizationId = selectedAllowerdOrganization?.id ?? 0
         vc.note = notesField.text
         vc.amount = amountField.text
-        vc.tabBar = tabBar
         vc.modalTransitionStyle = .crossDissolve
         vc.modalPresentationStyle = .overCurrentContext
         self.present(vc, animated: true)
@@ -131,7 +156,6 @@ class MPaymentViewController: UIViewController {
         vc.testToken = testToken
         vc.note = notesField.text
         vc.amount = amountField.text
-        vc.tabBar = tabBar
         vc.modalTransitionStyle = .crossDissolve
         vc.modalPresentationStyle = .overCurrentContext
         self.present(vc, animated: true)
@@ -142,27 +166,10 @@ class MPaymentViewController: UIViewController {
 // MARK: - Setup UI
 extension MPaymentViewController {
     
-    func setupUI(){
-        if #available(iOS 13, *) {
-        }else {
-            self.setStatusBarStyle(.default)
-        }
-        if voucher?.product != nil {
-            setupProduct()
-        }else {
-            setupVoucher()
-        }
-        amountField.setPlaceholderColor(with: Localize.enter_the_price_here(), and: .lightGray)
-        notesField.setPlaceholderColor(with: Localize.note(), and: .lightGray)
-        let image = Image.arrowRightIcon?.withRenderingMode(.alwaysTemplate)
-        self.arrowIcon.image = image
-        if #available(iOS 11.0, *) {
-            self.arrowIcon.tintColor = UIColor(named: "Black_Light_DarkTheme")
-        } else {}
-    }
+    
     
     private func setupProduct() {
-        if let price = voucher?.product?.price {
+        if let price = voucher.product?.price {
             priceUILabel.text = "€ " + price
         }
         arrowIcon.isHidden = true
@@ -180,7 +187,7 @@ extension MPaymentViewController {
     }
     
     private func setupVoucher() {
-        if let price = voucher?.amount {
+        if let price = voucher.amount {
             priceUILabel.text = "€ " + price
         }
         voucherNameLabel.text = voucher.fund?.name ?? ""
@@ -192,15 +199,13 @@ extension MPaymentViewController {
     }
     
     @IBAction func showOrganizations(_ sender: UIButton) {
-        if voucher != nil {
-            let popOverVC = AllowedOrganizationsViewController(nibName: "AllowedOrganizationsViewController", bundle: nil)
-            popOverVC.allowedOrganizations = self.voucher.allowed_organizations!
-            popOverVC.delegate = self
-            popOverVC.selectedOrganizations = selectedAllowerdOrganization
-            self.addChild(popOverVC)
-            popOverVC.view.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height)
-            self.view.addSubview(popOverVC.view)
-        }
+        let popOverVC = AllowedOrganizationsViewController(nibName: "AllowedOrganizationsViewController", bundle: nil)
+        popOverVC.allowedOrganizations = self.voucher.allowed_organizations!
+        popOverVC.delegate = self
+        popOverVC.selectedOrganizations = selectedAllowerdOrganization
+        self.addChild(popOverVC)
+        popOverVC.view.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height)
+        self.view.addSubview(popOverVC.view)
     }
 }
 
