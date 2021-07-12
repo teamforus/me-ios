@@ -87,6 +87,10 @@ extension MeNavigationController: UINavigationControllerDelegate {
             self.navigationBar.prefersLargeTitles = true
             viewController.title = Localize.transactions()
             
+        case is MPaymentViewController:
+            self.navigationBar.prefersLargeTitles = false
+            viewController.title = Localize.reddem_voucher()
+            
         case is ProductVoucherViewController:
             self.navigationBar.prefersLargeTitles = false
             viewController.title = Localize.product_voucher()

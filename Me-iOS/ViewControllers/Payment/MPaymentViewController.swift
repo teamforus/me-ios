@@ -14,7 +14,7 @@ class MPaymentViewController: UIViewController {
     var isFromReservation: Bool!
     var testToken: String!
     var voucher: Voucher
-    var naivgator: Navigator
+    var navigator: Navigator
     var selectedAllowerdOrganization: AllowedOrganization!
     
     var dataSource: PaymentDataSource
@@ -23,6 +23,7 @@ class MPaymentViewController: UIViewController {
     
     private let tableView: UITableView = {
         let tableView = UITableView(frame: .zero)
+        tableView.backgroundColor = .clear
         return tableView
     }()
     
@@ -41,9 +42,9 @@ class MPaymentViewController: UIViewController {
     @IBOutlet weak var titleLabel: UILabel!
     
     
-    init(naivgator: Navigator, voucher: Voucher) {
+    init(navigator: Navigator, voucher: Voucher) {
         self.voucher = voucher
-        self.naivgator = naivgator
+        self.navigator = navigator
         self.dataSource = PaymentDataSource(voucher: voucher)
         super.init(nibName: nil, bundle: nil)
     }
@@ -55,32 +56,28 @@ class MPaymentViewController: UIViewController {
     // MARK: - Setup View
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        setupSubview()
+        setupTableView()
+        setupUI()
         IQKeyboardManager.shared.enable = true
         IQKeyboardManager.shared.enableAutoToolbar = true
     }
     
     func setupUI(){
+        if #available(iOS 11.0, *) {
+            self.view.backgroundColor = UIColor(named: "Background_Voucher_DarkTheme")
+        } else {}
+        
         if #available(iOS 13, *) {
         }else {
             self.setStatusBarStyle(.default)
         }
-        if voucher.product != nil {
-            setupProduct()
-        }else {
-            setupVoucher()
-        }
-        let image = Image.arrowRightIcon?.withRenderingMode(.alwaysTemplate)
-        self.arrowIcon.image = image
-        if #available(iOS 11.0, *) {
-            self.arrowIcon.tintColor = UIColor(named: "Black_Light_DarkTheme")
-        } else {}
-        setupUI()
     }
     
     private func setupTableView() {
         tableView.delegate = dataSource
         tableView.dataSource = dataSource
+        tableView.separatorStyle = .none
         tableView.register(MProductVoucherTableViewCell.self, forCellReuseIdentifier: MProductVoucherTableViewCell.identifier)
         tableView.register(OrganizationPaymentTableViewCell.self, forCellReuseIdentifier: OrganizationPaymentTableViewCell.identifier)
         tableView.register(TextFieldTableViewCell.self, forCellReuseIdentifier: TextFieldTableViewCell.identifier)
@@ -219,7 +216,15 @@ extension MPaymentViewController: AllowedOrganizationsViewControllerDelegate {
         allowedOriganizationLabel.text = organization.name ?? ""
         organizationIcon.loadImageUsingUrlString(urlString: organization.logo?.sizes?.thumbnail ?? "", placeHolder: #imageLiteral(resourceName: "Resting"))
     }
-    
+}
+
+extension MPaymentViewController {
+    private func setupSubview() {
+        self.view.addSubview(tableView)
+        tableView.snp.makeConstraints { make in
+            make.top.left.right.bottom.equalTo(self.view.safeAreaLayoutGuide)
+        }
+    }
 }
 
 extension MPaymentViewController: UITextFieldDelegate{

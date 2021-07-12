@@ -2079,7 +2079,7 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
 
-    /// This `R.string.localizable` struct is generated, and contains static references to 200 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 201 localization keys.
     struct localizable {
       /// en translation: %@ Branches
       ///
@@ -2605,6 +2605,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en, nl
       static let records = Rswift.StringResource(key: "records", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
+      /// en translation: Redeem Voucher
+      ///
+      /// Locales: en, nl
+      static let reddem_voucher = Rswift.StringResource(key: "reddem_voucher", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
       /// en translation: Relationships
       ///
       /// Locales: en, nl
@@ -4863,6 +4867,21 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("records", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Redeem Voucher
+      ///
+      /// Locales: en, nl
+      static func reddem_voucher(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("reddem_voucher", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "reddem_voucher"
+        }
+
+        return NSLocalizedString("reddem_voucher", bundle: bundle, comment: "")
       }
 
       /// en translation: Relationships

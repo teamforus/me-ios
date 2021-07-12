@@ -373,7 +373,7 @@
             <size key="intrinsicContentSize" width="24" height="24"/>
         </designable>
         <designable name="riy-om-vAr">
-            <size key="intrinsicContentSize" width="165" height="29"/>
+            <size key="intrinsicContentSize" width="167" height="30"/>
         </designable>
     </designables>
     <resources>

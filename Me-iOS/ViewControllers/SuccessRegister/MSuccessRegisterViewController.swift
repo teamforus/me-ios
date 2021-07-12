@@ -89,7 +89,7 @@ extension MSuccessRegisterViewController {
         iconView.snp.makeConstraints { make in
             make.height.equalTo(332)
             make.left.right.equalTo(self.view.safeAreaLayoutGuide)
-            make.top.equalTo(titleLabel.snp.bottom)
+            make.centerY.equalTo(self.view)
         }
         
         nextButton.snp.makeConstraints { make in

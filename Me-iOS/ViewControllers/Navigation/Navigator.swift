@@ -36,6 +36,7 @@ class Navigator: NSObject {
             
         case .home:
             let tabBarController = HomeTabViewController()
+            tabBarController.modalPresentationStyle = .fullScreen
             navController.present(tabBarController, animated: true)
             
         case .transaction:
@@ -76,8 +77,13 @@ class Navigator: NSObject {
             self.navController.present(productReservationVC, animated: true)
             
         case .paymentContinue(let voucher):
-            let paymentVC = MPaymentViewController(naivgator: self, voucher: voucher)
+            let paymentVC = MPaymentViewController(navigator: self, voucher: voucher)
             self.navController.show(paymentVC, sender: nil)
+            
+        case .payment(let voucher):
+            let paymentVC = TransactionManager.shared.paymentScreen(voucher: voucher)
+            paymentVC.modalPresentationStyle = .fullScreen
+            self.navController.present(paymentVC, animated: true)
         }
     }
     
@@ -95,5 +101,6 @@ class Navigator: NSObject {
         case paymentActions(_ paymentAction: PaymenyActionModel)
         case productReservation(_ voucherTokens: [Transaction], _ voucher: Voucher)
         case paymentContinue(_ voucher: Voucher)
+        case payment(_ voucher: Voucher)
     }
 }

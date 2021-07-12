@@ -19,4 +19,5 @@ public struct Color {
     public static let blueText = UIColor(hex: "#315EFD")
     public static let usedColor = UIColor(hex: "#EFA741")
     public static let lightGrayText = UIColor(hex: "#84878C")
+    public static let fieldBg = UIColor(hex: "#F1F1F1")
 }

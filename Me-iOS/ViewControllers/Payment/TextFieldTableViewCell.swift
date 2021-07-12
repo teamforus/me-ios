@@ -15,12 +15,16 @@ class TextFieldTableViewCell: UITableViewCell {
     private let textField: UITextField = {
         let textField = UITextField(frame: .zero)
         textField.font = R.font.googleSansRegular(size: 16)
+        textField.backgroundColor = Color.fieldBg
+        textField.rounded(cornerRadius: 6)
+        textField.setLeftPaddingPoints(16)
         return textField
     }()
     
     // MARK: - Init
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        selectionStyle = .none
         setupView()
     }
     
@@ -38,7 +42,9 @@ extension TextFieldTableViewCell {
     private func setupView() {
         self.contentView.addSubview(textField)
         textField.snp.makeConstraints { make in
-            make.left.right.top.bottom.equalTo(self.contentView)
+            make.left.top.equalTo(self.contentView).offset(10)
+            make.right.equalTo(self.contentView).offset(-10)
+            make.bottom.equalTo(self.contentView)
         }
     }
 }

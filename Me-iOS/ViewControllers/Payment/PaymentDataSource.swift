@@ -65,4 +65,18 @@ extension PaymentDataSource: UITableViewDelegate, UITableViewDataSource {
             return cell
         }
     }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let row = PaymentRowType.allCases[indexPath.row]
+        switch row {
+        case .voucher:
+            return 120
+        case .organization:
+            return 60
+        case .amount:
+            return 70
+        case .note:
+            return 100
+        }
+    }
 }

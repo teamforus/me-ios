@@ -102,3 +102,13 @@ extension TransactionManager {
     }
 }
 
+// MARK: - Payment
+extension TransactionManager {
+    func paymentScreen(voucher: Voucher) -> MeNavigationController {
+        let viewController = MPaymentViewController(navigator: Navigator(), voucher: voucher)
+        let navController = MeNavigationController(rootViewController: viewController)
+        viewController.navigator.configure(navController)
+        return navController
+    }
+}
+

@@ -198,7 +198,7 @@ class MQRViewController: HSScanViewController {
           if self.productVoucher.count != 0 {
             navigator.navigate(to: .productReservation(productVoucher.filter({$0.amount != "0.0"}), voucher))
           }else {
-            self.navigator.navigate(to: .paymentContinue(voucher))
+            self.navigator.navigate(to: .payment(voucher))
           }
         }else {
           
@@ -276,7 +276,7 @@ extension MQRViewController: HSScanViewControllerDelegate{
             } else if qr.type == QRTypeScann.testTransaction.rawValue {
               self.scanWorker.stop()
               self.testToken = qr.value
-                self.navigator.navigate(to: .paymentContinue(voucher))
+                self.navigator.navigate(to: .payment(voucher))
             }
           }
         } catch {

@@ -15,6 +15,7 @@ class OrganizationPaymentTableViewCell: UITableViewCell {
     private let organizationIcon: UIImageView = {
         let imageView = UIImageView(frame: .zero)
         imageView.image = Image.faceIcon
+        imageView.rounded(cornerRadius: 6)
         return imageView
     }()
     
@@ -27,6 +28,7 @@ class OrganizationPaymentTableViewCell: UITableViewCell {
     private let arrowIcon: UIImageView = {
         let imageView = UIImageView(frame: .zero)
         imageView.image = Image.arrowRightIcon
+        imageView.contentMode = .scaleAspectFit
         return imageView
     }()
     
@@ -39,6 +41,7 @@ class OrganizationPaymentTableViewCell: UITableViewCell {
     // MARK: - Init
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        selectionStyle = .none
         addSubviews()
         setupConstraints()
     }
@@ -76,6 +79,7 @@ extension OrganizationPaymentTableViewCell {
     private func setupConstraints() {
         organizationIcon.snp.makeConstraints { make in
             make.left.equalTo(self.contentView).offset(20)
+            make.width.height.equalTo(35)
             make.centerY.equalTo(self.contentView)
         }
         
