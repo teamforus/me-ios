@@ -19,6 +19,10 @@ extension String {
 }
 
 extension String {
+    static let languageCode = Locale.current.languageCode
+}
+
+extension String {
     
     func substringLeftPart() -> String{
         let number = self

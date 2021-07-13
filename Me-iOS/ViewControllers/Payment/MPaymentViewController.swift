@@ -27,21 +27,17 @@ class MPaymentViewController: UIViewController {
         return tableView
     }()
     
-    @IBOutlet weak var voucherNameLabel: UILabel!
-    @IBOutlet weak var organizationLabel: UILabel!
-    @IBOutlet weak var voucherIcon: CornerImageView!
-    @IBOutlet weak var organizationIcon: UIImageView!
-    @IBOutlet weak var allowedOriganizationLabel: UILabel!
-    @IBOutlet weak var amountField: UITextField!
-    @IBOutlet weak var notesField: UITextField!
-    @IBOutlet weak var notesView: CustomCornerUIView!
-    @IBOutlet weak var chooseOrganizationButton: UIButton!
-    @IBOutlet weak var heightFieldsConstraint: NSLayoutConstraint!
-    @IBOutlet weak var arrowIcon: UIImageView!
-    @IBOutlet weak var priceUILabel: UILabel!
-    @IBOutlet weak var titleLabel: UILabel!
+    var payButton: ActionButton = {
+        let button = ActionButton(frame: .zero)
+        button.backgroundColor = Color.blueText
+        button.setTitle(Localize.complete_amount(), for: .normal)
+        button.setTitleColor(.white, for: .normal)
+        button.rounded(cornerRadius: 9)
+        return button
+    }()
     
     
+    // MARK: - Init
     init(navigator: Navigator, voucher: Voucher) {
         self.voucher = voucher
         self.navigator = navigator
@@ -56,11 +52,10 @@ class MPaymentViewController: UIViewController {
     // MARK: - Setup View
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupSubview()
-        setupTableView()
+        selectedAllowerdOrganization = voucher.allowed_organizations?.first
+        addSubviews()
+        setupConstraints()
         setupUI()
-        IQKeyboardManager.shared.enable = true
-        IQKeyboardManager.shared.enableAutoToolbar = true
     }
     
     func setupUI(){
@@ -72,10 +67,15 @@ class MPaymentViewController: UIViewController {
         }else {
             self.setStatusBarStyle(.default)
         }
+        setupTableView()
+        
+        payButton.actionHandleBlock = { [weak self] (_) in
+            self?.makePayment()
+        }
     }
     
     private func setupTableView() {
-        tableView.delegate = dataSource
+        tableView.delegate = self
         tableView.dataSource = dataSource
         tableView.separatorStyle = .none
         tableView.register(MProductVoucherTableViewCell.self, forCellReuseIdentifier: MProductVoucherTableViewCell.identifier)
@@ -85,20 +85,14 @@ class MPaymentViewController: UIViewController {
     }
     
     
-    @IBAction func send(_ sender: Any) {
+    func makePayment() {
         _ = "0.01"
         _ = "0,01"
-        
-        //        if voucher.fund?.currency == "eth" {
-        //            limitEN = "0.0001"
-        //            limitDT = "0,0001"
-        //        }
-        
         if voucher.fund != nil {
             
             if voucher.product != nil {
                 sendProductTransaction()
-            }else if amountField.text != String.empty {
+            }else if dataSource.amountValue != String.empty {
                 sendVoucherTransactions()
             } else {
                 showSimpleAlert(title: Localize.warning(), message: Localize.please_enter_the_amount())
@@ -115,33 +109,25 @@ class MPaymentViewController: UIViewController {
         }
         vc.voucher = voucher
         vc.organizationId = selectedAllowerdOrganization?.id ?? 0
-        vc.note = notesField.text
-        vc.amount = amountField.text
+        vc.note = dataSource.noteValue
+        vc.amount = dataSource.amountValue
         vc.modalTransitionStyle = .crossDissolve
         vc.modalPresentationStyle = .overCurrentContext
         self.present(vc, animated: true)
     }
     
     private func sendVoucherTransactions() {
-        // Uncomment if eth will be implemented
-        //        if amountField.text != limitEN && amountField.text != limitDT{
-        
         let vc = ConfirmPaymentPopUp()
         if isFromReservation != nil {
             vc.isFromReservation = isFromReservation
         }
         vc.voucher = voucher
         vc.organizationId = selectedAllowerdOrganization?.id ?? 0
-        vc.note = notesField.text
-        vc.amount = amountField.text
+        vc.note = dataSource.noteValue
+        vc.amount = dataSource.amountValue
         vc.modalTransitionStyle = .crossDissolve
         vc.modalPresentationStyle = .overCurrentContext
         self.present(vc, animated: true)
-        //        }
-        
-        //        else {
-        //            showSimpleAlert(title: Localize.warning(), message: Localize.payment_of_001_is_to_low_to_be_paid_out_choose_highe_amount())
-        //        }
     }
     
     private func sendTestTransaction() {
@@ -151,8 +137,8 @@ class MPaymentViewController: UIViewController {
         }
         vc.organizationId = 0
         vc.testToken = testToken
-        vc.note = notesField.text
-        vc.amount = amountField.text
+        vc.note = dataSource.noteValue
+        vc.amount = dataSource.amountValue
         vc.modalTransitionStyle = .crossDissolve
         vc.modalPresentationStyle = .overCurrentContext
         self.present(vc, animated: true)
@@ -163,46 +149,16 @@ class MPaymentViewController: UIViewController {
 // MARK: - Setup UI
 extension MPaymentViewController {
     
-    
-    
-    private func setupProduct() {
-        if let price = voucher.product?.price {
-            priceUILabel.text = "€ " + price
-        }
-        arrowIcon.isHidden = true
-        chooseOrganizationButton.isHidden = true
-        voucherNameLabel.text = voucher.product?.name ?? ""
-        voucherIcon.loadImageUsingUrlString(urlString: voucher.product?.photo?.sizes?.thumbnail ?? "", placeHolder: #imageLiteral(resourceName: "Resting"))
-        organizationLabel.text = voucher.product?.organization?.name ?? ""
-        allowedOriganizationLabel.text = voucher.product?.organization?.name ?? ""
-        organizationIcon.loadImageUsingUrlString(urlString: voucher.product?.photo?.sizes?.thumbnail ?? "", placeHolder: #imageLiteral(resourceName: "Resting"))
-        
-        var rectNote = self.notesView.frame
-        rectNote.origin.y = 70
-        self.notesView.frame = rectNote
-        heightFieldsConstraint.constant = 160
-    }
-    
-    private func setupVoucher() {
-        if let price = voucher.amount {
-            priceUILabel.text = "€ " + price
-        }
-        voucherNameLabel.text = voucher.fund?.name ?? ""
-        voucherIcon.loadImageUsingUrlString(urlString: voucher.fund?.organization?.logo?.sizes?.thumbnail ?? "", placeHolder: #imageLiteral(resourceName: "Resting"))
-        organizationLabel.text = voucher.fund?.organization?.name ?? ""
-        allowedOriganizationLabel.text = voucher.allowed_organizations?.first?.name ?? ""
-        organizationIcon.loadImageUsingUrlString(urlString: voucher.allowed_organizations?.first?.logo?.sizes?.thumbnail ?? "", placeHolder: #imageLiteral(resourceName: "Resting"))
-        selectedAllowerdOrganization = voucher.allowed_organizations?.first
-    }
-    
-    @IBAction func showOrganizations(_ sender: UIButton) {
+    func showOrganizations() {
         let popOverVC = AllowedOrganizationsViewController(nibName: "AllowedOrganizationsViewController", bundle: nil)
         popOverVC.allowedOrganizations = self.voucher.allowed_organizations!
         popOverVC.delegate = self
         popOverVC.selectedOrganizations = selectedAllowerdOrganization
         self.addChild(popOverVC)
-        popOverVC.view.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height)
         self.view.addSubview(popOverVC.view)
+        popOverVC.view.snp.makeConstraints { make in
+            make.top.bottom.right.left.equalTo(self.view)
+        }
     }
 }
 
@@ -213,59 +169,66 @@ extension MPaymentViewController: AllowedOrganizationsViewControllerDelegate {
     
     func didSelectAllowedOrganization(organization: AllowedOrganization) {
         selectedAllowerdOrganization = organization
-        allowedOriganizationLabel.text = organization.name ?? ""
-        organizationIcon.loadImageUsingUrlString(urlString: organization.logo?.sizes?.thumbnail ?? "", placeHolder: #imageLiteral(resourceName: "Resting"))
+        self.dataSource.selectedOrganization = organization
+        self.tableView.reloadData()
     }
 }
 
 extension MPaymentViewController {
-    private func setupSubview() {
-        self.view.addSubview(tableView)
-        tableView.snp.makeConstraints { make in
-            make.top.left.right.bottom.equalTo(self.view.safeAreaLayoutGuide)
+    private func addSubviews() {
+        let views = [tableView, payButton]
+        views.forEach { view in
+            self.view.addSubview(view)
         }
     }
 }
 
-extension MPaymentViewController: UITextFieldDelegate{
-    
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        var dotString = ""
-        var limitAfterDot = 2
-        if self.getLanguageISO() == "en"{
-            
-            dotString = "."
-            
-        }else if self.getLanguageISO() == "nl" {
-            
-            dotString = ","
+extension MPaymentViewController {
+    // MARK: - Setup Constraints
+    private func setupConstraints() {
+        tableView.snp.makeConstraints { make in
+            make.top.left.right.equalTo(self.view.safeAreaLayoutGuide)
+            make.height.equalTo(400)
         }
         
-        if let text = textField.text {
-            let isDeleteKey = string.isEmpty
-            
-            if !isDeleteKey {
-                if text.contains(dotString) {
-                    let countdots = textField.text!.components(separatedBy: dotString).count - 1
-                    
-                    if countdots > 0 && string == dotString
-                    {
-                        return false
-                    }
-                    if voucher.fund?.currency == "eth" {
-                        limitAfterDot = 4
-                    }
-                    if text.components(separatedBy: dotString)[1].count == limitAfterDot {
-                        
-                        return false
-                    }
-                }
-            }
+        payButton.snp.makeConstraints { make in
+            make.top.equalTo(tableView.snp.bottom).offset(10)
+            make.height.equalTo(46)
+            make.left.equalTo(self.view).offset(10)
+            make.right.equalTo(self.view).offset(-10)
         }
-        return true
+    }
+}
+
+extension MPaymentViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let row = PaymentRowType.allCases[indexPath.row]
+        switch row {
+        case .voucher: break
+        case .organization:
+            self.showOrganizations()
+        case .amount: break
+        case .note: break
+        }
+        
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let row = PaymentRowType.allCases[indexPath.row]
+        switch row {
+        case .voucher:
+            return 120
+        case .organization:
+            return 60
+        case .amount:
+            return 70
+        case .note:
+            return 100
+        }
+    }
 }
+
 extension MPaymentViewController: AccessibilityProtocol {
     func setupAccessibility() {
         // sendEmailButton.chooseOrganizationButton(description: "Choose Organization Button", accessibilityTraits: .button)

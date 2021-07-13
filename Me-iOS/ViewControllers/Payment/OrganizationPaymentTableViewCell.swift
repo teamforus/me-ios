@@ -91,6 +91,7 @@ extension OrganizationPaymentTableViewCell {
         arrowIcon.snp.makeConstraints { make in
             make.right.equalTo(self.contentView).offset(-20)
             make.centerY.equalTo(self.contentView)
+            make.height.width.equalTo(16)
         }
         
         bottomView.snp.makeConstraints { make in

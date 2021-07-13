@@ -87,7 +87,8 @@ class ConfirmPaymentPopUp: UIViewController {
                             
                             self.showSimpleAlertWithSingleAction(title: Localize.success(), message: Localize.payment_succeeded(), okAction: UIAlertAction(title: Localize.ok(), style: .default, handler: { (action) in
                                 
-                                self.tabBar.selectedIndex = 0
+                                HomeTabViewController.shared.setTab(.voucher)
+                                
                                 if self.isFromReservation != nil {
                                     self.presentingViewController?.presentingViewController?.presentingViewController?.dismiss(animated: true)
                                 }else {
@@ -118,7 +119,7 @@ class ConfirmPaymentPopUp: UIViewController {
                             KVSpinnerView.dismiss()
                             self.showSimpleAlertWithSingleAction(title: Localize.success(), message: Localize.payment_succeeded(), okAction: UIAlertAction(title: Localize.ok(), style: .default, handler: { (action) in
                                 
-                                self.tabBar.selectedIndex = 0
+                                HomeTabViewController.shared.setTab(.voucher)
                                 if self.isFromReservation != nil {
                                     self.presentingViewController?.presentingViewController?.presentingViewController?.dismiss(animated: true)
                                 }else {
