@@ -9,6 +9,10 @@
 import UIKit
 import IQKeyboardManagerSwift
 
+enum VoucherDetailType {
+    case product, budgetVoucher
+}
+
 class MPaymentViewController: UIViewController {
     
     var isFromReservation: Bool!
@@ -16,6 +20,7 @@ class MPaymentViewController: UIViewController {
     var voucher: Voucher
     var navigator: Navigator
     var selectedAllowerdOrganization: AllowedOrganization!
+    var voucherType: VoucherDetailType
     
     var dataSource: PaymentDataSource
     
@@ -41,7 +46,8 @@ class MPaymentViewController: UIViewController {
     init(navigator: Navigator, voucher: Voucher) {
         self.voucher = voucher
         self.navigator = navigator
-        self.dataSource = PaymentDataSource(voucher: voucher)
+        self.voucherType = voucher.product != nil ? .product : .budgetVoucher
+        self.dataSource = PaymentDataSource(voucher: voucher, voucherType: self.voucherType)
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -81,7 +87,6 @@ class MPaymentViewController: UIViewController {
         tableView.register(MProductVoucherTableViewCell.self, forCellReuseIdentifier: MProductVoucherTableViewCell.identifier)
         tableView.register(OrganizationPaymentTableViewCell.self, forCellReuseIdentifier: OrganizationPaymentTableViewCell.identifier)
         tableView.register(TextFieldTableViewCell.self, forCellReuseIdentifier: TextFieldTableViewCell.identifier)
-        
     }
     
     
@@ -104,9 +109,6 @@ class MPaymentViewController: UIViewController {
     
     private func sendProductTransaction() {
         let vc = ConfirmPaymentPopUp()
-        if isFromReservation != nil {
-            vc.isFromReservation = isFromReservation
-        }
         vc.voucher = voucher
         vc.organizationId = selectedAllowerdOrganization?.id ?? 0
         vc.note = dataSource.noteValue
@@ -118,9 +120,6 @@ class MPaymentViewController: UIViewController {
     
     private func sendVoucherTransactions() {
         let vc = ConfirmPaymentPopUp()
-        if isFromReservation != nil {
-            vc.isFromReservation = isFromReservation
-        }
         vc.voucher = voucher
         vc.organizationId = selectedAllowerdOrganization?.id ?? 0
         vc.note = dataSource.noteValue
@@ -132,9 +131,6 @@ class MPaymentViewController: UIViewController {
     
     private func sendTestTransaction() {
         let vc = ConfirmPaymentPopUp()
-        if isFromReservation != nil {
-            vc.isFromReservation = isFromReservation
-        }
         vc.organizationId = 0
         vc.testToken = testToken
         vc.note = dataSource.noteValue
@@ -222,7 +218,7 @@ extension MPaymentViewController: UITableViewDelegate {
         case .organization:
             return 60
         case .amount:
-            return 70
+            return voucherType == .budgetVoucher ?  70 : 0
         case .note:
             return 100
         }
@@ -232,6 +228,5 @@ extension MPaymentViewController: UITableViewDelegate {
 extension MPaymentViewController: AccessibilityProtocol {
     func setupAccessibility() {
         // sendEmailButton.chooseOrganizationButton(description: "Choose Organization Button", accessibilityTraits: .button)
-        
     }
 }

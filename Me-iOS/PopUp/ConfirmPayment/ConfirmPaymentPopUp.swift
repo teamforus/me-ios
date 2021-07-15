@@ -89,11 +89,7 @@ class ConfirmPaymentPopUp: UIViewController {
                                 
                                 HomeTabViewController.shared.setTab(.voucher)
                                 
-                                if self.isFromReservation != nil {
-                                    self.presentingViewController?.presentingViewController?.presentingViewController?.dismiss(animated: true)
-                                }else {
-                                    self.presentingViewController?.presentingViewController?.dismiss(animated: true)
-                                }
+                                self.presentingViewController?.presentingViewController?.dismiss(animated: true)
                             }))
                         }else if statusCode == 401 {
                             DispatchQueue.main.async {
@@ -120,11 +116,7 @@ class ConfirmPaymentPopUp: UIViewController {
                             self.showSimpleAlertWithSingleAction(title: Localize.success(), message: Localize.payment_succeeded(), okAction: UIAlertAction(title: Localize.ok(), style: .default, handler: { (action) in
                                 
                                 HomeTabViewController.shared.setTab(.voucher)
-                                if self.isFromReservation != nil {
-                                    self.presentingViewController?.presentingViewController?.presentingViewController?.dismiss(animated: true)
-                                }else {
-                                    self.presentingViewController?.presentingViewController?.dismiss(animated: true)
-                                }
+                                self.presentingViewController?.presentingViewController?.dismiss(animated: true)
                             }))
                         }else if statusCode == 401 {
                             DispatchQueue.main.async {

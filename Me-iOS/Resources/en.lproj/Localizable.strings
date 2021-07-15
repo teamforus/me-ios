@@ -213,3 +213,4 @@
 "offer_below_reserved_customer" = "The offers below are reserved by the customer";
 "choose_reservation" = "Choose Reservation";
 "reddem_voucher" = "Redeem Voucher";
+"show_qr_code" = "Show QR-Code";

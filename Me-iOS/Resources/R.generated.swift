@@ -91,14 +91,12 @@ struct R: Rswift.Validatable {
   }
 
   #if os(iOS) || os(tvOS)
-  /// This `R.storyboard` struct is generated, and contains static references to 7 storyboards.
+  /// This `R.storyboard` struct is generated, and contains static references to 6 storyboards.
   struct storyboard {
     /// Storyboard `ChooseTypeRecord`.
     static let chooseTypeRecord = _R.storyboard.chooseTypeRecord()
     /// Storyboard `LaunchScreen`.
     static let launchScreen = _R.storyboard.launchScreen()
-    /// Storyboard `Payment`.
-    static let payment = _R.storyboard.payment()
     /// Storyboard `Profile`.
     static let profile = _R.storyboard.profile()
     /// Storyboard `RecordDetail`.
@@ -119,13 +117,6 @@ struct R: Rswift.Validatable {
     /// `UIStoryboard(name: "LaunchScreen", bundle: ...)`
     static func launchScreen(_: Void = ()) -> UIKit.UIStoryboard {
       return UIKit.UIStoryboard(resource: R.storyboard.launchScreen)
-    }
-    #endif
-
-    #if os(iOS) || os(tvOS)
-    /// `UIStoryboard(name: "Payment", bundle: ...)`
-    static func payment(_: Void = ()) -> UIKit.UIStoryboard {
-      return UIKit.UIStoryboard(resource: R.storyboard.payment)
     }
     #endif
 
@@ -1439,7 +1430,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.string` struct is generated, and contains static references to 14 localization tables.
+  /// This `R.string` struct is generated, and contains static references to 13 localization tables.
   struct string {
     /// This `R.string.allowedOrganizationsViewController` struct is generated, and contains static references to 1 localization keys.
     struct allowedOrganizationsViewController {
@@ -2079,7 +2070,7 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
 
-    /// This `R.string.localizable` struct is generated, and contains static references to 201 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 202 localization keys.
     struct localizable {
       /// en translation: %@ Branches
       ///
@@ -2653,6 +2644,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en, nl
       static let sharing_information = Rswift.StringResource(key: "sharing_information", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
+      /// en translation: Show QR-Code
+      ///
+      /// Locales: en, nl
+      static let show_qr_code = Rswift.StringResource(key: "show_qr_code", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
       /// en translation: Something went wrong, please try again…
       ///
       /// Locales: en, nl
@@ -5049,6 +5044,21 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("sharing_information", bundle: bundle, comment: "")
       }
 
+      /// en translation: Show QR-Code
+      ///
+      /// Locales: en, nl
+      static func show_qr_code(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("show_qr_code", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "show_qr_code"
+        }
+
+        return NSLocalizedString("show_qr_code", bundle: bundle, comment: "")
+      }
+
       /// en translation: Something went wrong, please try again…
       ///
       /// Locales: en, nl
@@ -5973,164 +5983,6 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("axg-vL-5dN.text", tableName: "OrganizationValidatorViewController", bundle: bundle, comment: "")
-      }
-
-      fileprivate init() {}
-    }
-
-    /// This `R.string.payment` struct is generated, and contains static references to 8 localization keys.
-    struct payment {
-      /// en translation: DenyK
-      ///
-      /// Locales: en, nl
-      static let sBInTb1Text = Rswift.StringResource(key: "7sB-in-Tb1.text", tableName: "Payment", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
-      /// en translation: Enter the price here.
-      ///
-      /// Locales: en, nl
-      static let s9mQTRjOPlaceholder = Rswift.StringResource(key: "S9m-QT-RjO.placeholder", tableName: "Payment", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
-      /// en translation: Kindpakket
-      ///
-      /// Locales: en, nl
-      static let uPPYSF4lText = Rswift.StringResource(key: "uPP-YS-f4l.text", tableName: "Payment", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
-      /// en translation: NOT 2 DAGEN GELDIG VALID
-      ///
-      /// Locales: en, nl
-      static let kgfIKRAIText = Rswift.StringResource(key: "kgf-iK-RAI.text", tableName: "Payment", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
-      /// en translation: Note
-      ///
-      /// Locales: en, nl
-      static let tcrOrO4PPlaceholder = Rswift.StringResource(key: "TCR-Or-O4P.placeholder", tableName: "Payment", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
-      /// en translation: Product categories
-      ///
-      /// Locales: en, nl
-      static let zrf29OzlText = Rswift.StringResource(key: "Zrf-29-ozl.text", tableName: "Payment", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
-      /// en translation: REQUEST PAYMENT
-      ///
-      /// Locales: en, nl
-      static let riyOmVArNormalTitle = Rswift.StringResource(key: "riy-om-vAr.normalTitle", tableName: "Payment", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
-      /// en translation: Redeem Voucher
-      ///
-      /// Locales: en, nl
-      static let eGEDuSxeText = Rswift.StringResource(key: "eGE-du-sxe.text", tableName: "Payment", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
-
-      /// en translation: DenyK
-      ///
-      /// Locales: en, nl
-      static func sBInTb1Text(preferredLanguages: [String]? = nil) -> String {
-        guard let preferredLanguages = preferredLanguages else {
-          return NSLocalizedString("7sB-in-Tb1.text", tableName: "Payment", bundle: hostingBundle, comment: "")
-        }
-
-        guard let (_, bundle) = localeBundle(tableName: "Payment", preferredLanguages: preferredLanguages) else {
-          return "7sB-in-Tb1.text"
-        }
-
-        return NSLocalizedString("7sB-in-Tb1.text", tableName: "Payment", bundle: bundle, comment: "")
-      }
-
-      /// en translation: Enter the price here.
-      ///
-      /// Locales: en, nl
-      static func s9mQTRjOPlaceholder(preferredLanguages: [String]? = nil) -> String {
-        guard let preferredLanguages = preferredLanguages else {
-          return NSLocalizedString("S9m-QT-RjO.placeholder", tableName: "Payment", bundle: hostingBundle, comment: "")
-        }
-
-        guard let (_, bundle) = localeBundle(tableName: "Payment", preferredLanguages: preferredLanguages) else {
-          return "S9m-QT-RjO.placeholder"
-        }
-
-        return NSLocalizedString("S9m-QT-RjO.placeholder", tableName: "Payment", bundle: bundle, comment: "")
-      }
-
-      /// en translation: Kindpakket
-      ///
-      /// Locales: en, nl
-      static func uPPYSF4lText(preferredLanguages: [String]? = nil) -> String {
-        guard let preferredLanguages = preferredLanguages else {
-          return NSLocalizedString("uPP-YS-f4l.text", tableName: "Payment", bundle: hostingBundle, comment: "")
-        }
-
-        guard let (_, bundle) = localeBundle(tableName: "Payment", preferredLanguages: preferredLanguages) else {
-          return "uPP-YS-f4l.text"
-        }
-
-        return NSLocalizedString("uPP-YS-f4l.text", tableName: "Payment", bundle: bundle, comment: "")
-      }
-
-      /// en translation: NOT 2 DAGEN GELDIG VALID
-      ///
-      /// Locales: en, nl
-      static func kgfIKRAIText(preferredLanguages: [String]? = nil) -> String {
-        guard let preferredLanguages = preferredLanguages else {
-          return NSLocalizedString("kgf-iK-RAI.text", tableName: "Payment", bundle: hostingBundle, comment: "")
-        }
-
-        guard let (_, bundle) = localeBundle(tableName: "Payment", preferredLanguages: preferredLanguages) else {
-          return "kgf-iK-RAI.text"
-        }
-
-        return NSLocalizedString("kgf-iK-RAI.text", tableName: "Payment", bundle: bundle, comment: "")
-      }
-
-      /// en translation: Note
-      ///
-      /// Locales: en, nl
-      static func tcrOrO4PPlaceholder(preferredLanguages: [String]? = nil) -> String {
-        guard let preferredLanguages = preferredLanguages else {
-          return NSLocalizedString("TCR-Or-O4P.placeholder", tableName: "Payment", bundle: hostingBundle, comment: "")
-        }
-
-        guard let (_, bundle) = localeBundle(tableName: "Payment", preferredLanguages: preferredLanguages) else {
-          return "TCR-Or-O4P.placeholder"
-        }
-
-        return NSLocalizedString("TCR-Or-O4P.placeholder", tableName: "Payment", bundle: bundle, comment: "")
-      }
-
-      /// en translation: Product categories
-      ///
-      /// Locales: en, nl
-      static func zrf29OzlText(preferredLanguages: [String]? = nil) -> String {
-        guard let preferredLanguages = preferredLanguages else {
-          return NSLocalizedString("Zrf-29-ozl.text", tableName: "Payment", bundle: hostingBundle, comment: "")
-        }
-
-        guard let (_, bundle) = localeBundle(tableName: "Payment", preferredLanguages: preferredLanguages) else {
-          return "Zrf-29-ozl.text"
-        }
-
-        return NSLocalizedString("Zrf-29-ozl.text", tableName: "Payment", bundle: bundle, comment: "")
-      }
-
-      /// en translation: REQUEST PAYMENT
-      ///
-      /// Locales: en, nl
-      static func riyOmVArNormalTitle(preferredLanguages: [String]? = nil) -> String {
-        guard let preferredLanguages = preferredLanguages else {
-          return NSLocalizedString("riy-om-vAr.normalTitle", tableName: "Payment", bundle: hostingBundle, comment: "")
-        }
-
-        guard let (_, bundle) = localeBundle(tableName: "Payment", preferredLanguages: preferredLanguages) else {
-          return "riy-om-vAr.normalTitle"
-        }
-
-        return NSLocalizedString("riy-om-vAr.normalTitle", tableName: "Payment", bundle: bundle, comment: "")
-      }
-
-      /// en translation: Redeem Voucher
-      ///
-      /// Locales: en, nl
-      static func eGEDuSxeText(preferredLanguages: [String]? = nil) -> String {
-        guard let preferredLanguages = preferredLanguages else {
-          return NSLocalizedString("eGE-du-sxe.text", tableName: "Payment", bundle: hostingBundle, comment: "")
-        }
-
-        guard let (_, bundle) = localeBundle(tableName: "Payment", preferredLanguages: preferredLanguages) else {
-          return "eGE-du-sxe.text"
-        }
-
-        return NSLocalizedString("eGE-du-sxe.text", tableName: "Payment", bundle: bundle, comment: "")
       }
 
       fileprivate init() {}
@@ -7357,9 +7209,6 @@ struct _R: Rswift.Validatable {
       try launchScreen.validate()
       #endif
       #if os(iOS) || os(tvOS)
-      try payment.validate()
-      #endif
-      #if os(iOS) || os(tvOS)
       try profile.validate()
       #endif
       #if os(iOS) || os(tvOS)
@@ -7410,33 +7259,6 @@ struct _R: Rswift.Validatable {
       static func validate() throws {
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
-      }
-
-      fileprivate init() {}
-    }
-    #endif
-
-    #if os(iOS) || os(tvOS)
-    struct payment: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
-      typealias InitialController = MPaymentViewController
-
-      let bundle = R.hostingBundle
-      let content = StoryboardViewControllerResource<MPaymentViewController>(identifier: "content")
-      let name = "Payment"
-
-      func content(_: Void = ()) -> MPaymentViewController? {
-        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: content)
-      }
-
-      static func validate() throws {
-        if UIKit.UIImage(named: "arrow_right_icon", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'arrow_right_icon' is used in storyboard 'Payment', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "back", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'back' is used in storyboard 'Payment', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "face_icon", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'face_icon' is used in storyboard 'Payment', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "qrV", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'qrV' is used in storyboard 'Payment', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "voucher_ticket_icon", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'voucher_ticket_icon' is used in storyboard 'Payment', but couldn't be loaded.") }
-        if #available(iOS 11.0, tvOS 11.0, *) {
-        }
-        if _R.storyboard.payment().content() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'content' could not be loaded from storyboard 'Payment' as 'MPaymentViewController'.") }
       }
 
       fileprivate init() {}

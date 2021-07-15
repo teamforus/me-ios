@@ -76,13 +76,24 @@ class MProductReservationViewController: UIViewController {
         setupAccessibility()
         qrViewModel.vcAlert = self
         goToVoucherButton.isHidden = voucher.amount == "0.00"
-        // Response
+        
         qrViewModel.getVoucher = { [weak self] (voucher, statusCode) in
             DispatchQueue.main.async {
-                self?.voucher = voucher
-                self?.navigator.navigate(to: .paymentContinue(voucher))
+                guard let self = self else {
+                    return
+                }
+                self.voucher = voucher
+                self.navigator.navigate(to: .paymentContinue(self.voucher))
             }
         }
+        
+        goToVoucherButton.actionHandleBlock = { [weak self] (_) in
+            guard let self = self else {
+                return
+            }
+            self.navigator.navigate(to: .paymentContinue(self.voucher))
+        }
+        
         setupTableView()
     }
     

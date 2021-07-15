@@ -74,11 +74,14 @@ class Navigator: NSObject {
         case .productReservation(let voucherTokens, let voucher):
             let productReservationVC = TransactionManager.shared.productReservationScreen(voucherTokens: voucherTokens, voucher: voucher)
             productReservationVC.modalPresentationStyle = .fullScreen
+            
             self.navController.present(productReservationVC, animated: true)
             
         case .paymentContinue(let voucher):
             let paymentVC = MPaymentViewController(navigator: self, voucher: voucher)
+            let prevVc = navController.topViewController
             self.navController.show(paymentVC, sender: nil)
+            navController.viewControllers.removeAll(where: { $0 == prevVc })
             
         case .payment(let voucher):
             let paymentVC = TransactionManager.shared.paymentScreen(voucher: voucher)

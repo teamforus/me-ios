@@ -18,12 +18,14 @@ enum PaymentRowType: Int, CaseIterable {
 class PaymentDataSource: NSObject {
     var voucher: Voucher
     var selectedOrganization: AllowedOrganization
+    var voucherType: VoucherDetailType
     
     var amountValue: String = String.empty
     var noteValue: String = String.empty
     
-    init(voucher: Voucher) {
+    init(voucher: Voucher, voucherType: VoucherDetailType) {
         self.voucher = voucher
+        self.voucherType = voucherType
         self.selectedOrganization = (voucher.allowed_organizations?.first!)!
         super.init()
     }
@@ -45,7 +47,11 @@ extension PaymentDataSource: UITableViewDataSource {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: MProductVoucherTableViewCell.identifier, for: indexPath) as? MProductVoucherTableViewCell else {
                 return UITableViewCell()
             }
-            cell.setup(voucher: voucher)
+            if voucherType == .budgetVoucher {
+                cell.setup(voucher: voucher)
+            }else {
+                cell.setupProduct(voucher: voucher)
+            }
             return cell
             
         case .organization:
