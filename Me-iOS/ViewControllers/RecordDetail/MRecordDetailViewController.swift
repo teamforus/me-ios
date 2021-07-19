@@ -9,21 +9,40 @@
 import UIKit
 
 class MRecordDetailViewController: UIViewController {
-    @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var recordTypeLabel: UILabel!
-    @IBOutlet weak var recordValue: UILabel!
-    @IBOutlet weak var borderView: CustomCornerUIView!
     
-    var recordId: String!
+    var navigator: Navigator
     var timer : Timer! = Timer()
-    var record: Record!
+    var record: Record
     lazy var recordDetailViewModel: RecordDetailViewModel = {
         return RecordDetailViewModel()
     }()
     private lazy var qrViewModel: QRViewModel = {
         return QRViewModel()
     }()
+    var dataSource: RecordDetailDataSource
     
+    // MARK: - Parameters
+    private let tableView: UITableView = {
+        let tableView = UITableView(frame: .zero)
+        tableView.backgroundColor = .clear
+        return tableView
+    }()
+    
+    
+    // MARK: - Init
+    init(navigator: Navigator, record: Record) {
+        self.navigator = navigator
+        self.record = record
+        self.dataSource = RecordDetailDataSource(record: record)
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    
+    // MARK: - Setup View
     override func viewDidLoad() {
         super.viewDidLoad()
         recordDetailViewModel.vc = self
@@ -69,17 +88,15 @@ class MRecordDetailViewController: UIViewController {
             DispatchQueue.main.async {
                 
                 self?.record = record
-                self?.recordTypeLabel.text = record.name ?? ""
-                self?.recordValue.text = record.value
                 self?.tableView.reloadData()
-                self?.tableView.isHidden = self?.recordDetailViewModel.numberOfCells == 0
+                self?.tableView.isHidden = record.validations?.count == 0
                 KVSpinnerView.dismiss()
             }
         }
         
         if isReachable() {
             KVSpinnerView.show()
-            recordDetailViewModel.initFetchById(id: recordId)
+            recordDetailViewModel.initFetchById(id: String(record.id ?? 0))
         }else {
             showInternetUnable()
         }
@@ -94,9 +111,9 @@ class MRecordDetailViewController: UIViewController {
         }
     }
     
-    @IBAction func showQRCode(_ sender: Any) {
+    func showQRCode() {
         let popOverVC = PullUpQRViewController(nib: R.nib.pullUpQRViewController)
-        popOverVC.idRecord = Int(recordId)
+        popOverVC.idRecord = Int(record.id ?? 0)
         popOverVC.record = record
         popOverVC.qrType = .Record
         showPopUPWithAnimation(vc: popOverVC)
@@ -104,33 +121,6 @@ class MRecordDetailViewController: UIViewController {
     
     @IBAction func deleteRecord(_ sender: UIButton) {
         KVSpinnerView.show()
-        recordDetailViewModel.initDeleteById(id: recordId)
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let recordValidatorVC = segue.destination as? MRecordValidatorsViewController {
-            recordValidatorVC.record = self.record
-        }
-    }
-}
-
- // MARK: - UITableViewDelegate
-
-extension MRecordDetailViewController: UITableViewDataSource, UITableViewDelegate {
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return recordDetailViewModel.numberOfCells
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ValidatorTableViewCell
-        
-        cell.validator = recordDetailViewModel.getCellViewModel(at: indexPath)
-        
-        return cell
+        recordDetailViewModel.initDeleteById(id: String(record.id ?? 0))
     }
 }

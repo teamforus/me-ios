@@ -229,6 +229,7 @@
 		FFB868F626A08A62009B4893 /* RecordInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB868F526A08A62009B4893 /* RecordInfoTableViewCell.swift */; };
 		FFB868F826A08AB5009B4893 /* Extension+ReuseIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB868F726A08AB5009B4893 /* Extension+ReuseIdentifier.swift */; };
 		FFBA0620268B71C400325D63 /* TextFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFBA061F268B71C400325D63 /* TextFieldTableViewCell.swift */; };
+		FFBAE16826A5919E00C93BE7 /* RecordDetailDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFBAE16726A5919E00C93BE7 /* RecordDetailDataSource.swift */; };
 		FFBD74D9261385CE00B44B87 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = FFBD74D8261385CE00B44B87 /* FirebaseAnalytics */; };
 		FFBD74DB261385CE00B44B87 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = FFBD74DA261385CE00B44B87 /* FirebaseAuth */; };
 		FFBD74DD261385CE00B44B87 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = FFBD74DC261385CE00B44B87 /* FirebaseCrashlytics */; };
@@ -530,6 +531,7 @@
 		FFB868F526A08A62009B4893 /* RecordInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordInfoTableViewCell.swift; sourceTree = "<group>"; };
 		FFB868F726A08AB5009B4893 /* Extension+ReuseIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+ReuseIdentifier.swift"; sourceTree = "<group>"; };
 		FFBA061F268B71C400325D63 /* TextFieldTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldTableViewCell.swift; sourceTree = "<group>"; };
+		FFBAE16726A5919E00C93BE7 /* RecordDetailDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordDetailDataSource.swift; sourceTree = "<group>"; };
 		FFBDBCA72631ACC9006F7871 /* LoginQrAndCodeViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginQrAndCodeViewModel.swift; sourceTree = "<group>"; };
 		FFC38D4324FA7DFA001C0DA2 /* MTransactionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTransactionsViewController.swift; sourceTree = "<group>"; };
 		FFC6434F2678F66100B7F3C4 /* AppNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNavigator.swift; sourceTree = "<group>"; };
@@ -871,6 +873,7 @@
 			isa = PBXGroup;
 			children = (
 				654F97A9229BF671009C9FFA /* MRecordDetailViewController.swift */,
+				FFBAE16726A5919E00C93BE7 /* RecordDetailDataSource.swift */,
 				654F97AC229C02F2009C9FFA /* Cell */,
 				65100AFB229D563E007892D1 /* ViewModel */,
 				650FF61922AD2ACF004C3A85 /* RecordDetail.storyboard */,
@@ -2049,6 +2052,7 @@
 				65139C3E2280273E003E0CDE /* HSDefaultScanView.swift in Sources */,
 				FF1CF098263AEED700C8C317 /* MInfoVoucherTableViewCell.swift in Sources */,
 				FFB76E1324E94AC200CFB195 /* ProgressLayer.swift in Sources */,
+				FFBAE16826A5919E00C93BE7 /* RecordDetailDataSource.swift in Sources */,
 				65911B4A228D899700EA30D6 /* Fund.swift in Sources */,
 				FF6AC284267232E00099E264 /* Extension+UIColor.swift in Sources */,
 				FF1CF094263AEED700C8C317 /* MBranchesTableViewCell.swift in Sources */,
