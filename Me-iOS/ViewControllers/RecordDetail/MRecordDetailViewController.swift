@@ -22,9 +22,9 @@ class MRecordDetailViewController: UIViewController {
     var dataSource: RecordDetailDataSource
     
     // MARK: - Parameters
-    private let tableView: UITableView = {
-        let tableView = UITableView(frame: .zero)
-        tableView.backgroundColor = .clear
+    private let tableView: TableView_Background_DarkMode = {
+        let tableView = TableView_Background_DarkMode(frame: .zero)
+        tableView.colorName = "Background_Voucher_DarkTheme"
         return tableView
     }()
     
@@ -45,6 +45,12 @@ class MRecordDetailViewController: UIViewController {
     // MARK: - Setup View
     override func viewDidLoad() {
         super.viewDidLoad()
+        if #available(iOS 11.0, *) {
+            self.view.backgroundColor = UIColor(named: "Background_DarkTheme")
+        } else {}
+        addSubviews()
+        setupConstraints()
+        setupTableView()
         recordDetailViewModel.vc = self
         fetchRecordDetail()
         completeDelete()
@@ -58,6 +64,14 @@ class MRecordDetailViewController: UIViewController {
     
     func setupTimer() {
         self.timer = Timer.scheduledTimer(timeInterval: 7, target: self, selector: #selector(self.checkRecordValidateState), userInfo: nil, repeats: true)
+    }
+    
+    private func setupTableView() {
+        tableView.delegate = dataSource
+        tableView.dataSource = dataSource
+        tableView.separatorStyle = .none
+        tableView.register(ValidatorTableViewCell.self, forCellReuseIdentifier: ValidatorTableViewCell.reuseIdentifier)
+        tableView.register(RecordInfoTableViewCell.self, forCellReuseIdentifier: RecordInfoTableViewCell.reuseIdentifier)
     }
     
     @objc func checkRecordValidateState() {
@@ -89,7 +103,6 @@ class MRecordDetailViewController: UIViewController {
                 
                 self?.record = record
                 self?.tableView.reloadData()
-                self?.tableView.isHidden = record.validations?.count == 0
                 KVSpinnerView.dismiss()
             }
         }
@@ -122,5 +135,22 @@ class MRecordDetailViewController: UIViewController {
     @IBAction func deleteRecord(_ sender: UIButton) {
         KVSpinnerView.show()
         recordDetailViewModel.initDeleteById(id: String(record.id ?? 0))
+    }
+}
+
+extension MRecordDetailViewController {
+    // MARK: - Add Subviews
+    private func addSubviews() {
+        self.view.addSubview(tableView)
+    }
+}
+
+extension MRecordDetailViewController {
+    // MARK: - Setup Constraints
+    private func setupConstraints() {
+        tableView.snp.makeConstraints { make in
+            make.top.equalTo(view.safeAreaLayoutGuide)
+            make.left.right.bottom.equalTo(view)
+        }
     }
 }

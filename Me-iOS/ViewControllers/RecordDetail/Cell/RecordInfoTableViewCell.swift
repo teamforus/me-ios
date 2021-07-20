@@ -33,6 +33,8 @@ class RecordInfoTableViewCell: UITableViewCell {
     let showQrButton: ActionButton = {
         let button = ActionButton(frame: .zero)
         button.backgroundColor = Color.buttonRecordBg
+        button.rounded(cornerRadius: 18)
+        button.setTitleColor(Color.blueText, for: .normal)
         button.setTitle(Localize.show_qr_code(), for: .normal)
         button.titleLabel?.font = R.font.googleSansMedium(size: 13)
         return button
@@ -42,6 +44,8 @@ class RecordInfoTableViewCell: UITableViewCell {
     // MARK: - Init
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        self.backgroundColor = .clear
+        self.contentView.backgroundColor = .clear
         addSubviews()
         setupConstraints()
     }

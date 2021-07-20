@@ -96,6 +96,9 @@
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="string" keyPath="colorName" value="Gray_Dark_DarkTheme"/>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="openRecords:" destination="eu3-EV-5Ar" eventType="touchUpInside" id="wxO-wb-alR"/>
+                                                        </connections>
                                                     </button>
                                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="V0O-m1-j6W" customClass="Background_DarkMode" customModule="Me_iOS" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="80" width="375" height="1"/>

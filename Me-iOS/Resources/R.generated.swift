@@ -566,7 +566,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.image` struct is generated, and contains static references to 78 images.
+  /// This `R.image` struct is generated, and contains static references to 79 images.
   struct image {
     /// Image `5XVoucherContainerWElevation`.
     static let xVoucherContainerWElevation = Rswift.ImageResource(bundle: R.hostingBundle, name: "5XVoucherContainerWElevation")
@@ -716,6 +716,8 @@ struct R: Rswift.Validatable {
     static let touchId = Rswift.ImageResource(bundle: R.hostingBundle, name: "touchId")
     /// Image `transaction_icon`.
     static let transaction_icon = Rswift.ImageResource(bundle: R.hostingBundle, name: "transaction_icon")
+    /// Image `user_logo`.
+    static let user_logo = Rswift.ImageResource(bundle: R.hostingBundle, name: "user_logo")
     /// Image `userpick`.
     static let userpick = Rswift.ImageResource(bundle: R.hostingBundle, name: "userpick")
     /// Image `voucher_ticket_icon`.
@@ -1240,6 +1242,13 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "transaction_icon", bundle: ..., traitCollection: ...)`
     static func transaction_icon(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.transaction_icon, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "user_logo", bundle: ..., traitCollection: ...)`
+    static func user_logo(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.user_logo, compatibleWith: traitCollection)
     }
     #endif
 
@@ -2070,7 +2079,7 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
 
-    /// This `R.string.localizable` struct is generated, and contains static references to 202 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 203 localization keys.
     struct localizable {
       /// en translation: %@ Branches
       ///
@@ -2592,6 +2601,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en
       static let record = Rswift.StringResource(key: "record", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Record detail
+      ///
+      /// Locales: en, nl
+      static let record_detail = Rswift.StringResource(key: "record_detail", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
       /// en translation: Records
       ///
       /// Locales: en, nl
@@ -4847,6 +4860,21 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("record", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Record detail
+      ///
+      /// Locales: en, nl
+      static func record_detail(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("record_detail", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "record_detail"
+        }
+
+        return NSLocalizedString("record_detail", bundle: bundle, comment: "")
       }
 
       /// en translation: Records

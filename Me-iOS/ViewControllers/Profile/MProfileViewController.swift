@@ -11,6 +11,9 @@ import MessageUI
 import FirebaseCrashlytics
 
 class MProfileViewController: UIViewController {
+    
+    var navigator: Navigator!
+    
     @IBOutlet weak var profileNameLabel: UILabel!
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var appVersionLabel: UILabel!
@@ -106,6 +109,12 @@ extension MProfileViewController {
         fatalError()
     }
     
+    @IBAction func openRecords(_ sender: Any) {
+        let recordsVC = TransactionManager.shared.records()
+        recordsVC.modalPresentationStyle = .fullScreen
+        self.present(recordsVC, animated: true)
+    }
+    
     @IBAction func creatEditPasscode(_ sender: Any) {
         
         if passcodeIsSet() {
@@ -119,6 +128,8 @@ extension MProfileViewController {
         
         didChooseAppLocker(title: Localize.turn_off_login_code(), subTitle: Localize.enter_your_login_code(), cancelButtonIsVissible: true, mode: .deactive)
     }
+    
+    
 }
 
 // MARK: - SetupView

@@ -10,9 +10,11 @@ import UIKit
 
 class RecordsDataSource: NSObject {
     var records: [Record]
+    var navigator: Navigator
     
-    init(records: [Record]) {
+    init(records: [Record], navigator: Navigator) {
         self.records = records
+        self.navigator = navigator
         super.init()
     }
 }
@@ -33,6 +35,10 @@ extension RecordsDataSource: UITableViewDataSource, UITableViewDelegate {
         
         cell.setup(records[indexPath.row])
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        navigator.navigate(to: .recordDetail(records[indexPath.row]))
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

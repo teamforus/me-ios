@@ -112,3 +112,13 @@ extension TransactionManager {
     }
 }
 
+// MARK: - Records
+extension TransactionManager {
+    func records() -> MeNavigationController {
+        let viewController = MRecordsViewController(navigator: Navigator())
+        let navController = MeNavigationController(rootViewController: viewController)
+        viewController.navigator.configure(navController)
+        return navController
+    }
+}
+

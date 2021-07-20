@@ -12,6 +12,7 @@ class ValidatorTableViewCell: UITableViewCell {
     
     private var iconValidator: UIImageView = {
         let imageView = UIImageView(frame: .zero)
+        imageView.image = Image.userLogo
         return imageView
     }()
     
@@ -37,7 +38,7 @@ class ValidatorTableViewCell: UITableViewCell {
     
     private var bottomBorrder: CustomCornerUIView = {
         let view = CustomCornerUIView(frame: .zero)
-        view.colorName = "Gray_Dark_DarkTheme"
+        view.colorName = "Thin_Light_Gray_DarkTheme"
         return view
     }()
     
@@ -49,6 +50,8 @@ class ValidatorTableViewCell: UITableViewCell {
       if #available(iOS 11.0, *) {
         self.contentView.backgroundColor = UIColor(named: "DarkGray_DarkTheme")
       } else {}
+        addSubviews()
+        setupConstraints()
     }
     
     required init?(coder: NSCoder) {
@@ -67,7 +70,7 @@ class ValidatorTableViewCell: UITableViewCell {
 extension ValidatorTableViewCell {
     // MAKR: Add Subviews
     private func addSubviews() {
-        let views = [iconValidator, nameValidatorLabel, dateLabel, validatorAddressLabel]
+        let views = [iconValidator, nameValidatorLabel, dateLabel, validatorAddressLabel, bottomBorrder]
         
         views.forEach { view in
             self.contentView.addSubview(view)
@@ -84,6 +87,30 @@ extension ValidatorTableViewCell {
             make.left.equalTo(contentView).offset(17)
         }
         
+        nameValidatorLabel.snp.makeConstraints { make in
+            make.top.equalTo(contentView).offset(22)
+            make.left.equalTo(iconValidator.snp.right).offset(13)
+            make.right.equalTo(contentView).offset(-5)
+        }
+        
+        dateLabel.snp.makeConstraints { make in
+            make.top.equalTo(nameValidatorLabel.snp.bottom).offset(1)
+            make.left.equalTo(iconValidator.snp.right).offset(13)
+            make.right.equalTo(contentView).offset(-5)
+        }
+        
+        validatorAddressLabel.snp.makeConstraints { make in
+            make.top.equalTo(dateLabel.snp.bottom).offset(12)
+            make.left.equalTo(iconValidator.snp.right).offset(13)
+            make.right.equalTo(contentView).offset(-5)
+        }
+        
+        bottomBorrder.snp.makeConstraints { make in
+            make.left.equalTo(contentView).offset(70)
+            make.right.equalTo(contentView)
+            make.bottom.equalTo(contentView).offset(-1)
+            make.height.equalTo(1)
+        }
         
     }
 }

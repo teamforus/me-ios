@@ -106,6 +106,16 @@ extension MeNavigationController: UINavigationControllerDelegate {
             viewController.title = Localize.choose_reservation()
             let barButtonItem = UIBarButtonItem(image: Image.bakcIcon, style: .plain, target: viewController, action: #selector(HomeTabViewController.dismiss(_:)))
             viewController.navigationItem.leftBarButtonItem = barButtonItem
+            
+        case is MRecordsViewController:
+            self.navigationBar.prefersLargeTitles = true
+            viewController.title = Localize.records()
+            let barButtonItem = UIBarButtonItem(customView: (viewController as? MRecordsViewController)!.closeButton)
+            viewController.navigationItem.rightBarButtonItem = barButtonItem
+            
+        case is MRecordDetailViewController:
+            self.navigationBar.prefersLargeTitles = true
+            viewController.title = Localize.record_detail()
         default: ()
         }
     }

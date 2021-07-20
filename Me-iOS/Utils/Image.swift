@@ -26,4 +26,6 @@ public struct Image {
     public static let profileTabIcon: UIImage? = UIImage(named: "activeBlue")
     public static let restingIcon: UIImage? = UIImage(named: "Resting")
     public static let bakcIcon: UIImage? = UIImage(named: "back")
+    public static let launcherAppIcon: UIImage? = UIImage(named: "ic_launcher_APP")
+    public static let userLogo: UIImage? = UIImage(named: "user_logo")
 }

@@ -11,18 +11,20 @@ import BWWalkthrough
 
 class MRecordsViewController: UIViewController {
     
+    private let refreshControl = UIRefreshControl()
+    
+    var dataSource: RecordsDataSource!
+    
+    lazy var recordViewModel: RecordsViewModel = {
+        return RecordsViewModel()
+    }()
+    var navigator: Navigator
+    
     // MARK: - Properties
     let closeButton: ActionButton = {
         let button = ActionButton(frame: .zero)
         button.setImage(Image.closeBlackIcon, for: .normal)
         return button
-    }()
-    
-    var titleLabel: UILabel_DarkMode = {
-        let label = UILabel_DarkMode(frame: .zero)
-        label.text = Localize.personal()
-        label.font = R.font.googleSansBold(size: 38)
-        return label
     }()
     
     var newRecordButton: ActionButton = {
@@ -37,14 +39,19 @@ class MRecordsViewController: UIViewController {
         return tableView
     }()
     
-    private let refreshControl = UIRefreshControl()
     
-    var dataSource: RecordsDataSource!
     
-    lazy var recordViewModel: RecordsViewModel = {
-        return RecordsViewModel()
-    }()
+    // MARK: - Init
+    init(navigator: Navigator) {
+        self.navigator = navigator
+        super.init(nibName: nil, bundle: nil)
+    }
     
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    // MARK: - Setup View
     override func viewDidLoad() {
         super.viewDidLoad()
         addSubviews()
@@ -53,6 +60,9 @@ class MRecordsViewController: UIViewController {
     }
     
     private func setupView() {
+        if #available(iOS 11.0, *) {
+            self.view.backgroundColor = UIColor(named: "Background_DarkTheme")
+        } else {}
         setupActions()
         setupTableView()
         NotificationCenter.default.addObserver(self, selector: #selector(walkthroughCloseButtonPressed), name: NotificationName.ClosePageControll, object: nil)
@@ -102,22 +112,18 @@ class MRecordsViewController: UIViewController {
     
     private func fetch() {
         recordViewModel.complete = { [weak self] (records) in
+            guard let self = self else {
+                return
+            }
             
             DispatchQueue.main.async {
-                self?.dataSource = RecordsDataSource(records: records)
-                self?.tableView.dataSource = self?.dataSource
-                self?.tableView.delegate = self?.dataSource
-                self?.tableView.reloadData()
+                self.dataSource = RecordsDataSource(records: records, navigator: self.navigator)
+                self.tableView.dataSource = self.dataSource
+                self.tableView.delegate = self.dataSource
+                self.tableView.reloadData()
                 KVSpinnerView.dismiss()
-                self?.refreshControl.endRefreshing()
+                self.refreshControl.endRefreshing()
             }
-        }
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let recordVC = segue.destination as? MRecordDetailViewController {
-            let record = self.dataSource.records[tableView.indexPathForSelectedRow?.row ?? 0]
-            recordVC.recordId = String(record.id ?? 0)
         }
     }
 }
@@ -137,14 +143,13 @@ extension MRecordsViewController: BWWalkthroughViewControllerDelegate{
 
 extension MRecordsViewController {
     func setupAccessibility() {
-        titleLabel.setupAccesibility(description: Localize.personal(), accessibilityTraits: .header)
     }
 }
 
 extension MRecordsViewController {
     // MARK: - Add Subviews
     private func addSubviews() {
-        let views = [closeButton, titleLabel, newRecordButton, tableView]
+        let views = [ tableView, newRecordButton]
         views.forEach { view in
             self.view.addSubview(view)
         }
@@ -154,20 +159,10 @@ extension MRecordsViewController {
 extension MRecordsViewController {
     // MARK: - Setup Constraints
     private func setupConstraints() {
-        closeButton.snp.makeConstraints { make in
-            make.height.width.equalTo(40)
-            make.top.equalTo(view.safeAreaLayoutGuide).offset(10)
-            make.right.equalTo(view).offset(-10)
-        }
-        
-        titleLabel.snp.makeConstraints { make in
-            make.top.equalTo(self.view.safeAreaLayoutGuide).offset(40)
-            make.left.equalTo(self.view).offset(16)
-        }
         
         newRecordButton.snp.makeConstraints { make in
             make.height.equalTo(40)
-            make.top.equalTo(titleLabel.snp.bottom).offset(30)
+            make.top.equalTo(view.safeAreaLayoutGuide)
             make.left.equalTo(view).offset(16)
             make.right.equalTo(view).offset(-16)
         }
@@ -176,7 +171,7 @@ extension MRecordsViewController {
             #if ALPHA
             make.top.equalTo(newRecordButton.snp.bottom)
             #else
-            make.top.equalTo(titleLabel.snp.bottom).offset(10)
+            make.top.equalTo(view.safeAreaLayoutGuide)
             #endif
             make.top.equalTo(newRecordButton.snp.bottom)
             make.left.right.bottom.equalTo(view)

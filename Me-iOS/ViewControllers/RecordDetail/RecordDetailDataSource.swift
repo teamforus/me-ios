@@ -45,7 +45,9 @@ extension RecordDetailDataSource: UITableViewDataSource, UITableViewDelegate {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: RecordInfoTableViewCell.reuseIdentifier, for: indexPath) as? RecordInfoTableViewCell else {
                 return UITableViewCell()
             }
-            
+            cell.showQrButton.actionHandleBlock = { [weak self] (_) in
+                
+            }
             cell.setup(record)
             return cell
             
@@ -53,8 +55,21 @@ extension RecordDetailDataSource: UITableViewDataSource, UITableViewDelegate {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: ValidatorTableViewCell.reuseIdentifier, for: indexPath) as? ValidatorTableViewCell else {
                 return UITableViewCell()
             }
-            
+            if let validator = record.validations?[indexPath.row] {
+                cell.setup(validator)
+            }
             return cell
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let sections = RecordDetailSectionType.allCases[indexPath.section]
+        switch sections {
+        case .record:
+            return 180
+            
+        case .validations:
+            return 110
         }
     }
 }
