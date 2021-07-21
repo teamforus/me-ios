@@ -24,6 +24,7 @@ class ProductVoucherViewController: UIViewController {
     
     var voucher: Voucher!
     var address: String!
+    var navigator: Navigator
     var dataSource: ProductVoucherDataSource!
     lazy var productViewModel: ProductVoucherViewModel = {
         return ProductVoucherViewModel()
@@ -40,6 +41,16 @@ class ProductVoucherViewController: UIViewController {
         return tableView
     }()
     
+    
+    // MARK: - Init
+    init(navigator: Navigator) {
+        self.navigator = navigator
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,7 +73,7 @@ class ProductVoucherViewController: UIViewController {
             }
             DispatchQueue.main.async {
                 self.voucher = voucher
-                self.dataSource = ProductVoucherDataSource(voucher: voucher, parentViewController: self)
+                self.dataSource = ProductVoucherDataSource(voucher: voucher, parentViewController: self, navigator: navigator)
                 self.setUpTableView()
                 self.tableView.reloadData()
             }

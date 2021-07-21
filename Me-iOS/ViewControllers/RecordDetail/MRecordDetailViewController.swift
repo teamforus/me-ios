@@ -124,7 +124,7 @@ class MRecordDetailViewController: UIViewController {
         }
     }
     
-    func showQRCode() {
+    @objc func showQRCode() {
         let popOverVC = PullUpQRViewController(nib: R.nib.pullUpQRViewController)
         popOverVC.idRecord = Int(record.id ?? 0)
         popOverVC.record = record

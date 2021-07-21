@@ -12,18 +12,13 @@ import SafariServices
 class ProductVoucherDataSource: NSObject {
     var voucher: Voucher
     var parentViewController: ProductVoucherViewController
+    var navigator: Navigator
     
-    init(voucher: Voucher, parentViewController: ProductVoucherViewController) {
+    init(voucher: Voucher, parentViewController: ProductVoucherViewController, navigator: Navigator) {
         self.voucher = voucher
+        self.navigator = navigator
         self.parentViewController = parentViewController
         super.init()
-    }
-    
-    func didOpenQR() {
-        let popOverVC = PullUpQRViewController(nib: R.nib.pullUpQRViewController)
-        popOverVC.voucher = voucher
-        popOverVC.qrType = .Voucher
-        parentViewController.showPopUPWithAnimation(vc: popOverVC)
     }
     
     func showVoucherInfo() {
@@ -147,7 +142,7 @@ extension ProductVoucherDataSource: UITableViewDataSource, UITableViewDelegate {
         let sections = MainTableViewSection.allCases[indexPath.row]
         switch sections {
         case .voucher:
-            self.didOpenQR()
+            self.navigator.navigate(to: .qrModal(voucher, .Voucher))
         case .telephone:
             callPhone()
         case .email, .infoVoucher,  .mapDetail, .adress, .branches: break

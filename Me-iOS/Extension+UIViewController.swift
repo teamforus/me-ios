@@ -236,12 +236,10 @@ extension UIViewController{
         self.removeShortcutItem(application: UIApplication.shared)
         UserDefaults.standard.set("", forKey: ALConstants.kPincode)
         UserDefaults.standard.setValue(false, forKey: UserDefaultsName.UserIsLoged)
-        let storyboard:UIStoryboard = UIStoryboard(name: "First", bundle: nil)
-        let navigationController:MeNavigationController = storyboard.instantiateInitialViewController() as! MeNavigationController
-        let firstPageVC:UIViewController = storyboard.instantiateViewController(withIdentifier: "firstPage") as UIViewController
-        navigationController.viewControllers = [firstPageVC]
-        navigationController.modalPresentationStyle = .fullScreen
-        self.present(navigationController, animated: true, completion: nil)
+      
+        let navVC = TransactionManager.shared.loginScreen()
+        navVC.modalPresentationStyle = .fullScreen
+        self.present(navVC, animated: true, completion: nil)
     }
     
     func deleteEntity(entityName: String) {

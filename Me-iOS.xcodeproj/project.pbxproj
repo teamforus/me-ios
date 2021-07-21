@@ -25,7 +25,6 @@
 		5B42874623AD0EBE00FEABE7 /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B42874423AD0EBE00FEABE7 /* User+CoreDataProperties.swift */; };
 		5B5871AE240571AF004C3AF7 /* BodyId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5871AD240571AF004C3AF7 /* BodyId.swift */; };
 		5BF8461F241FA60100B0BAAD /* BottomQrWithPinViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BF84621241FA60100B0BAAD /* BottomQrWithPinViewController.xib */; };
-		650FF61722AD2ACF004C3A85 /* RecordDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 650FF61922AD2ACF004C3A85 /* RecordDetail.storyboard */; };
 		650FF61E22AD2CA3004C3A85 /* RecordValidators.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 650FF62022AD2CA3004C3A85 /* RecordValidators.storyboard */; };
 		650FF62522AD2D31004C3A85 /* ChooseTypeRecord.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 650FF62722AD2D31004C3A85 /* ChooseTypeRecord.storyboard */; };
 		650FF62C22AD2D98004C3A85 /* TextRecord.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 650FF62E22AD2D98004C3A85 /* TextRecord.storyboard */; };
@@ -292,9 +291,6 @@
 		5BF84623241FA60900B0BAAD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/BottomQrWithPinViewController.strings; sourceTree = "<group>"; };
 		5BF84625241FA60B00B0BAAD /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/BottomQrWithPinViewController.strings; sourceTree = "<group>"; };
 		644A1B68834DF814F70203BA /* Pods-Me-iOS.demo.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Me-iOS.demo.xcconfig"; path = "Target Support Files/Pods-Me-iOS/Pods-Me-iOS.demo.xcconfig"; sourceTree = "<group>"; };
-		650FF61822AD2ACF004C3A85 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/RecordDetail.storyboard; sourceTree = "<group>"; };
-		650FF61B22AD2AD3004C3A85 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/RecordDetail.strings; sourceTree = "<group>"; };
-		650FF61D22AD2AD7004C3A85 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/RecordDetail.strings; sourceTree = "<group>"; };
 		650FF61F22AD2CA3004C3A85 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/RecordValidators.storyboard; sourceTree = "<group>"; };
 		650FF62222AD2CA7004C3A85 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/RecordValidators.strings; sourceTree = "<group>"; };
 		650FF62422AD2CAA004C3A85 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/RecordValidators.strings; sourceTree = "<group>"; };
@@ -876,7 +872,6 @@
 				FFBAE16726A5919E00C93BE7 /* RecordDetailDataSource.swift */,
 				654F97AC229C02F2009C9FFA /* Cell */,
 				65100AFB229D563E007892D1 /* ViewModel */,
-				650FF61922AD2ACF004C3A85 /* RecordDetail.storyboard */,
 			);
 			path = RecordDetail;
 			sourceTree = "<group>";
@@ -1772,7 +1767,6 @@
 				6511CB192362FCFC00863E85 /* PullUpQRViewController.xib in Resources */,
 				65139C50228029C0003E0CDE /* LICENSE in Resources */,
 				65139C4F228029C0003E0CDE /* backspaceBlue@2x.png in Resources */,
-				650FF61722AD2ACF004C3A85 /* RecordDetail.storyboard in Resources */,
 				655D6477231598D300EABD57 /* SendEtherViewController.xib in Resources */,
 				5BF8461F241FA60100B0BAAD /* BottomQrWithPinViewController.xib in Resources */,
 				65A8B7042282DD2C00B7DF05 /* GoogleSans-Medium.ttf in Resources */,
@@ -2172,16 +2166,6 @@
 				5BF84625241FA60B00B0BAAD /* nl */,
 			);
 			name = BottomQrWithPinViewController.xib;
-			sourceTree = "<group>";
-		};
-		650FF61922AD2ACF004C3A85 /* RecordDetail.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				650FF61822AD2ACF004C3A85 /* Base */,
-				650FF61B22AD2AD3004C3A85 /* en */,
-				650FF61D22AD2AD7004C3A85 /* nl */,
-			);
-			name = RecordDetail.storyboard;
 			sourceTree = "<group>";
 		};
 		650FF62022AD2CA3004C3A85 /* RecordValidators.storyboard */ = {

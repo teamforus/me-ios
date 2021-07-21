@@ -37,6 +37,7 @@ class RecordInfoTableViewCell: UITableViewCell {
         button.setTitleColor(Color.blueText, for: .normal)
         button.setTitle(Localize.show_qr_code(), for: .normal)
         button.titleLabel?.font = R.font.googleSansMedium(size: 13)
+        button.addTarget(self, action: #selector(MRecordDetailViewController.showQRCode), for: .touchUpInside)
         return button
     }()
 

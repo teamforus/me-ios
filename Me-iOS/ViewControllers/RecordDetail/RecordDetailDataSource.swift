@@ -45,9 +45,6 @@ extension RecordDetailDataSource: UITableViewDataSource, UITableViewDelegate {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: RecordInfoTableViewCell.reuseIdentifier, for: indexPath) as? RecordInfoTableViewCell else {
                 return UITableViewCell()
             }
-            cell.showQrButton.actionHandleBlock = { [weak self] (_) in
-                
-            }
             cell.setup(record)
             return cell
             

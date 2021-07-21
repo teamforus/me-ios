@@ -45,7 +45,7 @@ class Navigator: NSObject {
             navController.show(viewControllerr, sender: nil)
             
         case .productVoucher(let address):
-            let productVC = ProductVoucherViewController()
+            let productVC = ProductVoucherViewController(navigator: self)
             productVC.address = address
             productVC.hidesBottomBarWhenPushed = true
             navController.show(productVC, sender: nil)
@@ -95,6 +95,10 @@ class Navigator: NSObject {
         case .recordDetail(let record):
             let recordDetailVC = MRecordDetailViewController(navigator: self, record: record)
             self.navController.show(recordDetailVC, sender: nil)
+            
+        case .qrModal(let voucher, let qrType, let record):
+            let pullUpQRVC = PullUpQRViewController(voucher: voucher, qrType: qrType, record: record)
+            self.navController.showPopUPWithAnimation(vc: pullUpQRVC)
         }
     }
     
@@ -115,5 +119,6 @@ class Navigator: NSObject {
         case payment(_ voucher: Voucher)
         case record
         case recordDetail(_ record: Record)
+        case qrModal(_ voucher: Voucher? = nil, _ qrType: QRType, _ record: Record? = nil)
     }
 }

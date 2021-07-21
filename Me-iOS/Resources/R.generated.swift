@@ -91,7 +91,7 @@ struct R: Rswift.Validatable {
   }
 
   #if os(iOS) || os(tvOS)
-  /// This `R.storyboard` struct is generated, and contains static references to 6 storyboards.
+  /// This `R.storyboard` struct is generated, and contains static references to 5 storyboards.
   struct storyboard {
     /// Storyboard `ChooseTypeRecord`.
     static let chooseTypeRecord = _R.storyboard.chooseTypeRecord()
@@ -99,8 +99,6 @@ struct R: Rswift.Validatable {
     static let launchScreen = _R.storyboard.launchScreen()
     /// Storyboard `Profile`.
     static let profile = _R.storyboard.profile()
-    /// Storyboard `RecordDetail`.
-    static let recordDetail = _R.storyboard.recordDetail()
     /// Storyboard `RecordValidators`.
     static let recordValidators = _R.storyboard.recordValidators()
     /// Storyboard `TextRecord`.
@@ -124,13 +122,6 @@ struct R: Rswift.Validatable {
     /// `UIStoryboard(name: "Profile", bundle: ...)`
     static func profile(_: Void = ()) -> UIKit.UIStoryboard {
       return UIKit.UIStoryboard(resource: R.storyboard.profile)
-    }
-    #endif
-
-    #if os(iOS) || os(tvOS)
-    /// `UIStoryboard(name: "RecordDetail", bundle: ...)`
-    static func recordDetail(_: Void = ()) -> UIKit.UIStoryboard {
-      return UIKit.UIStoryboard(resource: R.storyboard.recordDetail)
     }
     #endif
 
@@ -1439,7 +1430,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.string` struct is generated, and contains static references to 13 localization tables.
+  /// This `R.string` struct is generated, and contains static references to 12 localization tables.
   struct string {
     /// This `R.string.allowedOrganizationsViewController` struct is generated, and contains static references to 1 localization keys.
     struct allowedOrganizationsViewController {
@@ -6364,240 +6355,6 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
 
-    /// This `R.string.recordDetail` struct is generated, and contains static references to 12 localization keys.
-    struct recordDetail {
-      /// en translation: Delete record
-      ///
-      /// Locales: en, nl
-      static let owVNuEITNormalTitle = Rswift.StringResource(key: "owV-nu-EIT.normalTitle", tableName: "RecordDetail", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
-      /// en translation: First Name
-      ///
-      /// Locales: en, nl
-      static let fAdC31pqText = Rswift.StringResource(key: "fAd-C3-1pq.text", tableName: "RecordDetail", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
-      /// en translation: Jamal
-      ///
-      /// Locales: en, nl
-      static let gd30SRSMText = Rswift.StringResource(key: "GD3-0S-rSM.text", tableName: "RecordDetail", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
-      /// en translation: Label
-      ///
-      /// Locales: en, nl
-      static let nZhDxKQ4Text = Rswift.StringResource(key: "NZh-dx-KQ4.text", tableName: "RecordDetail", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
-      /// en translation: Let the shopkeeper scan it to make a validtion to your record.
-      ///
-      /// Locales: en, nl
-      static let cb7BvI2dText = Rswift.StringResource(key: "Cb7-Bv-I2d.text", tableName: "RecordDetail", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
-      /// en translation: QR-CODE
-      ///
-      /// Locales: en, nl
-      static let aVIF3Q7EText = Rswift.StringResource(key: "aVI-f3-Q7E.text", tableName: "RecordDetail", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
-      /// en translation: Record detail
-      ///
-      /// Locales: en, nl
-      static let nZaJqIY1Text = Rswift.StringResource(key: "nZa-Jq-IY1.text", tableName: "RecordDetail", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
-      /// en translation: Show QR-Code
-      ///
-      /// Locales: en, nl
-      static let xXmPGIzENormalTitle = Rswift.StringResource(key: "XXm-PG-izE.normalTitle", tableName: "RecordDetail", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
-      /// en translation: This is your personal QR code
-      ///
-      /// Locales: en, nl
-      static let j0BXOPUText = Rswift.StringResource(key: "3j0-bX-OPU.text", tableName: "RecordDetail", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
-      /// en translation: This record has no validations yet
-      ///
-      /// Locales: en, nl
-      static let tMmMnV3XText = Rswift.StringResource(key: "TMm-Mn-V3X.text", tableName: "RecordDetail", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
-      /// en translation: Validations
-      ///
-      /// Locales: en, nl
-      static let eLcRsIT8Text = Rswift.StringResource(key: "eLc-rs-IT8.text", tableName: "RecordDetail", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
-      /// en translation: validations
-      ///
-      /// Locales: en, nl
-      static let eQwAsESGText = Rswift.StringResource(key: "eQw-as-eSG.text", tableName: "RecordDetail", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
-
-      /// en translation: Delete record
-      ///
-      /// Locales: en, nl
-      static func owVNuEITNormalTitle(preferredLanguages: [String]? = nil) -> String {
-        guard let preferredLanguages = preferredLanguages else {
-          return NSLocalizedString("owV-nu-EIT.normalTitle", tableName: "RecordDetail", bundle: hostingBundle, comment: "")
-        }
-
-        guard let (_, bundle) = localeBundle(tableName: "RecordDetail", preferredLanguages: preferredLanguages) else {
-          return "owV-nu-EIT.normalTitle"
-        }
-
-        return NSLocalizedString("owV-nu-EIT.normalTitle", tableName: "RecordDetail", bundle: bundle, comment: "")
-      }
-
-      /// en translation: First Name
-      ///
-      /// Locales: en, nl
-      static func fAdC31pqText(preferredLanguages: [String]? = nil) -> String {
-        guard let preferredLanguages = preferredLanguages else {
-          return NSLocalizedString("fAd-C3-1pq.text", tableName: "RecordDetail", bundle: hostingBundle, comment: "")
-        }
-
-        guard let (_, bundle) = localeBundle(tableName: "RecordDetail", preferredLanguages: preferredLanguages) else {
-          return "fAd-C3-1pq.text"
-        }
-
-        return NSLocalizedString("fAd-C3-1pq.text", tableName: "RecordDetail", bundle: bundle, comment: "")
-      }
-
-      /// en translation: Jamal
-      ///
-      /// Locales: en, nl
-      static func gd30SRSMText(preferredLanguages: [String]? = nil) -> String {
-        guard let preferredLanguages = preferredLanguages else {
-          return NSLocalizedString("GD3-0S-rSM.text", tableName: "RecordDetail", bundle: hostingBundle, comment: "")
-        }
-
-        guard let (_, bundle) = localeBundle(tableName: "RecordDetail", preferredLanguages: preferredLanguages) else {
-          return "GD3-0S-rSM.text"
-        }
-
-        return NSLocalizedString("GD3-0S-rSM.text", tableName: "RecordDetail", bundle: bundle, comment: "")
-      }
-
-      /// en translation: Label
-      ///
-      /// Locales: en, nl
-      static func nZhDxKQ4Text(preferredLanguages: [String]? = nil) -> String {
-        guard let preferredLanguages = preferredLanguages else {
-          return NSLocalizedString("NZh-dx-KQ4.text", tableName: "RecordDetail", bundle: hostingBundle, comment: "")
-        }
-
-        guard let (_, bundle) = localeBundle(tableName: "RecordDetail", preferredLanguages: preferredLanguages) else {
-          return "NZh-dx-KQ4.text"
-        }
-
-        return NSLocalizedString("NZh-dx-KQ4.text", tableName: "RecordDetail", bundle: bundle, comment: "")
-      }
-
-      /// en translation: Let the shopkeeper scan it to make a validtion to your record.
-      ///
-      /// Locales: en, nl
-      static func cb7BvI2dText(preferredLanguages: [String]? = nil) -> String {
-        guard let preferredLanguages = preferredLanguages else {
-          return NSLocalizedString("Cb7-Bv-I2d.text", tableName: "RecordDetail", bundle: hostingBundle, comment: "")
-        }
-
-        guard let (_, bundle) = localeBundle(tableName: "RecordDetail", preferredLanguages: preferredLanguages) else {
-          return "Cb7-Bv-I2d.text"
-        }
-
-        return NSLocalizedString("Cb7-Bv-I2d.text", tableName: "RecordDetail", bundle: bundle, comment: "")
-      }
-
-      /// en translation: QR-CODE
-      ///
-      /// Locales: en, nl
-      static func aVIF3Q7EText(preferredLanguages: [String]? = nil) -> String {
-        guard let preferredLanguages = preferredLanguages else {
-          return NSLocalizedString("aVI-f3-Q7E.text", tableName: "RecordDetail", bundle: hostingBundle, comment: "")
-        }
-
-        guard let (_, bundle) = localeBundle(tableName: "RecordDetail", preferredLanguages: preferredLanguages) else {
-          return "aVI-f3-Q7E.text"
-        }
-
-        return NSLocalizedString("aVI-f3-Q7E.text", tableName: "RecordDetail", bundle: bundle, comment: "")
-      }
-
-      /// en translation: Record detail
-      ///
-      /// Locales: en, nl
-      static func nZaJqIY1Text(preferredLanguages: [String]? = nil) -> String {
-        guard let preferredLanguages = preferredLanguages else {
-          return NSLocalizedString("nZa-Jq-IY1.text", tableName: "RecordDetail", bundle: hostingBundle, comment: "")
-        }
-
-        guard let (_, bundle) = localeBundle(tableName: "RecordDetail", preferredLanguages: preferredLanguages) else {
-          return "nZa-Jq-IY1.text"
-        }
-
-        return NSLocalizedString("nZa-Jq-IY1.text", tableName: "RecordDetail", bundle: bundle, comment: "")
-      }
-
-      /// en translation: Show QR-Code
-      ///
-      /// Locales: en, nl
-      static func xXmPGIzENormalTitle(preferredLanguages: [String]? = nil) -> String {
-        guard let preferredLanguages = preferredLanguages else {
-          return NSLocalizedString("XXm-PG-izE.normalTitle", tableName: "RecordDetail", bundle: hostingBundle, comment: "")
-        }
-
-        guard let (_, bundle) = localeBundle(tableName: "RecordDetail", preferredLanguages: preferredLanguages) else {
-          return "XXm-PG-izE.normalTitle"
-        }
-
-        return NSLocalizedString("XXm-PG-izE.normalTitle", tableName: "RecordDetail", bundle: bundle, comment: "")
-      }
-
-      /// en translation: This is your personal QR code
-      ///
-      /// Locales: en, nl
-      static func j0BXOPUText(preferredLanguages: [String]? = nil) -> String {
-        guard let preferredLanguages = preferredLanguages else {
-          return NSLocalizedString("3j0-bX-OPU.text", tableName: "RecordDetail", bundle: hostingBundle, comment: "")
-        }
-
-        guard let (_, bundle) = localeBundle(tableName: "RecordDetail", preferredLanguages: preferredLanguages) else {
-          return "3j0-bX-OPU.text"
-        }
-
-        return NSLocalizedString("3j0-bX-OPU.text", tableName: "RecordDetail", bundle: bundle, comment: "")
-      }
-
-      /// en translation: This record has no validations yet
-      ///
-      /// Locales: en, nl
-      static func tMmMnV3XText(preferredLanguages: [String]? = nil) -> String {
-        guard let preferredLanguages = preferredLanguages else {
-          return NSLocalizedString("TMm-Mn-V3X.text", tableName: "RecordDetail", bundle: hostingBundle, comment: "")
-        }
-
-        guard let (_, bundle) = localeBundle(tableName: "RecordDetail", preferredLanguages: preferredLanguages) else {
-          return "TMm-Mn-V3X.text"
-        }
-
-        return NSLocalizedString("TMm-Mn-V3X.text", tableName: "RecordDetail", bundle: bundle, comment: "")
-      }
-
-      /// en translation: Validations
-      ///
-      /// Locales: en, nl
-      static func eLcRsIT8Text(preferredLanguages: [String]? = nil) -> String {
-        guard let preferredLanguages = preferredLanguages else {
-          return NSLocalizedString("eLc-rs-IT8.text", tableName: "RecordDetail", bundle: hostingBundle, comment: "")
-        }
-
-        guard let (_, bundle) = localeBundle(tableName: "RecordDetail", preferredLanguages: preferredLanguages) else {
-          return "eLc-rs-IT8.text"
-        }
-
-        return NSLocalizedString("eLc-rs-IT8.text", tableName: "RecordDetail", bundle: bundle, comment: "")
-      }
-
-      /// en translation: validations
-      ///
-      /// Locales: en, nl
-      static func eQwAsESGText(preferredLanguages: [String]? = nil) -> String {
-        guard let preferredLanguages = preferredLanguages else {
-          return NSLocalizedString("eQw-as-eSG.text", tableName: "RecordDetail", bundle: hostingBundle, comment: "")
-        }
-
-        guard let (_, bundle) = localeBundle(tableName: "RecordDetail", preferredLanguages: preferredLanguages) else {
-          return "eQw-as-eSG.text"
-        }
-
-        return NSLocalizedString("eQw-as-eSG.text", tableName: "RecordDetail", bundle: bundle, comment: "")
-      }
-
-      fileprivate init() {}
-    }
-
     /// This `R.string.recordValidators` struct is generated, and contains static references to 10 localization keys.
     struct recordValidators {
       /// en translation: Choose the category under.
@@ -7240,9 +6997,6 @@ struct _R: Rswift.Validatable {
       try profile.validate()
       #endif
       #if os(iOS) || os(tvOS)
-      try recordDetail.validate()
-      #endif
-      #if os(iOS) || os(tvOS)
       try recordValidators.validate()
       #endif
       #if os(iOS) || os(tvOS)
@@ -7312,31 +7066,6 @@ struct _R: Rswift.Validatable {
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
         if _R.storyboard.profile().content() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'content' could not be loaded from storyboard 'Profile' as 'MProfileViewController'.") }
-      }
-
-      fileprivate init() {}
-    }
-    #endif
-
-    #if os(iOS) || os(tvOS)
-    struct recordDetail: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
-      typealias InitialController = MRecordDetailViewController
-
-      let bundle = R.hostingBundle
-      let content = StoryboardViewControllerResource<MRecordDetailViewController>(identifier: "content")
-      let name = "RecordDetail"
-
-      func content(_: Void = ()) -> MRecordDetailViewController? {
-        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: content)
-      }
-
-      static func validate() throws {
-        if UIKit.UIImage(named: "back", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'back' is used in storyboard 'RecordDetail', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "delete24Px", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'delete24Px' is used in storyboard 'RecordDetail', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "ic_launcher_APP", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ic_launcher_APP' is used in storyboard 'RecordDetail', but couldn't be loaded.") }
-        if #available(iOS 11.0, tvOS 11.0, *) {
-        }
-        if _R.storyboard.recordDetail().content() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'content' could not be loaded from storyboard 'RecordDetail' as 'MRecordDetailViewController'.") }
       }
 
       fileprivate init() {}

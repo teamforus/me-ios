@@ -47,6 +47,14 @@ extension UIView {
 }
 
 extension UIView {
+    func colorName(_ colorName: String) {
+        if #available(iOS 11.0, *) {
+          self.backgroundColor = UIColor(named: colorName)
+        } else {}
+    }
+}
+
+extension UIView {
     func rounded(cornerRadius: CGFloat) {
         layer.cornerRadius = cornerRadius
         layer.masksToBounds = true
