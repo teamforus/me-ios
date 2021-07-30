@@ -85,7 +85,7 @@
 "voucher_in_the_form_qr_code" = "-voucher in de vorm van een QR-code";
 "warning" = "Waarschuwing";
 "before_we_get_started_please_confirm_your_email_address" = "Controleer eerst je e-mailadres om verder te gaan.";
-"this_is_your_vouchers_qr_code" = "Dit is jouw voucher in de vorm van een QR-code.";
+"this_is_your_vouchers_qr_code" = "Dit is jouw QR-code.";
 "log_out" = "Log uit";
 "loading" = "Laden...";
 "field_is_empty" = "Tekstveld mag niet leeg zijn";
@@ -110,7 +110,7 @@
 "are_you_sure_you_want_log_out" = "Weet je zeker dat je wilt uitloggen?";
 "confirm" = "Bevestigen";
 "cancel" = "Annuleren";
-"validations" = "Validaties";
+"validations" = "Goedkeuringen";
 "primary_email" = "Hoofd e-mail";
 "email" = "Tweede e-mail";
 "given_name" = "Voornaam";
@@ -134,10 +134,10 @@
 "vouchers" = "Eigendom";
 "you_want_to_login_instead" = "E-mailadres in gebruik! Wil je inloggen?";
 "your_email_address_already_used_you_instead_want_login_using_email_address" = "Dit e-mail adres is al gebruikt. Wil je inloggen met dit e-mailadres?";
-"this_is_your_vouchers_qr_code" = "Dit is jouw voucher in de vorm van een QR-code.";
+"this_is_your_vouchers_qr_code" = "Dit is jouw QR-code.";
 "let_shopkeeper_scan_it_make_payment_from_your_voucher" = "Laat de aanbieder deze QR-Code scannen om een betaling te kunnen doen.";
 "this_is_your_personal_qr_code" = "Jouw eigenschap in vorm van een QR-code";
-"let_shopkeeper_scan_it_to_make_validtion_to_your_record" = "Laat deze QR-code scannen om jouw eigenschap %@ te valideren.";
+"let_shopkeeper_scan_it_to_make_validtion_to_your_record" = "Laat deze QR-code scannen om jouw eigenschap '%@' goed te laten keuren.";
 "your_session_has_expired" = "Deze sessie is verlopen. Je wordt nu uitgelogd.";
 "expired_session" = "Verlopen sessie";
 "click_on_link_you_received_continue" = "Er is een e-mail verstuurd naar %@. Klik op de link in de e-mail om je aan te melden.";

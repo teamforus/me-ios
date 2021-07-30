@@ -10,14 +10,14 @@ import UIKit
 
 /// This `R` struct is generated and contains references to static resources.
 struct R: Rswift.Validatable {
-  fileprivate static let applicationLocale = hostingBundle.preferredLocalizations.first.flatMap(Locale.init) ?? Locale.current
+  fileprivate static let applicationLocale = hostingBundle.preferredLocalizations.first.flatMap { Locale(identifier: $0) } ?? Locale.current
   fileprivate static let hostingBundle = Bundle(for: R.Class.self)
 
   /// Find first language and bundle for which the table exists
   fileprivate static func localeBundle(tableName: String, preferredLanguages: [String]) -> (Foundation.Locale, Foundation.Bundle)? {
     // Filter preferredLanguages to localizations, use first locale
     var languages = preferredLanguages
-      .map(Locale.init)
+      .map { Locale(identifier: $0) }
       .prefix(1)
       .flatMap { locale -> [String] in
         if hostingBundle.localizations.contains(locale.identifier) {
@@ -689,6 +689,174 @@ struct R: Rswift.Validatable {
     @available(iOS 11.0, *)
     static func whiteBackground_DarkTheme(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
       return UIKit.UIColor(resource: R.color.whiteBackground_DarkTheme, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(watchOS)
+    /// `UIColor(named: "Background_DarkTheme", bundle: ..., traitCollection: ...)`
+    @available(watchOSApplicationExtension 4.0, *)
+    static func background_DarkTheme(_: Void = ()) -> UIKit.UIColor? {
+      return UIKit.UIColor(named: R.color.background_DarkTheme.name)
+    }
+    #endif
+
+    #if os(watchOS)
+    /// `UIColor(named: "Background_Voucher_DarkTheme", bundle: ..., traitCollection: ...)`
+    @available(watchOSApplicationExtension 4.0, *)
+    static func background_Voucher_DarkTheme(_: Void = ()) -> UIKit.UIColor? {
+      return UIKit.UIColor(named: R.color.background_Voucher_DarkTheme.name)
+    }
+    #endif
+
+    #if os(watchOS)
+    /// `UIColor(named: "Black_Light_DarkTheme", bundle: ..., traitCollection: ...)`
+    @available(watchOSApplicationExtension 4.0, *)
+    static func black_Light_DarkTheme(_: Void = ()) -> UIKit.UIColor? {
+      return UIKit.UIColor(named: R.color.black_Light_DarkTheme.name)
+    }
+    #endif
+
+    #if os(watchOS)
+    /// `UIColor(named: "Blue_DarkTheme", bundle: ..., traitCollection: ...)`
+    @available(watchOSApplicationExtension 4.0, *)
+    static func blue_DarkTheme(_: Void = ()) -> UIKit.UIColor? {
+      return UIKit.UIColor(named: R.color.blue_DarkTheme.name)
+    }
+    #endif
+
+    #if os(watchOS)
+    /// `UIColor(named: "DarkGray_DarkTheme", bundle: ..., traitCollection: ...)`
+    @available(watchOSApplicationExtension 4.0, *)
+    static func darkGray_DarkTheme(_: Void = ()) -> UIKit.UIColor? {
+      return UIKit.UIColor(named: R.color.darkGray_DarkTheme.name)
+    }
+    #endif
+
+    #if os(watchOS)
+    /// `UIColor(named: "GrayWithLight_Dark_DarkTheme", bundle: ..., traitCollection: ...)`
+    @available(watchOSApplicationExtension 4.0, *)
+    static func grayWithLight_Dark_DarkTheme(_: Void = ()) -> UIKit.UIColor? {
+      return UIKit.UIColor(named: R.color.grayWithLight_Dark_DarkTheme.name)
+    }
+    #endif
+
+    #if os(watchOS)
+    /// `UIColor(named: "Gray_Dark_DarkTheme", bundle: ..., traitCollection: ...)`
+    @available(watchOSApplicationExtension 4.0, *)
+    static func gray_Dark_DarkTheme(_: Void = ()) -> UIKit.UIColor? {
+      return UIKit.UIColor(named: R.color.gray_Dark_DarkTheme.name)
+    }
+    #endif
+
+    #if os(watchOS)
+    /// `UIColor(named: "Gray_Light_DarkTheme", bundle: ..., traitCollection: ...)`
+    @available(watchOSApplicationExtension 4.0, *)
+    static func gray_Light_DarkTheme(_: Void = ()) -> UIKit.UIColor? {
+      return UIKit.UIColor(named: R.color.gray_Light_DarkTheme.name)
+    }
+    #endif
+
+    #if os(watchOS)
+    /// `UIColor(named: "LighGray_DarkTheme", bundle: ..., traitCollection: ...)`
+    @available(watchOSApplicationExtension 4.0, *)
+    static func lighGray_DarkTheme(_: Void = ()) -> UIKit.UIColor? {
+      return UIKit.UIColor(named: R.color.lighGray_DarkTheme.name)
+    }
+    #endif
+
+    #if os(watchOS)
+    /// `UIColor(named: "Light_Dark_Mode", bundle: ..., traitCollection: ...)`
+    @available(watchOSApplicationExtension 4.0, *)
+    static func light_Dark_Mode(_: Void = ()) -> UIKit.UIColor? {
+      return UIKit.UIColor(named: R.color.light_Dark_Mode.name)
+    }
+    #endif
+
+    #if os(watchOS)
+    /// `UIColor(named: "Line_DarkMode", bundle: ..., traitCollection: ...)`
+    @available(watchOSApplicationExtension 4.0, *)
+    static func line_DarkMode(_: Void = ()) -> UIKit.UIColor? {
+      return UIKit.UIColor(named: R.color.line_DarkMode.name)
+    }
+    #endif
+
+    #if os(watchOS)
+    /// `UIColor(named: "MainBodyColor", bundle: ..., traitCollection: ...)`
+    @available(watchOSApplicationExtension 4.0, *)
+    static func mainBodyColor(_: Void = ()) -> UIKit.UIColor? {
+      return UIKit.UIColor(named: R.color.mainBodyColor.name)
+    }
+    #endif
+
+    #if os(watchOS)
+    /// `UIColor(named: "Profile_Button_DarkTheme", bundle: ..., traitCollection: ...)`
+    @available(watchOSApplicationExtension 4.0, *)
+    static func profile_Button_DarkTheme(_: Void = ()) -> UIKit.UIColor? {
+      return UIKit.UIColor(named: R.color.profile_Button_DarkTheme.name)
+    }
+    #endif
+
+    #if os(watchOS)
+    /// `UIColor(named: "Profile_Row_DarkTheme", bundle: ..., traitCollection: ...)`
+    @available(watchOSApplicationExtension 4.0, *)
+    static func profile_Row_DarkTheme(_: Void = ()) -> UIKit.UIColor? {
+      return UIKit.UIColor(named: R.color.profile_Row_DarkTheme.name)
+    }
+    #endif
+
+    #if os(watchOS)
+    /// `UIColor(named: "RecordBackgroundDetail_DarkTheme", bundle: ..., traitCollection: ...)`
+    @available(watchOSApplicationExtension 4.0, *)
+    static func recordBackgroundDetail_DarkTheme(_: Void = ()) -> UIKit.UIColor? {
+      return UIKit.UIColor(named: R.color.recordBackgroundDetail_DarkTheme.name)
+    }
+    #endif
+
+    #if os(watchOS)
+    /// `UIColor(named: "RecordDetail_BackGround", bundle: ..., traitCollection: ...)`
+    @available(watchOSApplicationExtension 4.0, *)
+    static func recordDetail_BackGround(_: Void = ()) -> UIKit.UIColor? {
+      return UIKit.UIColor(named: R.color.recordDetail_BackGround.name)
+    }
+    #endif
+
+    #if os(watchOS)
+    /// `UIColor(named: "Thin_Gray_DarkTheme", bundle: ..., traitCollection: ...)`
+    @available(watchOSApplicationExtension 4.0, *)
+    static func thin_Gray_DarkTheme(_: Void = ()) -> UIKit.UIColor? {
+      return UIKit.UIColor(named: R.color.thin_Gray_DarkTheme.name)
+    }
+    #endif
+
+    #if os(watchOS)
+    /// `UIColor(named: "Thin_Light_Gray_DarkTheme", bundle: ..., traitCollection: ...)`
+    @available(watchOSApplicationExtension 4.0, *)
+    static func thin_Light_Gray_DarkTheme(_: Void = ()) -> UIKit.UIColor? {
+      return UIKit.UIColor(named: R.color.thin_Light_Gray_DarkTheme.name)
+    }
+    #endif
+
+    #if os(watchOS)
+    /// `UIColor(named: "VoucherButton", bundle: ..., traitCollection: ...)`
+    @available(watchOSApplicationExtension 4.0, *)
+    static func voucherButton(_: Void = ()) -> UIKit.UIColor? {
+      return UIKit.UIColor(named: R.color.voucherButton.name)
+    }
+    #endif
+
+    #if os(watchOS)
+    /// `UIColor(named: "WhiteBackgroundRecord_DarkTheme", bundle: ..., traitCollection: ...)`
+    @available(watchOSApplicationExtension 4.0, *)
+    static func whiteBackgroundRecord_DarkTheme(_: Void = ()) -> UIKit.UIColor? {
+      return UIKit.UIColor(named: R.color.whiteBackgroundRecord_DarkTheme.name)
+    }
+    #endif
+
+    #if os(watchOS)
+    /// `UIColor(named: "WhiteBackground_DarkTheme", bundle: ..., traitCollection: ...)`
+    @available(watchOSApplicationExtension 4.0, *)
+    static func whiteBackground_DarkTheme(_: Void = ()) -> UIKit.UIColor? {
+      return UIKit.UIColor(named: R.color.whiteBackground_DarkTheme.name)
     }
     #endif
 
@@ -9582,7 +9750,6 @@ struct _R: Rswift.Validatable {
         if UIKit.UIImage(named: "voucher", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'voucher' is used in storyboard 'Main', but couldn't be loaded.") }
         if UIKit.UIImage(named: "wallet", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'wallet' is used in storyboard 'Main', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
-          if UIKit.UIColor(named: "systemGreenColor", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'systemGreenColor' is used in storyboard 'Main', but couldn't be loaded.") }
         }
         if _R.storyboard.main().personal() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'personal' could not be loaded from storyboard 'Main' as 'MRecordsViewController'.") }
         if _R.storyboard.main().qrCodeReader() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'qrCodeReader' could not be loaded from storyboard 'Main' as 'MQRViewController'.") }
