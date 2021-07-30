@@ -441,6 +441,9 @@
         <designable name="DCA-Vc-6V9">
             <size key="intrinsicContentSize" width="152" height="29"/>
         </designable>
+        <designable name="bIq-qw-2py">
+            <size key="intrinsicContentSize" width="36" height="11"/>
+        </designable>
     </designables>
     <resources>
         <image name="back" width="24" height="24"/>
