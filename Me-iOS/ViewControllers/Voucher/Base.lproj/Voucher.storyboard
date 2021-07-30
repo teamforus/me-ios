@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="AiY-WO-VwH">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="AiY-WO-VwH">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -195,7 +195,7 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="89" id="RXZ-Rb-Dag" customClass="TransactionTableViewCell" customModule="Me_iOS" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="28" width="414" height="89"/>
+                                                <rect key="frame" x="0.0" y="24.5" width="414" height="89"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="RXZ-Rb-Dag" id="gQu-r5-5P5" customClass="Background_DarkMode" customModule="Me_iOS" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="0.0" width="414" height="89"/>
@@ -329,6 +329,7 @@
                         <outlet property="dateCreated" destination="qGC-Rd-vKi" id="20k-X8-P5P"/>
                         <outlet property="heightConstraint" destination="Suv-fe-koy" id="ZxH-xR-kT3"/>
                         <outlet property="historyLabel" destination="S5Y-Ui-yru" id="ZJM-Li-Nvd"/>
+                        <outlet property="noTransactionsLabel" destination="8jn-dO-4Fn" id="WMU-kE-Agc"/>
                         <outlet property="organizationName" destination="w5t-6W-ueq" id="Eko-y9-lft"/>
                         <outlet property="priceLabel" destination="ZIO-zS-LCB" id="Wz1-KM-jEs"/>
                         <outlet property="qrCodeButton" destination="vfb-3A-tZe" id="dpl-Sr-ArW"/>
@@ -479,7 +480,7 @@
             <size key="intrinsicContentSize" width="88" height="30"/>
         </designable>
         <designable name="mWI-n4-pEO">
-            <size key="intrinsicContentSize" width="134" height="24"/>
+            <size key="intrinsicContentSize" width="117" height="24"/>
         </designable>
         <designable name="wQJ-bH-E8M">
             <size key="intrinsicContentSize" width="210" height="210"/>
