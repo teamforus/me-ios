@@ -77,7 +77,7 @@ class AppVersionUpdateNotifier {
           guard let info = Bundle.main.infoDictionary,
               let currentVersion = info["CFBundleShortVersionString"] as? String,
             let _ = info["CFBundleIdentifier"] as? String,
-              let url = URL(string: "https://itunes.apple.com/lookup?bundleId=io.forus.me") else {
+              let url = URL(string: "http://itunes.apple.com/lookup?bundleId=io.forus.me") else {
                   return
           }
         do {
@@ -86,9 +86,8 @@ class AppVersionUpdateNotifier {
                return
           }
           if let result = (json["results"] as? [Any])?.first as? [String: Any], let version = result["version"] as? String {
-            if let versionBundle = Int(version.replacingOccurrences(of: ".", with: "")), let currentBundle =  Int(currentVersion.replacingOccurrences(of: ".", with: "")) {
-                delegate?.hasNewVersion(shouldBeUpdated: currentBundle < versionBundle)
-            }
+              
+            delegate?.hasNewVersion(shouldBeUpdated: !currentVersion.contains(version))
     
           }
         }catch { }

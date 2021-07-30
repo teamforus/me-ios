@@ -44,10 +44,7 @@ class MVoucherViewController: UIViewController {
         }
         voucherViewModel.reloadDataVoucher = { [weak self] (voucher) in
             
-          DispatchQueue.main.async { [self] in
-              if voucher.fund?.type == FundType.subsidies.rawValue {
-                self!.voucherInfoButton?.setTitle(Localize.offers(), for: .normal)
-              }
+            DispatchQueue.main.async {
                 self?.priceLabel.isHidden = voucher.fund?.type == FundType.subsidies.rawValue
                 self?.voucherName.text = voucher.fund?.name ?? ""
                 self?.organizationName.text = voucher.fund?.organization?.name ?? ""
