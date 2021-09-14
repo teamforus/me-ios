@@ -446,7 +446,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eP7-vQ-c34" customClass="CustomCornerUIView" customModule="Me_iOS" customModuleProvider="target">
-                                                    <rect key="frame" x="7" y="7" width="360" height="79"/>
+                                                    <rect key="frame" x="7" y="7" width="360" height="78"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="First Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rpK-Zw-ROm">
@@ -614,7 +614,7 @@
             <size key="intrinsicContentSize" width="30" height="34"/>
         </designable>
         <designable name="fxb-bV-R86">
-            <size key="intrinsicContentSize" width="128" height="28"/>
+            <size key="intrinsicContentSize" width="126" height="26"/>
         </designable>
     </designables>
     <resources>
