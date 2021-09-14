@@ -49,10 +49,17 @@ class VoucherTableViewCell: UITableViewCell {
         //
         //            }
         
+        
         if voucher.expire_at?.date?.formatDate() ?? Date() < Date() {
             self.usedVoucherLabel.isHidden = false
             self.usedVoucherLabel.textColor = .red
             self.usedVoucherLabel.text = Localize.expired()
+        }
+        
+        if voucher.deactivated == true {
+            self.usedVoucherLabel.isHidden = false
+            self.usedVoucherLabel.textColor = .red
+            self.usedVoucherLabel.text = Localize.deactivated()
         }
         
         if voucher.product != nil{

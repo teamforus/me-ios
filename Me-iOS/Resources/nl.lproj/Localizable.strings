@@ -94,6 +94,7 @@
 "this_voucher_is_expired_on" = "Gebruik deze voucher voor %@";
 "used" = "Gebruikt";
 "expired" = "Verlopen";
+"deactivated" = "Gestopt";
 "you_sure_you_want_to_login_device" = "Weet je zeker dat je op dit apparaat wilt inloggen?";
 "confirm_transaction" = "Bevestig betaling";
 "please_confirm_the_transaction" = "Is het bedrag van € %@ correct?";
