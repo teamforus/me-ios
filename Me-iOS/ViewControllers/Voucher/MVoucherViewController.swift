@@ -60,12 +60,14 @@ class MVoucherViewController: UIViewController {
                 }
                 
                 if voucher.expire_at?.date?.formatDate() ?? Date() >= Date() {
-                    self?.qrCodeImage.isHidden = false
-                    self?.sendEmailButton.isHidden = false
-                    self?.voucherInfoButton.isHidden = false
-                    self?.buttonsView.isHidden = false
-                    self?.heightConstraint.constant = 322
-                    self?.qrCodeButton.isEnabled = true
+                    if voucher.deactivated == false {
+                        self?.qrCodeImage.isHidden = false
+                        self?.sendEmailButton.isHidden = false
+                        self?.voucherInfoButton.isHidden = false
+                        self?.buttonsView.isHidden = false
+                        self?.heightConstraint.constant = 322
+                        self?.qrCodeButton.isEnabled = true
+                    }
                 }
                 self?.historyLabel.isHidden = false
                 self?.activatedLabel.isHidden = false

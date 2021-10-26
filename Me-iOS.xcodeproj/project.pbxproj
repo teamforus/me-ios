@@ -2527,13 +2527,14 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = FNTR3V85ZM;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				INFOPLIST_FILE = "Me-iOS/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.4.6;
+				MARKETING_VERSION = 0.4.9;
 				PRODUCT_BUNDLE_IDENTIFIER = io.forus.me.test;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEV;
@@ -2551,6 +2552,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = FNTR3V85ZM;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				INFOPLIST_FILE = "Me-iOS/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -2558,7 +2560,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.4.6;
+				MARKETING_VERSION = 0.4.9;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = io.forus.me;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -2716,6 +2718,7 @@
 				DEVELOPMENT_TEAM = FNTR3V85ZM;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_TESTABILITY = NO;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				GCC_OPTIMIZATION_LEVEL = s;
 				INFOPLIST_FILE = "Me-iOS/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -2723,7 +2726,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.4.6;
+				MARKETING_VERSION = 0.4.9;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = io.forus.me.lab;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -2839,6 +2842,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = FNTR3V85ZM;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				GCC_OPTIMIZATION_LEVEL = s;
 				INFOPLIST_FILE = "Me-iOS/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -2846,7 +2850,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.4.6;
+				MARKETING_VERSION = 0.4.9;
 				PRODUCT_BUNDLE_IDENTIFIER = io.forus.me.demo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEMO;

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="GHb-Mw-jlE">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="GHb-Mw-jlE">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -535,16 +535,16 @@
     </scenes>
     <designables>
         <designable name="CX4-Bk-Lqq">
-            <size key="intrinsicContentSize" width="52" height="16.5"/>
+            <size key="intrinsicContentSize" width="52" height="18"/>
         </designable>
         <designable name="Yeg-Wh-K0b">
             <size key="intrinsicContentSize" width="36" height="11"/>
         </designable>
         <designable name="bdu-eB-oGB">
-            <size key="intrinsicContentSize" width="90" height="29"/>
+            <size key="intrinsicContentSize" width="88" height="30"/>
         </designable>
         <designable name="d75-Qd-xat">
-            <size key="intrinsicContentSize" width="118" height="24"/>
+            <size key="intrinsicContentSize" width="117" height="24"/>
         </designable>
     </designables>
     <resources>
