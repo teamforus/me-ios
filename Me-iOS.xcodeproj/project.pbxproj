@@ -15,6 +15,8 @@
 		0437CED924BDFC9F00FA7C24 /* BackButton_DarkMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0437CED824BDFC9F00FA7C24 /* BackButton_DarkMode.swift */; };
 		045E5A3425A7518600E338F7 /* Sponsor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045E5A3325A7518600E338F7 /* Sponsor.swift */; };
 		0483DBC124BF3F250074BBA9 /* UILabel_DarkMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0483DBC024BF3F250074BBA9 /* UILabel_DarkMode.swift */; };
+		06677412FDB1EF04D8D9F868 /* Pods_Me_iOSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 946A54C00099DB72596F3912 /* Pods_Me_iOSUITests.framework */; };
+		13332E3E9E93D4746199CEB0 /* Pods_Me_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9C7E40FD3CCAD194CA24607 /* Pods_Me_iOS.framework */; };
 		5B10CCAC240D021C00199C28 /* BottomQrWithPinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B10CCAA240D021C00199C28 /* BottomQrWithPinViewController.swift */; };
 		5B10CCB0240D1FD900199C28 /* EnablePersonalInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B10CCAF240D1FD900199C28 /* EnablePersonalInformationViewController.swift */; };
 		5B10CCB4240D292000199C28 /* MSuccessRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B10CCB3240D292000199C28 /* MSuccessRegisterViewController.swift */; };
@@ -180,6 +182,7 @@
 		65F52E452316797900B9D229 /* MCrashConfirmViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65F52E402316797900B9D229 /* MCrashConfirmViewController.xib */; };
 		65F52E462316797900B9D229 /* MCrashConfirmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F52E422316797900B9D229 /* MCrashConfirmViewController.swift */; };
 		65F52E4A23167E0D00B9D229 /* Wallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F52E4923167E0D00B9D229 /* Wallet.swift */; };
+		8D7DDCEC61C7B9E10626E510 /* Pods_Me_iOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CF8EEA37E212EB83EFD74CD /* Pods_Me_iOSTests.framework */; };
 		FF0DACBE246AD0A80034E3E4 /* OrganizationValidatorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF3B141A243722EE003FDDD9 /* OrganizationValidatorViewController.xib */; };
 		FF349691273A8BC800DD7056 /* MConfirmAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF349690273A8BC800DD7056 /* MConfirmAuthViewController.swift */; };
 		FF45B3B224D9DC7C00D258E1 /* Extension+UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45B3B124D9DC7C00D258E1 /* Extension+UITextField.swift */; };
@@ -282,6 +285,7 @@
 		5BF84633241FA6B000B0BAAD /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/SuccessRegister.strings; sourceTree = "<group>"; };
 		5BF84635241FA82500B0BAAD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/First.strings; sourceTree = "<group>"; };
 		5BF84637241FA82900B0BAAD /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/First.strings; sourceTree = "<group>"; };
+		5CF8EEA37E212EB83EFD74CD /* Pods_Me_iOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Me_iOSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		650FF5E022AD192C004C3A85 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/ProductVoucher.storyboard; sourceTree = "<group>"; };
 		650FF5E322AD1933004C3A85 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ProductVoucher.strings; sourceTree = "<group>"; };
 		650FF5E522AD1937004C3A85 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/ProductVoucher.strings; sourceTree = "<group>"; };
@@ -486,9 +490,11 @@
 		6EEAB725BDC805B1487F2A1A /* Pods-Me-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Me-iOS.release.xcconfig"; path = "Target Support Files/Pods-Me-iOS/Pods-Me-iOS.release.xcconfig"; sourceTree = "<group>"; };
 		72A3CB3E62199886F7E01D2C /* Pods-Me-iOSUITests.dev.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Me-iOSUITests.dev.xcconfig"; path = "Target Support Files/Pods-Me-iOSUITests/Pods-Me-iOSUITests.dev.xcconfig"; sourceTree = "<group>"; };
 		7D3A77F9CF4020E2489A09ED /* Pods-Me-iOSUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Me-iOSUITests.release.xcconfig"; path = "Target Support Files/Pods-Me-iOSUITests/Pods-Me-iOSUITests.release.xcconfig"; sourceTree = "<group>"; };
+		946A54C00099DB72596F3912 /* Pods_Me_iOSUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Me_iOSUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C64D895F6C088D619AF24FA7 /* Pods-Me-iOSUITests.alpha.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Me-iOSUITests.alpha.xcconfig"; path = "Target Support Files/Pods-Me-iOSUITests/Pods-Me-iOSUITests.alpha.xcconfig"; sourceTree = "<group>"; };
 		C79497AD22375DD8509E643A /* Pods-Me-iOS.dev.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Me-iOS.dev.xcconfig"; path = "Target Support Files/Pods-Me-iOS/Pods-Me-iOS.dev.xcconfig"; sourceTree = "<group>"; };
 		F4482B56D9FEA61213A4D29E /* Pods-Me-iOSTests.alpha.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Me-iOSTests.alpha.xcconfig"; path = "Target Support Files/Pods-Me-iOSTests/Pods-Me-iOSTests.alpha.xcconfig"; sourceTree = "<group>"; };
+		F9C7E40FD3CCAD194CA24607 /* Pods_Me_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Me_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF349690273A8BC800DD7056 /* MConfirmAuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MConfirmAuthViewController.swift; sourceTree = "<group>"; };
 		FF3B1419243722EE003FDDD9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/OrganizationValidatorViewController.xib; sourceTree = "<group>"; };
 		FF3B141E243722F6003FDDD9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/OrganizationValidatorViewController.strings; sourceTree = "<group>"; };
@@ -548,6 +554,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				13332E3E9E93D4746199CEB0 /* Pods_Me_iOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -555,6 +562,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8D7DDCEC61C7B9E10626E510 /* Pods_Me_iOSTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -562,6 +570,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				06677412FDB1EF04D8D9F868 /* Pods_Me_iOSUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -571,6 +580,9 @@
 		121F587CB74BF4E57C08FEAF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F9C7E40FD3CCAD194CA24607 /* Pods_Me_iOS.framework */,
+				5CF8EEA37E212EB83EFD74CD /* Pods_Me_iOSTests.framework */,
+				946A54C00099DB72596F3912 /* Pods_Me_iOSUITests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";

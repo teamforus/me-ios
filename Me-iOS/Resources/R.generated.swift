@@ -901,7 +901,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.image` struct is generated, and contains static references to 68 images.
+  /// This `R.image` struct is generated, and contains static references to 69 images.
   struct image {
     /// Image `5XVoucherContainerWElevation`.
     static let xVoucherContainerWElevation = Rswift.ImageResource(bundle: R.hostingBundle, name: "5XVoucherContainerWElevation")
@@ -981,6 +981,8 @@ struct R: Rswift.Validatable {
     static let ic_check_3x = Rswift.ImageResource(bundle: R.hostingBundle, name: "ic_check_3x")
     /// Image `ic_launcher_APP`.
     static let ic_launcher_APP = Rswift.ImageResource(bundle: R.hostingBundle, name: "ic_launcher_APP")
+    /// Image `iconCheckAuthorize`.
+    static let iconCheckAuthorize = Rswift.ImageResource(bundle: R.hostingBundle, name: "iconCheckAuthorize")
     /// Image `iconDigiD`.
     static let iconDigiD = Rswift.ImageResource(bundle: R.hostingBundle, name: "iconDigiD")
     /// Image `iconGrey`.
@@ -1310,6 +1312,13 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "ic_launcher_APP", bundle: ..., traitCollection: ...)`
     static func ic_launcher_APP(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.ic_launcher_APP, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "iconCheckAuthorize", bundle: ..., traitCollection: ...)`
+    static func iconCheckAuthorize(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.iconCheckAuthorize, compatibleWith: traitCollection)
     }
     #endif
 

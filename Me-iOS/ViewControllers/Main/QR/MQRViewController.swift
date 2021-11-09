@@ -29,6 +29,7 @@ class MQRViewController: HSScanViewController {
     private var voucher: Voucher!
     private var testToken: String!
     private var productVoucher: [Transaction]! = []
+    private var qrValue: String?
     
     private var recordValidateResponse: RecordValidation!
     
@@ -332,4 +333,22 @@ extension MQRViewController: AccessibilityProtocol {
         self.scanWorker.accessibilityLabel = "Scan any me qr code"
         self.scanWorker.accessibilityTraits = .none
     }
+}
+
+
+// MARK: - QRControllerDelegate
+extension MQRViewController: QRControllerDelegate {
+  func initAuth() {
+    KVSpinnerView.show()
+    guard let qrValue = self.qrValue else {
+      KVSpinnerView.dismiss()
+      return
+    }
+    self.qrViewModel.initAuthorizeToken(token: qrValue)
+  }
+  
+  func cancelAuth() {
+    self.scanWorker.start()
+    self.dismiss(animated: true)
+  }
 }
