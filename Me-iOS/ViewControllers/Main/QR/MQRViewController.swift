@@ -15,6 +15,12 @@ enum QRTypeScann: String {
     case testTransaction = "demo_voucher"
 }
 
+protocol QRControllerDelegate: AnyObject {
+  func initAuth()
+  func cancelAuth()
+}
+
+
 class MQRViewController: HSScanViewController {
     
     private lazy var qrViewModel: QRViewModel = {
@@ -239,17 +245,11 @@ extension MQRViewController: HSScanViewControllerDelegate{
                     {
                         if qr.type == QRTypeScann.authToken.rawValue {
                             self.scanWorker.stop()
-                            self.showSimpleAlertWithAction(title: "Login QR",
-                                                           message: Localize.you_sure_you_want_to_login_device(),
-                                                           okAction: UIAlertAction(title: Localize.yes(), style: .default, handler: { (action) in
-                                                            KVSpinnerView.show()
-                                                            self.qrViewModel.initAuthorizeToken(token: qr.value)
-                                                            
-                                                           }),
-                                                           cancelAction: UIAlertAction(title: Localize.no(), style: .cancel, handler: { (action) in
-                                                            
-                                                            self.scanWorker.start()
-                                                           }))
+                                         self.qrValue = qr.value
+                                         let confirmAuthVC = MConfirmAuthViewController()
+                                         confirmAuthVC.delegate = self
+                                         confirmAuthVC.modalPresentationStyle = .fullScreen
+                                         self.present(confirmAuthVC, animated: true)
                             
                             
                         } else if qr.type == QRTypeScann.voucher.rawValue {
