@@ -205,6 +205,10 @@ class MQRViewController: HSScanViewController {
         }
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        self.scanWorker.stop()
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let paymentVC = R.segue.mqrViewController.goToVoucherPayment(segue: segue) {
             paymentVC.destination.testToken = testToken

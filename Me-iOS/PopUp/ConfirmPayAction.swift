@@ -13,6 +13,7 @@ class ConfirmPayAction: UIView {
     var subsidie: Subsidie?
     var organization: AllowedOrganization?
     var address: String!
+    var note: String!
     
     var commonService: CommonServiceProtocol! = CommonService()
     var vc: UIViewController!
@@ -197,7 +198,7 @@ extension ConfirmPayAction {
 extension ConfirmPayAction {
     @objc func confirmPay() {
         KVSpinnerView.show()
-        let data = SubsidiePay(organization_id: organization?.id ?? 0, product_id: subsidie?.id ?? 0)
+        let data = SubsidiePay(organization_id: organization?.id ?? 0, product_id: subsidie?.id ?? 0, note: note ?? "")
         commonService.create(request: "platform/provider/vouchers/" + address! + "/transactions", data: data) { (response: ResponseData<Transaction>, statusCode) in
             
             DispatchQueue.main.async {

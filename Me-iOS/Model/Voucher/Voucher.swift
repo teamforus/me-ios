@@ -27,11 +27,17 @@ struct Voucher: Decodable {
     var created_at: String?
 //    var expire_at: String!
     var expire_at: ExpireAt?
+    var deactivated: Bool?
     
 }
 
 
 struct ExpireAt: Decodable {
+    var date: String?
+    var timeZone: String?
+}
+
+struct DeactivatedAt: Decodable {
     var date: String?
     var timeZone: String?
 }

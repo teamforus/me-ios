@@ -24,6 +24,7 @@ class MVoucherViewController: UIViewController {
     @IBOutlet weak var historyLabel: UILabel_DarkMode!
     @IBOutlet weak var activatedLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel_DarkMode!
+    @IBOutlet weak var noTransactionsLabel: UILabel!
     
     lazy var voucherViewModel: VoucherViewModel = {
         return VoucherViewModel()
@@ -59,12 +60,14 @@ class MVoucherViewController: UIViewController {
                 }
                 
                 if voucher.expire_at?.date?.formatDate() ?? Date() >= Date() {
-                    self?.qrCodeImage.isHidden = false
-                    self?.sendEmailButton.isHidden = false
-                    self?.voucherInfoButton.isHidden = false
-                    self?.buttonsView.isHidden = false
-                    self?.heightConstraint.constant = 322
-                    self?.qrCodeButton.isEnabled = true
+                    if voucher.deactivated == false {
+                        self?.qrCodeImage.isHidden = false
+                        self?.sendEmailButton.isHidden = false
+                        self?.voucherInfoButton.isHidden = false
+                        self?.buttonsView.isHidden = false
+                        self?.heightConstraint.constant = 322
+                        self?.qrCodeButton.isEnabled = true
+                    }
                 }
                 self?.historyLabel.isHidden = false
                 self?.activatedLabel.isHidden = false
@@ -168,6 +171,7 @@ extension MVoucherViewController: UITableViewDelegate, UITableViewDataSource{
         let transaction = voucherViewModel.getCellViewModel(at: indexPath)
         if let voucher = self.voucher {
             cell.configure(transaction: transaction, isSubsidies: voucher.fund?.type == FundType.subsidies.rawValue)
+            noTransactionsLabel.text = ""
         }
         return cell
     }
@@ -183,7 +187,7 @@ extension MVoucherViewController: UITableViewDelegate, UITableViewDataSource{
 extension MVoucherViewController: AccessibilityProtocol {
     func setupAccessibility() {
         sendEmailButton.setupAccesibility(description: "Send voucher on email", accessibilityTraits: .button)
-        voucherInfoButton.setupAccesibility(description: "Go to voucher info", accessibilityTraits: .button)
+        voucherInfoButton.setupAccesibility(description: "Go to view offers", accessibilityTraits: .button)
         qrCodeButton.setupAccesibility(description: "Tap to open qr code modal", accessibilityTraits: .button)
    }
 }
