@@ -55,6 +55,13 @@ class MProfileViewController: UIViewController {
 
 extension MProfileViewController {
     
+    @IBAction func privacyAndSecurity(_ sender: Any) {
+      let vc = MPrivacyViewController()
+      let navVC = UINavigationController(rootViewController: vc)
+      self.present(navVC, animated: true)
+      }
+
+    
     @IBAction func switchStartFromScanner(_ sender: UISwitch) {
         if sender.isOn {
             UserDefaults.standard.setValue(true, forKey: UserDefaultsName.StartFromScanner)
