@@ -20,7 +20,7 @@ class EmailLoginViewModel {
     
     func initLoginByEmail(email: String) {
         
-        let parameters = ["primary_email" : email, "source": "app-me_app"]
+        let parameters = ["email" : email, "source": "app-me_app"]
         
         commonService.postWithParametersWithoutToken(request: "identity/proxy/email", parameters: parameters, complete: { (response: AuthorizationQRToken, statusCode) in
             self.complete?(response.message ?? "" ,statusCode)
