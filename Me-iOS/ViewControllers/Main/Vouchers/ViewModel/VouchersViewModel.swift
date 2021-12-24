@@ -73,6 +73,7 @@ class VouchersViewModel{
             print("Push Notification delete status code: \(statusCode)")
             self.completeDeleteToken?(statusCode)
         }) { (error) in
+            print(error)
         }
         
     }
