@@ -26,6 +26,7 @@ class MVoucherViewController: UIViewController {
     @IBOutlet weak var titleLabel: UILabel_DarkMode!
     @IBOutlet weak var heightTableViewConstraint: NSLayoutConstraint!
     @IBOutlet weak var emptyLabel: UILabel!
+    @IBOutlet weak var noTransactionsLabel: UILabel!
     
     lazy var voucherViewModel: VoucherViewModel = {
         return VoucherViewModel()
@@ -45,10 +46,7 @@ class MVoucherViewController: UIViewController {
         }
         voucherViewModel.reloadDataVoucher = { [weak self] (voucher) in
             
-          DispatchQueue.main.async { [self] in
-              if voucher.fund?.type == FundType.subsidies.rawValue {
-                self!.voucherInfoButton?.setTitle(Localize.offers(), for: .normal)
-              }
+            DispatchQueue.main.async {
                 self?.priceLabel.isHidden = voucher.fund?.type == FundType.subsidies.rawValue
                 self?.voucherName.text = voucher.fund?.name ?? ""
                 self?.organizationName.text = voucher.fund?.organization?.name ?? ""
@@ -64,12 +62,14 @@ class MVoucherViewController: UIViewController {
                 }
                 
                 if voucher.expire_at?.date?.formatDate() ?? Date() >= Date() {
-                    self?.qrCodeImage.isHidden = false
-                    self?.sendEmailButton.isHidden = false
-                    self?.voucherInfoButton.isHidden = false
-                    self?.buttonsView.isHidden = false
-                    self?.heightConstraint.constant = 322
-                    self?.qrCodeButton.isEnabled = true
+                    if voucher.deactivated == false {
+                        self?.qrCodeImage.isHidden = false
+                        self?.sendEmailButton.isHidden = false
+                        self?.voucherInfoButton.isHidden = false
+                        self?.buttonsView.isHidden = false
+                        self?.heightConstraint.constant = 322
+                        self?.qrCodeButton.isEnabled = true
+                    }
                 }
                 self?.historyLabel.isHidden = false
                 self?.activatedLabel.isHidden = false
@@ -177,6 +177,7 @@ extension MVoucherViewController: UITableViewDelegate, UITableViewDataSource{
         let transaction = voucherViewModel.getCellViewModel(at: indexPath)
         if let voucher = self.voucher {
             cell.configure(transaction: transaction, isSubsidies: voucher.fund?.type == FundType.subsidies.rawValue)
+            noTransactionsLabel.text = ""
         }
         return cell
     }

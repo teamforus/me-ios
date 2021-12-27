@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Tng-OZ-lXd">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Tng-OZ-lXd">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -27,20 +27,20 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="voucher" translatesAutoresizingMaskIntoConstraints="NO" id="99N-2s-O9Z">
                                 <rect key="frame" x="72.5" y="218.5" width="230" height="230"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Op deze pagina zie je de tegoeden die je krijgt. Je hebt nog geen tegoeden gekregen." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9G1-Sj-fzE" customClass="UILabel_DarkMode" customModule="Me_iOS" customModuleProvider="target">
-                                <rect key="frame" x="18" y="494.5" width="338" height="41"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Op deze pagina ziet u de tegoeden die u krijgt. U heeft nog geen tegoeden gekregen." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9G1-Sj-fzE" customClass="UILabel_DarkMode" customModule="Me_iOS" customModuleProvider="target">
+                                <rect key="frame" x="18" y="494.5" width="338" height="37.5"/>
                                 <fontDescription key="fontDescription" name="GoogleSans-Regular" family="Google Sans" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="130" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5yR-zH-dKR" customClass="TableView_Background_DarkMode" customModule="Me_iOS" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="153.5" width="375" height="464.5"/>
+                                <rect key="frame" x="0.0" y="149.5" width="375" height="468.5"/>
                                 <color key="backgroundColor" red="0.96863394979999995" green="0.96861582989999995" blue="0.96862810850000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <inset key="scrollIndicatorInsets" minX="0.0" minY="20" maxX="0.0" maxY="0.0"/>
                                 <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="130" id="KFl-qI-hh9" customClass="VoucherTableViewCell" customModule="Me_iOS" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="130"/>
+                                        <rect key="frame" x="0.0" y="44.5" width="375" height="130"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="KFl-qI-hh9" id="O01-1m-pEx">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="130"/>
@@ -49,13 +49,13 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qKh-Cw-MQ8" customClass="CustomCornerUIView" customModule="Me_iOS" customModuleProvider="target">
                                                     <rect key="frame" x="16" y="10" width="343" height="114"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kindpakket" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hah-5r-kDN" customClass="UILabel_DarkMode" customModule="Me_iOS" customModuleProvider="target">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Kindpakket" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hah-5r-kDN" customClass="UILabel_DarkMode" customModule="Me_iOS" customModuleProvider="target">
                                                             <rect key="frame" x="21" y="20" width="252" height="26"/>
                                                             <fontDescription key="fontDescription" name="GoogleSans-Bold" family="Google Sans" pointSize="20"/>
                                                             <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="18 tagen geldig" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZDL-U6-1tp" customClass="UILabel_DarkMode" customModule="Me_iOS" customModuleProvider="target">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="18 tagen geldig" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZDL-U6-1tp" customClass="UILabel_DarkMode" customModule="Me_iOS" customModuleProvider="target">
                                                             <rect key="frame" x="20" y="44" width="243" height="18"/>
                                                             <fontDescription key="fontDescription" name="GoogleSans-Regular" family="Google Sans" pointSize="14"/>
                                                             <color key="textColor" red="0.1960784314" green="0.21176470589999999" blue="0.2274509804" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -68,14 +68,14 @@
                                                                 <constraint firstAttribute="height" constant="50" id="Ccw-4c-9Fn"/>
                                                             </constraints>
                                                         </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="300 €" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bD1-k9-0dm">
-                                                            <rect key="frame" x="20" y="76" width="54" height="26"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="300 €" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bD1-k9-0dm">
+                                                            <rect key="frame" x="20" y="76" width="50.5" height="26"/>
                                                             <fontDescription key="fontDescription" name="GoogleSans-Regular" family="Google Sans" pointSize="20"/>
                                                             <color key="textColor" red="0.20784313730000001" green="0.3921568627" blue="0.97647058819999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Used" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hup-YQ-NKc">
-                                                            <rect key="frame" x="280" y="84" width="34.5" height="19.5"/>
+                                                            <rect key="frame" x="279" y="84" width="35.5" height="17.5"/>
                                                             <fontDescription key="fontDescription" name="GoogleSans-Regular" family="Google Sans" pointSize="15"/>
                                                             <color key="textColor" red="0.98387008909999996" green="0.63834285739999996" blue="0.1010637954" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -133,7 +133,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="valuteCell" rowHeight="130" id="EE4-zq-daM" customClass="ValuteTableViewCell" customModule="Me_iOS" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="158" width="375" height="130"/>
+                                        <rect key="frame" x="0.0" y="174.5" width="375" height="130"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="EE4-zq-daM" id="Olg-1G-uml">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="130"/>
@@ -246,7 +246,7 @@
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Voucher" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JOr-Qw-UNr" customClass="UILabel_DarkMode" customModule="Me_iOS" customModuleProvider="target">
-                                <rect key="frame" x="20" y="90" width="335" height="48.5"/>
+                                <rect key="frame" x="20" y="90" width="335" height="44.5"/>
                                 <fontDescription key="fontDescription" name="GoogleSans-Bold" family="Google Sans" pointSize="38"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -439,14 +439,14 @@
                                 <color key="backgroundColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="87" id="TfW-Mc-Pmc" customClass="RecordsTableViewCell" customModule="Me_iOS" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="87"/>
+                                        <rect key="frame" x="0.0" y="44.5" width="375" height="87"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="TfW-Mc-Pmc" id="WjF-tu-pFl">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="87"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eP7-vQ-c34" customClass="CustomCornerUIView" customModule="Me_iOS" customModuleProvider="target">
-                                                    <rect key="frame" x="6" y="8" width="360" height="78"/>
+                                                    <rect key="frame" x="7" y="7" width="360" height="78"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="First Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rpK-Zw-ROm">
@@ -614,7 +614,7 @@
             <size key="intrinsicContentSize" width="30" height="34"/>
         </designable>
         <designable name="fxb-bV-R86">
-            <size key="intrinsicContentSize" width="128" height="28"/>
+            <size key="intrinsicContentSize" width="126" height="26"/>
         </designable>
     </designables>
     <resources>

@@ -93,6 +93,7 @@
 "this_voucher_is_expired_on" = "This voucher expires on %@";
 "used" = "Used";
 "expired" = "Expired";
+"deactivated" = "Deactivated";
 "you_sure_you_want_to_login_device" = "You sure you wan't to login this device?";
 "confirm_transaction" = "Confirm transaction";
 "please_confirm_the_transaction" = "Please confirm the transaction of € %@.";
@@ -189,8 +190,3 @@
 "what_customer_pays" = "What customer pays";
 "free" = "Free";
 "discount" = "Discount";
-"offers" = "Offers";
-"do_you_want_to_login" = "Do you want to login on this device?";
-"description_of_auth_anothe_device" = "Continuing will allow this device to acces your account. Are you sure you want to continue?";
-"i_want_to_login" = "Yes, I want to login";
-"no_thanks" = "No thanks";

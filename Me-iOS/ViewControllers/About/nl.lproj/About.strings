@@ -6,7 +6,7 @@
 "EcD-I1-itv.text" = "Forus, 2018-2020";
 
 /* Class = "UILabel"; text = "     • \tinloggen op applicaties;\n     • \tvouchers beheren;\n     • \tprofiel beheren;"; ObjectID = "SGf-5C-9HH"; */
-"SGf-5C-9HH.text" = "     • \tDe Westerkwartier webshop;\n     • \tDe Nijmegen webshop;\n     • \tDe Winterswijk webshop;\n     • \tDe Oost Gelre webshop;\n     • \tDe Berkelland webshop;\n     • \tDe Noordoostpolder webshop\n     • \tDe Kerstpakket webshop;";
+"SGf-5C-9HH.text" = "     • \tDe Westerkwartier webshop;\n     • \tDe Nijmegen webshop;\n     • \tDe Winterswijk webshop;\n     • \tDe Oost Gelre webshop;\n     • \tDe Berkelland webshop;\n     • \tDe Noordoostpolder webshop\n     • \tDe Kerstpakket webshop;     • \tDe Stadjerspas webshop;";
 
 /* Class = "UILabel"; text = "Later on several shops and applications will be added."; ObjectID = "T8Z-5V-grC"; */
 "T8Z-5V-grC.text" = "Later zullen meerdere shops en andere applicaties worden toegevoegd.";
@@ -15,7 +15,7 @@
 "laN-j4-BvC.text" = "Deze app werkt samen met:";
 
 /* Class = "UILabel"; text = "This app is intended to store vouchers, make payments and log in to different applications."; ObjectID = "mIj-aS-tcH"; */
-"mIj-aS-tcH.text" = "Deze app is bedoeld om vouchers te beheren, betalingen te verrichten en in te loggen op verschillende applicaties.";
+"mIj-aS-tcH.text" = "Deze app is bedoeld om tegoeden te beheren, betalingen te verrichten en in te loggen.";
 
 /* Class = "UILabel"; text = "About Me"; ObjectID = "p0o-gx-Vk0"; */
 "p0o-gx-Vk0.text" = "Over Me";

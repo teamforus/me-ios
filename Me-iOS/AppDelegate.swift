@@ -20,7 +20,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var appnotifier = AppVersionUpdateNotifier()
     var timer = Timer()
     
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
+
+        if #available(iOS 15.0, *) {
+            let appearance = UITabBarAppearance()
+            UITabBar.appearance().scrollEdgeAppearance = appearance
+        }
+   
         
         KVSpinnerView.settings.backgroundRectColor = .white
         KVSpinnerView.settings.backgroundOpacity = 5.0
@@ -86,6 +94,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         return true
     }
+    
     
     func getCurrentUser() -> User{
         let appDelegate = UIApplication.shared.delegate as! AppDelegate

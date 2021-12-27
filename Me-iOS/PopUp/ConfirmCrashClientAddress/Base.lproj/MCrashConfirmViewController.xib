@@ -60,7 +60,7 @@
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="wos-4I-fQl">
                             <rect key="frame" x="18" y="111" width="339" height="80"/>
                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <string key="text">Door je unieke identificatie nummer te delen met de ontwikkelaars, kan contact met je worden opgenomen om eventuele problemen op te lossen.</string>
+                            <string key="text">Door uw unieke identificatie nummer te delen met de ontwikkelaars, kan contact met u worden opgenomen om eventuele problemen op te lossen.</string>
                             <fontDescription key="fontDescription" name="GoogleSans-Regular" family="Google Sans" pointSize="15"/>
                             <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>

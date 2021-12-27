@@ -23,7 +23,7 @@
 /* Class = "UILabel"; text = "First Name"; ObjectID = "fAd-C3-1pq"; */
 "fAd-C3-1pq.text" = "First Name";
 
-/* Class = "UILabel"; text = "Eigenschap detail"; ObjectID = "nZa-Jq-IY1"; */
+/* Class = "UILabel"; text = "Eigenschap"; ObjectID = "nZa-Jq-IY1"; */
 "nZa-Jq-IY1.text" = "Record detail";
 
 /* Class = "UIButton"; normalTitle = "Verwijder eigenschap"; ObjectID = "owV-nu-EIT"; */

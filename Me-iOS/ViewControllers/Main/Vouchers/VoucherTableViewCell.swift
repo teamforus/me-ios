@@ -22,7 +22,7 @@ class VoucherTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         self.usedVoucherLabel.isHidden = true
-   //setupAccessibility(with: (voucher?.fund?.name)!, and: (voucher?.fund?.organization?.name)!)
+  //    setupAccessibility(with: (voucher?.fund?.name)!, and: (voucher?.fund?.organization?.name)!)
         setupIcon()
         self.selectionStyle = .none
         if #available(iOS 11.0, *) {
@@ -49,10 +49,17 @@ class VoucherTableViewCell: UITableViewCell {
         //
         //            }
         
+        
         if voucher.expire_at?.date?.formatDate() ?? Date() < Date() {
             self.usedVoucherLabel.isHidden = false
             self.usedVoucherLabel.textColor = .red
             self.usedVoucherLabel.text = Localize.expired()
+        }
+        
+        if voucher.deactivated == true {
+            self.usedVoucherLabel.isHidden = false
+            self.usedVoucherLabel.textColor = .red
+            self.usedVoucherLabel.text = Localize.deactivated()
         }
         
         if voucher.product != nil{
