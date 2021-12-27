@@ -18,10 +18,6 @@
 		04AC153625B8984C00E241AD /* TextTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AC153525B8984C00E241AD /* TextTableViewCell.swift */; };
 		04AC153B25B8985300E241AD /* ButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AC153A25B8985300E241AD /* ButtonTableViewCell.swift */; };
 		04B03F9225B87E2A00B8BC4F /* MPrivacyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B03F9125B87E2A00B8BC4F /* MPrivacyViewController.swift */; };
-		21BC9E5E15D09EB33DC67D18 /* Pods_Me_iOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE3A145130ABDFB2E6FA90DA /* Pods_Me_iOSTests.framework */; };
-		3073C31D42060DC36B5A5CF0 /* Pods_Me_iOSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2F0B90D6C19CBE208831044 /* Pods_Me_iOSUITests.framework */; };
-		3EA270A8D4692C1FB4DDDD4D /* Pods_Me_iOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F5A2CBF3A5DDA911CDEBF20 /* Pods_Me_iOSTests.framework */; };
-		4D565DC2720C6F96846BD8CD /* Pods_Me_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9745E3CC551173A1E968B358 /* Pods_Me_iOS.framework */; };
 		1D8B1FC2FE6DFF1C358C3B80 /* Pods_Me_iOSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40AAA8E5F5493B4EB93B1B29 /* Pods_Me_iOSUITests.framework */; };
 		5B10CCAC240D021C00199C28 /* BottomQrWithPinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B10CCAA240D021C00199C28 /* BottomQrWithPinViewController.swift */; };
 		5B10CCB0240D1FD900199C28 /* EnablePersonalInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B10CCAF240D1FD900199C28 /* EnablePersonalInformationViewController.swift */; };
@@ -188,7 +184,10 @@
 		65F52E452316797900B9D229 /* MCrashConfirmViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65F52E402316797900B9D229 /* MCrashConfirmViewController.xib */; };
 		65F52E462316797900B9D229 /* MCrashConfirmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F52E422316797900B9D229 /* MCrashConfirmViewController.swift */; };
 		65F52E4A23167E0D00B9D229 /* Wallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F52E4923167E0D00B9D229 /* Wallet.swift */; };
+		69838A958113F6C94E7BFFB1 /* Pods_Me_iOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE9585401404347BEEDA2714 /* Pods_Me_iOSTests.framework */; };
+		7EF46B6BB6C30438F9369997 /* Pods_Me_iOSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 928C34619F5E73E8D7C80723 /* Pods_Me_iOSUITests.framework */; };
 		83E86DFF95320AD4070E9058 /* Pods_Me_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18527B1756CFC611642105AF /* Pods_Me_iOS.framework */; };
+		B1C4BF0164185E34F0C27C07 /* Pods_Me_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CD7DBBAEAACB6D8706DB4CA /* Pods_Me_iOS.framework */; };
 		B495E4B29728BF7D78DE52CD /* Pods_Me_iOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35446A3006593197F8282C71 /* Pods_Me_iOSTests.framework */; };
 		FF0DACBE246AD0A80034E3E4 /* OrganizationValidatorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF3B141A243722EE003FDDD9 /* OrganizationValidatorViewController.xib */; };
 		FF45B3B224D9DC7C00D258E1 /* Extension+UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45B3B124D9DC7C00D258E1 /* Extension+UITextField.swift */; };
@@ -269,10 +268,6 @@
 		04AC153525B8984C00E241AD /* TextTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextTableViewCell.swift; sourceTree = "<group>"; };
 		04AC153A25B8985300E241AD /* ButtonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonTableViewCell.swift; sourceTree = "<group>"; };
 		04B03F9125B87E2A00B8BC4F /* MPrivacyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPrivacyViewController.swift; sourceTree = "<group>"; };
-		0BA3C002535BEC0C09894BC7 /* Pods-Me-iOSUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Me-iOSUITests.release.xcconfig"; path = "Target Support Files/Pods-Me-iOSUITests/Pods-Me-iOSUITests.release.xcconfig"; sourceTree = "<group>"; };
-		1F4F14FBEF270B54FA6F330B /* Pods-Me-iOS.alpha.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Me-iOS.alpha.xcconfig"; path = "Target Support Files/Pods-Me-iOS/Pods-Me-iOS.alpha.xcconfig"; sourceTree = "<group>"; };
-		27C5698FBEA4D2ECE5592544 /* Pods-Me-iOSTests.alpha.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Me-iOSTests.alpha.xcconfig"; path = "Target Support Files/Pods-Me-iOSTests/Pods-Me-iOSTests.alpha.xcconfig"; sourceTree = "<group>"; };
-		419E6D0E1450A2994CF709CB /* Pods-Me-iOSUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Me-iOSUITests.debug.xcconfig"; path = "Target Support Files/Pods-Me-iOSUITests/Pods-Me-iOSUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		1683517B14B81A4842936641 /* Pods-Me-iOS.alpha.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Me-iOS.alpha.xcconfig"; path = "Target Support Files/Pods-Me-iOS/Pods-Me-iOS.alpha.xcconfig"; sourceTree = "<group>"; };
 		18527B1756CFC611642105AF /* Pods_Me_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Me_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		22FC7AEAA2D97908974FAE96 /* Pods-Me-iOSTests.demo.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Me-iOSTests.demo.xcconfig"; path = "Target Support Files/Pods-Me-iOSTests/Pods-Me-iOSTests.demo.xcconfig"; sourceTree = "<group>"; };
@@ -505,8 +500,11 @@
 		6EEAB725BDC805B1487F2A1A /* Pods-Me-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Me-iOS.release.xcconfig"; path = "Target Support Files/Pods-Me-iOS/Pods-Me-iOS.release.xcconfig"; sourceTree = "<group>"; };
 		72A3CB3E62199886F7E01D2C /* Pods-Me-iOSUITests.dev.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Me-iOSUITests.dev.xcconfig"; path = "Target Support Files/Pods-Me-iOSUITests/Pods-Me-iOSUITests.dev.xcconfig"; sourceTree = "<group>"; };
 		7D3A77F9CF4020E2489A09ED /* Pods-Me-iOSUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Me-iOSUITests.release.xcconfig"; path = "Target Support Files/Pods-Me-iOSUITests/Pods-Me-iOSUITests.release.xcconfig"; sourceTree = "<group>"; };
+		928C34619F5E73E8D7C80723 /* Pods_Me_iOSUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Me_iOSUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9CD7DBBAEAACB6D8706DB4CA /* Pods_Me_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Me_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C64D895F6C088D619AF24FA7 /* Pods-Me-iOSUITests.alpha.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Me-iOSUITests.alpha.xcconfig"; path = "Target Support Files/Pods-Me-iOSUITests/Pods-Me-iOSUITests.alpha.xcconfig"; sourceTree = "<group>"; };
 		C79497AD22375DD8509E643A /* Pods-Me-iOS.dev.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Me-iOS.dev.xcconfig"; path = "Target Support Files/Pods-Me-iOS/Pods-Me-iOS.dev.xcconfig"; sourceTree = "<group>"; };
+		DE9585401404347BEEDA2714 /* Pods_Me_iOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Me_iOSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4482B56D9FEA61213A4D29E /* Pods-Me-iOSTests.alpha.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Me-iOSTests.alpha.xcconfig"; path = "Target Support Files/Pods-Me-iOSTests/Pods-Me-iOSTests.alpha.xcconfig"; sourceTree = "<group>"; };
 		FF3B1419243722EE003FDDD9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/OrganizationValidatorViewController.xib; sourceTree = "<group>"; };
 		FF3B141E243722F6003FDDD9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/OrganizationValidatorViewController.strings; sourceTree = "<group>"; };
@@ -567,6 +565,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				83E86DFF95320AD4070E9058 /* Pods_Me_iOS.framework in Frameworks */,
+				B1C4BF0164185E34F0C27C07 /* Pods_Me_iOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -575,6 +574,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B495E4B29728BF7D78DE52CD /* Pods_Me_iOSTests.framework in Frameworks */,
+				69838A958113F6C94E7BFFB1 /* Pods_Me_iOSTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -583,6 +583,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1D8B1FC2FE6DFF1C358C3B80 /* Pods_Me_iOSUITests.framework in Frameworks */,
+				7EF46B6BB6C30438F9369997 /* Pods_Me_iOSUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -597,17 +598,6 @@
 				04AC153A25B8985300E241AD /* ButtonTableViewCell.swift */,
 			);
 			path = Privacy;
-			sourceTree = "<group>";
-		};
-		265D97ECA3A164A5F7EEAF60 /* Pods */ = {
-		121F587CB74BF4E57C08FEAF /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				18527B1756CFC611642105AF /* Pods_Me_iOS.framework */,
-				35446A3006593197F8282C71 /* Pods_Me_iOSTests.framework */,
-				40AAA8E5F5493B4EB93B1B29 /* Pods_Me_iOSUITests.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		265D97ECA3A164A5F7EEAF60 /* Pods */ = {
@@ -709,7 +699,7 @@
 				65139C2722802548003E0CDE /* Me-iOSUITests */,
 				65139C0322802545003E0CDE /* Products */,
 				265D97ECA3A164A5F7EEAF60 /* Pods */,
-				121F587CB74BF4E57C08FEAF /* Frameworks */,
+				8E6AD72F6A25B2DD5D1E8930 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1540,6 +1530,16 @@
 				6511CB172362FCFC00863E85 /* PullUpQRViewController.xib */,
 			);
 			path = BottomQR;
+			sourceTree = "<group>";
+		};
+		8E6AD72F6A25B2DD5D1E8930 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9CD7DBBAEAACB6D8706DB4CA /* Pods_Me_iOS.framework */,
+				DE9585401404347BEEDA2714 /* Pods_Me_iOSTests.framework */,
+				928C34619F5E73E8D7C80723 /* Pods_Me_iOSUITests.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		FF5691492514BFCD00CD0343 /* DatePicker */ = {
