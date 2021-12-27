@@ -2868,7 +2868,7 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
 
-    /// This `R.string.localizable` struct is generated, and contains static references to 176 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 177 localization keys.
     struct localizable {
       /// en translation: %@ Don't Available
       ///
@@ -3034,6 +3034,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en, nl
       static let birth_date = Rswift.StringResource(key: "birth_date", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
+      /// en translation: Deactivated
+      ///
+      /// Locales: en, nl
+      static let deactivated = Rswift.StringResource(key: "deactivated", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
       /// en translation: Discount
       ///
       /// Locales: en, nl
@@ -4196,6 +4200,21 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("birth_date", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Deactivated
+      ///
+      /// Locales: en, nl
+      static func deactivated(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("deactivated", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "deactivated"
+        }
+
+        return NSLocalizedString("deactivated", bundle: bundle, comment: "")
       }
 
       /// en translation: Discount
@@ -8756,14 +8775,14 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en
       static let pbV1UZtCText = Rswift.StringResource(key: "PbV-1U-ztC.text", tableName: "Voucher", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: View offers
+      ///
+      /// Locales: en
+      static let kQA2yC8qNormalTitle = Rswift.StringResource(key: "kQA-2y-C8q.normalTitle", tableName: "Voucher", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Voucher
       ///
       /// Locales: en
       static let vIm8eAeUText = Rswift.StringResource(key: "vIm-8e-AeU.text", tableName: "Voucher", bundle: R.hostingBundle, locales: ["en"], comment: nil)
-      /// en translation: Voucher Info
-      ///
-      /// Locales: en
-      static let kQA2yC8qNormalTitle = Rswift.StringResource(key: "kQA-2y-C8q.normalTitle", tableName: "Voucher", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: € 122,50
       ///
       /// Locales: en
@@ -9024,6 +9043,21 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("PbV-1U-ztC.text", tableName: "Voucher", bundle: bundle, comment: "")
       }
 
+      /// en translation: View offers
+      ///
+      /// Locales: en
+      static func kQA2yC8qNormalTitle(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("kQA-2y-C8q.normalTitle", tableName: "Voucher", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Voucher", preferredLanguages: preferredLanguages) else {
+          return "kQA-2y-C8q.normalTitle"
+        }
+
+        return NSLocalizedString("kQA-2y-C8q.normalTitle", tableName: "Voucher", bundle: bundle, comment: "")
+      }
+
       /// en translation: Voucher
       ///
       /// Locales: en
@@ -9037,21 +9071,6 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("vIm-8e-AeU.text", tableName: "Voucher", bundle: bundle, comment: "")
-      }
-
-      /// en translation: Voucher Info
-      ///
-      /// Locales: en
-      static func kQA2yC8qNormalTitle(preferredLanguages: [String]? = nil) -> String {
-        guard let preferredLanguages = preferredLanguages else {
-          return NSLocalizedString("kQA-2y-C8q.normalTitle", tableName: "Voucher", bundle: hostingBundle, comment: "")
-        }
-
-        guard let (_, bundle) = localeBundle(tableName: "Voucher", preferredLanguages: preferredLanguages) else {
-          return "kQA-2y-C8q.normalTitle"
-        }
-
-        return NSLocalizedString("kQA-2y-C8q.normalTitle", tableName: "Voucher", bundle: bundle, comment: "")
       }
 
       /// en translation: € 122,50

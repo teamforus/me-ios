@@ -93,6 +93,7 @@
 "this_voucher_is_expired_on" = "This voucher expires on %@";
 "used" = "Used";
 "expired" = "Expired";
+"deactivated" = "Deactivated";
 "you_sure_you_want_to_login_device" = "You sure you wan't to login this device?";
 "confirm_transaction" = "Confirm transaction";
 "please_confirm_the_transaction" = "Please confirm the transaction of € %@.";

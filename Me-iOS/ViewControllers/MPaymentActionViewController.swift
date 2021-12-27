@@ -14,6 +14,7 @@ class MPaymentActionViewController: UIViewController {
     var organization: AllowedOrganization?
     var fund: Fund?
     var address: String!
+    var note: String!
     var subsidieOverviewHeightConstraints: NSLayoutConstraint!
     var bodyViewHeightConstraints: NSLayoutConstraint!
     
@@ -348,10 +349,12 @@ extension MPaymentActionViewController: UITextFieldDelegate {
 extension MPaymentActionViewController {
     // MARK: - Actions
     @objc func showConfirm() {
+        print("Een notitie op een actie! \(noteTextField.text)")
         let view = ConfirmPayAction(frame: .zero)
         view.subsidie = subsidie
         view.organization = organization
         view.address = address
+        view.note = noteTextField.text
         view.vc = self
         view.setupView()
         view.translatesAutoresizingMaskIntoConstraints = false
