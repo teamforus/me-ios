@@ -12,7 +12,7 @@
 "NZh-dx-KQ4.text" = "Label";
 
 /* Class = "UILabel"; text = "This record has no validations yet"; ObjectID = "TMm-Mn-V3X"; */
-"TMm-Mn-V3X.text" = "Deze eigenschap heeft geen validaties";
+"TMm-Mn-V3X.text" = "Deze eigenschap heeft geen goedkeuringen";
 
 /* Class = "UIButton"; normalTitle = "LAAT QR-CODE ZIEN"; ObjectID = "XXm-PG-izE"; */
 "XXm-PG-izE.normalTitle" = "LAAT QR-CODE ZIEN";
@@ -24,11 +24,11 @@
 "fAd-C3-1pq.text" = "First Name";
 
 /* Class = "UILabel"; text = "Eigenschap detail"; ObjectID = "nZa-Jq-IY1"; */
-"nZa-Jq-IY1.text" = "Eigenschap detail";
+"nZa-Jq-IY1.text" = "Eigenschap";
 
 /* Class = "UIButton"; normalTitle = "Verwijder eigenschap"; ObjectID = "owV-nu-EIT"; */
 "owV-nu-EIT.normalTitle" = "Verwijder eigenschap";
 
-"eQw-as-eSG.text" = "validaties";
+"eQw-as-eSG.text" = "goedkeuringen";
 
-"eLc-rs-IT8.text" = "Validaties";
+"eLc-rs-IT8.text" = "Goedkeuringen";
