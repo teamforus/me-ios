@@ -188,3 +188,6 @@
 "what_customer_pays" = "What customer pays";
 "free" = "Free";
 "discount" = "Discount";
+"delete_account" = "Delete account";
+"title_delete_description" = "Watch out, you are about to permanently delete your account.";
+"description_delete" = "You will lose access to your vouchers, transactions and records, and cannot apply for funds that you have already recieved.\n\n\nContact %@ if you have any questions.";

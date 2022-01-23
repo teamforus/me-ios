@@ -901,7 +901,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.image` struct is generated, and contains static references to 68 images.
+  /// This `R.image` struct is generated, and contains static references to 69 images.
   struct image {
     /// Image `5XVoucherContainerWElevation`.
     static let xVoucherContainerWElevation = Rswift.ImageResource(bundle: R.hostingBundle, name: "5XVoucherContainerWElevation")
@@ -1027,6 +1027,8 @@ struct R: Rswift.Validatable {
     static let roundedRight = Rswift.ImageResource(bundle: R.hostingBundle, name: "roundedRight")
     /// Image `rounded`.
     static let rounded = Rswift.ImageResource(bundle: R.hostingBundle, name: "rounded")
+    /// Image `secure`.
+    static let secure = Rswift.ImageResource(bundle: R.hostingBundle, name: "secure")
     /// Image `splitIcon`.
     static let splitIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "splitIcon")
     /// Image `tick`.
@@ -1471,6 +1473,13 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "roundedRight", bundle: ..., traitCollection: ...)`
     static func roundedRight(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.roundedRight, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "secure", bundle: ..., traitCollection: ...)`
+    static func secure(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.secure, compatibleWith: traitCollection)
     }
     #endif
 
@@ -2868,7 +2877,7 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
 
-    /// This `R.string.localizable` struct is generated, and contains static references to 177 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 180 localization keys.
     struct localizable {
       /// en translation: %@ Don't Available
       ///
@@ -3038,6 +3047,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en, nl
       static let deactivated = Rswift.StringResource(key: "deactivated", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
+      /// en translation: Delete account
+      ///
+      /// Locales: en, nl
+      static let delete_account = Rswift.StringResource(key: "delete_account", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
       /// en translation: Discount
       ///
       /// Locales: en, nl
@@ -3538,6 +3551,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en, nl
       static let warning = Rswift.StringResource(key: "warning", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
+      /// en translation: Watch out, you are about to permanently delete your account.
+      ///
+      /// Locales: en, nl
+      static let title_delete_description = Rswift.StringResource(key: "title_delete_description", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
       /// en translation: Welcome to Me
       ///
       /// Locales: en, nl
@@ -3570,6 +3587,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en, nl
       static let you_sure_you_want_to_login_device = Rswift.StringResource(key: "you_sure_you_want_to_login_device", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
+      /// en translation: You will lose access to your vouchers, transactions and records, and cannot apply for funds that you have already recieved.   Contact %@ if you have any questions.
+      ///
+      /// Locales: en, nl
+      static let description_delete = Rswift.StringResource(key: "description_delete", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
       /// en translation: Your e-mail address is already used, do you instead want to login using this e-mail address?
       ///
       /// Locales: en, nl
@@ -4215,6 +4236,21 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("deactivated", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Delete account
+      ///
+      /// Locales: en, nl
+      static func delete_account(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("delete_account", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "delete_account"
+        }
+
+        return NSLocalizedString("delete_account", bundle: bundle, comment: "")
       }
 
       /// en translation: Discount
@@ -6106,6 +6142,21 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("warning", bundle: bundle, comment: "")
       }
 
+      /// en translation: Watch out, you are about to permanently delete your account.
+      ///
+      /// Locales: en, nl
+      static func title_delete_description(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("title_delete_description", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "title_delete_description"
+        }
+
+        return NSLocalizedString("title_delete_description", bundle: bundle, comment: "")
+      }
+
       /// en translation: Welcome to Me
       ///
       /// Locales: en, nl
@@ -6224,6 +6275,23 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("you_sure_you_want_to_login_device", bundle: bundle, comment: "")
+      }
+
+      /// en translation: You will lose access to your vouchers, transactions and records, and cannot apply for funds that you have already recieved.   Contact %@ if you have any questions.
+      ///
+      /// Locales: en, nl
+      static func description_delete(_ value1: String, preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          let format = NSLocalizedString("description_delete", bundle: hostingBundle, comment: "")
+          return String(format: format, locale: applicationLocale, value1)
+        }
+
+        guard let (locale, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "description_delete"
+        }
+
+        let format = NSLocalizedString("description_delete", bundle: bundle, comment: "")
+        return String(format: format, locale: locale, value1)
       }
 
       /// en translation: Your e-mail address is already used, do you instead want to login using this e-mail address?

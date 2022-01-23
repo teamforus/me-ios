@@ -224,6 +224,7 @@
 		FFB76E1524E94AC200CFB195 /* StatusTitleLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB76DF924E948B700CFB195 /* StatusTitleLayer.swift */; };
 		FFB76E1624E94AC800CFB195 /* ic_check_3x.png in Resources */ = {isa = PBXBuildFile; fileRef = FFB76E0324E9490600CFB195 /* ic_check_3x.png */; };
 		FFC38D4424FA7DFA001C0DA2 /* MTransactionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC38D4324FA7DFA001C0DA2 /* MTransactionsViewController.swift */; };
+		FFCC27E8279D988A006430DE /* MDeleteAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCC27E7279D988A006430DE /* MDeleteAccountViewController.swift */; };
 		FFCE835B24B881B1001082B1 /* Extension+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCE835A24B881B1001082B1 /* Extension+UIView.swift */; };
 		FFE731C224CEEB760064C7D5 /* BackgroundScrollView_DarkMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE731C124CEEB760064C7D5 /* BackgroundScrollView_DarkMode.swift */; };
 		FFE731C424CEEFED0064C7D5 /* CloseButton_DarkMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE731C324CEEFED0064C7D5 /* CloseButton_DarkMode.swift */; };
@@ -537,6 +538,7 @@
 		FFB76E0224E9490600CFB195 /* UICheckbox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UICheckbox.swift; path = UICheckbox/Classes/UICheckbox.swift; sourceTree = "<group>"; };
 		FFB76E0324E9490600CFB195 /* ic_check_3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ic_check_3x.png; path = UICheckbox/Assets/ic_check_3x.png; sourceTree = "<group>"; };
 		FFC38D4324FA7DFA001C0DA2 /* MTransactionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTransactionsViewController.swift; sourceTree = "<group>"; };
+		FFCC27E7279D988A006430DE /* MDeleteAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDeleteAccountViewController.swift; sourceTree = "<group>"; };
 		FFCE835A24B881B1001082B1 /* Extension+UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIView.swift"; sourceTree = "<group>"; };
 		FFE731C124CEEB760064C7D5 /* BackgroundScrollView_DarkMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundScrollView_DarkMode.swift; sourceTree = "<group>"; };
 		FFE731C324CEEFED0064C7D5 /* CloseButton_DarkMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloseButton_DarkMode.swift; sourceTree = "<group>"; };
@@ -1130,6 +1132,7 @@
 				65F1BB2F229EDD90007D2C8A /* TextAreaRecord */,
 				650FF63322AD2E14004C3A85 /* About */,
 				FFC38D4524FA929C001C0DA2 /* Transaction */,
+				FFCC27E7279D988A006430DE /* MDeleteAccountViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -1921,6 +1924,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FFFF2527247513510043E459 /* AccessibilityProtocol.swift in Sources */,
+				FFCC27E8279D988A006430DE /* MDeleteAccountViewController.swift in Sources */,
 				655D6476231598D300EABD57 /* SendEtherViewController.swift in Sources */,
 				65139C7322802EFF003E0CDE /* LoginService.swift in Sources */,
 				65A8B70F2282E19F00B7DF05 /* MQRViewController.swift in Sources */,
