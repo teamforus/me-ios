@@ -7,10 +7,12 @@
 //
 
 import UIKit
+import MessageUI
 
 class MDeleteAccountViewController: UIViewController {
     var email: String
     
+    // MARK: - Properties
     let closeButton: ActionButton = {
         let button = ActionButton(frame: .zero)
         button.setImage(R.image.closeIcon(), for: .normal)
@@ -67,6 +69,8 @@ class MDeleteAccountViewController: UIViewController {
         return button
     }()
     
+    
+    // MARK: - Init
     init(email: String) {
         self.email = email
         super.init(nibName: nil, bundle: nil)
@@ -88,8 +92,8 @@ class MDeleteAccountViewController: UIViewController {
             self.view.backgroundColor = UIColor(named: "Background_DarkTheme")
         } else {}
         
-        let mainString = String(format: Localize.description_delete(email))
-        let range = (mainString as NSString).range(of: email)
+        let mainString = String(format: Localize.description_delete(emailSupport))
+        let range = (mainString as NSString).range(of: emailSupport)
         
         let attributedString = NSMutableAttributedString(string:mainString)
         attributedString.addAttribute(NSAttributedString.Key.foregroundColor, value: #colorLiteral(red: 0.2078431373, green: 0.3921568627, blue: 0.9764705882, alpha: 1) , range: range)
@@ -117,25 +121,51 @@ extension MDeleteAccountViewController {
 extension MDeleteAccountViewController {
     private func setupConstraints() {
         
-        NSLayoutConstraint.activate([
-            closeButton.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 20),
-            closeButton.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16),
-            closeButton.heightAnchor.constraint(equalToConstant: 44),
-            closeButton.widthAnchor.constraint(equalToConstant: 44)
-        ])
+        if #available(iOS 11.0, *) {
+            NSLayoutConstraint.activate([
+                closeButton.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 0),
+                closeButton.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16),
+                closeButton.heightAnchor.constraint(equalToConstant: 44),
+                closeButton.widthAnchor.constraint(equalToConstant: 44)
+            ])
+        } else {
+            NSLayoutConstraint.activate([
+                closeButton.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 20),
+                closeButton.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16),
+                closeButton.heightAnchor.constraint(equalToConstant: 44),
+                closeButton.widthAnchor.constraint(equalToConstant: 44)
+            ])
+        }
         
-        NSLayoutConstraint.activate([
-            secureIcon.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 77),
-            secureIcon.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 17),
-            secureIcon.heightAnchor.constraint(equalToConstant: 44),
-            secureIcon.widthAnchor.constraint(equalToConstant: 44)
-        ])
+        if #available(iOS 11.0, *) {
+            NSLayoutConstraint.activate([
+                secureIcon.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 57),
+                secureIcon.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 17),
+                secureIcon.heightAnchor.constraint(equalToConstant: 44),
+                secureIcon.widthAnchor.constraint(equalToConstant: 44)
+            ])
+        }else {
+            NSLayoutConstraint.activate([
+                secureIcon.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 77),
+                secureIcon.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 17),
+                secureIcon.heightAnchor.constraint(equalToConstant: 44),
+                secureIcon.widthAnchor.constraint(equalToConstant: 44)
+            ])
+        }
         
-        NSLayoutConstraint.activate([
-            titleLabel.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 77),
-            titleLabel.leadingAnchor.constraint(equalTo: self.secureIcon.trailingAnchor, constant: 6),
-            titleLabel.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -10)
-        ])
+        if #available(iOS 11.0, *) {
+            NSLayoutConstraint.activate([
+                titleLabel.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 57),
+                titleLabel.leadingAnchor.constraint(equalTo: self.secureIcon.trailingAnchor, constant: 6),
+                titleLabel.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -10)
+            ])
+        }else {
+            NSLayoutConstraint.activate([
+                titleLabel.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 77),
+                titleLabel.leadingAnchor.constraint(equalTo: self.secureIcon.trailingAnchor, constant: 6),
+                titleLabel.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -10)
+            ])
+        }
         
         NSLayoutConstraint.activate([
             titleDescriptionLabel.topAnchor.constraint(equalTo: self.titleLabel.bottomAnchor, constant: 18),
@@ -169,7 +199,27 @@ extension MDeleteAccountViewController {
 extension MDeleteAccountViewController {
     private func setupActions() {
         deleteAccountButton.actionHandleBlock = { [weak self] (_) in
+            guard let self = self else { return }
             
+            let popAlert = ConfirmPopUp(title: Localize.delete_account(), subTitle: Localize.delete_description_alert(), icon: R.image.iconsBugreport()!)
+            popAlert.translatesAutoresizingMaskIntoConstraints = false
+            self.view.addSubview(popAlert)
+            NSLayoutConstraint.activate([
+                popAlert.topAnchor.constraint(equalTo: self.view.topAnchor),
+                popAlert.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+                popAlert.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
+                popAlert.trailingAnchor.constraint(equalTo: self.view.trailingAnchor)
+            ])
+            
+            
+            popAlert.confirmButton.actionHandleBlock = {(_) in
+                popAlert.removeFromSuperview()
+                self.sendEmail()
+            }
+            
+            popAlert.cancelButton.actionHandleBlock = {(_) in
+                popAlert.removeFromSuperview()
+            }
         }
         
         closeButton.actionHandleBlock = { [weak self] (_) in
@@ -179,5 +229,55 @@ extension MDeleteAccountViewController {
         cancelAccountButton.actionHandleBlock = { [weak self] (_) in
             self?.dismiss(animated: true)
         }
+    }
+}
+
+// MARK: - Email Composer
+extension MDeleteAccountViewController: MFMailComposeViewControllerDelegate {
+    private func sendEmail() {
+        let subject = Localize.delete_account()
+        let body = Localize.please_delete_account(email)
+        
+        
+        if MFMailComposeViewController.canSendMail() {
+            let mail = MFMailComposeViewController()
+            mail.mailComposeDelegate = self
+            mail.setToRecipients([emailSupport])
+            mail.setSubject(subject)
+            mail.setMessageBody(body, isHTML: false)
+            
+            present(mail, animated: true)
+            
+            
+        } else if let emailUrl = createEmailUrl(to: emailSupport, subject: subject, body: body) {
+            UIApplication.shared.open(emailUrl)
+        }
+    }
+    
+    private func createEmailUrl(to: String, subject: String, body: String) -> URL? {
+        let subjectEncoded = subject.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+        let bodyEncoded = body.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+        
+        let gmailUrl = URL(string: "googlegmail://co?to=\(to)&subject=\(subjectEncoded)&body=\(bodyEncoded)")
+        let outlookUrl = URL(string: "ms-outlook://compose?to=\(to)&subject=\(subjectEncoded)")
+        let yahooMail = URL(string: "ymail://mail/compose?to=\(to)&subject=\(subjectEncoded)&body=\(bodyEncoded)")
+        let sparkUrl = URL(string: "readdle-spark://compose?recipient=\(to)&subject=\(subjectEncoded)&body=\(bodyEncoded)")
+        let defaultUrl = URL(string: "mailto:\(to)?subject=\(subjectEncoded)&body=\(bodyEncoded)")
+        
+        if let gmailUrl = gmailUrl, UIApplication.shared.canOpenURL(gmailUrl) {
+            return gmailUrl
+        } else if let outlookUrl = outlookUrl, UIApplication.shared.canOpenURL(outlookUrl) {
+            return outlookUrl
+        } else if let yahooMail = yahooMail, UIApplication.shared.canOpenURL(yahooMail) {
+            return yahooMail
+        } else if let sparkUrl = sparkUrl, UIApplication.shared.canOpenURL(sparkUrl) {
+            return sparkUrl
+        }
+        
+        return defaultUrl
+    }
+    
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true)
     }
 }

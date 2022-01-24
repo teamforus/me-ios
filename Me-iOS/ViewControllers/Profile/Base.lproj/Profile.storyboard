@@ -353,7 +353,7 @@
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nBJ-OX-QRF">
                                                         <rect key="frame" x="0.0" y="0.0" width="355" height="56"/>
                                                         <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain"/>
+                                                        <buttonConfiguration key="configuration" style="plain" title=" "/>
                                                         <connections>
                                                             <action selector="didOpenDeleteAccount:" destination="eu3-EV-5Ar" eventType="touchUpInside" id="Etx-el-gVx"/>
                                                         </connections>

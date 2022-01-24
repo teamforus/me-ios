@@ -13,6 +13,10 @@ var Localize: R.string.localizable.Type {
     return R.string.localizable.self
 }
 
+var emailSupport: String {
+    return "support@forus.io"
+}
+
 extension String {
     
     func substringLeftPart() -> String{
