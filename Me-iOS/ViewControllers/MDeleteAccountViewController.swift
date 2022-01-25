@@ -92,8 +92,8 @@ class MDeleteAccountViewController: UIViewController {
             self.view.backgroundColor = UIColor(named: "Background_DarkTheme")
         } else {}
         
-        let mainString = String(format: Localize.description_delete(emailSupport))
-        let range = (mainString as NSString).range(of: emailSupport)
+        let mainString = String(format: Localize.description_delete(emailPrivacy))
+        let range = (mainString as NSString).range(of: emailPrivacy)
         
         let attributedString = NSMutableAttributedString(string:mainString)
         attributedString.addAttribute(NSAttributedString.Key.foregroundColor, value: #colorLiteral(red: 0.2078431373, green: 0.3921568627, blue: 0.9764705882, alpha: 1) , range: range)
@@ -242,14 +242,14 @@ extension MDeleteAccountViewController: MFMailComposeViewControllerDelegate {
         if MFMailComposeViewController.canSendMail() {
             let mail = MFMailComposeViewController()
             mail.mailComposeDelegate = self
-            mail.setToRecipients([emailSupport])
+            mail.setToRecipients([emailPrivacy])
             mail.setSubject(subject)
             mail.setMessageBody(body, isHTML: false)
             
             present(mail, animated: true)
             
             
-        } else if let emailUrl = createEmailUrl(to: emailSupport, subject: subject, body: body) {
+        } else if let emailUrl = createEmailUrl(to: emailPrivacy, subject: subject, body: Localize.please_delete_account_gmail_version(email)) {
             UIApplication.shared.open(emailUrl)
         }
     }

@@ -2877,7 +2877,7 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
 
-    /// This `R.string.localizable` struct is generated, and contains static references to 183 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 184 localization keys.
     struct localizable {
       /// en translation: %@ Don't Available
       ///
@@ -3295,10 +3295,14 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en, nl
       static let please_confirm_the_transaction = Rswift.StringResource(key: "please_confirm_the_transaction", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
-      /// en translation: Please delete my account: %@<br/><br/>Reason (optional):
+      /// en translation: Please delete my account: %@  Reason (optional):
       ///
       /// Locales: en, nl
       static let please_delete_account = Rswift.StringResource(key: "please_delete_account", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
+      /// en translation: Please delete my account: %@<br/><br/>Reason (optional):
+      ///
+      /// Locales: en, nl
+      static let please_delete_account_gmail_version = Rswift.StringResource(key: "please_delete_account_gmail_version", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
       /// en translation: Please enter the amount
       ///
       /// Locales: en, nl
@@ -5188,7 +5192,7 @@ struct R: Rswift.Validatable {
         return String(format: format, locale: locale, value1)
       }
 
-      /// en translation: Please delete my account: %@<br/><br/>Reason (optional):
+      /// en translation: Please delete my account: %@  Reason (optional):
       ///
       /// Locales: en, nl
       static func please_delete_account(_ value1: String, preferredLanguages: [String]? = nil) -> String {
@@ -5202,6 +5206,23 @@ struct R: Rswift.Validatable {
         }
 
         let format = NSLocalizedString("please_delete_account", bundle: bundle, comment: "")
+        return String(format: format, locale: locale, value1)
+      }
+
+      /// en translation: Please delete my account: %@<br/><br/>Reason (optional):
+      ///
+      /// Locales: en, nl
+      static func please_delete_account_gmail_version(_ value1: String, preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          let format = NSLocalizedString("please_delete_account_gmail_version", bundle: hostingBundle, comment: "")
+          return String(format: format, locale: applicationLocale, value1)
+        }
+
+        guard let (locale, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "please_delete_account_gmail_version"
+        }
+
+        let format = NSLocalizedString("please_delete_account_gmail_version", bundle: bundle, comment: "")
         return String(format: format, locale: locale, value1)
       }
 
@@ -7745,7 +7766,7 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
 
-    /// This `R.string.profile` struct is generated, and contains static references to 18 localization keys.
+    /// This `R.string.profile` struct is generated, and contains static references to 19 localization keys.
     struct profile {
       /// en translation: 1.0.4
       ///
@@ -7771,6 +7792,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en, nl
       static let g7d5ZMNyText = Rswift.StringResource(key: "G7d-5Z-MNy.text", tableName: "Profile", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
+      /// en translation: Delete account
+      ///
+      /// Locales: en, nl
+      static let lAsPkAText = Rswift.StringResource(key: "89l-As-PkA.text", tableName: "Profile", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
       /// en translation: Edit
       ///
       /// Locales: en, nl
@@ -7908,6 +7933,21 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("G7d-5Z-MNy.text", tableName: "Profile", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Delete account
+      ///
+      /// Locales: en, nl
+      static func lAsPkAText(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("89l-As-PkA.text", tableName: "Profile", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Profile", preferredLanguages: preferredLanguages) else {
+          return "89l-As-PkA.text"
+        }
+
+        return NSLocalizedString("89l-As-PkA.text", tableName: "Profile", bundle: bundle, comment: "")
       }
 
       /// en translation: Edit

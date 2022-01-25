@@ -17,6 +17,10 @@ var emailSupport: String {
     return "support@forus.io"
 }
 
+var emailPrivacy: String {
+    return "privacy@forus.io"
+}
+
 extension String {
     
     func substringLeftPart() -> String{
