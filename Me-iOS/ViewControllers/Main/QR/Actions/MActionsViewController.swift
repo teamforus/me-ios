@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RESegmentedControl
 
 class MActionsViewController: UIViewController {
     
@@ -80,13 +81,6 @@ class MActionsViewController: UIViewController {
         return view
     }()
     
-    private let chooseActionLabel: UILabel_DarkMode = {
-        let label = UILabel_DarkMode(frame: .zero)
-        label.text = "Kies een actie"
-        label.font = UIFont(name: "GoogleSans-Medium", size: 24)
-        return label
-    }()
-    
     private let tableView: UITableView = {
         let tableView = UITableView(frame: .zero)
         tableView.backgroundColor = .clear
@@ -119,6 +113,17 @@ class MActionsViewController: UIViewController {
         return imageView
     }()
     
+    let segmentView: Background_DarkMode = {
+        let view = Background_DarkMode(frame: .zero)
+        view.colorName = "WhiteBackground_DarkTheme"
+        return view
+    }()
+    
+    let segmentedControl: RESegmentedControl = {
+        let control = RESegmentedControl(frame: .zero)
+        return control
+    }()
+    
     
     
     override func viewDidLoad() {
@@ -148,12 +153,33 @@ class MActionsViewController: UIViewController {
     }
     
     private func setupView() {
+
+        
         setVoucher()
         self.organizationView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(openOrganization)))
         self.organizationNameLabel.text = voucher?.allowed_organizations?.first?.name ?? ""
         organization = voucher?.allowed_organizations?.first
-        
+        setupSegmentControll()
         setupVoucherImageView()
+    }
+    
+    private func setupSegmentControll() {
+        let segmentItems = [SegmentModel(title: "Reserveringen", imageName: "reservation_icon"), SegmentModel(title: "Aanbod", imageName: "offer_icon")]
+        
+        var color = UIColor.white
+        
+        if #available(iOS 11.0, *) {
+            color = UIColor(named: "WhiteBackground_DarkTheme") ?? .white
+        } else {
+            
+        }
+        
+        var preset = MaterialPreset(backgroundColor: color, tintColor: #colorLiteral(red: 0.1918309331, green: 0.3696506619, blue: 0.9919955134, alpha: 1))
+        preset.segmentItemStyle.textColor = #colorLiteral(red: 0.3331416845, green: 0.3331416845, blue: 0.3331416845, alpha: 1)
+        preset.segmentSelectedItemStyle.size = .height(2, position: .bottom)
+        preset.imageRenderMode = .alwaysTemplate
+        preset.tintColor = #colorLiteral(red: 0.3331416845, green: 0.3331416845, blue: 0.3331416845, alpha: 1)
+        segmentedControl.configure(segmentItems: segmentItems, preset: preset)
     }
     
     private func setupVoucherImageView() {
@@ -222,7 +248,7 @@ extension MActionsViewController: UITableViewDelegate, UITableViewDataSource {
 extension MActionsViewController {
     // MARK: - Add Subviews
     private func addSubviews() {
-        let views = [bodyView, headerView, chooseActionLabel, organizationView, tableView]
+        let views = [bodyView, headerView, organizationView, tableView, segmentView, segmentedControl]
         views.forEach { (view) in
             view.translatesAutoresizingMaskIntoConstraints = false
             self.view.addSubview(view)
@@ -276,19 +302,28 @@ extension MActionsViewController {
         ])
         
         NSLayoutConstraint.activate([
-            chooseActionLabel.topAnchor.constraint(equalTo: organizationView.bottomAnchor, constant: 29),
-            chooseActionLabel.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 20),
-        ])
-        
-        NSLayoutConstraint.activate([
             organizationView.topAnchor.constraint(equalTo: headerView.bottomAnchor, constant: 0),
             organizationView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 0),
             organizationView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: 0),
-            organizationView.heightAnchor.constraint(equalToConstant: 60)
+            organizationView.heightAnchor.constraint(equalToConstant: 62)
         ])
         
         NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: chooseActionLabel.bottomAnchor, constant: 10),
+            segmentView.topAnchor.constraint(equalTo: organizationView.bottomAnchor, constant: 1),
+            segmentView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+            segmentView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
+            segmentView.heightAnchor.constraint(equalToConstant: 44)
+        ])
+        
+        NSLayoutConstraint.activate([
+            segmentedControl.topAnchor.constraint(equalTo: organizationView.bottomAnchor, constant: 1),
+            segmentedControl.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 16),
+            segmentedControl.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16),
+            segmentedControl.heightAnchor.constraint(equalToConstant: 44)
+        ])
+        
+        NSLayoutConstraint.activate([
+            tableView.topAnchor.constraint(equalTo: segmentedControl.bottomAnchor, constant: 1),
             tableView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
             tableView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)

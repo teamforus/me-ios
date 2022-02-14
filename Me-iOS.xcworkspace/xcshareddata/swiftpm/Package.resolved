@@ -11,6 +11,15 @@
         }
       },
       {
+        "package": "RESegmentedControl",
+        "repositoryURL": "https://github.com/sh-khashimov/RESegmentedControl",
+        "state": {
+          "branch": null,
+          "revision": "09d8cbd0da906c06d30fb057ab9902dc9d0e26b9",
+          "version": "0.5.1"
+        }
+      },
+      {
         "package": "swift_qrcodejs",
         "repositoryURL": "https://github.com/ApolloZhu/swift_qrcodejs.git",
         "state": {

@@ -185,6 +185,7 @@
 		B495E4B29728BF7D78DE52CD /* Pods_Me_iOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35446A3006593197F8282C71 /* Pods_Me_iOSTests.framework */; };
 		FF0DACBE246AD0A80034E3E4 /* OrganizationValidatorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF3B141A243722EE003FDDD9 /* OrganizationValidatorViewController.xib */; };
 		FF401B4D27BA55B500B75CE1 /* EFQRCode in Frameworks */ = {isa = PBXBuildFile; productRef = FF401B4C27BA55B500B75CE1 /* EFQRCode */; };
+		FF401B5027BA601600B75CE1 /* RESegmentedControl in Frameworks */ = {isa = PBXBuildFile; productRef = FF401B4F27BA601600B75CE1 /* RESegmentedControl */; };
 		FF45B3B224D9DC7C00D258E1 /* Extension+UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45B3B124D9DC7C00D258E1 /* Extension+UITextField.swift */; };
 		FF48062924632AA70055E346 /* RecordsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF48062824632AA70055E346 /* RecordsTableViewCell.swift */; };
 		FF53516924EA86C300A95287 /* Extension+UIWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF53516824EA86C300A95287 /* Extension+UIWindow.swift */; };
@@ -558,6 +559,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				83E86DFF95320AD4070E9058 /* Pods_Me_iOS.framework in Frameworks */,
+				FF401B5027BA601600B75CE1 /* RESegmentedControl in Frameworks */,
 				FF401B4D27BA55B500B75CE1 /* EFQRCode in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1655,6 +1657,7 @@
 			name = "Me-iOS";
 			packageProductDependencies = (
 				FF401B4C27BA55B500B75CE1 /* EFQRCode */,
+				FF401B4F27BA601600B75CE1 /* RESegmentedControl */,
 			);
 			productName = "Me-iOS";
 			productReference = 65139C0222802545003E0CDE /* Me-iOS.app */;
@@ -1741,6 +1744,7 @@
 			mainGroup = 65139BF922802545003E0CDE;
 			packageReferences = (
 				FF401B4B27BA55B500B75CE1 /* XCRemoteSwiftPackageReference "EFQRCode" */,
+				FF401B4E27BA601600B75CE1 /* XCRemoteSwiftPackageReference "RESegmentedControl" */,
 			);
 			productRefGroup = 65139C0322802545003E0CDE /* Products */;
 			projectDirPath = "";
@@ -2987,6 +2991,14 @@
 				minimumVersion = 6.0.0;
 			};
 		};
+		FF401B4E27BA601600B75CE1 /* XCRemoteSwiftPackageReference "RESegmentedControl" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sh-khashimov/RESegmentedControl";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.5.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -2994,6 +3006,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = FF401B4B27BA55B500B75CE1 /* XCRemoteSwiftPackageReference "EFQRCode" */;
 			productName = EFQRCode;
+		};
+		FF401B4F27BA601600B75CE1 /* RESegmentedControl */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FF401B4E27BA601600B75CE1 /* XCRemoteSwiftPackageReference "RESegmentedControl" */;
+			productName = RESegmentedControl;
 		};
 /* End XCSwiftPackageProductDependency section */
 

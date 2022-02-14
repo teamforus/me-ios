@@ -39,9 +39,7 @@ class BottomQrWithPinViewController: UIViewController {
             UIView.animate(withDuration: 0.3) {
                 self.view.layoutIfNeeded()
             }
-        }
-        
-        
+        } 
     }
     
     override func viewWillAppear(_ animated: Bool) {
