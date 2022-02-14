@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -184,6 +184,7 @@
 		83E86DFF95320AD4070E9058 /* Pods_Me_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18527B1756CFC611642105AF /* Pods_Me_iOS.framework */; };
 		B495E4B29728BF7D78DE52CD /* Pods_Me_iOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35446A3006593197F8282C71 /* Pods_Me_iOSTests.framework */; };
 		FF0DACBE246AD0A80034E3E4 /* OrganizationValidatorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF3B141A243722EE003FDDD9 /* OrganizationValidatorViewController.xib */; };
+		FF401B4D27BA55B500B75CE1 /* EFQRCode in Frameworks */ = {isa = PBXBuildFile; productRef = FF401B4C27BA55B500B75CE1 /* EFQRCode */; };
 		FF45B3B224D9DC7C00D258E1 /* Extension+UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45B3B124D9DC7C00D258E1 /* Extension+UITextField.swift */; };
 		FF48062924632AA70055E346 /* RecordsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF48062824632AA70055E346 /* RecordsTableViewCell.swift */; };
 		FF53516924EA86C300A95287 /* Extension+UIWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF53516824EA86C300A95287 /* Extension+UIWindow.swift */; };
@@ -557,6 +558,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				83E86DFF95320AD4070E9058 /* Pods_Me_iOS.framework in Frameworks */,
+				FF401B4D27BA55B500B75CE1 /* EFQRCode in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1651,6 +1653,9 @@
 			dependencies = (
 			);
 			name = "Me-iOS";
+			packageProductDependencies = (
+				FF401B4C27BA55B500B75CE1 /* EFQRCode */,
+			);
 			productName = "Me-iOS";
 			productReference = 65139C0222802545003E0CDE /* Me-iOS.app */;
 			productType = "com.apple.product-type.application";
@@ -1734,6 +1739,9 @@
 				nl,
 			);
 			mainGroup = 65139BF922802545003E0CDE;
+			packageReferences = (
+				FF401B4B27BA55B500B75CE1 /* XCRemoteSwiftPackageReference "EFQRCode" */,
+			);
 			productRefGroup = 65139C0322802545003E0CDE /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -2969,6 +2977,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		FF401B4B27BA55B500B75CE1 /* XCRemoteSwiftPackageReference "EFQRCode" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/EFPrefix/EFQRCode.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		FF401B4C27BA55B500B75CE1 /* EFQRCode */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FF401B4B27BA55B500B75CE1 /* XCRemoteSwiftPackageReference "EFQRCode" */;
+			productName = EFQRCode;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		65139C0C22802545003E0CDE /* MeApp.xcdatamodeld */ = {

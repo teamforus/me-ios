@@ -87,12 +87,13 @@ class BottomQrWithPinViewController: UIViewController {
         }
         
         bottomQRViewModel.completeToken = { [weak self] (token, accessToken) in
+            guard let self = self else {return}
             
             DispatchQueue.main.async {
                 
-                self?.qrCode.generateQRCode(from: "{ \"type\": \"auth_token\",\"value\": \"\(token)\", \"imgUrl\" : \"https://media.forus.io/assets/me-logo.png\"}")
-                self?.timerQR = Timer.scheduledTimer(timeInterval: 7, target: self!, selector: #selector(self?.didCheckAuthorize), userInfo: nil, repeats: true)
-                self?.tokenQr = accessToken
+                self.qrCode.generateQRCode(from: "{ \"type\": \"auth_token\",\"value\": \"\(token)\", \"imgUrl\" : \"https://media.forus.io/assets/me-logo.png\"}")
+                self.timerQR = Timer.scheduledTimer(timeInterval: 7, target: self, selector: #selector(self.didCheckAuthorize), userInfo: nil, repeats: true)
+                self.tokenQr = accessToken
                 
             }
         }

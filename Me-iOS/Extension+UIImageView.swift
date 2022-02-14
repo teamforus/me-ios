@@ -7,21 +7,17 @@
 //
 
 import UIKit
+import EFQRCode
 
 extension UIImageView{
     func generateQRCode(from string: String)  {
-        let data = string.data(using: String.Encoding.ascii)
-        
-        if let filter = CIFilter(name: "CIQRCodeGenerator") {
-            filter.setValue(data, forKey: "inputMessage")
-            let transform = CGAffineTransform(scaleX: 10, y: 10)
-            
-            if let output = filter.outputImage?.transformed(by: transform) {
-                self.image =  UIImage(ciImage: output)
-                
-            }
+        if let image = EFQRCode.generate(
+            for: string,
+               watermark: UIImage(named: "me-logo")?.cgImage
+        ) {
+            self.image = UIImage(cgImage: image)
+        } else {
+            print("Create QRCode image failed!")
         }
-        
-        
     }
 }

@@ -124,8 +124,7 @@ extension MTransactionsViewController {
         dateButton.setTitle(Localize.choose_from_date(), for: .normal)
         if #available(iOS 11.0, *) {
             self.view.backgroundColor = UIColor(named: "Background_DarkTheme")
-        } else {
-        }
+        } else {}
     }
     
     func addSubviews() {
