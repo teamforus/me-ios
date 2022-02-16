@@ -1,14 +1,14 @@
 //
-//  ActionViewModel.swift
+//  ProdcutVouchersViewModel.swift
 //  Me-iOS
 //
-//  Created by Tcacenco Daniel on 04.09.20.
-//  Copyright © 2020 Tcacenco Daniel. All rights reserved.
+//  Created by Tcacenco Daniel on 16.02.22.
+//  Copyright © 2022 Tcacenco Daniel. All rights reserved.
 //
 
 import Foundation
 
-class ActionViewModel {
+class ProdcutVouchersViewModel {
     var commonService: CommonServiceProtocol!
     var lastPage: Int?
     var currentPage: Int?
@@ -18,17 +18,17 @@ class ActionViewModel {
         self.commonService = commonService
     }
     
-    private var cellViewModels: [Subsidie] = [Subsidie]() {
+    private var cellViewModels: [Voucher] = [Voucher]() {
         didSet {
             complete?(cellViewModels)
         }
     }
     
-    var complete: (([Subsidie])->())?
+    var complete: (([Voucher])->())?
     
     func fetchSubsidies(voucherAddress: String, organizationId: String) {
-        let request = "platform/provider/vouchers/" + voucherAddress + "/products?organization_id=\(organizationId)"
-        commonService.get(request: request, complete: { (response: ResponseDataArray<Subsidie>, statusCode) in
+        let request = "platform/provider/vouchers/" + voucherAddress + "/product-vouchers?organization_id=\(organizationId)"
+        commonService.get(request: request, complete: { (response: ResponseDataArray<Voucher>, statusCode) in
             self.processFetchedLunche(subsidies: response.data ?? [])
             self.lastPage = response.meta?.last_page ?? 0
             self.currentPage = response.meta?.current_page ?? 0
@@ -42,17 +42,17 @@ class ActionViewModel {
         return cellViewModels.count
     }
     
-    func getCellViewModel( at indexPath: IndexPath ) -> Subsidie {
+    func getCellViewModel( at indexPath: IndexPath ) -> Voucher {
         return cellViewModels[indexPath.row]
     }
     
-    func createCellViewModel( subsidie: Subsidie ) -> Subsidie {
+    func createCellViewModel( subsidie: Voucher ) -> Voucher {
         
         return subsidie
     }
     
-    private func processFetchedLunche( subsidies: [Subsidie] ) {
-        var vms = [Subsidie]()
+    private func processFetchedLunche( subsidies: [Voucher] ) {
+        var vms = [Voucher]()
         for subsidie in subsidies {
             vms.append( createCellViewModel(subsidie: subsidie))
         }

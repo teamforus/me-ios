@@ -9,12 +9,23 @@
 import UIKit
 import RESegmentedControl
 
+enum SubsidyType {
+    case reservation, offers
+}
+
 class MActionsViewController: UIViewController {
     
     var voucher: Voucher?
     private lazy var viewModel: ActionViewModel = {
         return ActionViewModel()
     }()
+    
+    private lazy var viewModelVouchers: ProdcutVouchersViewModel = {
+        return ProdcutVouchersViewModel()
+    }()
+    
+    var subsidyType: SubsidyType = .reservation
+    
     var organization: AllowedOrganization?
     
     
@@ -65,6 +76,12 @@ class MActionsViewController: UIViewController {
     }()
     
     private let organizationVoucherLabel: UILabel_DarkMode = {
+        let label = UILabel_DarkMode(frame: .zero)
+        label.font = UIFont(name: "GoogleSans-Regular", size: 14)
+        return label
+    }()
+    
+    private let priceVoucherLabel: UILabel_DarkMode = {
         let label = UILabel_DarkMode(frame: .zero)
         label.font = UIFont(name: "GoogleSans-Regular", size: 14)
         return label
@@ -124,6 +141,22 @@ class MActionsViewController: UIViewController {
         return control
     }()
     
+    private let titleTableViewHeader: UILabel_DarkMode = {
+        let label = UILabel_DarkMode(frame: .zero)
+        label.font = UIFont(name: "GoogleSans-Regular", size: 14)
+        label.text = "Onderstaand aanbod is door de klant gereserveerd"
+        label.numberOfLines = 2
+        return label
+    }()
+    
+    private let payButton: ActionButton = {
+        let button = ActionButton(frame: .zero)
+        button.backgroundColor = #colorLiteral(red: 0.1918309331, green: 0.3696506619, blue: 0.9919955134, alpha: 1)
+        button.setTitle(Localize.complete_amount(), for: .normal)
+        button.titleLabel?.font = R.font.googleSansBold(size: 14)
+        button.rounded(cornerRadius: 6)
+        return button
+    }()
     
     
     override func viewDidLoad() {
@@ -148,19 +181,38 @@ class MActionsViewController: UIViewController {
         }
         
         fundNameLabel.text = voucher.fund?.name
+        if let price = voucher.amount {
+            self.priceVoucherLabel.text = "€ \(price.substringLeftPart()),\(price.substringRightPart())"
+        }
+        priceVoucherLabel.isHidden = voucher.fund?.type == FundType.subsidies.rawValue || voucher.product != nil
+        
+        
         organizationVoucherLabel.text = voucher.fund?.organization?.name ?? ""
         self.imageViewVoucher.loadImageUsingUrlString(urlString: voucher.fund?.organization?.logo?.sizes?.thumbnail ?? "", placeHolder: #imageLiteral(resourceName: "Resting"))
     }
     
     private func setupView() {
 
-        
         setVoucher()
         self.organizationView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(openOrganization)))
-        self.organizationNameLabel.text = voucher?.allowed_organizations?.first?.name ?? ""
+        self.organizationNameLabel.text = voucher?.allowed_product_organizations?.first?.name ?? ""
         organization = voucher?.allowed_organizations?.first
         setupSegmentControll()
         setupVoucherImageView()
+        
+        payButton.actionHandleBlock = { [weak self] (_) in
+            guard let self = self else { return }
+            
+            let paymentStoryboard = R.storyboard.payment()
+            if let payment = paymentStoryboard.instantiateViewController(withIdentifier: "content") as? MPaymentViewController {
+//                paymen.testToken = self.testToken
+                payment.voucher = self.voucher
+//                paymentVC.destination.tabBar = self.tabBarController
+                payment.modalPresentationStyle = .fullScreen
+                self.present(payment, animated: true)
+            }
+        }
+        
     }
     
     private func setupSegmentControll() {
@@ -180,6 +232,22 @@ class MActionsViewController: UIViewController {
         preset.imageRenderMode = .alwaysTemplate
         preset.tintColor = #colorLiteral(red: 0.3331416845, green: 0.3331416845, blue: 0.3331416845, alpha: 1)
         segmentedControl.configure(segmentItems: segmentItems, preset: preset)
+        
+        segmentedControl.addTarget(self, action: #selector(segmentedControlValueChanged(sender:)), for: .valueChanged)
+    }
+    
+    @objc func segmentedControlValueChanged(sender: RESegmentedControl) {
+        
+        switch sender.selectedSegmentIndex {
+        case 0:
+            subsidyType = .reservation
+            fetchActions()
+        case 1:
+            subsidyType = .offers
+            fetchActions()
+        default:
+            break
+        }
     }
     
     private func setupVoucherImageView() {
@@ -194,18 +262,26 @@ class MActionsViewController: UIViewController {
     }
     
     private func fetchActions() {
-        viewModel.fetchSubsidies(voucherAddress: voucher?.address ?? "")
+        KVSpinnerView.show()
+        viewModel.fetchSubsidies(voucherAddress: voucher?.address ?? "", organizationId: String(self.organization?.id ?? 0))
         
         viewModel.complete = { [weak self] (subsidies) in
             DispatchQueue.main.async {
-                if subsidies.count == 0 {
-                    self?.showSimpleAlertWithSingleAction(title: Localize.warning(), message: Localize.no_balance_for_actions(), okAction: UIAlertAction(title: Localize.ok(), style: .default, handler: { (_) in
-                         self?.dismiss(animated: true)
-                    }))
-                }
                 self?.tableView.reloadData()
+                KVSpinnerView.dismiss()
             }
         }
+        
+        viewModelVouchers.fetchSubsidies(voucherAddress: voucher?.address ?? "", organizationId: String(self.organization?.id ?? 0))
+        
+        viewModelVouchers.complete = { [weak self] (subsidies) in
+            DispatchQueue.main.async {
+                self?.tableView.reloadData()
+                KVSpinnerView.dismiss()
+            }
+        }
+        
+        
     }
 }
 
@@ -216,27 +292,55 @@ extension MActionsViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.numberOfCells
+        
+        switch subsidyType {
+        case .reservation:
+            return viewModelVouchers.numberOfCells
+            
+        case .offers:
+            return viewModel.numberOfCells
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: ActionTableViewCell.identifier, for: indexPath) as? ActionTableViewCell else {
             return UITableViewCell()
         }
-        let subsidie = viewModel.getCellViewModel(at: indexPath)
-        cell.setupActions(subsidie: subsidie)
-        
-        if viewModel.numberOfCells - 1 == indexPath.row {
-            if viewModel.lastPage != viewModel.currentPage {
-                self.fetchActions()
-            }
+        switch subsidyType {
+        case .reservation:
+            let voucher = viewModelVouchers.getCellViewModel(at: indexPath)
+            cell.setupActions(voucher: voucher)
+            
+//            if viewModelVouchers.numberOfCells - 1 == indexPath.row {
+//                if viewModelVouchers.lastPage != viewModelVouchers.currentPage {
+//                    self.fetchActions()
+//                }
+//            }
+            
+        case .offers:
+            let subsidie = viewModel.getCellViewModel(at: indexPath)
+            cell.setupActions(subsidie: subsidie)
+            
+//            if viewModel.numberOfCells - 1 == indexPath.row {
+//                if viewModel.lastPage != viewModel.currentPage {
+//                    self.fetchActions()
+//                }
+//            }
         }
+        
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let subsidie = viewModel.getCellViewModel(at: indexPath)
-        openSubsidiePayment(subsidie: subsidie, organization: organization)
+        switch subsidyType {
+        case .reservation:
+            
+        case .offers:
+            let subsidie = viewModel.getCellViewModel(at: indexPath)
+            openSubsidiePayment(subsidie: subsidie, organization: organization)
+        }
+        
+        
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -248,7 +352,7 @@ extension MActionsViewController: UITableViewDelegate, UITableViewDataSource {
 extension MActionsViewController {
     // MARK: - Add Subviews
     private func addSubviews() {
-        let views = [bodyView, headerView, organizationView, tableView, segmentView, segmentedControl]
+        let views = [bodyView, headerView, organizationView, tableView, segmentView, segmentedControl, titleTableViewHeader, payButton]
         views.forEach { (view) in
             view.translatesAutoresizingMaskIntoConstraints = false
             self.view.addSubview(view)
@@ -268,7 +372,7 @@ extension MActionsViewController {
     }
     
     private func addBodyvoucherViewSubviews() {
-        let views = [voucherImageView, fundNameLabel, organizationVoucherLabel, imageViewVoucher, lineView]
+        let views = [voucherImageView, fundNameLabel, organizationVoucherLabel, priceVoucherLabel, imageViewVoucher, lineView]
         views.forEach { (view) in
             view.translatesAutoresizingMaskIntoConstraints = false
             self.bodyvoucherView.addSubview(view)
@@ -322,12 +426,38 @@ extension MActionsViewController {
             segmentedControl.heightAnchor.constraint(equalToConstant: 44)
         ])
         
+        
         NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: segmentedControl.bottomAnchor, constant: 1),
+            titleTableViewHeader.topAnchor.constraint(equalTo: segmentedControl.bottomAnchor, constant: 20),
+            titleTableViewHeader.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 21),
+            titleTableViewHeader.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -21),
+        ])
+        
+        NSLayoutConstraint.activate([
+            tableView.topAnchor.constraint(equalTo: titleTableViewHeader.bottomAnchor, constant: 10),
             tableView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
-            tableView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
         ])
+        
+        if #available(iOS 11.0, *) {
+            NSLayoutConstraint.activate([
+                payButton.topAnchor.constraint(equalTo: tableView.bottomAnchor, constant: 12),
+                payButton.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 10),
+                payButton.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -10),
+                payButton.heightAnchor.constraint(equalToConstant: voucher?.fund?.type == FundType.subsidies.rawValue || voucher?.product != nil ? 0 : 46),
+                payButton.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: -20)
+            ])
+        } else {
+            NSLayoutConstraint.activate([
+                payButton.topAnchor.constraint(equalTo: tableView.bottomAnchor, constant: 12),
+                payButton.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 10),
+                payButton.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -10),
+                payButton.heightAnchor.constraint(equalToConstant: voucher?.fund?.type == FundType.subsidies.rawValue || voucher?.product != nil ? 0 : 46),
+                payButton.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -20)
+            ])
+        }
+        
+        
         
         addHeaderdConstraints()
         addBodyvoucherViewConstraints()
@@ -377,6 +507,12 @@ extension MActionsViewController {
         ])
         
         NSLayoutConstraint.activate([
+            priceVoucherLabel.topAnchor.constraint(equalTo: organizationVoucherLabel.bottomAnchor, constant: 4),
+            priceVoucherLabel.leadingAnchor.constraint(equalTo: bodyvoucherView.leadingAnchor, constant: 32),
+            priceVoucherLabel.trailingAnchor.constraint(equalTo: imageViewVoucher.leadingAnchor, constant: -10)
+        ])
+        
+        NSLayoutConstraint.activate([
             imageViewVoucher.heightAnchor.constraint(equalToConstant: 70),
             imageViewVoucher.widthAnchor.constraint(equalToConstant: 70),
             imageViewVoucher.trailingAnchor.constraint(equalTo: bodyvoucherView.trailingAnchor, constant: -28),
@@ -420,6 +556,7 @@ extension MActionsViewController: OrganizationValidatorViewControllerDelegate {
     func selectOrganizationVoucher(organization: AllowedOrganization, vc: UIViewController) {
         self.organization = organization
         organizationNameLabel.text = organization.name ?? ""
+        fetchActions()
     }
     
     func close() {
@@ -436,7 +573,7 @@ extension MActionsViewController {
     @objc private func openOrganization() {
         let popOverVC = OrganizationValidatorViewController(nibName: "OrganizationValidatorViewController", bundle: nil)
         popOverVC.organizationType = .subsidieOrganization
-        popOverVC.allowedOrganization = voucher?.allowed_organizations ?? []
+        popOverVC.allowedOrganization = voucher?.allowed_product_organizations ?? []
         popOverVC.delegate = self
         self.addChild(popOverVC)
         popOverVC.view.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height)

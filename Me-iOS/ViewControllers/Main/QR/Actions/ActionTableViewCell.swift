@@ -59,6 +59,12 @@ class ActionTableViewCell: UITableViewCell {
     self.priceLabel.text = subsidie.price_user_locale ?? ""
     self.subsidieImageView.loadImageUsingUrlString(urlString:subsidie.photo?.sizes?.thumbnail ?? "", placeHolder: #imageLiteral(resourceName: "Resting"))
   }
+    
+    func setupActions(voucher: Voucher) {
+      self.subsidieNameLabel.text = voucher.fund?.name ?? ""
+      self.priceLabel.text = voucher.amount ?? ""
+        self.subsidieImageView.loadImageUsingUrlString(urlString: voucher.fund?.logo?.sizes?.thumbnail ?? "", placeHolder: #imageLiteral(resourceName: "Resting"))
+    }
 }
 
 // MARK: - Add Subviews

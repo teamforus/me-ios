@@ -119,7 +119,7 @@ class MQRViewController: HSScanViewController {
                     if statusCode != 403 {
                         self?.voucher = voucher
                         
-                        if voucher.fund?.type != FundType.subsidies.rawValue {
+                        if voucher.allowed_product_organizations?.count == 0 {
                             
                             if voucher.allowed_organizations?.count != 0 && voucher.allowed_organizations?.count  != nil {
                                 

@@ -18,6 +18,7 @@ struct Voucher: Decodable {
     var fund: Fund?
     var transactions: [Transaction]?
     var allowed_organizations: [AllowedOrganization]?
+    var allowed_product_organizations: [AllowedOrganization]?
     var allowed_product_categories: [AllowedCategory]?
     var allowed_products: [AllowedProduct]?
     var product: Product?
