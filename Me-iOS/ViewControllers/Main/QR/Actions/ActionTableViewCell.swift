@@ -61,9 +61,9 @@ class ActionTableViewCell: UITableViewCell {
   }
     
     func setupActions(voucher: Voucher) {
-      self.subsidieNameLabel.text = voucher.fund?.name ?? ""
-      self.priceLabel.text = voucher.amount ?? ""
-        self.subsidieImageView.loadImageUsingUrlString(urlString: voucher.fund?.logo?.sizes?.thumbnail ?? "", placeHolder: #imageLiteral(resourceName: "Resting"))
+        self.subsidieNameLabel.text = voucher.product?.name ?? ""
+        self.priceLabel.text = voucher.product?.price ?? ""
+        self.subsidieImageView.loadImageUsingUrlString(urlString: voucher.product?.photo?.sizes?.thumbnail ?? "", placeHolder: #imageLiteral(resourceName: "Resting"))
     }
 }
 

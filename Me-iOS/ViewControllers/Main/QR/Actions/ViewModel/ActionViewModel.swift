@@ -56,8 +56,6 @@ class ActionViewModel {
         for subsidie in subsidies {
             vms.append( createCellViewModel(subsidie: subsidie))
         }
-        vms.forEach { (subsidie) in
-            self.cellViewModels.append(subsidie)
-        }
+        self.cellViewModels = vms
     }
 }
