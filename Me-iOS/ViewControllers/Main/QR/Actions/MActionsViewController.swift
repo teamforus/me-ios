@@ -334,6 +334,15 @@ extension MActionsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch subsidyType {
         case .reservation:
+            let voucher = viewModelVouchers.getCellViewModel(at: indexPath)
+            let paymentStoryboard = R.storyboard.payment()
+            if let payment = paymentStoryboard.instantiateViewController(withIdentifier: "content") as? MPaymentViewController {
+//                paymen.testToken = self.testToken
+                payment.voucher = voucher
+//                paymentVC.destination.tabBar = self.tabBarController
+                payment.modalPresentationStyle = .fullScreen
+                self.present(payment, animated: true)
+            }
             
         case .offers:
             let subsidie = viewModel.getCellViewModel(at: indexPath)
