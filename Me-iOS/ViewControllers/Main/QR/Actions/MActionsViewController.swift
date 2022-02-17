@@ -195,7 +195,7 @@ class MActionsViewController: UIViewController {
 
         setVoucher()
         self.organizationView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(openOrganization)))
-        self.organizationNameLabel.text = voucher?.allowed_product_organizations?.first?.name ?? ""
+        self.organizationNameLabel.text = voucher?.allowed_organizations?.first?.name ?? ""
         organization = voucher?.allowed_organizations?.first
         setupSegmentControll()
         setupVoucherImageView()
@@ -582,7 +582,7 @@ extension MActionsViewController {
     @objc private func openOrganization() {
         let popOverVC = OrganizationValidatorViewController(nibName: "OrganizationValidatorViewController", bundle: nil)
         popOverVC.organizationType = .subsidieOrganization
-        popOverVC.allowedOrganization = voucher?.allowed_product_organizations ?? []
+        popOverVC.allowedOrganization = voucher?.allowed_organizations ?? []
         popOverVC.delegate = self
         self.addChild(popOverVC)
         popOverVC.view.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height)
