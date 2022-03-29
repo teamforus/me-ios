@@ -241,9 +241,11 @@ class MActionsViewController: UIViewController {
         switch sender.selectedSegmentIndex {
         case 0:
             subsidyType = .reservation
+            titleTableViewHeader.text = "Onderstaand aanbod is door de klant gereserveerd"
             fetchActions()
         case 1:
             subsidyType = .offers
+            titleTableViewHeader.text = "Aanbod van uw organisatie"
             fetchActions()
         default:
             break

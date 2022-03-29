@@ -56,13 +56,13 @@ class ActionTableViewCell: UITableViewCell {
   
   func setupActions(subsidie: Subsidie) {
     self.subsidieNameLabel.text = subsidie.name ?? ""
-    self.priceLabel.text = subsidie.price_user_locale ?? ""
+    self.priceLabel.text = "€ \(subsidie.price_user_locale ?? "")"
     self.subsidieImageView.loadImageUsingUrlString(urlString:subsidie.photo?.sizes?.thumbnail ?? "", placeHolder: #imageLiteral(resourceName: "Resting"))
   }
     
     func setupActions(voucher: Voucher) {
         self.subsidieNameLabel.text = voucher.product?.name ?? ""
-        self.priceLabel.text = voucher.product?.price ?? ""
+        self.priceLabel.text = "€ \(voucher.product?.price ?? "")"
         self.subsidieImageView.loadImageUsingUrlString(urlString: voucher.product?.photo?.sizes?.thumbnail ?? "", placeHolder: #imageLiteral(resourceName: "Resting"))
     }
 }
