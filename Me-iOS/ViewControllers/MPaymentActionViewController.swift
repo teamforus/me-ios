@@ -2,7 +2,7 @@
 //  MPaymentActionViewController.swift
 //  Me-iOS
 //
-//  Created by Inga Codreanu on 04.09.20.
+//  Created by Tcacenco Daniel on 04.09.20.
 //  Copyright © 2020 Tcacenco Daniel. All rights reserved.
 //
 
