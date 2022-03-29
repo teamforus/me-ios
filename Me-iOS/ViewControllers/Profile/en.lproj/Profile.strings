@@ -26,6 +26,9 @@
 /* Class = "UILabel"; text = "mail@mail.com"; ObjectID = "Rkq-EJ-VPa"; */
 "Rkq-EJ-VPa.text" = "mail@mail.com";
 
+/* Class = "UILabel"; text = "Delete account"; ObjectID = "89l-As-PkA"; */
+"89l-As-PkA.text" = "Delete account";
+
 /* Class = "UIButton"; normalTitle = "Edit"; ObjectID = "Sqg-eG-8rA"; */
 "Sqg-eG-8rA.normalTitle" = "Edit";
 
