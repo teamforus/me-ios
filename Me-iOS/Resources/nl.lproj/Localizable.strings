@@ -188,3 +188,10 @@
 "free" = "Gratis";
 "discount" = "Korting";
 "notes" = "Notities";
+"delete_account" = "Account verwijderen";
+"title_delete_description" = "Let op, je staat op het punt om je account permanent te verwijderen.";
+"description_delete" = "Je verliest hierdoor toegang tot je gegevens, tegoeden en transacties en kan tegoeden die je al hebt ontvangen niet opnieuw aanvragen. Neem als je vragen hebt contact op met %@";
+"delete_action" = "Verwijder";
+"delete_description_alert" = "Weet je zeker dat je je account wil verwijderen? Je verzoek wordt binnen de wettelijke termijn van 30 dagen verwerkt.";
+"please_delete_account" = "Ik wil graag per direct mijn account %@ laten verwijderen.\n\nReden (optioneel):";
+"please_delete_account_gmail_version" = "Ik wil graag per direct mijn account %@ laten verwijderen.<br/><br/>Reden (optioneel):";
