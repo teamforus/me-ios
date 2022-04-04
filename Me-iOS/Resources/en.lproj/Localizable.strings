@@ -195,3 +195,12 @@
 "delete_description_alert" = "Are you sure you want to delete your account? Your request will be processed within the legal term of 30 days.";
 "please_delete_account" = "Please delete my account: %@\n\nReason (optional):";
 "please_delete_account_gmail_version" = "Please delete my account: %@<br/><br/>Reason (optional):";
+"source_of_information" = "Manage your personal properties and share easily the information needed to qualify for a subsidy.\n\nThe source of information\n\nThe information has been added by an organisation where you have applied for a subsidy, or by an organisation that supports it. For example, by your municipality \n\nPrivacy\n\nAll information is stored carefully and is not used for commercial purposes. Find out more about the Privacy Policy of Foundation Forus";
+"source_information_title" = "The source of information";
+"priveleges_information" = "\nPrivileges\n\nThe information is stored under European privacy legislation. This gives you some rights like the right to:\n• Information\n• Inspect\n• Rectification\n• Oblivion\n• Data portability\n• Objection\n• Limitation of processing";
+"priveleges_title" = "Privileges";
+"feedback_text" = "\nIf you want to claim your rights or you have general questions or feedback please do reach our support\n";
+"read_privacy" = "\nRead all about your privacy rights with the Dutch Data Protection Authority\n";
+"send_mail_to" = "Send a mail to support@forus.io";
+"date_protection" = "Data protection authority";
+"privacy_policy" = "Privacy Policy";

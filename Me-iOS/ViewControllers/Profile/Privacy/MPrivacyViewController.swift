@@ -12,8 +12,8 @@ enum PrivacyType: Int, CaseIterable{
   case sourceOfInformation = 0
   case privacyPolicy = 1
   case privelege = 2
-  case requestYourData = 3
-  case requestToDelete = 4
+//  case requestYourData = 3
+//  case requestToDelete = 4
   case feedbackText = 5
   case sendEmail = 6
   case readAboutPrivacy = 7
@@ -71,6 +71,13 @@ class MPrivacyViewController: UIViewController {
     } else {
       self.view.backgroundColor = .white
     }
+      
+      let date = Date()
+      let dateFormater = DateFormatter()
+      
+      dateFormater.dateFormat = "yyyy"
+      
+      companyName.text = "Forus, \(dateFormater.string(from: date))"
     setupTableView()
     setupNavigationBar()
   }
@@ -120,7 +127,7 @@ func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> U
     guard let cell = tableView.dequeueReusableCell(withIdentifier: ButtonTableViewCell.identifier, for: indexPath) as? ButtonTableViewCell else {
       return UITableViewCell()
     }
-    cell.configureCellInfo(text: "Privacy Policy", by: section)
+      cell.configureCellInfo(text: Localize.privacy_policy(), by: section)
     return cell
   case .privelege:
     guard let cell = tableView.dequeueReusableCell(withIdentifier: TextTableViewCell.identifier, for: indexPath) as? TextTableViewCell else {
@@ -128,19 +135,19 @@ func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> U
     }
     cell.configureCellInfo(by: section)
     return cell
-  case .requestYourData:
-    guard let cell = tableView.dequeueReusableCell(withIdentifier: ButtonTableViewCell.identifier, for: indexPath) as? ButtonTableViewCell else {
-      return UITableViewCell()
-    }
-    cell.configureCellInfo(text: "Request your data by email", by: section)
-    
-    return cell
-  case .requestToDelete:
-    guard let cell = tableView.dequeueReusableCell(withIdentifier: ButtonTableViewCell.identifier, for: indexPath) as? ButtonTableViewCell else {
-      return UITableViewCell()
-    }
-    cell.configureCellInfo(text: "Request to delete your data", by: section)
-    return cell
+//  case .requestYourData:
+//    guard let cell = tableView.dequeueReusableCell(withIdentifier: ButtonTableViewCell.identifier, for: indexPath) as? ButtonTableViewCell else {
+//      return UITableViewCell()
+//    }
+//    cell.configureCellInfo(text: "Request your data by email", by: section)
+//
+//    return cell
+//  case .requestToDelete:
+//    guard let cell = tableView.dequeueReusableCell(withIdentifier: ButtonTableViewCell.identifier, for: indexPath) as? ButtonTableViewCell else {
+//      return UITableViewCell()
+//    }
+//    cell.configureCellInfo(text: "Request to delete your data", by: section)
+//    return cell
   case .feedbackText:
     guard let cell = tableView.dequeueReusableCell(withIdentifier: TextTableViewCell.identifier, for: indexPath) as? TextTableViewCell else {
       return UITableViewCell()
@@ -152,7 +159,7 @@ func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> U
     guard let cell = tableView.dequeueReusableCell(withIdentifier: ButtonTableViewCell.identifier, for: indexPath) as? ButtonTableViewCell else {
       return UITableViewCell()
     }
-    cell.configureCellInfo(text: "Send a mail to support@forus.io", by: section)
+      cell.configureCellInfo(text: Localize.send_mail_to(), by: section)
     return cell
   case .readAboutPrivacy:
     guard let cell = tableView.dequeueReusableCell(withIdentifier: TextTableViewCell.identifier, for: indexPath) as? TextTableViewCell else {
@@ -164,7 +171,7 @@ func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> U
     guard let cell = tableView.dequeueReusableCell(withIdentifier: ButtonTableViewCell.identifier, for: indexPath) as? ButtonTableViewCell else {
       return UITableViewCell()
     }
-    cell.configureCellInfo(text: "Data Protection Authority", by: section)
+      cell.configureCellInfo(text: Localize.date_protection(), by: section)
     return cell
   }
 
@@ -173,7 +180,7 @@ func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> U
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
     let section = PrivacyType.allCases[indexPath.row]
     switch section {
-    case .privacyPolicy, .requestYourData, .requestToDelete, .sendEmail, .dataProtection:
+    case .privacyPolicy, .sendEmail, .dataProtection:
       return 60
     default:
       return UITableView.automaticDimension

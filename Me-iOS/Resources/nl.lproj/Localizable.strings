@@ -194,3 +194,13 @@
 "delete_description_alert" = "Weet je zeker dat je je account wil verwijderen? Je verzoek wordt binnen de wettelijke termijn van 30 dagen verwerkt.";
 "please_delete_account" = "Ik wil graag per direct mijn account %@ laten verwijderen.\n\nReden (optioneel):";
 "please_delete_account_gmail_version" = "Ik wil graag per direct mijn account %@ laten verwijderen.<br/><br/>Reden (optioneel):";
+"source_of_information" = "Beheer jouw persoonlijke eigenschappen en deel gemakkelijk de informatie die nodig is om in aanmerking te komen voor een tegoed.\n\nWaar komt mijn informatie vandaan?\n\nDe informatie is toegevoegd door een organisatie waar je een tegoed hebt aangevraagd, of door een organisatie die  ondersteunt. Bijvoorbeeld door je gemeente.\n\nPrivacy \n\nAlle informatie wordt uiterst zorgvuldig opgeslagen en wordt niet gebruikt voor commerciële doeleinden.\n";
+"source_information_title" = "Waar komt mijn informatie vandaan?";
+"priveleges_information" = "\nRechten\n\nDe informatie wordt opgeslagen onder Europese Privacywetgeving. Dit geeft je een aantal rechten zoals het recht op:
+\n• Informatie\n• Inzage\n• Rectificatie\n• Vergetelheid\n• Dataportabiliteit\n• Bezwaar\n•  Beperking van de verwerking";
+"priveleges_title" = "Rechten";
+"feedback_text" = "\nWil je aanspraak maken op je rechten of heb je algemene vragen of feedback?\n";
+"read_privacy" = "\nLees alles over jouw privacyrechten bij de Autoriteit Persoonsgegevens\n";
+"send_mail_to" = "Neem contact op met support@forus.io";
+"date_protection" = "Autoriteit Persoonsgegevens";
+"privacy_policy" = "Privacy Beleid van Stichting Forus";

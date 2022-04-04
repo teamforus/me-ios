@@ -50,21 +50,19 @@ class TextTableViewCell: UITableViewCell {
 extension TextTableViewCell {
   // MARK: - Setup Text
   private func setupSourceOfInformation() {
-    let mainString = String(format: "Manage your personal properties and share easily the information needed to qualify for a subsidy.\n\nThe source of information\n\nThe information has been added by an organisation where you have applied for a subsidy, or by an organisation that supports it. For example, By Your congregation. \n\nStoring data \n\nWe are store all your data that exist in your account, namely: \n\n• Subsidies and vouchers\n• Transactions\n• Personal info as records\n• Email\n• etc.\n\nPrivacy\n\nAll information is stored carefully and is not used for commercial purposes. Find out more about the Privacy Policy of Foundation Forus")
-    let firstRange = (mainString as NSString).range(of: "The source of information")
-    let secondRange = (mainString as NSString).range(of: "Storing data")
+      let mainString = String(format: Localize.source_of_information())
+      let firstRange = (mainString as NSString).range(of: Localize.source_information_title())
     let theredRange = (mainString as NSString).range(of: "Privacy")
     
     let attributedString = NSMutableAttributedString(string:mainString)
-    attributedString.addAttribute(NSAttributedString.Key.font, value: R.font.googleSansMedium(size: 17) as Any , range: firstRange)
-    attributedString.addAttribute(NSAttributedString.Key.font, value: R.font.googleSansMedium(size: 17) as Any , range: secondRange)
-    attributedString.addAttribute(NSAttributedString.Key.font, value: R.font.googleSansMedium(size: 17) as Any , range: theredRange)
+    attributedString.addAttribute(NSAttributedString.Key.font, value: R.font.googleSansMedium(size: 20) as Any , range: firstRange)
+    attributedString.addAttribute(NSAttributedString.Key.font, value: R.font.googleSansMedium(size: 20) as Any , range: theredRange)
     informationLabel.attributedText = attributedString
   }
   
   private func setupPrivileges() {
-    let mainString = "Privileges\n\nThe information is stored under European privacy legislation. This gives you some rights like the right to:\n\n• Information\n• Inspect\n• Rectification\n• Oblivion\n• Data portability\n• Objection\n• Limitation of processing"
-    let range = (mainString as NSString).range(of: "Privileges")
+      let mainString = Localize.priveleges_information()
+      let range = (mainString as NSString).range(of: Localize.priveleges_title())
     
     let attributedString = NSMutableAttributedString(string:mainString)
     attributedString.addAttribute(NSAttributedString.Key.font, value: R.font.googleSansMedium(size: 17) as Any , range: range)
@@ -72,11 +70,11 @@ extension TextTableViewCell {
   }
   
   private func setupFeedbackText() {
-    informationLabel.text = "If you want to claim your rights or you have general questions or feedback please do reach our support"
+      informationLabel.text = Localize.feedback_text()
   }
   
   private func setupReadAboutPrivacy() {
-    informationLabel.text = "Read all about your privacy rights with the Dutch Data Protection Authority "
+      informationLabel.text = Localize.read_privacy()
   }
 }
 

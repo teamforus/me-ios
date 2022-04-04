@@ -2877,8 +2877,20 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
 
-    /// This `R.string.localizable` struct is generated, and contains static references to 184 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 193 localization keys.
     struct localizable {
+      /// en translation:   Read all about your privacy rights with the Dutch Data Protection Authority  
+      ///
+      /// Locales: en, nl
+      static let read_privacy = Rswift.StringResource(key: "read_privacy", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
+      /// en translation:  If you want to claim your rights or you have general questions or feedback please do reach our support 
+      ///
+      /// Locales: en, nl
+      static let feedback_text = Rswift.StringResource(key: "feedback_text", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
+      /// en translation:  Privileges  The information is stored under European privacy legislation. This gives you some rights like the right to: • Information • Inspect • Rectification • Oblivion • Data portability • Objection • Limitation of processing
+      ///
+      /// Locales: en, nl
+      static let priveleges_information = Rswift.StringResource(key: "priveleges_information", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
       /// en translation: %@ Don't Available
       ///
       /// Locales: en, nl
@@ -3039,6 +3051,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en, nl
       static let decline = Rswift.StringResource(key: "decline", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
+      /// en translation: Data protection authority
+      ///
+      /// Locales: en, nl
+      static let date_protection = Rswift.StringResource(key: "date_protection", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
       /// en translation: Date
       ///
       /// Locales: en, nl
@@ -3215,6 +3231,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en, nl
       static let mail_services_are_not_available = Rswift.StringResource(key: "mail_services_are_not_available", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
+      /// en translation: Manage your personal properties and share easily the information needed to qualify for a subsidy.  The source of information  The information has been added by an organisation where you have applied for a subsidy, or by an organisation that supports it. For example, by your municipality   Privacy  All information is stored carefully and is not used for commercial purposes. Find out more about the Privacy Policy of Foundation Forus
+      ///
+      /// Locales: en, nl
+      static let source_of_information = Rswift.StringResource(key: "source_of_information", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
       /// en translation: Medical
       ///
       /// Locales: en, nl
@@ -3327,6 +3347,14 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en, nl
       static let primary_email = Rswift.StringResource(key: "primary_email", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
+      /// en translation: Privacy Policy
+      ///
+      /// Locales: en, nl
+      static let privacy_policy = Rswift.StringResource(key: "privacy_policy", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
+      /// en translation: Privileges
+      ///
+      /// Locales: en, nl
+      static let priveleges_title = Rswift.StringResource(key: "priveleges_title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
       /// en translation: Product voucher
       ///
       /// Locales: en, nl
@@ -3379,6 +3407,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en, nl
       static let email = Rswift.StringResource(key: "email", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
+      /// en translation: Send a mail to support@forus.io
+      ///
+      /// Locales: en, nl
+      static let send_mail_to = Rswift.StringResource(key: "send_mail_to", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
       /// en translation: Send an e-mail to the provider
       ///
       /// Locales: en, nl
@@ -3455,6 +3487,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en, nl
       static let the_scanner_is_not_supported_on_this_device = Rswift.StringResource(key: "the_scanner_is_not_supported_on_this_device", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
+      /// en translation: The source of information
+      ///
+      /// Locales: en, nl
+      static let source_information_title = Rswift.StringResource(key: "source_information_title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
       /// en translation: The voucher is empty! No transactions can be done.
       ///
       /// Locales: en, nl
@@ -3615,6 +3651,51 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en, nl
       static let your_session_has_expired = Rswift.StringResource(key: "your_session_has_expired", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
+
+      /// en translation:   Read all about your privacy rights with the Dutch Data Protection Authority  
+      ///
+      /// Locales: en, nl
+      static func read_privacy(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("read_privacy", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "read_privacy"
+        }
+
+        return NSLocalizedString("read_privacy", bundle: bundle, comment: "")
+      }
+
+      /// en translation:  If you want to claim your rights or you have general questions or feedback please do reach our support 
+      ///
+      /// Locales: en, nl
+      static func feedback_text(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("feedback_text", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "feedback_text"
+        }
+
+        return NSLocalizedString("feedback_text", bundle: bundle, comment: "")
+      }
+
+      /// en translation:  Privileges  The information is stored under European privacy legislation. This gives you some rights like the right to: • Information • Inspect • Rectification • Oblivion • Data portability • Objection • Limitation of processing
+      ///
+      /// Locales: en, nl
+      static func priveleges_information(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("priveleges_information", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "priveleges_information"
+        }
+
+        return NSLocalizedString("priveleges_information", bundle: bundle, comment: "")
+      }
 
       /// en translation: %@ Don't Available
       ///
@@ -4222,6 +4303,21 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("decline", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Data protection authority
+      ///
+      /// Locales: en, nl
+      static func date_protection(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("date_protection", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "date_protection"
+        }
+
+        return NSLocalizedString("date_protection", bundle: bundle, comment: "")
       }
 
       /// en translation: Date
@@ -4890,6 +4986,21 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("mail_services_are_not_available", bundle: bundle, comment: "")
       }
 
+      /// en translation: Manage your personal properties and share easily the information needed to qualify for a subsidy.  The source of information  The information has been added by an organisation where you have applied for a subsidy, or by an organisation that supports it. For example, by your municipality   Privacy  All information is stored carefully and is not used for commercial purposes. Find out more about the Privacy Policy of Foundation Forus
+      ///
+      /// Locales: en, nl
+      static func source_of_information(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("source_of_information", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "source_of_information"
+        }
+
+        return NSLocalizedString("source_of_information", bundle: bundle, comment: "")
+      }
+
       /// en translation: Medical
       ///
       /// Locales: en, nl
@@ -5316,6 +5427,36 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("primary_email", bundle: bundle, comment: "")
       }
 
+      /// en translation: Privacy Policy
+      ///
+      /// Locales: en, nl
+      static func privacy_policy(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("privacy_policy", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "privacy_policy"
+        }
+
+        return NSLocalizedString("privacy_policy", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Privileges
+      ///
+      /// Locales: en, nl
+      static func priveleges_title(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("priveleges_title", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "priveleges_title"
+        }
+
+        return NSLocalizedString("priveleges_title", bundle: bundle, comment: "")
+      }
+
       /// en translation: Product voucher
       ///
       /// Locales: en, nl
@@ -5509,6 +5650,21 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("email", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Send a mail to support@forus.io
+      ///
+      /// Locales: en, nl
+      static func send_mail_to(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("send_mail_to", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "send_mail_to"
+        }
+
+        return NSLocalizedString("send_mail_to", bundle: bundle, comment: "")
       }
 
       /// en translation: Send an e-mail to the provider
@@ -5796,6 +5952,21 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("the_scanner_is_not_supported_on_this_device", bundle: bundle, comment: "")
+      }
+
+      /// en translation: The source of information
+      ///
+      /// Locales: en, nl
+      static func source_information_title(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("source_information_title", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "source_information_title"
+        }
+
+        return NSLocalizedString("source_information_title", bundle: bundle, comment: "")
       }
 
       /// en translation: The voucher is empty! No transactions can be done.
