@@ -25,14 +25,14 @@
             <objects>
                 <viewController storyboardIdentifier="content" id="eu3-EV-5Ar" customClass="MProfileViewController" customModule="Me_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="erS-Sv-h0v">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="765"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="827"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pYl-68-xkp" customClass="BackgroundScrollView_DarkMode" customModule="Me_iOS" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="765"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="827"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WTi-eV-EKy" customClass="Background_DarkMode" customModule="Me_iOS" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="757"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="823"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mQt-Uv-ahd" customClass="Background_DarkMode" customModule="Me_iOS" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="-15" width="375" height="179"/>
@@ -333,8 +333,49 @@
                                                     <userDefinedRuntimeAttribute type="string" keyPath="colorName" value="Profile_Row_DarkTheme"/>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kBB-Ix-h3y" customClass="CustomCornerUIView" customModule="Me_iOS" customModuleProvider="target">
+                                                <rect key="frame" x="10" y="507" width="355" height="56"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Delete account" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="89l-As-PkA" customClass="UILabel_DarkMode" customModule="Me_iOS" customModuleProvider="target">
+                                                        <rect key="frame" x="16" y="18" width="249" height="22"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <fontDescription key="fontDescription" name="GoogleSans-Regular" family="Google Sans" pointSize="17"/>
+                                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="colorName" value="Light_Dark_Mode"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </label>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="arrow" translatesAutoresizingMaskIntoConstraints="NO" id="P2c-pa-IFi">
+                                                        <rect key="frame" x="338" y="22" width="7" height="11"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                                    </imageView>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nBJ-OX-QRF">
+                                                        <rect key="frame" x="0.0" y="0.0" width="355" height="56"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain" title=" "/>
+                                                        <connections>
+                                                            <action selector="didOpenDeleteAccount:" destination="eu3-EV-5Ar" eventType="touchUpInside" id="Etx-el-gVx"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="trailing" secondItem="nBJ-OX-QRF" secondAttribute="trailing" id="16f-p6-NeM"/>
+                                                    <constraint firstAttribute="bottom" secondItem="nBJ-OX-QRF" secondAttribute="bottom" id="4vW-tW-8BE"/>
+                                                    <constraint firstItem="nBJ-OX-QRF" firstAttribute="leading" secondItem="kBB-Ix-h3y" secondAttribute="leading" id="B7e-n0-jpI"/>
+                                                    <constraint firstItem="nBJ-OX-QRF" firstAttribute="top" secondItem="kBB-Ix-h3y" secondAttribute="top" id="WSe-RH-7gx"/>
+                                                    <constraint firstAttribute="height" constant="56" id="aPv-94-H11"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="9"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="colorName" value="Profile_Row_DarkTheme"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dmL-c8-BxS" customClass="Background_DarkMode" customModule="Me_iOS" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="562" width="375" height="195"/>
+                                                <rect key="frame" x="0.0" y="573" width="375" height="250"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Contact Support" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G7d-5Z-MNy" userLabel="Feedback" customClass="UILabel_DarkMode" customModule="Me_iOS" customModuleProvider="target">
                                                         <rect key="frame" x="24" y="119" width="130" height="21"/>
@@ -492,16 +533,19 @@
                                             <constraint firstItem="mQt-Uv-ahd" firstAttribute="leading" secondItem="WTi-eV-EKy" secondAttribute="leading" id="EEE-cr-DUd"/>
                                             <constraint firstAttribute="trailing" secondItem="dmL-c8-BxS" secondAttribute="trailing" id="Gtd-uJ-GGO"/>
                                             <constraint firstItem="sp3-24-FEo" firstAttribute="top" secondItem="UaK-7a-IlP" secondAttribute="bottom" constant="5" id="IDs-YQ-cH7"/>
+                                            <constraint firstItem="kBB-Ix-h3y" firstAttribute="leading" secondItem="WTi-eV-EKy" secondAttribute="leading" constant="10" id="KdH-9W-Vw7"/>
                                             <constraint firstAttribute="trailing" secondItem="ZtQ-xg-yMS" secondAttribute="trailing" constant="10" id="Lah-1t-Uwh"/>
                                             <constraint firstItem="ZtQ-xg-yMS" firstAttribute="leading" secondItem="WTi-eV-EKy" secondAttribute="leading" constant="10" id="Lsm-gR-nfD"/>
                                             <constraint firstAttribute="trailing" secondItem="sp3-24-FEo" secondAttribute="trailing" constant="10" id="PwK-6t-wKf"/>
                                             <constraint firstItem="UaK-7a-IlP" firstAttribute="top" secondItem="ZtQ-xg-yMS" secondAttribute="bottom" constant="13" id="Qy4-P1-fTf"/>
                                             <constraint firstAttribute="trailing" secondItem="UaK-7a-IlP" secondAttribute="trailing" constant="10" id="bLl-0v-2pJ"/>
+                                            <constraint firstItem="kBB-Ix-h3y" firstAttribute="top" secondItem="UaK-7a-IlP" secondAttribute="bottom" constant="13" id="fh1-E5-g4x"/>
                                             <constraint firstItem="ZtQ-xg-yMS" firstAttribute="top" secondItem="mQt-Uv-ahd" secondAttribute="bottom" constant="12" id="h1x-lE-JG3"/>
                                             <constraint firstAttribute="bottom" secondItem="dmL-c8-BxS" secondAttribute="bottom" id="ieM-qL-3Xy"/>
                                             <constraint firstItem="UaK-7a-IlP" firstAttribute="leading" secondItem="WTi-eV-EKy" secondAttribute="leading" constant="10" id="ifE-Tn-IgC"/>
                                             <constraint firstItem="dmL-c8-BxS" firstAttribute="top" secondItem="sp3-24-FEo" secondAttribute="bottom" constant="7" id="vVm-pq-Tt0"/>
                                             <constraint firstItem="mQt-Uv-ahd" firstAttribute="top" secondItem="WTi-eV-EKy" secondAttribute="top" constant="-15" id="w8D-aj-LiZ"/>
+                                            <constraint firstItem="dmL-c8-BxS" firstAttribute="top" secondItem="kBB-Ix-h3y" secondAttribute="bottom" constant="10" id="yjh-AQ-uSx"/>
                                             <constraint firstAttribute="trailing" secondItem="mQt-Uv-ahd" secondAttribute="trailing" id="zjL-OP-hSg"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
@@ -513,6 +557,7 @@
                                 <constraints>
                                     <constraint firstItem="WTi-eV-EKy" firstAttribute="leading" secondItem="pYl-68-xkp" secondAttribute="leading" id="DXS-A0-soB"/>
                                     <constraint firstAttribute="bottom" secondItem="WTi-eV-EKy" secondAttribute="bottom" id="EWV-us-dbH"/>
+                                    <constraint firstAttribute="trailing" secondItem="kBB-Ix-h3y" secondAttribute="trailing" constant="10" id="dP6-6y-hGR"/>
                                     <constraint firstAttribute="trailing" secondItem="WTi-eV-EKy" secondAttribute="trailing" id="kaS-Jx-4BW"/>
                                     <constraint firstItem="WTi-eV-EKy" firstAttribute="top" secondItem="pYl-68-xkp" secondAttribute="top" id="rgk-Gk-Vpd"/>
                                 </constraints>
@@ -532,7 +577,7 @@
                             <constraint firstItem="pYl-68-xkp" firstAttribute="top" secondItem="erS-Sv-h0v" secondAttribute="top" id="cCB-Mt-jzI"/>
                         </constraints>
                     </view>
-                    <size key="freeformSize" width="375" height="765"/>
+                    <size key="freeformSize" width="375" height="827"/>
                     <connections>
                         <outlet property="aboutMeButton" destination="o9m-cg-Pla" id="Byz-n3-XoZ"/>
                         <outlet property="appVersionLabel" destination="Qzj-KA-RoL" id="u92-JV-yij"/>
@@ -713,9 +758,6 @@
         </designable>
         <designable name="mxb-o1-SKo">
             <size key="intrinsicContentSize" width="49" height="31"/>
-        </designable>
-        <designable name="oWI-74-hrW">
-            <size key="intrinsicContentSize" width="36" height="11"/>
         </designable>
         <designable name="xSt-Fk-qAe">
             <size key="intrinsicContentSize" width="210" height="210"/>

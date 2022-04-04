@@ -15,6 +15,7 @@
 		0437CED924BDFC9F00FA7C24 /* BackButton_DarkMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0437CED824BDFC9F00FA7C24 /* BackButton_DarkMode.swift */; };
 		045E5A3425A7518600E338F7 /* Sponsor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045E5A3325A7518600E338F7 /* Sponsor.swift */; };
 		0483DBC124BF3F250074BBA9 /* UILabel_DarkMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0483DBC024BF3F250074BBA9 /* UILabel_DarkMode.swift */; };
+		1D8B1FC2FE6DFF1C358C3B80 /* Pods_Me_iOSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40AAA8E5F5493B4EB93B1B29 /* Pods_Me_iOSUITests.framework */; };
 		5B10CCAC240D021C00199C28 /* BottomQrWithPinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B10CCAA240D021C00199C28 /* BottomQrWithPinViewController.swift */; };
 		5B10CCB0240D1FD900199C28 /* EnablePersonalInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B10CCAF240D1FD900199C28 /* EnablePersonalInformationViewController.swift */; };
 		5B10CCB4240D292000199C28 /* MSuccessRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B10CCB3240D292000199C28 /* MSuccessRegisterViewController.swift */; };
@@ -180,6 +181,8 @@
 		65F52E452316797900B9D229 /* MCrashConfirmViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65F52E402316797900B9D229 /* MCrashConfirmViewController.xib */; };
 		65F52E462316797900B9D229 /* MCrashConfirmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F52E422316797900B9D229 /* MCrashConfirmViewController.swift */; };
 		65F52E4A23167E0D00B9D229 /* Wallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F52E4923167E0D00B9D229 /* Wallet.swift */; };
+		83E86DFF95320AD4070E9058 /* Pods_Me_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18527B1756CFC611642105AF /* Pods_Me_iOS.framework */; };
+		B495E4B29728BF7D78DE52CD /* Pods_Me_iOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35446A3006593197F8282C71 /* Pods_Me_iOSTests.framework */; };
 		FF0DACBE246AD0A80034E3E4 /* OrganizationValidatorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF3B141A243722EE003FDDD9 /* OrganizationValidatorViewController.xib */; };
 		FF45B3B224D9DC7C00D258E1 /* Extension+UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45B3B124D9DC7C00D258E1 /* Extension+UITextField.swift */; };
 		FF48062924632AA70055E346 /* RecordsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF48062824632AA70055E346 /* RecordsTableViewCell.swift */; };
@@ -211,6 +214,7 @@
 		FF9C60FD253DD87D006F6979 /* ConfirmPaymentActionPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9C60FB253DD87D006F6979 /* ConfirmPaymentActionPopUp.swift */; };
 		FF9C6103253DD8AB006F6979 /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9C6101253DD8AB006F6979 /* ActionButton.swift */; };
 		FF9C6104253DD8AB006F6979 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9C6102253DD8AB006F6979 /* TextField.swift */; };
+		FFB04FB5279E963E001ECAD9 /* ConfirmPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB04FB4279E963E001ECAD9 /* ConfirmPopUp.swift */; };
 		FFB76E0E24E94ABB00CFB195 /* UICheckbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB76E0224E9490600CFB195 /* UICheckbox.swift */; };
 		FFB76E0F24E94AC200CFB195 /* AnimationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB76DF324E948B700CFB195 /* AnimationManager.swift */; };
 		FFB76E1024E94AC200CFB195 /* CircleLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB76DF424E948B700CFB195 /* CircleLayer.swift */; };
@@ -224,6 +228,7 @@
 		FFBB3D6A274FC33A000C0C12 /* MPrivacyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFBB3D69274FC33A000C0C12 /* MPrivacyViewController.swift */; };
 		FFBB3D6C274FC368000C0C12 /* TextTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFBB3D6B274FC368000C0C12 /* TextTableViewCell.swift */; };
 		FFC38D4424FA7DFA001C0DA2 /* MTransactionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC38D4324FA7DFA001C0DA2 /* MTransactionsViewController.swift */; };
+		FFCC27E8279D988A006430DE /* MDeleteAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCC27E7279D988A006430DE /* MDeleteAccountViewController.swift */; };
 		FFCE835B24B881B1001082B1 /* Extension+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCE835A24B881B1001082B1 /* Extension+UIView.swift */; };
 		FFE731C224CEEB760064C7D5 /* BackgroundScrollView_DarkMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE731C124CEEB760064C7D5 /* BackgroundScrollView_DarkMode.swift */; };
 		FFE731C424CEEFED0064C7D5 /* CloseButton_DarkMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE731C324CEEFED0064C7D5 /* CloseButton_DarkMode.swift */; };
@@ -260,8 +265,11 @@
 		045E5A3325A7518600E338F7 /* Sponsor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sponsor.swift; sourceTree = "<group>"; };
 		0483DBC024BF3F250074BBA9 /* UILabel_DarkMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabel_DarkMode.swift; sourceTree = "<group>"; };
 		1683517B14B81A4842936641 /* Pods-Me-iOS.alpha.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Me-iOS.alpha.xcconfig"; path = "Target Support Files/Pods-Me-iOS/Pods-Me-iOS.alpha.xcconfig"; sourceTree = "<group>"; };
+		18527B1756CFC611642105AF /* Pods_Me_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Me_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		22FC7AEAA2D97908974FAE96 /* Pods-Me-iOSTests.demo.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Me-iOSTests.demo.xcconfig"; path = "Target Support Files/Pods-Me-iOSTests/Pods-Me-iOSTests.demo.xcconfig"; sourceTree = "<group>"; };
+		35446A3006593197F8282C71 /* Pods_Me_iOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Me_iOSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		39FE09019C9C646690C75B7A /* Pods-Me-iOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Me-iOSTests.release.xcconfig"; path = "Target Support Files/Pods-Me-iOSTests/Pods-Me-iOSTests.release.xcconfig"; sourceTree = "<group>"; };
+		40AAA8E5F5493B4EB93B1B29 /* Pods_Me_iOSUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Me_iOSUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		42940101CE9D8E30A46B6C38 /* Pods-Me-iOSUITests.demo.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Me-iOSUITests.demo.xcconfig"; path = "Target Support Files/Pods-Me-iOSUITests/Pods-Me-iOSUITests.demo.xcconfig"; sourceTree = "<group>"; };
 		4FA8BEBD78816653536B8FD2 /* Pods-Me-iOS.demo.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Me-iOS.demo.xcconfig"; path = "Target Support Files/Pods-Me-iOS/Pods-Me-iOS.demo.xcconfig"; sourceTree = "<group>"; };
 		5B10CCAA240D021C00199C28 /* BottomQrWithPinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomQrWithPinViewController.swift; sourceTree = "<group>"; };
@@ -524,6 +532,7 @@
 		FF9C60FB253DD87D006F6979 /* ConfirmPaymentActionPopUp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmPaymentActionPopUp.swift; sourceTree = "<group>"; };
 		FF9C6101253DD8AB006F6979 /* ActionButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
 		FF9C6102253DD8AB006F6979 /* TextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
+		FFB04FB4279E963E001ECAD9 /* ConfirmPopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmPopUp.swift; sourceTree = "<group>"; };
 		FFB76DF324E948B700CFB195 /* AnimationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AnimationManager.swift; path = KVSpinnerView/AnimationManager.swift; sourceTree = "<group>"; };
 		FFB76DF424E948B700CFB195 /* CircleLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CircleLayer.swift; path = KVSpinnerView/Layers/CircleLayer.swift; sourceTree = "<group>"; };
 		FFB76DF524E948B700CFB195 /* KVSpinnerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = KVSpinnerView.swift; path = KVSpinnerView/KVSpinnerView.swift; sourceTree = "<group>"; };
@@ -537,6 +546,7 @@
 		FFBB3D69274FC33A000C0C12 /* MPrivacyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPrivacyViewController.swift; sourceTree = "<group>"; };
 		FFBB3D6B274FC368000C0C12 /* TextTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextTableViewCell.swift; sourceTree = "<group>"; };
 		FFC38D4324FA7DFA001C0DA2 /* MTransactionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTransactionsViewController.swift; sourceTree = "<group>"; };
+		FFCC27E7279D988A006430DE /* MDeleteAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDeleteAccountViewController.swift; sourceTree = "<group>"; };
 		FFCE835A24B881B1001082B1 /* Extension+UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIView.swift"; sourceTree = "<group>"; };
 		FFE731C124CEEB760064C7D5 /* BackgroundScrollView_DarkMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundScrollView_DarkMode.swift; sourceTree = "<group>"; };
 		FFE731C324CEEFED0064C7D5 /* CloseButton_DarkMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloseButton_DarkMode.swift; sourceTree = "<group>"; };
@@ -552,6 +562,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				83E86DFF95320AD4070E9058 /* Pods_Me_iOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -559,6 +570,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B495E4B29728BF7D78DE52CD /* Pods_Me_iOSTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -566,6 +578,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1D8B1FC2FE6DFF1C358C3B80 /* Pods_Me_iOSUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -575,6 +588,9 @@
 		121F587CB74BF4E57C08FEAF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				18527B1756CFC611642105AF /* Pods_Me_iOS.framework */,
+				35446A3006593197F8282C71 /* Pods_Me_iOSTests.framework */,
+				40AAA8E5F5493B4EB93B1B29 /* Pods_Me_iOSUITests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1125,6 +1141,7 @@
 				650FF63322AD2E14004C3A85 /* About */,
 				FFC38D4524FA929C001C0DA2 /* Transaction */,
 				FFBB3D6D274FC372000C0C12 /* Privacy */,
+				FFCC27E7279D988A006430DE /* MDeleteAccountViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -1401,6 +1418,7 @@
 			children = (
 				FF9C60FA253DD87D006F6979 /* ConfirmPayAction.swift */,
 				FF9C60FB253DD87D006F6979 /* ConfirmPaymentActionPopUp.swift */,
+				FFB04FB4279E963E001ECAD9 /* ConfirmPopUp.swift */,
 				65F52E3D2316797900B9D229 /* ConfirmCrashClientAddress */,
 				65D11B7C22A6ACD300756BE0 /* Organization */,
 				65D11B8222A6B13700756BE0 /* ConfirmPayment */,
@@ -1927,6 +1945,8 @@
 			files = (
 				FFBB3D6A274FC33A000C0C12 /* MPrivacyViewController.swift in Sources */,
 				FFFF2527247513510043E459 /* AccessibilityProtocol.swift in Sources */,
+				FFB04FB5279E963E001ECAD9 /* ConfirmPopUp.swift in Sources */,
+				FFCC27E8279D988A006430DE /* MDeleteAccountViewController.swift in Sources */,
 				655D6476231598D300EABD57 /* SendEtherViewController.swift in Sources */,
 				65139C7322802EFF003E0CDE /* LoginService.swift in Sources */,
 				65A8B70F2282E19F00B7DF05 /* MQRViewController.swift in Sources */,
