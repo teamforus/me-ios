@@ -2879,10 +2879,6 @@ struct R: Rswift.Validatable {
 
     /// This `R.string.localizable` struct is generated, and contains static references to 193 localization keys.
     struct localizable {
-      /// en translation:   Read all about your privacy rights with the Dutch Data Protection Authority  
-      ///
-      /// Locales: en, nl
-      static let read_privacy = Rswift.StringResource(key: "read_privacy", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
       /// en translation:  If you want to claim your rights or you have general questions or feedback please do reach our support 
       ///
       /// Locales: en, nl
@@ -2891,6 +2887,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en, nl
       static let priveleges_information = Rswift.StringResource(key: "priveleges_information", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
+      /// en translation:  Read all about your privacy rights with the Dutch Data Protection Authority 
+      ///
+      /// Locales: en, nl
+      static let read_privacy = Rswift.StringResource(key: "read_privacy", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
       /// en translation: %@ Don't Available
       ///
       /// Locales: en, nl
@@ -3652,21 +3652,6 @@ struct R: Rswift.Validatable {
       /// Locales: en, nl
       static let your_session_has_expired = Rswift.StringResource(key: "your_session_has_expired", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
 
-      /// en translation:   Read all about your privacy rights with the Dutch Data Protection Authority  
-      ///
-      /// Locales: en, nl
-      static func read_privacy(preferredLanguages: [String]? = nil) -> String {
-        guard let preferredLanguages = preferredLanguages else {
-          return NSLocalizedString("read_privacy", bundle: hostingBundle, comment: "")
-        }
-
-        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
-          return "read_privacy"
-        }
-
-        return NSLocalizedString("read_privacy", bundle: bundle, comment: "")
-      }
-
       /// en translation:  If you want to claim your rights or you have general questions or feedback please do reach our support 
       ///
       /// Locales: en, nl
@@ -3695,6 +3680,21 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("priveleges_information", bundle: bundle, comment: "")
+      }
+
+      /// en translation:  Read all about your privacy rights with the Dutch Data Protection Authority 
+      ///
+      /// Locales: en, nl
+      static func read_privacy(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("read_privacy", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "read_privacy"
+        }
+
+        return NSLocalizedString("read_privacy", bundle: bundle, comment: "")
       }
 
       /// en translation: %@ Don't Available

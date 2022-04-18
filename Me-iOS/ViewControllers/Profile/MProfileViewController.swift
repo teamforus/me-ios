@@ -58,7 +58,7 @@ class MProfileViewController: UIViewController {
 extension MProfileViewController {
     
   @IBAction func privacyAndSecurity(_ sender: Any) {
-    let vc = MPrivacyViewController()
+      let vc = MPrivacyViewController(email: self.emailLabel.text ?? "")
     let navVC = UINavigationController(rootViewController: vc)
     self.present(navVC, animated: true)
     }
