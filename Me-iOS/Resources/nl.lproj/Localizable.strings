@@ -187,6 +187,8 @@
 "what_customer_pays" = "Wat de klant betaalt";
 "free" = "Gratis";
 "discount" = "Korting";
+"whould_you_like_to_rate" = "Zou je onze app willen beoordelen?";
+"rate" = "Beoordelen Me App";
 "notes" = "Notities";
 "do_you_want_to_login" = "Probeer je in te loggen op een apparaat?";
 "description_of_auth_anothe_device" = "Door verder te gaan met inloggen geef je een ander apparaat toegang tot je account. Weet je zeker dat je verder wilt gaan?";

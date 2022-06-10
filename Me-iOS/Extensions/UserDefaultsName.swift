@@ -22,4 +22,9 @@ struct UserDefaultsName {
     public static let EnvironmentName = "EnvironmentName"
     static let tapToSeeTransactionTipHasShownCount = "tapToSeeTransactionTipHasShownCount"
     static let userHasCloseUpdateNotifier = "userHasCloseUpdateNotifier"
+    static let monthHasStarded = "monthHasStarded"
+    static let monthHasPassed = "monthHasPassed"
+    static let openAppCount = "openAppCount"
+    static let lastVersionPromptedForReviewKey = "lastVersionPromptedForReviewKey"
+    static let showAppRateHasSelected = "showAppRateHasSelected"
 }
