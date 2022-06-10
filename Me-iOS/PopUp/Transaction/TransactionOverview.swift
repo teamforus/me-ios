@@ -114,6 +114,19 @@ class TransactionOverview: UIView {
         return label
     }()
     
+    let noteHeader: UILabel = {
+        let label = UILabel()
+        label.font = UIFont(name: "GoogleSans-Regular", size: 13)
+        label.text = Localize.notes()
+        label.textColor = #colorLiteral(red: 0.5295057893, green: 0.5291086435, blue: 0.5508569479, alpha: 1)
+        return label
+    }()
+    
+    let noteNameLabel: UILabel_DarkMode = {
+        let label = UILabel_DarkMode()
+        return label
+    }()
+    
     // MARK: - Init
     
     override init(frame: CGRect) {
@@ -144,6 +157,7 @@ class TransactionOverview: UIView {
         idTransactionLabel.text = String(transaction.id ?? 0)
         fundNameLabel.text = transaction.fund?.name
         provederNameLabel.text = transaction.organization?.name
+        noteNameLabel.text = transaction.note
     }
 }
 
@@ -168,7 +182,7 @@ extension TransactionOverview {
     }
     
     func addbodyTransactionDetailViewSubviews() {
-        let views = [titleLabel, idHeader, idTransactionLabel, fundHeader, fundNameLabel, providerHeader, provederNameLabel]
+        let views = [titleLabel, idHeader, idTransactionLabel, fundHeader, fundNameLabel, providerHeader, provederNameLabel, noteHeader, noteNameLabel]
         views.forEach { (view) in
             view.translatesAutoresizingMaskIntoConstraints = false
             bodyTransactionDetailView.addSubview(view)
@@ -182,7 +196,7 @@ extension TransactionOverview {
 extension TransactionOverview {
     func addConstraints() {
         NSLayoutConstraint.activate([
-            bodyView.heightAnchor.constraint(equalToConstant: 423),
+            bodyView.heightAnchor.constraint(equalToConstant: 453),
             bodyView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 0),
             bodyView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 0),
             bodyView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 0)
@@ -229,7 +243,7 @@ extension TransactionOverview {
             bodyTransactionDetailView.trailingAnchor.constraint(equalTo: self.bodyView.trailingAnchor, constant: -10),
             bodyTransactionDetailView.bottomAnchor.constraint(equalTo: self.bodyView.bottomAnchor, constant: -30),
             bodyTransactionDetailView.topAnchor.constraint(equalTo: self.transactionStatusLabel.bottomAnchor, constant: 20),
-            bodyTransactionDetailView.heightAnchor.constraint(equalToConstant: 228)
+            bodyTransactionDetailView.heightAnchor.constraint(equalToConstant: 258)
         ])
     }
     
@@ -267,6 +281,16 @@ extension TransactionOverview {
         NSLayoutConstraint.activate([
             provederNameLabel.topAnchor.constraint(equalTo: self.providerHeader.bottomAnchor, constant: 3),
             provederNameLabel.leadingAnchor.constraint(equalTo: self.bodyTransactionDetailView.leadingAnchor, constant: 25)
+        ])
+        
+        NSLayoutConstraint.activate([
+            noteHeader.topAnchor.constraint(equalTo: provederNameLabel.bottomAnchor, constant: 16),
+            noteHeader.leadingAnchor.constraint(equalTo: self.bodyTransactionDetailView.leadingAnchor, constant: 25)
+        ])
+        
+        NSLayoutConstraint.activate([
+            noteNameLabel.topAnchor.constraint(equalTo: self.noteHeader.bottomAnchor, constant: 3),
+            noteNameLabel.leadingAnchor.constraint(equalTo: self.bodyTransactionDetailView.leadingAnchor, constant: 25)
         ])
     }
 }
