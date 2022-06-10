@@ -15,6 +15,12 @@ enum QRTypeScann: String {
     case testTransaction = "demo_voucher"
 }
 
+protocol QRControllerDelegate: AnyObject {
+  func initAuth()
+  func cancelAuth()
+}
+
+
 class MQRViewController: HSScanViewController {
     
     private lazy var qrViewModel: QRViewModel = {
@@ -23,6 +29,7 @@ class MQRViewController: HSScanViewController {
     private var voucher: Voucher!
     private var testToken: String!
     private var productVoucher: [Transaction]! = []
+    private var qrValue: String?
     
     private var recordValidateResponse: RecordValidation!
     
@@ -239,17 +246,11 @@ extension MQRViewController: HSScanViewControllerDelegate{
                     {
                         if qr.type == QRTypeScann.authToken.rawValue {
                             self.scanWorker.stop()
-                            self.showSimpleAlertWithAction(title: "Login QR",
-                                                           message: Localize.you_sure_you_want_to_login_device(),
-                                                           okAction: UIAlertAction(title: Localize.yes(), style: .default, handler: { (action) in
-                                                            KVSpinnerView.show()
-                                                            self.qrViewModel.initAuthorizeToken(token: qr.value)
-                                                            
-                                                           }),
-                                                           cancelAction: UIAlertAction(title: Localize.no(), style: .cancel, handler: { (action) in
-                                                            
-                                                            self.scanWorker.start()
-                                                           }))
+                                         self.qrValue = qr.value
+                                         let confirmAuthVC = MConfirmAuthViewController()
+                                         confirmAuthVC.delegate = self
+                                         confirmAuthVC.modalPresentationStyle = .fullScreen
+                                         self.present(confirmAuthVC, animated: true)
                             
                             
                         } else if qr.type == QRTypeScann.voucher.rawValue {
@@ -332,4 +333,22 @@ extension MQRViewController: AccessibilityProtocol {
         self.scanWorker.accessibilityLabel = "Scan any me qr code"
         self.scanWorker.accessibilityTraits = .none
     }
+}
+
+
+// MARK: - QRControllerDelegate
+extension MQRViewController: QRControllerDelegate {
+  func initAuth() {
+    KVSpinnerView.show()
+    guard let qrValue = self.qrValue else {
+      KVSpinnerView.dismiss()
+      return
+    }
+    self.qrViewModel.initAuthorizeToken(token: qrValue)
+  }
+  
+  func cancelAuth() {
+    self.scanWorker.start()
+    self.dismiss(animated: true)
+  }
 }
