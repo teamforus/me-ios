@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Tng-OZ-lXd">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Tng-OZ-lXd">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -34,13 +34,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="130" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5yR-zH-dKR" customClass="TableView_Background_DarkMode" customModule="Me_iOS" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="153.5" width="375" height="464.5"/>
+                                <rect key="frame" x="0.0" y="219" width="375" height="400"/>
                                 <color key="backgroundColor" red="0.96863394979999995" green="0.96861582989999995" blue="0.96862810850000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <inset key="scrollIndicatorInsets" minX="0.0" minY="20" maxX="0.0" maxY="0.0"/>
                                 <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="130" id="KFl-qI-hh9" customClass="VoucherTableViewCell" customModule="Me_iOS" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="24.5" width="375" height="130"/>
+                                        <rect key="frame" x="0.0" y="44.5" width="375" height="130"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="KFl-qI-hh9" id="O01-1m-pEx">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="130"/>
@@ -133,7 +133,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="valuteCell" rowHeight="130" id="EE4-zq-daM" customClass="ValuteTableViewCell" customModule="Me_iOS" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="154.5" width="375" height="130"/>
+                                        <rect key="frame" x="0.0" y="174.5" width="375" height="130"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="EE4-zq-daM" id="Olg-1G-uml">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="130"/>
@@ -234,16 +234,24 @@
                                     <outlet property="delegate" destination="PMk-nO-j9W" id="Vcc-bS-9R7"/>
                                 </connections>
                             </tableView>
-                            <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Lm7-ui-J0c">
-                                <rect key="frame" x="19" y="49" width="338" height="50"/>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Lm7-ui-J0c">
+                                <rect key="frame" x="19" y="154" width="338" height="50"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.92941176469999998" green="0.92941176469999998" blue="0.92941176469999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
-                            <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oKA-aH-qQQ" customClass="HBSegmentedControl" customModule="Me_iOS" customModuleProvider="target">
-                                <rect key="frame" x="22" y="53" width="330" height="42"/>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oKA-aH-qQQ" customClass="HBSegmentedControl" customModule="Me_iOS" customModuleProvider="target">
+                                <rect key="frame" x="22" y="158" width="330" height="42"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="thumbColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Voucher" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JOr-Qw-UNr" customClass="UILabel_DarkMode" customModule="Me_iOS" customModuleProvider="target">
                                 <rect key="frame" x="20" y="90" width="335" height="48.5"/>
@@ -272,8 +280,8 @@
                             <constraint firstItem="5yR-zH-dKR" firstAttribute="leading" secondItem="var-xZ-gwZ" secondAttribute="leading" id="DRo-IW-Uwb"/>
                             <constraint firstItem="99N-2s-O9Z" firstAttribute="centerX" secondItem="r2N-kg-LZp" secondAttribute="centerX" id="K8d-HM-pkn"/>
                             <constraint firstItem="9G1-Sj-fzE" firstAttribute="leading" secondItem="var-xZ-gwZ" secondAttribute="leading" constant="18" id="QFo-EP-dkQ"/>
-                            <constraint firstItem="5yR-zH-dKR" firstAttribute="top" secondItem="JOr-Qw-UNr" secondAttribute="bottom" constant="15" id="Slf-hE-2kM"/>
-                            <constraint firstItem="5yR-zH-dKR" firstAttribute="bottom" secondItem="var-xZ-gwZ" secondAttribute="bottom" id="UCa-Vy-jqm"/>
+                            <constraint firstItem="5yR-zH-dKR" firstAttribute="top" secondItem="JOr-Qw-UNr" secondAttribute="bottom" constant="80.5" id="Slf-hE-2kM"/>
+                            <constraint firstItem="5yR-zH-dKR" firstAttribute="bottom" secondItem="var-xZ-gwZ" secondAttribute="bottom" constant="1" id="UCa-Vy-jqm"/>
                             <constraint firstItem="JOr-Qw-UNr" firstAttribute="leading" secondItem="var-xZ-gwZ" secondAttribute="leading" constant="20" id="WS9-Ze-71U"/>
                             <constraint firstItem="var-xZ-gwZ" firstAttribute="trailing" secondItem="Sqn-yz-irD" secondAttribute="trailing" constant="23" id="XVG-CS-kRA"/>
                             <constraint firstItem="99N-2s-O9Z" firstAttribute="centerY" secondItem="r2N-kg-LZp" secondAttribute="centerY" id="aOu-Mv-acp"/>
@@ -439,7 +447,7 @@
                                 <color key="backgroundColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="87" id="TfW-Mc-Pmc" customClass="RecordsTableViewCell" customModule="Me_iOS" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="24.5" width="375" height="87"/>
+                                        <rect key="frame" x="0.0" y="44.5" width="375" height="87"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="TfW-Mc-Pmc" id="WjF-tu-pFl">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="87"/>
@@ -614,7 +622,7 @@
             <size key="intrinsicContentSize" width="30" height="34"/>
         </designable>
         <designable name="fxb-bV-R86">
-            <size key="intrinsicContentSize" width="126" height="26"/>
+            <size key="intrinsicContentSize" width="128" height="28"/>
         </designable>
     </designables>
     <resources>
