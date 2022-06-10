@@ -139,7 +139,7 @@ class MAFirstPageViewController: UIViewController {
             break
             
         case EnvironmentType.custom.rawValue:
-            let alertController = UIAlertController(title: "Add custom URL", message: "", preferredStyle: .alert)
+            let alertController = UIAlertController(title: "Add custom URL", message: "Example URL: https://dev.api.forus.io/api/v1/", preferredStyle: .alert)
             alertController.addTextField { (textField : UITextField!) -> Void in
                 textField.placeholder = "Enter Base URL"
                 if self.chooseEnvironmentButton.titleLabel?.text == "Custom" {

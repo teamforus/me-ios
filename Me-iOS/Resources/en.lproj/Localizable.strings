@@ -189,6 +189,10 @@
 "free" = "Free";
 "discount" = "Discount";
 "notes" = "Notes";
+"do_you_want_to_login" = "Do you want to login on this device?";
+"description_of_auth_anothe_device" = "Continuing will allow this device to acces your account. Are you sure you want to continue?";
+"i_want_to_login" = "Yes, I want to login";
+"no_thanks" = "No thanks";
 "delete_account" = "Delete account";
 "title_delete_description" = "Watch out, you are about to permanently delete your account.";
 "description_delete" = "You will lose access to your vouchers, transactions and records, and cannot apply for funds that you have already recieved.\n\n\nContact %@ if you have any questions.";
