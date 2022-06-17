@@ -22,4 +22,5 @@ struct Transaction: Decodable {
     var product: Product?
     var created_at: String?
     var date_time: String?
+    var note: String?
 }
