@@ -11,8 +11,8 @@ import ISHPullUp
 import StoreKit
 
 enum VoucherType: Int {
-    case valute = 0
-    case vouchers = 1
+    case vouchers = 0
+    case expiredVouchers = 1
 }
 
 class MVouchersViewController: UIViewController {
@@ -46,9 +46,9 @@ class MVouchersViewController: UIViewController {
         }
         
         voucherType = .vouchers
-        
-        segmentController.items = ["Valute", Localize.vouchers()]
-        segmentController.selectedIndex = 1
+        voucherViewModel.voucherType = .vouchers
+        segmentController.items = ["Geldig", Localize.expired()]
+        segmentController.selectedIndex = 0
         segmentController.font = UIFont(name: "GoogleSans-Medium", size: 14)
         segmentController.unselectedLabelColor = #colorLiteral(red: 0.631372549, green: 0.6509803922, blue: 0.6784313725, alpha: 1)
         segmentController.selectedLabelColor = #colorLiteral(red: 0.2078431373, green: 0.3921568627, blue: 0.968627451, alpha: 1)
@@ -63,7 +63,6 @@ class MVouchersViewController: UIViewController {
         voucherViewModel.complete = { [weak self] (vouchers) in
             
             DispatchQueue.main.async {
-                
                 self?.voucherViewModel.sendPushToken(token: UserDefaults.standard.string(forKey: "TOKENPUSH") ?? "")
                 self?.tableView.reloadData()
                 if vouchers.count == 0 {
@@ -122,22 +121,20 @@ class MVouchersViewController: UIViewController {
     @objc func segmentSelected(sender:HBSegmentedControl) {
         
         switch sender.selectedIndex {
-        case VoucherType.valute.rawValue:
-            voucherType = .valute
+        case VoucherType.vouchers.rawValue:
+            voucherType = .vouchers
+            self.voucherViewModel.filterVouchers(voucherType: voucherType)
             self.tableView.reloadData()
             self.tableView.isHidden = false
             break
-        case VoucherType.vouchers.rawValue:
-            voucherType = .vouchers
-            if voucherViewModel.numberOfCells == 0 {
-                self.tableView.isHidden = true
-            }else {
-                self.tableView.isHidden = false
-            }
+        case VoucherType.expiredVouchers.rawValue:
+            voucherType = .expiredVouchers
+            self.voucherViewModel.filterVouchers(voucherType: voucherType)
             self.tableView.reloadData()
             break
         default: break
         }
+        self.voucherViewModel.voucherType = voucherType
     }
     
     @IBAction func openTransaction(_ sender: UIButton) {
@@ -204,33 +201,16 @@ extension MVouchersViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        switch voucherType {
-        case .valute?:
-            return 1
-        case .vouchers?:
-            return voucherViewModel.numberOfCells
-        default:
-            return 0
-        }
+        return voucherViewModel.numberOfCells
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        switch voucherType {
-        case .valute?:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "valuteCell", for: indexPath) as! ValuteTableViewCell
-            cell.wallet = self.wallet.wallet
-            cell.sendButton.addTarget(self, action: #selector(send(_:)), for: .touchUpInside)
-            return cell
-        case .vouchers?:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! VoucherTableViewCell
-            let voucher = voucherViewModel.getCellViewModel(at: indexPath)
-            cell.setupVoucher(voucher: voucher)
-            
-            return cell
-        default:
-            return UITableViewCell()
-        }
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! VoucherTableViewCell
+        let voucher = voucherViewModel.getCellViewModel(at: indexPath)
+        cell.setupVoucher(voucher: voucher)
+        
+        return cell
     }
     
     @objc func send(_ sender: UIButton) {
@@ -238,27 +218,18 @@ extension MVouchersViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+        self.voucherViewModel.userPressed(at: indexPath)
         
-        switch voucherType {
-        case .vouchers?:
-            
-            self.voucherViewModel.userPressed(at: indexPath)
-            
-            if voucherViewModel.isAllowSegue {
-                if voucherViewModel.selectedVoucher?.product != nil {
-                    self.performSegue(withIdentifier: "goToProduct", sender: nil)
-                }else {
-                    self.performSegue(withIdentifier: "goToVoucher", sender: nil)
-                }
-                return indexPath
+        if voucherViewModel.isAllowSegue {
+            if voucherViewModel.selectedVoucher?.product != nil {
+                self.performSegue(withIdentifier: "goToProduct", sender: nil)
             }else {
-                return nil
+                self.performSegue(withIdentifier: "goToVoucher", sender: nil)
             }
-            
-        default:
-            return nil
-            
+            return indexPath
         }
+        
+        return nil
     }
     
 }
@@ -274,26 +245,21 @@ extension MVouchersViewController: UIViewControllerPreviewingDelegate{
     
     public func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
         
-        switch voucherType {
-        case .vouchers?:
-            guard let indexPath = tableView.indexPathForRow(at: location) else {
-                return nil
-            }
-            
-            self.voucherViewModel.userPressed(at: indexPath)
-            var detailViewController = UIViewController()
-            if voucherViewModel.selectedVoucher?.product != nil {
-                detailViewController = createDetailViewControllerIndexPath(vc: didSetPullUPWithoutSegue(storyboard: R.storyboard.productVoucher(), isProduct: true),
-                                                                           indexPath: indexPath)
-            }else {
-                detailViewController = createDetailViewControllerIndexPath(vc: didSetPullUPWithoutSegue(storyboard: R.storyboard.voucher(), isProduct: false),
-                                                                           indexPath: indexPath)
-            }
-            
-            return detailViewController
-        default:
+        guard let indexPath = tableView.indexPathForRow(at: location) else {
             return nil
         }
+        
+        self.voucherViewModel.userPressed(at: indexPath)
+        var detailViewController = UIViewController()
+        if voucherViewModel.selectedVoucher?.product != nil {
+            detailViewController = createDetailViewControllerIndexPath(vc: didSetPullUPWithoutSegue(storyboard: R.storyboard.productVoucher(), isProduct: true),
+                                                                       indexPath: indexPath)
+        }else {
+            detailViewController = createDetailViewControllerIndexPath(vc: didSetPullUPWithoutSegue(storyboard: R.storyboard.voucher(), isProduct: false),
+                                                                       indexPath: indexPath)
+        }
+        
+        return detailViewController
     }
     
     public func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {

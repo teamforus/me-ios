@@ -15,6 +15,7 @@ class VouchersViewModel{
     var selectedVoucher: Voucher?
     var isAllowSegue: Bool = false
     var vc: UIViewController!
+    var voucherType: VoucherType!
     
     var completeIdentity: ((Office)->())!
     var completeDeleteToken: ((Int)->())!
@@ -25,6 +26,8 @@ class VouchersViewModel{
             complete?(cellViewModels)
         }
     }
+    
+    private var allVouchers: [Voucher] = [Voucher]()
     
     init(commonService: CommonServiceProtocol = CommonService()) {
         self.commonService = commonService
@@ -119,7 +122,13 @@ class VouchersViewModel{
                 vms.append( createCellViewModel(voucher: voucher) )
             }
         }
-        self.cellViewModels = vms
+        allVouchers = vms
+        filterVouchers(voucherType: voucherType)
+    }
+    
+    func filterVouchers(voucherType: VoucherType) {
+        cellViewModels = allVouchers.filter({voucherType == .vouchers ? $0.expire_at?.date?.formatDate() ?? Date() > Date()  : $0.expire_at?.date?.formatDate() ?? Date() < Date()})
+        
     }
 }
 
