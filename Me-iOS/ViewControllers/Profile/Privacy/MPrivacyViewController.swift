@@ -172,7 +172,7 @@ extension MPrivacyViewController:UITableViewDelegate, UITableViewDataSource {
                 guard let cell = tableView.dequeueReusableCell(withIdentifier: ButtonTableViewCell.identifier, for: indexPath) as? ButtonTableViewCell else {
                   return UITableViewCell()
                 }
-                cell.configureCellInfo(text: "Request to delete your data", by: section)
+                cell.configureCellInfo(text: "Verzoek om je gegevens te verwijderen", by: section)
             
             cell.button.actionHandleBlock = { [weak self] (_) in
                 self?.openDeleteAccount()
