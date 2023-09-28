@@ -27,28 +27,14 @@ extension VouchersDataSource: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        switch voucherType {
-        case .valute:
-            return 1
-        case .vouchers:
-            return vouchers.count
-        }
+        return vouchers.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: VoucherTableViewCell.identifier, for: indexPath) as! VoucherTableViewCell
+        let voucher = vouchers[indexPath.row]
+        cell.setupVoucher(voucher: voucher)
         
-        switch voucherType {
-        case .valute:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "valuteCell", for: indexPath) as! ValuteTableViewCell
-            cell.wallet = self.wallet?.wallet
-//            cell.sendButton.addTarget(self, action: #selector(send(_:)), for: .touchUpInside)
-            return cell
-        case .vouchers:
-            let cell = tableView.dequeueReusableCell(withIdentifier: VoucherTableViewCell.identifier, for: indexPath) as! VoucherTableViewCell
-            let voucher = vouchers[indexPath.row]
-            cell.setupVoucher(voucher: voucher)
-            
-            return cell
-        }
+        return cell
     }
 }

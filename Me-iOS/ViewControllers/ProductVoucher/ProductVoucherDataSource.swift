@@ -142,7 +142,7 @@ extension ProductVoucherDataSource: UITableViewDataSource, UITableViewDelegate {
         let sections = MainTableViewSection.allCases[indexPath.row]
         switch sections {
         case .voucher:
-            self.navigator.navigate(to: .qrModal(voucher, .Voucher))
+            self.navigator.navigate(to: .openQRVoucher(voucher, vc: parentViewController))
         case .telephone:
             callPhone()
         case .email, .infoVoucher,  .mapDetail, .adress, .branches: break

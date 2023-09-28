@@ -58,7 +58,13 @@ class Navigator: NSObject {
         case .openQRVoucher(let voucher, vc: let vc):
             let popOverVC = PullUpQRViewController(nib: R.nib.pullUpQRViewController)
             popOverVC.voucher = voucher
-            popOverVC.qrType = .Voucher
+            popOverVC.qrType = .voucher
+            vc.showPopUPWithAnimation(vc: popOverVC)
+            
+        case .openQRRecord(let record, vc: let vc):
+            let popOverVC = PullUpQRViewController(nib: R.nib.pullUpQRViewController)
+            popOverVC.record = record
+            popOverVC.qrType = .record
             vc.showPopUPWithAnimation(vc: popOverVC)
             
         case .subsidie(let voucher):
@@ -96,9 +102,9 @@ class Navigator: NSObject {
             let recordDetailVC = MRecordDetailViewController(navigator: self, record: record)
             self.navController.show(recordDetailVC, sender: nil)
             
-        case .qrModal(let voucher, let qrType, let record):
-            let pullUpQRVC = PullUpQRViewController(voucher: voucher, qrType: qrType, record: record)
-            self.navController.showPopUPWithAnimation(vc: pullUpQRVC)
+        case .qrModal(let voucher, let qrType, let record): break
+//            let pullUpQRVC = PullUpQRViewController(voucher: voucher, qrType: qrType, record: record)
+//            self.navController.showPopUPWithAnimation(vc: pullUpQRVC)
         }
     }
     
@@ -112,6 +118,7 @@ class Navigator: NSObject {
         case productVoucher(_ address: String)
         case budgetVoucher(_ voucher: Voucher)
         case openQRVoucher(_ voucher: Voucher, vc: UIViewController)
+        case openQRRecord(_ record: Record, vc: UIViewController)
         case subsidie(_ voucher: Voucher)
         case paymentActions(_ paymentAction: PaymenyActionModel)
         case productReservation(_ voucherTokens: [Transaction], _ voucher: Voucher)

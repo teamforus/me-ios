@@ -13,6 +13,14 @@ var Localize: R.string.localizable.Type {
     return R.string.localizable.self
 }
 
+var emailSupport: String {
+    return "support@forus.io"
+}
+
+var emailPrivacy: String {
+    return "privacy@forus.io"
+}
+
 extension String {
     static let empty = ""
     

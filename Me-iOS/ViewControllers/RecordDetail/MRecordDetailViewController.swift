@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Rswift
 
 class MRecordDetailViewController: UIViewController {
     
@@ -125,11 +126,7 @@ class MRecordDetailViewController: UIViewController {
     }
     
     @objc func showQRCode() {
-        let popOverVC = PullUpQRViewController(nib: R.nib.pullUpQRViewController)
-        popOverVC.idRecord = Int(record.id ?? 0)
-        popOverVC.record = record
-        popOverVC.qrType = .Record
-        showPopUPWithAnimation(vc: popOverVC)
+        self.navigator.navigate(to: .openQRRecord(self.record, vc: self))
     }
     
     @IBAction func deleteRecord(_ sender: UIButton) {

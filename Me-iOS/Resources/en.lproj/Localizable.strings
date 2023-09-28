@@ -93,6 +93,7 @@
 "this_voucher_is_expired_on" = "This voucher expires on %@";
 "used" = "Used";
 "expired" = "Expired";
+"deactivated" = "Deactivated";
 "you_sure_you_want_to_login_device" = "You sure you wan't to login this device?";
 "confirm_transaction" = "Confirm transaction";
 "please_confirm_the_transaction" = "Please confirm the transaction of € %@.";
@@ -190,6 +191,7 @@
 "voucher_info" = "Voucher Info";
 "email" = "Email";
 "offers" = "Offers";
+"notes" = "Notes";
 "do_you_want_to_login" = "Do you want to login on this device?";
 "description_of_auth_anothe_device" = "Continuing will allow this device to acces your account. Are you sure you want to continue?";
 "i_want_to_login" = "Yes, I want to login";
@@ -215,3 +217,10 @@
 "reddem_voucher" = "Redeem Voucher";
 "show_qr_code" = "Show QR-Code";
 "record_detail" = "Record detail";
+"delete_account" = "Delete account";
+"title_delete_description" = "Watch out, you are about to permanently delete your account.";
+"description_delete" = "You will lose access to your vouchers, transactions and records, and cannot apply for funds that you have already recieved.\n\n\nContact %@ if you have any questions.";
+"delete_action" = "Delete";
+"delete_description_alert" = "Are you sure you want to delete your account? Your request will be processed within the legal term of 30 days.";
+"please_delete_account" = "Please delete my account: %@\n\nReason (optional):";
+"please_delete_account_gmail_version" = "Please delete my account: %@<br/><br/>Reason (optional):";

@@ -1,9 +1,9 @@
 
-/* Class = "UIButton"; normalTitle = "About Me"; ObjectID = "0RT-Bm-Z42"; */
-"0RT-Bm-Z42.normalTitle" = "About Me";
+/* Class = "UIButton"; normalTitle = "support@forus.io"; ObjectID = "5cN-1Z-L4K"; */
+"5cN-1Z-L4K.normalTitle" = "support@forus.io";
 
-/* Class = "UILabel"; text = "1.0.4"; ObjectID = "6fM-yO-VsB"; */
-"6fM-yO-VsB.text" = "1.0.4";
+/* Class = "UILabel"; text = "Delete account"; ObjectID = "89l-As-PkA"; */
+"89l-As-PkA.text" = "Delete account";
 
 /* Class = "UILabel"; text = "Change 4-digit passcode"; ObjectID = "AbL-ew-Qz7"; */
 "AbL-ew-Qz7.text" = "Change 4-digit passcode";
@@ -20,8 +20,14 @@
 /* Class = "UIButton"; normalTitle = "LOG OUT"; ObjectID = "LCl-JE-4Rl"; */
 "LCl-JE-4Rl.normalTitle" = "LOG OUT";
 
+/* Class = "UILabel"; text = "Personal Account"; ObjectID = "NFd-zA-OpX"; */
+"NFd-zA-OpX.text" = "Personal Account";
+
 /* Class = "UILabel"; text = "Uw Profiel"; ObjectID = "Ncj-5F-IHr"; */
 "Ncj-5F-IHr.text" = "Uw Profiel";
+
+/* Class = "UILabel"; text = "1.0.4"; ObjectID = "Qzj-KA-RoL"; */
+"Qzj-KA-RoL.text" = "1.0.4";
 
 /* Class = "UILabel"; text = "mail@mail.com"; ObjectID = "Rkq-EJ-VPa"; */
 "Rkq-EJ-VPa.text" = "mail@mail.com";
@@ -29,8 +35,17 @@
 /* Class = "UIButton"; normalTitle = "Edit"; ObjectID = "Sqg-eG-8rA"; */
 "Sqg-eG-8rA.normalTitle" = "Edit";
 
-/* Class = "UIButton"; normalTitle = "Close"; ObjectID = "hu1-sr-b6h"; */
-"hu1-sr-b6h.normalTitle" = "Close";
+/* Class = "UILabel"; text = "App Versie"; ObjectID = "fhS-84-KLb"; */
+"fhS-84-KLb.text" = "App version";
+
+/* Class = "UIButton"; configuration.title = " "; ObjectID = "nBJ-OX-QRF"; */
+"nBJ-OX-QRF.configuration.title" = " ";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "nBJ-OX-QRF"; */
+"nBJ-OX-QRF.normalTitle" = "";
+
+/* Class = "UIButton"; normalTitle = "Over Me"; ObjectID = "o9m-cg-Pla"; */
+"o9m-cg-Pla.normalTitle" = "About Me";
 
 /* Class = "UILabel"; text = "Send crash reports"; ObjectID = "pA8-VO-WKT"; */
 "pA8-VO-WKT.text" = "Send crash reports";
@@ -38,15 +53,5 @@
 /* Class = "UILabel"; text = "Use Face ID for login"; ObjectID = "scn-SY-tGf"; */
 "scn-SY-tGf.text" = "Use Face ID for login";
 
-/* Class = "UILabel"; text = "App version"; ObjectID = "szP-vk-gG7"; */
-"szP-vk-gG7.text" = "App version";
-
-/* Class = "UIButton"; normalTitle = "Press for crash the app"; ObjectID = "uyU-tZ-kOJ"; */
-"uyU-tZ-kOJ.normalTitle" = "Press for crash the app";
-
-/* Class = "UILabel"; text = "This is your personal QR code"; ObjectID = "NFR-Ik-UtF.text"; */
-"NFR-Ik-UtF.text" = "This is your personal QR code";
-
-/* Class = "UILabel"; text = "Let someone scan your personal QR code to send your currency, property or vouchers"; ObjectID = "MxW-qZ-33f.text"; */
-"MxW-qZ-33f.text" = "Let someone scan your personal QR code to send your currency, property or vouchers.";
-"NFd-zA-OpX.text" = "Personal account";
+/* Class = "UIButton"; normalTitle = "Press for crash the app"; ObjectID = "u8j-ZQ-ypq"; */
+"u8j-ZQ-ypq.normalTitle" = "Press for crash the app";

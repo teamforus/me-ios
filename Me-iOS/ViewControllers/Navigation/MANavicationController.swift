@@ -58,9 +58,7 @@ extension MeNavigationController: UINavigationControllerDelegate {
     func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
         navigationController.navigationBar.barTintColor = R.color.background_DarkTheme()
         navigationController.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
-        navigationController.navigationBar.shadowImage =  UIImage()
         navigationController.navigationBar.isTranslucent = true
-        viewController.navigationItem.rightBarButtonItem = nil
         viewController.navigationItem.backBarButtonItem = UIBarButtonItem(title: " ", style: .plain, target: nil, action: nil)
         
         let image = UIImage(named: "back")?.withRenderingMode(.alwaysTemplate)
@@ -80,6 +78,7 @@ extension MeNavigationController: UINavigationControllerDelegate {
         case is MVouchersViewController:
             self.navigationBar.prefersLargeTitles = true
             viewController.title = "Vouchers"
+            
             let barButtonItem = UIBarButtonItem(customView: (viewController as? MVouchersViewController)!.transactionButton)
             viewController.navigationItem.rightBarButtonItem = barButtonItem
             

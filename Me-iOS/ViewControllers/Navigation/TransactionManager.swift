@@ -77,7 +77,10 @@ extension TransactionManager {
 extension TransactionManager {
     func profileScreen() -> MProfileViewController {
         let viewController = loadScene(storyboard: Storyboards.profile, viewController: ViewControllers.Profile.profile) as! MProfileViewController
+        let navController = MeNavigationController(rootViewController: viewController)
+        viewController.navigator = Navigator()
         viewController.tabBarItem = UITabBarItem(title: Localize.profile(), image: Image.profileTabIcon, tag: Tab.voucher.rawValue)
+        viewController.navigator.configure(navController)
         return viewController
     }
 }

@@ -15,13 +15,21 @@ class VouchersViewModel{
     var selectedVoucher: Voucher?
     var isAllowSegue: Bool = false
     var vc: UIViewController!
+    var voucherType: VoucherType!
     
     var completeIdentity: ((Office)->())!
     var completeDeleteToken: ((Int)->())!
     
-    
+    private var allVouchers: [Voucher] = [Voucher]()
+
     init(commonService: CommonServiceProtocol = CommonService()) {
         self.commonService = commonService
+    }
+    
+    private var cellViewModels: [Voucher] = [Voucher]() {
+        didSet {
+            complete?(cellViewModels)
+        }
     }
     
     var complete: (([Voucher])->())?
@@ -43,7 +51,7 @@ class VouchersViewModel{
                     }))
                 }
             } else {
-                
+                self.allVouchers = response.data ?? []
                 self.complete?(response.data ?? [])
             }
             
@@ -67,7 +75,12 @@ class VouchersViewModel{
             print("Push Notification delete status code: \(statusCode)")
             self.completeDeleteToken?(statusCode)
         }) { (error) in
+            print(error)
         }
+    }
+    
+    func filterVouchers(voucherType: VoucherType) {
+        cellViewModels = allVouchers.filter({voucherType == .vouchers ? $0.expire_at?.date?.formatDate() ?? Date() > Date()  : $0.expire_at?.date?.formatDate() ?? Date() < Date()})
         
     }
     

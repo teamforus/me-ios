@@ -1,17 +1,9 @@
-//
-//  MVoucherViewController.swift
-//  Me-iOS
-//
-//  Created by Tcacenco Daniel on 5/8/19.
-//  Copyright © 2019 Tcacenco Daniel. All rights reserved.
-//
-
 import UIKit
 import StoreKit
 
 enum VoucherType: Int {
-    case valute = 0
-    case vouchers = 1
+    case vouchers = 0
+    case expiredVouchers = 1
 }
 
 class MVouchersViewController: UIViewController {
@@ -28,8 +20,16 @@ class MVouchersViewController: UIViewController {
     // MARK: - Properties
     private let refreshControl = UIRefreshControl()
     
-    var segmentController: HBSegmentedControl!
-    var segmentView: UIView!
+    var segmentController: HBSegmentedControl = {
+        let segment = HBSegmentedControl(frame: .zero)
+        return segment
+    }()
+    
+    private let segmentView: UIView = {
+        let view = UIView(frame: .zero)
+        view.backgroundColor = Color.lightGraySegment
+        return view
+    }()
     
     var tableView: UITableView = {
         let tableView = UITableView(frame: .zero)
@@ -37,9 +37,10 @@ class MVouchersViewController: UIViewController {
     }()
     
     var transactionButton: ActionButton = {
-        let buttton = ActionButton(frame: .zero)
-        buttton.setImage(Image.transactionIcon, for: .normal)
-        return buttton
+        let button = ActionButton(frame: CGRect(x: 0, y: 0, width: 35, height: 35))
+        button.setImage(Image.transactionIcon, for: .normal)
+        button.contentMode = .scaleAspectFit
+        return button
     }()
     
     
@@ -57,6 +58,7 @@ class MVouchersViewController: UIViewController {
     // MARK: - Setup Viiew
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         addSubviews()
         setupConstraints()
         setupView()
@@ -72,7 +74,7 @@ class MVouchersViewController: UIViewController {
             transactionButton.toolTip(message: Localize.tap_here_you_want_to_see_list_transaction(), style: .dark, location: .bottom, offset: CGPoint(x: -50, y: 0))
         }
         
-//        setupSegmentControll()
+        setupSegmentControll()
         voucherViewModel.completeIdentity = { [unowned self] (response) in
             DispatchQueue.main.async {
                 self.wallet = response
@@ -122,8 +124,8 @@ class MVouchersViewController: UIViewController {
     }
     
     private func setupSegmentControll() {
-        segmentController.items = ["Valute", Localize.vouchers()]
-        segmentController.selectedIndex = 1
+        segmentController.items = ["Geldig", Localize.expired()]
+        segmentController.selectedIndex = 0
         segmentController.font = UIFont(name: "GoogleSans-Medium", size: 14)
         segmentController.unselectedLabelColor = #colorLiteral(red: 0.631372549, green: 0.6509803922, blue: 0.6784313725, alpha: 1)
         segmentController.selectedLabelColor = #colorLiteral(red: 0.2078431373, green: 0.3921568627, blue: 0.968627451, alpha: 1)
@@ -162,18 +164,14 @@ class MVouchersViewController: UIViewController {
     @objc func segmentSelected(sender:HBSegmentedControl) {
         
         switch sender.selectedIndex {
-        case VoucherType.valute.rawValue:
-            voucherType = .valute
-            self.tableView.reloadData()
-            self.tableView.isHidden = false
-            break
         case VoucherType.vouchers.rawValue:
             voucherType = .vouchers
-            if self.dataSource.vouchers.count == 0 {
-                self.tableView.isHidden = true
-            }else {
-                self.tableView.isHidden = false
-            }
+            self.voucherViewModel.filterVouchers(voucherType: voucherType)
+            self.tableView.reloadData()
+            self.tableView.isHidden = false
+        case VoucherType.expiredVouchers.rawValue:
+            voucherType = .expiredVouchers
+            self.voucherViewModel.filterVouchers(voucherType: voucherType)
             self.tableView.reloadData()
             break
         default: break
@@ -226,7 +224,7 @@ extension MVouchersViewController: UIViewControllerPreviewingDelegate{
             let voucher = self.dataSource.vouchers[indexPath.row]
             var detailViewController = UIViewController()
             if voucherViewModel.selectedVoucher?.product != nil {
-                let productVC = ProductVoucherViewController()
+                let productVC = ProductVoucherViewController(navigator: navigator)
                 productVC.address = voucherViewModel.selectedVoucher?.address ?? ""
                 detailViewController = productVC
             }else {
@@ -250,10 +248,11 @@ extension MVouchersViewController: UIViewControllerPreviewingDelegate{
 
 extension MVouchersViewController {
     private func addSubviews() {
-        let views = [tableView]
+        let views = [segmentView, tableView]
         views.forEach { view in
             self.view.addSubview(view)
         }
+        view.addSubview(segmentController)
     }
 }
 
@@ -262,8 +261,19 @@ extension MVouchersViewController {
 extension MVouchersViewController {
     private func setupConstraints() {
         
+        segmentView.snp.makeConstraints { make in
+            make.left.right.equalTo(self.view).inset(20)
+            make.height.equalTo(50)
+            make.top.equalTo(self.view.safeAreaLayoutGuide)
+        }
+        
+        segmentController.snp.makeConstraints { make in
+            make.top.left.right.bottom.equalTo(self.segmentView).inset(4)
+        }
+        
         tableView.snp.makeConstraints { make in
-            make.top.left.right.bottom.equalTo(self.view.safeAreaLayoutGuide)
+            make.left.right.bottom.equalTo(self.view.safeAreaLayoutGuide)
+            make.top.equalTo(segmentView.snp.bottom).offset(15)
         }
     }
 }

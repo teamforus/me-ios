@@ -17,6 +17,7 @@ enum VoucherTableViewSection: Int, CaseIterable {
 }
 
 class MVoucherViewController: UIViewController {
+
     var dataSource: VoucherDataSource!
     lazy var voucherViewModel: VoucherViewModel = {
         return VoucherViewModel()

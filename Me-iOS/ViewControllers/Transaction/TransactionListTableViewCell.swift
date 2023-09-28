@@ -76,7 +76,15 @@ class TransactionListTableViewCell: UITableViewCell {
     }
     
     func configure(transaction: Transaction) {
-        self.statusLabel.text = transaction.state
+        switch transaction.state {
+        case "pending":
+            self.statusLabel.text = "in afwachting"
+        case "success":
+            self.statusLabel.text = "succesvol"
+        default:
+            self.statusLabel.text = ""
+        }
+        
         self.organizationNameLabel.text = transaction.product != nil ? transaction.product?.name : transaction.organization?.name ?? ""
         
         if transaction.product != nil {

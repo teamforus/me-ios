@@ -59,6 +59,7 @@ class VoucherTableViewCell: UITableViewCell {
         addSubviews()
         setupConstraints()
         self.usedVoucherLabel.isHidden = true
+
         setupIcon()
         self.selectionStyle = .none
         if #available(iOS 11.0, *) {
@@ -78,11 +79,17 @@ class VoucherTableViewCell: UITableViewCell {
     func setupVoucher(voucher: Voucher) {
         self.voucherTitleLabel.text = voucher.product != nil ? voucher.product?.name : voucher.fund?.name
         self.organizationNameLabel.text = voucher.product != nil ? voucher.product?.organization?.name  : voucher.fund?.organization?.name
-        
+
         if voucher.expire_at?.date?.formatDate() ?? Date() < Date() {
             self.usedVoucherLabel.isHidden = false
             self.usedVoucherLabel.textColor = .red
             self.usedVoucherLabel.text = Localize.expired()
+        }
+        
+        if voucher.deactivated == true {
+            self.usedVoucherLabel.isHidden = false
+            self.usedVoucherLabel.textColor = .red
+            self.usedVoucherLabel.text = Localize.deactivated()
         }
         
         if voucher.product != nil{

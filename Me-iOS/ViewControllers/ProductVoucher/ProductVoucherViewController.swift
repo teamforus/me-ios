@@ -73,7 +73,7 @@ class ProductVoucherViewController: UIViewController {
             }
             DispatchQueue.main.async {
                 self.voucher = voucher
-                self.dataSource = ProductVoucherDataSource(voucher: voucher, parentViewController: self, navigator: navigator)
+                self.dataSource = ProductVoucherDataSource(voucher: voucher, parentViewController: self, navigator: self.navigator)
                 self.setUpTableView()
                 self.tableView.reloadData()
             }

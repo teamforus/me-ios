@@ -186,12 +186,16 @@ class MAFirstPageViewController: UIViewController {
     }
     
     private func setupInitialEmailFieldState() {
-        if self.traitCollection.userInterfaceStyle == .dark {
-            emailField.textColor = .white
-            emailField.selectedLineColor = .white
+        if #available(iOS 12.0, *) {
+            if self.traitCollection.userInterfaceStyle == .dark {
+                emailField.textColor = .white
+                emailField.selectedLineColor = .white
+            } else {
+                emailField.textColor = .black
+                emailField.selectedLineColor = .black
+            }
         } else {
-            emailField.textColor = .black
-            emailField.selectedLineColor = .black
+            // Fallback on earlier versions
         }
     }
     

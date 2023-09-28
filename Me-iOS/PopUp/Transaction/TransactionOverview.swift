@@ -114,6 +114,19 @@ class TransactionOverview: UIView {
         return label
     }()
     
+    let noteHeader: UILabel = {
+        let label = UILabel()
+        label.font = UIFont(name: "GoogleSans-Regular", size: 13)
+        label.text = Localize.notes()
+        label.textColor = #colorLiteral(red: 0.5295057893, green: 0.5291086435, blue: 0.5508569479, alpha: 1)
+        return label
+    }()
+    
+    let noteNameLabel: UILabel_DarkMode = {
+        let label = UILabel_DarkMode()
+        return label
+    }()
+    
     // MARK: - Init
     
     override init(frame: CGRect) {
@@ -144,6 +157,7 @@ class TransactionOverview: UIView {
         idTransactionLabel.text = String(transaction.id ?? 0)
         fundNameLabel.text = transaction.fund?.name
         provederNameLabel.text = transaction.organization?.name
+        noteNameLabel.text = transaction.note
     }
 }
 
@@ -166,7 +180,7 @@ extension TransactionOverview {
     }
     
     func addbodyTransactionDetailViewSubviews() {
-        let views = [titleLabel, idHeader, idTransactionLabel, fundHeader, fundNameLabel, providerHeader, provederNameLabel]
+        let views = [titleLabel, idHeader, idTransactionLabel, fundHeader, fundNameLabel, providerHeader, provederNameLabel, noteHeader, noteNameLabel]
         views.forEach { (view) in
             bodyTransactionDetailView.addSubview(view)
         }

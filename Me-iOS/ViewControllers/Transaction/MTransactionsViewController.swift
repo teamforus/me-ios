@@ -91,9 +91,26 @@ class MTransactionsViewController: UIViewController {
         return mdate
     }()
     
+  lazy var datePickerNew : UIDatePicker = {
+      let mdate = UIDatePicker()
+      mdate.translatesAutoresizingMaskIntoConstraints = false
+      if #available(iOS 14.0, *) {
+        mdate.backgroundColor = .clear
+        mdate.preferredDatePickerStyle = .compact
+        mdate.datePickerMode = .date
+        mdate.addTarget(self, action: #selector(getDate(from:)), for: .valueChanged)
+        } else {
+        // Fallback on earlier versions
+      }
+     return mdate
+  }()
    
+  var gestorRecognizer = UIGestureRecognizer()
+  
+  
     override func viewDidLoad() {
         super.viewDidLoad()
+      
         addSubviews()
         setupConstraints()
         setupView()
@@ -121,6 +138,12 @@ extension MTransactionsViewController {
             self.view.addSubview(view)
         }
         addBottomViewSubviews()
+      if #available(iOS 14.0, *) {
+//        view.addSubview(datePickerNew)
+        } else {
+         
+      }
+     
     }
     
     func addBottomViewSubviews() {
@@ -254,7 +277,7 @@ extension MTransactionsViewController: UITableViewDelegate, UITableViewDataSourc
 
 extension MTransactionsViewController: MDatePickerViewDelegate {
     func mdatePickerView(selectDate: Date) {
-        dateButton.setTitle("From date: " + selectDate.dateFormaterFromDateShort(), for: .normal)
+      dateButton.setTitle("From date: " + selectDate.dateFormaterFromDateShort(), for: .normal)
         transactionViewModel.sortTransactionByDate(form: selectDate)
     }
 }
@@ -290,4 +313,11 @@ extension MTransactionsViewController {
             make.height.equalTo(self.view).multipliedBy(0.4)
         }
     }
+  
+  
+  @objc func getDate(from datePiker:UIDatePicker) {
+    dateButton.setTitle("From date: " + datePiker.date.dateFormaterFromDateShort(), for: .normal)
+    transactionViewModel.sortTransactionByDate(form: datePiker.date)
+    self.dismiss(UIButton())
+  }
 }

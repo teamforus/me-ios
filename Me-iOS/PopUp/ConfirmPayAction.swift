@@ -9,7 +9,6 @@
 import UIKit
 
 class ConfirmPayAction: UIView {
-
     var paymentAction: PaymenyActionModel
     
     var commonService: CommonServiceProtocol! = CommonService()

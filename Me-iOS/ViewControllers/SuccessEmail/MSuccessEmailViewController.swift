@@ -83,11 +83,18 @@ class MSuccessEmailViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    
+    // MARK: - Setup View
     override func viewDidLoad() {
         super.viewDidLoad()
         addSubviews()
         setupConstraints()
         setupView()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        NotificationCenter.default.removeObserver(self)
     }
     
     private func addObservers() {
@@ -126,13 +133,8 @@ class MSuccessEmailViewController: UIViewController {
         
         successEmailViewModel.complete = { [weak self] (token) in
             DispatchQueue.main.async {
-                self?.saveNewIdentity(accessToken: token)
-                UserDefaults.standard.set(token, forKey: UserDefaultsName.Token)
-                UserDefaults.standard.set(true, forKey: UserDefaultsName.UserIsLoged)
-                CurrentSession.shared.token = token
-                self?.addShortcuts(application: UIApplication.shared)
-                UserDefaults.standard.synchronize()
-                self?.performSegue(withIdentifier: "goToSuccessRegister", sender: self)
+                self?.handleCredentials(with: token)
+                self?.logIn()
             }
         }
         
@@ -145,13 +147,8 @@ class MSuccessEmailViewController: UIViewController {
         
         successEmailViewModel.completeRegistration = { [weak self] (token) in
             DispatchQueue.main.async {
-                self?.saveNewIdentity(accessToken: token)
-                UserDefaults.standard.set(token, forKey: UserDefaultsName.Token)
-                UserDefaults.standard.set(true, forKey: UserDefaultsName.UserIsLoged)
-                CurrentSession.shared.token = token
-                self?.addShortcuts(application: UIApplication.shared)
-                UserDefaults.standard.synchronize()
-                self?.performSegue(withIdentifier: "goToSuccessRegister", sender: self)
+                self?.handleCredentials(with: token)
+                self?.logIn()
             }
         }
         
@@ -160,13 +157,17 @@ class MSuccessEmailViewController: UIViewController {
         }
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        NotificationCenter.default.removeObserver(self)
-    }
-    
     @objc func logIn(){
         navigator.navigate(to: .successRegister)
+    }
+    
+    private func handleCredentials(with token: String) {
+        self.saveNewIdentity(accessToken: token)
+        UserDefaults.standard.set(token, forKey: UserDefaultsName.Token)
+        UserDefaults.standard.set(true, forKey: UserDefaultsName.UserIsLoged)
+        CurrentSession.shared.token = token
+        self.addShortcuts(application: UIApplication.shared)
+        UserDefaults.standard.synchronize()
     }
 }
 

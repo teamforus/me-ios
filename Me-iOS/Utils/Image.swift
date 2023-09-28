@@ -29,4 +29,5 @@ public struct Image {
     public static let launcherAppIcon: UIImage? = UIImage(named: "ic_launcher_APP")
     public static let userLogo: UIImage? = UIImage(named: "user_logo")
     public static let qrImageSmall: UIImage? = UIImage(named: "qrImage2")
+    public static let voucher: UIImage? = UIImage(named: "voucher")
 }

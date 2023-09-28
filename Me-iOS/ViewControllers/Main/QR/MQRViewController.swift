@@ -196,9 +196,9 @@ class MQRViewController: HSScanViewController {
             }
           })
           if self.productVoucher.count != 0 {
-            navigator.navigate(to: .productReservation(productVoucher.filter({$0.amount != "0.0"}), voucher))
+              self.navigator.navigate(to: .productReservation(self.productVoucher.filter({$0.amount != "0.0"}), self.voucher))
           }else {
-            self.navigator.navigate(to: .payment(voucher))
+              self.navigator.navigate(to: .payment(self.voucher))
           }
         }else {
           
@@ -229,7 +229,7 @@ class MQRViewController: HSScanViewController {
 //      paymentVC.destination.testToken = testToken
 //      paymentVC.destination.voucher = voucher
 //      paymentVC.destination.tabBar = self.tabBarController
-//      
+//
 //    }else if let productReservation =  R.segue.mqrViewController.goToChooseProduct(segue: segue) {
 //      productReservation.destination.voucher = voucher
 //      productReservation.destination.voucherTokens = productVoucher.filter({$0.amount != "0.0"})

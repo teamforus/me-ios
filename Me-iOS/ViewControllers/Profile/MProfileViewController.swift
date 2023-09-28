@@ -129,7 +129,11 @@ extension MProfileViewController {
         didChooseAppLocker(title: Localize.turn_off_login_code(), subTitle: Localize.enter_your_login_code(), cancelButtonIsVissible: true, mode: .deactive)
     }
     
-    
+    @IBAction func didOpenDeleteAccount(_ sender: UIButton) {
+        let vc = MDeleteAccountViewController(email: self.emailLabel.text ?? "")
+        vc.modalPresentationStyle = .fullScreen
+        self.present(vc, animated: true)
+    }
 }
 
 // MARK: - SetupView

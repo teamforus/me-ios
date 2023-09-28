@@ -210,7 +210,7 @@ extension UIViewController{
         
         voucherViewModel.completeDeleteToken = { [unowned self] (statusCode) in
             DispatchQueue.main.async {
-                if statusCode == 200 {
+                if statusCode == 200 || statusCode == 201 {
                     self.logoutAction()
                 }else if statusCode == 422 {
                     self.logoutAction()

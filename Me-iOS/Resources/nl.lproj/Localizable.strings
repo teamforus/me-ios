@@ -85,7 +85,7 @@
 "voucher_in_the_form_qr_code" = "-voucher in de vorm van een QR-code";
 "warning" = "Waarschuwing";
 "before_we_get_started_please_confirm_your_email_address" = "Controleer eerst je e-mailadres om verder te gaan.";
-"this_is_your_vouchers_qr_code" = "Dit is jouw voucher in de vorm van een QR-code.";
+"this_is_your_vouchers_qr_code" = "Dit is jouw QR-code.";
 "log_out" = "Log uit";
 "loading" = "Laden...";
 "field_is_empty" = "Tekstveld mag niet leeg zijn";
@@ -94,6 +94,7 @@
 "this_voucher_is_expired_on" = "Gebruik deze voucher voor %@";
 "used" = "Gebruikt";
 "expired" = "Verlopen";
+"deactivated" = "Gestopt";
 "you_sure_you_want_to_login_device" = "Weet je zeker dat je op dit apparaat wilt inloggen?";
 "confirm_transaction" = "Bevestig betaling";
 "please_confirm_the_transaction" = "Is het bedrag van € %@ correct?";
@@ -110,7 +111,7 @@
 "are_you_sure_you_want_log_out" = "Weet je zeker dat je wilt uitloggen?";
 "confirm" = "Bevestigen";
 "cancel" = "Annuleren";
-"validations" = "Validaties";
+"validations" = "Goedkeuringen";
 "primary_email" = "Hoofd e-mail";
 "secundary_email" = "Tweede e-mail";
 "given_name" = "Voornaam";
@@ -134,10 +135,10 @@
 "vouchers" = "Eigendom";
 "you_want_to_login_instead" = "E-mailadres in gebruik! Wil je inloggen?";
 "your_email_address_already_used_you_instead_want_login_using_email_address" = "Dit e-mail adres is al gebruikt. Wil je inloggen met dit e-mailadres?";
-"this_is_your_vouchers_qr_code" = "Dit is jouw voucher in de vorm van een QR-code.";
+"this_is_your_vouchers_qr_code" = "Dit is jouw QR-code.";
 "let_shopkeeper_scan_it_make_payment_from_your_voucher" = "Laat de aanbieder deze QR-Code scannen om een betaling te kunnen doen.";
 "this_is_your_personal_qr_code" = "Jouw eigenschap in vorm van een QR-code";
-"let_shopkeeper_scan_it_to_make_validtion_to_your_record" = "Laat deze QR-code scannen om jouw eigenschap %@ te valideren.";
+"let_shopkeeper_scan_it_to_make_validtion_to_your_record" = "Laat deze QR-code scannen om jouw eigenschap '%@' goed te laten keuren.";
 "your_session_has_expired" = "Deze sessie is verlopen. Je wordt nu uitgelogd.";
 "expired_session" = "Verlopen sessie";
 "click_on_link_you_received_continue" = "Er is een e-mail verstuurd naar %@. Klik op de link in de e-mail om je aan te melden.";
@@ -189,6 +190,7 @@
 "voucher_info" = "Voucher Info";
 "email" = "Email";
 "offers"  = "Aanbod";
+"notes" = "Notities";
 "do_you_want_to_login" = "Probeer je in te loggen op een apparaat?";
 "description_of_auth_anothe_device" = "Door verder te gaan met inloggen geef je een ander apparaat toegang tot je account. Weet je zeker dat je verder wilt gaan?";
 "i_want_to_login" = "Ja, ik wil inloggen";
@@ -214,3 +216,10 @@
 "reddem_voucher" = "Betalingsverzoek";
 "show_qr_code" = "LAAT QR-CODE ZIEN";
 "record_detail" = "Eigenschap detail";
+"delete_account" = "Account verwijderen";
+"title_delete_description" = "Let op, je staat op het punt om je account permanent te verwijderen.";
+"description_delete" = "Je verliest hierdoor toegang tot je gegevens, tegoeden en transacties en kan tegoeden die je al hebt ontvangen niet opnieuw aanvragen. Neem als je vragen hebt contact op met %@";
+"delete_action" = "Verwijder";
+"delete_description_alert" = "Weet je zeker dat je je account wil verwijderen? Je verzoek wordt binnen de wettelijke termijn van 30 dagen verwerkt.";
+"please_delete_account" = "Ik wil graag per direct mijn account %@ laten verwijderen.\n\nReden (optioneel):";
+"please_delete_account_gmail_version" = "Ik wil graag per direct mijn account %@ laten verwijderen.<br/><br/>Reden (optioneel):";
