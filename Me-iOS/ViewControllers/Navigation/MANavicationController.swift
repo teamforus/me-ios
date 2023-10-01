@@ -77,7 +77,7 @@ extension MeNavigationController: UINavigationControllerDelegate {
             
         case is MVouchersViewController:
             self.navigationBar.prefersLargeTitles = true
-            viewController.title = "Vouchers"
+            viewController.title = Localize.balance_title()
             
             let barButtonItem = UIBarButtonItem(customView: (viewController as? MVouchersViewController)!.transactionButton)
             viewController.navigationItem.rightBarButtonItem = barButtonItem

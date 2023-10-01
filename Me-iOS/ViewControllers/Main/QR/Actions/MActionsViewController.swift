@@ -83,7 +83,7 @@ class MActionsViewController: UIViewController {
     
     private let chooseActionLabel: UILabel_DarkMode = {
         let label = UILabel_DarkMode(frame: .zero)
-        label.text = "Kies een actie"
+        label.text = Localize.no_active_products()
         label.font = UIFont(name: "GoogleSans-Medium", size: 24)
         return label
     }()

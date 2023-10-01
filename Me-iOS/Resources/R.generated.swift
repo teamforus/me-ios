@@ -2079,7 +2079,7 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
 
-    /// This `R.string.localizable` struct is generated, and contains static references to 212 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 216 localization keys.
     struct localizable {
       /// en translation: %@ Branches
       ///
@@ -2153,6 +2153,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en, nl
       static let bsn = Rswift.StringResource(key: "bsn", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
+      /// en translation: Balances
+      ///
+      /// Locales: en, nl
+      static let balance_title = Rswift.StringResource(key: "balance_title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
       /// en translation: Before we get started, please confirm your email address.
       ///
       /// Locales: en, nl
@@ -2497,6 +2501,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en, nl
       static let no_internet_conecction = Rswift.StringResource(key: "no_internet_conecction", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
+      /// en translation: No active product for this fund
+      ///
+      /// Locales: en, nl
+      static let no_active_products = Rswift.StringResource(key: "no_active_products", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
       /// en translation: No balance for your actions
       ///
       /// Locales: en, nl
@@ -2529,6 +2537,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en, nl
       static let offers = Rswift.StringResource(key: "offers", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
+      /// en translation: On this page you can see the funds you receive. You haven't received any funds yet.
+      ///
+      /// Locales: en, nl
+      static let empty_voucher_list = Rswift.StringResource(key: "empty_voucher_list", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
       /// en translation: Others
       ///
       /// Locales: en, nl
@@ -2761,6 +2773,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en, nl
       static let the_voucher_is_empty = Rswift.StringResource(key: "the_voucher_is_empty", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
+      /// en translation: There are no transactions yet
+      ///
+      /// Locales: en, nl
+      static let transcation_empty = Rswift.StringResource(key: "transcation_empty", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
       /// en translation: This app is intended to store vouchers, make payments and log in to different applications./n/n/nThis app works together with:/n/n     • 	The Westerkwartier webshop;      • 	The Nijmegen webshop;      • 	The Winterswijk webshop;      • 	The Oost Gelre webshop;      • 	The Berkelland webshop;      • 	The Noordoostpolder webshop      • 	The Kerstpakket webshop;
       ///
       /// Locales: en, nl
@@ -3208,6 +3224,21 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("bsn", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Balances
+      ///
+      /// Locales: en, nl
+      static func balance_title(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("balance_title", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "balance_title"
+        }
+
+        return NSLocalizedString("balance_title", bundle: bundle, comment: "")
       }
 
       /// en translation: Before we get started, please confirm your email address.
@@ -4506,6 +4537,21 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("no_internet_conecction", bundle: bundle, comment: "")
       }
 
+      /// en translation: No active product for this fund
+      ///
+      /// Locales: en, nl
+      static func no_active_products(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("no_active_products", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "no_active_products"
+        }
+
+        return NSLocalizedString("no_active_products", bundle: bundle, comment: "")
+      }
+
       /// en translation: No balance for your actions
       ///
       /// Locales: en, nl
@@ -4624,6 +4670,21 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("offers", bundle: bundle, comment: "")
+      }
+
+      /// en translation: On this page you can see the funds you receive. You haven't received any funds yet.
+      ///
+      /// Locales: en, nl
+      static func empty_voucher_list(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("empty_voucher_list", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "empty_voucher_list"
+        }
+
+        return NSLocalizedString("empty_voucher_list", bundle: bundle, comment: "")
       }
 
       /// en translation: Others
@@ -5502,6 +5563,21 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("the_voucher_is_empty", bundle: bundle, comment: "")
+      }
+
+      /// en translation: There are no transactions yet
+      ///
+      /// Locales: en, nl
+      static func transcation_empty(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("transcation_empty", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "transcation_empty"
+        }
+
+        return NSLocalizedString("transcation_empty", bundle: bundle, comment: "")
       }
 
       /// en translation: This app is intended to store vouchers, make payments and log in to different applications./n/n/nThis app works together with:/n/n     • 	The Westerkwartier webshop;      • 	The Nijmegen webshop;      • 	The Winterswijk webshop;      • 	The Oost Gelre webshop;      • 	The Berkelland webshop;      • 	The Noordoostpolder webshop      • 	The Kerstpakket webshop;

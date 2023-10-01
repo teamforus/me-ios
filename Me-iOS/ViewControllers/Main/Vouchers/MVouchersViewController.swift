@@ -43,6 +43,20 @@ class MVouchersViewController: UIViewController {
         return button
     }()
     
+    private let voucherImage: UIImageView = {
+        let imageView = UIImageView(frame: .zero)
+        imageView.image = Image.voucher
+        imageView.contentMode = .scaleAspectFit
+        return imageView
+    }()
+    
+    private let voucherEmptyMessage: UILabel_DarkMode = {
+        let label =  UILabel_DarkMode(frame: .zero)
+        label.text = Localize.empty_voucher_list()
+        label.textAlignment = .center
+        return label
+    }()
+    
     
     // MARK: - Init
     init(navigator: Navigator) {
@@ -248,7 +262,7 @@ extension MVouchersViewController: UIViewControllerPreviewingDelegate{
 
 extension MVouchersViewController {
     private func addSubviews() {
-        let views = [segmentView, tableView]
+        let views = [segmentView, voucherImage, voucherEmptyMessage, tableView]
         views.forEach { view in
             self.view.addSubview(view)
         }
@@ -269,6 +283,15 @@ extension MVouchersViewController {
         
         segmentController.snp.makeConstraints { make in
             make.top.left.right.bottom.equalTo(self.segmentView).inset(4)
+        }
+        
+        voucherImage.snp.makeConstraints { make in
+            make.center.equalTo(self.view)
+        }
+        
+        voucherEmptyMessage.snp.makeConstraints { make in
+            make.left.right.equalTo(self.view).inset(19)
+            make.top.equalTo(voucherImage.snp.bottom).offset(48)
         }
         
         tableView.snp.makeConstraints { make in

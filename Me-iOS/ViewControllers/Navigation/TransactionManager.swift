@@ -56,7 +56,7 @@ extension TransactionManager {
         let viewController = MVouchersViewController(navigator: Navigator())
         viewController.isFromLogin = true
         let navController = MeNavigationController(rootViewController: viewController)
-        navController.tabBarItem = UITabBarItem(title: "Vouchers", image: Image.voucherTabIcon, tag: Tab.voucher.rawValue)
+        navController.tabBarItem = UITabBarItem(title: Localize.balance_title(), image: Image.voucherTabIcon, tag: Tab.voucher.rawValue)
         viewController.navigator.configure(navController)
         return navController
     }

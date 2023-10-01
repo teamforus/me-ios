@@ -31,9 +31,15 @@ class MVoucherViewController: UIViewController {
         let tableView = TableView_Background_DarkMode(frame: .zero)
         tableView.backgroundColor = .clear
         tableView.separatorStyle = .none
-        tableView.colorName = "Background_Voucher_DarkTheme"
+//        tableView.colorName = "Background_Voucher_DarkTheme"
         tableView.showsVerticalScrollIndicator = false
         return tableView
+    }()
+    
+    private let emptyLabel: UILabel_DarkMode = {
+        let label = UILabel_DarkMode(frame: .zero)
+        label.text = Localize.transcation_empty()
+        return label
     }()
     
     // MARK: - Init
@@ -61,6 +67,8 @@ class MVoucherViewController: UIViewController {
         } else {}
         setupSubview()
         setUpTableView()
+        
+        emptyLabel.isHidden = voucher.transactions?.count == 0
     }
     
     private func setUpTableView() {
@@ -78,6 +86,11 @@ extension MVoucherViewController{
     // MARK: - Setup Subview
     func setupSubview() {
         self.view.addSubview(tableView)
+        self.view.addSubview(emptyLabel)
+        
+        emptyLabel.snp.makeConstraints { make in
+            make.center.equalTo(self.view)
+        }
         tableView.snp.makeConstraints { make in
             make.top.left.right.bottom.equalTo(self.view.safeAreaLayoutGuide)
         }
