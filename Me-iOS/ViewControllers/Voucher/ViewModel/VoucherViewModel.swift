@@ -23,7 +23,7 @@ class VoucherViewModel{
     
     var reloadTableViewClosure: (()->())?
     var completeExchangeToken: ((String)->())?
-    var reloadDataVoucher: ((Voucher)->())?
+    var reloadDataVoucher: ((Voucher, [Transaction])->())?
     var completeSendEmail: ((Int)->())?
     var vc: UIViewController!
     
@@ -47,7 +47,8 @@ class VoucherViewModel{
             }else {
                 var array = response.data?.transactions ?? []
                 array.append(contentsOf: response.data?.product_vouchers ?? [])
-                self.reloadDataVoucher?(response.data!)
+                array = array.sorted(by: { $0.created_at?.compare($1.created_at ?? "") == .orderedDescending})
+                self.reloadDataVoucher?(response.data!, array)
                 
             }
             

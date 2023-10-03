@@ -266,6 +266,12 @@ extension MTransactionsViewController: UITableViewDelegate, UITableViewDataSourc
         return cellHeight
     }
     
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+       if indexPath.row == transactionViewModel.numberOfCells - 1, transactionViewModel.nextPage != nil {
+           transactionViewModel.didGetTransaction(by: transactionViewModel.nextPage ?? String.empty)
+          }
+   }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let transaction = transactionViewModel.getCellViewModel(at: indexPath)
         openTransactionOverview(with: transaction)

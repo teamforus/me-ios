@@ -11,11 +11,13 @@ import SafariServices
 
 class VoucherDataSource: NSObject {
     var voucher: Voucher
+    var transaction: [Transaction]
     var parentViewController: MVoucherViewController
     var navigator: Navigator
     
-    init(voucher: Voucher, parentViewController: MVoucherViewController, navigator: Navigator) {
+    init(voucher: Voucher, parentViewController: MVoucherViewController, navigator: Navigator, transaction: [Transaction]) {
         self.voucher = voucher
+        self.transaction = transaction
         self.parentViewController = parentViewController
         self.navigator = navigator
         super.init()
@@ -78,7 +80,7 @@ extension VoucherDataSource: UITableViewDelegate, UITableViewDataSource {
             }
             return voucher.expire_at?.date?.formatDate() ?? Date() >= Date() ? 1 : 0
         case .transactions:
-            return voucher.transactions?.count ?? 0
+            return transaction.count
         }
     }
     
@@ -116,7 +118,7 @@ extension VoucherDataSource: UITableViewDelegate, UITableViewDataSource {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: TransactionTableViewCell.identifier, for: indexPath) as? TransactionTableViewCell else {
                 return UITableViewCell()
             }
-            cell.configure(transaction: voucher.transactions?[indexPath.row], isSubsidies: false)
+            cell.configure(transaction: transaction[indexPath.row], isSubsidies: false)
             return cell
         }
     }

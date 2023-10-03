@@ -47,7 +47,7 @@ class MVoucherViewController: UIViewController {
         self.voucher = voucher
         self.navigator = navigator
         super.init(nibName: nil, bundle: nil)
-        self.dataSource = VoucherDataSource(voucher: voucher, parentViewController: self, navigator: navigator)
+        
     }
     
     required init?(coder: NSCoder) {
@@ -68,7 +68,20 @@ class MVoucherViewController: UIViewController {
         setupSubview()
         setUpTableView()
         
-        emptyLabel.isHidden = voucher.transactions?.count == 0
+        voucherViewModel.initFetchById(address: voucher.address ?? String.empty)
+        
+        voucherViewModel.reloadDataVoucher = { [weak self] (voucher, transactions) in
+            guard let self = self else { return }
+            
+            self.dataSource = VoucherDataSource(voucher: voucher, parentViewController: self, navigator: self.navigator, transaction: transactions)
+            
+            DispatchQueue.main.async {
+                self.emptyLabel.isHidden = transactions.count != 0
+                self.setUpTableView()
+            }
+        }
+        
+        
     }
     
     private func setUpTableView() {

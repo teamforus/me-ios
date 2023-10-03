@@ -23,6 +23,9 @@ class TransactionTableViewCell: UITableViewCell {
     var companyTitle: UILabel_DarkMode = {
         let label = UILabel_DarkMode(frame: .zero)
         label.font = R.font.googleSansRegular(size: 18)
+        label.numberOfLines = 1
+        label.minimumScaleFactor = 0.5
+        label.adjustsFontSizeToFitWidth = true
         return label
     }()
     
@@ -116,6 +119,7 @@ extension TransactionTableViewCell {
         
         companyTitle.snp.makeConstraints { make in
             make.left.equalTo(imageTransfer.snp.right).offset(8)
+            make.right.equalTo(bodyView).offset(-80)
             make.top.equalTo(bodyView).offset(20)
         }
         
