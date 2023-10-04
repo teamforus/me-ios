@@ -151,10 +151,8 @@ extension MPaymentViewController {
         popOverVC.delegate = self
         popOverVC.selectedOrganizations = selectedAllowerdOrganization
         self.addChild(popOverVC)
+        popOverVC.view.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height)
         self.view.addSubview(popOverVC.view)
-        popOverVC.view.snp.makeConstraints { make in
-            make.top.bottom.right.left.equalTo(self.view)
-        }
     }
 }
 

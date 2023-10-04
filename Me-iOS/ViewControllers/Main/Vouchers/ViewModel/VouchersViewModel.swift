@@ -53,6 +53,7 @@ class VouchersViewModel{
             } else {
                 self.allVouchers = response.data ?? []
                 self.complete?(response.data ?? [])
+                self.filterVouchers(voucherType: .vouchers)
             }
             
         }, failure: { (error) in

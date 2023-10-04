@@ -73,7 +73,7 @@ class MVoucherViewController: UIViewController {
         voucherViewModel.reloadDataVoucher = { [weak self] (voucher, transactions) in
             guard let self = self else { return }
             
-            self.dataSource = VoucherDataSource(voucher: voucher, parentViewController: self, navigator: self.navigator, transaction: transactions)
+            self.dataSource = VoucherDataSource(voucher: voucher, parentViewController: self, navigator: self.navigator, transaction: transactions, voucherViewModel: self.voucherViewModel)
             
             DispatchQueue.main.async {
                 self.emptyLabel.isHidden = transactions.count != 0

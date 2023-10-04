@@ -33,7 +33,6 @@ class MProductVoucherTableViewCell: UITableViewCell {
     
     private let imageQRCodeVoucher: UIImageView = {
         let imageQRCodeVoucher = UIImageView(frame: .zero)
-        imageQRCodeVoucher.image = UIImage(named: "qrCode")
         imageQRCodeVoucher.contentMode = .scaleAspectFit
         return imageQRCodeVoucher
     }()
@@ -64,11 +63,14 @@ class MProductVoucherTableViewCell: UITableViewCell {
     }
     
     func setup(voucher: Voucher?) {
-        self.productName.text = voucher?.fund?.name
-        self.imageQRCodeVoucher.generateQRCode(from: "{\"type\": \"voucher\",\"value\": \"\(voucher?.address ?? "")\" }")
-        self.organizationName.text = voucher?.fund?.organization?.name
-        self.priceLabel.isHidden = voucher?.fund?.type == FundType.subsidies.rawValue
-        self.priceLabel.text = "€ \(voucher?.amount ?? String.empty)"
+        guard let voucher = voucher else { return }
+        if voucher.deactivated == false {
+            self.imageQRCodeVoucher.generateQRCode(from: "{\"type\": \"voucher\",\"value\": \"\(voucher.address ?? "")\" }")
+        }
+        self.productName.text = voucher.fund?.name
+        self.organizationName.text = voucher.fund?.organization?.name
+        self.priceLabel.isHidden = voucher.fund?.type == FundType.subsidies.rawValue
+        self.priceLabel.text = "€ \(voucher.amount ?? String.empty)"
     }
 }
 
