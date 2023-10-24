@@ -23,7 +23,7 @@ class ProductVoucherDataSource: NSObject {
     
     func showVoucherInfo() {
         if voucher.fund?.url_webshop != nil {
-            if let url = URL(string: "\(voucher.fund?.url_webshop ?? "")product/\(voucher.product?.id ?? 0)") {
+            if let url = URL(string: "\(voucher.fund?.url_webshop ?? "")aanbod/\(voucher.product?.id ?? 0)") {
                 let safariVC = SFSafariViewController(url: url)
                 self.parentViewController.present(safariVC, animated: true, completion: nil)
             }

@@ -41,7 +41,7 @@
 "this_email_does_not_exist" = "Dit e-mail adres bestaat niet";
 "turn_on_touch_ID" = "Touch ID aanzetten";
 "turn_on_face_ID" = "Face ID aanzetten";
-"payment_succeeded" = "Betaling geslaagd! De verwerking van de betaling kan maximaal 3 werkdagen duren.";
+"payment_succeeded" = "Betaling geslaagd! De verwerking van de betaling kan maximaal 14 werkdagen duren.";
 "please_enter_the_amount" = "Voer het bedrag in";
 "insufficient_funds_on_the_voucher" = "Onvoldoende budget op de voucher";
 "success" = "Succes!";

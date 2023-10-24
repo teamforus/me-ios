@@ -2561,7 +2561,7 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en, nl
       static let parent = Rswift.StringResource(key: "parent", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
-      /// en translation: Payment succeeded! The processing can take up to 3 business days.
+      /// en translation: Payment succeeded! The processing can take up to 14 business days.
       ///
       /// Locales: en, nl
       static let payment_succeeded = Rswift.StringResource(key: "payment_succeeded", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
@@ -4762,7 +4762,7 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("parent", bundle: bundle, comment: "")
       }
 
-      /// en translation: Payment succeeded! The processing can take up to 3 business days.
+      /// en translation: Payment succeeded! The processing can take up to 14 business days.
       ///
       /// Locales: en, nl
       static func payment_succeeded(preferredLanguages: [String]? = nil) -> String {

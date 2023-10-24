@@ -9,9 +9,8 @@ DEPENDENCIES:
   - R.swift
 
 SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
-    - Fabric
   trunk:
+    - Fabric
     - R.swift
     - R.swift.Library
 
@@ -22,4 +21,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: b43d5e2a8575bde72605770c5f0b8ac56866d42d
 
-COCOAPODS: 1.10.2
+COCOAPODS: 1.13.0

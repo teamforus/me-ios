@@ -41,7 +41,7 @@
 "this_email_does_not_exist" = "This email does not exist";
 "turn_on_touch_ID" = "Turn on Touch ID";
 "turn_on_face_ID" = "Turn on Face ID";
-"payment_succeeded" = "Payment succeeded! The processing can take up to 3 business days.";
+"payment_succeeded" = "Payment succeeded! The processing can take up to 14 business days.";
 "please_enter_the_amount" = "Please enter the amount";
 "insufficient_funds_on_the_voucher" = "Insufficient funds on the voucher";
 "success" = "Success";

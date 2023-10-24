@@ -71,6 +71,7 @@ class MAFirstPageViewController: UIViewController {
         textField.lineColor = .lightGray
         textField.placeholderColor = Color.placeHolderTextField
         textField.placeholder = Localize.email()
+        textField.keyboardType = .emailAddress
         textField.titleColor = Color.titleTextField
         textField.selectedLineColor = Color.selectedTitleTextField
         textField.addTarget(self, action: #selector(didCheckValidateEmail(_:)), for: .editingChanged)
@@ -203,6 +204,12 @@ class MAFirstPageViewController: UIViewController {
         super.viewWillAppear(animated)
         setupInitialEmailFieldState()
         NotificationCenter.default.addObserver(self, selector: #selector(logIn), name: NotificationName.LoginQR, object: nil)
+        addObservers()
+    }
+    
+    private func addObservers() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
     private func setupEnvironmentButtons() {
@@ -338,6 +345,23 @@ extension MAFirstPageViewController {
             make.right.equalTo(self.view).offset(-30)
             make.bottom.equalTo(self.view.safeAreaLayoutGuide).offset(-30)
         }
+    }
+    
+    @objc private func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            confirmButton.snp.makeConstraints { make in
+                make.top.equalTo(emailField.snp.bottom).offset(24)
+                make.left.equalTo(self.view).offset(30)
+                make.right.equalTo(self.view).offset(-30)
+                make.height.equalTo(51)
+                make.bottom.equalTo(self.view.safeAreaLayoutGuide).offset(-(keyboardSize.size.height))
+            }
+        }
+    }
+    
+    @objc private func keyboardWillHide(notification: NSNotification) {
+        confirmButton.snp.removeConstraints()
+      setupConstraints()
     }
 }
 

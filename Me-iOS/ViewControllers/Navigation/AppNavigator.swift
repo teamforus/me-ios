@@ -35,9 +35,10 @@ class AppNavigator: NSObject {
             
             if UserDefaults.standard.bool(forKey: UserDefaultsName.StartFromScanner){
                 HomeTabViewController.shared.setTab(.qr)
+            }else {
+                HomeTabViewController.shared.setTab(.voucher)
             }
-            HomeTabViewController.shared.setTab(.voucher)
-            self.window?.rootViewController = TransactionManager.shared.tabBarControllerScreen()
+            self.window?.rootViewController = HomeTabViewController.shared
         }else {
             navController = TransactionManager.shared.loginScreen()
             self.window?.rootViewController = navController
