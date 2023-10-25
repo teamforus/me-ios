@@ -43,13 +43,17 @@ class DarkMode_ActionButton: ActionButton {
     func setSelectedColorName() {
       if #available(iOS 11.0, *) {
         self.backgroundColor = UIColor(named: colorName)
-      } else {}
+      } else {
+          self.backgroundColor = #colorLiteral(red: 0.2078431373, green: 0.3921568627, blue: 0.9764705882, alpha: 1)
+      }
     }
     
     func setSelectedColorNameTitle() {
       if #available(iOS 11.0, *) {
         self.setTitleColor(UIColor(named: colorNameTitle), for: .normal)
-      } else {}
+      } else {
+          self.setTitleColor(.white, for: .normal)
+      }
     }
 
 }

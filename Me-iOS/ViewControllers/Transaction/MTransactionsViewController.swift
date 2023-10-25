@@ -26,8 +26,8 @@ class MTransactionsViewController: UIViewController {
         return view
     }()
     
-    private let dateButton: ShadowButton = {
-        let button = ShadowButton()
+    private let dateButton: DarkMode_ActionButton = {
+        let button = DarkMode_ActionButton()
         button.addTarget(self, action: #selector(openDatePicker), for: .touchUpInside)
         button.corner = 9
         button.colorName = "VoucherButton"
@@ -172,7 +172,7 @@ extension MTransactionsViewController {
         }
         
         dateButton.snp.makeConstraints { make in
-            make.left.equalTo(self.view)
+            make.left.equalTo(self.view).offset(10)
             make.top.equalTo(self.view.safeAreaLayoutGuide).offset(10)
             make.height.equalTo(44)
             make.width.equalTo(200)
