@@ -11,6 +11,6 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
       - name: Force XCode 11.3
-        run: sudo xcode-select -switch /Applications/Xcode_11.3.app
+        run: sudo xcode-select -switch /Applications/Xcode_14.2.app
       - name: Build iOS app
-        run: xcodebuild -workspace Me-iOS.xcworkspace -scheme DevelopMe-iOS -destination 'platform=iOS Simulator,OS=13.3,name=iPhone 11'
+        run: xcodebuild -workspace Me-iOS.xcworkspace -scheme DevelopMe-iOS -destination 'platform=iOS Simulator,OS=17,name=iPhone 15'
