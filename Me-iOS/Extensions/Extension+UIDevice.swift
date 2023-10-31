@@ -12,6 +12,7 @@ extension UIDevice {
     var iPhoneX: Bool { UIScreen.main.nativeBounds.height == 2436 }
     var iPhone: Bool { UIDevice.current.userInterfaceIdiom == .phone }
     var iPad: Bool { UIDevice().userInterfaceIdiom == .pad }
+    
     enum ScreenType: String {
         case iPhones_4_4S = "iPhone 4 or iPhone 4S"
         case iPhones_5_5s_5c_SE = "iPhone 5, iPhone 5s, iPhone 5c or iPhone SE"

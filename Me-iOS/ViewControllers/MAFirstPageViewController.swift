@@ -349,18 +349,33 @@ extension MAFirstPageViewController {
     
     @objc private func keyboardWillShow(notification: NSNotification) {
         if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
-            confirmButton.snp.makeConstraints { make in
-                make.top.equalTo(emailField.snp.bottom).offset(24)
-                make.left.equalTo(self.view).offset(30)
-                make.right.equalTo(self.view).offset(-30)
-                make.height.equalTo(51)
-                make.bottom.equalTo(self.view.safeAreaLayoutGuide).offset(-(keyboardSize.size.height))
+            if  UIDevice.current.screenType == .iPhones_6_6s_7_8 ||  UIDevice.current.screenType == .iPhones_5_5s_5c_SE {
+                emailField.snp.makeConstraints { make in
+                    make.top.equalTo(emailField.snp.bottom).offset(24)
+                    make.left.equalTo(self.view).offset(30)
+                    make.right.equalTo(self.view).offset(-30)
+                    make.height.equalTo(51)
+                    make.bottom.equalTo(self.view.safeAreaLayoutGuide).offset(-(keyboardSize.size.height + 10))
+                }
+            }else {
+                confirmButton.snp.makeConstraints { make in
+                    make.top.equalTo(emailField.snp.bottom).offset(24)
+                    make.left.equalTo(self.view).offset(30)
+                    make.right.equalTo(self.view).offset(-30)
+                    make.height.equalTo(51)
+                    make.bottom.equalTo(self.view.safeAreaLayoutGuide).offset(-(keyboardSize.size.height))
+                }
             }
+            
         }
     }
     
     @objc private func keyboardWillHide(notification: NSNotification) {
-        confirmButton.snp.removeConstraints()
+        if  UIDevice.current.screenType == .iPhones_6_6s_7_8 ||  UIDevice.current.screenType == .iPhones_5_5s_5c_SE {
+            emailField.snp.removeConstraints()
+        }else {
+            confirmButton.snp.removeConstraints()
+        }
       setupConstraints()
     }
 }
