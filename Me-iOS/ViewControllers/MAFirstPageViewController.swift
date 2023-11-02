@@ -58,6 +58,7 @@ class MAFirstPageViewController: UIViewController {
     
     private var chooseEnvironmentButton: ActionButton = {
         let button = ActionButton(frame: .zero)
+        button.isHidden = true
         button.setTitle("Choose Environmnet", for: .normal)
         button.setTitleColor(.blue, for: .normal)
         return button
