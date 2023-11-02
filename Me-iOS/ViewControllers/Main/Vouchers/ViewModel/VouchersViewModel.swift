@@ -81,7 +81,11 @@ class VouchersViewModel{
     }
     
     func filterVouchers(voucherType: VoucherType) {
-        cellViewModels = allVouchers.filter({voucherType == .vouchers ? $0.expire_at?.date?.formatDate() ?? Date() > Date()  : $0.expire_at?.date?.formatDate() ?? Date() < Date()})
+        cellViewModels = allVouchers.filter({voucherType == .vouchers ? $0.expire_at?.date?.formatDate() ?? Date() > Date() 
+            || Calendar.current.isDate($0.expire_at?.date?.formatDate() ?? Date(), inSameDayAs:Date()) :
+            
+            $0.expire_at?.date?.formatDate() ?? Date() < Date() 
+            && !Calendar.current.isDate($0.expire_at?.date?.formatDate() ?? Date(), inSameDayAs:Date())})
         
     }
     

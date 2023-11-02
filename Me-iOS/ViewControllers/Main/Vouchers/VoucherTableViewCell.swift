@@ -80,7 +80,7 @@ class VoucherTableViewCell: UITableViewCell {
         self.voucherTitleLabel.text = voucher.product != nil ? voucher.product?.name : voucher.fund?.name
         self.organizationNameLabel.text = voucher.product != nil ? voucher.product?.organization?.name  : voucher.fund?.organization?.name
 
-        if voucher.expire_at?.date?.formatDate() ?? Date() < Date() {
+        if voucher.expire_at?.date?.formatDate() ?? Date() < Date() && !Calendar.current.isDate(voucher.expire_at?.date?.formatDate() ?? Date(), inSameDayAs:Date()){
             self.usedVoucherLabel.isHidden = false
             self.usedVoucherLabel.textColor = .red
             self.usedVoucherLabel.text = Localize.expired()
