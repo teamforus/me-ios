@@ -22,6 +22,15 @@ var emailPrivacy: String {
 }
 
 extension String {
+    static let empty = ""
+    
+}
+
+extension String {
+    static let languageCode = Locale.current.languageCode
+}
+
+extension String {
     
     func substringLeftPart() -> String{
         let number = self

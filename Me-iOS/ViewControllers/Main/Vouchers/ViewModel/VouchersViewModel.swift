@@ -20,17 +20,16 @@ class VouchersViewModel{
     var completeIdentity: ((Office)->())!
     var completeDeleteToken: ((Int)->())!
     
+    private var allVouchers: [Voucher] = [Voucher]()
+
+    init(commonService: CommonServiceProtocol = CommonService()) {
+        self.commonService = commonService
+    }
     
     private var cellViewModels: [Voucher] = [Voucher]() {
         didSet {
             complete?(cellViewModels)
         }
-    }
-    
-    private var allVouchers: [Voucher] = [Voucher]()
-    
-    init(commonService: CommonServiceProtocol = CommonService()) {
-        self.commonService = commonService
     }
     
     var complete: (([Voucher])->())?
@@ -52,8 +51,9 @@ class VouchersViewModel{
                     }))
                 }
             } else {
-                
-                self.processFetchedLunche(vouchers: response.data ?? [])
+                self.allVouchers = response.data ?? []
+                self.complete?(response.data ?? [])
+                self.filterVouchers(voucherType: .vouchers)
             }
             
         }, failure: { (error) in
@@ -78,6 +78,14 @@ class VouchersViewModel{
         }) { (error) in
             print(error)
         }
+    }
+    
+    func filterVouchers(voucherType: VoucherType) {
+        cellViewModels = allVouchers.filter({voucherType == .vouchers ? $0.expire_at?.date?.formatDate() ?? Date() > Date() 
+            || Calendar.current.isDate($0.expire_at?.date?.formatDate() ?? Date(), inSameDayAs:Date()) :
+            
+            $0.expire_at?.date?.formatDate() ?? Date() < Date() 
+            && !Calendar.current.isDate($0.expire_at?.date?.formatDate() ?? Date(), inSameDayAs:Date())})
         
     }
     
@@ -96,47 +104,5 @@ class VouchersViewModel{
         }) { (error) in
             
         }
-    }
-    
-    var numberOfCells: Int {
-        return cellViewModels.count
-    }
-    
-    func getCellViewModel( at indexPath: IndexPath ) -> Voucher {
-        return cellViewModels[indexPath.row]
-    }
-    
-    func createCellViewModel( voucher: Voucher ) -> Voucher {
-        
-        return voucher
-    }
-    
-    private func processFetchedLunche( vouchers: [Voucher] ) {
-        var vms = [Voucher]()
-        for voucher in vouchers {
-            if voucher.product != nil {
-                if voucher.transactions?.count == 0 {
-                    vms.append( createCellViewModel(voucher: voucher) )
-                }
-            } else {
-                vms.append( createCellViewModel(voucher: voucher) )
-            }
-        }
-        allVouchers = vms
-        filterVouchers(voucherType: voucherType)
-    }
-    
-    func filterVouchers(voucherType: VoucherType) {
-        cellViewModels = allVouchers.filter({voucherType == .vouchers ? $0.expire_at?.date?.formatDate() ?? Date() > Date()  : $0.expire_at?.date?.formatDate() ?? Date() < Date()})
-        
-    }
-}
-
-extension VouchersViewModel {
-    
-    func userPressed( at indexPath: IndexPath) {
-        let voucher = self.cellViewModels[indexPath.row]
-        self.isAllowSegue = true
-        self.selectedVoucher = voucher
     }
 }

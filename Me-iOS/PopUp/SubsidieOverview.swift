@@ -17,18 +17,14 @@ enum SubsidieType: String, CaseIterable {
 
 class SubsidieOverview: UIView {
     
-    var topDetailToPriceConstraints: NSLayoutConstraint!
-    var topDetailConstraints: NSLayoutConstraint!
     
+    // MARK: - Properties
     let bodyView: Background_DarkMode = {
         let view = Background_DarkMode()
         view.colorName = "Gray_Dark_DarkTheme"
         view.roundCorners(corners: [.layerMinXMinYCorner, .layerMaxXMinYCorner], radius: 16)
         return view
     }()
-    
-    
-    // MARK: - Properties
     
     private let priceLabel: UILabel = {
         let label = UILabel(frame: .zero)
@@ -136,7 +132,9 @@ class SubsidieOverview: UIView {
     
     func showRegularState(subsidie: Subsidie, vc: MPaymentActionViewController) {
         if UIDevice.current.screenType == .iPhones_5_5s_5c_SE ||  UIDevice.current.screenType == .iPhones_6_6s_7_8 {
-            vc.bodyViewHeightConstraints.constant = 150
+            vc.bodyView.snp.updateConstraints { make in
+                make.height.equalTo(150)
+            }
         }
         sponsorName.text = Localize.subsid_by(subsidie.sponsor?.name ?? "")
         totalPrice.text = "€ \(subsidie.price?.showDeciaml() ?? "")"
@@ -152,15 +150,22 @@ class SubsidieOverview: UIView {
             self.finalPrice.text = finalPrice
         }
         
-        self.topDetailConstraints.isActive = false
-        self.topDetailToPriceConstraints.isActive = true
+        bodyView.snp.updateConstraints { make in
+            make.top.equalTo(priceLabel.snp.bottom).offset(14)
+            make.left.right.equalTo(bodyView)
+            make.bottom.equalTo(bodyView).offset(-16)
+        }
     }
     
     func showFreeState(subsidie: Subsidie, vc: MPaymentActionViewController) {
         self.infoLabel.isHidden = true
         self.priceLabel.text = Localize.free()
-        self.topDetailConstraints.isActive = false
-        self.topDetailToPriceConstraints.isActive = true
+        
+        bodyView.snp.updateConstraints { make in
+            make.top.equalTo(priceLabel.snp.bottom).offset(14)
+            make.left.right.equalTo(bodyView)
+            make.bottom.equalTo(bodyView).offset(-16)
+        }
         if (subsidie.sponsor_subsidy?.double)! > 0.00 {
             self.totalPriceTitle.text = Localize.subsid_by(subsidie.sponsor?.name ?? "")
             self.totalPrice.text = String("€ \(subsidie.sponsor_subsidy?.showDeciaml())").replacingOccurrences(of: ".", with: ",")
@@ -180,8 +185,11 @@ class SubsidieOverview: UIView {
         }else {
             vc.subsidieOverviewHeightConstraints.constant = 130
         }
-        self.topDetailConstraints.isActive = true
-        self.topDetailToPriceConstraints.isActive = false
+        bodyView.snp.updateConstraints { make in
+            make.top.equalTo(bodyView)
+            make.left.right.equalTo(bodyView)
+            make.bottom.equalTo(bodyView).offset(-16)
+        }
         
     }
     
@@ -190,8 +198,11 @@ class SubsidieOverview: UIView {
         self.totalPrice.text = String("\(subsidie.price_discount!)%").replacingOccurrences(of: ".00", with: "")
         self.infoLabel.isHidden = true
         self.priceLabel.isHidden = true
-        self.topDetailConstraints.isActive = true
-        self.topDetailToPriceConstraints.isActive = false
+        bodyView.snp.updateConstraints { make in
+            make.top.equalTo(bodyView)
+            make.left.right.equalTo(bodyView)
+            make.bottom.equalTo(bodyView).offset(-16)
+        }
         self.detailView.layoutIfNeeded()
         if (subsidie.sponsor_subsidy?.double)! > 0.00 {
             self.sponsorName.text = Localize.subsid_by(subsidie.sponsor?.name ?? "")
@@ -209,7 +220,6 @@ extension SubsidieOverview {
     private func addSubviews() {
         let views = [bodyView]
         views.forEach { (view) in
-            view.translatesAutoresizingMaskIntoConstraints = false
             addSubview(view)
         }
         addSubviewsBodyView()
@@ -219,7 +229,6 @@ extension SubsidieOverview {
     private func addSubviewsBodyView() {
         let views = [infoLabel, priceLabel, detailView]
         views.forEach { (view) in
-            view.translatesAutoresizingMaskIntoConstraints = false
             self.bodyView.addSubview(view)
         }
     }
@@ -237,68 +246,61 @@ extension SubsidieOverview {
     // MARK: - Setup Constraints
     private func setupConstraints() {
         
-        NSLayoutConstraint.activate([
-            bodyView.topAnchor.constraint(equalTo: self.topAnchor, constant: 0),
-            bodyView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 0),
-            bodyView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 0),
-            bodyView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 0)
-        ])
+        bodyView.snp.makeConstraints { make in
+            make.top.left.right.bottom.equalTo(self)
+        }
         
-        NSLayoutConstraint.activate([
-            infoLabel.topAnchor.constraint(equalTo: bodyView.topAnchor, constant: 30),
-            infoLabel.centerXAnchor.constraint(equalTo: bodyView.centerXAnchor)
-        ])
+        infoLabel.snp.makeConstraints { make in
+            make.top.equalTo(bodyView).offset(30)
+            make.centerX.equalTo(bodyView)
+        }
         
-        NSLayoutConstraint.activate([
-            priceLabel.topAnchor.constraint(equalTo: infoLabel.bottomAnchor, constant: 10),
-            priceLabel.centerXAnchor.constraint(equalTo: bodyView.centerXAnchor)
-        ])
+        priceLabel.snp.makeConstraints { make in
+            make.top.equalTo(infoLabel.snp.bottom).offset(10)
+            make.centerX.equalTo(bodyView)
+        }
         
-        topDetailConstraints = detailView.topAnchor.constraint(equalTo: bodyView.topAnchor, constant: 0)
-        topDetailConstraints.isActive = false
-        topDetailToPriceConstraints = detailView.topAnchor.constraint(equalTo: priceLabel.bottomAnchor, constant: 14)
-        NSLayoutConstraint.activate([
-            topDetailConstraints,
-            topDetailToPriceConstraints,
-            detailView.leadingAnchor.constraint(equalTo: bodyView.leadingAnchor, constant: 0),
-            detailView.trailingAnchor.constraint(equalTo: bodyView.trailingAnchor, constant: 0),
-            detailView.bottomAnchor.constraint(equalTo: bodyView.bottomAnchor, constant: -16)
-        ])
+        detailView.snp.makeConstraints { make in
+            make.top.equalTo(priceLabel.snp.bottom).offset(14)
+            make.left.right.equalTo(bodyView)
+            make.bottom.equalTo(bodyView).offset(-16)
+        }
         
-        NSLayoutConstraint.activate([
-            priceAgreementLabel.topAnchor.constraint(equalTo: detailView.topAnchor, constant: 23),
-            priceAgreementLabel.leadingAnchor.constraint(equalTo: detailView.leadingAnchor, constant: 25)
-        ])
         
-        NSLayoutConstraint.activate([
-            totalPriceTitle.topAnchor.constraint(equalTo: priceAgreementLabel.bottomAnchor, constant: 14),
-            totalPriceTitle.leadingAnchor.constraint(equalTo: detailView.leadingAnchor, constant: 25)
-        ])
+        priceAgreementLabel.snp.makeConstraints { make in
+            make.top.equalTo(detailView).offset(23)
+            make.left.equalTo(detailView).offset(25)
+        }
         
-        NSLayoutConstraint.activate([
-            totalPrice.topAnchor.constraint(equalTo: totalPriceTitle.bottomAnchor, constant: 2),
-            totalPrice.leadingAnchor.constraint(equalTo: detailView.leadingAnchor, constant: 25)
-        ])
+        totalPriceTitle.snp.makeConstraints { make in
+            make.top.equalTo(priceAgreementLabel.snp.bottom).offset(14)
+            make.left.equalTo(detailView).offset(25)
+        }
         
-        NSLayoutConstraint.activate([
-            sponsorName.topAnchor.constraint(equalTo: totalPrice.bottomAnchor, constant: 11),
-            sponsorName.leadingAnchor.constraint(equalTo: detailView.leadingAnchor, constant: 25)
-        ])
+        totalPrice.snp.makeConstraints { make in
+            make.top.equalTo(totalPriceTitle.snp.bottom).offset(2)
+            make.left.equalTo(detailView).offset(25)
+        }
         
-        NSLayoutConstraint.activate([
-            sponsorPrice.topAnchor.constraint(equalTo: sponsorName.bottomAnchor, constant: 2),
-            sponsorPrice.leadingAnchor.constraint(equalTo: detailView.leadingAnchor, constant: 25)
-        ])
+        sponsorName.snp.makeConstraints { make in
+            make.top.equalTo(totalPrice.snp.bottom).offset(11)
+            make.left.equalTo(detailView).offset(25)
+        }
         
-        NSLayoutConstraint.activate([
-            finalPriceTitle.topAnchor.constraint(equalTo: sponsorPrice.bottomAnchor, constant: 11),
-            finalPriceTitle.leadingAnchor.constraint(equalTo: detailView.leadingAnchor, constant: 25)
-        ])
+        sponsorPrice.snp.makeConstraints { make in
+            make.top.equalTo(sponsorName.snp.bottom).offset(2)
+            make.left.equalTo(detailView).offset(25)
+        }
         
-        NSLayoutConstraint.activate([
-            finalPrice.topAnchor.constraint(equalTo: finalPriceTitle.bottomAnchor, constant: 2),
-            finalPrice.leadingAnchor.constraint(equalTo: detailView.leadingAnchor, constant: 25)
-        ])
+        finalPriceTitle.snp.makeConstraints { make in
+            make.top.equalTo(sponsorPrice.snp.bottom).offset(11)
+            make.left.equalTo(detailView).offset(25)
+        }
+        
+        finalPrice.snp.makeConstraints { make in
+            make.top.equalTo(finalPriceTitle.snp.bottom).offset(2)
+            make.left.equalTo(detailView).offset(25)
+        }
     }
 }
 

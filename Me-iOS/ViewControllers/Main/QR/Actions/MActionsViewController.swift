@@ -10,12 +10,13 @@ import UIKit
 
 class MActionsViewController: UIViewController {
     
-    var voucher: Voucher?
+    var voucher: Voucher
     private lazy var viewModel: ActionViewModel = {
         return ActionViewModel()
     }()
     var organization: AllowedOrganization?
-    
+    var dataSource: ActionsDataSource!
+    var navigator: Navigator
     
     // MARK: - Properties
     let bodyView: Background_DarkMode = {
@@ -47,11 +48,11 @@ class MActionsViewController: UIViewController {
     private let voucherImageView: UIImageView = {
         let imageView = UIImageView(frame: .zero)
         imageView.contentMode = .scaleToFill
-        imageView.image = R.image.xVoucherSurface()
+        imageView.image = Image.voucherTicketIcon
         return imageView
     }()
     
-    private let bodyvoucherView: UIView = {
+    private let bodyVoucherView: UIView = {
         let view = UIView(frame: .zero)
         view.backgroundColor = .clear
         return view
@@ -82,7 +83,7 @@ class MActionsViewController: UIViewController {
     
     private let chooseActionLabel: UILabel_DarkMode = {
         let label = UILabel_DarkMode(frame: .zero)
-        label.text = "Kies een actie"
+        label.text = Localize.no_active_products()
         label.font = UIFont(name: "GoogleSans-Medium", size: 24)
         return label
     }()
@@ -108,19 +109,30 @@ class MActionsViewController: UIViewController {
   private let organizationIamge: UIImageView = {
       let imageView = UIImageView(frame: .zero)
       imageView.contentMode = .scaleToFill
-      imageView.image = R.image.face24Px()
+    imageView.image = Image.faceIcon
       return imageView
   }()
     
     private let arrowImageView: UIImageView = {
         let imageView = UIImageView(frame: .zero)
-        imageView.image = R.image.roundedRight()
+        imageView.image = Image.arrowRightIcon
         imageView.contentMode = .scaleAspectFit
         return imageView
     }()
     
     
+    // MARK: - Init
+    init(navigator: Navigator, voucher: Voucher) {
+        self.navigator = navigator
+        self.voucher = voucher
+        super.init(nibName: nil, bundle: nil)
+    }
     
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    // MARK: - Setup View
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
@@ -132,26 +144,22 @@ class MActionsViewController: UIViewController {
     
     private func setupTableView() {
         tableView.delegate = self
-        tableView.dataSource = self
+        tableView.dataSource = dataSource
         tableView.separatorStyle = .none
         tableView.register(ActionTableViewCell.self, forCellReuseIdentifier: ActionTableViewCell.identifier)
     }
     
     private func setVoucher() {
-        guard let voucher = self.voucher else {
-            return
-        }
-        
         fundNameLabel.text = voucher.fund?.name
-        organizationVoucherLabel.text = voucher.fund?.organization?.name ?? ""
-        self.imageViewVoucher.loadImageUsingUrlString(urlString: voucher.fund?.organization?.logo?.sizes?.thumbnail ?? "", placeHolder: #imageLiteral(resourceName: "Resting"))
+        organizationVoucherLabel.text = voucher.fund?.organization?.name ?? String.empty
+        self.imageViewVoucher.loadImageUsingUrlString(urlString: voucher.fund?.organization?.logo?.sizes?.thumbnail ?? String.empty, placeHolder: #imageLiteral(resourceName: "Resting"))
     }
     
     private func setupView() {
         setVoucher()
         self.organizationView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(openOrganization)))
-        self.organizationNameLabel.text = voucher?.allowed_organizations?.first?.name ?? ""
-        organization = voucher?.allowed_organizations?.first
+        self.organizationNameLabel.text = voucher.allowed_organizations?.first?.name ?? String.empty
+        organization = voucher.allowed_organizations?.first
         
         setupVoucherImageView()
     }
@@ -167,49 +175,32 @@ class MActionsViewController: UIViewController {
         voucherImageView.layer.shouldRasterize = false
     }
     
-    private func fetchActions() {
-        viewModel.fetchSubsidies(voucherAddress: voucher?.address ?? "")
+     func fetchActions() {
+        viewModel.fetchSubsidies(voucherAddress: voucher.address ?? String.empty)
         
         viewModel.complete = { [weak self] (subsidies) in
+            guard let self = self else {
+                return
+            }
             DispatchQueue.main.async {
                 if subsidies.count == 0 {
-                    self?.showSimpleAlertWithSingleAction(title: Localize.warning(), message: Localize.no_balance_for_actions(), okAction: UIAlertAction(title: Localize.ok(), style: .default, handler: { (_) in
-                         self?.dismiss(animated: true)
+                    self.showSimpleAlertWithSingleAction(title: Localize.warning(), message: Localize.no_balance_for_actions(), okAction: UIAlertAction(title: Localize.ok(), style: .default, handler: { (_) in
+                         self.dismiss(animated: true)
                     }))
                 }
-                self?.tableView.reloadData()
+                self.dataSource = ActionsDataSource(subsidies: subsidies, viewModel: self.viewModel, parentVC: self)
+                self.setupTableView()
+                self.tableView.reloadData()
             }
         }
     }
 }
 
-extension MActionsViewController: UITableViewDelegate, UITableViewDataSource {
+extension MActionsViewController: UITableViewDelegate {
     // MARK: - UITableViewDelegate
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.numberOfCells
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: ActionTableViewCell.identifier, for: indexPath) as? ActionTableViewCell else {
-            return UITableViewCell()
-        }
-        let subsidie = viewModel.getCellViewModel(at: indexPath)
-        cell.setupActions(subsidie: subsidie)
-        
-        if viewModel.numberOfCells - 1 == indexPath.row {
-            if viewModel.lastPage != viewModel.currentPage {
-                self.fetchActions()
-            }
-        }
-        return cell
-    }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let subsidie = viewModel.getCellViewModel(at: indexPath)
+        let subsidie = dataSource.subsidies[indexPath.row]
         openSubsidiePayment(subsidie: subsidie, organization: organization)
     }
     
@@ -230,11 +221,10 @@ extension MActionsViewController {
         addHeaderSubviews()
         addBodyvoucherViewSubviews()
         addOranizationViewSubviews()
-        
     }
     
     private func addHeaderSubviews() {
-        let views = [backButton, titleLabel, bodyvoucherView]
+        let views = [backButton, titleLabel, bodyVoucherView]
         views.forEach { (view) in
             view.translatesAutoresizingMaskIntoConstraints = false
             self.headerView.addSubview(view)
@@ -245,7 +235,7 @@ extension MActionsViewController {
         let views = [voucherImageView, fundNameLabel, organizationVoucherLabel, imageViewVoucher, lineView]
         views.forEach { (view) in
             view.translatesAutoresizingMaskIntoConstraints = false
-            self.bodyvoucherView.addSubview(view)
+            self.bodyVoucherView.addSubview(view)
         }
     }
     
@@ -261,38 +251,31 @@ extension MActionsViewController {
 extension MActionsViewController {
     // MARK: - Add Constraints
     private func addConstraints() {
-        NSLayoutConstraint.activate([
-            bodyView.topAnchor.constraint(equalTo: self.view.topAnchor),
-            bodyView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
-            bodyView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
-            bodyView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
-        ])
         
-        NSLayoutConstraint.activate([
-            headerView.topAnchor.constraint(equalTo: self.view.topAnchor),
-            headerView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
-            headerView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
-            headerView.heightAnchor.constraint(equalToConstant: 241)
-        ])
+        bodyView.snp.makeConstraints { make in
+            make.top.left.right.bottom.equalTo(self.view)
+        }
         
-        NSLayoutConstraint.activate([
-            chooseActionLabel.topAnchor.constraint(equalTo: organizationView.bottomAnchor, constant: 29),
-            chooseActionLabel.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 20),
-        ])
+        headerView.snp.makeConstraints { make in
+            make.top.left.right.equalTo(self.view)
+            make.height.equalTo(241)
+        }
         
-        NSLayoutConstraint.activate([
-            organizationView.topAnchor.constraint(equalTo: headerView.bottomAnchor, constant: 0),
-            organizationView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 0),
-            organizationView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: 0),
-            organizationView.heightAnchor.constraint(equalToConstant: 60)
-        ])
+        chooseActionLabel.snp.makeConstraints { make in
+            make.top.equalTo(organizationView.snp.bottom).offset(29)
+            make.left.equalTo(self.view).offset(20)
+        }
         
-        NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: chooseActionLabel.bottomAnchor, constant: 10),
-            tableView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
-            tableView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
-            tableView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
-        ])
+        organizationView.snp.makeConstraints { make in
+            make.top.equalTo(headerView.snp.bottom)
+            make.left.right.equalTo(self.view)
+            make.height.equalTo(60)
+        }
+        
+        tableView.snp.makeConstraints { make in
+            make.top.equalTo(chooseActionLabel.snp.bottom).offset(10)
+            make.left.right.bottom.equalTo(self.view)
+        }
         
         addHeaderdConstraints()
         addBodyvoucherViewConstraints()
@@ -300,83 +283,74 @@ extension MActionsViewController {
     }
     
     private func addHeaderdConstraints() {
-        NSLayoutConstraint.activate([
-            backButton.heightAnchor.constraint(equalToConstant: 44),
-            backButton.widthAnchor.constraint(equalToConstant: 44),
-            backButton.leadingAnchor.constraint(equalTo: headerView.leadingAnchor, constant: 10),
-            backButton.topAnchor.constraint(equalTo: headerView.topAnchor, constant: 35)
-        ])
+        backButton.snp.makeConstraints { make in
+            make.height.width.equalTo(44)
+            make.left.equalTo(headerView).offset(10)
+            make.top.equalTo(headerView).offset(35)
+        }
         
-        NSLayoutConstraint.activate([
-            titleLabel.centerYAnchor.constraint(equalTo: backButton.centerYAnchor),
-            titleLabel.centerXAnchor.constraint(equalTo: headerView.centerXAnchor)
-        ])
+        titleLabel.snp.makeConstraints { make in
+            make.centerY.equalTo(backButton)
+            make.centerX.equalTo(headerView)
+        }
         
-        NSLayoutConstraint.activate([
-            bodyvoucherView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 20),
-            bodyvoucherView.leadingAnchor.constraint(equalTo: headerView.leadingAnchor),
-            bodyvoucherView.trailingAnchor.constraint(equalTo: headerView.trailingAnchor),
-            bodyvoucherView.heightAnchor.constraint(equalToConstant: 153)
-        ])
-        
+        bodyVoucherView.snp.makeConstraints { make in
+            make.top.equalTo(titleLabel.snp.bottom).offset(20)
+            make.left.right.equalTo(headerView)
+            make.height.equalTo(153)
+        }
     }
     
     private func addBodyvoucherViewConstraints() {
-        NSLayoutConstraint.activate([
-            voucherImageView.leadingAnchor.constraint(equalTo: bodyvoucherView.leadingAnchor, constant: 15),
-            voucherImageView.trailingAnchor.constraint(equalTo: bodyvoucherView.trailingAnchor, constant: -15),
-            voucherImageView.topAnchor.constraint(equalTo: bodyvoucherView.topAnchor, constant: 11),
-            voucherImageView.heightAnchor.constraint(equalToConstant: 120)
-        ])
+        voucherImageView.snp.makeConstraints { make in
+            make.top.equalTo(bodyVoucherView).offset(11)
+            make.left.equalTo(bodyVoucherView).offset(15)
+            make.right.equalTo(bodyVoucherView).offset(-15)
+            make.height.equalTo(120)
+        }
         
-        NSLayoutConstraint.activate([
-            fundNameLabel.topAnchor.constraint(equalTo: bodyvoucherView.topAnchor, constant: 39),
-            fundNameLabel.leadingAnchor.constraint(equalTo: bodyvoucherView.leadingAnchor, constant: 32),
-            fundNameLabel.trailingAnchor.constraint(equalTo: imageViewVoucher.leadingAnchor, constant: -10)
-        ])
+        fundNameLabel.snp.makeConstraints { make in
+            make.top.equalTo(bodyVoucherView).offset(39)
+            make.left.equalTo(bodyVoucherView).offset(32)
+            make.right.equalTo(imageViewVoucher.snp.left).offset(-10)
+        }
         
-        NSLayoutConstraint.activate([
-            organizationVoucherLabel.topAnchor.constraint(equalTo: fundNameLabel.bottomAnchor, constant: 4),
-            organizationVoucherLabel.leadingAnchor.constraint(equalTo: bodyvoucherView.leadingAnchor, constant: 32),
-            organizationVoucherLabel.trailingAnchor.constraint(equalTo: imageViewVoucher.leadingAnchor, constant: -10)
-        ])
+        organizationVoucherLabel.snp.makeConstraints { make in
+            make.top.equalTo(fundNameLabel.snp.bottom).offset(4)
+            make.left.equalTo(bodyVoucherView).offset(32)
+            make.right.equalTo(imageViewVoucher.snp.left).offset(-10)
+        }
         
-        NSLayoutConstraint.activate([
-            imageViewVoucher.heightAnchor.constraint(equalToConstant: 70),
-            imageViewVoucher.widthAnchor.constraint(equalToConstant: 70),
-            imageViewVoucher.trailingAnchor.constraint(equalTo: bodyvoucherView.trailingAnchor, constant: -28),
-            imageViewVoucher.topAnchor.constraint(equalTo: bodyvoucherView.topAnchor, constant: 36)
-        ])
+        imageViewVoucher.snp.makeConstraints { make in
+            make.width.height.equalTo(70)
+            make.right.equalTo(bodyVoucherView).offset(-28)
+            make.top.equalTo(bodyVoucherView).offset(36)
+        }
         
-        NSLayoutConstraint.activate([
-            lineView.heightAnchor.constraint(equalToConstant: 1),
-            lineView.bottomAnchor.constraint(equalTo: bodyvoucherView.bottomAnchor),
-            lineView.leadingAnchor.constraint(equalTo: bodyvoucherView.leadingAnchor),
-            lineView.trailingAnchor.constraint(equalTo: bodyvoucherView.trailingAnchor)
-        ])
+        lineView.snp.makeConstraints { make in
+            make.height.equalTo(1)
+            make.bottom.left.right.equalTo(bodyVoucherView)
+        }
     }
     
     private func addOranizationViewConstraints() {
-      NSLayoutConstraint.activate([
-        organizationNameLabel.topAnchor.constraint(equalTo: organizationView.topAnchor),
-        organizationNameLabel.leadingAnchor.constraint(equalTo: organizationView.leadingAnchor, constant: 64),
-        organizationNameLabel.bottomAnchor.constraint(equalTo: organizationView.bottomAnchor),
-        organizationNameLabel.trailingAnchor.constraint(equalTo: arrowImageView.leadingAnchor, constant: 15)
-      ])
+        organizationNameLabel.snp.makeConstraints { make in
+            make.top.bottom.equalTo(organizationView)
+            make.left.equalTo(organizationView).offset(64)
+            make.right.equalTo(arrowImageView.snp.left).offset(-15)
+        }
+        
+        organizationIamge.snp.makeConstraints { make in
+            make.centerY.equalTo(organizationView)
+            make.left.equalTo(organizationView).offset(17)
+            make.height.width.equalTo(35)
+        }
       
-      NSLayoutConstraint.activate([
-        organizationIamge.centerYAnchor.constraint(equalTo: organizationView.centerYAnchor),
-        organizationIamge.leadingAnchor.constraint(equalTo: organizationView.leadingAnchor, constant: 17),
-        organizationIamge.heightAnchor.constraint(equalToConstant: 35),
-        organizationIamge.widthAnchor.constraint(equalToConstant: 35)
-      ])
-      
-      NSLayoutConstraint.activate([
-        arrowImageView.centerYAnchor.constraint(equalTo: organizationView.centerYAnchor),
-        arrowImageView.trailingAnchor.constraint(equalTo: organizationView.trailingAnchor, constant: -17),
-        arrowImageView.heightAnchor.constraint(equalToConstant: 30),
-        arrowImageView.widthAnchor.constraint(equalToConstant: 30)
-      ])
+        arrowImageView.snp.makeConstraints { make in
+            make.centerY.equalTo(organizationView)
+            make.right.equalTo(organizationView).offset(-17)
+            make.height.width.equalTo(30)
+        }
     }
 }
 
@@ -401,20 +375,16 @@ extension MActionsViewController {
     @objc private func openOrganization() {
         let popOverVC = OrganizationValidatorViewController(nibName: "OrganizationValidatorViewController", bundle: nil)
         popOverVC.organizationType = .subsidieOrganization
-        popOverVC.allowedOrganization = voucher?.allowed_organizations ?? []
+        popOverVC.allowedOrganization = voucher.allowed_organizations ?? []
         popOverVC.delegate = self
         self.addChild(popOverVC)
         popOverVC.view.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height)
         self.view.addSubview(popOverVC.view)
     }
     
-    private func openSubsidiePayment(subsidie: Subsidie, organization: AllowedOrganization?) {
-        let paymentVC = MPaymentActionViewController()
-        paymentVC.subsidie = subsidie
-        paymentVC.fund = voucher?.fund
-        paymentVC.organization = organization
-        paymentVC.address = voucher?.address ?? ""
-        paymentVC.modalPresentationStyle = .fullScreen
-        self.present(paymentVC, animated: true)
+     func openSubsidiePayment(subsidie: Subsidie, organization: AllowedOrganization?) {
+        let paymentAction = PaymenyActionModel(subsidie: subsidie, fund: voucher.fund, organization: organization, voucherAddress: voucher.address ?? String.empty)
+        navigator.navigate(to: .paymentActions(paymentAction))
+        
     }
 }

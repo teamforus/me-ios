@@ -23,7 +23,7 @@ class VoucherViewModel{
     
     var reloadTableViewClosure: (()->())?
     var completeExchangeToken: ((String)->())?
-    var reloadDataVoucher: ((Voucher)->())?
+    var reloadDataVoucher: ((Voucher, [Transaction])->())?
     var completeSendEmail: ((Int)->())?
     var vc: UIViewController!
     
@@ -47,9 +47,8 @@ class VoucherViewModel{
             }else {
                 var array = response.data?.transactions ?? []
                 array.append(contentsOf: response.data?.product_vouchers ?? [])
-                
-                self.processFetchedLunche(transactions: array.sorted(by: { $0.created_at?.compare($1.created_at ?? "") == .orderedDescending}))
-                self.reloadDataVoucher?(response.data!)
+                array = array.sorted(by: { $0.created_at?.compare($1.created_at ?? "") == .orderedDescending})
+                self.reloadDataVoucher?(response.data!, array)
                 
             }
             
@@ -60,7 +59,6 @@ class VoucherViewModel{
     }
     
     func sendEmail(address: String) {
-        
         
         commonService.postWithoutParamtersAndResponse(request: "platform/vouchers/"+address+"/send-email", complete: { (statusCode) in
             if statusCode == 401 {
@@ -76,7 +74,6 @@ class VoucherViewModel{
         }) { (error) in
             
         }
-        
     }
     
     func openVoucher() {
@@ -102,26 +99,4 @@ class VoucherViewModel{
             
         }
     }
-    
-    var numberOfCells: Int {
-        return cellViewModels.count
-    }
-    
-    func getCellViewModel( at indexPath: IndexPath ) -> Transaction {
-        return cellViewModels[indexPath.row]
-    }
-    
-    func createCellViewModel( transaction: Transaction ) -> Transaction {
-        
-        return transaction
-    }
-    
-    private func processFetchedLunche( transactions: [Transaction] ) {
-        var vms = [Transaction]()
-        for transaction in transactions {
-            vms.append( createCellViewModel(transaction: transaction) )
-        }
-        self.cellViewModels = vms
-    }
-    
 }

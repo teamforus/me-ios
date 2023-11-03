@@ -82,7 +82,7 @@ class UIButtonShadow_DarkMode: ShadowButton {
   
 }
 
-class  UIButtonBackground_DarkMode: UIButton{
+class  UIButtonBackground_DarkMode: ActionButton{
   
   override init(frame: CGRect) {
     super.init(frame: frame)

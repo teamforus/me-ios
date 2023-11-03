@@ -9,7 +9,7 @@
 import UIKit
 
 @IBDesignable
-class ShadowButton: UIButton {
+class ShadowButton: ActionButton {
   
   @IBInspectable var colorName :String = "Background_DarkTheme" {
     didSet {

@@ -10,9 +10,9 @@ import UIKit
 
 public enum QRType{
     case AuthToken
-    case Voucher
-    case Record
-    case Profile
+    case voucher
+    case record
+    case profile
 }
 
 class PullUpQRViewController: UIViewController {
@@ -28,7 +28,7 @@ class PullUpQRViewController: UIViewController {
     var timer : Timer! = Timer()
     var token: String!
     var idRecord: Int!
-    var qrType: QRType! = QRType.Profile
+    var qrType: QRType! = QRType.profile
     lazy var bottomQRViewModel: CommonBottomViewModel! = {
         return CommonBottomViewModel()
     }()
@@ -67,7 +67,7 @@ class PullUpQRViewController: UIViewController {
             bottomQRViewModel.initFetchQrToken()
             
             break
-        case .Voucher?:
+        case .voucher?:
             
             self.titleDescriptionLabel.text = Localize.this_is_your_vouchers_qr_code()
             self.descriptionLabel.text = Localize.let_shopkeeper_scan_it_make_payment_from_your_voucher()
@@ -87,10 +87,10 @@ class PullUpQRViewController: UIViewController {
             dateExpireLabel.text = Localize.this_voucher_is_expired_on((voucher.expire_at?.date?.dateFormaterExpireDate())!)
             
             break
-        case .Record?:
-            self.voucherNameLabel.isHidden = true
+        case .record?:
+            self.descriptionLabel.isHidden = true
             self.dateExpireLabel.isHidden = true
-            self.titleDescriptionLabel.text = Localize.this_is_your_vouchers_qr_code()
+            self.voucherNameLabel.text = "This is your Record’s QR"
             if let name = self.record.name {
                 self.descriptionLabel.text = Localize.let_shopkeeper_scan_it_to_make_validtion_to_your_record(name)
             }
@@ -105,10 +105,10 @@ class PullUpQRViewController: UIViewController {
                 }
             }
             
-            bottomQRViewModel.initFetchRecordToken(idRecords: idRecord)
+            bottomQRViewModel.initFetchRecordToken(idRecords: record.id ?? 0)
             
             break
-        case .Profile?:
+        case .profile?:
             bottomQRViewModel.completeIdentity = { [weak self] (identityAddress) in
                 
                 DispatchQueue.main.async {
@@ -160,7 +160,7 @@ class PullUpQRViewController: UIViewController {
     }
     
     func closeQRAction(){
-        self.bottomConstraint.constant = 439
+        self.bottomConstraint.constant = 525
         
         UIView.animate(withDuration: 0.3, animations: {
             self.view.layoutIfNeeded()

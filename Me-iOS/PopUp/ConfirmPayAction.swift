@@ -9,15 +9,12 @@
 import UIKit
 
 class ConfirmPayAction: UIView {
-    
-    var subsidie: Subsidie?
-    var organization: AllowedOrganization?
-    var address: String!
-    var note: String!
+    var paymentAction: PaymenyActionModel
     
     var commonService: CommonServiceProtocol! = CommonService()
     var vc: UIViewController!
     
+    // MARK: - Parameters
     private let blurView: UIView = {
         let view = UIView(frame: .zero)
         view.backgroundColor = .black
@@ -62,33 +59,42 @@ class ConfirmPayAction: UIView {
         return button
     }()
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    
+    // MARK: - Init
+    init(paymentAction: PaymenyActionModel) {
+        self.paymentAction = paymentAction
+        super.init(frame: .zero)
         addSubviews()
         setupConstraints()
         addBodySubviews()
         setupBodyConstraints()
     }
     
+    override init(frame: CGRect) {
+       fatalError("")
+    }
+    
+    
+    // MARK: - Setup View
     func setupView() {
-        if subsidie?.price_type == SubsidieType.regular.rawValue{
+        if paymentAction.subsidie?.price_type == SubsidieType.regular.rawValue{
             priceLabel.font = UIFont(name: "GoogleSans-Regular", size: 16)
-            let finalPrice = subsidie?.price == subsidie?.sponsor_subsidy ? Localize.free() : subsidie?.price_user
+            let finalPrice = paymentAction.subsidie?.price == paymentAction.subsidie?.sponsor_subsidy ? Localize.free() : paymentAction.subsidie?.price_user
             var mainString = ""
             var range = NSRange()
             if finalPrice == Localize.free() {
                 mainString = String(format: "Prijs\n" + Localize.free())
                 range = (mainString as NSString).range(of: Localize.free())
             }else {
-                mainString = String(format: "Heeft de klant\n" + "€ " + subsidie!.price_user!.showDeciaml() + "\nbetaald aan de kassa?")
-                range = (mainString as NSString).range(of: "€ " + subsidie!.price_user!.showDeciaml())
+                mainString = String(format: "Heeft de klant\n" + "€ " + paymentAction.subsidie!.price_user!.showDeciaml() + "\nbetaald aan de kassa?")
+                range = (mainString as NSString).range(of: "€ " + paymentAction.subsidie!.price_user!.showDeciaml())
             }
             
             let attributedString = NSMutableAttributedString(string:mainString)
             attributedString.addAttribute(NSAttributedString.Key.font, value: UIFont(name: "GoogleSans-Regular", size: 40)! , range: range)
             attributedString.addAttribute(NSAttributedString.Key.foregroundColor, value: #colorLiteral(red: 0.1702004969, green: 0.3387943804, blue: 1, alpha: 1).cgColor, range: range)
             priceLabel.attributedText = attributedString
-        }else if subsidie?.price_type == SubsidieType.free.rawValue {
+        }else if paymentAction.subsidie?.price_type == SubsidieType.free.rawValue {
             priceLabel.font = UIFont(name: "GoogleSans-Regular", size: 16)
             let mainString = String(format: "Prijs\n" + Localize.free())
             let range = (mainString as NSString).range(of: Localize.free())
@@ -96,17 +102,17 @@ class ConfirmPayAction: UIView {
             attributedString.addAttribute(NSAttributedString.Key.font, value: UIFont(name: "GoogleSans-Regular", size: 40)! , range: range)
             attributedString.addAttribute(NSAttributedString.Key.foregroundColor, value: #colorLiteral(red: 0.1702004969, green: 0.3387943804, blue: 1, alpha: 1).cgColor, range: range)
             priceLabel.attributedText = attributedString
-        }else if subsidie?.price_type == SubsidieType.discountFixed.rawValue {
+        }else if paymentAction.subsidie?.price_type == SubsidieType.discountFixed.rawValue {
             priceLabel.font = UIFont(name: "GoogleSans-Regular", size: 16)
-            let mainString = String(format: "Korting\n" + "€ " + (subsidie!.price_discount?.showDeciaml())!)
-            let range = (mainString as NSString).range(of: "€ " + (subsidie!.price_discount?.showDeciaml())!)
+            let mainString = String(format: "Korting\n" + "€ " + (paymentAction.subsidie!.price_discount?.showDeciaml())!)
+            let range = (mainString as NSString).range(of: "€ " + (paymentAction.subsidie!.price_discount?.showDeciaml())!)
             let attributedString = NSMutableAttributedString(string:mainString)
             attributedString.addAttribute(NSAttributedString.Key.font, value: UIFont(name: "GoogleSans-Regular", size: 40)! , range: range)
             attributedString.addAttribute(NSAttributedString.Key.foregroundColor, value: #colorLiteral(red: 0.1702004969, green: 0.3387943804, blue: 1, alpha: 1).cgColor, range: range)
             priceLabel.attributedText = attributedString
-        }else if subsidie?.price_type == SubsidieType.discountPercentage.rawValue {
+        }else if paymentAction.subsidie?.price_type == SubsidieType.discountPercentage.rawValue {
             priceLabel.font = UIFont(name: "GoogleSans-Regular", size: 16)
-            let priceDiscount = Int(subsidie?.price_discount?.double ?? 0.0)
+            let priceDiscount = Int(paymentAction.subsidie?.price_discount?.double ?? 0.0)
             let mainString = String(format: "Korting\n \(priceDiscount)﹪")
             let range = (mainString as NSString).range(of: "\(priceDiscount)﹪")
             let attributedString = NSMutableAttributedString(string:mainString)
@@ -118,7 +124,7 @@ class ConfirmPayAction: UIView {
     }
     
     required init?(coder: NSCoder) {
-        super.init(coder: coder)
+        fatalError("")
     }
     
 }
@@ -149,47 +155,44 @@ extension ConfirmPayAction {
 extension ConfirmPayAction {
     
     func setupConstraints() {
-        NSLayoutConstraint.activate([
-            blurView.topAnchor.constraint(equalTo: self.topAnchor),
-            blurView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            blurView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
-            blurView.trailingAnchor.constraint(equalTo: self.trailingAnchor)
-        ])
+        blurView.snp.makeConstraints { make in
+            make.top.left.right.bottom.equalTo(self)
+        }
         
-        NSLayoutConstraint.activate([
-            bodyView.heightAnchor.constraint(equalToConstant: 250),
-            bodyView.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-            bodyView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 38),
-            bodyView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -38)
-        ])
+        bodyView.snp.makeConstraints { make in
+            make.centerY.equalTo(self)
+            make.height.equalTo(250)
+            make.left.equalTo(38)
+            make.right.equalTo(-38)
+        }
     }
     
     func setupBodyConstraints() {
-        NSLayoutConstraint.activate([
-            titleLabel.topAnchor.constraint(equalTo: bodyView.topAnchor, constant: 26),
-            titleLabel.leadingAnchor.constraint(equalTo: bodyView.leadingAnchor, constant: 52),
-            titleLabel.trailingAnchor.constraint(equalTo: bodyView.trailingAnchor, constant: 52)
-        ])
         
-        NSLayoutConstraint.activate([
-            priceLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 9),
-            priceLabel.leadingAnchor.constraint(equalTo: bodyView.leadingAnchor, constant: 0),
-            priceLabel.trailingAnchor.constraint(equalTo: bodyView.trailingAnchor, constant: 0)
-        ])
+        titleLabel.snp.makeConstraints { make in
+            make.top.equalTo(bodyView).offset(26)
+            make.left.equalTo(bodyView).offset(52)
+            make.right.equalTo(bodyView).offset(-52)
+        }
         
-        NSLayoutConstraint.activate([
-            cancelButton.bottomAnchor.constraint(equalTo: bodyView.bottomAnchor, constant: -19),
-            cancelButton.leadingAnchor.constraint(equalTo: bodyView.leadingAnchor, constant: 19),
-            cancelButton.heightAnchor.constraint(equalToConstant: 46),
-            cancelButton.widthAnchor.constraint(equalToConstant: 128)
-        ])
+        priceLabel.snp.makeConstraints { make in
+            make.top.equalTo(titleLabel.snp.bottom).offset(9)
+            make.left.right.equalTo(bodyView)
+        }
         
-        NSLayoutConstraint.activate([
-            confirmButton.bottomAnchor.constraint(equalTo: bodyView.bottomAnchor, constant: -19),
-            confirmButton.trailingAnchor.constraint(equalTo: bodyView.trailingAnchor, constant: -19),
-            confirmButton.leadingAnchor.constraint(equalTo: cancelButton.trailingAnchor, constant: 6),
-            confirmButton.heightAnchor.constraint(equalToConstant: 46)
-        ])
+        cancelButton.snp.makeConstraints { make in
+            make.bottom.equalTo(bodyView).offset(-19)
+            make.left.equalTo(bodyView).offset(19)
+            make.height.equalTo(46)
+            make.width.equalTo(128)
+        }
+        
+        confirmButton.snp.makeConstraints { make in
+            make.bottom.equalTo(bodyView).offset(-19)
+            make.right.equalTo(bodyView).offset(-19)
+            make.left.equalTo(cancelButton.snp.right).offset(6)
+            make.height.equalTo(46)
+        }
     }
 }
 
@@ -198,8 +201,8 @@ extension ConfirmPayAction {
 extension ConfirmPayAction {
     @objc func confirmPay() {
         KVSpinnerView.show()
-        let data = SubsidiePay(organization_id: organization?.id ?? 0, product_id: subsidie?.id ?? 0, note: note ?? "")
-        commonService.create(request: "platform/provider/vouchers/" + address! + "/transactions", data: data) { (response: ResponseData<Transaction>, statusCode) in
+        let data = SubsidiePay(organization_id: paymentAction.organization?.id ?? 0, product_id: paymentAction.subsidie?.id ?? 0)
+        commonService.create(request: "platform/provider/vouchers/" + paymentAction.voucherAddress + "/transactions", data: data) { (response: ResponseData<Transaction>, statusCode) in
             
             DispatchQueue.main.async {
                 KVSpinnerView.dismiss()
