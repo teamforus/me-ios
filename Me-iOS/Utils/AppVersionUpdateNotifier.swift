@@ -30,7 +30,7 @@ class AppVersionUpdateNotifier {
     
     private var logoImageView: UIImageView = {
         let imageView = UIImageView(frame: .zero)
-        imageView.image = #imageLiteral(resourceName: "fill1Copy")
+        imageView.image = #imageLiteral(resourceName: "logo_icon")
         imageView.contentMode = .scaleAspectFill
         return imageView
     }()
@@ -135,37 +135,37 @@ extension AppVersionUpdateNotifier {
     }
     
     func setupConstraints() {
-        NSLayoutConstraint.activate([
-            bodyView.leadingAnchor.constraint(equalTo: vc.view.leadingAnchor, constant: 16),
-            bodyView.trailingAnchor.constraint(equalTo: vc.view.trailingAnchor, constant: -16),
-            bodyView.bottomAnchor.constraint(equalTo: vc.view.bottomAnchor, constant: -50),
-            bodyView.heightAnchor.constraint(equalToConstant: 100)
-        ])
         
-        NSLayoutConstraint.activate([
-            logoImageView.heightAnchor.constraint(equalToConstant: 50),
-            logoImageView.widthAnchor.constraint(equalToConstant: 50),
-            logoImageView.leadingAnchor.constraint(equalTo: bodyView.leadingAnchor, constant: 16),
-            logoImageView.centerYAnchor.constraint(equalTo: bodyView.centerYAnchor, constant: 0)
-        ])
+        bodyView.snp.makeConstraints { make in
+            make.left.equalTo(vc.view).offset(16)
+            make.right.equalTo(vc.view).offset(-16)
+            make.bottom.equalTo(vc.view).offset(-50)
+            make.height.equalTo(100)
+        }
         
-        NSLayoutConstraint.activate([
-            messageLabel.centerYAnchor.constraint(equalTo: bodyView.centerYAnchor, constant: -20),
-            messageLabel.leadingAnchor.constraint(equalTo: logoImageView.trailingAnchor, constant: 20),
-            messageLabel.trailingAnchor.constraint(equalTo: bodyView.trailingAnchor, constant: -10)
-        ])
+        logoImageView.snp.makeConstraints { make in
+            make.height.width.equalTo(50)
+            make.left.equalTo(bodyView).offset(16)
+            make.centerY.equalTo(bodyView)
+        }
         
-        NSLayoutConstraint.activate([
-            closeButton.widthAnchor.constraint(equalToConstant: 100),
-            closeButton.bottomAnchor.constraint(equalTo: bodyView.bottomAnchor, constant: -10),
-            closeButton.leadingAnchor.constraint(equalTo: logoImageView.trailingAnchor, constant: 20)
-        ])
+        messageLabel.snp.makeConstraints { make in
+            make.centerY.equalTo(bodyView).offset(-20)
+            make.left.equalTo(logoImageView.snp.right).offset(20)
+            make.right.equalTo(bodyView).offset(-10)
+        }
         
-        NSLayoutConstraint.activate([
-            updateButton.widthAnchor.constraint(equalToConstant: 100),
-            updateButton.bottomAnchor.constraint(equalTo: bodyView.bottomAnchor, constant: -10),
-            updateButton.leadingAnchor.constraint(equalTo: closeButton.trailingAnchor, constant: 20)
-        ])
+        closeButton.snp.makeConstraints { make in
+            make.width.equalTo(100)
+            make.bottom.equalTo(bodyView).offset(-10)
+            make.left.equalTo(logoImageView.snp.right).offset(20)
+        }
+        
+        updateButton.snp.makeConstraints { make in
+            make.width.equalTo(100)
+            make.bottom.equalTo(bodyView).offset(-10)
+            make.left.equalTo(closeButton.snp.right).offset(20)
+        }
     }
 }
 

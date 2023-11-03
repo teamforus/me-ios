@@ -8,9 +8,12 @@
 
 import UIKit
 import MessageUI
-import Crashlytics
+import FirebaseCrashlytics
 
 class MProfileViewController: UIViewController {
+    
+    var navigator: Navigator!
+    
     @IBOutlet weak var profileNameLabel: UILabel!
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var appVersionLabel: UILabel!
@@ -27,7 +30,7 @@ class MProfileViewController: UIViewController {
     @IBOutlet weak var crashReportSwitch: UISwitchCustom!
     @IBOutlet weak var startFromScannerView: CustomCornerUIView!
     @IBOutlet weak var sendCrashReportView: CustomCornerUIView!
-    @IBOutlet weak var aboutMeButton: UIButton!
+    @IBOutlet weak var aboutMeButton: UIButtonBackground_DarkMode!
     @IBOutlet weak var feedBackButton: UIButton!
     @IBOutlet weak var logoutButton: ShadowButton!
     @IBOutlet weak var openRecordsButton: UIButton!
@@ -43,6 +46,10 @@ class MProfileViewController: UIViewController {
         fetchUserData()
         setupUserDefaults()
         setupAccessibility()
+        aboutMeButton.actionHandleBlock = { [weak self] (_) in
+            let aboutVC = MAboutViewController()
+            self?.present(aboutVC, animated: true)
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -99,7 +106,13 @@ extension MProfileViewController {
     }
     
     @IBAction func crash(_ sender: Any) {
-        Crashlytics.sharedInstance().crash()
+        fatalError()
+    }
+    
+    @IBAction func openRecords(_ sender: Any) {
+        let recordsVC = TransactionManager.shared.records()
+        recordsVC.modalPresentationStyle = .fullScreen
+        self.present(recordsVC, animated: true)
     }
     
     @IBAction func creatEditPasscode(_ sender: Any) {

@@ -79,7 +79,7 @@ extension MRecordValidatorsViewController: UITableViewDataSource, UITableViewDel
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ValidatorTableViewCell
         
-        cell.validator = recordValidatorViewModel.getCellViewModel(at: indexPath)
+//        cell.validator = recordValidatorViewModel.getCellViewModel(at: indexPath)
         
         return cell
     }

@@ -26,21 +26,8 @@ class MTransactionsViewController: UIViewController {
         return view
     }()
     
-    private let backButton: BackButton_DarkMode = {
-        let button = BackButton_DarkMode()
-        button.addTarget(self, action: #selector(back(_:)), for: .touchUpInside)
-        return button
-    }()
-    
-    private let titleLabel: UILabel_DarkMode = {
-        let label = UILabel_DarkMode()
-        label.text = Localize.transactions()
-        label.font = UIFont(name: "GoogleSans-Medium", size: 38)
-        return label
-    }()
-    
-    private let dateButton: ShadowButton = {
-        let button = ShadowButton()
+    private let dateButton: DarkMode_ActionButton = {
+        let button = DarkMode_ActionButton()
         button.addTarget(self, action: #selector(openDatePicker), for: .touchUpInside)
         button.corner = 9
         button.colorName = "VoucherButton"
@@ -127,17 +114,6 @@ class MTransactionsViewController: UIViewController {
         addSubviews()
         setupConstraints()
         setupView()
-        setupTableView()
-        fetchTransaction()
-        fetchComplete()
-      datePickerNew.subviews.forEach { (view) in
-        view.subviews.forEach { (view) in
-          view.subviews.forEach { (view) in
-            view.removeFromSuperview()
-          }
-        }
-      }
-     
     }
     
 }
@@ -151,37 +127,28 @@ extension MTransactionsViewController {
             self.view.backgroundColor = UIColor(named: "Background_DarkTheme")
         } else {
         }
+        setupTableView()
+        fetchTransaction()
+        fetchComplete()
     }
     
     func addSubviews() {
-        let views = [headerView ,tableView, bottomView, totalPriceView ]
-     
+        let views = [tableView, headerView, bottomView, totalPriceView, dateButton]
         views.forEach { (view) in
-            view.translatesAutoresizingMaskIntoConstraints = false
             self.view.addSubview(view)
         }
-        addHeaderViewSubviews()
         addBottomViewSubviews()
       if #available(iOS 14.0, *) {
-        view.addSubview(datePickerNew)
+//        view.addSubview(datePickerNew)
         } else {
          
       }
      
     }
     
-    func addHeaderViewSubviews() {
-        let views = [backButton, titleLabel, dateButton]
-        views.forEach { (view) in
-            view.translatesAutoresizingMaskIntoConstraints = false
-            self.headerView.addSubview(view)
-        }
-    }
-    
     func addBottomViewSubviews() {
         let views = [topLineView, bottomLineView, totalLabel, priceTotalLabel]
         views.forEach { (view) in
-            view.translatesAutoresizingMaskIntoConstraints = false
             self.totalPriceView.addSubview(view)
         }
     }
@@ -198,35 +165,18 @@ extension MTransactionsViewController {
 
 extension MTransactionsViewController {
     func setupConstraints() {
-        NSLayoutConstraint.activate([
-            headerView.topAnchor.constraint(equalTo: view.topAnchor, constant: 0),
-            headerView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
-            headerView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
-            headerView.heightAnchor.constraint(equalToConstant: 210),
-        ])
         
-        NSLayoutConstraint.activate([
-            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
-            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
-            tableView.topAnchor.constraint(equalTo: headerView.bottomAnchor, constant: 0),
-            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0)
-        ])
+        tableView.snp.makeConstraints { make in
+            make.left.right.bottom.equalTo(self.view)
+            make.top.equalTo(dateButton.snp.bottom)
+        }
         
-        NSLayoutConstraint.activate([
-            dateButton.leadingAnchor.constraint(equalTo: headerView.leadingAnchor, constant: 20),
-            dateButton.bottomAnchor.constraint(equalTo: headerView.bottomAnchor, constant: -10),
-            dateButton.heightAnchor.constraint(equalToConstant: 44),
-            dateButton.widthAnchor.constraint(equalToConstant: 200)
-        ])
-      
-      
-//      NSLayoutConstraint.activate([
-//        datePickerNew.leadingAnchor.constraint(equalTo: headerView.leadingAnchor, constant: 20),
-//        datePickerNew.bottomAnchor.constraint(equalTo: headerView.bottomAnchor, constant: -10),
-//        datePickerNew.heightAnchor.constraint(equalToConstant: 44),
-//        datePickerNew.widthAnchor.constraint(equalToConstant: 200)
-//      ])
-      
+        dateButton.snp.makeConstraints { make in
+            make.left.equalTo(self.view).offset(10)
+            make.top.equalTo(self.view.safeAreaLayoutGuide).offset(10)
+            make.height.equalTo(44)
+            make.width.equalTo(200)
+        }
         
 //        NSLayoutConstraint.activate([
 //            totalPriceView.topAnchor.constraint(equalTo: tableView.bottomAnchor, constant: 18),
@@ -243,50 +193,29 @@ extension MTransactionsViewController {
 //            bottomView.topAnchor.constraint(equalTo: tableView.bottomAnchor, constant: 0)])
         
        
-        
-        setupConstraintsHeaderView()
         setupConstraintsBottomView()
     }
     
-    func setupConstraintsHeaderView() {
-        NSLayoutConstraint.activate([
-            backButton.heightAnchor.constraint(equalToConstant: 44),
-            backButton.widthAnchor.constraint(equalToConstant: 44),
-            backButton.leadingAnchor.constraint(equalTo: headerView.leadingAnchor, constant: 8),
-            backButton.topAnchor.constraint(equalTo: headerView.topAnchor, constant: 40)
-        ])
-        
-        NSLayoutConstraint.activate([
-            titleLabel.topAnchor.constraint(equalTo: headerView.topAnchor, constant: 90),
-            titleLabel.leadingAnchor.constraint(equalTo: headerView.leadingAnchor, constant: 17)
-        ])
-    }
-    
     func setupConstraintsBottomView() {
-        NSLayoutConstraint.activate([
-            topLineView.topAnchor.constraint(equalTo: totalPriceView.topAnchor, constant: 0),
-            topLineView.leadingAnchor.constraint(equalTo: totalPriceView.leadingAnchor, constant: 0),
-            topLineView.trailingAnchor.constraint(equalTo: totalPriceView.trailingAnchor, constant: 0),
-            topLineView.heightAnchor.constraint(equalToConstant: 1)
-            
-        ])
+        topLineView.snp.makeConstraints { make in
+            make.top.left.right.equalTo(totalPriceView)
+            make.height.equalTo(1)
+        }
         
-        NSLayoutConstraint.activate([
-            totalLabel.centerYAnchor.constraint(equalTo: totalPriceView.centerYAnchor, constant: 0),
-            totalLabel.leadingAnchor.constraint(equalTo: totalPriceView.leadingAnchor, constant: 24)
-        ])
+        totalLabel.snp.makeConstraints { make in
+            make.centerY.equalTo(totalPriceView)
+            make.left.equalTo(totalPriceView).offset(24)
+        }
         
-        NSLayoutConstraint.activate([
-            priceTotalLabel.centerYAnchor.constraint(equalTo: totalPriceView.centerYAnchor, constant: 0),
-            priceTotalLabel.trailingAnchor.constraint(equalTo: totalPriceView.trailingAnchor, constant: -24)
-        ])
+        priceTotalLabel.snp.makeConstraints { make in
+            make.centerY.equalTo(totalPriceView)
+            make.right.equalTo(totalPriceView).offset(-24)
+        }
         
-        NSLayoutConstraint.activate([
-            bottomLineView.bottomAnchor.constraint(equalTo: totalPriceView.bottomAnchor, constant: 0),
-            bottomLineView.leadingAnchor.constraint(equalTo: totalPriceView.leadingAnchor, constant: 0),
-            bottomLineView.trailingAnchor.constraint(equalTo: totalPriceView.trailingAnchor, constant: 0),
-            bottomLineView.heightAnchor.constraint(equalToConstant: 1)
-        ])
+        bottomLineView.snp.makeConstraints { make in
+            make.bottom.left.right.equalTo(totalPriceView)
+            make.height.equalTo(1)
+        }
     }
 }
 
@@ -306,7 +235,6 @@ extension MTransactionsViewController {
     func fetchComplete() {
         transactionViewModel.complete = { [weak self] (_) in
             DispatchQueue.main.async {
-               
                 self?.tableView.reloadData()
                 KVSpinnerView.dismiss()
             }
@@ -338,6 +266,12 @@ extension MTransactionsViewController: UITableViewDelegate, UITableViewDataSourc
         return cellHeight
     }
     
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+       if indexPath.row == transactionViewModel.numberOfCells - 1, transactionViewModel.nextPage != nil {
+           transactionViewModel.didGetTransaction(by: transactionViewModel.nextPage ?? String.empty)
+          }
+   }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let transaction = transactionViewModel.getCellViewModel(at: indexPath)
         openTransactionOverview(with: transaction)
@@ -365,45 +299,26 @@ extension MTransactionsViewController {
     }
     
     func setupTrasactionOverview(transactionOverview: TransactionOverview) {
-        transactionOverview.translatesAutoresizingMaskIntoConstraints = false
         transactionOverview.backgroundColor = .clear
         self.view.addSubview(transactionOverview)
-        NSLayoutConstraint.activate([
-            transactionOverview.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
-            transactionOverview.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
-            transactionOverview.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0),
-            transactionOverview.topAnchor.constraint(equalTo: view.topAnchor, constant: 0)
-        ])
+        transactionOverview.snp.makeConstraints { make in
+            make.left.right.bottom.top.equalTo(self.view)
+        }
     }
     
      @objc func openDatePicker() {
-        if #available(iOS 14.0, *) {
-        datePickerNew.showAnimate()
-        setupDatePickerNewConstraints()
-        } else {
-          view.addSubview(datePicker)
-          setupDatePickerConstraints()
-          datePicker.showAnimate()
-      }
-   }
+        view.addSubview(datePicker)
+        setupDatePickerConstraints()
+        datePicker.showAnimate()
+    }
     
     func setupDatePickerConstraints() {
-        NSLayoutConstraint.activate([
-          datePicker.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 0),
-          datePicker.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0),
-          datePicker.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.7),
-          datePicker.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.4)
-        ])
+        datePicker.snp.makeConstraints { make in
+            make.center.equalTo(self.view)
+            make.width.equalTo(self.view).multipliedBy(0.7)
+            make.height.equalTo(self.view).multipliedBy(0.4)
+        }
     }
-  
-  func setupDatePickerNewConstraints() {
-    NSLayoutConstraint.activate([
-    datePickerNew.leadingAnchor.constraint(equalTo: headerView.leadingAnchor, constant: 20),
-    datePickerNew.bottomAnchor.constraint(equalTo: headerView.bottomAnchor, constant: -10),
-    datePickerNew.heightAnchor.constraint(equalToConstant: 44),
-    datePickerNew.widthAnchor.constraint(equalToConstant: 200)
-    ])
-  }
   
   
   @objc func getDate(from datePiker:UIDatePicker) {

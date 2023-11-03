@@ -87,12 +87,9 @@ class ConfirmPaymentPopUp: UIViewController {
                             
                             self.showSimpleAlertWithSingleAction(title: Localize.success(), message: Localize.payment_succeeded(), okAction: UIAlertAction(title: Localize.ok(), style: .default, handler: { (action) in
                                 
-                                self.tabBar.selectedIndex = 0
-                                if self.isFromReservation != nil {
-                                    self.presentingViewController?.presentingViewController?.presentingViewController?.dismiss(animated: true)
-                                }else {
-                                    self.presentingViewController?.presentingViewController?.dismiss(animated: true)
-                                }
+                                HomeTabViewController.shared.setTab(.voucher)
+                                
+                                self.presentingViewController?.presentingViewController?.dismiss(animated: true)
                             }))
                         }else if statusCode == 401 {
                             DispatchQueue.main.async {
@@ -118,12 +115,8 @@ class ConfirmPaymentPopUp: UIViewController {
                             KVSpinnerView.dismiss()
                             self.showSimpleAlertWithSingleAction(title: Localize.success(), message: Localize.payment_succeeded(), okAction: UIAlertAction(title: Localize.ok(), style: .default, handler: { (action) in
                                 
-                                self.tabBar.selectedIndex = 0
-                                if self.isFromReservation != nil {
-                                    self.presentingViewController?.presentingViewController?.presentingViewController?.dismiss(animated: true)
-                                }else {
-                                    self.presentingViewController?.presentingViewController?.dismiss(animated: true)
-                                }
+                                HomeTabViewController.shared.setTab(.voucher)
+                                self.presentingViewController?.presentingViewController?.dismiss(animated: true)
                             }))
                         }else if statusCode == 401 {
                             DispatchQueue.main.async {

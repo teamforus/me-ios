@@ -10,7 +10,7 @@ import UIKit
 
 class MConfirmAuthViewController: UIViewController {
     
-    weak var delegate: QRControllerDelegate!
+     var delegate: QRControllerDelegate?
     var heightConstraintsBody: NSLayoutConstraint!
     
     // MARK: - Properties
@@ -45,7 +45,7 @@ class MConfirmAuthViewController: UIViewController {
     private let iconImageView: UIImageView = {
         let imageView = UIImageView(frame: .zero)
         imageView.contentMode = .scaleAspectFill
-        imageView.image = #imageLiteral(resourceName: "iconCheckAuthorize")
+        imageView.image = #imageLiteral(resourceName: "check_authorize_icon")
         return imageView
     }()
     
@@ -203,11 +203,11 @@ extension MConfirmAuthViewController {
     // MARK: - Setup Actions
     private func setupActions() {
         confirmButton.actionHandleBlock = { [weak self] (_) in
-            self?.delegate.initAuth()
+            self?.delegate?.initAuth()
         }
         
         cancelButton.actionHandleBlock = { [weak self] (_) in
-            self?.delegate.cancelAuth()
+            self?.delegate?.cancelAuth()
         }
     }
 }

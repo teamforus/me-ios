@@ -76,6 +76,7 @@ Pods
 node_modules
 package-lock.json
 Me-iOS.xcodeproj/xcshareddata/xcschemes
+.DS_Store
 
 
 Carthage/Build/

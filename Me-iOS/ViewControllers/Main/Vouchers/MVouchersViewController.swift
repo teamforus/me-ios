@@ -1,13 +1,4 @@
-//
-//  MVoucherViewController.swift
-//  Me-iOS
-//
-//  Created by Tcacenco Daniel on 5/8/19.
-//  Copyright © 2019 Tcacenco Daniel. All rights reserved.
-//
-
 import UIKit
-import ISHPullUp
 import StoreKit
 
 enum VoucherType: Int {
@@ -16,54 +7,109 @@ enum VoucherType: Int {
 }
 
 class MVouchersViewController: UIViewController {
-    @IBOutlet weak var tableView: UITableView!
-    private let refreshControl = UIRefreshControl()
     var isFromLogin: Bool!
-    @IBOutlet weak var segmentController: HBSegmentedControl!
-    @IBOutlet weak var segmentView: UIView!
-    @IBOutlet weak var transactionButton: UIButton!
+    var voucherType: VoucherType! = .vouchers
+    var dataSource: VouchersDataSource!
+    var wallet: Office!
+    var navigator: Navigator
     
-  @IBOutlet weak var titleLabel: UILabel_DarkMode!
-  var voucherType: VoucherType!
     lazy var voucherViewModel: VouchersViewModel = {
         return VouchersViewModel()
     }()
     
-    var wallet: Office!
+    // MARK: - Properties
+    private let refreshControl = UIRefreshControl()
     
+    var segmentController: HBSegmentedControl = {
+        let segment = HBSegmentedControl(frame: .zero)
+        return segment
+    }()
+    
+    private let segmentView: UIView = {
+        let view = UIView(frame: .zero)
+        view.backgroundColor = Color.lightGraySegment
+        return view
+    }()
+    
+    var tableView: UITableView = {
+        let tableView = UITableView(frame: .zero)
+        return tableView
+    }()
+    
+    var transactionButton: ActionButton = {
+        let button = ActionButton(frame: CGRect(x: 0, y: 0, width: 35, height: 35))
+        button.setImage(Image.transactionIcon, for: .normal)
+        button.contentMode = .scaleAspectFit
+        return button
+    }()
+    
+    private let voucherImage: UIImageView = {
+        let imageView = UIImageView(frame: .zero)
+        imageView.image = Image.voucher
+        imageView.contentMode = .scaleAspectFit
+        return imageView
+    }()
+    
+    private let voucherEmptyMessage: UILabel_DarkMode = {
+        let label =  UILabel_DarkMode(frame: .zero)
+        label.text = Localize.empty_voucher_list()
+        label.textAlignment = .center
+        return label
+    }()
+    
+    
+    // MARK: - Init
+    init(navigator: Navigator) {
+        self.navigator = navigator
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    
+    // MARK: - Setup Viiew
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        addSubviews()
+        setupConstraints()
+        setupView()
+    }
+    
+    private func setupView() {
+        if #available(iOS 11.0, *) {
+            self.view.backgroundColor = UIColor(named: "Background_DarkTheme")
+        } else {}
+        setupAccessibility()
         if !Preference.tapToSeeTransactionTipHasShown {
             Preference.tapToSeeTransactionTipHasShown = true
-            transactionButton?.toolTip(message: Localize.tap_here_you_want_to_see_list_transaction(), style: .dark, location: .bottom, offset: CGPoint(x: -50, y: 0))
-        }
-        registerForPreviewing(with: self, sourceView: tableView)
-        
-        if #available(iOS 10.0, *) {
-            tableView.refreshControl = refreshControl
-        } else {
-            tableView.addSubview(refreshControl)
+            transactionButton.toolTip(message: Localize.tap_here_you_want_to_see_list_transaction(), style: .dark, location: .bottom, offset: CGPoint(x: -50, y: 0))
         }
         
-        voucherType = .vouchers
-        voucherViewModel.voucherType = .vouchers
-        segmentController.items = ["Geldig", Localize.expired()]
-        segmentController.selectedIndex = 0
-        segmentController.font = UIFont(name: "GoogleSans-Medium", size: 14)
-        segmentController.unselectedLabelColor = #colorLiteral(red: 0.631372549, green: 0.6509803922, blue: 0.6784313725, alpha: 1)
-        segmentController.selectedLabelColor = #colorLiteral(red: 0.2078431373, green: 0.3921568627, blue: 0.968627451, alpha: 1)
-        segmentController.addTarget(self, action: #selector(self.segmentSelected(sender:)), for: .valueChanged)
-        segmentController.borderColor = .clear
-        segmentView.layer.cornerRadius = 8.0
-        
-      
-        
-        refreshControl.addTarget(self, action: #selector(refreshData(_:)), for: .valueChanged)
-        
+        setupSegmentControll()
+        voucherViewModel.completeIdentity = { [unowned self] (response) in
+            DispatchQueue.main.async {
+                self.wallet = response
+            }
+        }
+        setupAction()
+        voucherViewModel.getIndentity()
+        setupTableView()
+        initFetch()
+        receiveFetch()
+    }
+    
+    private func receiveFetch() {
         voucherViewModel.complete = { [weak self] (vouchers) in
             
             DispatchQueue.main.async {
+                
                 self?.voucherViewModel.sendPushToken(token: UserDefaults.standard.string(forKey: "TOKENPUSH") ?? "")
+                self?.dataSource = VouchersDataSource(vouchers: vouchers, wallet: nil)
+                self?.tableView.dataSource = self?.dataSource
+                self?.tableView.delegate = self
                 self?.tableView.reloadData()
                 if vouchers.count == 0 {
                     
@@ -76,19 +122,30 @@ class MVouchersViewController: UIViewController {
                 self?.refreshControl.endRefreshing()
             }
         }
-        
-        
-        
-        voucherViewModel.completeIdentity = { [unowned self] (response) in
-            DispatchQueue.main.async {
-                self.wallet = response
-            }
+    }
+    
+    private func setupTableView() {
+        registerForPreviewing(with: self, sourceView: tableView)
+        if #available(iOS 10.0, *) {
+            tableView.refreshControl = refreshControl
+        } else {
+            tableView.addSubview(refreshControl)
         }
+        tableView.separatorStyle = .none
+        refreshControl.addTarget(self, action: #selector(refreshData(_:)), for: .valueChanged)
+        tableView.register(VoucherTableViewCell.self, forCellReuseIdentifier: VoucherTableViewCell.identifier)
         
-        voucherViewModel.getIndentity()
-        
-        initFetch()
-        setupAccessibility()
+    }
+    
+    private func setupSegmentControll() {
+        segmentController.items = ["Geldig", Localize.expired()]
+        segmentController.selectedIndex = 0
+        segmentController.font = UIFont(name: "GoogleSans-Medium", size: 14)
+        segmentController.unselectedLabelColor = #colorLiteral(red: 0.631372549, green: 0.6509803922, blue: 0.6784313725, alpha: 1)
+        segmentController.selectedLabelColor = #colorLiteral(red: 0.2078431373, green: 0.3921568627, blue: 0.968627451, alpha: 1)
+        segmentController.addTarget(self, action: #selector(self.segmentSelected(sender:)), for: .valueChanged)
+        segmentController.borderColor = .clear
+        segmentView.layer.cornerRadius = 8.0
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -126,7 +183,6 @@ class MVouchersViewController: UIViewController {
             self.voucherViewModel.filterVouchers(voucherType: voucherType)
             self.tableView.reloadData()
             self.tableView.isHidden = false
-            break
         case VoucherType.expiredVouchers.rawValue:
             voucherType = .expiredVouchers
             self.voucherViewModel.filterVouchers(voucherType: voucherType)
@@ -134,104 +190,33 @@ class MVouchersViewController: UIViewController {
             break
         default: break
         }
-        self.voucherViewModel.voucherType = voucherType
     }
-    
-    @IBAction func openTransaction(_ sender: UIButton) {
-        transactionButton.removeToolTip(with: Localize.tap_here_you_want_to_see_list_transaction())
-        let transactionVC = MTransactionsViewController()
-        transactionVC.hidesBottomBarWhenPushed = true
-        self.navigationController?.pushViewController(transactionVC, animated: true)
-    }
-    
-    
-    // MARK: - Navigation
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        if segue.identifier == "goToProduct" {
-            
-            let generalVC = didSetPullUP(storyboard: R.storyboard.productVoucher(), segue: segue)
-            (generalVC.contentViewController as! MProductVoucherViewController).address = self.voucherViewModel.selectedVoucher?.address ?? ""
-            (generalVC.bottomViewController as! CommonBottomViewController).voucher = self.voucherViewModel.selectedVoucher
-            (generalVC.bottomViewController as! CommonBottomViewController).qrType = .Voucher
-            
-        }else if segue.identifier == "goToVoucher" {
-            
-            let generalVC = didSetPullUP(storyboard: R.storyboard.voucher(), segue: segue)
-            (generalVC.contentViewController as! MVoucherViewController).address = self.voucherViewModel.selectedVoucher?.address ?? ""
-            (generalVC.bottomViewController as! CommonBottomViewController).voucher = self.voucherViewModel.selectedVoucher
-            (generalVC.bottomViewController as! CommonBottomViewController).qrType = .Voucher
-            
-        }
-    }
-    
-    func didSetPullUPWithoutSegue(storyboard: UIStoryboard, isProduct: Bool) -> CommonPullUpViewController {
-        
-        let passVC = storyboard.instantiateViewController(withIdentifier: "general") as! CommonPullUpViewController
-        
-        passVC.contentViewController = storyboard.instantiateViewController(withIdentifier: "content")
-        
-        passVC.bottomViewController = storyboard.instantiateViewController(withIdentifier: "bottom")
-        
-        (passVC.bottomViewController as! CommonBottomViewController).pullUpController = passVC
-        passVC.sizingDelegate = (passVC.bottomViewController as! CommonBottomViewController)
-        
-        if isProduct {
-            
-            (passVC.contentViewController as! MProductVoucherViewController).address = self.voucherViewModel.selectedVoucher?.address ?? ""
-        }else {
-            
-            (passVC.contentViewController as! MVoucherViewController).address = self.voucherViewModel.selectedVoucher?.address ?? ""
-            
-        }
-        passVC.stateDelegate = (passVC.bottomViewController as! CommonBottomViewController)
-        (passVC.bottomViewController as! CommonBottomViewController).voucher = self.voucherViewModel.selectedVoucher
-        (passVC.bottomViewController as! CommonBottomViewController).qrType = .Voucher
-        
-        return passVC
-    }
-    
 }
 
-extension MVouchersViewController: UITableViewDelegate, UITableViewDataSource{
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return voucherViewModel.numberOfCells
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! VoucherTableViewCell
-        let voucher = voucherViewModel.getCellViewModel(at: indexPath)
-        cell.setupVoucher(voucher: voucher)
-        
-        return cell
-    }
+extension MVouchersViewController: UITableViewDelegate{
     
     @objc func send(_ sender: UIButton) {
         self.showPopUPWithAnimation(vc: SendEtherViewController(nibName: "SendEtherViewController", bundle: nil))
     }
     
-    func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
-        self.voucherViewModel.userPressed(at: indexPath)
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let voucher = self.dataSource.vouchers[indexPath.row]
         
-        if voucherViewModel.isAllowSegue {
-            if voucherViewModel.selectedVoucher?.product != nil {
-                self.performSegue(withIdentifier: "goToProduct", sender: nil)
+        switch voucherType {
+        case .vouchers?:
+            if voucher.product != nil {
+                navigator.navigate(to: .productVoucher(voucher.address ?? ""))
             }else {
-                self.performSegue(withIdentifier: "goToVoucher", sender: nil)
+                navigator.navigate(to: .budgetVoucher(voucher))
             }
-            return indexPath
+        default:
+            break
         }
-        
-        return nil
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 114
+    }
 }
 
 extension MVouchersViewController: UIViewControllerPreviewingDelegate{
@@ -245,39 +230,98 @@ extension MVouchersViewController: UIViewControllerPreviewingDelegate{
     
     public func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
         
-        guard let indexPath = tableView.indexPathForRow(at: location) else {
+        switch voucherType {
+        case .vouchers?:
+            guard let indexPath = tableView.indexPathForRow(at: location) else {
+                return nil
+            }
+            let voucher = self.dataSource.vouchers[indexPath.row]
+            var detailViewController = UIViewController()
+            if voucherViewModel.selectedVoucher?.product != nil {
+                let productVC = ProductVoucherViewController(navigator: navigator)
+                productVC.address = voucherViewModel.selectedVoucher?.address ?? ""
+                detailViewController = productVC
+            }else {
+                let productVC = MVoucherViewController(voucher: voucher, navigator: navigator)
+                productVC.address = voucherViewModel.selectedVoucher?.address ?? ""
+                detailViewController = productVC
+            }
+            
+            return detailViewController
+        default:
             return nil
         }
-        
-        self.voucherViewModel.userPressed(at: indexPath)
-        var detailViewController = UIViewController()
-        if voucherViewModel.selectedVoucher?.product != nil {
-            detailViewController = createDetailViewControllerIndexPath(vc: didSetPullUPWithoutSegue(storyboard: R.storyboard.productVoucher(), isProduct: true),
-                                                                       indexPath: indexPath)
-        }else {
-            detailViewController = createDetailViewControllerIndexPath(vc: didSetPullUPWithoutSegue(storyboard: R.storyboard.voucher(), isProduct: false),
-                                                                       indexPath: indexPath)
-        }
-        
-        return detailViewController
     }
     
     public func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
         navigationController?.pushViewController(viewControllerToCommit, animated: true)
     }
 }
+
+// MARK: - Add Subviews
+
+extension MVouchersViewController {
+    private func addSubviews() {
+        let views = [segmentView, voucherImage, voucherEmptyMessage, tableView]
+        views.forEach { view in
+            self.view.addSubview(view)
+        }
+        view.addSubview(segmentController)
+    }
+}
+
+// MARK: - Setup Constraintst
+
+extension MVouchersViewController {
+    private func setupConstraints() {
+        
+        segmentView.snp.makeConstraints { make in
+            make.left.right.equalTo(self.view).inset(20)
+            make.height.equalTo(50)
+            make.top.equalTo(self.view.safeAreaLayoutGuide)
+        }
+        
+        segmentController.snp.makeConstraints { make in
+            make.top.left.right.bottom.equalTo(self.segmentView).inset(4)
+        }
+        
+        voucherImage.snp.makeConstraints { make in
+            make.center.equalTo(self.view)
+        }
+        
+        voucherEmptyMessage.snp.makeConstraints { make in
+            make.left.right.equalTo(self.view).inset(19)
+            make.top.equalTo(voucherImage.snp.bottom).offset(48)
+        }
+        
+        tableView.snp.makeConstraints { make in
+            make.left.right.bottom.equalTo(self.view.safeAreaLayoutGuide)
+            make.top.equalTo(segmentView.snp.bottom).offset(15)
+        }
+    }
+}
+
+extension MVouchersViewController {
+    // MARK: - Setup Action
+    private func setupAction() {
+        transactionButton.actionHandleBlock = { [weak self] (_) in
+            self?.transactionButton.removeToolTip(with: Localize.tap_here_you_want_to_see_list_transaction())
+            self?.navigator.navigate(to: .transaction)
+        }
+    }
+}
+
 // MARK: - Accessibility Protocol
 
 extension MVouchersViewController: AccessibilityProtocol {
     
     func setupAccessibility() {
-        if let valute = segmentController.accessibilityElement(at: 0) as? UIView {
-            valute.setupAccesibility(description: "Choose to show all valute", accessibilityTraits: .causesPageTurn)
-        }
+//        if let valute = segmentController.accessibilityElement(at: 0) as? UIView {
+//            valute.setupAccesibility(description: "Choose to show all valute", accessibilityTraits: .causesPageTurn)
+//        }
         
-        if let vouchers = segmentController.accessibilityElement(at: 1) as? UIView {
-            vouchers.setupAccesibility(description: "Choose to show all vouchers", accessibilityTraits: .causesPageTurn)
-        }
-      titleLabel.setupAccesibility(description: Localize.vouchers(), accessibilityTraits: .header)
+//        if let vouchers = segmentController.accessibilityElement(at: 1) as? UIView {
+//            vouchers.setupAccesibility(description: "Choose to show all vouchers", accessibilityTraits: .causesPageTurn)
+//        }
     }
 }

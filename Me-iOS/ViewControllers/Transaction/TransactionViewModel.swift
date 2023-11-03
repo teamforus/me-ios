@@ -25,6 +25,8 @@ class TransactionViewModel {
     
     var complete: (([Transaction])->())?
     
+    var nextPage: String?
+    
     func initFetch(){
         
         commonService.get(request: "platform/provider/transactions", complete: { (response: ResponseDataArray<Transaction>, statusCode) in
@@ -42,7 +44,7 @@ class TransactionViewModel {
                     }))
                 }
             } else {
-                
+                self.nextPage = response.links?.next
                 self.processFetchedLunche(transactions: response.data ?? [])
             }
             
@@ -52,6 +54,34 @@ class TransactionViewModel {
             }
         })
         
+    }
+    
+    func didGetTransaction(by page: String) {
+        let pageLink = page.replacingOccurrences(of: "https://\(BaseURL.getBaseURL())/api/v1/", with: "")
+        commonService.get(request: pageLink, complete: { (response: ResponseDataArray<Transaction>, statusCode) in
+            if statusCode == 503 {
+                DispatchQueue.main.async {
+                    KVSpinnerView.dismiss()
+                    self.vc.showErrorServer()
+                }
+                
+            }else if statusCode == 401 {
+                DispatchQueue.main.async {
+                    KVSpinnerView.dismiss()
+                    self.vc.showSimpleAlertWithSingleAction(title: Localize.expired_session(), message: Localize.your_session_has_expired(), okAction: UIAlertAction(title: Localize.log_out(), style: .default, handler: { (action) in
+                        self.vc.logoutOptions()
+                    }))
+                }
+            } else {
+                self.nextPage = response.links?.next
+                self.fetchNewData(transactions: response.data ?? [])
+            }
+            
+        }, failure: { (error) in
+            DispatchQueue.main.async {
+                KVSpinnerView.dismiss()
+            }
+        })
     }
     
     var numberOfCells: Int {
@@ -73,6 +103,13 @@ class TransactionViewModel {
             vms.append( createCellViewModel(transaction: transaction))
         }
         self.cellViewModels = vms
+    }
+    
+    private func fetchNewData(transactions: [Transaction]) {
+        transactions.forEach { transaction in
+//            self.patients.append(transaction)
+            self.cellViewModels.append(transaction)
+        }
     }
     
     func sortTransactionByDate(form date: Date) {

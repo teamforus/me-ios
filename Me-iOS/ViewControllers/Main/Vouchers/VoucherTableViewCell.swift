@@ -9,27 +9,68 @@
 import UIKit
 
 class VoucherTableViewCell: UITableViewCell {
-    @IBOutlet weak var voucherTitleLabel: UILabel!
-    @IBOutlet weak var priceLabel: UILabel!
-    @IBOutlet weak var voucherImage: RoundImageView!
-    @IBOutlet weak var organizationNameLabel: UILabel!
-    @IBOutlet weak var usedVoucherLabel: UILabel!
-    @IBOutlet weak var bodyView: CustomCornerUIView!
+    var bodyView: CustomCornerUIView = {
+        let view = CustomCornerUIView(frame: .zero)
+        view.cornerRadius = 12
+        view.shadowOpacity = 0.1
+        view.shadowRadius = 10
+        view.colorName = "Gray_Dark_DarkTheme"
+        view.shadowOffset = CGSize(width: 0, height: 0)
+        return view
+    }()
+    
+    var voucherTitleLabel: UILabel_DarkMode = {
+        let label = UILabel_DarkMode(frame: .zero)
+        label.font = R.font.googleSansBold(size: 20)
+        return label
+    }()
+    
+    var organizationNameLabel: UILabel_DarkMode = {
+        let label = UILabel_DarkMode(frame: .zero)
+        label.font = R.font.googleSansRegular(size: 14)
+        return label
+    }()
+    
+    var priceLabel: UILabel = {
+        let label = UILabel(frame: .zero)
+        label.font = R.font.googleSansRegular(size: 20)
+        label.textColor = Color.blueText
+        return label
+    }()
+    
+    var voucherImage: RoundImageView = {
+        let imageView = RoundImageView(frame: .zero)
+        return imageView
+    }()
+    
+    var usedVoucherLabel: UILabel = {
+        let label = UILabel(frame: .zero)
+        label.textColor = Color.usedColor
+        label.font = R.font.googleSansRegular(size: 15)
+        return label
+    }()
     
     
     static let identifier = "VoucherTableViewCell"
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
+    // MAKR: - Init
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        addSubviews()
+        setupConstraints()
         self.usedVoucherLabel.isHidden = true
-  //    setupAccessibility(with: (voucher?.fund?.name)!, and: (voucher?.fund?.organization?.name)!)
+
         setupIcon()
         self.selectionStyle = .none
         if #available(iOS 11.0, *) {
             self.bodyView.layer.shadowColor = UIColor(named: "Black_Light_DarkTheme")?.cgColor
         } else {}
     }
-  
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
   override func prepareForReuse() {
     super.prepareForReuse()
     self.usedVoucherLabel.isHidden = true
@@ -38,19 +79,8 @@ class VoucherTableViewCell: UITableViewCell {
     func setupVoucher(voucher: Voucher) {
         self.voucherTitleLabel.text = voucher.product != nil ? voucher.product?.name : voucher.fund?.name
         self.organizationNameLabel.text = voucher.product != nil ? voucher.product?.organization?.name  : voucher.fund?.organization?.name
-        
-        //            if voucher?.transactions != nil{
-        //
-        //                usedVoucherLabel.isHidden = false
-        //
-        //            } else {
-        //
-        //                self.usedVoucherLabel.isHidden = true
-        //
-        //            }
-        
-        
-        if voucher.expire_at?.date?.formatDate() ?? Date() < Date() {
+
+        if voucher.expire_at?.date?.formatDate() ?? Date() < Date() && !Calendar.current.isDate(voucher.expire_at?.date?.formatDate() ?? Date(), inSameDayAs:Date()){
             self.usedVoucherLabel.isHidden = false
             self.usedVoucherLabel.textColor = .red
             self.usedVoucherLabel.text = Localize.expired()
@@ -80,7 +110,7 @@ class VoucherTableViewCell: UITableViewCell {
                 self.priceLabel.text = "0,0"
             }
             
-            self.voucherImage.loadImageUsingUrlString(urlString: voucher.fund?.organization?.logo?.sizes?.thumbnail ?? "", placeHolder: #imageLiteral(resourceName: "Resting"))
+            self.voucherImage.loadImageUsingUrlString(urlString: voucher.fund?.logo?.sizes?.thumbnail ?? "", placeHolder: #imageLiteral(resourceName: "Resting"))
         }
     }
     
@@ -97,10 +127,6 @@ class VoucherTableViewCell: UITableViewCell {
         } else {}
     }
     
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-    }
-    
     func setupIcon() {
         self.voucherImage.layer.masksToBounds = false
         self.voucherImage.clipsToBounds = true
@@ -108,7 +134,57 @@ class VoucherTableViewCell: UITableViewCell {
         self.voucherImage.layer.borderColor = #colorLiteral(red: 0.9646214843, green: 0.9647600055, blue: 0.9645912051, alpha: 1)
         self.voucherImage.layer.borderWidth = 1
     }
-    
+}
+
+extension VoucherTableViewCell {
+    // MARK: - Add Subviews
+    private func addSubviews() {
+        self.contentView.addSubview(bodyView)
+        let views = [voucherTitleLabel, organizationNameLabel, priceLabel, voucherImage, usedVoucherLabel]
+        views.forEach { view in
+            bodyView.addSubview(view)
+        }
+    }
+}
+
+extension VoucherTableViewCell {
+    // MARK: - Setup Constraints
+    private func setupConstraints() {
+        bodyView.snp.makeConstraints { make in
+            make.top.equalTo(contentView).offset(10)
+            make.left.equalTo(contentView).offset(16)
+            make.right.equalTo(contentView).offset(-16)
+            make.bottom.equalTo(contentView).offset(-6)
+        }
+        
+        voucherTitleLabel.snp.makeConstraints { make in
+            make.left.top.equalTo(bodyView).offset(20)
+        }
+        
+        organizationNameLabel.snp.makeConstraints { make in
+            make.top.equalTo(voucherTitleLabel.snp.bottom).offset(2)
+            make.left.equalTo(bodyView).offset(20)
+        }
+        
+        priceLabel.snp.makeConstraints { make in
+            make.left.equalTo(bodyView).offset(20)
+            make.top.greaterThanOrEqualTo(organizationNameLabel.snp.bottom).offset(2)
+            make.bottom.greaterThanOrEqualTo(bodyView).offset(-20)
+        }
+        
+        voucherImage.snp.makeConstraints { make in
+            make.top.equalTo(bodyView).offset(20)
+            make.right.equalTo(bodyView).offset(-20)
+            make.left.equalTo(voucherTitleLabel.snp.right).offset(10)
+            make.height.width.equalTo(50)
+        }
+        
+        usedVoucherLabel.snp.makeConstraints { make in
+            make.top.greaterThanOrEqualTo(voucherImage.snp.bottom).offset(2)
+            make.bottom.greaterThanOrEqualTo(bodyView).offset(-20)
+            make.right.equalTo(bodyView).offset(-20)
+        }
+    }
 }
 
 extension VoucherTableViewCell {

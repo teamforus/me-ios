@@ -236,12 +236,10 @@ extension UIViewController{
         self.removeShortcutItem(application: UIApplication.shared)
         UserDefaults.standard.set("", forKey: ALConstants.kPincode)
         UserDefaults.standard.setValue(false, forKey: UserDefaultsName.UserIsLoged)
-        let storyboard:UIStoryboard = UIStoryboard(name: "First", bundle: nil)
-        let navigationController:HiddenNavBarNavigationController = storyboard.instantiateInitialViewController() as! HiddenNavBarNavigationController
-        let firstPageVC:UIViewController = storyboard.instantiateViewController(withIdentifier: "firstPage") as UIViewController
-        navigationController.viewControllers = [firstPageVC]
-        navigationController.modalPresentationStyle = .fullScreen
-        self.present(navigationController, animated: true, completion: nil)
+      
+        let navVC = TransactionManager.shared.loginScreen()
+        navVC.modalPresentationStyle = .fullScreen
+        self.present(navVC, animated: true, completion: nil)
     }
     
     func deleteEntity(entityName: String) {
@@ -265,7 +263,7 @@ extension UIViewController{
     
     func didChooseAppLocker(title: String, subTitle: String, cancelButtonIsVissible: Bool, mode: ALMode){
         var appearance = ALAppearance()
-        appearance.image = UIImage(named: "lock")!
+        appearance.image = Image.lock_icon
         appearance.title = title
         appearance.subtitle = subTitle
         appearance.isSensorsEnabled = UserDefaults.standard.bool(forKey: UserDefaultsName.UseTouchID)
@@ -334,7 +332,7 @@ extension UIViewController{
     }
     
     func addShortcuts(application: UIApplication) {
-        let voucherItem = UIMutableApplicationShortcutItem(type: "Vouchers", localizedTitle: Localize.vouchers(), localizedSubtitle: "", icon: UIApplicationShortcutIcon(templateImageName: "wallet"), userInfo: nil)
+        let voucherItem = UIMutableApplicationShortcutItem(type: Localize.balance_title(), localizedTitle: Localize.balance_title(), localizedSubtitle: "", icon: UIApplicationShortcutIcon(templateImageName: "wallet"), userInfo: nil)
         
         let qrItem = UIMutableApplicationShortcutItem(type: "QR", localizedTitle: "QR", localizedSubtitle: "", icon: UIApplicationShortcutIcon(templateImageName: "iconGrey"), userInfo: nil)
         
@@ -381,23 +379,6 @@ extension UIViewController{
     }
 }
 
-extension UIViewController{
-    
-    func didSetPullUP(storyboard: UIStoryboard, segue: UIStoryboardSegue) -> CommonPullUpViewController {
-        
-        let passVC = segue.destination as! CommonPullUpViewController
-        
-        passVC.contentViewController = storyboard.instantiateViewController(withIdentifier: "content")
-        
-        passVC.bottomViewController = storyboard.instantiateViewController(withIdentifier: "bottom")
-        
-        (passVC.bottomViewController as! CommonBottomViewController).pullUpController = passVC
-        passVC.sizingDelegate = (passVC.bottomViewController as! CommonBottomViewController)
-        passVC.stateDelegate = (passVC.bottomViewController as! CommonBottomViewController)
-        
-        return passVC
-    }
-}
 
 extension UIViewController: AppLockerDelegate {
     

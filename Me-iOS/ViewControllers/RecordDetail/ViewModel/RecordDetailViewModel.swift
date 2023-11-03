@@ -14,8 +14,6 @@ class RecordDetailViewModel {
     var commonService: CommonServiceProtocol!
     var vc: UIViewController!
     
-    private var cellViewModels: [Validator] = [Validator]()
-    
     var completeDelete: ((Int)->())?
     
     init(commonService: CommonServiceProtocol = CommonService()) {
@@ -35,7 +33,6 @@ class RecordDetailViewModel {
                     }))
                 }
             }else {
-                self.processFetchedLunche(validators: response.validations ?? [])
                 self.complete?(response)
             }
             
@@ -61,30 +58,5 @@ class RecordDetailViewModel {
         }) { (error) in
             
         }
-        
-    }
-    
-    
-    var numberOfCells: Int {
-        return cellViewModels.count
-    }
-    
-    func getCellViewModel( at indexPath: IndexPath ) -> Validator {
-        return cellViewModels[indexPath.row]
-    }
-    
-    func createCellViewModel( validator: Validator ) -> Validator {
-        
-        return validator
-    }
-    
-    private func processFetchedLunche( validators: [Validator] ) {
-        var vms = [Validator]()
-        for validator in validators {
-            
-            vms.append( createCellViewModel(validator: validator) )
-        }
-        
-        self.cellViewModels = vms.removingDuplicates()
     }
 }

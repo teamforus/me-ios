@@ -132,19 +132,19 @@ extension HSDefaultScanView {
         let bottomY = scanRectangleBottomY
         
         let imageViewSquare1 = UIImageView(frame: CGRect(x: leftX-linewidthAngle/2 + 3, y: topY, width: 26, height: 26))
-        imageViewSquare1.image = UIImage(named: "4")
+        imageViewSquare1.image = Image.topLeftSquareIcon
         self.addSubview(imageViewSquare1)
         
         let imageViewSquare2 = UIImageView(frame: CGRect(x: leftX-linewidthAngle/2 + 3, y: bottomY - hAngle - 2, width: 26, height: 26))
-        imageViewSquare2.image = UIImage(named: "1-1")
+        imageViewSquare2.image = Image.bottomLeftSquareIcon
         self.addSubview(imageViewSquare2)
         
         let imageViewSquare3 = UIImageView(frame: CGRect(x: rightX - wAngle - 2, y: topY, width: 26, height: 26))
-        imageViewSquare3.image = UIImage(named: "3")
+        imageViewSquare3.image = Image.topRightSquareIcon
         self.addSubview(imageViewSquare3)
         
         let imageViewSquare4 = UIImageView(frame: CGRect(x: rightX - wAngle - 2, y: bottomY - hAngle - 2, width: 26, height: 26))
-        imageViewSquare4.image = UIImage(named: "2")
+        imageViewSquare4.image = Image.bottomRightSquareIcon
         self.addSubview(imageViewSquare4)
         //左上角水平线
 //        context.move(to: CGPoint(x: leftX-linewidthAngle/2, y: topY))

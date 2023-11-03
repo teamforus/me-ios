@@ -10,7 +10,7 @@ import UIKit
 import CoreData
 import UserNotifications
 import Fabric
-import Crashlytics
+import FirebaseCrashlytics
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -19,6 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var commonService: CommonServiceProtocol! = CommonService()
     var appnotifier = AppVersionUpdateNotifier()
     var timer = Timer()
+    var appNavigator: AppNavigator?
     
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -36,94 +37,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         application.applicationIconBadgeNumber = 0
         
         #if ALPHA
-//        CheckWebSiteReacheble.checkWebsite(url: "https://staging.test.api.forus.io") { (isReacheble) in
-//            if isReacheble {
-//                UserDefaults.standard.setValue("https://staging.test.api.forus.io/api/v1/", forKey: UserDefaultsName.ALPHAURL)
-//            }else {
-//                UserDefaults.standard.setValue("https://staging.api.forus.io/api/v1/", forKey: UserDefaultsName.ALPHAURL)
-//            }
-//        }
          UserDefaults.standard.setValue("https://staging.api.forus.io/api/v1/", forKey: UserDefaultsName.ALPHAURL)
         #endif
         NotificationCenter.default.addObserver(self, selector: #selector(closeAppNotifierView), name: NotificationName.CloseAppNotifier, object: nil)
         
         #if DEBUG
         #else
-        Fabric.with([Crashlytics.self])
         
         #endif
         
         window?.makeKeyAndVisible()
         
         
-        if existCurrentUser() {
-            
-            CurrentSession.shared.token = getCurrentUser().accessToken ?? ""
-            self.addShortcuts(application: application)
-            if UserDefaults.standard.bool(forKey: UserDefaultsName.AddressIndentityCrash) {
-                
-//                commonService.get(request: "identity", complete: { (response: Office, statusCode) in
-//                    Crashlytics.sharedInstance().setUserIdentifier(response.address)
-//                }) { (error) in
-//
-//                }
-            }
-            
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let initialViewController = storyboard.instantiateViewController(withIdentifier: "tabBar") as! UITabBarController
-            
-            if UserDefaults.standard.bool(forKey: UserDefaultsName.StartFromScanner){
-                
-                initialViewController.selectedIndex = 1
-                
-            }
-            
-            self.window?.rootViewController = initialViewController
-            
-        }else {
-            
-            let storyboard = UIStoryboard(name: "First", bundle: nil)
-            let initialViewController = storyboard.instantiateViewController(withIdentifier: "first") as! HiddenNavBarNavigationController
-            self.window?.rootViewController = initialViewController
-            
-        }
+        
+        window = UIWindow(frame: UIScreen.main.bounds)
+        appNavigator = AppNavigator(window)
         didCheckPasscode(vc: self.window!.rootViewController!)
         initPush(application)
         
         appnotifier.initNotifier(self)
-        
+        self.addShortcuts(application: application)
         return true
     }
-    
-    
-    func getCurrentUser() -> User{
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let context = appDelegate.persistentContainer.viewContext
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
-        fetchRequest.predicate = NSPredicate(format: "currentUser == YES")
-        do {
-            let results = try context.fetch(fetchRequest) as? [User]
-            if results?.count != 0 {
-                return results![0]
-            }
-        } catch {}
-     return User()
-    }
-    
-    func existCurrentUser() -> Bool{
-           let appDelegate = UIApplication.shared.delegate as! AppDelegate
-           let context = appDelegate.persistentContainer.viewContext
-           let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
-           fetchRequest.predicate = NSPredicate(format:"currentUser == YES")
-           do{
-               let results = try context.fetch(fetchRequest) as? [User]
-               if results?.count != 0 {
-                  
-                   return true
-               }
-           } catch{}
-           return false
-       }
     
     func applicationWillResignActive(_ application: UIApplication) {
     }
@@ -177,7 +112,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // MARK: - ShortCut Items
     
     func addShortcuts(application: UIApplication) {
-        let voucherItem = UIMutableApplicationShortcutItem(type: "Vouchers", localizedTitle: Localize.vouchers(), localizedSubtitle: "", icon: UIApplicationShortcutIcon(templateImageName: "wallet"), userInfo: nil)
+        let voucherItem = UIMutableApplicationShortcutItem(type: Localize.balance_title(), localizedTitle: Localize.vouchers(), localizedSubtitle: "", icon: UIApplicationShortcutIcon(templateImageName: "wallet"), userInfo: nil)
         
         let qrItem = UIMutableApplicationShortcutItem(type: "QR", localizedTitle: "QR", localizedSubtitle: "", icon: UIApplicationShortcutIcon(templateImageName: "iconGrey"), userInfo: nil)
         
@@ -238,42 +173,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     // [START receive_message]
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any]) {
-        // If you are receiving a notification message while your app is in the background,
-        // this callback will not be fired till the user taps on the notification launching the application.
-        // TODO: Handle data of notification
-        
-        // With swizzling disabled you must let Messaging know about the message, for Analytics
-        // Messaging.messaging().appDidReceiveMessage(userInfo)
-        
-        // Print message ID.
-        //        if let messageID = userInfo[gcmMessageIDKey] {
-        //            print("Message ID: \(messageID)")
-        //        }
-        
-        // Print full message.
-        print(userInfo)
     }
     
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any],
                      fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
-        // If you are receiving a notification message while your app is in the background,
-        // this callback will not be fired till the user taps on the notification launching the application.
-        // TODO: Handle data of notification
-        
-        // With swizzling disabled you must let Messaging know about the message, for Analytics
-        // Messaging.messaging().appDidReceiveMessage(userInfo)
-        
-        // Print message ID.
-        //        if let messageID = userInfo[gcmMessageIDKey] {
-        //            print("Message ID: \(messageID)")
-        //        }
-        
-        // Print full message.
-        print(userInfo)
-        
         completionHandler(UIBackgroundFetchResult.newData)
     }
-    // [END receive_message]
     
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
         print("Unable to register for remote notifications: \(error.localizedDescription)")
@@ -351,7 +256,7 @@ extension AppDelegate {
     func didCheckPasscode(vc: UIViewController){
         if UserDefaults.standard.string(forKey: ALConstants.kPincode) != "" && UserDefaults.standard.string(forKey: ALConstants.kPincode) != nil {
             var appearance = ALAppearance()
-            appearance.image = UIImage(named: "lock")!
+            appearance.image = Image.lock_icon
             appearance.title = Localize.enter_login_code()
             appearance.isSensorsEnabled = true
             appearance.cancelIsVissible = false
@@ -389,12 +294,12 @@ extension AppDelegate {
 extension AppDelegate: AppUpdateNotifier {
     func hasNewVersion(shouldBeUpdated: Bool) {
         if shouldBeUpdated && !appnotifier.viewIsShoun {
-            if let vc = window?.rootViewController as? HiddenNavBarNavigationController {
+            if let vc = window?.rootViewController as? MeNavigationController {
                 vc.topViewController?.view.addSubview(appnotifier.showUpdateView())
                 appnotifier.vc = vc.topViewController
                 appnotifier.setupView()
             }else if let vc = window?.rootViewController as? MMainTabBarController {
-                if let navVC = vc.selectedViewController as? HiddenNavBarNavigationController {
+                if let navVC = vc.selectedViewController as? MeNavigationController {
                     navVC.topViewController?.view.addSubview(appnotifier.showUpdateView())
                     appnotifier.vc = navVC.topViewController
                     appnotifier.setupView()
