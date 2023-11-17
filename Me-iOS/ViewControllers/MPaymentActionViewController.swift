@@ -221,6 +221,7 @@ extension MPaymentActionViewController {
     func addMiddleSubviews() {
         let views = [topLineView, lineView, subsidieOverview, noteTextField, bottomLine]
         views.forEach { (view) in
+            view.translatesAutoresizingMaskIntoConstraints = false
             middleView.addSubview(view)
         }
     }
@@ -308,12 +309,12 @@ extension MPaymentActionViewController {
             make.height.equalTo(1)
         }
         
-        topLineView.snp.makeConstraints { make in
+        lineView.snp.makeConstraints { make in
             make.left.bottom.right.equalTo(middleView)
             make.height.equalTo(1)
         }
         
-        topLineView.snp.makeConstraints { make in
+        bottomLine.snp.makeConstraints { make in
             make.left.bottom.right.equalTo(middleView)
             make.height.equalTo(1)
         }
@@ -321,7 +322,7 @@ extension MPaymentActionViewController {
         
         subsidieOverviewHeightConstraints = subsidieOverview.heightAnchor.constraint(equalToConstant: 330)
         NSLayoutConstraint.activate([
-            subsidieOverview.topAnchor.constraint(equalTo: lineView.bottomAnchor, constant: 22),
+            subsidieOverview.topAnchor.constraint(equalTo: topLineView.bottomAnchor, constant: 22),
             subsidieOverview.leadingAnchor.constraint(equalTo: middleView.leadingAnchor, constant: 10),
             subsidieOverview.trailingAnchor.constraint(equalTo: middleView.trailingAnchor, constant: -10),
             subsidieOverviewHeightConstraints
