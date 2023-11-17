@@ -132,9 +132,7 @@ class SubsidieOverview: UIView {
     
     func showRegularState(subsidie: Subsidie, vc: MPaymentActionViewController) {
         if UIDevice.current.screenType == .iPhones_5_5s_5c_SE ||  UIDevice.current.screenType == .iPhones_6_6s_7_8 {
-            vc.bodyView.snp.updateConstraints { make in
-                make.height.equalTo(150)
-            }
+           
         }
         sponsorName.text = Localize.subsid_by(subsidie.sponsor?.name ?? "")
         totalPrice.text = "€ \(subsidie.price?.showDeciaml() ?? "")"
@@ -150,11 +148,7 @@ class SubsidieOverview: UIView {
             self.finalPrice.text = finalPrice
         }
         
-        bodyView.snp.updateConstraints { make in
-            make.top.equalTo(priceLabel.snp.bottom).offset(14)
-            make.left.right.equalTo(bodyView)
-            make.bottom.equalTo(bodyView).offset(-16)
-        }
+      
     }
     
     func showFreeState(subsidie: Subsidie, vc: MPaymentActionViewController) {
@@ -162,9 +156,9 @@ class SubsidieOverview: UIView {
         self.priceLabel.text = Localize.free()
         
         bodyView.snp.updateConstraints { make in
-            make.top.equalTo(priceLabel.snp.bottom).offset(14)
-            make.left.right.equalTo(bodyView)
-            make.bottom.equalTo(bodyView).offset(-16)
+            make.top.equalTo(self).offset(14)
+            make.left.right.equalTo(self)
+            make.bottom.equalTo(self).offset(-16)
         }
         if (subsidie.sponsor_subsidy?.double)! > 0.00 {
             self.totalPriceTitle.text = Localize.subsid_by(subsidie.sponsor?.name ?? "")
@@ -186,9 +180,9 @@ class SubsidieOverview: UIView {
             vc.subsidieOverviewHeightConstraints.constant = 130
         }
         bodyView.snp.updateConstraints { make in
-            make.top.equalTo(bodyView)
-            make.left.right.equalTo(bodyView)
-            make.bottom.equalTo(bodyView).offset(-16)
+            make.top.equalTo(self)
+            make.left.right.equalTo(self)
+            make.bottom.equalTo(self).offset(-16)
         }
         
     }
@@ -199,9 +193,9 @@ class SubsidieOverview: UIView {
         self.infoLabel.isHidden = true
         self.priceLabel.isHidden = true
         bodyView.snp.updateConstraints { make in
-            make.top.equalTo(bodyView)
-            make.left.right.equalTo(bodyView)
-            make.bottom.equalTo(bodyView).offset(-16)
+            make.top.equalTo(self)
+            make.left.right.equalTo(self)
+            make.bottom.equalTo(self).offset(-16)
         }
         self.detailView.layoutIfNeeded()
         if (subsidie.sponsor_subsidy?.double)! > 0.00 {
