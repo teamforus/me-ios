@@ -51,9 +51,9 @@ extension TextFieldTableViewCell {
         textField.delegate = self
         self.contentView.addSubview(textField)
         textField.snp.makeConstraints { make in
-            make.left.top.equalTo(self.contentView).offset(10)
-            make.right.equalTo(self.contentView).offset(-10)
-            make.bottom.equalTo(self.contentView)
+            make.top.equalTo(self.contentView)
+            make.left.equalTo(self.contentView).offset(10)
+            make.right.bottom.equalTo(self.contentView).offset(-10)
         }
     }
 }

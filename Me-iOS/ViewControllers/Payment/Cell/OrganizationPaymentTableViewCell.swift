@@ -27,7 +27,8 @@ class OrganizationPaymentTableViewCell: UITableViewCell {
     
     private let arrowIcon: UIImageView = {
         let imageView = UIImageView(frame: .zero)
-        imageView.image = Image.arrowRightIcon
+        imageView.image = Image.arrowRightIcon?.withRenderingMode(.alwaysTemplate)
+        imageView.tintColor = Color.arrowColor
         imageView.contentMode = .scaleAspectFit
         return imageView
     }()
@@ -45,6 +46,7 @@ class OrganizationPaymentTableViewCell: UITableViewCell {
         addSubviews()
         setupConstraints()
     }
+    
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

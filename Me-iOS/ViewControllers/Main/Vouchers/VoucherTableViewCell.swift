@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SnapKit
 
 class VoucherTableViewCell: UITableViewCell {
     var bodyView: CustomCornerUIView = {
@@ -28,6 +29,7 @@ class VoucherTableViewCell: UITableViewCell {
     var organizationNameLabel: UILabel_DarkMode = {
         let label = UILabel_DarkMode(frame: .zero)
         label.font = R.font.googleSansRegular(size: 14)
+        label.numberOfLines = 2
         return label
     }()
     
@@ -159,11 +161,13 @@ extension VoucherTableViewCell {
         
         voucherTitleLabel.snp.makeConstraints { make in
             make.left.top.equalTo(bodyView).offset(20)
+            make.right.equalTo(voucherImage.snp.left).offset(-10)
         }
         
         organizationNameLabel.snp.makeConstraints { make in
             make.top.equalTo(voucherTitleLabel.snp.bottom).offset(2)
             make.left.equalTo(bodyView).offset(20)
+            make.right.equalTo(voucherImage.snp.left).offset(-10)
         }
         
         priceLabel.snp.makeConstraints { make in

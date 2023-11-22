@@ -134,11 +134,13 @@ extension MMapDetailsTableViewCell {
         titleLabel.snp.makeConstraints { make in
             make.top.equalTo(bodyView).offset(25)
             make.left.equalTo(bodyView).offset(67)
+            make.right.equalTo(bodyView).offset(-10)
         }
         
         subTitleLabel.snp.makeConstraints { make in
             make.top.equalTo(bodyView).offset(52)
             make.left.equalTo(bodyView).offset(67)
+            make.right.equalTo(bodyView).offset(-10)
         }
        
         iconImage.snp.makeConstraints { make in

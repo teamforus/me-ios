@@ -20,6 +20,9 @@ public struct Color {
     public static let usedColor = UIColor(hex: "#EFA741")
     public static let lightGrayText = UIColor(hex: "#84878C")
     public static let lightGraySegment = UIColor(hex: "#F6F6F6")
-    public static let fieldBg = UIColor(hex: "#F1F1F1")
+    public static let fieldBg = UIColor(named: "Profile_Button_DarkTheme")
     public static let buttonRecordBg = UIColor(hex: "#EBF0FE")
+    public static let arrowColor = UIColor(named: "Light_Dark_Mode")
+    public static let labelColor = UIColor(named: "Blue_DarkTheme")
+    public static let thumbColor = UIColor(named: "WhiteBackground_DarkTheme")
 }
