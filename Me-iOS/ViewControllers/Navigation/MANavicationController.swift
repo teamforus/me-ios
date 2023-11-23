@@ -92,6 +92,12 @@ extension MeNavigationController: UINavigationControllerDelegate {
             viewController.navigationItem.leftBarButtonItem = barButtonItem
             viewController.title = Localize.reddem_voucher()
             
+        case is MActionsViewController:
+            self.navigationBar.prefersLargeTitles = false
+            let barButtonItem = UIBarButtonItem(image: Image.bakcIcon, style: .plain, target: viewController, action: #selector(HomeTabViewController.dismiss(_:)))
+            viewController.navigationItem.leftBarButtonItem = barButtonItem
+            viewController.title = Localize.payment()
+            
         case is ProductVoucherViewController:
             self.navigationBar.prefersLargeTitles = false
             viewController.title = Localize.product_voucher()

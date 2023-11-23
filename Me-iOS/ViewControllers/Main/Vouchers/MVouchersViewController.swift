@@ -27,7 +27,7 @@ class MVouchersViewController: UIViewController {
     
     private let segmentView: UIView = {
         let view = UIView(frame: .zero)
-        view.backgroundColor = Color.lightGraySegment
+        view.backgroundColor = Color.fieldBg
         return view
     }()
     
@@ -140,9 +140,11 @@ class MVouchersViewController: UIViewController {
     private func setupSegmentControll() {
         segmentController.items = ["Geldig", Localize.expired()]
         segmentController.selectedIndex = 0
+        segmentController.backgroundColor = Color.fieldBg
         segmentController.font = UIFont(name: "GoogleSans-Medium", size: 14)
         segmentController.unselectedLabelColor = #colorLiteral(red: 0.631372549, green: 0.6509803922, blue: 0.6784313725, alpha: 1)
-        segmentController.selectedLabelColor = #colorLiteral(red: 0.2078431373, green: 0.3921568627, blue: 0.968627451, alpha: 1)
+        segmentController.selectedLabelColor = Color.labelColor ?? .white
+        segmentController.thumbColor = Color.thumbColor ?? .white
         segmentController.addTarget(self, action: #selector(self.segmentSelected(sender:)), for: .valueChanged)
         segmentController.borderColor = .clear
         segmentView.layer.cornerRadius = 8.0

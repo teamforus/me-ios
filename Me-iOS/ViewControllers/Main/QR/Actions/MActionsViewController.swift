@@ -30,21 +30,6 @@ class MActionsViewController: UIViewController {
         view.colorName = "WhiteBackground_DarkTheme"
         return view
     }()
-    
-    private let backButton: BackButton_DarkMode = {
-        let button = BackButton_DarkMode(frame: .zero)
-        button.addTarget(self, action: #selector(dismiss(_:)), for: .touchUpInside)
-        return button
-    }()
-    
-    private let titleLabel: UILabel_DarkMode = {
-        let label = UILabel_DarkMode(frame: .zero)
-        label.text = Localize.payment()
-        label.textAlignment = .center
-        label.font = UIFont(name: "GoogleSans-Medium", size: 17)
-        return label
-    }()
-    
     private let voucherImageView: UIImageView = {
         let imageView = UIImageView(frame: .zero)
         imageView.contentMode = .scaleToFill
@@ -83,7 +68,7 @@ class MActionsViewController: UIViewController {
     
     private let chooseActionLabel: UILabel_DarkMode = {
         let label = UILabel_DarkMode(frame: .zero)
-        label.text = Localize.no_active_products()
+        label.text = Localize.choose_action()
         label.font = UIFont(name: "GoogleSans-Medium", size: 24)
         return label
     }()
@@ -184,10 +169,12 @@ class MActionsViewController: UIViewController {
             }
             DispatchQueue.main.async {
                 if subsidies.count == 0 {
+                    self.chooseActionLabel.text = Localize.no_active_products()
                     self.showSimpleAlertWithSingleAction(title: Localize.warning(), message: Localize.no_balance_for_actions(), okAction: UIAlertAction(title: Localize.ok(), style: .default, handler: { (_) in
                          self.dismiss(animated: true)
                     }))
                 }
+                
                 self.dataSource = ActionsDataSource(subsidies: subsidies, viewModel: self.viewModel, parentVC: self)
                 self.setupTableView()
                 self.tableView.reloadData()
@@ -224,7 +211,7 @@ extension MActionsViewController {
     }
     
     private func addHeaderSubviews() {
-        let views = [backButton, titleLabel, bodyVoucherView]
+        let views = [bodyVoucherView]
         views.forEach { (view) in
             view.translatesAutoresizingMaskIntoConstraints = false
             self.headerView.addSubview(view)
@@ -283,19 +270,9 @@ extension MActionsViewController {
     }
     
     private func addHeaderdConstraints() {
-        backButton.snp.makeConstraints { make in
-            make.height.width.equalTo(44)
-            make.left.equalTo(headerView).offset(10)
-            make.top.equalTo(headerView).offset(35)
-        }
-        
-        titleLabel.snp.makeConstraints { make in
-            make.centerY.equalTo(backButton)
-            make.centerX.equalTo(headerView)
-        }
         
         bodyVoucherView.snp.makeConstraints { make in
-            make.top.equalTo(titleLabel.snp.bottom).offset(20)
+            make.top.equalTo(self.view.safeAreaLayoutGuide).offset(20)
             make.left.right.equalTo(headerView)
             make.height.equalTo(153)
         }
