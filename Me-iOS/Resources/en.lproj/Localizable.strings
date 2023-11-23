@@ -228,3 +228,4 @@
 "balance_title" = "Balances";
 "transcation_empty" = "There are no transactions yet";
 "no_active_products" = "No active product for this fund";
+"choose_action" = "Choose an action";

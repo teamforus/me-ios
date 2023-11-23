@@ -214,11 +214,11 @@ extension MPaymentViewController: UITableViewDelegate {
         case .voucher:
             return 120
         case .organization:
-            return 60
+            return 70
         case .amount:
             return voucherType == .budgetVoucher ?  70 : 0
         case .note:
-            return 100
+            return 110
         }
     }
 }
