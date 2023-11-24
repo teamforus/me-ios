@@ -29,7 +29,7 @@ class VoucherTableViewCell: UITableViewCell {
     var organizationNameLabel: UILabel_DarkMode = {
         let label = UILabel_DarkMode(frame: .zero)
         label.font = R.font.googleSansRegular(size: 14)
-        label.numberOfLines = 2
+        label.numberOfLines = 1
         return label
     }()
     
