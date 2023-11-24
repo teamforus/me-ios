@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import IQKeyboardManagerSwift
 
 class MActionsViewController: UIViewController {
     
@@ -141,6 +142,7 @@ class MActionsViewController: UIViewController {
     }
     
     private func setupView() {
+        IQKeyboardManager.shared.shouldResignOnTouchOutside = true
         setVoucher()
         self.organizationView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(openOrganization)))
         self.organizationNameLabel.text = voucher.allowed_organizations?.first?.name ?? String.empty
