@@ -105,3 +105,5 @@ fastlane/test_output
 iOSInjectionProject/
 Me-iOS.xcworkspace/contents.xcworkspacedata
 Me-iOS.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist
+Me-iOS/ViewControllers/.DS_Store
+Me-iOS/.DS_Store
