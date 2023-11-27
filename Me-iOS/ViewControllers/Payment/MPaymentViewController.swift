@@ -32,22 +32,13 @@ class MPaymentViewController: UIViewController {
         return tableView
     }()
     
-    var payButton: ActionButton = {
-        let button = ActionButton(frame: .zero)
-        button.backgroundColor = Color.blueText
-        button.setTitle(Localize.complete_amount(), for: .normal)
-        button.setTitleColor(.white, for: .normal)
-        button.rounded(cornerRadius: 9)
-        return button
-    }()
-    
-    
     // MARK: - Init
     init(navigator: Navigator, voucher: Voucher) {
         self.voucher = voucher
         self.navigator = navigator
         self.voucherType = voucher.product != nil ? .product : .budgetVoucher
-        self.dataSource = PaymentDataSource(voucher: voucher, voucherType: self.voucherType)
+        self.dataSource = PaymentDataSource(voucher: voucher,
+                                            voucherType: self.voucherType)
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -76,18 +67,27 @@ class MPaymentViewController: UIViewController {
         }
         setupTableView()
         
-        payButton.actionHandleBlock = { [weak self] (_) in
-            self?.makePayment()
-        }
+//        payButton.actionHandleBlock = { [weak self] (_) in
+//            self?.makePayment()
+//        }
     }
     
     private func setupTableView() {
         tableView.delegate = self
         tableView.dataSource = dataSource
         tableView.separatorStyle = .none
-        tableView.register(MProductVoucherTableViewCell.self, forCellReuseIdentifier: MProductVoucherTableViewCell.identifier)
-        tableView.register(OrganizationPaymentTableViewCell.self, forCellReuseIdentifier: OrganizationPaymentTableViewCell.identifier)
-        tableView.register(TextFieldTableViewCell.self, forCellReuseIdentifier: TextFieldTableViewCell.identifier)
+        tableView.register(MProductVoucherTableViewCell.self, 
+                           forCellReuseIdentifier: MProductVoucherTableViewCell.identifier)
+        tableView.register(OrganizationPaymentTableViewCell.self,
+                           forCellReuseIdentifier: OrganizationPaymentTableViewCell.identifier)
+        tableView.register(TextFieldTableViewCell.self,
+                           forCellReuseIdentifier: TextFieldTableViewCell.identifier)
+        tableView.register(PaymentTableViewCell.self,
+                           forCellReuseIdentifier: PaymentTableViewCell.identifier)
+        
+        dataSource.paymentHandleBlock = { [weak self] (_) in
+            self?.makePayment()
+        }
     }
     
     
@@ -101,7 +101,8 @@ class MPaymentViewController: UIViewController {
             }else if dataSource.amountValue != String.empty {
                 sendVoucherTransactions()
             } else {
-                showSimpleAlert(title: Localize.warning(), message: Localize.please_enter_the_amount())
+                showSimpleAlert(title: Localize.warning(), 
+                                message: Localize.please_enter_the_amount())
             }
         }else {
             sendTestTransaction()
@@ -147,12 +148,16 @@ class MPaymentViewController: UIViewController {
 extension MPaymentViewController {
     
     func showOrganizations() {
-        let popOverVC = AllowedOrganizationsViewController(nibName: "AllowedOrganizationsViewController", bundle: nil)
+        let popOverVC = AllowedOrganizationsViewController(nibName: "AllowedOrganizationsViewController", 
+                                                           bundle: nil)
         popOverVC.allowedOrganizations = self.voucher.allowed_organizations!
         popOverVC.delegate = self
         popOverVC.selectedOrganizations = selectedAllowerdOrganization
         self.addChild(popOverVC)
-        popOverVC.view.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height)
+        popOverVC.view.frame = CGRect(x: 0, 
+                                      y: 0,
+                                      width: self.view.frame.size.width,
+                                      height: self.view.frame.size.height)
         self.view.addSubview(popOverVC.view)
     }
 }
@@ -171,7 +176,7 @@ extension MPaymentViewController: AllowedOrganizationsViewControllerDelegate {
 
 extension MPaymentViewController {
     private func addSubviews() {
-        let views = [tableView, payButton]
+        let views = [tableView]
         views.forEach { view in
             self.view.addSubview(view)
         }
@@ -182,15 +187,7 @@ extension MPaymentViewController {
     // MARK: - Setup Constraints
     private func setupConstraints() {
         tableView.snp.makeConstraints { make in
-            make.top.left.right.equalTo(self.view.safeAreaLayoutGuide)
-            make.height.equalTo(400)
-        }
-        
-        payButton.snp.makeConstraints { make in
-            make.top.equalTo(tableView.snp.bottom).offset(10)
-            make.height.equalTo(46)
-            make.left.equalTo(self.view).offset(10)
-            make.right.equalTo(self.view).offset(-10)
+            make.top.left.bottom.right.equalTo(self.view.safeAreaLayoutGuide)
         }
     }
 }
@@ -205,6 +202,8 @@ extension MPaymentViewController: UITableViewDelegate {
             self.showOrganizations()
         case .amount: break
         case .note: break
+        case .payment:
+            self.makePayment()
         }
         
     }
@@ -220,6 +219,8 @@ extension MPaymentViewController: UITableViewDelegate {
             return voucherType == .budgetVoucher ?  70 : 0
         case .note:
             return 110
+        case .payment:
+            return 60
         }
     }
 }
