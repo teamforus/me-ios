@@ -58,6 +58,7 @@ class MPaymentViewController: UIViewController {
     // MARK: - Setup View
     override func viewDidLoad() {
         super.viewDidLoad()
+        IQKeyboardManager.shared.shouldResignOnTouchOutside = true
         selectedAllowerdOrganization = voucher.allowed_organizations?.first
         addSubviews()
         setupConstraints()

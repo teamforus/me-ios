@@ -144,7 +144,7 @@
 "click_on_link_you_received_continue" = "Er is een e-mail verstuurd naar %@. Klik op de link in de e-mail om je aan te melden.";
 "ok" = "OK";
 "validation_approved" = "Validatie goedgekeurd.";
-"complete_amount" = "VUL ZELF EEN BEDRAG IN";
+"complete_amount" = "Verzoek tot betaling";
 "decline" = "ANNULEREN";
 "test_transaction" = "Test transactie";
 "test_organization" = "Test bedrijf";
@@ -210,7 +210,7 @@
 "new_records" = "NIEUWE EIGENSCHAP";
 "history" = "Geschiedenis";
 "activated" = "Aangemaakt";
-"complete_amount" = "VUL ZELF EEN BEDRAG IN";
+"complete_amount" = "Verzoek tot betaling";
 "offer_below_reserved_customer" = "Onderstaande aanbiedingen zijn door de klant gereserveerd";
 "choose_reservation" = "Kies reservering";
 "reddem_voucher" = "Betalingsverzoek";
