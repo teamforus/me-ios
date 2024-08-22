@@ -2,7 +2,7 @@
 /* Class = "UIButton"; normalTitle = "OK"; ObjectID = "0kv-OH-i2d"; */
 "0kv-OH-i2d.normalTitle" = "OK";
 
-/* Class = "UILabel"; text = "De voucher is verzonden naar email."; ObjectID = "6qn-GE-6zQ"; */
+/* Class = "UILabel"; text = "Het tegoed is verzonden naar email."; ObjectID = "6qn-GE-6zQ"; */
 "6qn-GE-6zQ.text" = "The voucher has been sent to email.";
 
 /* Class = "UILabel"; text = "Success!"; ObjectID = "euX-3z-eCa"; */
