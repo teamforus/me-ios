@@ -1,6 +1,6 @@
 
-/* Class = "UILabel"; text = "Nieuwe Eigenschappen"; ObjectID = "AJp-31-keL"; */
-"AJp-31-keL.text" = "Nieuwe Eigenschappen";
+/* Class = "UILabel"; text = "Nieuwe Persoonsgegevens"; ObjectID = "AJp-31-keL"; */
+"AJp-31-keL.text" = "Nieuwe Persoonsgegevens";
 
 /* Class = "UILabel"; text = "E-mail"; ObjectID = "QdM-Hr-eeh"; */
 "QdM-Hr-eeh.text" = "E-mail";
@@ -9,7 +9,7 @@
 "Rd6-nk-bSj.normalTitle" = "Volgende";
 
 /* Class = "UILabel"; text = "Select the category under which the new record type should be added."; ObjectID = "UKW-Wn-Iuw"; */
-"UKW-Wn-Iuw.text" = "Kies een categorie voor de eigenschap.";
+"UKW-Wn-Iuw.text" = "Kies een categorie voor het persoonsgegeven.";
 
 /* Class = "UIButton"; normalTitle = "Persoonlijk"; ObjectID = "gPm-bK-jza"; */
 "gPm-bK-jza.normalTitle" = "Persoonlijk";
