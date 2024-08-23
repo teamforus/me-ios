@@ -39,7 +39,6 @@ class MProductVoucherTableViewCell: UITableViewCell {
     
     private let priceLabel: UILabel = {
         let label = UILabel(frame: .zero)
-        label.isHidden = true
         return label
     }()
     
