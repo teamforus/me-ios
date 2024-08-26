@@ -76,8 +76,6 @@ Pods
 node_modules
 package-lock.json
 Me-iOS.xcodeproj/xcshareddata/xcschemes
-.DS_Store
-
 
 Carthage/Build/
 
@@ -105,5 +103,3 @@ fastlane/test_output
 iOSInjectionProject/
 Me-iOS.xcworkspace/contents.xcworkspacedata
 Me-iOS.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist
-Me-iOS/ViewControllers/.DS_Store
-Me-iOS/.DS_Store
