@@ -71,7 +71,7 @@ class MProductVoucherTableViewCell: UITableViewCell {
         
         if voucher.fund?.type == FundType.subsidies.rawValue {
             self.priceLabel.isHidden = true
-        }else if voucher.amount_visible ?? false{
+        }else if !(voucher.amount_visible ?? false){
             self.priceLabel.isHidden = true
         }
       
