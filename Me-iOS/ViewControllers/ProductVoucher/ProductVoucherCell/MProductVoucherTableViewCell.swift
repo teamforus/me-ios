@@ -39,7 +39,6 @@ class MProductVoucherTableViewCell: UITableViewCell {
     
     private let priceLabel: UILabel = {
         let label = UILabel(frame: .zero)
-        label.isHidden = true
         return label
     }()
     
@@ -69,7 +68,13 @@ class MProductVoucherTableViewCell: UITableViewCell {
         }
         self.productName.text = voucher.fund?.name
         self.organizationName.text = voucher.fund?.organization?.name
-        self.priceLabel.isHidden = voucher.fund?.type == FundType.subsidies.rawValue
+        
+        if voucher.fund?.type == FundType.subsidies.rawValue {
+            self.priceLabel.isHidden = true
+        }else if !(voucher.amount_visible ?? false){
+            self.priceLabel.isHidden = true
+        }
+      
         self.priceLabel.text = "€ \(voucher.amount ?? String.empty)"
     }
 }
