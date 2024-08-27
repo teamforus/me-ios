@@ -13,4 +13,4 @@ jobs:
       - name: Debug
         run: xcodebuild -list
       - name: Build iOS app
-        run: xcodebuild -workspace Me-iOS.xcworkspace -destination 'platform=iOS Simulator,OS=17,name=iPhone 15'
+        run: xcodebuild -destination 'platform=iOS Simulator,OS=17,name=iPhone 15'
