@@ -15,6 +15,7 @@ struct Voucher: Decodable {
     var identity_address: String?
     var address: String?
     var amount: String?
+    var amount_visible: Bool?
     var fund: Fund?
     var transactions: [Transaction]?
     var allowed_organizations: [AllowedOrganization]?

@@ -13,12 +13,16 @@ enum PaymentRowType: Int, CaseIterable {
     case organization
     case amount
     case note
+    case payment
 }
 
 class PaymentDataSource: NSObject {
-    var voucher: Voucher
-    var selectedOrganization: AllowedOrganization
-    var voucherType: VoucherDetailType
+    
+    var paymentHandleBlock: ((_ button:ActionButton) -> ())?
+    
+    var voucher: Voucher!
+    var selectedOrganization: AllowedOrganization!
+    var voucherType: VoucherDetailType!
     
     var amountValue: String = String.empty
     var noteValue: String = String.empty
@@ -79,6 +83,14 @@ extension PaymentDataSource: UITableViewDataSource {
             cell.noteValue = { (value) in
                 self.noteValue = value
             }
+            return cell
+        case .payment:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: PaymentTableViewCell.identifier, for: indexPath) as? PaymentTableViewCell else {
+                return UITableViewCell()
+            }
+            
+            cell.payButton.actionHandleBlock = paymentHandleBlock
+            
             return cell
         }
     }

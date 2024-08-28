@@ -2,7 +2,7 @@
 /* Class = "UILabel"; text = "Label"; ObjectID = "5SP-f3-BE5"; */
 "5SP-f3-BE5.text" = "Label";
 
-/* Class = "UILabel"; text = "Kies de categorie waaraan de nieuwe eigenschap toegevoegd wordt."; ObjectID = "9Xk-uh-uIn"; */
+/* Class = "UILabel"; text = "Kies de categorie waaraan het nieuwe persoonsgegeven toegevoegd wordt."; ObjectID = "9Xk-uh-uIn"; */
 "9Xk-uh-uIn.text" = "Choose the category under.";
 
 /* Class = "UILabel"; text = "Kies Validator"; ObjectID = "TTq-NP-AvE"; */
@@ -14,7 +14,7 @@
 /* Class = "UIButton"; normalTitle = "Voornaam"; ObjectID = "WEh-0j-F0h"; */
 "WEh-0j-F0h.normalTitle" = "Voornaam";
 
-/* Class = "UILabel"; text = "Nieuwe Eigenschap"; ObjectID = "XiY-ug-2dg"; */
+/* Class = "UILabel"; text = "Nieuw Persoonsgegeven"; ObjectID = "XiY-ug-2dg"; */
 "XiY-ug-2dg.text" = "New records";
 
 /* Class = "UIButton"; normalTitle = "VALIDEER LATER"; ObjectID = "bpx-Ib-VVT"; */
