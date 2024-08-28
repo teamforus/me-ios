@@ -24,6 +24,7 @@
 		5B42874623AD0EBE00FEABE7 /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B42874423AD0EBE00FEABE7 /* User+CoreDataProperties.swift */; };
 		5B5871AE240571AF004C3AF7 /* BodyId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5871AD240571AF004C3AF7 /* BodyId.swift */; };
 		5BF8461F241FA60100B0BAAD /* BottomQrWithPinViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BF84621241FA60100B0BAAD /* BottomQrWithPinViewController.xib */; };
+		5BFB86982B114C9600C1DA8D /* PaymentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFB86972B114C9600C1DA8D /* PaymentTableViewCell.swift */; };
 		650FF61E22AD2CA3004C3A85 /* RecordValidators.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 650FF62022AD2CA3004C3A85 /* RecordValidators.storyboard */; };
 		650FF62522AD2D31004C3A85 /* ChooseTypeRecord.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 650FF62722AD2D31004C3A85 /* ChooseTypeRecord.storyboard */; };
 		650FF62C22AD2D98004C3A85 /* TextRecord.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 650FF62E22AD2D98004C3A85 /* TextRecord.storyboard */; };
@@ -294,6 +295,7 @@
 		5BF84620241FA60100B0BAAD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/BottomQrWithPinViewController.xib; sourceTree = "<group>"; };
 		5BF84623241FA60900B0BAAD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/BottomQrWithPinViewController.strings; sourceTree = "<group>"; };
 		5BF84625241FA60B00B0BAAD /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/BottomQrWithPinViewController.strings; sourceTree = "<group>"; };
+		5BFB86972B114C9600C1DA8D /* PaymentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentTableViewCell.swift; sourceTree = "<group>"; };
 		5CF8EEA37E212EB83EFD74CD /* Pods_Me_iOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Me_iOSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		650FF61F22AD2CA3004C3A85 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/RecordValidators.storyboard; sourceTree = "<group>"; };
 		650FF62222AD2CA7004C3A85 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/RecordValidators.strings; sourceTree = "<group>"; };
@@ -1604,6 +1606,7 @@
 			children = (
 				FFBA061F268B71C400325D63 /* TextFieldTableViewCell.swift */,
 				FF93BFE8268B64A000FCD4C9 /* OrganizationPaymentTableViewCell.swift */,
+				5BFB86972B114C9600C1DA8D /* PaymentTableViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -2122,6 +2125,7 @@
 				6568461722942E2900097E83 /* Extension+UITabBarController.swift in Sources */,
 				FFB868F826A08AB5009B4893 /* Extension+ReuseIdentifier.swift in Sources */,
 				654F97A8229BF5C5009C9FFA /* ValidatorTableViewCell.swift in Sources */,
+				5BFB86982B114C9600C1DA8D /* PaymentTableViewCell.swift in Sources */,
 				5B10CCB4240D292000199C28 /* MSuccessRegisterViewController.swift in Sources */,
 				FF1CF092263AEED700C8C317 /* MMapDetailsTableViewCell.swift in Sources */,
 				657DBA4022897C3500C67500 /* ResponseDataArray.swift in Sources */,
