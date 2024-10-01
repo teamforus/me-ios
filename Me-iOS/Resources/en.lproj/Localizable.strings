@@ -225,7 +225,7 @@
 "please_delete_account" = "Please delete my account: %@\n\nReason (optional):";
 "please_delete_account_gmail_version" = "Please delete my account: %@<br/><br/>Reason (optional):";
 "empty_voucher_list" = "On this page you can see the funds you receive. You haven't received any funds yet.";
-"balance_title" = "Balances";
+"balance_title" = "Vouchers";
 "transcation_empty" = "There are no transactions yet";
 "no_active_products" = "No active product for this fund";
 "choose_action" = "Choose an action";
