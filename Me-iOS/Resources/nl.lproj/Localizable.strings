@@ -205,7 +205,7 @@
 "sharing_identification_number_info" = "Door je identificatie nummer te delen, kunnen problemen beter en sneller worden opgelost, en kunnen de ontwikkelaars eventueel contact met je opnemen.";
 "share_identification_number" = "Deel identificatienummer";
 "success_login" = "Aanmelding \ngeslaagd!";
-"description_about" = "Deze app is bedoeld om tegoeden te beheren, betalingen te verrichten en in te loggen op verschillende applicaties.\n\n\nDeze app werkt samen met:\n\n     • \tDe Westerkwartier webshop;\n     • \tDe Nijmegen webshop;\n     • \tDe Winterswijk webshop;\n     • \tDe Oost Gelre webshop;\n     • \tDe Berkelland webshop;\n     • \tDe Noordoostpolder webshop\n     • \tDe Kerstpakket webshop;";
+"description_about" = "De Me-app maakt het geven, ontvangen en besteden van tegoeden eenvoudig. De app wordt gebruikt door:\n \n• 	Overheidsorganisaties en Goede Doelen: Deze organisaties gebruiken de app om tegoeden uit te geven.\n• 	Gebruikers: Personen die tegoeden hebben ontvangen, kunnen deze door middel van de app gemakkelijk beheren en besteden.\n• 	Aanbieders: Bedrijven die producten of diensten aanbieden, kunnen de app als kassa en scanner gebruiken.";
 "branches" = "%@ Vestigingen";
 "new_records" = "NIEUWE PERSOONSGEGEVEN";
 "history" = "Geschiedenis";
