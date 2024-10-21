@@ -149,7 +149,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         default:
             break
         }
-//         self.window?.rootViewController = initialViewController
         return handle
     }
     
