@@ -2153,10 +2153,6 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en, nl
       static let bsn = Rswift.StringResource(key: "bsn", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
-      /// en translation: Balances
-      ///
-      /// Locales: en, nl
-      static let balance_title = Rswift.StringResource(key: "balance_title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
       /// en translation: Before we get started, please confirm your email address.
       ///
       /// Locales: en, nl
@@ -2761,6 +2757,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en, nl
       static let test_transaction = Rswift.StringResource(key: "test_transaction", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
+      /// en translation: The Me-app makes giving, receiving, and spending vouchers simple. The app is used by:   • 	Government Organizations and Charities: These organizations use the app to distribute vouchers. • 	Individual Users: People who have received credits can easily manage and spend them using the app. • 	Providers: Businesses offering products or services can use the app as a cash register and scanner.
+      ///
+      /// Locales: en, nl
+      static let description_about = Rswift.StringResource(key: "description_about", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
       /// en translation: The customer needs to pay folowing amount
       ///
       /// Locales: en, nl
@@ -2781,10 +2781,6 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en, nl
       static let transcation_empty = Rswift.StringResource(key: "transcation_empty", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
-      /// en translation: This app is intended to store vouchers, make payments and log in to different applications./n/n/nThis app works together with:/n/n     • 	The Westerkwartier webshop;      • 	The Nijmegen webshop;      • 	The Winterswijk webshop;      • 	The Oost Gelre webshop;      • 	The Berkelland webshop;      • 	The Noordoostpolder webshop      • 	The Kerstpakket webshop;
-      ///
-      /// Locales: en, nl
-      static let description_about = Rswift.StringResource(key: "description_about", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
       /// en translation: This app is not authorized to use Back Camera
       ///
       /// Locales: en, nl
@@ -2889,6 +2885,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en, nl
       static let voucher_info = Rswift.StringResource(key: "voucher_info", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
+      /// en translation: Vouchers
+      ///
+      /// Locales: en, nl
+      static let balance_title = Rswift.StringResource(key: "balance_title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
       /// en translation: Vouchers
       ///
       /// Locales: en, nl
@@ -3228,21 +3228,6 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("bsn", bundle: bundle, comment: "")
-      }
-
-      /// en translation: Balances
-      ///
-      /// Locales: en, nl
-      static func balance_title(preferredLanguages: [String]? = nil) -> String {
-        guard let preferredLanguages = preferredLanguages else {
-          return NSLocalizedString("balance_title", bundle: hostingBundle, comment: "")
-        }
-
-        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
-          return "balance_title"
-        }
-
-        return NSLocalizedString("balance_title", bundle: bundle, comment: "")
       }
 
       /// en translation: Before we get started, please confirm your email address.
@@ -5524,6 +5509,21 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("test_transaction", bundle: bundle, comment: "")
       }
 
+      /// en translation: The Me-app makes giving, receiving, and spending vouchers simple. The app is used by:   • 	Government Organizations and Charities: These organizations use the app to distribute vouchers. • 	Individual Users: People who have received credits can easily manage and spend them using the app. • 	Providers: Businesses offering products or services can use the app as a cash register and scanner.
+      ///
+      /// Locales: en, nl
+      static func description_about(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("description_about", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "description_about"
+        }
+
+        return NSLocalizedString("description_about", bundle: bundle, comment: "")
+      }
+
       /// en translation: The customer needs to pay folowing amount
       ///
       /// Locales: en, nl
@@ -5597,21 +5597,6 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("transcation_empty", bundle: bundle, comment: "")
-      }
-
-      /// en translation: This app is intended to store vouchers, make payments and log in to different applications./n/n/nThis app works together with:/n/n     • 	The Westerkwartier webshop;      • 	The Nijmegen webshop;      • 	The Winterswijk webshop;      • 	The Oost Gelre webshop;      • 	The Berkelland webshop;      • 	The Noordoostpolder webshop      • 	The Kerstpakket webshop;
-      ///
-      /// Locales: en, nl
-      static func description_about(preferredLanguages: [String]? = nil) -> String {
-        guard let preferredLanguages = preferredLanguages else {
-          return NSLocalizedString("description_about", bundle: hostingBundle, comment: "")
-        }
-
-        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
-          return "description_about"
-        }
-
-        return NSLocalizedString("description_about", bundle: bundle, comment: "")
       }
 
       /// en translation: This app is not authorized to use Back Camera
@@ -6006,6 +5991,21 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("voucher_info", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Vouchers
+      ///
+      /// Locales: en, nl
+      static func balance_title(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("balance_title", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "balance_title"
+        }
+
+        return NSLocalizedString("balance_title", bundle: bundle, comment: "")
       }
 
       /// en translation: Vouchers
