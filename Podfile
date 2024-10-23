@@ -14,7 +14,6 @@ target 'Me-iOS' do
   use_frameworks!
 
   # Pods for Me-iOS
-pod 'Fabric'
 pod 'R.swift'
 
   target 'Me-iOSTests' do
