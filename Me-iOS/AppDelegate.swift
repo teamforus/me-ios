@@ -127,29 +127,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func handleShortcutItem(shortCutItem: UIApplicationShortcutItem) -> Bool {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let initialViewController = storyboard.instantiateViewController(withIdentifier: "tabBar") as! UITabBarController
         var handle = false
         
         guard let shortCutType = shortCutItem.type as String? else { return false }
         
         switch shortCutType {
         case "Vouchers":
-            initialViewController.selectedIndex = 0
+            HomeTabViewController.shared.setTab(.voucher)
             handle = true
             break
         case "QR" :
-            initialViewController.selectedIndex = 1
+            HomeTabViewController.shared.setTab(.qr)
             handle = true
             break
         case "Records":
-            initialViewController.selectedIndex = 2
+            HomeTabViewController.shared.setTab(.profile)
             handle = true
             break
         default:
             break
         }
-         self.window?.rootViewController = initialViewController
         return handle
     }
     
