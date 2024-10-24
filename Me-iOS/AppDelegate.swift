@@ -9,8 +9,6 @@
 import UIKit
 import CoreData
 import UserNotifications
-import Fabric
-import FirebaseCrashlytics
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
