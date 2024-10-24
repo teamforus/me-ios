@@ -39,8 +39,11 @@ class MVoucherViewController: UIViewController {
     private let emptyLabel: UILabel_DarkMode = {
         let label = UILabel_DarkMode(frame: .zero)
         label.text = Localize.transcation_empty()
+        label.isHidden = true
         return label
     }()
+    
+    internal let loader = UIActivityIndicatorView(style: .gray)
     
     // MARK: - Init
     init(voucher: Voucher, navigator: Navigator) {
@@ -66,22 +69,24 @@ class MVoucherViewController: UIViewController {
             self.view.backgroundColor = UIColor(named: "Background_Voucher_DarkTheme")
         } else {}
         setupSubview()
+        self.dataSource = VoucherDataSource(voucher: voucher, parentViewController: self, navigator: self.navigator, transaction: [], voucherViewModel: self.voucherViewModel)
         setUpTableView()
         
         voucherViewModel.initFetchById(address: voucher.address ?? String.empty)
         
+        loader.startAnimating()
         voucherViewModel.reloadDataVoucher = { [weak self] (voucher, transactions) in
             guard let self = self else { return }
             
-            self.dataSource = VoucherDataSource(voucher: voucher, parentViewController: self, navigator: self.navigator, transaction: transactions, voucherViewModel: self.voucherViewModel)
+            self.voucher = voucher
+            self.dataSource.transaction = transactions
             
             DispatchQueue.main.async {
+                self.loader.stopAnimating()
                 self.emptyLabel.isHidden = transactions.count != 0
-                self.setUpTableView()
+                self.tableView.reloadData()
             }
         }
-        
-        
     }
     
     private func setUpTableView() {
@@ -100,12 +105,17 @@ extension MVoucherViewController{
     func setupSubview() {
         self.view.addSubview(tableView)
         self.view.addSubview(emptyLabel)
+        self.view.addSubview(loader)
         
         emptyLabel.snp.makeConstraints { make in
             make.center.equalTo(self.view)
         }
         tableView.snp.makeConstraints { make in
             make.top.left.right.bottom.equalTo(self.view.safeAreaLayoutGuide)
+        }
+        
+        loader.snp.makeConstraints { make in
+            make.center.equalTo(self.view)
         }
     }
 }
