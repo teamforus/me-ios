@@ -223,6 +223,13 @@ class MQRViewController: HSScanViewController {
       setupAccessibility()
     }
   }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        if scanWorker != nil {
+            scanWorker.stop()
+        }
+    }
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 //    if let paymentVC = R.segue.mqrViewController.goToVoucherPayment(segue: segue) {
