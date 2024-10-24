@@ -77,6 +77,7 @@ extension MeNavigationController: UINavigationControllerDelegate {
             
         case is MVouchersViewController:
             self.navigationBar.prefersLargeTitles = true
+            self.navigationItem.largeTitleDisplayMode = .always
             viewController.title = Localize.balance_title()
             
             let barButtonItem = UIBarButtonItem(customView: (viewController as? MVouchersViewController)!.transactionButton)
@@ -84,42 +85,44 @@ extension MeNavigationController: UINavigationControllerDelegate {
             
         case is MTransactionsViewController:
             self.navigationBar.prefersLargeTitles = true
+            self.navigationItem.largeTitleDisplayMode = .always
             viewController.title = Localize.transactions()
             
         case is MPaymentViewController:
-            self.navigationBar.prefersLargeTitles = false
+            viewController.navigationItem.largeTitleDisplayMode = .never
             let barButtonItem = UIBarButtonItem(image: Image.bakcIcon, style: .plain, target: viewController, action: #selector(HomeTabViewController.dismiss(_:)))
             viewController.navigationItem.leftBarButtonItem = barButtonItem
             viewController.title = Localize.reddem_voucher()
             
         case is MActionsViewController:
-            self.navigationBar.prefersLargeTitles = false
+            viewController.navigationItem.largeTitleDisplayMode = .never
             let barButtonItem = UIBarButtonItem(image: Image.bakcIcon, style: .plain, target: viewController, action: #selector(HomeTabViewController.dismiss(_:)))
             viewController.navigationItem.leftBarButtonItem = barButtonItem
             viewController.title = Localize.payment()
             
         case is ProductVoucherViewController:
-            self.navigationBar.prefersLargeTitles = false
+            viewController.navigationItem.largeTitleDisplayMode = .never
             viewController.title = Localize.product_voucher()
             
         case is MVoucherViewController:
-            self.navigationBar.prefersLargeTitles = false
+            viewController.navigationItem.largeTitleDisplayMode = .never
             viewController.title = "Voucher"
             
         case is MProductReservationViewController:
-            self.navigationBar.prefersLargeTitles = false
+            viewController.navigationItem.largeTitleDisplayMode = .never
             viewController.title = Localize.choose_reservation()
             let barButtonItem = UIBarButtonItem(image: Image.bakcIcon, style: .plain, target: viewController, action: #selector(HomeTabViewController.dismiss(_:)))
             viewController.navigationItem.leftBarButtonItem = barButtonItem
             
         case is MRecordsViewController:
-            self.navigationBar.prefersLargeTitles = true
+            viewController.navigationItem.largeTitleDisplayMode = .never
             viewController.title = Localize.records()
             let barButtonItem = UIBarButtonItem(customView: (viewController as? MRecordsViewController)!.closeButton)
             viewController.navigationItem.rightBarButtonItem = barButtonItem
             
         case is MRecordDetailViewController:
             self.navigationBar.prefersLargeTitles = true
+            self.navigationItem.largeTitleDisplayMode = .always
             viewController.title = Localize.record_detail()
         default: ()
         }
