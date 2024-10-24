@@ -1,24 +1,20 @@
 PODS:
-  - Fabric (1.9.0)
   - R.swift (5.2.2):
     - R.swift.Library (~> 5.2.0)
   - R.swift.Library (5.2.0)
 
 DEPENDENCIES:
-  - Fabric
   - R.swift
 
 SPEC REPOS:
   trunk:
-    - Fabric
     - R.swift
     - R.swift.Library
 
 SPEC CHECKSUMS:
-  Fabric: 09ef2d9b99b104702bede1acaf469fb8f20a9146
   R.swift: 7c52cdc57a66840ffe6cbd8a823d732059d42a32
   R.swift.Library: 5ba4f1631300caf9a4d890186930da85d540769d
 
-PODFILE CHECKSUM: b43d5e2a8575bde72605770c5f0b8ac56866d42d
+PODFILE CHECKSUM: 9a705854a5cfd202c4f32397a2eb7be9bfc7b978
 
 COCOAPODS: 1.15.2
