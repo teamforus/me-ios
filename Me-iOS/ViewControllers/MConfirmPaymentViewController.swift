@@ -206,7 +206,7 @@ class MConfirmPaymentViewController: UIViewController {
             
             if height != 0 {
 //                strongSelf.view.frame.size.height = height
-                strongSelf.view.frame.origin.y = height - 120
+                strongSelf.view.frame.origin.y = height - (strongSelf.originalFrame.size.height / 1.5)
             }else {
                 strongSelf.view.frame = strongSelf.originalFrame
             }
@@ -240,7 +240,11 @@ class MConfirmPaymentViewController: UIViewController {
                 return
             }
             
-            let payTransaction = PayTransaction(organization_id: strongSelf.organizationId ?? 0, amount: strongSelf.amount.replacingOccurrences(of: ",", with: "."), note: strongSelf.note ?? "")
+            let extraAmount = (Double(textFieldAmount) ?? 0) - (Double(strongSelf.voucher.amount ?? "0") ?? 0)
+            
+            let extraCash = "\(extraAmount)"
+            
+            let payTransaction = PayTransaction(organization_id: strongSelf.organizationId ?? 0, amount: strongSelf.voucher.amount?.replacingOccurrences(of: ",", with: "."), amount_extra_cash: extraCash.replacingOccurrences(of: ",", with: "."), note: strongSelf.note ?? "")
             
             strongSelf.commonService.create(request: "platform/vouchers/"+strongSelf.voucher.address!+"/transactions", data: payTransaction) { (response: ResponseData<Transaction>, statusCode) in
                 
@@ -275,14 +279,22 @@ class MConfirmPaymentViewController: UIViewController {
         moreInfoButton.actionHandleBlock = { [weak self] (_) in
             guard let strongSelf = self else { return }
             strongSelf.isColapsed = !strongSelf.isColapsed
-            let height = strongSelf.isColapsed ? strongSelf.originalFrame.size.height + 90 : strongSelf.originalFrame.size.height - 90
+            if !strongSelf.isColapsed {
+                UIView.animate(withDuration: 0.3) {
+                    strongSelf.moreInfoViewInfoView.isHidden = true
+                    strongSelf.view.frame = strongSelf.originalFrame
+                    strongSelf.view.layoutIfNeeded()
+                }
+                return
+            }
+            let height = strongSelf.isColapsed ? strongSelf.originalFrame.size.height + 90 : strongSelf.originalFrame.size.height
             var origin = strongSelf.originalFrame
             
             UIView.animate(withDuration: 0.3) {
                 let adjustedHeight = height + strongSelf.view.safeAreaInsets.bottom
-                let targetSize = CGSize(width: strongSelf.view.frame.width,
+                let targetSize = CGSize(width: strongSelf.originalFrame.width,
                                         height: adjustedHeight)
-                let targetOrigin = CGPoint(x: 0, y: strongSelf.view.frame.maxY - targetSize.height)
+                let targetOrigin = CGPoint(x: 0, y: strongSelf.originalFrame.maxY - targetSize.height)
                 origin = CGRect(origin: targetOrigin, size: targetSize)
                 strongSelf.view.frame = origin
                 strongSelf.moreInfoViewInfoView.isHidden = !strongSelf.isColapsed
