@@ -33,6 +33,14 @@ extension UIView {
             }
         });
     }
+    
+    static var screenHeight: CGFloat {
+        UIScreen.main.bounds.height
+    }
+    
+    static var bottomInset: CGFloat {
+        UIApplication.shared.windows.filter {$0.isKeyWindow}.first?.safeAreaInsets.bottom ?? 0
+    }
 }
 
 extension UIView {

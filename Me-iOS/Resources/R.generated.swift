@@ -557,7 +557,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.image` struct is generated, and contains static references to 80 images.
+  /// This `R.image` struct is generated, and contains static references to 83 images.
   struct image {
     /// Image `5XVoucherContainerWElevation`.
     static let xVoucherContainerWElevation = Rswift.ImageResource(bundle: R.hostingBundle, name: "5XVoucherContainerWElevation")
@@ -615,6 +615,10 @@ struct R: Rswift.Validatable {
     static let closeIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "closeIcon")
     /// Image `closeLines`.
     static let closeLines = Rswift.ImageResource(bundle: R.hostingBundle, name: "closeLines")
+    /// Image `collapse_off`.
+    static let collapse_off = Rswift.ImageResource(bundle: R.hostingBundle, name: "collapse_off")
+    /// Image `collapse_on`.
+    static let collapse_on = Rswift.ImageResource(bundle: R.hostingBundle, name: "collapse_on")
     /// Image `combinedShapeQR`.
     static let combinedShapeQR = Rswift.ImageResource(bundle: R.hostingBundle, name: "combinedShapeQR")
     /// Image `combinedShape`.
@@ -625,6 +629,8 @@ struct R: Rswift.Validatable {
     static let email1 = Rswift.ImageResource(bundle: R.hostingBundle, name: "email1")
     /// Image `emailVoucher`.
     static let emailVoucher = Rswift.ImageResource(bundle: R.hostingBundle, name: "emailVoucher")
+    /// Image `error_icon`.
+    static let error_icon = Rswift.ImageResource(bundle: R.hostingBundle, name: "error_icon")
     /// Image `eth`.
     static let eth = Rswift.ImageResource(bundle: R.hostingBundle, name: "eth")
     /// Image `euro`.
@@ -917,6 +923,20 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "collapse_off", bundle: ..., traitCollection: ...)`
+    static func collapse_off(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.collapse_off, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "collapse_on", bundle: ..., traitCollection: ...)`
+    static func collapse_on(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.collapse_on, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
     /// `UIImage(named: "combinedShape", bundle: ..., traitCollection: ...)`
     static func combinedShape(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.combinedShape, compatibleWith: traitCollection)
@@ -948,6 +968,13 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "emailVoucher", bundle: ..., traitCollection: ...)`
     static func emailVoucher(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.emailVoucher, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "error_icon", bundle: ..., traitCollection: ...)`
+    static func error_icon(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.error_icon, compatibleWith: traitCollection)
     }
     #endif
 

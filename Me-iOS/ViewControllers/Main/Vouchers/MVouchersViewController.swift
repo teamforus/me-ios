@@ -7,6 +7,7 @@ enum VoucherType: Int {
 }
 
 class MVouchersViewController: UIViewController {
+    internal let sheetTransitioningDelegate = SheetTransitioningDelegate()
     var isFromLogin: Bool!
     var voucherType: VoucherType! = .vouchers
     var dataSource: VouchersDataSource!
@@ -57,6 +58,12 @@ class MVouchersViewController: UIViewController {
         return label
     }()
     
+    private let testButton: ActionButton = {
+        let button = ActionButton(frame: .zero)
+        button.setTitle("Test", for: .normal)
+        return button
+    }()
+    
     
     // MARK: - Init
     init(navigator: Navigator) {
@@ -76,6 +83,7 @@ class MVouchersViewController: UIViewController {
         addSubviews()
         setupConstraints()
         setupView()
+       
     }
     
     private func setupView() {
@@ -264,7 +272,7 @@ extension MVouchersViewController: UIViewControllerPreviewingDelegate{
 
 extension MVouchersViewController {
     private func addSubviews() {
-        let views = [segmentView, voucherImage, voucherEmptyMessage, tableView]
+        let views = [segmentView, voucherImage, voucherEmptyMessage, tableView, testButton]
         views.forEach { view in
             self.view.addSubview(view)
         }
@@ -299,6 +307,10 @@ extension MVouchersViewController {
         tableView.snp.makeConstraints { make in
             make.left.right.bottom.equalTo(self.view.safeAreaLayoutGuide)
             make.top.equalTo(segmentView.snp.bottom).offset(15)
+        }
+        
+        testButton.snp.makeConstraints { make in
+            make.center.equalTo(self.view.safeAreaLayoutGuide)
         }
     }
 }
