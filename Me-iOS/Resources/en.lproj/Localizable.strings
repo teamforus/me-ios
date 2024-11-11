@@ -229,3 +229,5 @@
 "transcation_empty" = "There are no transactions yet";
 "no_active_products" = "No active product for this fund";
 "choose_action" = "Choose an action";
+"reques_extra_payment_info" = "Insufficient funds on the voucher. Please request extra payment of: ";
+"more_information" = "More information";

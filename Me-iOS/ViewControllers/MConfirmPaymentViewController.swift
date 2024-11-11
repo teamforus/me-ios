@@ -86,7 +86,7 @@ class MConfirmPaymentViewController: UIViewController {
         label.textColor = .black
         label.textAlignment = .center
         label.numberOfLines = 0
-        label.text = "Er is onvoldoende saldo op het tegoed. Vraag de houder van dit tegoed om een bijbetaling van:"
+        label.text = Localize.reques_extra_payment_info()
         return label
     }()
     
@@ -106,7 +106,7 @@ class MConfirmPaymentViewController: UIViewController {
     
     private let moreInfoTitle: UILabel = {
         let label = UILabel(frame: .zero)
-        label.text = "Meer informatie"
+        label.text = Localize.more_information()
         label.font = UIFont(name: "GoogleSans-Medium", size: 14)
         label.textColor = Color.blueText
         return label
@@ -181,7 +181,7 @@ class MConfirmPaymentViewController: UIViewController {
         textField.setup(title: "Typ het bij te betalen bedrag",
                         placeHolder: "€ 0,00",
                         icon: nil,
-                        type: .default)
+                        type: .numberPad)
         return textField
     }()
     
@@ -206,7 +206,7 @@ class MConfirmPaymentViewController: UIViewController {
             
             if height != 0 {
 //                strongSelf.view.frame.size.height = height
-                strongSelf.view.frame.origin.y = height - (strongSelf.originalFrame.size.height / 1.5)
+                strongSelf.view.frame.origin.y = height - (strongSelf.originalFrame.size.height / 1.7)
             }else {
                 strongSelf.view.frame = strongSelf.originalFrame
             }
@@ -225,6 +225,11 @@ class MConfirmPaymentViewController: UIViewController {
         }
         
         closeButton.actionHandleBlock = { [weak self] (_) in
+            guard let strongSelf = self else { return }
+            strongSelf.dismiss(animated: true)
+        }
+        
+        cancelButton.actionHandleBlock = { [weak self] (_) in
             guard let strongSelf = self else { return }
             strongSelf.dismiss(animated: true)
         }
@@ -381,7 +386,7 @@ extension MConfirmPaymentViewController {
         
         customFields.snp.makeConstraints { make in
             make.left.right.equalToSuperview().inset(20)
-            make.height.equalTo(90)
+            make.height.equalTo(110)
             make.top.equalTo(stackView.snp.bottom).offset(30)
         }
         

@@ -44,6 +44,7 @@ class CustomTextField: UIView {
         label.font = UIFont(name: "GoogleSans-Regular", size: 11)
         label.textColor = UIColor(hex: "#DB1E0B")
         label.isHidden = true
+        label.numberOfLines = 0
         return label
     }()
     

@@ -2106,7 +2106,7 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
 
-    /// This `R.string.localizable` struct is generated, and contains static references to 217 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 219 localization keys.
     struct localizable {
       /// en translation: %@ Branches
       ///
@@ -2444,6 +2444,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en, nl
       static let insufficient_funds_on_the_voucher = Rswift.StringResource(key: "insufficient_funds_on_the_voucher", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
+      /// en translation: Insufficient funds on the voucher. Please request extra payment of: 
+      ///
+      /// Locales: en, nl
+      static let reques_extra_payment_info = Rswift.StringResource(key: "reques_extra_payment_info", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
       /// en translation: Insufficient funds on the voucher. Please, request extra payment of €%.02f
       ///
       /// Locales: en, nl
@@ -2492,6 +2496,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en, nl
       static let medical = Rswift.StringResource(key: "medical", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
+      /// en translation: More information
+      ///
+      /// Locales: en, nl
+      static let more_information = Rswift.StringResource(key: "more_information", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
       /// en translation: More information about price agreement
       ///
       /// Locales: en, nl
@@ -4249,6 +4257,21 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("insufficient_funds_on_the_voucher", bundle: bundle, comment: "")
       }
 
+      /// en translation: Insufficient funds on the voucher. Please request extra payment of: 
+      ///
+      /// Locales: en, nl
+      static func reques_extra_payment_info(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("reques_extra_payment_info", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "reques_extra_payment_info"
+        }
+
+        return NSLocalizedString("reques_extra_payment_info", bundle: bundle, comment: "")
+      }
+
       /// en translation: Insufficient funds on the voucher. Please, request extra payment of €%.02f
       ///
       /// Locales: en, nl
@@ -4431,6 +4454,21 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("medical", bundle: bundle, comment: "")
+      }
+
+      /// en translation: More information
+      ///
+      /// Locales: en, nl
+      static func more_information(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("more_information", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "more_information"
+        }
+
+        return NSLocalizedString("more_information", bundle: bundle, comment: "")
       }
 
       /// en translation: More information about price agreement
