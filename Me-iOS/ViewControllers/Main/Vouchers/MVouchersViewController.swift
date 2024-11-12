@@ -210,23 +210,18 @@ extension MVouchersViewController: UITableViewDelegate{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let confirmPayment = MConfirmPaymentViewController()
-        confirmPayment.modalPresentationStyle = .custom
-        confirmPayment.transitioningDelegate = self.sheetTransitioningDelegate
-        self.present(confirmPayment, animated: true, completion: nil)
+        let voucher = self.dataSource.vouchers[indexPath.row]
         
-//        let voucher = self.dataSource.vouchers[indexPath.row]
-//        
-//        switch voucherType {
-//        case .vouchers?:
-//            if voucher.product != nil {
-//                navigator.navigate(to: .productVoucher(voucher.address ?? ""))
-//            }else {
-//                navigator.navigate(to: .budgetVoucher(voucher))
-//            }
-//        default:
-//            break
-//        }
+        switch voucherType {
+        case .vouchers?:
+            if voucher.product != nil {
+                navigator.navigate(to: .productVoucher(voucher.address ?? ""))
+            }else {
+                navigator.navigate(to: .budgetVoucher(voucher))
+            }
+        default:
+            break
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
