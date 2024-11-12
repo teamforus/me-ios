@@ -115,6 +115,7 @@ class MConfirmPaymentViewController: UIViewController {
     private let moreInfoIcon: UIImageView = {
         let imageView = UIImageView(frame: .zero)
         imageView.contentMode = .scaleAspectFit
+        imageView.image = Image.collapseOffIcon
         return imageView
     }()
     
@@ -206,7 +207,7 @@ class MConfirmPaymentViewController: UIViewController {
             
             if height != 0 {
 //                strongSelf.view.frame.size.height = height
-                strongSelf.view.frame.origin.y = height - (strongSelf.originalFrame.size.height / 1.7)
+                strongSelf.view.frame.origin.y = height - (strongSelf.originalFrame.size.height / 1.5)
             }else {
                 strongSelf.view.frame = strongSelf.originalFrame
             }
@@ -292,7 +293,7 @@ class MConfirmPaymentViewController: UIViewController {
                 }
                 return
             }
-            let height = strongSelf.isColapsed ? strongSelf.originalFrame.size.height + 90 : strongSelf.originalFrame.size.height
+            let height = strongSelf.isColapsed ? strongSelf.originalFrame.size.height + 110 : strongSelf.originalFrame.size.height
             var origin = strongSelf.originalFrame
             
             UIView.animate(withDuration: 0.3) {
