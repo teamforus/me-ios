@@ -30,4 +30,7 @@ public struct Image {
     public static let userLogo: UIImage? = UIImage(named: "user_logo")
     public static let qrImageSmall: UIImage? = UIImage(named: "qrImage2")
     public static let voucher: UIImage? = UIImage(named: "voucher")
+    public static let errorIcon: UIImage? = UIImage(named: "error_icon")
+    public static let collapseOffIcon: UIImage? = UIImage(named: "collapse_off")
+    public static let collapseOnIcon: UIImage? = UIImage(named: "collapse_on")
 }
