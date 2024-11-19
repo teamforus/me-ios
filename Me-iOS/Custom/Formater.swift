@@ -91,6 +91,15 @@ extension String{
         return dateString
     }
     
+    func dateFormaterHourDate() -> String?  {
+        let dateFormater = DateFormatter()
+        dateFormater.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        let date = dateFormater.date(from: self)
+        dateFormater.dateFormat = "HH:mm - dd MMM, yyyy"
+        let dateString = dateFormater.string(from: date ?? Date())
+        return dateString
+    }
+    
     func dateFormaterExpireDate() -> String  {
         let dateFormater = DateFormatter()
 //        dateFormater.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSSSS'Z'"
