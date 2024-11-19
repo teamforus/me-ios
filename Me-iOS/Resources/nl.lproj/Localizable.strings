@@ -228,3 +228,5 @@
 "transcation_empty" = "Er zijn nog geen transacties";
 "no_active_products" = "Geen actief aanbod voor dit tegoed";
 "choose_action" = "Kies een actie";
+"reques_extra_payment_info" = "Er is onvoldoende saldo op het tegoed. Vraag de houder van dit tegoed om een bijbetaling van:";
+"more_information" = "Meer informatie";
