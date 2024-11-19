@@ -153,7 +153,7 @@ class TransactionOverview: UIView {
             }
         }
         transactionStatusLabel.text = transaction.state
-        transactionDateLabel.text = transaction.created_at?.dateFormaterNormalDate()
+        transactionDateLabel.text = transaction.created_at?.dateFormaterHourDate()
         idTransactionLabel.text = String(transaction.id ?? 0)
         fundNameLabel.text = transaction.fund?.name
         provederNameLabel.text = transaction.organization?.name

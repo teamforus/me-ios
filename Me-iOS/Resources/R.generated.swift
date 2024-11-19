@@ -7147,6 +7147,7 @@ struct _R: Rswift.Validatable {
   #if os(iOS) || os(tvOS)
   struct nib: Rswift.Validatable {
     static func validate() throws {
+      try _AllowedOrganizationsViewController.validate()
       try _AppLocker.validate()
       try _BottomQrWithPinViewController.validate()
       try _OrganizationTableViewCell.validate()
@@ -7157,7 +7158,7 @@ struct _R: Rswift.Validatable {
       try _SuccessSendingViewController.validate()
     }
 
-    struct _AllowedOrganizationsViewController: Rswift.NibResourceType {
+    struct _AllowedOrganizationsViewController: Rswift.NibResourceType, Rswift.Validatable {
       let bundle = R.hostingBundle
       let name = "AllowedOrganizationsViewController"
 
@@ -7167,6 +7168,12 @@ struct _R: Rswift.Validatable {
 
       func secondView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
         return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[1] as? UIKit.UIView
+      }
+
+      static func validate() throws {
+        if UIKit.UIImage(named: "closeBlack", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'closeBlack' is used in nib 'AllowedOrganizationsViewController', but couldn't be loaded.") }
+        if #available(iOS 11.0, tvOS 11.0, *) {
+        }
       }
 
       fileprivate init() {}

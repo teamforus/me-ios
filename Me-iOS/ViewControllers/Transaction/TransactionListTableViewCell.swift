@@ -105,7 +105,7 @@ class TransactionListTableViewCell: UITableViewCell {
         }else {
             self.priceLabel.text = "+ € 0"
         }
-        self.transactionDateLabel.text = transaction.created_at?.dateFormaterNormalDate()
+        self.transactionDateLabel.text = transaction.created_at?.dateFormaterHourDate()
     }
     
     override func prepareForReuse() {
