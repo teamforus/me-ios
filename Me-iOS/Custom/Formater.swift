@@ -42,26 +42,26 @@ extension Date {
 
 extension String{
     
-    func dateFormater() -> Date  {
+    func dateFormater() -> Date?  {
         let dateFormater = DateFormatter()
         dateFormater.dateFormat = "dd.MM.yyyy HH:mm"
         let date = dateFormater.date(from: self)
         return date!
     }
     
-    func trasnformToDate() -> Date  {
+    func trasnformToDate() -> Date?  {
         let dateFormater = DateFormatter()
         dateFormater.dateFormat = "MMM dd, yyyy HH:mm"
         let date = dateFormater.date(from: self)
-        return date!
+        return date
     }
     
-    func formatDate() -> Date  {
+    func formatDate() -> Date?  {
         let dateFormater = DateFormatter()
         //        dateFormater.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSSSS'Z'"
         dateFormater.dateFormat = "yyyy-MM-ddHH:mm:ss.SSSSSS"
         let date = dateFormater.date(from: self)
-        return date!
+        return date
     }
     
     func dateFormaterTime() -> String  {
@@ -88,6 +88,15 @@ extension String{
         let date = dateFormater.date(from: self)
         dateFormater.dateFormat = "d MMMM, HH:mm"
         let dateString = dateFormater.string(from: date!)
+        return dateString
+    }
+    
+    func dateFormaterHourDate() -> String?  {
+        let dateFormater = DateFormatter()
+        dateFormater.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        let date = dateFormater.date(from: self)
+        dateFormater.dateFormat = "HH:mm - dd MMM, yyyy"
+        let dateString = dateFormater.string(from: date ?? Date())
         return dateString
     }
     

@@ -13,5 +13,6 @@ struct PayTransaction: Encodable {
     
     var organization_id: Int?
     var amount: String?
+    var amount_extra_cash: String?
     var note: String?
 }

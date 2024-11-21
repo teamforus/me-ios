@@ -48,7 +48,9 @@ class VoucherViewModel{
                 var array = response.data?.transactions ?? []
                 array.append(contentsOf: response.data?.product_vouchers ?? [])
                 array = array.sorted(by: { $0.created_at?.compare($1.created_at ?? "") == .orderedDescending})
-                self.reloadDataVoucher?(response.data!, array)
+                if let data = response.data {
+                    self.reloadDataVoucher?(data, array)
+                }
                 
             }
             

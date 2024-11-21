@@ -122,13 +122,17 @@ extension ScanWorker {
     func start() {
         if !captureSession.isRunning {
             isNeedScanResult = true
-            captureSession.startRunning()
+            DispatchQueue.global(qos: .background).async {
+                self.captureSession.startRunning()
+            }
         }
     }
     func stop() {
         if captureSession.isRunning {
             isNeedScanResult = false
-            captureSession.stopRunning()
+            DispatchQueue.global(qos: .background).async {
+                self.captureSession.stopRunning()
+            }
             NotificationCenter.default.removeObserver(self)
         }
     }

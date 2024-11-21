@@ -82,6 +82,9 @@ class MRecordsViewController: UIViewController {
         }
         self.tableView.register(RecordsTableViewCell.self, forCellReuseIdentifier: RecordsTableViewCell.identifier)
         refreshControl.addTarget(self, action: #selector(refreshData(_:)), for: .valueChanged)
+        self.dataSource = RecordsDataSource(navigator: self.navigator)
+        self.tableView.dataSource = self.dataSource
+        self.tableView.delegate = self.dataSource
         self.tableView.reloadData()
     }
     
@@ -107,6 +110,7 @@ class MRecordsViewController: UIViewController {
     }
     
     @objc func refreshData(_ sender: Any) {
+        refreshControl.beginRefreshing()
         initFetch()
     }
     
@@ -117,9 +121,7 @@ class MRecordsViewController: UIViewController {
             }
             
             DispatchQueue.main.async {
-                self.dataSource = RecordsDataSource(records: records, navigator: self.navigator)
-                self.tableView.dataSource = self.dataSource
-                self.tableView.delegate = self.dataSource
+                self.dataSource.records = records
                 self.tableView.reloadData()
                 KVSpinnerView.dismiss()
                 self.refreshControl.endRefreshing()

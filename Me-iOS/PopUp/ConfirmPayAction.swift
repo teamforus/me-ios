@@ -77,7 +77,7 @@ class ConfirmPayAction: UIView {
     
     // MARK: - Setup View
     func setupView() {
-        if paymentAction.subsidie?.price_type == SubsidieType.regular.rawValue{
+        if paymentAction.subsidie?.price_type == SubsidieType.regular.rawValue {
             priceLabel.font = UIFont(name: "GoogleSans-Regular", size: 16)
             let finalPrice = paymentAction.subsidie?.price == paymentAction.subsidie?.sponsor_subsidy ? Localize.free() : paymentAction.subsidie?.price_user
             var mainString = ""

@@ -26,7 +26,7 @@ class MTransactionsViewController: UIViewController {
         return view
     }()
     
-    private let dateButton: DarkMode_ActionButton = {
+    private var dateButton: DarkMode_ActionButton = {
         let button = DarkMode_ActionButton()
         button.addTarget(self, action: #selector(openDatePicker), for: .touchUpInside)
         button.corner = 9
@@ -81,6 +81,8 @@ class MTransactionsViewController: UIViewController {
         return view
     }()
     
+    private let refreshControl = UIRefreshControl()
+    
     lazy var datePicker : MDatePickerView = {
         let mdate = MDatePickerView()
         mdate.Color = #colorLiteral(red: 0.1702004969, green: 0.3387943804, blue: 1, alpha: 1)
@@ -91,26 +93,26 @@ class MTransactionsViewController: UIViewController {
         return mdate
     }()
     
-  lazy var datePickerNew : UIDatePicker = {
-      let mdate = UIDatePicker()
-      mdate.translatesAutoresizingMaskIntoConstraints = false
-      if #available(iOS 14.0, *) {
-        mdate.backgroundColor = .clear
-        mdate.preferredDatePickerStyle = .compact
-        mdate.datePickerMode = .date
-        mdate.addTarget(self, action: #selector(getDate(from:)), for: .valueChanged)
+    lazy var datePickerNew : UIDatePicker = {
+        let mdate = UIDatePicker()
+        mdate.translatesAutoresizingMaskIntoConstraints = false
+        if #available(iOS 14.0, *) {
+            mdate.backgroundColor = .clear
+            mdate.preferredDatePickerStyle = .compact
+            mdate.datePickerMode = .date
+            mdate.addTarget(self, action: #selector(getDate(from:)), for: .valueChanged)
         } else {
-        // Fallback on earlier versions
-      }
-     return mdate
-  }()
-   
-  var gestorRecognizer = UIGestureRecognizer()
-  
-  
+            // Fallback on earlier versions
+        }
+        return mdate
+    }()
+    
+    var gestorRecognizer = UIGestureRecognizer()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-      
+        
         addSubviews()
         setupConstraints()
         setupView()
@@ -133,17 +135,17 @@ extension MTransactionsViewController {
     }
     
     func addSubviews() {
-        let views = [tableView, headerView, bottomView, totalPriceView, dateButton]
+        let views = [tableView, headerView, bottomView, totalPriceView]
         views.forEach { (view) in
             self.view.addSubview(view)
         }
         addBottomViewSubviews()
-      if #available(iOS 14.0, *) {
-//        view.addSubview(datePickerNew)
+        if #available(iOS 14.0, *) {
+            //        view.addSubview(datePickerNew)
         } else {
-         
-      }
-     
+            
+        }
+        
     }
     
     func addBottomViewSubviews() {
@@ -154,10 +156,24 @@ extension MTransactionsViewController {
     }
     
     func setupTableView() {
+        refreshControl.alpha = 0
+        if #available(iOS 10.0, *) {
+            tableView.refreshControl = refreshControl
+        } else {
+            tableView.addSubview(refreshControl)
+        }
+        refreshControl.addTarget(self, action: #selector(refreshData(_:)), for: .valueChanged)
         tableView.dataSource = self
         tableView.delegate = self
         tableView.separatorStyle = .none
         tableView.register(TransactionListTableViewCell.self, forCellReuseIdentifier: TransactionListTableViewCell.identifier)
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+    }
+    
+    
+    
+    @objc func refreshData(_ sender: Any) {
+        fetchTransaction()
     }
 }
 
@@ -168,31 +184,31 @@ extension MTransactionsViewController {
         
         tableView.snp.makeConstraints { make in
             make.left.right.bottom.equalTo(self.view)
-            make.top.equalTo(dateButton.snp.bottom)
-        }
-        
-        dateButton.snp.makeConstraints { make in
-            make.left.equalTo(self.view).offset(10)
             make.top.equalTo(self.view.safeAreaLayoutGuide).offset(10)
-            make.height.equalTo(44)
-            make.width.equalTo(200)
         }
         
-//        NSLayoutConstraint.activate([
-//            totalPriceView.topAnchor.constraint(equalTo: tableView.bottomAnchor, constant: 18),
-//            totalPriceView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
-//            totalPriceView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
-//            totalPriceView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -28),
-//            totalPriceView.heightAnchor.constraint(equalToConstant: 50)
-//        ])
-//
-//        NSLayoutConstraint.activate([
-//            bottomView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
-//            bottomView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
-//            bottomView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0),
-//            bottomView.topAnchor.constraint(equalTo: tableView.bottomAnchor, constant: 0)])
+        //        dateButton.snp.makeConstraints { make in
+        //            make.left.equalTo(self.view).offset(10)
+        //            make.top.equalTo(self.view.safeAreaLayoutGuide).offset(10)
+        //            make.height.equalTo(44)
+        //            make.width.equalTo(200)
+        //        }
         
-       
+        //        NSLayoutConstraint.activate([
+        //            totalPriceView.topAnchor.constraint(equalTo: tableView.bottomAnchor, constant: 18),
+        //            totalPriceView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
+        //            totalPriceView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
+        //            totalPriceView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -28),
+        //            totalPriceView.heightAnchor.constraint(equalToConstant: 50)
+        //        ])
+        //
+        //        NSLayoutConstraint.activate([
+        //            bottomView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
+        //            bottomView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
+        //            bottomView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0),
+        //            bottomView.topAnchor.constraint(equalTo: tableView.bottomAnchor, constant: 0)])
+        
+        
         setupConstraintsBottomView()
     }
     
@@ -237,6 +253,7 @@ extension MTransactionsViewController {
             DispatchQueue.main.async {
                 self?.tableView.reloadData()
                 KVSpinnerView.dismiss()
+                self?.refreshControl.endRefreshing()
             }
         }
     }
@@ -246,14 +263,34 @@ extension MTransactionsViewController {
 
 extension MTransactionsViewController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return 2
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if section == 0 {
+            return 1
+        }
+        
         return transactionViewModel.numberOfCells
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if indexPath.section == 0 {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell") else { return UITableViewCell() }
+                    
+            let view = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 64))
+               view.backgroundColor = .clear
+               
+               // Configure the date button
+            dateButton.frame = CGRect(x: 10, y: 10, width: 200, height: 44)
+               view.addSubview(dateButton)
+               
+               // Add the custom view to the cell's content view
+               cell.contentView.addSubview(view)
+               
+               return cell
+        }
+        
         guard let cell = tableView.dequeueReusableCell(withIdentifier: TransactionListTableViewCell.identifier, for: indexPath) as? TransactionListTableViewCell else { return UITableViewCell() }
         
         let transaction = transactionViewModel.getCellViewModel(at: indexPath)
@@ -266,13 +303,16 @@ extension MTransactionsViewController: UITableViewDelegate, UITableViewDataSourc
         return cellHeight
     }
     
+    
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-       if indexPath.row == transactionViewModel.numberOfCells - 1, transactionViewModel.nextPage != nil {
-           transactionViewModel.didGetTransaction(by: transactionViewModel.nextPage ?? String.empty)
-          }
-   }
+        if indexPath.section == 0 { return }
+        if indexPath.row == transactionViewModel.numberOfCells - 1, transactionViewModel.nextPage != nil {
+            transactionViewModel.didGetTransaction(by: transactionViewModel.nextPage ?? String.empty)
+        }
+    }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section == 0 { return }
         let transaction = transactionViewModel.getCellViewModel(at: indexPath)
         openTransactionOverview(with: transaction)
         
@@ -283,7 +323,7 @@ extension MTransactionsViewController: UITableViewDelegate, UITableViewDataSourc
 
 extension MTransactionsViewController: MDatePickerViewDelegate {
     func mdatePickerView(selectDate: Date) {
-      dateButton.setTitle("From date: " + selectDate.dateFormaterFromDateShort(), for: .normal)
+        dateButton.setTitle("From date: " + selectDate.dateFormaterFromDateShort(), for: .normal)
         transactionViewModel.sortTransactionByDate(form: selectDate)
     }
 }
@@ -292,9 +332,9 @@ extension MTransactionsViewController: MDatePickerViewDelegate {
 
 extension MTransactionsViewController {
     func openTransactionOverview(with transaction: Transaction) {
-        let transactionOverview = TransactionOverview()
+        let transactionOverview = TransactionOverview(transaction: transaction)
         setupTrasactionOverview(transactionOverview: transactionOverview)
-        transactionOverview.configure(transaction: transaction)
+        transactionOverview.configure()
         transactionOverview.popIn()
     }
     
@@ -306,7 +346,7 @@ extension MTransactionsViewController {
         }
     }
     
-     @objc func openDatePicker() {
+    @objc func openDatePicker() {
         view.addSubview(datePicker)
         setupDatePickerConstraints()
         datePicker.showAnimate()
@@ -319,11 +359,11 @@ extension MTransactionsViewController {
             make.height.equalTo(self.view).multipliedBy(0.4)
         }
     }
-  
-  
-  @objc func getDate(from datePiker:UIDatePicker) {
-    dateButton.setTitle("From date: " + datePiker.date.dateFormaterFromDateShort(), for: .normal)
-    transactionViewModel.sortTransactionByDate(form: datePiker.date)
-    self.dismiss(UIButton())
-  }
+    
+    
+    @objc func getDate(from datePiker:UIDatePicker) {
+        dateButton.setTitle("From date: " + datePiker.date.dateFormaterFromDateShort(), for: .normal)
+        transactionViewModel.sortTransactionByDate(form: datePiker.date)
+        self.dismiss(UIButton())
+    }
 }

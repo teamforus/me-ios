@@ -205,7 +205,7 @@
 "sharing_identification_number_info" = "Door je identificatie nummer te delen, kunnen problemen beter en sneller worden opgelost, en kunnen de ontwikkelaars eventueel contact met je opnemen.";
 "share_identification_number" = "Deel identificatienummer";
 "success_login" = "Aanmelding \ngeslaagd!";
-"description_about" = "Deze app is bedoeld om tegoeden te beheren, betalingen te verrichten en in te loggen op verschillende applicaties.\n\n\nDeze app werkt samen met:\n\n     • \tDe Westerkwartier webshop;\n     • \tDe Nijmegen webshop;\n     • \tDe Winterswijk webshop;\n     • \tDe Oost Gelre webshop;\n     • \tDe Berkelland webshop;\n     • \tDe Noordoostpolder webshop\n     • \tDe Kerstpakket webshop;";
+"description_about" = "De Me-app maakt het geven, ontvangen en besteden van tegoeden eenvoudig. De app wordt gebruikt door:\n \n• 	Overheidsorganisaties en Goede Doelen: Deze organisaties gebruiken de app om tegoeden uit te geven.\n• 	Gebruikers: Personen die tegoeden hebben ontvangen, kunnen deze door middel van de app gemakkelijk beheren en besteden.\n• 	Aanbieders: Bedrijven die producten of diensten aanbieden, kunnen de app als kassa en scanner gebruiken.";
 "branches" = "%@ Vestigingen";
 "new_records" = "NIEUWE PERSOONSGEGEVEN";
 "history" = "Geschiedenis";
@@ -228,3 +228,14 @@
 "transcation_empty" = "Er zijn nog geen transacties";
 "no_active_products" = "Geen actief aanbod voor dit tegoed";
 "choose_action" = "Kies een actie";
+"attention" = "Let op";
+"reques_extra_payment_info" = "Er is onvoldoende saldo op het tegoed. Vraag de houder van dit tegoed om een bijbetaling van:";
+"more_information" = "Meer informatie";
+"more_information_description" = "Slechts een deel van het bedrag kan worden betaald met dit tegoed. Het resterende bedrag moet door de houder van dit tegoed zelf worden bijbetaald. Wanneer u vergeet dit te vragen, kan het zijn dat er te weinig wordt betaald. Bevestig dat u dit begrijpt door het bedrag dat moet worden bijbetaald in te vullen. Bij vragen kunt u ons bereiken via +31 (0)85 0043 3 87";
+"info_amount_extra_field" = "Typ het bij te betalen bedrag";
+"info_error_amount_extra_field" = "Het ingevoerde bedrag komt niet overeen met het te betalen bedrag hierboven.";
+"decline" = "Afwijzen";
+"submit" = "Verzenden";
+"extra_payment_title" = "Gevraagd om bijbetaling van";
+"success" = "Succesvol";
+"pending" = "In afwachting";

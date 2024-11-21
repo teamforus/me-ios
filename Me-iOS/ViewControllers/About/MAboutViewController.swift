@@ -41,7 +41,7 @@ class MAboutViewController: UIViewController {
     var dateCompany: UILabel_DarkMode = {
         let label = UILabel_DarkMode(frame: .zero)
         label.font = R.font.googleSansRegular(size: 14)
-        label.text = "Forus, 2018-2020"
+        label.text = "Forus"
         label.textColor = Color.grayText
         return label
     }()

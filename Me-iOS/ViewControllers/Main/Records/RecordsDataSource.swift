@@ -9,11 +9,10 @@
 import UIKit
 
 class RecordsDataSource: NSObject {
-    var records: [Record]
+    var records: [Record] = []
     var navigator: Navigator
     
-    init(records: [Record], navigator: Navigator) {
-        self.records = records
+    init(navigator: Navigator) {
         self.navigator = navigator
         super.init()
     }
