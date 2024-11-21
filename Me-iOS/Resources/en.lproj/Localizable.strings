@@ -229,5 +229,12 @@
 "transcation_empty" = "There are no transactions yet";
 "no_active_products" = "No active product for this fund";
 "choose_action" = "Choose an action";
-"reques_extra_payment_info" = "Insufficient funds on the voucher. Please request extra payment of: ";
+"attention" = "Attention";
+"reques_extra_payment_info" = "There are insufficient funds on this voucher. Ask the holder for an extra payment of: ";
 "more_information" = "More information";
+"more_information_description" = "This voucher only covers part of the total amount. The holder of the voucher must pay the remaining balance. If you forget to collect this amount, there could be an underpayment. Please confirm you understand by entering the extra amount that needs to be paid. If you have questions, call us at +31 (0)85 004 33 87.";
+"info_amount_extra_field" = "Enter the amount that needs to be paid extra";
+"info_error_amount_extra_field" = "The entered amount does not match the extra amount to be paid above.";
+"decline" = "Decline";
+"submit" = "Submit";
+"extra_payment_title" = "Requested extra payment of";
