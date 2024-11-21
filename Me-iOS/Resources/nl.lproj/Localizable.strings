@@ -237,3 +237,5 @@
 "decline" = "Afwijzen";
 "submit" = "Verzenden";
 "extra_payment_title" = "Gevraagd om bijbetaling van";
+"success" = "Succesvol";
+"pending" = "In afwachting";

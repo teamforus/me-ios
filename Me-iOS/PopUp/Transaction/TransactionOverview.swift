@@ -171,7 +171,15 @@ class TransactionOverview: UIView {
                 self.priceLabel.text = "+ € \(amount)"
             }
         }
-        transactionStatusLabel.text = transaction.state
+        
+        switch transaction.state {
+        case "pending":
+            self.transactionStatusLabel.text = Localize.pending()
+        case "success":
+            self.transactionStatusLabel.text = Localize.success()
+        default:
+            self.transactionStatusLabel.text = ""
+        }
         transactionDateLabel.text = transaction.created_at?.dateFormaterHourDate()
         idTransactionLabel.text = String(transaction.id ?? 0)
         fundNameLabel.text = transaction.fund?.name

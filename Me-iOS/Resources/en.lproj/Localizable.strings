@@ -238,3 +238,5 @@
 "decline" = "Decline";
 "submit" = "Submit";
 "extra_payment_title" = "Requested extra payment of";
+"success" = "Success";
+"pending" = "Pedning";
