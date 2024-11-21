@@ -81,6 +81,8 @@ class MTransactionsViewController: UIViewController {
         return view
     }()
     
+    private let refreshControl = UIRefreshControl()
+    
     lazy var datePicker : MDatePickerView = {
         let mdate = MDatePickerView()
         mdate.Color = #colorLiteral(red: 0.1702004969, green: 0.3387943804, blue: 1, alpha: 1)
@@ -154,11 +156,24 @@ extension MTransactionsViewController {
     }
     
     func setupTableView() {
+        refreshControl.alpha = 0
+        if #available(iOS 10.0, *) {
+            tableView.refreshControl = refreshControl
+        } else {
+            tableView.addSubview(refreshControl)
+        }
+        refreshControl.addTarget(self, action: #selector(refreshData(_:)), for: .valueChanged)
         tableView.dataSource = self
         tableView.delegate = self
         tableView.separatorStyle = .none
         tableView.register(TransactionListTableViewCell.self, forCellReuseIdentifier: TransactionListTableViewCell.identifier)
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+    }
+    
+    
+    
+    @objc func refreshData(_ sender: Any) {
+        fetchTransaction()
     }
 }
 
@@ -238,6 +253,7 @@ extension MTransactionsViewController {
             DispatchQueue.main.async {
                 self?.tableView.reloadData()
                 KVSpinnerView.dismiss()
+                self?.refreshControl.endRefreshing()
             }
         }
     }
