@@ -10,6 +10,8 @@ import UIKit
 
 class TransactionOverview: UIView {
     
+    var transaction: Transaction?
+    
     private let transpartentView: UIView = {
         let view = UIView()
         view.backgroundColor = .black
@@ -114,6 +116,21 @@ class TransactionOverview: UIView {
         return label
     }()
     
+    private let extraPaymentHeader: UILabel = {
+        let label = UILabel()
+        label.font = UIFont(name: "GoogleSans-Regular", size: 13)
+        label.text = Localize.extra_payment_title()
+        label.isHidden = true
+        label.textColor = #colorLiteral(red: 0.5295057893, green: 0.5291086435, blue: 0.5508569479, alpha: 1)
+        return label
+    }()
+    
+    private let extraPriceLabel: UILabel_DarkMode = {
+        let label = UILabel_DarkMode()
+        label.isHidden = true
+        return label
+    }()
+    
     let noteHeader: UILabel = {
         let label = UILabel()
         label.font = UIFont(name: "GoogleSans-Regular", size: 13)
@@ -129,7 +146,9 @@ class TransactionOverview: UIView {
     
     // MARK: - Init
     
-    override init(frame: CGRect) {
+     init( transaction: Transaction) {
+        self.transaction = transaction
+        
         super.init(frame: .zero)
         addSubviews()
         addConstraints()
@@ -143,8 +162,8 @@ class TransactionOverview: UIView {
         super.init(coder: coder)
     }
     
-    func configure(transaction: Transaction) {
-        
+    func configure() {
+        guard let transaction = transaction else { return }
         if let amount = transaction.amount {
             if amount.double == 0.0 {
                 self.priceLabel.text = Localize.free()
@@ -152,12 +171,26 @@ class TransactionOverview: UIView {
                 self.priceLabel.text = "+ € \(amount)"
             }
         }
-        transactionStatusLabel.text = transaction.state
+        
+        switch transaction.state {
+        case "pending":
+            self.transactionStatusLabel.text = Localize.pending()
+        case "success":
+            self.transactionStatusLabel.text = Localize.success()
+        default:
+            self.transactionStatusLabel.text = ""
+        }
         transactionDateLabel.text = transaction.created_at?.dateFormaterHourDate()
         idTransactionLabel.text = String(transaction.id ?? 0)
         fundNameLabel.text = transaction.fund?.name
         provederNameLabel.text = transaction.organization?.name
         noteNameLabel.text = transaction.note
+        
+        if let price = transaction.amount_extra_cash, price != "0.00" {
+            extraPriceLabel.isHidden = false
+            extraPaymentHeader.isHidden = false
+            extraPriceLabel.text = "€\(price)"
+        }
     }
 }
 
@@ -166,21 +199,40 @@ class TransactionOverview: UIView {
 
 extension TransactionOverview {
     func addSubviews() {
-        let views = [transpartentView, bodyView]
+        let views = [transpartentView,
+                     bodyView]
+        
         views.forEach { (view) in
             addSubview(view)
         }
     }
     
     func addSubviewsBodyView() {
-        let views = [dateTitleLabel, transactionDateLabel, closeButton, priceLabel, transactionStatusLabel, bodyTransactionDetailView]
+        let views = [dateTitleLabel,
+                     transactionDateLabel,
+                     closeButton,
+                     priceLabel,
+                     transactionStatusLabel,
+                     bodyTransactionDetailView]
+        
         views.forEach { (view) in
             addSubview(view)
         }
     }
     
     func addbodyTransactionDetailViewSubviews() {
-        let views = [titleLabel, idHeader, idTransactionLabel, fundHeader, fundNameLabel, providerHeader, provederNameLabel, noteHeader, noteNameLabel]
+        let views = [titleLabel,
+                     idHeader,
+                     idTransactionLabel,
+                     fundHeader,
+                     fundNameLabel,
+                     providerHeader,
+                     provederNameLabel,
+                     extraPaymentHeader,
+                     extraPriceLabel,
+                     noteHeader,
+                     noteNameLabel]
+        
         views.forEach { (view) in
             bodyTransactionDetailView.addSubview(view)
         }
@@ -193,8 +245,18 @@ extension TransactionOverview {
 extension TransactionOverview {
     func addConstraints() {
         
+        var heigt = 423
+        
+        if let _ = transaction?.note {
+            heigt += 50
+        }
+        
+        if let price = transaction?.amount_extra_cash, price != "0.00" {
+            heigt += 50
+        }
+        
         bodyView.snp.makeConstraints { make in
-            make.height.equalTo(423)
+            make.height.equalTo(heigt)
             make.left.right.bottom.equalTo(self)
         }
         
@@ -231,12 +293,22 @@ extension TransactionOverview {
             make.centerX.equalTo(bodyView)
         }
         
+        var heigt = 228
+        
+        if let _ = transaction?.note {
+            heigt += 50
+        }
+        
+        if let price = transaction?.amount_extra_cash, price != "0.00" {
+            heigt += 50
+        }
+        
         bodyTransactionDetailView.snp.makeConstraints { make in
             make.left.equalTo(bodyView).offset(10)
             make.right.equalTo(bodyView).offset(-10)
             make.bottom.equalTo(bodyView).offset(-30)
             make.top.equalTo(transactionStatusLabel.snp.bottom).offset(20)
-            make.height.equalTo(228)
+            make.height.equalTo(heigt)
         }
     }
     
@@ -274,6 +346,16 @@ extension TransactionOverview {
         
         provederNameLabel.snp.makeConstraints { make in
             make.top.equalTo(providerHeader.snp.bottom).offset(3)
+            make.left.equalTo(bodyTransactionDetailView).offset(25)
+        }
+        
+        extraPaymentHeader.snp.makeConstraints { make in
+            make.top.equalTo(provederNameLabel.snp.bottom).offset(16)
+            make.left.equalTo(bodyTransactionDetailView).offset(25)
+        }
+        
+        extraPriceLabel.snp.makeConstraints { make in
+            make.top.equalTo(extraPaymentHeader.snp.bottom).offset(3)
             make.left.equalTo(bodyTransactionDetailView).offset(25)
         }
     }

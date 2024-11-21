@@ -316,9 +316,9 @@ extension MTransactionsViewController: MDatePickerViewDelegate {
 
 extension MTransactionsViewController {
     func openTransactionOverview(with transaction: Transaction) {
-        let transactionOverview = TransactionOverview()
+        let transactionOverview = TransactionOverview(transaction: transaction)
         setupTrasactionOverview(transactionOverview: transactionOverview)
-        transactionOverview.configure(transaction: transaction)
+        transactionOverview.configure()
         transactionOverview.popIn()
     }
     

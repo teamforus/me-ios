@@ -78,9 +78,9 @@ class TransactionListTableViewCell: UITableViewCell {
     func configure(transaction: Transaction) {
         switch transaction.state {
         case "pending":
-            self.statusLabel.text = "in afwachting"
+            self.statusLabel.text = Localize.pending()
         case "success":
-            self.statusLabel.text = "succesvol"
+            self.statusLabel.text = Localize.success()
         default:
             self.statusLabel.text = ""
         }

@@ -45,7 +45,7 @@ class MConfirmPaymentViewController: UIViewController {
         let label = UILabel()
         label.font = UIFont(name: "GoogleSans-Regular", size: 24)
         label.textColor = .black
-        label.text = "Let op"
+        label.text = Localize.attention()
         return label
     }()
     
@@ -139,7 +139,7 @@ class MConfirmPaymentViewController: UIViewController {
     private let moreInfoLabel: UILabel = {
         let label = UILabel(frame: .zero)
         label.font = UIFont(name: "GoogleSans-Regular", size: 13)
-        label.text = "Slechts een deel van het bedrag kan worden betaald met dit tegoed. Het resterende bedrag moet door de houder van dit tegoed zelf worden bijbetaald. Wanneer u vergeet dit te vragen, kan het zijn dat er te weinig wordt betaald. Bevestig dat u dit begrijpt door het bedrag dat moet worden bijbetaald in te vullen. Bij vragen kunt u ons bereiken via +31 (0)85 0043 3 87"
+        label.text = Localize.more_information_description()
         label.textColor = .black
         label.numberOfLines = 0
         return label
@@ -162,7 +162,7 @@ class MConfirmPaymentViewController: UIViewController {
     
     private let cancelButton: ActionButton = {
         let button = ActionButton(frame: .zero)
-        button.setTitle("Afwijzen", for: .normal)
+        button.setTitle(Localize.decline(), for: .normal)
         button.setTitleColor(Color.blueText, for: .normal)
         button.backgroundColor = .white
         return button
@@ -170,7 +170,7 @@ class MConfirmPaymentViewController: UIViewController {
     
     private let doneButton: ActionButton = {
         let button = ActionButton(frame: .zero)
-        button.setTitle("Verzenden", for: .normal)
+        button.setTitle(Localize.submit(), for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.backgroundColor = Color.blueText
         button.rounded(cornerRadius: 6)
@@ -179,7 +179,7 @@ class MConfirmPaymentViewController: UIViewController {
     
     private let customFields: CustomTextField = {
         let textField = CustomTextField(frame: .zero)
-        textField.setup(title: "Typ het bij te betalen bedrag",
+        textField.setup(title: Localize.info_amount_extra_field(),
                         placeHolder: "€ 0,00",
                         icon: nil,
                         type: .numberPad)
@@ -242,7 +242,7 @@ class MConfirmPaymentViewController: UIViewController {
             let textFieldAmount = strongSelf.amountText.replacingOccurrences(of: ",", with: ".")
             
             if Double(amount) ?? 0 > Double(textFieldAmount) ?? 0{
-                strongSelf.customFields.setError(with: "Het ingevoerde bedrag komt niet overeen met het te betalen bedrag hierboven.")
+                strongSelf.customFields.setError(with: Localize.info_error_amount_extra_field())
                 return
             }
             

@@ -228,5 +228,14 @@
 "transcation_empty" = "Er zijn nog geen transacties";
 "no_active_products" = "Geen actief aanbod voor dit tegoed";
 "choose_action" = "Kies een actie";
+"attention" = "Let op";
 "reques_extra_payment_info" = "Er is onvoldoende saldo op het tegoed. Vraag de houder van dit tegoed om een bijbetaling van:";
 "more_information" = "Meer informatie";
+"more_information_description" = "Slechts een deel van het bedrag kan worden betaald met dit tegoed. Het resterende bedrag moet door de houder van dit tegoed zelf worden bijbetaald. Wanneer u vergeet dit te vragen, kan het zijn dat er te weinig wordt betaald. Bevestig dat u dit begrijpt door het bedrag dat moet worden bijbetaald in te vullen. Bij vragen kunt u ons bereiken via +31 (0)85 0043 3 87";
+"info_amount_extra_field" = "Typ het bij te betalen bedrag";
+"info_error_amount_extra_field" = "Het ingevoerde bedrag komt niet overeen met het te betalen bedrag hierboven.";
+"decline" = "Afwijzen";
+"submit" = "Verzenden";
+"extra_payment_title" = "Gevraagd om bijbetaling van";
+"success" = "Succesvol";
+"pending" = "In afwachting";

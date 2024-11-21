@@ -2106,7 +2106,7 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
 
-    /// This `R.string.localizable` struct is generated, and contains static references to 219 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 226 localization keys.
     struct localizable {
       /// en translation: %@ Branches
       ///
@@ -2172,6 +2172,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en, nl
       static let are_you_sure_you_want_log_out = Rswift.StringResource(key: "are_you_sure_you_want_log_out", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
+      /// en translation: Attention
+      ///
+      /// Locales: en, nl
+      static let attention = Rswift.StringResource(key: "attention", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
       /// en translation: Authentication Failed
       ///
       /// Locales: en, nl
@@ -2288,10 +2292,6 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en
       static let currently_maintenance_being_done = Rswift.StringResource(key: "currently_maintenance_being_done", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
-      /// en translation: DECLINE
-      ///
-      /// Locales: en, nl
-      static let decline = Rswift.StringResource(key: "decline", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
       /// en translation: Date
       ///
       /// Locales: en, nl
@@ -2304,6 +2304,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en, nl
       static let deactivated = Rswift.StringResource(key: "deactivated", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
+      /// en translation: Decline
+      ///
+      /// Locales: en, nl
+      static let decline = Rswift.StringResource(key: "decline", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
       /// en translation: Delete
       ///
       /// Locales: en, nl
@@ -2364,6 +2368,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en, nl
       static let enter_login_code = Rswift.StringResource(key: "enter_login_code", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
+      /// en translation: Enter the amount that needs to be paid extra
+      ///
+      /// Locales: en, nl
+      static let info_amount_extra_field = Rswift.StringResource(key: "info_amount_extra_field", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
       /// en translation: Enter the price here.
       ///
       /// Locales: en, nl
@@ -2444,10 +2452,6 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en, nl
       static let insufficient_funds_on_the_voucher = Rswift.StringResource(key: "insufficient_funds_on_the_voucher", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
-      /// en translation: Insufficient funds on the voucher. Please request extra payment of: 
-      ///
-      /// Locales: en, nl
-      static let reques_extra_payment_info = Rswift.StringResource(key: "reques_extra_payment_info", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
       /// en translation: Insufficient funds on the voucher. Please, request extra payment of €%.02f
       ///
       /// Locales: en, nl
@@ -2600,6 +2604,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en, nl
       static let payment_succeeded = Rswift.StringResource(key: "payment_succeeded", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
+      /// en translation: Pedning
+      ///
+      /// Locales: en, nl
+      static let pending = Rswift.StringResource(key: "pending", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
       /// en translation: Personal
       ///
       /// Locales: en, nl
@@ -2692,6 +2700,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en, nl
       static let relationships = Rswift.StringResource(key: "relationships", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
+      /// en translation: Requested extra payment of
+      ///
+      /// Locales: en, nl
+      static let extra_payment_title = Rswift.StringResource(key: "extra_payment_title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
       /// en translation: SIGN IN
       ///
       /// Locales: en, nl
@@ -2752,6 +2764,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en, nl
       static let spouse = Rswift.StringResource(key: "spouse", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
+      /// en translation: Submit
+      ///
+      /// Locales: en, nl
+      static let submit = Rswift.StringResource(key: "submit", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
       /// en translation: Subsidy by %@
       ///
       /// Locales: en, nl
@@ -2800,6 +2816,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en, nl
       static let paid_by_customer = Rswift.StringResource(key: "paid_by_customer", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
+      /// en translation: The entered amount does not match the extra amount to be paid above.
+      ///
+      /// Locales: en, nl
+      static let info_error_amount_extra_field = Rswift.StringResource(key: "info_error_amount_extra_field", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
       /// en translation: The offers below are reserved by the customer
       ///
       /// Locales: en, nl
@@ -2812,6 +2832,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en, nl
       static let the_voucher_is_empty = Rswift.StringResource(key: "the_voucher_is_empty", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
+      /// en translation: There are insufficient funds on this voucher. Ask the holder for an extra payment of: 
+      ///
+      /// Locales: en, nl
+      static let reques_extra_payment_info = Rswift.StringResource(key: "reques_extra_payment_info", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
       /// en translation: There are no transactions yet
       ///
       /// Locales: en, nl
@@ -2852,6 +2876,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en, nl
       static let this_voucher_is_expired_on = Rswift.StringResource(key: "this_voucher_is_expired_on", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
+      /// en translation: This voucher only covers part of the total amount. The holder of the voucher must pay the remaining balance. If you forget to collect this amount, there could be an underpayment. Please confirm you understand by entering the extra amount that needs to be paid. If you have questions, call us at +31 (0)85 004 33 87.
+      ///
+      /// Locales: en, nl
+      static let more_information_description = Rswift.StringResource(key: "more_information_description", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
       /// en translation: Total price
       ///
       /// Locales: en, nl
@@ -3233,6 +3261,21 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("are_you_sure_you_want_log_out", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Attention
+      ///
+      /// Locales: en, nl
+      static func attention(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("attention", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "attention"
+        }
+
+        return NSLocalizedString("attention", bundle: bundle, comment: "")
       }
 
       /// en translation: Authentication Failed
@@ -3670,21 +3713,6 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("currently_maintenance_being_done", bundle: bundle, comment: "")
       }
 
-      /// en translation: DECLINE
-      ///
-      /// Locales: en, nl
-      static func decline(preferredLanguages: [String]? = nil) -> String {
-        guard let preferredLanguages = preferredLanguages else {
-          return NSLocalizedString("decline", bundle: hostingBundle, comment: "")
-        }
-
-        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
-          return "decline"
-        }
-
-        return NSLocalizedString("decline", bundle: bundle, comment: "")
-      }
-
       /// en translation: Date
       ///
       /// Locales: en, nl
@@ -3728,6 +3756,21 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("deactivated", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Decline
+      ///
+      /// Locales: en, nl
+      static func decline(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("decline", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "decline"
+        }
+
+        return NSLocalizedString("decline", bundle: bundle, comment: "")
       }
 
       /// en translation: Delete
@@ -3955,6 +3998,21 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("enter_login_code", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Enter the amount that needs to be paid extra
+      ///
+      /// Locales: en, nl
+      static func info_amount_extra_field(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("info_amount_extra_field", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "info_amount_extra_field"
+        }
+
+        return NSLocalizedString("info_amount_extra_field", bundle: bundle, comment: "")
       }
 
       /// en translation: Enter the price here.
@@ -4255,21 +4313,6 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("insufficient_funds_on_the_voucher", bundle: bundle, comment: "")
-      }
-
-      /// en translation: Insufficient funds on the voucher. Please request extra payment of: 
-      ///
-      /// Locales: en, nl
-      static func reques_extra_payment_info(preferredLanguages: [String]? = nil) -> String {
-        guard let preferredLanguages = preferredLanguages else {
-          return NSLocalizedString("reques_extra_payment_info", bundle: hostingBundle, comment: "")
-        }
-
-        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
-          return "reques_extra_payment_info"
-        }
-
-        return NSLocalizedString("reques_extra_payment_info", bundle: bundle, comment: "")
       }
 
       /// en translation: Insufficient funds on the voucher. Please, request extra payment of €%.02f
@@ -4846,6 +4889,21 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("payment_succeeded", bundle: bundle, comment: "")
       }
 
+      /// en translation: Pedning
+      ///
+      /// Locales: en, nl
+      static func pending(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("pending", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "pending"
+        }
+
+        return NSLocalizedString("pending", bundle: bundle, comment: "")
+      }
+
       /// en translation: Personal
       ///
       /// Locales: en, nl
@@ -5197,6 +5255,21 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("relationships", bundle: bundle, comment: "")
       }
 
+      /// en translation: Requested extra payment of
+      ///
+      /// Locales: en, nl
+      static func extra_payment_title(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("extra_payment_title", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "extra_payment_title"
+        }
+
+        return NSLocalizedString("extra_payment_title", bundle: bundle, comment: "")
+      }
+
       /// en translation: SIGN IN
       ///
       /// Locales: en, nl
@@ -5422,6 +5495,21 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("spouse", bundle: bundle, comment: "")
       }
 
+      /// en translation: Submit
+      ///
+      /// Locales: en, nl
+      static func submit(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("submit", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "submit"
+        }
+
+        return NSLocalizedString("submit", bundle: bundle, comment: "")
+      }
+
       /// en translation: Subsidy by %@
       ///
       /// Locales: en, nl
@@ -5604,6 +5692,21 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("paid_by_customer", bundle: bundle, comment: "")
       }
 
+      /// en translation: The entered amount does not match the extra amount to be paid above.
+      ///
+      /// Locales: en, nl
+      static func info_error_amount_extra_field(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("info_error_amount_extra_field", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "info_error_amount_extra_field"
+        }
+
+        return NSLocalizedString("info_error_amount_extra_field", bundle: bundle, comment: "")
+      }
+
       /// en translation: The offers below are reserved by the customer
       ///
       /// Locales: en, nl
@@ -5647,6 +5750,21 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("the_voucher_is_empty", bundle: bundle, comment: "")
+      }
+
+      /// en translation: There are insufficient funds on this voucher. Ask the holder for an extra payment of: 
+      ///
+      /// Locales: en, nl
+      static func reques_extra_payment_info(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("reques_extra_payment_info", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "reques_extra_payment_info"
+        }
+
+        return NSLocalizedString("reques_extra_payment_info", bundle: bundle, comment: "")
       }
 
       /// en translation: There are no transactions yet
@@ -5799,6 +5917,21 @@ struct R: Rswift.Validatable {
 
         let format = NSLocalizedString("this_voucher_is_expired_on", bundle: bundle, comment: "")
         return String(format: format, locale: locale, value1)
+      }
+
+      /// en translation: This voucher only covers part of the total amount. The holder of the voucher must pay the remaining balance. If you forget to collect this amount, there could be an underpayment. Please confirm you understand by entering the extra amount that needs to be paid. If you have questions, call us at +31 (0)85 004 33 87.
+      ///
+      /// Locales: en, nl
+      static func more_information_description(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("more_information_description", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "more_information_description"
+        }
+
+        return NSLocalizedString("more_information_description", bundle: bundle, comment: "")
       }
 
       /// en translation: Total price
