@@ -110,31 +110,16 @@ class MPaymentViewController: UIViewController {
     }
     
     private func sendProductTransaction() {
+
+        let vc = ConfirmPaymentPopUp()
+        vc.voucher = voucher
+        vc.organizationId = selectedAllowerdOrganization?.id ?? 0
+        vc.note = dataSource.noteValue
+        vc.amount = dataSource.amountValue
+        vc.modalTransitionStyle = .crossDissolve
+        vc.modalPresentationStyle = .overCurrentContext
+        self.present(vc, animated: true)
         
-        
-        let amountVoucher = Double(voucher.amount ?? "0.00")!
-        _ = Double(dataSource.amountValue.replacingOccurrences(of: ",", with: "."))! - amountVoucher
-        
-        if Double(dataSource.amountValue.replacingOccurrences(of: ",", with: "."))! > amountVoucher {
-            let confirmAuthVC = MConfirmPaymentViewController()
-            confirmAuthVC.voucher = voucher
-            confirmAuthVC.organizationId = selectedAllowerdOrganization?.id ?? 0
-            confirmAuthVC.note = dataSource.noteValue
-            confirmAuthVC.amount = dataSource.amountValue
-            confirmAuthVC.modalPresentationStyle = .custom
-            confirmAuthVC.transitioningDelegate = self.sheetTransitioningDelegate
-            self.present(confirmAuthVC, animated: true, completion: nil)
-            
-        }else {
-            let vc = ConfirmPaymentPopUp()
-            vc.voucher = voucher
-            vc.organizationId = selectedAllowerdOrganization?.id ?? 0
-            vc.note = dataSource.noteValue
-            vc.amount = dataSource.amountValue
-            vc.modalTransitionStyle = .crossDissolve
-            vc.modalPresentationStyle = .overCurrentContext
-            self.present(vc, animated: true)
-        }
     }
     
     private func sendVoucherTransactions() {
@@ -153,7 +138,6 @@ class MPaymentViewController: UIViewController {
             self.present(confirmAuthVC, animated: true, completion: nil)
             
         }else {
-            
             let vc = ConfirmPaymentPopUp()
             vc.voucher = voucher
             vc.organizationId = selectedAllowerdOrganization?.id ?? 0
