@@ -69,7 +69,7 @@ extension String{
         dateFormater.dateFormat = "yyyy-MM-dd HH:mm:ss"
         let date = dateFormater.date(from: self)
         dateFormater.dateFormat = "HH:mm"
-        let dateString = dateFormater.string(from: date!)
+        guard let dateString = dateFormater.string(from: date) else { return String.empty }
         return dateString
     }
     
@@ -78,7 +78,7 @@ extension String{
         dateFormater.dateFormat = "yyyy-MM-dd HH:mm:ss"
         let date = dateFormater.date(from: self)
         dateFormater.dateFormat = "E, HH:mm"
-        let dateString = dateFormater.string(from: date!)
+        guard let dateString = dateFormater.string(from: date) else { return String.empty }
         return dateString
     }
     
@@ -87,7 +87,7 @@ extension String{
         dateFormater.dateFormat = "yyyy-MM-dd HH:mm:ss"
         let date = dateFormater.date(from: self)
         dateFormater.dateFormat = "d MMMM, HH:mm"
-        let dateString = dateFormater.string(from: date!)
+        guard let dateString = dateFormater.string(from: date) else { return String.empty }
         return dateString
     }
     
@@ -96,7 +96,7 @@ extension String{
         dateFormater.dateFormat = "yyyy-MM-dd HH:mm:ss"
         let date = dateFormater.date(from: self)
         dateFormater.dateFormat = "HH:mm - dd MMM, yyyy"
-        let dateString = dateFormater.string(from: date ?? Date())
+        guard let dateString = dateFormater.string(from: date) else { return String.empty }
         return dateString
     }
     
@@ -106,7 +106,7 @@ extension String{
         dateFormater.dateFormat = "yyyy-MM-ddHH:mm:ss.SSSSSS"
         let date = dateFormater.date(from: self)
         dateFormater.dateFormat = "d MMMM yyyy"
-        let dateString = dateFormater.string(from: date!)
+        guard let dateString = dateFormater.string(from: date) else { return String.empty }
         return dateString
     }
     
@@ -115,7 +115,7 @@ extension String{
         dateFormater.dateFormat = "yyyy-MM-dd HH:mm:ss"
         let date = dateFormater.date(from: self)
         dateFormater.dateFormat = "yyyy-MM-dd"
-        let dateString = dateFormater.string(from: date!)
+        guard let dateString = dateFormater.string(from: date) else { return String.empty }
         return dateString
     }
 }
