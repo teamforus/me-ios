@@ -67,36 +67,36 @@ extension String{
     func dateFormaterTime() -> String  {
         let dateFormater = DateFormatter()
         dateFormater.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        let date = dateFormater.date(from: self)
+        guard let date = dateFormater.date(from: self) else { return String.empty }
         dateFormater.dateFormat = "HH:mm"
-        guard let dateString = dateFormater.string(from: date) else { return String.empty }
+        let dateString = dateFormater.string(from: date)
         return dateString
     }
     
     func dateFormaterShortDate() -> String  {
         let dateFormater = DateFormatter()
         dateFormater.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        let date = dateFormater.date(from: self)
+        guard let date = dateFormater.date(from: self) else { return String.empty }
         dateFormater.dateFormat = "E, HH:mm"
-        guard let dateString = dateFormater.string(from: date) else { return String.empty }
+        let dateString = dateFormater.string(from: date)
         return dateString
     }
     
     func dateFormaterNormalDate() -> String  {
         let dateFormater = DateFormatter()
         dateFormater.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        let date = dateFormater.date(from: self)
+        guard let date = dateFormater.date(from: self) else { return String.empty }
         dateFormater.dateFormat = "d MMMM, HH:mm"
-        guard let dateString = dateFormater.string(from: date) else { return String.empty }
+        let dateString = dateFormater.string(from: date)
         return dateString
     }
     
     func dateFormaterHourDate() -> String?  {
         let dateFormater = DateFormatter()
         dateFormater.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        let date = dateFormater.date(from: self)
+        guard let date = dateFormater.date(from: self) else { return String.empty }
         dateFormater.dateFormat = "HH:mm - dd MMM, yyyy"
-        guard let dateString = dateFormater.string(from: date) else { return String.empty }
+        let dateString = dateFormater.string(from: date)
         return dateString
     }
     
@@ -104,18 +104,18 @@ extension String{
         let dateFormater = DateFormatter()
 //        dateFormater.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSSSS'Z'"
         dateFormater.dateFormat = "yyyy-MM-ddHH:mm:ss.SSSSSS"
-        let date = dateFormater.date(from: self)
+        guard let date = dateFormater.date(from: self) else { return String.empty }
         dateFormater.dateFormat = "d MMMM yyyy"
-        guard let dateString = dateFormater.string(from: date) else { return String.empty }
+        let dateString = dateFormater.string(from: date)
         return dateString
     }
     
     func dateFormaterForServer() -> String  {
         let dateFormater = DateFormatter()
         dateFormater.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        let date = dateFormater.date(from: self)
+        guard let date = dateFormater.date(from: self) else { return String.empty }
         dateFormater.dateFormat = "yyyy-MM-dd"
-        guard let dateString = dateFormater.string(from: date) else { return String.empty }
+        let dateString = dateFormater.string(from: date)
         return dateString
     }
 }
