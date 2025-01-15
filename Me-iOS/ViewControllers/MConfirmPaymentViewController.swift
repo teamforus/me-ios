@@ -201,7 +201,8 @@ class MConfirmPaymentViewController: UIViewController {
         addSubviews()
         setupConstraints()
         keyboard.addObservers()
-        priceLabel.text = "€ \(Double(amount ?? "") ?? 0)"
+        let extraAmount = (Double(amount.replacingOccurrences(of: ",", with: ".")) ?? 0) - (Double(voucher.amount ?? "0") ?? 0)
+        priceLabel.text = String(format: "€ %.2f", extraAmount)
         keyboard.onChangedKeyboardHeight = { [weak self] height in
             guard let strongSelf = self else { return }
             
