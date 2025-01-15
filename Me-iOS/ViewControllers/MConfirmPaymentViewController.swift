@@ -182,7 +182,7 @@ class MConfirmPaymentViewController: UIViewController {
         textField.setup(title: Localize.info_amount_extra_field(),
                         placeHolder: "€ 0,00",
                         icon: nil,
-                        type: .numberPad)
+                        type: .decimalPad)
         return textField
     }()
     
@@ -285,6 +285,7 @@ class MConfirmPaymentViewController: UIViewController {
         }
         
         moreInfoButton.actionHandleBlock = { [weak self] (_) in
+            self?.view.endEditing(true)
             guard let strongSelf = self else { return }
             strongSelf.isColapsed = !strongSelf.isColapsed
             if !strongSelf.isColapsed {
