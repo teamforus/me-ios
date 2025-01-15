@@ -242,16 +242,16 @@ class MConfirmPaymentViewController: UIViewController {
             let amount = strongSelf.amount.replacingOccurrences(of: ",", with: ".")
             let textFieldAmount = strongSelf.amountText.replacingOccurrences(of: ",", with: ".")
             
-            if Double(amount) ?? 0 > Double(textFieldAmount) ?? 0{
+            let extraAmount = (Double(textFieldAmount) ?? 0) + (Double(strongSelf.voucher.amount ?? "0") ?? 0)
+            
+            if Double(extraAmount) < Double(amount) ?? 0{
                 strongSelf.customFields.setError(with: Localize.info_error_amount_extra_field())
                 return
             }
             
-            let extraAmount = (Double(textFieldAmount) ?? 0) - (Double(strongSelf.voucher.amount ?? "0") ?? 0)
+            let extraCashString = textFieldAmount
             
-            let extraCash = "\(extraAmount)"
-            
-            let payTransaction = PayTransaction(organization_id: strongSelf.organizationId ?? 0, amount: strongSelf.voucher.amount?.replacingOccurrences(of: ",", with: "."), amount_extra_cash: extraCash.replacingOccurrences(of: ",", with: "."), note: strongSelf.note ?? "")
+            let payTransaction = PayTransaction(organization_id: strongSelf.organizationId ?? 0, amount: strongSelf.voucher.amount?.replacingOccurrences(of: ",", with: "."), amount_extra_cash: extraCashString.replacingOccurrences(of: ",", with: "."), note: strongSelf.note ?? "")
             KVSpinnerView.show()
             strongSelf.commonService.create(request: "platform/vouchers/"+strongSelf.voucher.address!+"/transactions", data: payTransaction) { (response: ResponseData<Transaction>, statusCode) in
                 KVSpinnerView.dismiss()
