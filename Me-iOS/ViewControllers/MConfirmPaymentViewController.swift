@@ -59,7 +59,7 @@ class MConfirmPaymentViewController: UIViewController {
     private let closeButton: ActionButton = {
         let button = ActionButton()
         button.setImage(#imageLiteral(resourceName: "closeIcon"), for: .normal)
-//        button.addTarget(self, action: #selector(popOut), for: .touchUpInside)
+        //        button.addTarget(self, action: #selector(popOut), for: .touchUpInside)
         return button
     }()
     
@@ -144,7 +144,7 @@ class MConfirmPaymentViewController: UIViewController {
         label.numberOfLines = 0
         return label
     }()
-     
+    
     private let separatorView: UIView = {
         let view = UIView(frame: .zero)
         view.backgroundColor = UIColor.init(hex: "#F4F4F4")
@@ -152,7 +152,7 @@ class MConfirmPaymentViewController: UIViewController {
     }()
     
     lazy var stackViewButton: UIStackView = {
-       let view = UIStackView(arrangedSubviews: [cancelButton, doneButton])
+        let view = UIStackView(arrangedSubviews: [cancelButton, doneButton])
         view.axis = .horizontal
         view.distribution = .fillEqually
         view.spacing = 15
@@ -206,12 +206,12 @@ class MConfirmPaymentViewController: UIViewController {
             guard let strongSelf = self else { return }
             
             if height != 0 {
-//                strongSelf.view.frame.size.height = height
+                //                strongSelf.view.frame.size.height = height
                 strongSelf.view.frame.origin.y = height - (strongSelf.originalFrame.size.height / 1.5)
             }else {
                 strongSelf.view.frame = strongSelf.originalFrame
             }
-           
+            
             strongSelf.view.layoutIfNeeded()
         }
         
