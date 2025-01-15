@@ -236,6 +236,7 @@ class MConfirmPaymentViewController: UIViewController {
         }
         
         doneButton.actionHandleBlock = { [weak self] (sender) in
+            KVSpinnerView.show()
             guard let strongSelf = self else { return }
             
             let amount = strongSelf.amount.replacingOccurrences(of: ",", with: ".")
@@ -253,7 +254,7 @@ class MConfirmPaymentViewController: UIViewController {
             let payTransaction = PayTransaction(organization_id: strongSelf.organizationId ?? 0, amount: strongSelf.voucher.amount?.replacingOccurrences(of: ",", with: "."), amount_extra_cash: extraCash.replacingOccurrences(of: ",", with: "."), note: strongSelf.note ?? "")
             
             strongSelf.commonService.create(request: "platform/vouchers/"+strongSelf.voucher.address!+"/transactions", data: payTransaction) { (response: ResponseData<Transaction>, statusCode) in
-                
+                KVSpinnerView.dismiss()
                 DispatchQueue.main.async {
                     KVSpinnerView.dismiss()
                     if statusCode == 201 {
