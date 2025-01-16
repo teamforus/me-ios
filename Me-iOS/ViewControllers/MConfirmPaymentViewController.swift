@@ -59,7 +59,7 @@ class MConfirmPaymentViewController: UIViewController {
     private let closeButton: ActionButton = {
         let button = ActionButton()
         button.setImage(#imageLiteral(resourceName: "closeIcon"), for: .normal)
-//        button.addTarget(self, action: #selector(popOut), for: .touchUpInside)
+        //        button.addTarget(self, action: #selector(popOut), for: .touchUpInside)
         return button
     }()
     
@@ -144,7 +144,7 @@ class MConfirmPaymentViewController: UIViewController {
         label.numberOfLines = 0
         return label
     }()
-     
+    
     private let separatorView: UIView = {
         let view = UIView(frame: .zero)
         view.backgroundColor = UIColor.init(hex: "#F4F4F4")
@@ -152,7 +152,7 @@ class MConfirmPaymentViewController: UIViewController {
     }()
     
     lazy var stackViewButton: UIStackView = {
-       let view = UIStackView(arrangedSubviews: [cancelButton, doneButton])
+        let view = UIStackView(arrangedSubviews: [cancelButton, doneButton])
         view.axis = .horizontal
         view.distribution = .fillEqually
         view.spacing = 15
@@ -182,7 +182,7 @@ class MConfirmPaymentViewController: UIViewController {
         textField.setup(title: Localize.info_amount_extra_field(),
                         placeHolder: "€ 0,00",
                         icon: nil,
-                        type: .numberPad)
+                        type: .decimalPad)
         return textField
     }()
     
@@ -201,17 +201,18 @@ class MConfirmPaymentViewController: UIViewController {
         addSubviews()
         setupConstraints()
         keyboard.addObservers()
-        priceLabel.text = "€ \(Double(amount ?? "") ?? 0)"
+        let extraAmount = (Double(amount.replacingOccurrences(of: ",", with: ".")) ?? 0) - (Double(voucher.amount ?? "0") ?? 0)
+        priceLabel.text = String(format: "€ %.2f", extraAmount)
         keyboard.onChangedKeyboardHeight = { [weak self] height in
             guard let strongSelf = self else { return }
             
             if height != 0 {
-//                strongSelf.view.frame.size.height = height
+                //                strongSelf.view.frame.size.height = height
                 strongSelf.view.frame.origin.y = height - (strongSelf.originalFrame.size.height / 1.5)
             }else {
                 strongSelf.view.frame = strongSelf.originalFrame
             }
-           
+            
             strongSelf.view.layoutIfNeeded()
         }
         
@@ -232,28 +233,30 @@ class MConfirmPaymentViewController: UIViewController {
         
         cancelButton.actionHandleBlock = { [weak self] (_) in
             guard let strongSelf = self else { return }
+            strongSelf.view.endEditing(true)
             strongSelf.dismiss(animated: true)
         }
         
         doneButton.actionHandleBlock = { [weak self] (sender) in
+            
             guard let strongSelf = self else { return }
             
             let amount = strongSelf.amount.replacingOccurrences(of: ",", with: ".")
             let textFieldAmount = strongSelf.amountText.replacingOccurrences(of: ",", with: ".")
             
-            if Double(amount) ?? 0 > Double(textFieldAmount) ?? 0{
+            let extraAmount = (Double(textFieldAmount) ?? 0) + (Double(strongSelf.voucher.amount ?? "0") ?? 0)
+            
+            if Double(extraAmount) < Double(amount) ?? 0 || Double(extraAmount) > Double(amount) ?? 0{
                 strongSelf.customFields.setError(with: Localize.info_error_amount_extra_field())
                 return
             }
             
-            let extraAmount = (Double(textFieldAmount) ?? 0) - (Double(strongSelf.voucher.amount ?? "0") ?? 0)
+            let extraCashString = textFieldAmount
             
-            let extraCash = "\(extraAmount)"
-            
-            let payTransaction = PayTransaction(organization_id: strongSelf.organizationId ?? 0, amount: strongSelf.voucher.amount?.replacingOccurrences(of: ",", with: "."), amount_extra_cash: extraCash.replacingOccurrences(of: ",", with: "."), note: strongSelf.note ?? "")
-            
+            let payTransaction = PayTransaction(organization_id: strongSelf.organizationId ?? 0, amount: strongSelf.voucher.amount?.replacingOccurrences(of: ",", with: "."), amount_extra_cash: extraCashString.replacingOccurrences(of: ",", with: "."), note: strongSelf.note ?? "")
+            KVSpinnerView.show()
             strongSelf.commonService.create(request: "platform/vouchers/"+strongSelf.voucher.address!+"/transactions", data: payTransaction) { (response: ResponseData<Transaction>, statusCode) in
-                
+                KVSpinnerView.dismiss()
                 DispatchQueue.main.async {
                     KVSpinnerView.dismiss()
                     if statusCode == 201 {
@@ -283,6 +286,7 @@ class MConfirmPaymentViewController: UIViewController {
         }
         
         moreInfoButton.actionHandleBlock = { [weak self] (_) in
+            self?.view.endEditing(true)
             guard let strongSelf = self else { return }
             strongSelf.isColapsed = !strongSelf.isColapsed
             if !strongSelf.isColapsed {

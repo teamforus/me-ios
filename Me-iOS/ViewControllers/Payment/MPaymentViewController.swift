@@ -123,7 +123,7 @@ class MPaymentViewController: UIViewController {
     }
     
     private func sendVoucherTransactions() {
-        
+        self.view.endEditing(true)
         let amountVoucher = Double(voucher.amount ?? "0.00")!
         _ = Double(dataSource.amountValue.replacingOccurrences(of: ",", with: "."))! - amountVoucher
         
@@ -150,7 +150,7 @@ class MPaymentViewController: UIViewController {
     }
     
     private func sendTestTransaction() {
-        
+        self.view.endEditing(true)
         let amountVoucher = Double(voucher.amount ?? "0.00")!
         let aditionalAmount = Double(dataSource.amountValue.replacingOccurrences(of: ",", with: "."))! - amountVoucher
         

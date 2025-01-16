@@ -54,6 +54,7 @@ class MVouchersViewController: UIViewController {
     private let voucherEmptyMessage: UILabel_DarkMode = {
         let label =  UILabel_DarkMode(frame: .zero)
         label.text = Localize.empty_voucher_list()
+        label.numberOfLines = 0
         label.textAlignment = .center
         return label
     }()
@@ -110,24 +111,23 @@ class MVouchersViewController: UIViewController {
     }
     
     private func receiveFetch() {
+        self.voucherViewModel.sendPushToken(token: UserDefaults.standard.string(forKey: "TOKENPUSH") ?? "")
         voucherViewModel.complete = { [weak self] (vouchers) in
-            
+            guard let strongSelf = self else { return }
             DispatchQueue.main.async {
-                
-                self?.voucherViewModel.sendPushToken(token: UserDefaults.standard.string(forKey: "TOKENPUSH") ?? "")
-                self?.dataSource = VouchersDataSource(vouchers: vouchers, wallet: nil)
-                self?.tableView.dataSource = self?.dataSource
-                self?.tableView.delegate = self
-                self?.tableView.reloadData()
+                strongSelf.dataSource = VouchersDataSource(vouchers: vouchers, wallet: nil)
+                strongSelf.tableView.dataSource = strongSelf.dataSource
+                strongSelf.tableView.delegate = strongSelf
+                strongSelf.tableView.reloadData()
                 if vouchers.count == 0 {
                     
-                    self?.tableView.isHidden = true
+                    strongSelf.tableView.isHidden = true
                 }else {
                     
-                    self?.tableView.isHidden = false
+                    strongSelf.tableView.isHidden = false
                 }
                 KVSpinnerView.dismiss()
-                self?.refreshControl.endRefreshing()
+                strongSelf.refreshControl.endRefreshing()
             }
         }
     }
@@ -173,6 +173,7 @@ class MVouchersViewController: UIViewController {
             
             KVSpinnerView.show()
             voucherViewModel.vc = self
+            voucherViewModel.voucherType = voucherType
             voucherViewModel.initFetch()
             
         }else {
