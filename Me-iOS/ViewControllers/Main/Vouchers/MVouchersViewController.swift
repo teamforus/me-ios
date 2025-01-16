@@ -54,6 +54,7 @@ class MVouchersViewController: UIViewController {
     private let voucherEmptyMessage: UILabel_DarkMode = {
         let label =  UILabel_DarkMode(frame: .zero)
         label.text = Localize.empty_voucher_list()
+        label.numberOfLines = 0
         label.textAlignment = .center
         return label
     }()
