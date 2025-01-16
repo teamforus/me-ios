@@ -53,7 +53,7 @@ class VouchersViewModel{
             } else {
                 self.allVouchers = response.data ?? []
                 self.complete?(response.data ?? [])
-                self.filterVouchers(voucherType: .vouchers)
+                self.filterVouchers(voucherType: self.voucherType)
             }
             
         }, failure: { (error) in
@@ -86,6 +86,7 @@ class VouchersViewModel{
             
             $0.expire_at?.date?.formatDate() ?? Date() < Date() 
             && !Calendar.current.isDate($0.expire_at?.date?.formatDate() ?? Date(), inSameDayAs:Date())})
+        self.voucherType = voucherType
         
     }
     
