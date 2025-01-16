@@ -245,7 +245,7 @@ class MConfirmPaymentViewController: UIViewController {
             
             let extraAmount = (Double(textFieldAmount) ?? 0) + (Double(strongSelf.voucher.amount ?? "0") ?? 0)
             
-            if Double(extraAmount) < Double(amount) ?? 0{
+            if Double(extraAmount) < Double(amount) ?? 0 || Double(extraAmount) > Double(amount) ?? 0{
                 strongSelf.customFields.setError(with: Localize.info_error_amount_extra_field())
                 return
             }
