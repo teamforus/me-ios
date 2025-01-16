@@ -233,6 +233,7 @@ class MConfirmPaymentViewController: UIViewController {
         
         cancelButton.actionHandleBlock = { [weak self] (_) in
             guard let strongSelf = self else { return }
+            strongSelf.view.endEditing(true)
             strongSelf.dismiss(animated: true)
         }
         
