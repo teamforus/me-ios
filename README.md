@@ -3,7 +3,7 @@ iOS implementation of the [me app](https://github.com/teamforus/me)
 
 ## Getting Started
 
-# Setup 
+# Setup test
 * install cocoapods `brew install cocoapods`
 * `cd  ../me-ios` and run `pod install`
 * then open `../me-ios/Me-iOS.xcworkspace`
