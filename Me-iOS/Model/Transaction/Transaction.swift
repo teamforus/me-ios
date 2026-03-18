@@ -15,6 +15,7 @@ struct Transaction: Decodable {
     var product_id: Int?
     var fund_id: Int?
     var amount: String?
+    var amount_locale: String?
     var address: String?
     var state: String?
     var organization: Organization?
@@ -24,4 +25,5 @@ struct Transaction: Decodable {
     var date_time: String?
     var note: String?
     var amount_extra_cash: String?
+    var amount_extra_cash_locale: String?
 }

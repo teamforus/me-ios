@@ -164,13 +164,7 @@ class TransactionOverview: UIView {
     
     func configure() {
         guard let transaction = transaction else { return }
-        if let amount = transaction.amount {
-            if amount.double == 0.0 {
-                self.priceLabel.text = Localize.free()
-            }else {
-                self.priceLabel.text = "+ € \(amount)"
-            }
-        }
+        self.priceLabel.text = transaction.amount_locale ?? ""
         
         switch transaction.state {
         case "pending":
@@ -189,7 +183,7 @@ class TransactionOverview: UIView {
         if let price = transaction.amount_extra_cash, price != "0.00" {
             extraPriceLabel.isHidden = false
             extraPaymentHeader.isHidden = false
-            extraPriceLabel.text = "€\(price)"
+            extraPriceLabel.text = transaction.amount_extra_cash_locale ?? ""
         }
     }
 }

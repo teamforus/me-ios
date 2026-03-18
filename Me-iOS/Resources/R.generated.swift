@@ -121,7 +121,7 @@ struct R: Rswift.Validatable {
     #if os(iOS) || os(tvOS)
     /// `UIStoryboard(name: "Profile", bundle: ...)`
     static func profile(_: Void = ()) -> UIKit.UIStoryboard {
-      return UIKit.UIStoryboard(resource: R.storyboard.profile)
+      return UIKit.UIStoryboard(resource: R.storyboard.profile)a
     }
     #endif
 
@@ -387,13 +387,6 @@ struct R: Rswift.Validatable {
       return UIKit.UIColor(resource: R.color.whiteBackground_DarkTheme, compatibleWith: traitCollection)
     }
     #endif
-
-    fileprivate init() {}
-  }
-
-  /// This `R.entitlements` struct is generated, and contains static references to 1 properties.
-  struct entitlements {
-    static let apsEnvironment = infoPlistString(path: [], key: "aps-environment") ?? "development"
 
     fileprivate init() {}
   }
