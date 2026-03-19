@@ -69,13 +69,8 @@ class MProductVoucherTableViewCell: UITableViewCell {
         self.productName.text = voucher.fund?.name
         self.organizationName.text = voucher.fund?.organization?.name
         
-        if voucher.fund?.type == FundType.subsidies.rawValue {
-            self.priceLabel.isHidden = true
-        }else if !(voucher.amount_visible ?? false){
-            self.priceLabel.isHidden = true
-        }
-      
-        self.priceLabel.text = "€ \(voucher.amount ?? String.empty)"
+        self.priceLabel.isHidden = voucher.fund?.type == FundType.subsidies.rawValue || !(voucher.amount_visible ?? false)
+        self.priceLabel.text = voucher.amount_locale ?? ""
     }
 }
 

@@ -96,15 +96,7 @@ class TransactionListTableViewCell: UITableViewCell {
             self.organizationIcon.loadImageUsingUrlString(urlString: transaction.organization?.logo?.sizes?.thumbnail ?? "", placeHolder: #imageLiteral(resourceName: "Resting"))
         }
         
-        if let price = transaction.amount {
-            if price.double == 0.0 {
-                self.priceLabel.text = Localize.free()
-            }else {
-                self.priceLabel.text = "+ € \(price)"
-            }
-        }else {
-            self.priceLabel.text = "+ € 0"
-        }
+        self.priceLabel.text = transaction.amount_locale ?? ""
         self.transactionDateLabel.text = transaction.created_at?.dateFormaterHourDate()
     }
     
