@@ -113,6 +113,13 @@ extension TransactionManager {
         viewController.navigator.configure(navController)
         return navController
     }
+
+    func demoPaymentScreen(token: String) -> MeNavigationController {
+        let viewController = MPaymentViewController(navigator: Navigator(), demoToken: token)
+        let navController = MeNavigationController(rootViewController: viewController)
+        viewController.navigator.configure(navController)
+        return navController
+    }
 }
 
 // MARK: - Records
@@ -124,4 +131,3 @@ extension TransactionManager {
         return navController
     }
 }
-

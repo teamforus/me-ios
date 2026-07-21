@@ -13,16 +13,28 @@ enum VoucherDetailType {
     case product, budgetVoucher
 }
 
+enum PaymentContext {
+    case voucher(Voucher)
+    case demo(token: String)
+
+    var isDemo: Bool {
+        if case .demo = self {
+            return true
+        }
+
+        return false
+    }
+}
+
 class MPaymentViewController: UIViewController {
     
     var isFromReservation: Bool!
-    var testToken: String!
-    var voucher: Voucher
     var navigator: Navigator
     var selectedAllowerdOrganization: AllowedOrganization!
     var voucherType: VoucherDetailType
     internal let sheetTransitioningDelegate = SheetTransitioningDelegate()
     var dataSource: PaymentDataSource
+    let paymentContext: PaymentContext
     
     // MARK: - Parameters
     
@@ -34,11 +46,18 @@ class MPaymentViewController: UIViewController {
     
     // MARK: - Init
     init(navigator: Navigator, voucher: Voucher) {
-        self.voucher = voucher
+        self.paymentContext = .voucher(voucher)
         self.navigator = navigator
         self.voucherType = voucher.product != nil ? .product : .budgetVoucher
-        self.dataSource = PaymentDataSource(voucher: voucher,
-                                            voucherType: self.voucherType)
+        self.dataSource = PaymentDataSource(paymentContext: .voucher(voucher), voucherType: self.voucherType)
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    init(navigator: Navigator, demoToken: String) {
+        self.paymentContext = .demo(token: demoToken)
+        self.navigator = navigator
+        self.voucherType = .budgetVoucher
+        self.dataSource = PaymentDataSource(paymentContext: .demo(token: demoToken), voucherType: .budgetVoucher)
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -50,7 +69,11 @@ class MPaymentViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         IQKeyboardManager.shared.shouldResignOnTouchOutside = true
-        selectedAllowerdOrganization = voucher.allowed_organizations?.first
+
+        if case .voucher(let voucher) = paymentContext {
+            selectedAllowerdOrganization = voucher.allowed_organizations?.first
+        }
+
         addSubviews()
         setupConstraints()
         setupUI()
@@ -92,24 +115,32 @@ class MPaymentViewController: UIViewController {
     
     
     func makePayment() {
-        _ = "0.01"
-        _ = "0,01"
-        if voucher.fund != nil {
-            
+        switch paymentContext {
+        case .voucher(let voucher):
             if voucher.product != nil {
-                sendProductTransaction()
-            }else if dataSource.amountValue != String.empty {
-                sendVoucherTransactions()
+                sendProductTransaction(voucher: voucher)
+            } else if dataSource.amountValue != String.empty {
+                sendVoucherTransactions(voucher: voucher)
             } else {
-                showSimpleAlert(title: Localize.warning(), 
-                                message: Localize.please_enter_the_amount())
+                showSimpleAlert(
+                    title: Localize.warning(),
+                    message: Localize.please_enter_the_amount(),
+                )
             }
-        }else {
-            sendTestTransaction()
+
+        case .demo(let token):
+            if dataSource.amountValue != String.empty {
+                sendTestTransaction(token: token)
+            } else {
+                showSimpleAlert(
+                    title: Localize.warning(),
+                    message: Localize.please_enter_the_amount(),
+                )
+            }
         }
     }
     
-    private func sendProductTransaction() {
+    private func sendProductTransaction(voucher: Voucher) {
 
         let vc = ConfirmPaymentPopUp()
         vc.voucher = voucher
@@ -122,7 +153,7 @@ class MPaymentViewController: UIViewController {
         
     }
     
-    private func sendVoucherTransactions() {
+    private func sendVoucherTransactions(voucher: Voucher) {
         self.view.endEditing(true)
         let amountVoucher = Double(voucher.amount ?? "0.00")!
         _ = Double(dataSource.amountValue.replacingOccurrences(of: ",", with: "."))! - amountVoucher
@@ -137,7 +168,7 @@ class MPaymentViewController: UIViewController {
             confirmAuthVC.transitioningDelegate = self.sheetTransitioningDelegate
             self.present(confirmAuthVC, animated: true, completion: nil)
             
-        }else {
+        } else {
             let vc = ConfirmPaymentPopUp()
             vc.voucher = voucher
             vc.organizationId = selectedAllowerdOrganization?.id ?? 0
@@ -149,28 +180,17 @@ class MPaymentViewController: UIViewController {
         }
     }
     
-    private func sendTestTransaction() {
+    private func sendTestTransaction(token: String) {
         self.view.endEditing(true)
-        let amountVoucher = Double(voucher.amount ?? "0.00")!
-        let aditionalAmount = Double(dataSource.amountValue.replacingOccurrences(of: ",", with: "."))! - amountVoucher
-        
-        if Double(dataSource.amountValue.replacingOccurrences(of: ",", with: "."))! > amountVoucher {
-            let confirmAuthVC = MConfirmPaymentViewController()
-            confirmAuthVC.modalPresentationStyle = .custom
-            confirmAuthVC.transitioningDelegate = self.sheetTransitioningDelegate
-            self.present(confirmAuthVC, animated: true, completion: nil)
-            
-        }else {
-            
-            let vc = ConfirmPaymentPopUp()
-            vc.organizationId = 0
-            vc.testToken = testToken
-            vc.note = dataSource.noteValue
-            vc.amount = dataSource.amountValue
-            vc.modalTransitionStyle = .crossDissolve
-            vc.modalPresentationStyle = .overCurrentContext
-            self.present(vc, animated: true)
-        }
+
+        let vc = ConfirmPaymentPopUp()
+        vc.organizationId = 0
+        vc.demoToken = token
+        vc.note = dataSource.noteValue
+        vc.amount = dataSource.amountValue
+        vc.modalTransitionStyle = .crossDissolve
+        vc.modalPresentationStyle = .overCurrentContext
+        self.present(vc, animated: true)
     }
 }
 
@@ -179,9 +199,14 @@ class MPaymentViewController: UIViewController {
 extension MPaymentViewController {
     
     func showOrganizations() {
+        guard case .voucher(let voucher) = paymentContext,
+              let allowedOrganizations = voucher.allowed_organizations else {
+            return
+        }
+
         let popOverVC = AllowedOrganizationsViewController(nibName: "AllowedOrganizationsViewController", 
                                                            bundle: nil)
-        popOverVC.allowedOrganizations = self.voucher.allowed_organizations!
+        popOverVC.allowedOrganizations = allowedOrganizations
         popOverVC.delegate = self
         popOverVC.selectedOrganizations = selectedAllowerdOrganization
         self.addChild(popOverVC)
@@ -230,7 +255,9 @@ extension MPaymentViewController: UITableViewDelegate {
         switch row {
         case .voucher: break
         case .organization:
-            self.showOrganizations()
+            if !paymentContext.isDemo {
+                self.showOrganizations()
+            }
         case .amount: break
         case .note: break
         case .payment:
@@ -247,7 +274,7 @@ extension MPaymentViewController: UITableViewDelegate {
         case .organization:
             return 70
         case .amount:
-            return voucherType == .budgetVoucher ?  70 : 0
+            return paymentContext.isDemo || voucherType == .budgetVoucher ? 70 : 0
         case .note:
             return 110
         case .payment:
