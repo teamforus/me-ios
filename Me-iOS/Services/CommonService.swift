@@ -8,6 +8,10 @@
 
 import Foundation
 
+private struct DemoTransactionUpdateRequest: Encodable {
+    let state: String
+}
+
 protocol CommonServiceProtocol {
     func get<T: Decodable>(request:String ,complete: @escaping (_ response: T,_ statusCode: Int)->(), failure: @escaping(_ error: Error)->() )
     
@@ -21,7 +25,7 @@ protocol CommonServiceProtocol {
     
     func patch<T: Decodable, E: Encodable>(request:String, data: E ,complete: @escaping (_ response: T,_ statusCode: Int)->() )
     
-    func patchWithoutParam(request:String, complete: @escaping (_ statusCode: Int)->() )
+    func acceptDemoTransaction(token: String, complete: @escaping (_ statusCode: Int)->() )
     
     func create<T: Decodable, E: Encodable>(request:String, data: E,complete: @escaping (_ response: T,_ statusCode: Int)->() )
     
@@ -416,9 +420,9 @@ class CommonService: CommonServiceProtocol {
         
     }
     
-    func patchWithoutParam(request: String, complete: @escaping (Int) -> ()) {
+    func acceptDemoTransaction(token: String, complete: @escaping (Int) -> ()) {
         
-        let url = URL(string: BaseURL.baseURL(url: request))!
+        let url = URL(string: BaseURL.baseURL(url: "platform/demo/transactions/" + token))!
         var request = URLRequest(url: url)
         request.httpMethod = "PATCH"
         request.addValue("application/json", forHTTPHeaderField: "Accept")
@@ -426,7 +430,7 @@ class CommonService: CommonServiceProtocol {
         request.addValue("me_app-ios", forHTTPHeaderField: "Client-Type")
         request.addValue("Bearer " + CurrentSession.shared.token, forHTTPHeaderField: "Authorization")
         
-        let data = ["state" : "accepted"]
+        let data = DemoTransactionUpdateRequest(state: "accepted")
         
         do {
             let encodePost = try JSONEncoder().encode(data)
@@ -436,10 +440,8 @@ class CommonService: CommonServiceProtocol {
         
         let session = URLSession.shared
         
-        let task = session.dataTask(with: request) { (data, response, error) in
-                let httpResponse = response as? HTTPURLResponse
-         
-                complete(httpResponse!.statusCode)
+        let task = session.dataTask(with: request) { (_, response, _) in
+            complete((response as? HTTPURLResponse)?.statusCode ?? 0)
         }
         
         task.resume()

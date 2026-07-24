@@ -26,7 +26,7 @@ class RegisterViewModel{
             self.complete(response, statusCode)
             
         }) { (error) in
-            
+            self.complete(Register(message: nil, errors: nil, accessToken: nil, success: nil), 500)
         }
     }
     

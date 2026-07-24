@@ -52,28 +52,23 @@ class QRViewModel{
     
     
     func initVoucherAddress(address: String) {
-        
         commonService.get(request: "platform/provider/vouchers/"+address, complete: { (response: ResponseData<Voucher>, statusCode) in
             
             if statusCode == 500 {
-                
                 DispatchQueue.main.async {
-                    
                     KVSpinnerView.dismiss()
                     self.vcAlert.showSimpleAlertWithSingleAction(title: Localize.warning(), message: "This voucher is expired.", okAction: UIAlertAction(title: Localize.ok(), style: .default, handler: { (action) in
                         self.vc?.scanWorker.start()
                     }))
                 }
-                
-            }else if statusCode == 403  {
+            } else if statusCode == 403  {
                 DispatchQueue.main.async {
-                    
                     KVSpinnerView.dismiss()
                     self.vcAlert.showSimpleAlertWithSingleAction(title:  Localize.error(), message: response.message ?? "", okAction: UIAlertAction(title: Localize.ok(), style: .default, handler: { (action) in
                         self.vc?.scanWorker.start()
                     }))
                 }
-            }else if statusCode == 404 {
+            } else if statusCode == 404 {
                 DispatchQueue.main.async {
                     KVSpinnerView.dismiss()
                     self.vcAlert.showSimpleAlertWithSingleAction(title: Localize.error(), message: response.message ?? "", okAction: UIAlertAction(title: Localize.ok(), style: .default, handler: { (action) in
@@ -81,14 +76,14 @@ class QRViewModel{
                     }))
                 }
                 
-            }else if statusCode == 401 {
+            } else if statusCode == 401 {
                 DispatchQueue.main.async {
                     KVSpinnerView.dismiss()
                     self.vc.showSimpleAlertWithSingleAction(title: Localize.expired_session(), message: Localize.your_session_has_expired() , okAction: UIAlertAction(title: Localize.log_out(), style: .default, handler: { (action) in
                         self.vc.logoutOptions()
                     }))
                 }
-            }else {
+            } else {
                 self.getVoucher(response.data!, statusCode)
             }
         }) { (error) in
