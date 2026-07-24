@@ -391,13 +391,6 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.entitlements` struct is generated, and contains static references to 1 properties.
-  struct entitlements {
-    static let apsEnvironment = infoPlistString(path: [], key: "aps-environment") ?? "development"
-
-    fileprivate init() {}
-  }
-
   /// This `R.file` struct is generated, and contains static references to 12 files.
   struct file {
     /// Resource file `GoogleSans-Bold.ttf`.
@@ -2152,10 +2145,6 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en, nl
       static let children_nth = Rswift.StringResource(key: "children_nth", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
-      /// en translation: An e-mail has been sent to %@. Click the link in the email to sign up.
-      ///
-      /// Locales: en, nl
-      static let click_on_link_you_received_continue = Rswift.StringResource(key: "click_on_link_you_received_continue", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
       /// en translation: App Cancel
       ///
       /// Locales: en, nl
@@ -2964,6 +2953,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en, nl
       static let title_delete_description = Rswift.StringResource(key: "title_delete_description", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
+      /// en translation: We've sent an email to %@. Check your inbox to continue.
+      ///
+      /// Locales: en, nl
+      static let click_on_link_you_received_continue = Rswift.StringResource(key: "click_on_link_you_received_continue", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nl"], comment: nil)
       /// en translation: Welcome to Me
       ///
       /// Locales: en, nl
@@ -3184,23 +3177,6 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("children_nth", bundle: bundle, comment: "")
-      }
-
-      /// en translation: An e-mail has been sent to %@. Click the link in the email to sign up.
-      ///
-      /// Locales: en, nl
-      static func click_on_link_you_received_continue(_ value1: String, preferredLanguages: [String]? = nil) -> String {
-        guard let preferredLanguages = preferredLanguages else {
-          let format = NSLocalizedString("click_on_link_you_received_continue", bundle: hostingBundle, comment: "")
-          return String(format: format, locale: applicationLocale, value1)
-        }
-
-        guard let (locale, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
-          return "click_on_link_you_received_continue"
-        }
-
-        let format = NSLocalizedString("click_on_link_you_received_continue", bundle: bundle, comment: "")
-        return String(format: format, locale: locale, value1)
       }
 
       /// en translation: App Cancel
@@ -6249,6 +6225,23 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("title_delete_description", bundle: bundle, comment: "")
+      }
+
+      /// en translation: We've sent an email to %@. Check your inbox to continue.
+      ///
+      /// Locales: en, nl
+      static func click_on_link_you_received_continue(_ value1: String, preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          let format = NSLocalizedString("click_on_link_you_received_continue", bundle: hostingBundle, comment: "")
+          return String(format: format, locale: applicationLocale, value1)
+        }
+
+        guard let (locale, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "click_on_link_you_received_continue"
+        }
+
+        let format = NSLocalizedString("click_on_link_you_received_continue", bundle: bundle, comment: "")
+        return String(format: format, locale: locale, value1)
       }
 
       /// en translation: Welcome to Me

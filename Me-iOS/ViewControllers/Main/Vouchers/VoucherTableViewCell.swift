@@ -102,15 +102,7 @@ class VoucherTableViewCell: UITableViewCell {
         }else{
             self.priceLabel.isHidden = voucher.fund?.type == FundType.subsidies.rawValue
             
-            if let price = voucher.amount {
-                //                    if voucher?.fund?.currency == "eur" {
-                self.priceLabel.text = "€ \(price.substringLeftPart()),\(price.substringRightPart())"
-                //                    }else {
-                //                        self.priceLabel.attributedText = "ETH \(price.substringLeftPart()).{\(price.substringRightPart())}".customText(fontBigSize: 20, minFontSize: 14)
-                //                    }
-            }else {
-                self.priceLabel.text = "0,0"
-            }
+            self.priceLabel.text = voucher.amount_locale ?? ""
             
             self.voucherImage.loadImageUsingUrlString(urlString: voucher.fund?.logo?.sizes?.thumbnail ?? "", placeHolder: #imageLiteral(resourceName: "Resting"))
         }

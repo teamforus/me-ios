@@ -82,11 +82,7 @@ class TransactionTableViewCell: UITableViewCell {
             
             self.imageTransfer.loadImageUsingUrlString(urlString: transaction?.organization?.logo?.sizes?.thumbnail ?? "", placeHolder: #imageLiteral(resourceName: "Resting"))
         }
-        if let price = transaction?.amount {
-            self.priceLabel.text = "€ \(price.substringLeftPart()),\(price.substringRightPart())"
-        }else {
-            self.priceLabel.text = "€ 0,0"
-        }
+        self.priceLabel.text = transaction?.amount_locale ?? ""
         self.dateLabel.text = isSubsidies ? transaction?.organization?.name : transaction?.created_at?.dateFormaterNormalDate()
     }
 }

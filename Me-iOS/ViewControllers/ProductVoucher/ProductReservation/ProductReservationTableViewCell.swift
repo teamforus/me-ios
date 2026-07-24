@@ -55,7 +55,7 @@ class ProductReservationTableViewCell: UITableViewCell {
     
     func setup(_ productReservation: Transaction) {
         titleVoucher.text = productReservation.product?.name ?? ""
-        priceVoucher.text = String(productReservation.product?.price ?? "0") + "€"
+        priceVoucher.text = productReservation.product?.price_locale ?? ""
         self.iconVoucher.loadImageUsingUrlString(urlString: productReservation.product?.photo?.sizes?.thumbnail ?? "", placeHolder: #imageLiteral(resourceName: "Resting"))
     }
 }

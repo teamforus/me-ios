@@ -59,12 +59,6 @@ class MVouchersViewController: UIViewController {
         return label
     }()
     
-    private let testButton: ActionButton = {
-        let button = ActionButton(frame: .zero)
-        button.setTitle("Test", for: .normal)
-        return button
-    }()
-    
     
     // MARK: - Init
     init(navigator: Navigator) {
@@ -273,7 +267,7 @@ extension MVouchersViewController: UIViewControllerPreviewingDelegate{
 
 extension MVouchersViewController {
     private func addSubviews() {
-        let views = [segmentView, voucherImage, voucherEmptyMessage, tableView, testButton]
+        let views = [segmentView, voucherImage, voucherEmptyMessage, tableView]
         views.forEach { view in
             self.view.addSubview(view)
         }
@@ -308,10 +302,6 @@ extension MVouchersViewController {
         tableView.snp.makeConstraints { make in
             make.left.right.bottom.equalTo(self.view.safeAreaLayoutGuide)
             make.top.equalTo(segmentView.snp.bottom).offset(15)
-        }
-        
-        testButton.snp.makeConstraints { make in
-            make.center.equalTo(self.view.safeAreaLayoutGuide)
         }
     }
 }

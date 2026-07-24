@@ -56,12 +56,19 @@ class OrganizationPaymentTableViewCell: UITableViewCell {
     func setup(organization: Organization) {
         nameLabel.text = organization.name ?? ""
         organizationIcon.loadImageUsingUrlString(urlString: organization.logo?.sizes?.thumbnail ?? "", placeHolder: #imageLiteral(resourceName: "Resting"))
+        arrowIcon.isHidden = true
     }
     
     // MARK: - Setup View
     func setup(organization: AllowedOrganization) {
         nameLabel.text = organization.name ?? ""
         organizationIcon.loadImageUsingUrlString(urlString: organization.logo?.sizes?.thumbnail ?? "", placeHolder: #imageLiteral(resourceName: "Resting"))
+        arrowIcon.isHidden = false
+    }
+
+    func setupDemo() {
+        nameLabel.text = Localize.test_organization()
+        arrowIcon.isHidden = true
     }
 }
 

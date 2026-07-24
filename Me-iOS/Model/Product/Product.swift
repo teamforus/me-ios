@@ -14,6 +14,7 @@ struct Product: Decodable {
     var name: String?
     var description: String?
     var price: String?
+    var price_locale: String?
     var old_price: String?
     var total_amount: Int?
     var sold_amounts: Int?

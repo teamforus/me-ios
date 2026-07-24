@@ -192,7 +192,6 @@
 		FF5F70B52614BD79006770EB /* SkyFloatingLabelTextField in Frameworks */ = {isa = PBXBuildFile; productRef = FF5F70B42614BD79006770EB /* SkyFloatingLabelTextField */; };
 		FF6403F82511F2C400CD9802 /* TransactionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF6403F72511F2C400CD9802 /* TransactionViewModel.swift */; };
 		FF6403FA251216B200CD9802 /* TransactionListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF6403F9251216B200CD9802 /* TransactionListTableViewCell.swift */; };
-		FF66316E2625C6400021507D /* EmailLoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF66316D2625C6400021507D /* EmailLoginViewModel.swift */; };
 		FF6631732625C6480021507D /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF6631722625C6480021507D /* RegisterViewModel.swift */; };
 		FF6AC284267232E00099E264 /* Extension+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF6AC283267232E00099E264 /* Extension+UIColor.swift */; };
 		FF7F2D39265B7B9E0045E25F /* VouchersDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7F2D38265B7B9E0045E25F /* VouchersDataSource.swift */; };
@@ -498,7 +497,6 @@
 		FF5691232514BFB500CD0343 /* MDatePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDatePickerView.swift; sourceTree = "<group>"; };
 		FF6403F72511F2C400CD9802 /* TransactionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionViewModel.swift; sourceTree = "<group>"; };
 		FF6403F9251216B200CD9802 /* TransactionListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionListTableViewCell.swift; sourceTree = "<group>"; };
-		FF66316D2625C6400021507D /* EmailLoginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmailLoginViewModel.swift; sourceTree = "<group>"; };
 		FF6631722625C6480021507D /* RegisterViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
 		FF6AC283267232E00099E264 /* Extension+UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIColor.swift"; sourceTree = "<group>"; };
 		FF7F2D38265B7B9E0045E25F /* VouchersDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VouchersDataSource.swift; sourceTree = "<group>"; };
@@ -1523,7 +1521,6 @@
 		FF6631772625C64C0021507D /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				FF66316D2625C6400021507D /* EmailLoginViewModel.swift */,
 				FF6631722625C6480021507D /* RegisterViewModel.swift */,
 			);
 			path = ViewModel;
@@ -1893,9 +1890,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Me-iOS/Pods-Me-iOS-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Me-iOS/Pods-Me-iOS-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -2116,7 +2117,6 @@
 				04DD43C325CAB7DC00038A1D /* ProductVoucherViewController.swift in Sources */,
 				FF5691282514BFB500CD0343 /* TextLabel.swift in Sources */,
 				65911B48228D892800EA30D6 /* Voucher.swift in Sources */,
-				FF66316E2625C6400021507D /* EmailLoginViewModel.swift in Sources */,
 				FF1CF093263AEED700C8C317 /* BrancheCollectionViewCell.swift in Sources */,
 				5B42874623AD0EBE00FEABE7 /* User+CoreDataProperties.swift in Sources */,
 				65A8B73B2282EC3800B7DF05 /* PaymentViewModel.swift in Sources */,
@@ -2462,14 +2462,13 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = FNTR3V85ZM;
-				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				INFOPLIST_FILE = "Me-iOS/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.4.20;
+				MARKETING_VERSION = 0.4.24;
 				PRODUCT_BUNDLE_IDENTIFIER = io.forus.me.test;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEV;
@@ -2487,7 +2486,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = FNTR3V85ZM;
-				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				INFOPLIST_FILE = "Me-iOS/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -2495,7 +2493,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.4.20;
+				MARKETING_VERSION = 0.4.24;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = io.forus.me;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -2653,7 +2651,6 @@
 				DEVELOPMENT_TEAM = FNTR3V85ZM;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_TESTABILITY = NO;
-				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				GCC_OPTIMIZATION_LEVEL = s;
 				INFOPLIST_FILE = "Me-iOS/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -2661,7 +2658,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.4.20;
+				MARKETING_VERSION = 0.4.24;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = io.forus.me.lab;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -2777,7 +2774,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = FNTR3V85ZM;
-				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				GCC_OPTIMIZATION_LEVEL = s;
 				INFOPLIST_FILE = "Me-iOS/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -2785,7 +2781,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.4.20;
+				MARKETING_VERSION = 0.4.24;
 				PRODUCT_BUNDLE_IDENTIFIER = io.forus.me.demo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEMO;

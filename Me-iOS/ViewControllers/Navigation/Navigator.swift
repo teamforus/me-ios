@@ -93,6 +93,11 @@ class Navigator: NSObject {
             let paymentVC = TransactionManager.shared.paymentScreen(voucher: voucher)
             paymentVC.modalPresentationStyle = .fullScreen
             self.navController.present(paymentVC, animated: true)
+
+        case .demoPayment(let token):
+            let paymentVC = TransactionManager.shared.demoPaymentScreen(token: token)
+            paymentVC.modalPresentationStyle = .fullScreen
+            self.navController.present(paymentVC, animated: true)
             
         case .record:
             let recordVC = MRecordsViewController(navigator: self)
@@ -124,6 +129,7 @@ class Navigator: NSObject {
         case productReservation(_ voucherTokens: [Transaction], _ voucher: Voucher)
         case paymentContinue(_ voucher: Voucher)
         case payment(_ voucher: Voucher)
+        case demoPayment(token: String)
         case record
         case recordDetail(_ record: Record)
         case qrModal(_ voucher: Voucher? = nil, _ qrType: QRType, _ record: Record? = nil)
