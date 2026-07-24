@@ -20,17 +20,22 @@ class PaymentDataSource: NSObject {
     
     var paymentHandleBlock: ((_ button:ActionButton) -> ())?
     
-    var voucher: Voucher!
-    var selectedOrganization: AllowedOrganization!
-    var voucherType: VoucherDetailType!
+    var selectedOrganization: AllowedOrganization?
+
+    private let paymentContext: PaymentContext
+    private let voucherType: VoucherDetailType
     
     var amountValue: String = String.empty
     var noteValue: String = String.empty
     
-    init(voucher: Voucher, voucherType: VoucherDetailType) {
-        self.voucher = voucher
+    init(paymentContext: PaymentContext, voucherType: VoucherDetailType) {
+        self.paymentContext = paymentContext
         self.voucherType = voucherType
-        self.selectedOrganization = (voucher.allowed_organizations?.first!)!
+
+        if case .voucher(let voucher) = paymentContext {
+            self.selectedOrganization = voucher.allowed_organizations?.first
+        }
+
         super.init()
     }
 }
@@ -51,18 +56,37 @@ extension PaymentDataSource: UITableViewDataSource {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: MProductVoucherTableViewCell.identifier, for: indexPath) as? MProductVoucherTableViewCell else {
                 return UITableViewCell()
             }
-            if voucherType == .budgetVoucher {
-                cell.setup(voucher: voucher)
-            }else {
-                cell.setupProduct(voucher: voucher)
+
+            switch paymentContext {
+                case .voucher(let voucher):
+                    if voucherType == .budgetVoucher {
+                        cell.setup(voucher: voucher)
+                    } else {
+                        cell.setupProduct(voucher: voucher)
+                    }
+
+                case .demo:
+                    cell.setupDemo()
             }
+
             return cell
             
         case .organization:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: OrganizationPaymentTableViewCell.identifier, for: indexPath) as? OrganizationPaymentTableViewCell else {
                 return UITableViewCell()
             }
-            cell.setup(organization: selectedOrganization)
+
+            switch paymentContext {
+                case .voucher(let voucher):
+                    if let selectedOrganization = selectedOrganization {
+                        cell.setup(organization: selectedOrganization)
+                    } else if let organization = voucher.product?.organization {
+                        cell.setup(organization: organization)
+                    }
+                case .demo:
+                    cell.setupDemo()
+            }
+
             return cell
             
         case .amount:
@@ -95,4 +119,3 @@ extension PaymentDataSource: UITableViewDataSource {
         }
     }
 }
-

@@ -26,7 +26,6 @@ class MQRViewController: HSScanViewController {
     return QRViewModel()
   }()
   private var voucher: Voucher!
-  private var testToken: String!
   private var productVoucher: [Transaction]! = []
   private var qrValue: String?
   
@@ -231,19 +230,6 @@ class MQRViewController: HSScanViewController {
         }
     }
   
-  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//    if let paymentVC = R.segue.mqrViewController.goToVoucherPayment(segue: segue) {
-//      paymentVC.destination.testToken = testToken
-//      paymentVC.destination.voucher = voucher
-//      paymentVC.destination.tabBar = self.tabBarController
-//
-//    }else if let productReservation =  R.segue.mqrViewController.goToChooseProduct(segue: segue) {
-//      productReservation.destination.voucher = voucher
-//      productReservation.destination.voucherTokens = productVoucher.filter({$0.amount != "0.0"})
-//      productReservation.destination.vc = self
-//      productReservation.destination.tabBar = self.tabBarController
-//    }
-  }
 }
 
 extension MQRViewController: HSScanViewControllerDelegate{
@@ -253,48 +239,42 @@ extension MQRViewController: HSScanViewControllerDelegate{
       
       if let data = scanResult.scanResultString?.data(using: .utf8) {
         let jsonDecoder = JSONDecoder()
+
         do {
-          
           let qr = try jsonDecoder.decode(QRText.self, from: data)
-          
-          if qr.type != nil
-          {
-            if qr.type == QRTypeScann.authToken.rawValue {
-              self.scanWorker.stop()
-              self.qrValue = qr.value
-              let confirmAuthVC = MConfirmAuthViewController()
-              confirmAuthVC.delegate = self
-              confirmAuthVC.modalPresentationStyle = .fullScreen
-              self.present(confirmAuthVC, animated: true)
-              
-            } else if qr.type == QRTypeScann.voucher.rawValue {
-              
-              self.scanWorker.stop()
-              KVSpinnerView.show()
-              self.qrViewModel.initVoucherAddress(address: qr.value)
-              
-              
-            } else if qr.type == QRTypeScann.record.rawValue {
-              
-              self.scanWorker.stop()
-              KVSpinnerView.show()
-              self.qrViewModel.initValidationRecord(code: qr.value)
-              
-            } else if qr.type == QRTypeScann.testTransaction.rawValue {
-              self.scanWorker.stop()
-              self.testToken = qr.value
-                self.navigator.navigate(to: .payment(voucher))
-            }
+
+          if qr.type == QRTypeScann.authToken.rawValue {
+            self.scanWorker.stop()
+            self.qrValue = qr.value
+
+            let confirmAuthVC = MConfirmAuthViewController()
+
+            confirmAuthVC.delegate = self
+            confirmAuthVC.modalPresentationStyle = .fullScreen
+            self.present(confirmAuthVC, animated: true)
+          } else if qr.type == QRTypeScann.voucher.rawValue {
+            self.scanWorker.stop()
+            KVSpinnerView.show()
+            self.qrViewModel.initVoucherAddress(address: qr.value)
+          } else if qr.type == QRTypeScann.record.rawValue {
+            self.scanWorker.stop()
+            KVSpinnerView.show()
+            self.qrViewModel.initValidationRecord(code: qr.value)
+          } else if qr.type == QRTypeScann.testTransaction.rawValue {
+            self.scanWorker.stop()
+            self.navigator.navigate(to: .demoPayment(token: qr.value))
           }
         } catch {
           KVSpinnerView.dismiss()
           self.scanWorker.start()
+
           if let qrValue = Int(scanResult.scanResultString!), String(qrValue).count == 12  {
             let qrStringValue = String(qrValue)
+
             self.scanWorker.stop()
             KVSpinnerView.show()
             self.qrViewModel.initVoucherAddress(address: qrStringValue)
-          }else {
+          } else {
             showSimpleToast(message: "Unknown QR-code!")
           }
         }
