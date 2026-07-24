@@ -141,7 +141,7 @@
 "let_shopkeeper_scan_it_to_make_validtion_to_your_record" = "Laat deze QR-code scannen om jouw persoonsgegeven '%@' goed te laten keuren.";
 "your_session_has_expired" = "Deze sessie is verlopen. Je wordt nu uitgelogd.";
 "expired_session" = "Verlopen sessie";
-"click_on_link_you_received_continue" = "Er is een e-mail verstuurd naar %@. Klik op de link in de e-mail om je aan te melden.";
+"click_on_link_you_received_continue" = "We hebben een e-mail gestuurd naar %@. Controleer je inbox om verder te gaan.";
 "ok" = "OK";
 "validation_approved" = "Validatie goedgekeurd.";
 "complete_amount" = "Verzoek tot betaling";

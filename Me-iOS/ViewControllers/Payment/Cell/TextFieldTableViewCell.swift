@@ -23,7 +23,6 @@ class TextFieldTableViewCell: UITableViewCell {
         textField.backgroundColor = Color.fieldBg
         textField.rounded(cornerRadius: 6)
         textField.setLeftPaddingPoints(16)
-        textField.addTarget(self, action: #selector(textFieldDidChangeEditing(_:)), for: .editingChanged)
         return textField
     }()
     
@@ -49,6 +48,7 @@ class TextFieldTableViewCell: UITableViewCell {
 extension TextFieldTableViewCell {
     private func setupView() {
         textField.delegate = self
+        textField.addTarget(self, action: #selector(textFieldDidChangeEditing(_:)), for: .editingChanged)
         self.contentView.addSubview(textField)
         textField.snp.makeConstraints { make in
             make.top.equalTo(self.contentView)
@@ -60,17 +60,14 @@ extension TextFieldTableViewCell {
 
 // MARK: - UITextFieldDelegate
 extension TextFieldTableViewCell: UITextFieldDelegate{
-    
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         if fieldType == .amount {
             var dotString = ""
             let limitAfterDot = 2
-            if String.languageCode == "en"{
-                
+
+            if String.languageCode == "en" {
                 dotString = "."
-                
-            }else if String.languageCode == "nl" {
-                
+            } else if String.languageCode == "nl" {
                 dotString = ","
             }
             
@@ -79,32 +76,28 @@ extension TextFieldTableViewCell: UITextFieldDelegate{
                 
                 if !isDeleteKey {
                     if text.contains(dotString) {
-                        let countdots = textField.text!.components(separatedBy: dotString).count - 1
+                        let countDots = textField.text!.components(separatedBy: dotString).count - 1
                         
-                        if countdots > 0 && string == dotString
-                        {
+                        if countDots > 0 && string == dotString {
                             return false
                         }
+
                         if text.components(separatedBy: dotString)[1].count == limitAfterDot {
-                            
                             return false
                         }
                     }
                 }
             }
-            amountValue?(textField.text! + string)
-        }else {
-            noteValue?(textField.text! + string)
         }
+
         return true
     }
     
     @objc private func textFieldDidChangeEditing(_ textField: UITextField) {
         if fieldType == .amount {
-            
-        }else {
-            
+            amountValue?(textField.text ?? String.empty)
+        } else {
+            noteValue?(textField.text ?? String.empty)
         }
     }
-    
 }

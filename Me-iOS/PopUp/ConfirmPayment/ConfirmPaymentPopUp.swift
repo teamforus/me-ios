@@ -16,9 +16,9 @@ class ConfirmPaymentPopUp: UIViewController {
     @IBOutlet weak var confirmButton: ShadowButton!
     
     
-    var voucher: Voucher!
+    var voucher: Voucher?
     var voucherToken: Transaction!
-    var testToken: String!
+    var demoToken: String?
     var amount: String!
     var tabBar: UITabBarController!
     var organizationId: Int!
@@ -29,30 +29,26 @@ class ConfirmPaymentPopUp: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupAccessibility()
-        if voucher != nil {
-            initView()
-        }else {
+        if let voucher = voucher {
+            initView(voucher: voucher)
+        } else {
             paymentLabel.text = Localize.please_confirm_the_transaction(amount)
             self.didChangeHeightView()
         }
     }
     
-    private func initView() {
-        
+    private func initView(voucher: Voucher) {
         if voucher.product != nil {
-            
             paymentLabel.text = Localize.please_confirm_the_transaction(voucher.product?.price_locale ?? "")
             amount = voucher.product?.price
+
             self.didChangeHeightView()
             organizationId = voucher.product?.organization?.id
-            
-        }else {
-            
+        } else {
             let amountVoucher = Double(voucher.amount ?? "0.00")!
             let aditionalAmount = Double(amount.replacingOccurrences(of: ",", with: "."))! - amountVoucher
             
             paymentLabel.text = Localize.please_confirm_the_transaction(amount)
-            
             
             if Double(amount!.replacingOccurrences(of: ",", with: "."))! > amountVoucher {
                 //                if voucher.fund?.currency == "eur" {
@@ -69,88 +65,111 @@ class ConfirmPaymentPopUp: UIViewController {
         }
     }
     
-    
     @IBAction func confirm(_ sender: UIButton) {
         sender.isEnabled = false
+
         if isReachable() {
-            
             KVSpinnerView.show()
             
-            if voucher != nil {
+            if let voucher = voucher {
                 let payTransaction = PayTransaction(organization_id: organizationId ?? 0, amount: amount.replacingOccurrences(of: ",", with: "."), note: note ?? "")
                 
                 commonService.create(request: "platform/vouchers/"+voucher.address!+"/transactions", data: payTransaction) { (response: ResponseData<Transaction>, statusCode) in
-                    
                     DispatchQueue.main.async {
                         KVSpinnerView.dismiss()
+
                         if statusCode == 201 {
-                            
-                            self.showSimpleAlertWithSingleAction(title: Localize.success(), message: Localize.payment_succeeded(), okAction: UIAlertAction(title: Localize.ok(), style: .default, handler: { (action) in
-                                
-                                HomeTabViewController.shared.setTab(.voucher)
-                                
-                                self.presentingViewController?.presentingViewController?.dismiss(animated: true)
+                            self.showSimpleAlertWithSingleAction(
+                                title: Localize.success(),
+                                message: Localize.payment_succeeded(),
+                                okAction: UIAlertAction(
+                                    title: Localize.ok(),
+                                    style: .default,
+                                    handler: {
+                                        (action) in
+                                        HomeTabViewController.shared.setTab(.voucher)
+                                        self.presentingViewController?.presentingViewController?.dismiss(animated: true)
+                                })
+                            )
+                        } else if statusCode == 401 {
+                            self.showSimpleAlertWithSingleAction(
+                                title: Localize.expired_session(),
+                                message: Localize.your_session_has_expired(),
+                                okAction: UIAlertAction(
+                                    title: Localize.log_out(),
+                                    style: .default,
+                                    handler: { (action) in self.logoutOptions()
                             }))
-                        }else if statusCode == 401 {
-                            DispatchQueue.main.async {
-                                KVSpinnerView.dismiss()
-                                self.showSimpleAlertWithSingleAction(title: Localize.expired_session() , message: Localize.your_session_has_expired() , okAction: UIAlertAction(title: Localize.log_out(), style: .default, handler: { (action) in
-                                    self.logoutOptions()
-                                }))
-                            }
-                        }else {
+                        } else {
                             sender.isEnabled = true
-                            self.showSimpleAlertWithSingleAction(title: Localize.warning(), message: Localize.voucher_not_have_enough_funds(), okAction: UIAlertAction(title: Localize.ok(), style: .default, handler: { (action) in
-                                
-                                
+                            self.showSimpleAlertWithSingleAction(
+                                title: Localize.warning(),
+                                message: Localize.voucher_not_have_enough_funds(),
+                                okAction: UIAlertAction(
+                                    title: Localize.ok(),
+                                    style: .default,
+                                    handler: { (action) in
                             }))
                         }
                     }
                 }
-            }else {
-                
-                commonService.patchWithoutParam(request: "platform/demo/transactions/" + testToken) { ( statusCode) in
+            } else if let demoToken = demoToken {
+                commonService.acceptDemoTransaction(token: demoToken) { (statusCode) in
                     DispatchQueue.main.async {
+                        KVSpinnerView.dismiss()
+
                         if statusCode == 200 {
-                            KVSpinnerView.dismiss()
-                            self.showSimpleAlertWithSingleAction(title: Localize.success(), message: Localize.payment_succeeded(), okAction: UIAlertAction(title: Localize.ok(), style: .default, handler: { (action) in
-                                
-                                HomeTabViewController.shared.setTab(.voucher)
-                                self.presentingViewController?.presentingViewController?.dismiss(animated: true)
+                            self.showSimpleAlertWithSingleAction(
+                                title: Localize.success(), message: Localize.payment_succeeded(),
+                                okAction: UIAlertAction(
+                                    title: Localize.ok(),
+                                    style: .default,
+                                    handler: { (action) in HomeTabViewController.shared.setTab(.voucher)
+                                        self.presentingViewController?.presentingViewController?
+                                            .dismiss(animated: true)
                             }))
-                        }else if statusCode == 401 {
-                            DispatchQueue.main.async {
-                                KVSpinnerView.dismiss()
-                                self.showSimpleAlertWithSingleAction(title: Localize.expired_session(), message: Localize.your_session_has_expired() , okAction: UIAlertAction(title: Localize.log_out(), style: .default, handler: { (action) in
-                                    self.logoutOptions()
-                                }))
-                            }
-                        }else {
-                            KVSpinnerView.dismiss()
-                            self.showSimpleAlertWithSingleAction(title: Localize.error_exclamation(), message: "This token is not valid!", okAction: UIAlertAction(title: Localize.ok(), style: .default, handler: { (action) in
-                                
+                        } else if statusCode == 401 {
+                            self.showSimpleAlertWithSingleAction(
+                                title: Localize.expired_session(),
+                                message: Localize.your_session_has_expired(),
+                                okAction: UIAlertAction(
+                                    title: Localize.log_out(), style: .default,
+                                    handler: { (action) in self.logoutOptions()
+                            }))
+                        } else if statusCode == 0 {
+                            sender.isEnabled = true
+                            self.showInternetUnable()
+                        } else {
+                            self.showSimpleAlertWithSingleAction(
+                                title: Localize.error_exclamation(),
+                                message: "This token is not valid!",
+                                okAction: UIAlertAction(
+                                    title: Localize.ok(),
+                                    style: .default,
+                                    handler: { (action) in
                             }))
                         }
                     }
                 }
-                
+            } else {
+                KVSpinnerView.dismiss()
+                sender.isEnabled = true
             }
-        }else {
+        } else {
             sender.isEnabled = true
             showInternetUnable()
-            
         }
     }
     
     func dismissModalStack(viewController: UIViewController, animated: Bool) {
         if viewController.presentingViewController != nil {
             var vc = viewController.presentingViewController!
+
             while (vc.presentingViewController != nil) {
                 vc = vc.presentingViewController!;
             }
+
             vc.dismiss(animated: true)
-            
-            
         }
     }
     

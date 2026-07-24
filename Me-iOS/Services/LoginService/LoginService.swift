@@ -25,23 +25,42 @@ class LoginService: LoginServiceProtocol{
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Accept")
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.addValue("me_app-ios", forHTTPHeaderField: "Client-Type")
+        request.addValue("general", forHTTPHeaderField: "Client-Key")
         
-        let parameters = ["email" : indentity.email ?? "", "source": "app-me_app"] as [String : Any]
+        let parameters = ["email" : indentity.email ?? ""] as [String : Any]
         
-        request.httpBody = ApiService.getPostString(params: parameters).data(using: .utf8)
+        do {
+            request.httpBody = try JSONSerialization.data(withJSONObject: parameters)
+        } catch let error {
+            failure(error)
+            return
+        }
         
         let session = URLSession.shared
         
         let task = session.dataTask(with: request) { (data, response, error) in
-            guard let data = data else { return }
+            if let error = error {
+                failure(error)
+                return
+            }
+
+            guard let data = data else {
+                failure(NSError(domain: "LoginService", code: -1))
+                return
+            }
+
             let decoder = JSONDecoder()
             do {
                 
                 let responseData = try decoder.decode(Register.self, from: data)
-                let httpResponse = response as? HTTPURLResponse
+                guard let httpResponse = response as? HTTPURLResponse else {
+                    failure(NSError(domain: "LoginService", code: -1))
+                    return
+                }
                 
-                complete(responseData, httpResponse!.statusCode)
+                complete(responseData, httpResponse.statusCode)
             } catch let error {
                 
                 failure(error)

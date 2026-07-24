@@ -88,11 +88,13 @@ extension MeNavigationController: UINavigationControllerDelegate {
             self.navigationItem.largeTitleDisplayMode = .always
             viewController.title = Localize.transactions()
             
-        case is MPaymentViewController:
+        case let paymentViewController as MPaymentViewController:
             viewController.navigationItem.largeTitleDisplayMode = .never
             let barButtonItem = UIBarButtonItem(image: Image.bakcIcon, style: .plain, target: viewController, action: #selector(HomeTabViewController.dismiss(_:)))
             viewController.navigationItem.leftBarButtonItem = barButtonItem
-            viewController.title = Localize.reddem_voucher()
+            viewController.title = paymentViewController.paymentContext.isDemo
+                ? Localize.test_transaction()
+                : Localize.reddem_voucher()
             
         case is MActionsViewController:
             viewController.navigationItem.largeTitleDisplayMode = .never

@@ -56,6 +56,7 @@ class MProductVoucherTableViewCell: UITableViewCell {
     }
     
     func setupProduct(voucher: Voucher?) {
+        self.imageQRCodeVoucher.isHidden = false
         self.productName.text = voucher?.product?.name
         self.imageQRCodeVoucher.generateQRCode(from: "{\"type\": \"voucher\",\"value\": \"\(voucher?.address ?? "")\" }")
         self.organizationName.text = voucher?.product?.organization?.name
@@ -63,6 +64,7 @@ class MProductVoucherTableViewCell: UITableViewCell {
     
     func setup(voucher: Voucher?) {
         guard let voucher = voucher else { return }
+        self.imageQRCodeVoucher.isHidden = false
         if voucher.deactivated == false {
             self.imageQRCodeVoucher.generateQRCode(from: "{\"type\": \"voucher\",\"value\": \"\(voucher.address ?? "")\" }")
         }
@@ -71,6 +73,13 @@ class MProductVoucherTableViewCell: UITableViewCell {
         
         self.priceLabel.isHidden = voucher.fund?.type == FundType.subsidies.rawValue || !(voucher.amount_visible ?? false)
         self.priceLabel.text = voucher.amount_locale ?? ""
+    }
+
+    func setupDemo() {
+        self.productName.text = Localize.test_transaction()
+        self.organizationName.text = Localize.test_organization()
+        self.imageQRCodeVoucher.isHidden = true
+        self.priceLabel.isHidden = true
     }
 }
 
@@ -118,5 +127,4 @@ extension MProductVoucherTableViewCell {
         }
     }
 }
-
 

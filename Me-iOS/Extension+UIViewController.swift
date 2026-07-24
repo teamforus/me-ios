@@ -145,12 +145,6 @@ extension UIViewController{
         
     }
     
-    func validateEmail(_ candidate: String) -> Bool {
-        
-        let emailRegex = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
-        return NSPredicate(format: "SELF MATCHES %@", emailRegex).evaluate(with: candidate)
-    }
-    
     func showAnimate()
     {
         self.view.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
@@ -207,24 +201,7 @@ extension UIViewController{
         }()
         
         voucherViewModel.deletePushToken(token: UserDefaults.standard.string(forKey: "TOKENPUSH") ?? "")
-        
-        voucherViewModel.completeDeleteToken = { [unowned self] (statusCode) in
-            DispatchQueue.main.async {
-                if statusCode == 200 || statusCode == 201 {
-                    self.logoutAction()
-                }else if statusCode == 422 {
-                    self.logoutAction()
-                }else if statusCode == 404 {
-                    self.showSimpleAlertWithSingleAction(title: Localize.error(), message: "", okAction: UIAlertAction(title: Localize.ok(), style: .default, handler: { (action) in
-                    }))
-                }else if statusCode == 500 {
-                    self.showSimpleAlertWithSingleAction(title: Localize.error(), message: "", okAction: UIAlertAction(title: Localize.ok(), style: .default, handler: { (action) in
-                    }))
-                }else if statusCode == 401 {
-                    self.logoutAction()
-                }
-            }
-        }
+        logoutAction()
     }
     
     func logoutAction(){
@@ -233,6 +210,7 @@ extension UIViewController{
         UserDefaults.standard.setValue(false, forKey: UserDefaultsName.StartFromScanner)
         self.deleteEntity(entityName: "User")
         UserDefaults.standard.setValue("", forKey: UserDefaultsName.Token)
+        CurrentSession.shared.token = ""
         self.removeShortcutItem(application: UIApplication.shared)
         UserDefaults.standard.set("", forKey: ALConstants.kPincode)
         UserDefaults.standard.setValue(false, forKey: UserDefaultsName.UserIsLoged)
